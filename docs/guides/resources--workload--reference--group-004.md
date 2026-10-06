@@ -14,56 +14,56 @@ Each exact path has one authoritative reference destination. Collection element 
 
 | Schema path | Complete reference |
 | --- | --- |
-| `stateful_service.deploy_options.all_res` | [stateful_service.deploy_options.all_res](resources--workload--reference--group-029.md#canonical-1231030111210213-1132300233032311-1232210323102313-1300202033131010-1013121310132011-0220302013101121-2102020321231111-3220011333220222) |
-| `stateful_service.deploy_options.default_virtual_sites` | [stateful_service.deploy_options.default_virtual_sites](resources--workload--reference--group-029.md#canonical-0331222002031300-3030001312022302-3322030020121313-3323311101330321-0211031023110203-1313323032111000-0231221322102023-2213223301302003) |
-| `stateful_service.deploy_options.deploy_ce_sites` | [stateful_service.deploy_options.deploy_ce_sites](resources--workload--reference--group-029.md#canonical-0013312010302011-3223033130232103-1311300012311300-3031120012113203-3020310120322111-3003101332332201-0012101023011031-3100030303002331) |
-| `stateful_service.deploy_options.deploy_ce_sites.site` | [stateful_service.deploy_options.deploy_ce_sites.site](resources--workload--reference--group-029.md#canonical-2312211010330001-3102212221312220-3203132030321111-3332201230123331-2112130303200030-2003010031200230-1102101321322012-0312311012312202) |
-| `stateful_service.deploy_options.deploy_ce_sites.site.name` | [stateful_service.deploy_options.deploy_ce_sites.site.name](resources--workload--reference--group-029.md#canonical-1002030321023330-0223031011221111-1313122332003203-2113312332121223-3312001231013303-0313210230233221-1131020020310320-3002202330123223) |
-| `stateful_service.deploy_options.deploy_ce_sites.site.namespace` | [stateful_service.deploy_options.deploy_ce_sites.site.namespace](resources--workload--reference--group-029.md#canonical-3323321132330102-2001132212111200-2202013330331323-3211230231022301-2132020110201232-0132320023001202-1212110210011332-2002200302001230) |
-| `stateful_service.deploy_options.deploy_ce_sites.site.tenant` | [stateful_service.deploy_options.deploy_ce_sites.site.tenant](resources--workload--reference--group-029.md#canonical-3312233012023201-2001332031022302-0002121110021203-3213120033012110-2110223130311111-2301213020133331-3133320121330330-3112310012032131) |
-| `stateful_service.deploy_options.deploy_ce_virtual_sites` | [stateful_service.deploy_options.deploy_ce_virtual_sites](resources--workload--reference--group-029.md#canonical-2011331213312121-0023313020300321-3223213011100031-2122033123310200-2002313213303303-3122133210212332-0022131310030302-1221101231102201) |
-| `stateful_service.deploy_options.deploy_ce_virtual_sites.virtual_site` | [stateful_service.deploy_options.deploy_ce_virtual_sites.virtual_site](resources--workload--reference--group-029.md#canonical-0022010321203302-2313222201312100-0210313103211312-2333331231322120-0120223021311221-0333201232032233-3211322101023012-3130023112333232) |
-| `stateful_service.deploy_options.deploy_ce_virtual_sites.virtual_site.name` | [stateful_service.deploy_options.deploy_ce_virtual_sites.virtual_site.name](resources--workload--reference--group-029.md#canonical-3212223233002203-1013223103020030-0131120132322021-2100200311102300-2202332330302032-2031001230330000-1000121202200310-1101332200130003) |
-| `stateful_service.deploy_options.deploy_ce_virtual_sites.virtual_site.namespace` | [stateful_service.deploy_options.deploy_ce_virtual_sites.virtual_site.namespace](resources--workload--reference--group-029.md#canonical-3022211001130101-1023203030323330-0032100002011300-0321120133132323-3323031230001311-3321122033203002-0020021101110020-0022011211012023) |
-| `stateful_service.deploy_options.deploy_ce_virtual_sites.virtual_site.tenant` | [stateful_service.deploy_options.deploy_ce_virtual_sites.virtual_site.tenant](resources--workload--reference--group-029.md#canonical-3030330032232301-3333033032100131-1112302121233000-3302101023031132-0123122123000013-3302003001001330-2301300200023023-0121221300001121) |
-| `stateful_service.deploy_options.deploy_re_sites` | [stateful_service.deploy_options.deploy_re_sites](resources--workload--reference--group-029.md#canonical-1121323023112301-1313303331133222-1102012203031332-1003231000130330-3331321113232132-2213102103333003-3201332323133301-3130023110130320) |
-| `stateful_service.deploy_options.deploy_re_sites.site` | [stateful_service.deploy_options.deploy_re_sites.site](resources--workload--reference--group-029.md#canonical-1330230122133230-2103220011023001-3330311311031011-1333103013020313-0332313021222103-3320031300303310-3000010223001010-2303322112322100) |
-| `stateful_service.deploy_options.deploy_re_sites.site.name` | [stateful_service.deploy_options.deploy_re_sites.site.name](resources--workload--reference--group-029.md#canonical-3133110330322313-3003321300323123-3020303301010032-3313220302111200-1211133231323121-3333100030333032-3033033012122111-2023333003032301) |
-| `stateful_service.deploy_options.deploy_re_sites.site.namespace` | [stateful_service.deploy_options.deploy_re_sites.site.namespace](resources--workload--reference--group-029.md#canonical-1131022213100210-3321232002311321-1202131000132110-1302321122120301-3032331001000101-0030200210033323-0332001302112302-0312213000213020) |
-| `stateful_service.deploy_options.deploy_re_sites.site.tenant` | [stateful_service.deploy_options.deploy_re_sites.site.tenant](resources--workload--reference--group-029.md#canonical-1330212230113131-2221311320123230-2312313301220111-2001302201121130-1122233202120330-3003202232001330-0111301331020313-0302132313132122) |
-| `stateful_service.deploy_options.deploy_re_virtual_sites` | [stateful_service.deploy_options.deploy_re_virtual_sites](resources--workload--reference--group-029.md#canonical-2332002033202301-1112011020220102-0303311002123322-3331122321203302-3230310000023332-1121130221311101-1320032113012112-3233113020311103) |
-| `stateful_service.deploy_options.deploy_re_virtual_sites.virtual_site` | [stateful_service.deploy_options.deploy_re_virtual_sites.virtual_site](resources--workload--reference--group-029.md#canonical-2312133300332320-2322312031331102-0030231000211233-3303113332030213-3230331313322103-2232130321331213-3132133302102332-3310133120000220) |
-| `stateful_service.deploy_options.deploy_re_virtual_sites.virtual_site.name` | [stateful_service.deploy_options.deploy_re_virtual_sites.virtual_site.name](resources--workload--reference--group-029.md#canonical-2033132330103303-0322200330201100-2202013301302303-1201202002222021-1021220302003023-2233312301223033-0102333120121202-2220110211231020) |
-| `stateful_service.deploy_options.deploy_re_virtual_sites.virtual_site.namespace` | [stateful_service.deploy_options.deploy_re_virtual_sites.virtual_site.namespace](resources--workload--reference--group-029.md#canonical-0131312013123113-0300213120120213-2000302013320310-3221103232231002-0023202232101230-3333003033020102-0021220232231201-3102212002122031) |
-| `stateful_service.deploy_options.deploy_re_virtual_sites.virtual_site.tenant` | [stateful_service.deploy_options.deploy_re_virtual_sites.virtual_site.tenant](resources--workload--reference--group-029.md#canonical-3003000323322230-2121113133311100-0202113121133003-3022021113122223-3313122220201333-0230330233021022-2331202231013222-0301233203301023) |
-| `stateful_service.num_replicas` | [stateful_service.num_replicas](resources--workload--reference--group-018.md#canonical-1303111221221331-1323333220111212-3302320313231221-0200210101220130-2031031300320011-2000123031220021-2233201111020111-3123113032312120) |
-| `stateful_service.persistent_volumes` | [stateful_service.persistent_volumes](resources--workload--reference--group-029.md#canonical-2300133301120232-1323322232111300-3202011021331210-0121120231233002-2203333102130012-2033331313310100-3112223332031121-2220210100313233) |
-| `stateful_service.persistent_volumes.name` | [stateful_service.persistent_volumes.name](resources--workload--reference--group-029.md#canonical-1333023200113321-0222312122011212-0311212102130103-1213203311101131-0213203330113023-3223103332102223-2231101313233212-2320001213323212) |
-| `stateful_service.persistent_volumes.persistent_volume` | [stateful_service.persistent_volumes.persistent_volume](resources--workload--reference--group-029.md#canonical-0212231030210300-2333322302200302-1301233113333001-0111233211213112-0300333322310203-1013133303022202-3301022001322103-1010132000310213) |
-| `stateful_service.persistent_volumes.persistent_volume.mount` | [stateful_service.persistent_volumes.persistent_volume.mount](resources--workload--reference--group-029.md#canonical-1113321313013030-0230200030211203-2212102030310110-0213032333020021-0100233233312332-2121222230010122-1232022003211201-0300002202301222) |
-| `stateful_service.persistent_volumes.persistent_volume.mount.mode` | [stateful_service.persistent_volumes.persistent_volume.mount.mode](resources--workload--reference--group-029.md#canonical-0213013230311212-3213221122221110-0321321023300013-0133103001020210-1012212111000212-3313000331131213-1311301222011121-3102013313000220) |
-| `stateful_service.persistent_volumes.persistent_volume.mount.mount_path` | [stateful_service.persistent_volumes.persistent_volume.mount.mount_path](resources--workload--reference--group-029.md#canonical-1210223203312321-3112202210321131-3032322011012020-0113232010113121-1202012313323313-2113011130013030-3331202001132123-3330030030223200) |
-| `stateful_service.persistent_volumes.persistent_volume.mount.sub_path` | [stateful_service.persistent_volumes.persistent_volume.mount.sub_path](resources--workload--reference--group-029.md#canonical-1313313120332123-0222121032203213-1020131102231010-3303133312302103-3222313302111220-1003312120011320-0113203130000231-0323002332132220) |
-| `stateful_service.persistent_volumes.persistent_volume.storage` | [stateful_service.persistent_volumes.persistent_volume.storage](resources--workload--reference--group-029.md#canonical-2013002300003120-1131022000322102-2320112100302323-3301320011331121-1000003202313332-3200212013231120-3103033130020230-3222213221212121) |
-| `stateful_service.persistent_volumes.persistent_volume.storage.access_mode` | [stateful_service.persistent_volumes.persistent_volume.storage.access_mode](resources--workload--reference--group-029.md#canonical-2112201320020300-0202102331201021-0320032121021030-2101120301320230-3332023211223131-1223103333220100-3102022300322302-0030221330003113) |
-| `stateful_service.persistent_volumes.persistent_volume.storage.class_name` | [stateful_service.persistent_volumes.persistent_volume.storage.class_name](resources--workload--reference--group-029.md#canonical-0030110210122000-3302320010133330-1130220120111300-2110001230320222-3033121130333322-2301203221302111-3212131332231231-2100013201303000) |
-| `stateful_service.persistent_volumes.persistent_volume.storage.default` | [stateful_service.persistent_volumes.persistent_volume.storage.default](resources--workload--reference--group-029.md#canonical-1223223201110332-2030212031030312-0000211231302011-1212110030313000-1102212111130321-2300002030111220-3220311133001031-0203010330203032) |
-| `stateful_service.persistent_volumes.persistent_volume.storage.storage_size` | [stateful_service.persistent_volumes.persistent_volume.storage.storage_size](resources--workload--reference--group-029.md#canonical-0122300312303202-0033232213100333-1032123001213323-3032102132010322-1023333323200221-2002032032230123-1021021200021123-2103021023003102) |
-| `stateful_service.scale_to_zero` | [stateful_service.scale_to_zero](resources--workload--reference--group-029.md#canonical-2112321232032003-2313003201313020-1130203001113131-3132312011310220-0222033330010103-3313103032203223-3012311321121300-2231003312001030) |
-| `stateful_service.volumes` | [stateful_service.volumes](resources--workload--reference--group-029.md#canonical-0002232221033022-0212210210213012-3302303030230011-0203222213210020-1332001131132322-0300102331113133-0010131212030111-0121322311213013) |
-| `stateful_service.volumes.empty_dir` | [stateful_service.volumes.empty_dir](resources--workload--reference--group-029.md#canonical-2031330010200212-1123130110322133-0201323121030122-1300223121030212-0231320213021320-2222323110112023-2002330100313021-2133221121300003) |
-| `stateful_service.volumes.empty_dir.mount` | [stateful_service.volumes.empty_dir.mount](resources--workload--reference--group-029.md#canonical-2331130330102033-3110301310010302-0300300110133032-0332123302101320-1331312132202123-1233102132312012-3103313101323100-1020010033212233) |
-| `stateful_service.volumes.empty_dir.mount.mode` | [stateful_service.volumes.empty_dir.mount.mode](resources--workload--reference--group-029.md#canonical-2213131202232003-2201330321333001-2212330020303022-2332130033202313-2322020222322112-0102100121110033-1010122200330320-0021231231332013) |
-| `stateful_service.volumes.empty_dir.mount.mount_path` | [stateful_service.volumes.empty_dir.mount.mount_path](resources--workload--reference--group-029.md#canonical-3110033313120110-3113200223010133-3233233003121011-3132131323303310-3013131132331000-3222300032223032-3122311221233220-1021230200303113) |
-| `stateful_service.volumes.empty_dir.mount.sub_path` | [stateful_service.volumes.empty_dir.mount.sub_path](resources--workload--reference--group-029.md#canonical-3132123100030132-1133222330320112-3022122010212231-1313102310023231-0111322213010102-3031311132231122-1121130131233332-2332102021033220) |
-| `stateful_service.volumes.empty_dir.size_limit` | [stateful_service.volumes.empty_dir.size_limit](resources--workload--reference--group-029.md#canonical-2331133302003133-0230333122222000-2232101011000001-0033220231103133-1003122032010013-1301130130221312-2133103131310211-3010131202122231) |
-| `stateful_service.volumes.host_path` | [stateful_service.volumes.host_path](resources--workload--reference--group-029.md#canonical-3123321323021111-2201130322030323-0333300012120123-2122331030002013-1212301023132122-1222230332030032-3332312023233302-1210212003332113) |
-| `stateful_service.volumes.host_path.mount` | [stateful_service.volumes.host_path.mount](resources--workload--reference--group-029.md#canonical-1020120030201301-3123331213303303-1011301102201002-2220003020213303-1230301333322132-1320033302321102-2210333103122213-0230100120111332) |
-| `stateful_service.volumes.host_path.mount.mode` | [stateful_service.volumes.host_path.mount.mode](resources--workload--reference--group-029.md#canonical-3012222112101000-0210322332003200-0300102210301331-2110021000110302-3113111210102103-0202320033211003-3023133023200201-3301113333230022) |
-| `stateful_service.volumes.host_path.mount.mount_path` | [stateful_service.volumes.host_path.mount.mount_path](resources--workload--reference--group-029.md#canonical-0133131010230000-0100020011011002-2320103231002002-2033022203233030-1002131123012300-1311102330201210-0001032012020310-2210013010013320) |
+| `stateful_service.deploy_options.all_res` | [stateful_service.deploy_options.all_res](resources--workload--reference--group-028.md#canonical-1231030111210213-1132300233032311-1232210323102313-1300202033131010-1013121310132011-0220302013101121-2102020321231111-3220011333220222) |
+| `stateful_service.deploy_options.default_virtual_sites` | [stateful_service.deploy_options.default_virtual_sites](resources--workload--reference--group-028.md#canonical-0331222002031300-3030001312022302-3322030020121313-3323311101330321-0211031023110203-1313323032111000-0231221322102023-2213223301302003) |
+| `stateful_service.deploy_options.deploy_ce_sites` | [stateful_service.deploy_options.deploy_ce_sites](resources--workload--reference--group-028.md#canonical-0013312010302011-3223033130232103-1311300012311300-3031120012113203-3020310120322111-3003101332332201-0012101023011031-3100030303002331) |
+| `stateful_service.deploy_options.deploy_ce_sites.site` | [stateful_service.deploy_options.deploy_ce_sites.site](resources--workload--reference--group-028.md#canonical-2312211010330001-3102212221312220-3203132030321111-3332201230123331-2112130303200030-2003010031200230-1102101321322012-0312311012312202) |
+| `stateful_service.deploy_options.deploy_ce_sites.site.name` | [stateful_service.deploy_options.deploy_ce_sites.site.name](resources--workload--reference--group-028.md#canonical-1002030321023330-0223031011221111-1313122332003203-2113312332121223-3312001231013303-0313210230233221-1131020020310320-3002202330123223) |
+| `stateful_service.deploy_options.deploy_ce_sites.site.namespace` | [stateful_service.deploy_options.deploy_ce_sites.site.namespace](resources--workload--reference--group-028.md#canonical-3323321132330102-2001132212111200-2202013330331323-3211230231022301-2132020110201232-0132320023001202-1212110210011332-2002200302001230) |
+| `stateful_service.deploy_options.deploy_ce_sites.site.tenant` | [stateful_service.deploy_options.deploy_ce_sites.site.tenant](resources--workload--reference--group-028.md#canonical-3312233012023201-2001332031022302-0002121110021203-3213120033012110-2110223130311111-2301213020133331-3133320121330330-3112310012032131) |
+| `stateful_service.deploy_options.deploy_ce_virtual_sites` | [stateful_service.deploy_options.deploy_ce_virtual_sites](resources--workload--reference--group-028.md#canonical-2011331213312121-0023313020300321-3223213011100031-2122033123310200-2002313213303303-3122133210212332-0022131310030302-1221101231102201) |
+| `stateful_service.deploy_options.deploy_ce_virtual_sites.virtual_site` | [stateful_service.deploy_options.deploy_ce_virtual_sites.virtual_site](resources--workload--reference--group-028.md#canonical-0022010321203302-2313222201312100-0210313103211312-2333331231322120-0120223021311221-0333201232032233-3211322101023012-3130023112333232) |
+| `stateful_service.deploy_options.deploy_ce_virtual_sites.virtual_site.name` | [stateful_service.deploy_options.deploy_ce_virtual_sites.virtual_site.name](resources--workload--reference--group-028.md#canonical-3212223233002203-1013223103020030-0131120132322021-2100200311102300-2202332330302032-2031001230330000-1000121202200310-1101332200130003) |
+| `stateful_service.deploy_options.deploy_ce_virtual_sites.virtual_site.namespace` | [stateful_service.deploy_options.deploy_ce_virtual_sites.virtual_site.namespace](resources--workload--reference--group-028.md#canonical-3022211001130101-1023203030323330-0032100002011300-0321120133132323-3323031230001311-3321122033203002-0020021101110020-0022011211012023) |
+| `stateful_service.deploy_options.deploy_ce_virtual_sites.virtual_site.tenant` | [stateful_service.deploy_options.deploy_ce_virtual_sites.virtual_site.tenant](resources--workload--reference--group-028.md#canonical-3030330032232301-3333033032100131-1112302121233000-3302101023031132-0123122123000013-3302003001001330-2301300200023023-0121221300001121) |
+| `stateful_service.deploy_options.deploy_re_sites` | [stateful_service.deploy_options.deploy_re_sites](resources--workload--reference--group-028.md#canonical-1121323023112301-1313303331133222-1102012203031332-1003231000130330-3331321113232132-2213102103333003-3201332323133301-3130023110130320) |
+| `stateful_service.deploy_options.deploy_re_sites.site` | [stateful_service.deploy_options.deploy_re_sites.site](resources--workload--reference--group-028.md#canonical-1330230122133230-2103220011023001-3330311311031011-1333103013020313-0332313021222103-3320031300303310-3000010223001010-2303322112322100) |
+| `stateful_service.deploy_options.deploy_re_sites.site.name` | [stateful_service.deploy_options.deploy_re_sites.site.name](resources--workload--reference--group-028.md#canonical-3133110330322313-3003321300323123-3020303301010032-3313220302111200-1211133231323121-3333100030333032-3033033012122111-2023333003032301) |
+| `stateful_service.deploy_options.deploy_re_sites.site.namespace` | [stateful_service.deploy_options.deploy_re_sites.site.namespace](resources--workload--reference--group-028.md#canonical-1131022213100210-3321232002311321-1202131000132110-1302321122120301-3032331001000101-0030200210033323-0332001302112302-0312213000213020) |
+| `stateful_service.deploy_options.deploy_re_sites.site.tenant` | [stateful_service.deploy_options.deploy_re_sites.site.tenant](resources--workload--reference--group-028.md#canonical-1330212230113131-2221311320123230-2312313301220111-2001302201121130-1122233202120330-3003202232001330-0111301331020313-0302132313132122) |
+| `stateful_service.deploy_options.deploy_re_virtual_sites` | [stateful_service.deploy_options.deploy_re_virtual_sites](resources--workload--reference--group-028.md#canonical-2332002033202301-1112011020220102-0303311002123322-3331122321203302-3230310000023332-1121130221311101-1320032113012112-3233113020311103) |
+| `stateful_service.deploy_options.deploy_re_virtual_sites.virtual_site` | [stateful_service.deploy_options.deploy_re_virtual_sites.virtual_site](resources--workload--reference--group-028.md#canonical-2312133300332320-2322312031331102-0030231000211233-3303113332030213-3230331313322103-2232130321331213-3132133302102332-3310133120000220) |
+| `stateful_service.deploy_options.deploy_re_virtual_sites.virtual_site.name` | [stateful_service.deploy_options.deploy_re_virtual_sites.virtual_site.name](resources--workload--reference--group-028.md#canonical-2033132330103303-0322200330201100-2202013301302303-1201202002222021-1021220302003023-2233312301223033-0102333120121202-2220110211231020) |
+| `stateful_service.deploy_options.deploy_re_virtual_sites.virtual_site.namespace` | [stateful_service.deploy_options.deploy_re_virtual_sites.virtual_site.namespace](resources--workload--reference--group-028.md#canonical-0131312013123113-0300213120120213-2000302013320310-3221103232231002-0023202232101230-3333003033020102-0021220232231201-3102212002122031) |
+| `stateful_service.deploy_options.deploy_re_virtual_sites.virtual_site.tenant` | [stateful_service.deploy_options.deploy_re_virtual_sites.virtual_site.tenant](resources--workload--reference--group-028.md#canonical-3003000323322230-2121113133311100-0202113121133003-3022021113122223-3313122220201333-0230330233021022-2331202231013222-0301233203301023) |
+| `stateful_service.num_replicas` | [stateful_service.num_replicas](resources--workload--reference--group-017.md#canonical-1303111221221331-1323333220111212-3302320313231221-0200210101220130-2031031300320011-2000123031220021-2233201111020111-3123113032312120) |
+| `stateful_service.persistent_volumes` | [stateful_service.persistent_volumes](resources--workload--reference--group-028.md#canonical-2300133301120232-1323322232111300-3202011021331210-0121120231233002-2203333102130012-2033331313310100-3112223332031121-2220210100313233) |
+| `stateful_service.persistent_volumes.name` | [stateful_service.persistent_volumes.name](resources--workload--reference--group-028.md#canonical-1333023200113321-0222312122011212-0311212102130103-1213203311101131-0213203330113023-3223103332102223-2231101313233212-2320001213323212) |
+| `stateful_service.persistent_volumes.persistent_volume` | [stateful_service.persistent_volumes.persistent_volume](resources--workload--reference--group-028.md#canonical-0212231030210300-2333322302200302-1301233113333001-0111233211213112-0300333322310203-1013133303022202-3301022001322103-1010132000310213) |
+| `stateful_service.persistent_volumes.persistent_volume.mount` | [stateful_service.persistent_volumes.persistent_volume.mount](resources--workload--reference--group-028.md#canonical-1113321313013030-0230200030211203-2212102030310110-0213032333020021-0100233233312332-2121222230010122-1232022003211201-0300002202301222) |
+| `stateful_service.persistent_volumes.persistent_volume.mount.mode` | [stateful_service.persistent_volumes.persistent_volume.mount.mode](resources--workload--reference--group-028.md#canonical-0213013230311212-3213221122221110-0321321023300013-0133103001020210-1012212111000212-3313000331131213-1311301222011121-3102013313000220) |
+| `stateful_service.persistent_volumes.persistent_volume.mount.mount_path` | [stateful_service.persistent_volumes.persistent_volume.mount.mount_path](resources--workload--reference--group-028.md#canonical-1210223203312321-3112202210321131-3032322011012020-0113232010113121-1202012313323313-2113011130013030-3331202001132123-3330030030223200) |
+| `stateful_service.persistent_volumes.persistent_volume.mount.sub_path` | [stateful_service.persistent_volumes.persistent_volume.mount.sub_path](resources--workload--reference--group-028.md#canonical-1313313120332123-0222121032203213-1020131102231010-3303133312302103-3222313302111220-1003312120011320-0113203130000231-0323002332132220) |
+| `stateful_service.persistent_volumes.persistent_volume.storage` | [stateful_service.persistent_volumes.persistent_volume.storage](resources--workload--reference--group-028.md#canonical-2013002300003120-1131022000322102-2320112100302323-3301320011331121-1000003202313332-3200212013231120-3103033130020230-3222213221212121) |
+| `stateful_service.persistent_volumes.persistent_volume.storage.access_mode` | [stateful_service.persistent_volumes.persistent_volume.storage.access_mode](resources--workload--reference--group-028.md#canonical-2112201320020300-0202102331201021-0320032121021030-2101120301320230-3332023211223131-1223103333220100-3102022300322302-0030221330003113) |
+| `stateful_service.persistent_volumes.persistent_volume.storage.class_name` | [stateful_service.persistent_volumes.persistent_volume.storage.class_name](resources--workload--reference--group-028.md#canonical-0030110210122000-3302320010133330-1130220120111300-2110001230320222-3033121130333322-2301203221302111-3212131332231231-2100013201303000) |
+| `stateful_service.persistent_volumes.persistent_volume.storage.default` | [stateful_service.persistent_volumes.persistent_volume.storage.default](resources--workload--reference--group-028.md#canonical-1223223201110332-2030212031030312-0000211231302011-1212110030313000-1102212111130321-2300002030111220-3220311133001031-0203010330203032) |
+| `stateful_service.persistent_volumes.persistent_volume.storage.storage_size` | [stateful_service.persistent_volumes.persistent_volume.storage.storage_size](resources--workload--reference--group-028.md#canonical-0122300312303202-0033232213100333-1032123001213323-3032102132010322-1023333323200221-2002032032230123-1021021200021123-2103021023003102) |
+| `stateful_service.scale_to_zero` | [stateful_service.scale_to_zero](resources--workload--reference--group-028.md#canonical-2112321232032003-2313003201313020-1130203001113131-3132312011310220-0222033330010103-3313103032203223-3012311321121300-2231003312001030) |
+| `stateful_service.volumes` | [stateful_service.volumes](resources--workload--reference--group-028.md#canonical-0002232221033022-0212210210213012-3302303030230011-0203222213210020-1332001131132322-0300102331113133-0010131212030111-0121322311213013) |
+| `stateful_service.volumes.empty_dir` | [stateful_service.volumes.empty_dir](resources--workload--reference--group-028.md#canonical-2031330010200212-1123130110322133-0201323121030122-1300223121030212-0231320213021320-2222323110112023-2002330100313021-2133221121300003) |
+| `stateful_service.volumes.empty_dir.mount` | [stateful_service.volumes.empty_dir.mount](resources--workload--reference--group-028.md#canonical-2331130330102033-3110301310010302-0300300110133032-0332123302101320-1331312132202123-1233102132312012-3103313101323100-1020010033212233) |
+| `stateful_service.volumes.empty_dir.mount.mode` | [stateful_service.volumes.empty_dir.mount.mode](resources--workload--reference--group-028.md#canonical-2213131202232003-2201330321333001-2212330020303022-2332130033202313-2322020222322112-0102100121110033-1010122200330320-0021231231332013) |
+| `stateful_service.volumes.empty_dir.mount.mount_path` | [stateful_service.volumes.empty_dir.mount.mount_path](resources--workload--reference--group-028.md#canonical-3110033313120110-3113200223010133-3233233003121011-3132131323303310-3013131132331000-3222300032223032-3122311221233220-1021230200303113) |
+| `stateful_service.volumes.empty_dir.mount.sub_path` | [stateful_service.volumes.empty_dir.mount.sub_path](resources--workload--reference--group-028.md#canonical-3132123100030132-1133222330320112-3022122010212231-1313102310023231-0111322213010102-3031311132231122-1121130131233332-2332102021033220) |
+| `stateful_service.volumes.empty_dir.size_limit` | [stateful_service.volumes.empty_dir.size_limit](resources--workload--reference--group-028.md#canonical-2331133302003133-0230333122222000-2232101011000001-0033220231103133-1003122032010013-1301130130221312-2133103131310211-3010131202122231) |
+| `stateful_service.volumes.host_path` | [stateful_service.volumes.host_path](resources--workload--reference--group-028.md#canonical-3123321323021111-2201130322030323-0333300012120123-2122331030002013-1212301023132122-1222230332030032-3332312023233302-1210212003332113) |
+| `stateful_service.volumes.host_path.mount` | [stateful_service.volumes.host_path.mount](resources--workload--reference--group-028.md#canonical-1020120030201301-3123331213303303-1011301102201002-2220003020213303-1230301333322132-1320033302321102-2210333103122213-0230100120111332) |
+| `stateful_service.volumes.host_path.mount.mode` | [stateful_service.volumes.host_path.mount.mode](resources--workload--reference--group-028.md#canonical-3012222112101000-0210322332003200-0300102210301331-2110021000110302-3113111210102103-0202320033211003-3023133023200201-3301113333230022) |
+| `stateful_service.volumes.host_path.mount.mount_path` | [stateful_service.volumes.host_path.mount.mount_path](resources--workload--reference--group-028.md#canonical-0133131010230000-0100020011011002-2320103231002002-2033022203233030-1002131123012300-1311102330201210-0001032012020310-2210013010013320) |
 | `stateful_service.volumes.host_path.mount.sub_path` | [stateful_service.volumes.host_path.mount.sub_path](resources--workload--reference--group-029.md#canonical-3210123120331222-0320333030200102-2211120300303202-2300231320131220-1131210303201221-2013213002023210-2113110233033132-1223210333033301) |
-| `stateful_service.volumes.host_path.path` | [stateful_service.volumes.host_path.path](resources--workload--reference--group-029.md#canonical-1231330100211020-2031301230120331-2032202320111303-2001123311223022-2101133232232113-2110022200010112-1322222011333300-2203220001002121) |
-| `stateful_service.volumes.name` | [stateful_service.volumes.name](resources--workload--reference--group-029.md#canonical-3213100232213233-3330112323320111-0112013223123002-2020230030103211-2331310101310233-0310002023220113-3020221231011231-3211132232330232) |
+| `stateful_service.volumes.host_path.path` | [stateful_service.volumes.host_path.path](resources--workload--reference--group-028.md#canonical-1231330100211020-2031301230120331-2032202320111303-2001123311223022-2101133232232113-2110022200010112-1322222011333300-2203220001002121) |
+| `stateful_service.volumes.name` | [stateful_service.volumes.name](resources--workload--reference--group-028.md#canonical-3213100232213233-3330112323320111-0112013223123002-2020230030103211-2331310101310233-0310002023220113-3020221231011231-3211132232330232) |
 | `timeouts` | [timeouts](resources--workload--reference--group-029.md#canonical-3231210002232200-0311023001013021-3300012201120001-0031223311331310-3010101110311202-3103130211030202-0130311220031102-1313031132033322) |
 | `timeouts.create` | [timeouts.create](resources--workload--reference--group-029.md#canonical-3303312302203131-0202332022333013-2110232232313220-2022313333213033-0020213101102022-0300030302130030-2023301103212002-2113212132123221) |
 | `timeouts.delete` | [timeouts.delete](resources--workload--reference--group-029.md#canonical-0001120312210313-2002331131200112-0212121202311020-0113131223112311-0231101033113330-2211312100320102-2220002300213232-0030030221221122) |
@@ -95,6 +95,7 @@ billing, parallel data processing, ETL processing, etc.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("containers")}
 ```
 
@@ -116,7 +117,7 @@ OneOf alternatives in this subsection:
 - [job](resources--workload--reference--group-004.md#canonical-1322330330311312-0320130223000032-2133110221223030-1220331212131302-2103030011201202-0310330023033023-1311330010003230-0123133232231320)
 - [service](resources--workload--reference--group-005.md#canonical-1332310211103303-1212000223320202-2221213223003333-1121213113131100-0301313231102131-2310301013222100-0012222131003032-0011220233300032)
 - [simple_service](resources--workload--reference--group-016.md#canonical-3033330332311101-3210113002001102-0301111101113100-3023101200113133-0000233331000233-1000221300201111-0133220110233111-3012103111100322)
-- [stateful_service](resources--workload--reference--group-018.md#canonical-3131320200112003-1302100202032202-0133102112232312-1213202222213131-2120333030221010-2233200311233003-3313123001231110-2320312322302201)
+- [stateful_service](resources--workload--reference--group-017.md#canonical-3131320200112003-1302100202032202-0133102112232312-1213202222213131-2120333030221010-2233200311233003-3313123001231110-2320312322302201)
 
 Select alternatives according to the provider validators above.
 
@@ -151,6 +152,7 @@ Number of replicas of the batch job to spawn per site.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.AtMost(5),
 }
@@ -261,6 +263,7 @@ Parameters. Parameters for the workload.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.ConflictingListObjectAttributes("env_var",
     "file")}
 ```
@@ -374,6 +377,7 @@ Name. Name of Environment Variable.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 256),
 }
@@ -437,6 +441,7 @@ Value. Value of Environment Variable.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(256),
 }
@@ -499,6 +504,7 @@ Configuration File. Configuration File for the workload.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("name",
     "volume_name")}
 ```
@@ -539,6 +545,7 @@ Data. File data
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(16384),
 }
@@ -593,6 +600,7 @@ Name. Name of the file.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 256),
 }
@@ -658,6 +666,7 @@ Volume Name. Name of the Volume.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(256),
 }
@@ -723,6 +732,7 @@ Volume mount describes how volume is mounted inside a workload.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("mount_path")}
 ```
 
@@ -766,6 +776,8 @@ VOLUME\_MOUNT\_READ\_WRITE: Read Write Mount the volume in read-write mode. Poss
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["VOLUME_MOUNT_READ_ONLY","VOLUME_MOUNT_READ_WRITE"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("VOLUME_MOUNT_READ_ONLY",
     "VOLUME_MOUNT_READ_WRITE"),
@@ -803,6 +815,7 @@ Path within the workload container at which the volume should be mounted. Must n
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(256),
 }
@@ -862,6 +875,7 @@ Defaults to "" (volume's root).
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(256),
 }
@@ -922,6 +936,7 @@ Containers. Containers to use for the job.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.RequiredListObjectAttributes("name"),
   validators.ConflictingListObjectAttributes("custom_flavor",
     "default_flavor"),
@@ -987,6 +1002,7 @@ Arguments to the entrypoint. Overrides the Docker image's CMD.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(128),
 }
@@ -1036,6 +1052,7 @@ Command to execute. Overrides the Docker image's ENTRYPOINT.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(128),
 }
@@ -1109,6 +1126,8 @@ Large containers have limit of 1 vCPU and 2048 MiB (mebibyte) memory.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["CONTAINER_FLAVOR_TYPE_LARGE","CONTAINER_FLAVOR_TYPE_MEDIUM","CONTAINER_FLAVOR_TYPE_TINY"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("CONTAINER_FLAVOR_TYPE_TINY",
     "CONTAINER_FLAVOR_TYPE_MEDIUM",
@@ -1175,6 +1194,7 @@ Name. Name of the container.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 256),
 }
@@ -1255,6 +1275,7 @@ Such a reference is in form of tenant/namespace/name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
 ```
 
@@ -1295,6 +1316,7 @@ referred object's(e.g. Route's) name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 128),
 }
@@ -1355,6 +1377,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -1422,6 +1445,7 @@ the referred object's(e.g. Route's) tenant.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(64),
 }
@@ -1534,6 +1558,7 @@ any.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("name"),
   validators.ConflictingObjectAttributes("container_registry",
     "public")}
@@ -1582,6 +1607,7 @@ not specified, the Docker public registry is assumed. If tag is not specified, l
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 256),
 }
@@ -1674,6 +1700,8 @@ Never pull the image.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["IMAGE_PULL_POLICY_ALWAYS","IMAGE_PULL_POLICY_DEFAULT","IMAGE_PULL_POLICY_IF_NOT_PRESENT","IMAGE_PULL_POLICY_NEVER"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("IMAGE_PULL_POLICY_DEFAULT",
     "IMAGE_PULL_POLICY_IF_NOT_PRESENT",
@@ -1729,6 +1757,7 @@ Such a reference is in form of tenant/namespace/name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
 ```
 
@@ -1769,6 +1798,7 @@ referred object's(e.g. Route's) name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 128),
 }
@@ -1829,6 +1859,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -1896,6 +1927,7 @@ the referred object's(e.g. Route's) tenant.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(64),
 }
@@ -2009,6 +2041,7 @@ has started up or is alive or ready to receive traffic.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("healthy_threshold",
     "interval",
     "timeout",
@@ -2065,6 +2098,7 @@ healthy.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(1, 16),
 }
@@ -2120,6 +2154,7 @@ Number of seconds after the container has started before health checks are initi
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.AtMost(600),
 }
@@ -2168,6 +2203,7 @@ Time interval in seconds between two health check requests.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(1, 600),
 }
@@ -2226,6 +2262,7 @@ failure.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(1, 600),
 }
@@ -2281,6 +2318,7 @@ number of unhealthy health checks required before a container is marked unhealth
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(1, 16),
 }
@@ -2352,6 +2390,7 @@ ExecHealthCheckType describes a health check based on "run in container" action.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("command")}
 ```
 
@@ -2394,6 +2433,7 @@ explicitly call out to that shell.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(16),
 }
@@ -2465,6 +2505,7 @@ HTTPHealthCheckType describes a health check based on HTTP GET requests.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("path")}
 ```
 
@@ -2505,6 +2546,7 @@ checked container. This is a list of key-value pairs.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Map{validators.MapConstraintsValidator("{\"cardinality\":{\"maxProperties\":16},\"category\":\"discovery\",\"constraintType\":\"map\",\"deterministic\":true,\"keys\":{\"maxLength\":256,\"minLength\":1,\"type\":\"string\"},\"originalRules\":{\"ves.io.schema.rules.map.keys.string.max_len\":\"256\",\"ves.io.schema.rules.map.keys.string.min_len\":\"1\",\"ves.io.schema.rules.map.max_pairs\":\"16\",\"ves.io.schema.rules.map.values.string.max_len\":\"2048\",\"ves.io.schema.rules.map.values.string.min_len\":\"1\"},\"values\":{\"maxLength\":2048,\"minLength\":1,\"type\":\"string\"}}")}
 ```
 
@@ -2573,6 +2615,7 @@ The value of the host header in the HTTP health check request.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(262),
 }
@@ -2624,6 +2667,7 @@ Path. Path to access on the HTTP server.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 2048),
 }
@@ -2695,6 +2739,7 @@ Port. Port
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("name",
     "num")}
 ```
@@ -2736,6 +2781,7 @@ Port Name. Exclusive with \[num\] Port Name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
   stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`),
@@ -2800,6 +2846,7 @@ Port Number. Exclusive with \[name\] Port number.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(1, 65535),
 }
@@ -2915,6 +2962,7 @@ Port. Port
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("name",
     "num")}
 ```
@@ -2956,6 +3004,7 @@ Port Name. Exclusive with \[num\] Port Name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
   stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`),
@@ -3020,6 +3069,7 @@ Port Number. Exclusive with \[name\] Port number.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(1, 65535),
 }
@@ -3084,6 +3134,7 @@ has started up or is alive or ready to receive traffic.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("healthy_threshold",
     "interval",
     "timeout",
@@ -3140,6 +3191,7 @@ healthy.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(1, 16),
 }
@@ -3195,6 +3247,7 @@ Number of seconds after the container has started before health checks are initi
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.AtMost(600),
 }
@@ -3243,6 +3296,7 @@ Time interval in seconds between two health check requests.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(1, 600),
 }
@@ -3301,6 +3355,7 @@ failure.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(1, 600),
 }
@@ -3356,6 +3411,7 @@ number of unhealthy health checks required before a container is marked unhealth
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(1, 16),
 }
@@ -3427,6 +3483,7 @@ ExecHealthCheckType describes a health check based on "run in container" action.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("command")}
 ```
 
@@ -3469,6 +3526,7 @@ explicitly call out to that shell.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(16),
 }
@@ -3540,6 +3598,7 @@ HTTPHealthCheckType describes a health check based on HTTP GET requests.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("path")}
 ```
 
@@ -3580,6 +3639,7 @@ checked container. This is a list of key-value pairs.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Map{validators.MapConstraintsValidator("{\"cardinality\":{\"maxProperties\":16},\"category\":\"discovery\",\"constraintType\":\"map\",\"deterministic\":true,\"keys\":{\"maxLength\":256,\"minLength\":1,\"type\":\"string\"},\"originalRules\":{\"ves.io.schema.rules.map.keys.string.max_len\":\"256\",\"ves.io.schema.rules.map.keys.string.min_len\":\"1\",\"ves.io.schema.rules.map.max_pairs\":\"16\",\"ves.io.schema.rules.map.values.string.max_len\":\"2048\",\"ves.io.schema.rules.map.values.string.min_len\":\"1\"},\"values\":{\"maxLength\":2048,\"minLength\":1,\"type\":\"string\"}}")}
 ```
 
@@ -3648,6 +3708,7 @@ The value of the host header in the HTTP health check request.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(262),
 }
@@ -3699,6 +3760,7 @@ Path. Path to access on the HTTP server.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 2048),
 }
@@ -3770,6 +3832,7 @@ Port. Port
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("name",
     "num")}
 ```
@@ -3811,6 +3874,7 @@ Port Name. Exclusive with \[num\] Port Name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
   stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`),
@@ -3875,6 +3939,7 @@ Port Number. Exclusive with \[name\] Port number.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(1, 65535),
 }

@@ -318,7 +318,7 @@
         "xcsh-docs:resources:tunnel:timeouts"
       ],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -353,8 +353,8 @@
     },
     {
       "aliases": ["tunnel"],
-      "body_bytes": 20470,
-      "body_sha256": "sha256:e88b7844a9d031dd2618f6bb60527e6f75564c0b63a16142c0f858dbe01ffe15",
+      "body_bytes": 20784,
+      "body_sha256": "sha256:d5b8b71ece04f3bfcb290399d8bddc58ecaf8c5610f8700feba613d83a8ddad0",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -364,7 +364,7 @@
         "xcsh-docs:resources:tunnel:properties:timeouts"
       ],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -390,6 +390,8 @@
           "anchor": "schema-annotations",
           "description": "Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when modifying objects.",
           "document_id": "xcsh-docs:resources:tunnel:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -404,6 +406,8 @@
           "anchor": "schema-description",
           "description": "Human readable description for the object.",
           "document_id": "xcsh-docs:resources:tunnel:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -418,6 +422,8 @@
           "anchor": "schema-disable",
           "description": "A value of true will administratively disable the object.",
           "document_id": "xcsh-docs:resources:tunnel:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -432,6 +438,8 @@
           "anchor": "schema-id",
           "description": "Unique identifier for the resource.",
           "document_id": "xcsh-docs:resources:tunnel:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -446,6 +454,8 @@
           "anchor": "schema-labels",
           "description": "Map of string keys and values that can be used to organize and categorize (scope and select) objects as chosen by the user. Values specified here will be used by selector expression.",
           "document_id": "xcsh-docs:resources:tunnel:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -460,6 +470,8 @@
           "anchor": "section",
           "description": "Defines the OPTIONS to select local IP address and virtual network for tunnel object OPTIONS available are - 1. Local Interface - Network Interface from which IP address and network will be selected 2. IP Address - IP address and network can be configured explicitly.",
           "document_id": "xcsh-docs:resources:tunnel:properties:local_ip",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -491,6 +503,8 @@
           "anchor": "schema-name",
           "description": "This is the name of configuration object. It has to be unique within the namespace. It can only be specified during create API and cannot be changed during replace API. The value of name has to follow DNS-1035 format.",
           "document_id": "xcsh-docs:resources:tunnel:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["required"],
           "max_items": null,
           "min_items": null,
@@ -505,6 +519,8 @@
           "anchor": "schema-namespace",
           "description": "This defines the workspace within which each the configuration object is to be created. Must be a DNS_LABEL format. For a namespace object itself, namespace value will be \"\"",
           "document_id": "xcsh-docs:resources:tunnel:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["required"],
           "max_items": null,
           "min_items": null,
@@ -519,6 +535,8 @@
           "anchor": "section",
           "description": "Tunnel configuration parameters for supported encapsulation 1. IPsec is supported with PSK for which PSK can be configured.",
           "document_id": "xcsh-docs:resources:tunnel:properties:params",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -533,6 +551,8 @@
           "anchor": "section",
           "description": "Defines the OPTIONS to select remote IP address for tunnel object OPTIONS available are - 1. IP Address - Specifies the remote IP to which tunnel has to be connected 2. Remote endpoint - Is a map of IP address on per ver node basis.",
           "document_id": "xcsh-docs:resources:tunnel:properties:remote_ip",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -564,6 +584,8 @@
           "anchor": "section",
           "description": "timeouts",
           "document_id": "xcsh-docs:resources:tunnel:properties:timeouts",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -578,6 +600,17 @@
           "anchor": "schema-tunnel_type",
           "description": "Supported tunnel types are IPsec IPsec tunnel type with PSK GRE tunnel type.",
           "document_id": "xcsh-docs:resources:tunnel:reference",
+          "enum_extraction_complete": true,
+          "enum_validators": [
+            {
+              "case_sensitive": true,
+              "complete": true,
+              "source": "ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf",
+              "validator": "OneOf",
+              "values": ["GRE", "IPSEC_PSK"],
+              "version": 1
+            }
+          ],
           "flags": ["optional", "computed"],
           "max_items": null,
           "min_items": null,
@@ -601,8 +634,8 @@
     },
     {
       "aliases": ["local ip"],
-      "body_bytes": 1487,
-      "body_sha256": "sha256:2d002c71d66d459ffa43cd2d62deae279575b1cfc0c1ae2518cbb9b2f854234d",
+      "body_bytes": 1517,
+      "body_sha256": "sha256:66a87a504e9f0079fd3c333bccda98c837e00a8018cd3ba2c74530cb46da61b6",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -610,7 +643,7 @@
         "xcsh-docs:resources:tunnel:properties:local_ip:ip_address"
       ],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -653,6 +686,8 @@
           "anchor": "section",
           "description": "Provides the local interface to pick up source IP and network for transporting encapsulated packet.",
           "document_id": "xcsh-docs:resources:tunnel:properties:local_ip:intf",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -667,6 +702,8 @@
           "anchor": "section",
           "description": "Provides the configuration to pick up source IP and network for transporting encapsulated packet.",
           "document_id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -713,7 +750,7 @@
       "category": "networking",
       "child_ids": ["xcsh-docs:resources:tunnel:properties:local_ip:intf:local_intf"],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -739,6 +776,8 @@
           "anchor": "section",
           "description": "Local interface to be used for filling in source information of IP and network for transport.",
           "document_id": "xcsh-docs:resources:tunnel:properties:local_ip:intf:local_intf",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -762,13 +801,13 @@
     },
     {
       "aliases": ["local ip intf local intf"],
-      "body_bytes": 5704,
-      "body_sha256": "sha256:e624e579885285e4f2a89539d19db309112e4502434dbb721d9de9140101a50a",
+      "body_bytes": 5734,
+      "body_sha256": "sha256:8dc864eb3fa0e40f0045c19c5485328fa0578534e4988595d27e8c57886adda9",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -794,10 +833,19 @@
           "anchor": "schema-local_ip--intf--local_intf--kind",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. \"route\")",
           "document_id": "xcsh-docs:resources:tunnel:properties:local_ip:intf:local_intf",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
           "nesting": null,
+          "reference_identity": {
+            "member": "kind",
+            "scope_path": ["local_ip", "intf", "local_intf"],
+            "source": "receipt-pinned-schema-identity",
+            "upstream_message": "ves.io.schema.ObjectRefType",
+            "version": 1
+          },
           "relationships": [],
           "schema_path": ["local_ip", "intf", "local_intf", "kind"],
           "syntax": "attribute",
@@ -808,10 +856,19 @@
           "anchor": "schema-local_ip--intf--local_intf--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:resources:tunnel:properties:local_ip:intf:local_intf",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
           "nesting": null,
+          "reference_identity": {
+            "member": "name",
+            "scope_path": ["local_ip", "intf", "local_intf"],
+            "source": "receipt-pinned-schema-identity",
+            "upstream_message": "ves.io.schema.ObjectRefType",
+            "version": 1
+          },
           "relationships": [],
           "schema_path": ["local_ip", "intf", "local_intf", "name"],
           "syntax": "attribute",
@@ -822,10 +879,19 @@
           "anchor": "schema-local_ip--intf--local_intf--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:resources:tunnel:properties:local_ip:intf:local_intf",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional", "computed"],
           "max_items": null,
           "min_items": null,
           "nesting": null,
+          "reference_identity": {
+            "member": "namespace",
+            "scope_path": ["local_ip", "intf", "local_intf"],
+            "source": "receipt-pinned-schema-identity",
+            "upstream_message": "ves.io.schema.ObjectRefType",
+            "version": 1
+          },
           "relationships": [],
           "schema_path": ["local_ip", "intf", "local_intf", "namespace"],
           "syntax": "attribute",
@@ -836,10 +902,19 @@
           "anchor": "schema-local_ip--intf--local_intf--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:resources:tunnel:properties:local_ip:intf:local_intf",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
           "nesting": null,
+          "reference_identity": {
+            "member": "tenant",
+            "scope_path": ["local_ip", "intf", "local_intf"],
+            "source": "receipt-pinned-schema-identity",
+            "upstream_message": "ves.io.schema.ObjectRefType",
+            "version": 1
+          },
           "relationships": [],
           "schema_path": ["local_ip", "intf", "local_intf", "tenant"],
           "syntax": "attribute",
@@ -850,10 +925,19 @@
           "anchor": "schema-local_ip--intf--local_intf--uid",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
           "document_id": "xcsh-docs:resources:tunnel:properties:local_ip:intf:local_intf",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
           "nesting": null,
+          "reference_identity": {
+            "member": "uid",
+            "scope_path": ["local_ip", "intf", "local_intf"],
+            "source": "receipt-pinned-schema-identity",
+            "upstream_message": "ves.io.schema.ObjectRefType",
+            "version": 1
+          },
           "relationships": [],
           "schema_path": ["local_ip", "intf", "local_intf", "uid"],
           "syntax": "attribute",
@@ -873,8 +957,8 @@
     },
     {
       "aliases": ["local ip ip address"],
-      "body_bytes": 1656,
-      "body_sha256": "sha256:3767b88d2629ccacf3b00dbb7421254a7d4255d571824d2343b52530e292334b",
+      "body_bytes": 1686,
+      "body_sha256": "sha256:a22b9bf15bddeb6ef70b10fadc49532e5ed0beba11aa198ee723f7715e8cb3b7",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -883,7 +967,7 @@
         "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:virtual_network_type"
       ],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -926,6 +1010,8 @@
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:auto",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -940,6 +1026,8 @@
           "anchor": "section",
           "description": "IP Address used to specify an IPv4 or IPv6 address.",
           "document_id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:ip_address",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -1003,6 +1091,8 @@
           "anchor": "section",
           "description": "Different types of virtual networks understood by the system.",
           "document_id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:virtual_network_type",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -1081,7 +1171,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1115,8 +1205,8 @@
     },
     {
       "aliases": ["local ip ip address ip address"],
-      "body_bytes": 1901,
-      "body_sha256": "sha256:a45be3ffdbcd821686c61ae8ffb50207363149dfa5b37c570ad2ab8c604e676d",
+      "body_bytes": 1931,
+      "body_sha256": "sha256:525151f7ba72d38b6ec80bd5758b87aa9048e69f56dfdc718b4de6527e4af821",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -1125,7 +1215,7 @@
         "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:ip_address:ipv6"
       ],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1200,6 +1290,8 @@
           "anchor": "section",
           "description": "DualStackAddressType represents both IPv4 and IPv6 together.",
           "document_id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:ip_address:dual_stack",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -1214,6 +1306,8 @@
           "anchor": "section",
           "description": "IPv4 Address in dot-decimal notation.",
           "document_id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:ip_address:ipv4",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -1228,6 +1322,8 @@
           "anchor": "section",
           "description": "IPv6 Address specified as hexadecimal numbers separated by ':'",
           "document_id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:ip_address:ipv6",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -1260,7 +1356,7 @@
         "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:ip_address:dual_stack:ipv6"
       ],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1286,6 +1382,8 @@
           "anchor": "section",
           "description": "IPv4 Address in dot-decimal notation.",
           "document_id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:ip_address:dual_stack:ipv4",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -1300,6 +1398,8 @@
           "anchor": "section",
           "description": "IPv6 Address specified as hexadecimal numbers separated by ':'",
           "document_id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:ip_address:dual_stack:ipv6",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -1323,13 +1423,13 @@
     },
     {
       "aliases": ["local ip ip address ip address dual stack ipv4"],
-      "body_bytes": 2442,
-      "body_sha256": "sha256:1c695789edb07c911a2eab2918263774b2bd1b904da5220ddf612fb8615f0624",
+      "body_bytes": 2472,
+      "body_sha256": "sha256:813f723f29f79813ee03eec4ac268521e0eb4ac726d1b9839a773ecc14a72e97",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1355,6 +1455,8 @@
           "anchor": "schema-local_ip--ip_address--ip_address--dual_stack--ipv4--addr",
           "description": "IPv4 Address in string form with dot-decimal notation.",
           "document_id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:ip_address:dual_stack:ipv4",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -1378,13 +1480,13 @@
     },
     {
       "aliases": ["local ip ip address ip address dual stack ipv6"],
-      "body_bytes": 2579,
-      "body_sha256": "sha256:5a199cb2ae1ee94926b885c188c3ae653b3f0ae11a908bbeb1349a69ed742264",
+      "body_bytes": 2609,
+      "body_sha256": "sha256:95f4a4bd4701cccced68c0802c0d1753ad6718952834d33514424608f3f4c39c",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1410,6 +1512,8 @@
           "anchor": "schema-local_ip--ip_address--ip_address--dual_stack--ipv6--addr",
           "description": "IPv6 Address in form of string. IPv6 address must be specified as hexadecimal numbers separated by ':' The address can be compacted by suppressing zeros e.g. '2001:db8:0:0:0:0:2:1' becomes '2001:db8::2:1' or '2001:db8:0:0:0:2:0:0' becomes '2001:db8::2::'",
           "document_id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:ip_address:dual_stack:ipv6",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -1433,13 +1537,13 @@
     },
     {
       "aliases": ["local ip ip address ip address ipv4"],
-      "body_bytes": 2234,
-      "body_sha256": "sha256:94884d0b3f4a231e8882c539a6bf5c42fcb697bf1e1b6d93e78392f3c21c80db",
+      "body_bytes": 2264,
+      "body_sha256": "sha256:e5ddb22d39a1843fab1aa0f4ba7139ea6ac1f019e69c394180d1bff3ea3c9f9a",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1465,6 +1569,8 @@
           "anchor": "schema-local_ip--ip_address--ip_address--ipv4--addr",
           "description": "IPv4 Address in string form with dot-decimal notation.",
           "document_id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:ip_address:ipv4",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -1488,13 +1594,13 @@
     },
     {
       "aliases": ["local ip ip address ip address ipv6"],
-      "body_bytes": 2371,
-      "body_sha256": "sha256:839fdaa1fe66b45802931e348d4cc75ecd4728ee31fa60a31b8a3c9562cf67a2",
+      "body_bytes": 2401,
+      "body_sha256": "sha256:c61807c4a18eff5feba1e632df9a00b5f137c1ed5d526e34b9467f619ee8d671",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1520,6 +1626,8 @@
           "anchor": "schema-local_ip--ip_address--ip_address--ipv6--addr",
           "description": "IPv6 Address in form of string. IPv6 address must be specified as hexadecimal numbers separated by ':' The address can be compacted by suppressing zeros e.g. '2001:db8:0:0:0:0:2:1' becomes '2001:db8::2:1' or '2001:db8:0:0:0:2:0:0' becomes '2001:db8::2::'",
           "document_id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:ip_address:ipv6",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -1543,8 +1651,8 @@
     },
     {
       "aliases": ["local ip ip address virtual network type"],
-      "body_bytes": 2057,
-      "body_sha256": "sha256:692fafa98f83e37d786fdf1efbc4c2e516afcc6a0e1541a87b61e27760c55f83",
+      "body_bytes": 2087,
+      "body_sha256": "sha256:4d5ad144142fdaa6878eca31f0cc9441b40d11c2316a40ab64a9cb9581f30345",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -1553,7 +1661,7 @@
         "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:virtual_network_type:site_local_inside"
       ],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1628,6 +1736,8 @@
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:virtual_network_type:public",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -1642,6 +1752,8 @@
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:virtual_network_type:site_local",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -1656,6 +1768,8 @@
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:virtual_network_type:site_local_inside",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -1685,7 +1799,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1725,7 +1839,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1765,7 +1879,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1805,7 +1919,7 @@
       "category": "networking",
       "child_ids": ["xcsh-docs:resources:tunnel:properties:params:ipsec"],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1831,6 +1945,8 @@
           "anchor": "section",
           "description": "Configuration for IPsec encapsulation are: 1. PSK - pre shared key to be used by IKE.",
           "document_id": "xcsh-docs:resources:tunnel:properties:params:ipsec",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -1860,7 +1976,7 @@
       "category": "networking",
       "child_ids": ["xcsh-docs:resources:tunnel:properties:params:ipsec:ipsec_psk"],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1886,6 +2002,8 @@
           "anchor": "section",
           "description": "SecretType is used in an object to indicate a sensitive/confidential field.",
           "document_id": "xcsh-docs:resources:tunnel:properties:params:ipsec:ipsec_psk",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -1926,8 +2044,8 @@
     },
     {
       "aliases": ["params ipsec ipsec psk"],
-      "body_bytes": 1681,
-      "body_sha256": "sha256:31af9c03bf6dd775a84074855efcb21cb093df882c16b72c2ca3ef2853e54f4c",
+      "body_bytes": 1711,
+      "body_sha256": "sha256:1107b1d5aae7da63684e79322637122940cd9b438d3dfde65caafb18e60a494a",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -1935,7 +2053,7 @@
         "xcsh-docs:resources:tunnel:properties:params:ipsec:ipsec_psk:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1978,6 +2096,8 @@
           "anchor": "section",
           "description": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
           "document_id": "xcsh-docs:resources:tunnel:properties:params:ipsec:ipsec_psk:blindfold_secret_info",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -2001,6 +2121,8 @@
           "anchor": "section",
           "description": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
           "document_id": "xcsh-docs:resources:tunnel:properties:params:ipsec:ipsec_psk:clear_secret_info",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -2033,13 +2155,13 @@
     },
     {
       "aliases": ["params ipsec ipsec psk blindfold secret info"],
-      "body_bytes": 4276,
-      "body_sha256": "sha256:adcd3192368d15b399a8a517b856bb3409e8418b7c9f2efa08331bbd17a641f2",
+      "body_bytes": 4335,
+      "body_sha256": "sha256:785a9e29acb26402eac2b2652092f63877edb6375c527997c6f461d843f006a8",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2074,6 +2196,8 @@
           "anchor": "schema-params--ipsec--ipsec_psk--blindfold_secret_info--decryption_provider",
           "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
           "document_id": "xcsh-docs:resources:tunnel:properties:params:ipsec:ipsec_psk:blindfold_secret_info",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -2088,6 +2212,8 @@
           "anchor": "schema-params--ipsec--ipsec_psk--blindfold_secret_info--location",
           "description": "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
           "document_id": "xcsh-docs:resources:tunnel:properties:params:ipsec:ipsec_psk:blindfold_secret_info",
+          "enum_extraction_complete": true,
+          "enum_validators": [],
           "flags": ["optional", "sensitive"],
           "max_items": null,
           "min_items": null,
@@ -2102,6 +2228,8 @@
           "anchor": "schema-params--ipsec--ipsec_psk--blindfold_secret_info--store_provider",
           "description": "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
           "document_id": "xcsh-docs:resources:tunnel:properties:params:ipsec:ipsec_psk:blindfold_secret_info",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -2125,13 +2253,13 @@
     },
     {
       "aliases": ["params ipsec ipsec psk clear secret info"],
-      "body_bytes": 3297,
-      "body_sha256": "sha256:a638559bc332a9564a97b461159065dee66ef4bd2796728e30cee96e6771f121",
+      "body_bytes": 3356,
+      "body_sha256": "sha256:fa366c4e07960748094e8e2bfe110e1b7aa702cc0048e3ae164fa1e512c7b6a2",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2166,6 +2294,8 @@
           "anchor": "schema-params--ipsec--ipsec_psk--clear_secret_info--provider_ref",
           "description": "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
           "document_id": "xcsh-docs:resources:tunnel:properties:params:ipsec:ipsec_psk:clear_secret_info",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -2180,6 +2310,8 @@
           "anchor": "schema-params--ipsec--ipsec_psk--clear_secret_info--url",
           "description": "URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding.",
           "document_id": "xcsh-docs:resources:tunnel:properties:params:ipsec:ipsec_psk:clear_secret_info",
+          "enum_extraction_complete": true,
+          "enum_validators": [],
           "flags": ["optional", "sensitive"],
           "max_items": null,
           "min_items": null,
@@ -2203,8 +2335,8 @@
     },
     {
       "aliases": ["remote ip"],
-      "body_bytes": 1445,
-      "body_sha256": "sha256:379a20b073100109a9ef5eea743fbcee55aac0406c2bb61561fba82612186416",
+      "body_bytes": 1475,
+      "body_sha256": "sha256:fb28e55d79e2333bfaec4710cde71418a36626222080959f4d4669e0e6800374",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -2212,7 +2344,7 @@
         "xcsh-docs:resources:tunnel:properties:remote_ip:ip"
       ],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2255,6 +2387,8 @@
           "anchor": "section",
           "description": "Provides a map of ver node name to remote node attributes Ver node should use these attributes to configure as remote tunnel.",
           "document_id": "xcsh-docs:resources:tunnel:properties:remote_ip:endpoints",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -2269,6 +2403,8 @@
           "anchor": "section",
           "description": "IP Address used to specify an IPv4 or IPv6 address.",
           "document_id": "xcsh-docs:resources:tunnel:properties:remote_ip:ip",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -2347,7 +2483,7 @@
       "category": "networking",
       "child_ids": ["xcsh-docs:resources:tunnel:properties:remote_ip:endpoints:endpoints"],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2373,6 +2509,8 @@
           "anchor": "section",
           "description": "Map of remote attributes to which tunnel will be established on per site node basis Every node can have a different attributes and IP address to connect to Key is ver node name and value is Remote node attributes.",
           "document_id": "xcsh-docs:resources:tunnel:properties:remote_ip:endpoints:endpoints",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -2402,7 +2540,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2436,8 +2574,8 @@
     },
     {
       "aliases": ["remote ip ip"],
-      "body_bytes": 1675,
-      "body_sha256": "sha256:e76f9ace74c92495facd3e9283d796310bd0cfcccb5b2ff1d29469daa40fb010",
+      "body_bytes": 1705,
+      "body_sha256": "sha256:01f8544101add5828d189ea1d04cf2258d3625e839cb7bfcd587dad93472843f",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -2446,7 +2584,7 @@
         "xcsh-docs:resources:tunnel:properties:remote_ip:ip:ipv6"
       ],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2521,6 +2659,8 @@
           "anchor": "section",
           "description": "DualStackAddressType represents both IPv4 and IPv6 together.",
           "document_id": "xcsh-docs:resources:tunnel:properties:remote_ip:ip:dual_stack",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -2535,6 +2675,8 @@
           "anchor": "section",
           "description": "IPv4 Address in dot-decimal notation.",
           "document_id": "xcsh-docs:resources:tunnel:properties:remote_ip:ip:ipv4",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -2549,6 +2691,8 @@
           "anchor": "section",
           "description": "IPv6 Address specified as hexadecimal numbers separated by ':'",
           "document_id": "xcsh-docs:resources:tunnel:properties:remote_ip:ip:ipv6",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -2581,7 +2725,7 @@
         "xcsh-docs:resources:tunnel:properties:remote_ip:ip:dual_stack:ipv6"
       ],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2607,6 +2751,8 @@
           "anchor": "section",
           "description": "IPv4 Address in dot-decimal notation.",
           "document_id": "xcsh-docs:resources:tunnel:properties:remote_ip:ip:dual_stack:ipv4",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -2621,6 +2767,8 @@
           "anchor": "section",
           "description": "IPv6 Address specified as hexadecimal numbers separated by ':'",
           "document_id": "xcsh-docs:resources:tunnel:properties:remote_ip:ip:dual_stack:ipv6",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -2644,13 +2792,13 @@
     },
     {
       "aliases": ["remote ip ip dual stack ipv4"],
-      "body_bytes": 2187,
-      "body_sha256": "sha256:2982cd52676846e7c55121e0a92a60ea607c704ca518f51bc2223859bfdc9b47",
+      "body_bytes": 2217,
+      "body_sha256": "sha256:a8326948bdf6ee9cb3bfba431af4ebb575e589f42bb951f670988a1b15c7097d",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2676,6 +2824,8 @@
           "anchor": "schema-remote_ip--ip--dual_stack--ipv4--addr",
           "description": "IPv4 Address in string form with dot-decimal notation.",
           "document_id": "xcsh-docs:resources:tunnel:properties:remote_ip:ip:dual_stack:ipv4",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -2699,13 +2849,13 @@
     },
     {
       "aliases": ["remote ip ip dual stack ipv6"],
-      "body_bytes": 2324,
-      "body_sha256": "sha256:3d590641aa523702626f5045c7287ff7c88fda8924d6470e2c9dd8060a262057",
+      "body_bytes": 2354,
+      "body_sha256": "sha256:30a47fbd94304ac59ca55a470eff4c5261e63f80379121dde689ad4a8e51d41d",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2731,6 +2881,8 @@
           "anchor": "schema-remote_ip--ip--dual_stack--ipv6--addr",
           "description": "IPv6 Address in form of string. IPv6 address must be specified as hexadecimal numbers separated by ':' The address can be compacted by suppressing zeros e.g. '2001:db8:0:0:0:0:2:1' becomes '2001:db8::2:1' or '2001:db8:0:0:0:2:0:0' becomes '2001:db8::2::'",
           "document_id": "xcsh-docs:resources:tunnel:properties:remote_ip:ip:dual_stack:ipv6",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -2754,13 +2906,13 @@
     },
     {
       "aliases": ["remote ip ip ipv4"],
-      "body_bytes": 2015,
-      "body_sha256": "sha256:646d6191c7c89aee27af127d4dcd01145d7b34e067f111e5dabc5158c68675f8",
+      "body_bytes": 2045,
+      "body_sha256": "sha256:123dd894166e6289fca90b572a10839ab980d56d18d058ac48f1e8cbec44c504",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2786,6 +2938,8 @@
           "anchor": "schema-remote_ip--ip--ipv4--addr",
           "description": "IPv4 Address in string form with dot-decimal notation.",
           "document_id": "xcsh-docs:resources:tunnel:properties:remote_ip:ip:ipv4",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -2809,13 +2963,13 @@
     },
     {
       "aliases": ["remote ip ip ipv6"],
-      "body_bytes": 2152,
-      "body_sha256": "sha256:f349d3c95323fb3116bb89a50e2ffd1dc985e0a526f2cf535e39b74f9ed1a414",
+      "body_bytes": 2182,
+      "body_sha256": "sha256:4b92ae272f46901b57fe71f06169e5cbb512eea1cde9729ce0ff39b3b0215de2",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2841,6 +2995,8 @@
           "anchor": "schema-remote_ip--ip--ipv6--addr",
           "description": "IPv6 Address in form of string. IPv6 address must be specified as hexadecimal numbers separated by ':' The address can be compacted by suppressing zeros e.g. '2001:db8:0:0:0:0:2:1' becomes '2001:db8::2:1' or '2001:db8:0:0:0:2:0:0' becomes '2001:db8::2::'",
           "document_id": "xcsh-docs:resources:tunnel:properties:remote_ip:ip:ipv6",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -2870,7 +3026,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2904,6 +3060,8 @@
           "anchor": "schema-timeouts--create",
           "description": "Configures the timeout duration for resource creation.",
           "document_id": "xcsh-docs:resources:tunnel:properties:timeouts",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -2927,6 +3085,8 @@
           "anchor": "schema-timeouts--delete",
           "description": "Configures the timeout duration for resource deletion, applicable only if changes are saved into state before destroy.",
           "document_id": "xcsh-docs:resources:tunnel:properties:timeouts",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -2950,6 +3110,8 @@
           "anchor": "schema-timeouts--read",
           "description": "Configures the timeout duration for read operations during refresh or planning.",
           "document_id": "xcsh-docs:resources:tunnel:properties:timeouts",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -2973,6 +3135,8 @@
           "anchor": "schema-timeouts--update",
           "description": "Configures the timeout duration for resource update operations.",
           "document_id": "xcsh-docs:resources:tunnel:properties:timeouts",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -3002,7 +3166,7 @@
       "category": "networking",
       "child_ids": ["xcsh-docs:resources:tunnel:example:resource"],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3042,7 +3206,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3089,7 +3253,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3130,7 +3294,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"

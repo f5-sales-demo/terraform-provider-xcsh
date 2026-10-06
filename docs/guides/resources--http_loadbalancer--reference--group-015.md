@@ -6,9 +6,634 @@ description: "Complete grouped canonical reference for xcsh_http_loadbalancer re
 
 # xcsh_http_loadbalancer reference
 
+<a id="canonical-2212021011102011-1003220310203030-1203200220232232-2001330231011113-2303212012031031-2101100012001130-2122233232002202-1012110130311313"></a>
+
+## `ddos_mitigation_rules.metadata.name` property
+
+Type: `"string"`. Optional.
+
+This is the name of the message. The value of name has to follow DNS-1035 format.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: true
+Validators: []validator.String{
+  stringvalidator.LengthBetween(1, 63),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "minLength": 1,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "characterSet": {
+      "allowed": "[a-z0-9-]",
+      "description": "Lowercase letter start, alphanumeric with hyphens, alphanumeric end",
+      "required": "[a-z0-9]",
+      "restricted": "[^a-z0-9-]"
+    },
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "dns-label",
+    "formatDescription": "DNS-1035 label: must start with a lowercase letter, may contain lowercase alphanumeric and hyphens, must end with alphanumeric",
+    "maxLength": 63,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "minLength": 1,
+    "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
+    "validation": {
+      "rfc": "RFC 1035",
+      "standard": "DNS-1035 label (alpha-first)"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.min_len": "1",
+    "ves.io.schema.rules.string.ves_object_name": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.min_len": "1",
+    "ves.io.schema.rules.string.ves_object_name": "true"
+  }
+}
+```
+
+<a id="canonical-3011031210301023-3111303122131111-0122010032202013-2011101001022200-0221332123322110-1223213221131013-1210333203300122-3013123231031011"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `default_pool` properties
+
+Breadcrumbs:
+
+- [xcsh_http_loadbalancer](../resources/http_loadbalancer.md#canonical-1323101131323213-1200201313300133-0300111301103013-3131213012211311-3010002202001122-3231033222023323-2111000220211131-3013003223311203)
+- [Property reference](resources--http_loadbalancer--reference--group-001.md#canonical-2110231031112310-1130011000331010-1312132022002200-1232103213011301-2012100333100023-2000320333201213-1130030102202313-3122301032230233)
+- default_pool
+
+<a id="canonical-1213330012310303-3223033000020112-1132322020000213-3203211100210032-3203202100010003-0323120100333103-3310310021000230-2332331033130013"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+\[OneOf: default\_pool, default\_pool\_list; Default: default\_pool\] Configuration parameter for
+default pool.
+
+Additional upstream details:
+
+Shape of the origin pool specification.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: false
+Validators: []validator.Object{validators.RequiredObjectAttributes("origin_servers"),
+  validators.ConflictingObjectAttributes("automatic_port",
+    "lb_port"),
+  validators.ConflictingObjectAttributes("automatic_port",
+    "port"),
+  validators.ConflictingObjectAttributes("health_check_port",
+    "same_as_endpoint_port"),
+  validators.ConflictingObjectAttributes("lb_port",
+    "port"),
+  validators.ConflictingObjectAttributes("no_tls",
+    "use_tls")}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-health_check_port_choice": "[\"health_check_port\",\"same_as_endpoint_port\"]",
+  "x-ves-oneof-field-port_choice": "[\"automatic_port\",\"lb_port\",\"port\"]",
+  "x-ves-oneof-field-tls_choice": "[\"no_tls\",\"use_tls\"]"
+}
+```
+
+OneOf alternatives in this subsection:
+
+- [default_pool](resources--http_loadbalancer--reference--group-015.md#canonical-1213330012310303-3223033000020112-1132322020000213-3203211100210032-3203202100010003-0323120100333103-3310310021000230-2332331033130013)
+- [default_pool_list](resources--http_loadbalancer--reference--group-017.md#canonical-0130032320003112-3013231322132011-2010113111012220-3312013033110232-0201300301333010-2200230132012313-2122033102033333-3101112132302330)
+
+Select alternatives according to the provider validators above.
+
+Terraform syntax:
+
+```terraform
+default_pool {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-3313311312330121-3100113323301313-2012102320010002-0321311210303111-2210332210131331-0312212202013111-0031132222113121-1000130220311302"></a>
+
+### Direct properties for `default_pool`
+
+- [advanced_options](resources--http_loadbalancer--reference--group-015.md#canonical-2222122111331210-2233310023212212-1032010200303111-0132303220321311-0121033221020120-0233002303021120-1100000123201321-0212203223022100): complete subsection reference.
+
+- [automatic_port](resources--http_loadbalancer--reference--group-015.md#canonical-1322002312102330-3201331032321312-3300300133011331-3120132210110301-3210102232133203-0002132201013013-2023203103322300-1312001000200312): complete subsection reference.
+
+<a id="canonical-1220013021102311-1210300212021323-3030313021111112-2331311200001322-1301030222003002-2332032220130322-3233323111021113-2321012103002111"></a>
+
+<a id="canonical-1200033130233022-2111031030233113-2033123120032200-0301320231120233-0010303201100120-0331202202132202-3010221022100131-1023133002221332"></a>
+
+#### `default_pool.endpoint_selection` property
+
+Type: `"string"`. Optional, Computed.
+
+\[Enum: DISTRIBUTED|LOCAL\_ONLY|LOCAL\_PREFERRED\] Policy for selection of endpoints from local
+site/remote site/both Consider both remote and local endpoints for load balancing LOCAL\_ONLY:
+Consider only local endpoints for load balancing Enable this policy to load balance ONLY among
+locally discovered endpoints Prefer the local endpoints for.. Possible values are \`DISTRIBUTED\`,
+\`LOCAL\_ONLY\`, \`LOCAL\_PREFERRED\`. Defaults to \`DISTRIBUTED\`. Server applies default when
+omitted.
+
+Additional upstream details:
+
+Policy for selection of endpoints from local site/remote site/both
+
+Consider both remote and local endpoints for load balancing LOCAL\_ONLY: Consider only local
+endpoints for load balancing Enable this policy to load balance ONLY among locally discovered
+endpoints Prefer the local endpoints for load balancing. If local endpoints are not present remote
+endpoints will be considered.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["DISTRIBUTED","LOCAL_ONLY","LOCAL_PREFERRED"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
+Validators: []validator.String{
+  stringvalidator.OneOf("DISTRIBUTED",
+    "LOCAL_ONLY",
+    "LOCAL_PREFERRED"),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "default": "DISTRIBUTED",
+  "enum": [
+    "DISTRIBUTED",
+    "LOCAL_ONLY",
+    "LOCAL_PREFERRED"
+  ],
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-2333031322131122-1333231311010031-0023200220303113-2223032011333030-1203001000013012-0333300323010101-2103102303202333-2212032221013220"></a>
+
+<a id="canonical-0122133123300312-3202000120222003-1030023200201002-2233203202220001-1112212130113013-2333100113022003-0321013222222331-0001031003002212"></a>
+
+#### `default_pool.health_check_port` property
+
+Type: `"number"`. Optional.
+
+Exclusive with \[same\_as\_endpoint\_port\] Port used for performing health check.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: false
+Validators: []validator.Int64{
+  int64validator.Between(0, 65535),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "networking",
+    "constraintType": "number",
+    "deterministic": true,
+    "maximum": 65535,
+    "metadata": {
+      "category": "networking",
+      "confidence": 0.99,
+      "note": "Asymmetry: port enforces [1,65535], health_check_port allows 0",
+      "source": "api-probed",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "minimum": 0
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.uint32.lte": "65535"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.uint32.lte": "65535"
+  }
+}
+```
+
+- [healthcheck](resources--http_loadbalancer--reference--group-015.md#canonical-1221110002132303-0012322203331031-0200320230330313-0111101330333233-2122220212333113-0311121023131102-2021213213213203-2231002020013210): complete subsection reference.
+
+- [lb_port](resources--http_loadbalancer--reference--group-015.md#canonical-1023332221023002-1120001320231221-2230003000223121-1203332032211030-3112300112131312-2203210121000020-1110310100200211-0012031020100313): complete subsection reference.
+
+<a id="canonical-2001303000020210-3130102121230130-1031001003223123-1300321230302002-0023213122001213-2022000210011132-0033113233123233-3202100031231222"></a>
+
+<a id="canonical-1030000100233130-1011130013132331-1301121230320021-3331112313131312-0320130023233230-1301222002330310-2133313332132123-1302031122033231"></a>
+
+#### `default_pool.loadbalancer_algorithm` property
+
+Type: `"string"`. Optional, Computed.
+
+\[Enum: ROUND\_ROBIN|LEAST\_REQUEST|RING\_HASH|RANDOM|LB\_OVERRIDE\] Different load balancing
+algorithms supported When a connection to a endpoint in an upstream cluster is required, the load
+balancer uses loadbalancer\_algorithm to determine which host is selected. - ROUND\_ROBIN:
+ROUND\_ROBIN Policy in which each healthy/available upstream endpoint is selected in.. Possible
+values are \`ROUND\_ROBIN\`, \`LEAST\_REQUEST\`, \`RING\_HASH\`, \`RANDOM\`, \`LB\_OVERRIDE\`.
+Defaults to \`ROUND\_ROBIN\`. Server applies default when omitted.
+
+Additional upstream details:
+
+Different load balancing algorithms supported When a connection to a endpoint in an upstream cluster
+is required, the load balancer uses loadbalancer\_algorithm to determine which host is selected.
+
+&#8203;- ROUND\_ROBIN: ROUND\_ROBIN
+
+Policy in which each healthy/available upstream endpoint is selected in round robin order. &#8203;-
+LEAST\_REQUEST: LEAST\_REQUEST
+
+Policy in which loadbalancer picks the upstream endpoint which has the fewest active requests
+&#8203;- RING\_HASH: RING\_HASH
+
+Policy implements consistent hashing to upstream endpoints using ring hash of endpoint names Hash of
+the incoming request is calculated using request hash policy. The ring/modulo hash load balancer
+implements consistent hashing to upstream hosts. The algorithm is based on mapping all hosts onto a
+circle such that the addition or removal of a host from the host set changes only affect 1/N
+requests. This technique is also commonly known as “ketama” hashing. A consistent hashing load
+balancer is only effective when protocol routing is used that specifies a value to hash on. The
+minimum ring size governs the replication factor for each host in the ring. For example, if the
+minimum ring size is 1024 and there are 16 hosts, each host will be replicated 64 times. &#8203;-
+RANDOM: RANDOM
+
+Policy in which each available upstream endpoint is selected in random order. The random load
+balancer selects a random healthy host. The random load balancer generally performs better than
+round robin if no health checking policy is configured. Random selection avoids bias towards the
+host in the set that comes after a failed host. &#8203;- LB\_OVERRIDE: Load Balancer Override
+
+Hash policy is taken from from the load balancer which is using this origin pool.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["LB_OVERRIDE","LEAST_REQUEST","RANDOM","RING_HASH","ROUND_ROBIN"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
+Validators: []validator.String{
+  stringvalidator.OneOf("ROUND_ROBIN",
+    "LEAST_REQUEST",
+    "RING_HASH",
+    "RANDOM",
+    "LB_OVERRIDE"),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "default": "ROUND_ROBIN",
+  "enum": [
+    "ROUND_ROBIN",
+    "LEAST_REQUEST",
+    "RING_HASH",
+    "RANDOM",
+    "LB_OVERRIDE"
+  ],
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+- [no_tls](resources--http_loadbalancer--reference--group-015.md#canonical-3222232123033110-0311020222300102-2311031131230111-0311001112220210-0122011130233121-0322223310331112-0222133023233112-0031210201010010): complete subsection reference.
+
+- [origin_servers](resources--http_loadbalancer--reference--group-015.md#canonical-3032210112122003-3001300202101031-2123213322103223-0023311332223220-3323333210222101-3133123322012320-1210021330031123-1312333220120031): complete subsection reference.
+
+<a id="canonical-1110332222020032-1030112012011212-0120103200222313-2331302310323003-2322213313231001-1300233203310123-0212302001322020-3231203111022120"></a>
+
+<a id="canonical-0202221012133213-3120301033212222-3303130032003223-2121332010112030-2221232112000020-0300321131331000-3131222033311032-1010010221121300"></a>
+
+#### `default_pool.port` property
+
+Type: `"number"`. Optional.
+
+Exclusive with \[automatic\_port lb\_port\] Endpoint service is available on this port. Recommended:
+\`443\`.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: false
+Validators: []validator.Int64{
+  int64validator.Between(1, 65535),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "number",
+    "deterministic": true,
+    "maximum": 65535,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "api-probed",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "minimum": 1,
+    "multipleOf": 1
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.uint32.gte": "1",
+    "ves.io.schema.rules.uint32.lte": "65535"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.uint32.gte": "1",
+    "ves.io.schema.rules.uint32.lte": "65535"
+  }
+}
+```
+
+- [same_as_endpoint_port](resources--http_loadbalancer--reference--group-016.md#canonical-1232100333033333-0221010121032103-2010033203301010-1223212021203320-2001102032013210-0333301222330003-1231200013113223-2010211132110221): complete subsection reference.
+
+- [upstream_conn_pool_reuse_type](resources--http_loadbalancer--reference--group-016.md#canonical-1112003010300102-0001210211031011-0021210310211031-2120013323123301-1203112022230211-2311310013202331-2323031211322202-1321003211023230): complete subsection reference.
+
+- [use_tls](resources--http_loadbalancer--reference--group-016.md#canonical-1220102102233330-1130323131232203-1010221220003123-0231201012101300-2222312303123110-1100032001232130-3230220301231310-1122123221111022): complete subsection reference.
+
+- [view_internal](resources--http_loadbalancer--reference--group-017.md#canonical-0210031322021130-2010122303312010-3232211331331322-0132231002001122-1111001310002033-1200111313232223-3023311310020010-2112111310030332): complete subsection reference.
+
+<a id="canonical-2222122111331210-2233310023212212-1032010200303111-0132303220321311-0121033221020120-0233002303021120-1100000123201321-0212203223022100"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `default_pool.advanced_options` properties
+
+Breadcrumbs:
+
+- [xcsh_http_loadbalancer](../resources/http_loadbalancer.md#canonical-1323101131323213-1200201313300133-0300111301103013-3131213012211311-3010002202001122-3231033222023323-2111000220211131-3013003223311203)
+- [Property reference](resources--http_loadbalancer--reference--group-001.md#canonical-2110231031112310-1130011000331010-1312132022002200-1232103213011301-2012100333100023-2000320333201213-1130030102202313-3122301032230233)
+- [default_pool](resources--http_loadbalancer--reference--group-015.md#canonical-3011031210301023-3111303122131111-0122010032202013-2011101001022200-0221332123322110-1223213221131013-1210333203300122-3013123231031011)
+- default_pool.advanced_options
+
+<a id="canonical-2201323003203213-3213010002212030-3101030122020221-1021231203300201-1221330132003001-2201133313112133-2323222210220222-1133020302333331"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+Configure Advanced OPTIONS for origin pool.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: false
+Validators: []validator.Object{validators.ConflictingObjectAttributes("auto_http_config",
+    "http1_config"),
+  validators.ConflictingObjectAttributes("auto_http_config",
+    "http2_options"),
+  validators.ConflictingObjectAttributes("circuit_breaker",
+    "default_circuit_breaker"),
+  validators.ConflictingObjectAttributes("circuit_breaker",
+    "disable_circuit_breaker"),
+  validators.ConflictingObjectAttributes("default_circuit_breaker",
+    "disable_circuit_breaker"),
+  validators.ConflictingObjectAttributes("disable_lb_source_ip_persistence",
+    "enable_lb_source_ip_persistence"),
+  validators.ConflictingObjectAttributes("disable_outlier_detection",
+    "outlier_detection"),
+  validators.ConflictingObjectAttributes("disable_proxy_protocol",
+    "proxy_protocol_v1"),
+  validators.ConflictingObjectAttributes("disable_proxy_protocol",
+    "proxy_protocol_v2"),
+  validators.ConflictingObjectAttributes("disable_subsets",
+    "enable_subsets"),
+  validators.ConflictingObjectAttributes("http1_config",
+    "http2_options"),
+  validators.ConflictingObjectAttributes("max_requests_per_connection",
+    "no_request_limit_per_connection"),
+  validators.ConflictingObjectAttributes("no_panic_threshold",
+    "panic_threshold"),
+  validators.ConflictingObjectAttributes("proxy_protocol_v1",
+    "proxy_protocol_v2")}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-circuit_breaker_choice": "[\"circuit_breaker\",\"default_circuit_breaker\",\"disable_circuit_breaker\"]",
+  "x-ves-oneof-field-http_protocol_type": "[\"auto_http_config\",\"http1_config\",\"http2_options\"]",
+  "x-ves-oneof-field-lb_source_ip_persistence_choice": "[\"disable_lb_source_ip_persistence\",\"enable_lb_source_ip_persistence\"]",
+  "x-ves-oneof-field-max_requests_per_connection_choice": "[\"max_requests_per_connection\",\"no_request_limit_per_connection\"]",
+  "x-ves-oneof-field-outlier_detection_choice": "[\"disable_outlier_detection\",\"outlier_detection\"]",
+  "x-ves-oneof-field-panic_threshold_type": "[\"no_panic_threshold\",\"panic_threshold\"]",
+  "x-ves-oneof-field-proxy_protocol_choice": "[\"disable_proxy_protocol\",\"proxy_protocol_v1\",\"proxy_protocol_v2\"]",
+  "x-ves-oneof-field-subset_choice": "[\"disable_subsets\",\"enable_subsets\"]"
+}
+```
+
+Terraform syntax:
+
+```terraform
+advanced_options {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-0203020001311110-2120133110033003-3322002213123033-1121113031003113-1113300011201231-3310331120322203-0210320330010003-2212300222021300"></a>
+
+### Direct properties for `default_pool.advanced_options`
+
+- [auto_http_config](resources--http_loadbalancer--reference--group-015.md#canonical-3112103233111313-3303220101001113-3022220201103300-2310102331122013-0202002302022030-1310031130301100-1231313211312123-1131333023120221): complete subsection reference.
+
+- [circuit_breaker](resources--http_loadbalancer--reference--group-015.md#canonical-1031212032101202-3130331233121230-1022333233112301-0011311210120111-0130221013310320-2201133030023101-1021133320211103-0302331222320211): complete subsection reference.
+
+<a id="canonical-0002230021000320-2212101133003322-0233132212110213-2310101011321021-0311211000003020-1102212120121103-0231202302003033-1101311110300322"></a>
+
+<a id="canonical-0222110112333101-0303201202033301-0233121231323020-0200130130320022-2110130320310210-3110320021221211-2022301312210221-2233223102323113"></a>
+
+#### `default_pool.advanced_options.connection_timeout` property
+
+Type: `"number"`. Optional, Computed.
+
+The timeout for new network connections to endpoints in the cluster. This is specified in
+milliseconds. The default value is 2 seconds. Server applies default when omitted. Recommended:
+\`2000\`.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: false
+Validators: []validator.Int64{
+  int64validator.AtMost(1800000),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "number",
+    "deterministic": true,
+    "maximum": 1800000,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "api-probed",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.uint32.lte": "1800000"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.uint32.lte": "1800000"
+  }
+}
+```
+
+- [default_circuit_breaker](resources--http_loadbalancer--reference--group-015.md#canonical-0220231330001103-1312111311013211-2301111133301230-0123001132310332-0121313113212333-0001211212112332-2201120003102123-2223202111113133): complete subsection reference.
+
+- [disable_circuit_breaker](resources--http_loadbalancer--reference--group-015.md#canonical-3030013113131131-3103010310302203-2123231330311322-1231031222331233-1321202223300003-3001203202013202-3000310231301223-3101032101210223): complete subsection reference.
+
+- [disable_lb_source_ip_persistence](resources--http_loadbalancer--reference--group-015.md#canonical-3113100222020202-3133203310100220-0330332303302301-2031303313121332-0323121303222111-3223132221322032-0310310300022112-3030312000202003): complete subsection reference.
+
+- [disable_outlier_detection](resources--http_loadbalancer--reference--group-015.md#canonical-1300111032032202-0223330012333200-0003032323033300-1220012210221033-1221031213013231-0112210331000110-3103001312310113-2332322021231202): complete subsection reference.
+
+- [disable_proxy_protocol](resources--http_loadbalancer--reference--group-015.md#canonical-1323211300100232-0123211012202031-0232200001130201-1010020100302322-1122010113130203-0321323222203113-0330110330301230-2203311200223113): complete subsection reference.
+
+- [disable_subsets](resources--http_loadbalancer--reference--group-015.md#canonical-0023103001332003-0303111121333030-1302202301203023-2300202001223132-3000303201112022-3312000113212101-3222132031232321-1110111201302101): complete subsection reference.
+
+- [enable_lb_source_ip_persistence](resources--http_loadbalancer--reference--group-015.md#canonical-1030023020110210-2012011100303020-3003123221320323-3003020312113033-1230031030231320-0130321233030101-1032013131300003-2201032222030012): complete subsection reference.
+
+- [enable_subsets](resources--http_loadbalancer--reference--group-015.md#canonical-3122011012203130-2032023233101333-0322112222003112-2311302231102332-2113303332212233-1102000111031122-0303332031001202-2221302030020230): complete subsection reference.
+
+- [http1_config](resources--http_loadbalancer--reference--group-015.md#canonical-0302331112230021-3012012233210300-0212201311313112-1010303210232213-1332033331013232-3023212022323232-1321110310002103-2032000231020000): complete subsection reference.
+
+- [http2_options](resources--http_loadbalancer--reference--group-015.md#canonical-3113102323303220-1222012231233210-3132230022230202-2102202133132231-2231111233120333-0131210111011331-3220111022033123-3110000201103023): complete subsection reference.
+
+<a id="canonical-3101121222220101-1333020313101022-3010101311133101-2010131210230212-0102100210212100-3213233303001020-0111120223101123-1130022001221311"></a>
+
+<a id="canonical-3222110212332003-3202333312232012-2300333121233311-0120300002232323-2032331100220223-3021000100322033-2032221222122032-1211333331233101"></a>
+
+#### `default_pool.advanced_options.http_idle_timeout` property
+
+Type: `"number"`. Optional, Computed.
+
+The idle timeout for upstream connection pool connections. The idle timeout is defined as the period
+in which there are no active requests. When the idle timeout is reached the connection will be
+closed. Server applies default when omitted. Recommended: \`300000\`.
+
+Additional upstream details:
+
+Note that request based timeouts mean that HTTP/2 PINGs will not keep the connection alive. This is
+specified in milliseconds. The default value is 5 minutes.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: false
+Validators: []validator.Int64{
+  int64validator.AtMost(600000),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "number",
+    "deterministic": true,
+    "maximum": 600000,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "api-probed",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.uint32.lte": "600000"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.uint32.lte": "600000"
+  }
+}
+```
+
+<a id="canonical-3312313120101212-3310113103331102-2030021330123121-1202121211210203-2100131131303331-3103211310312030-3230031121311332-2032002201300033"></a>
+
 <a id="canonical-1111231000003202-1230310223130123-0223121133222011-2001330003230122-2100321100120230-1031021223221232-2130022013113310-2210032002333121"></a>
 
-## `default_pool.advanced_options.max_requests_per_connection` property
+#### `default_pool.advanced_options.max_requests_per_connection` property
 
 Type: `"number"`. Optional.
 
@@ -19,6 +644,7 @@ connection.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.AtLeast(1),
 }
@@ -64,7 +690,7 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-0123033020210300-2220132011233120-2013221330103221-1012333212003302-0131310302033212-3211002312322102-1322211100131213-3320011121013120"></a>
 
-## `default_pool.advanced_options.panic_threshold` property
+#### `default_pool.advanced_options.panic_threshold` property
 
 Type: `"number"`. Optional.
 
@@ -74,6 +700,7 @@ below which all endpoints will be considered for load balancing ignoring its hea
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.AtMost(100),
 }
@@ -125,8 +752,8 @@ Breadcrumbs:
 
 - [xcsh_http_loadbalancer](../resources/http_loadbalancer.md#canonical-1323101131323213-1200201313300133-0300111301103013-3131213012211311-3010002202001122-3231033222023323-2111000220211131-3013003223311203)
 - [Property reference](resources--http_loadbalancer--reference--group-001.md#canonical-2110231031112310-1130011000331010-1312132022002200-1232103213011301-2012100333100023-2000320333201213-1130030102202313-3122301032230233)
-- [default_pool](resources--http_loadbalancer--reference--group-014.md#canonical-3011031210301023-3111303122131111-0122010032202013-2011101001022200-0221332123322110-1223213221131013-1210333203300122-3013123231031011)
-- [default_pool.advanced_options](resources--http_loadbalancer--reference--group-014.md#canonical-2222122111331210-2233310023212212-1032010200303111-0132303220321311-0121033221020120-0233002303021120-1100000123201321-0212203223022100)
+- [default_pool](resources--http_loadbalancer--reference--group-015.md#canonical-3011031210301023-3111303122131111-0122010032202013-2011101001022200-0221332123322110-1223213221131013-1210333203300122-3013123231031011)
+- [default_pool.advanced_options](resources--http_loadbalancer--reference--group-015.md#canonical-2222122111331210-2233310023212212-1032010200303111-0132303220321311-0121033221020120-0233002303021120-1100000123201321-0212203223022100)
 - default_pool.advanced_options.auto_http_config
 
 <a id="canonical-2222110010010322-0311011300222101-1321130230021303-0012031022002130-1303301110220031-0232210132221202-3333222033322221-0011010213221202"></a>
@@ -172,8 +799,8 @@ Breadcrumbs:
 
 - [xcsh_http_loadbalancer](../resources/http_loadbalancer.md#canonical-1323101131323213-1200201313300133-0300111301103013-3131213012211311-3010002202001122-3231033222023323-2111000220211131-3013003223311203)
 - [Property reference](resources--http_loadbalancer--reference--group-001.md#canonical-2110231031112310-1130011000331010-1312132022002200-1232103213011301-2012100333100023-2000320333201213-1130030102202313-3122301032230233)
-- [default_pool](resources--http_loadbalancer--reference--group-014.md#canonical-3011031210301023-3111303122131111-0122010032202013-2011101001022200-0221332123322110-1223213221131013-1210333203300122-3013123231031011)
-- [default_pool.advanced_options](resources--http_loadbalancer--reference--group-014.md#canonical-2222122111331210-2233310023212212-1032010200303111-0132303220321311-0121033221020120-0233002303021120-1100000123201321-0212203223022100)
+- [default_pool](resources--http_loadbalancer--reference--group-015.md#canonical-3011031210301023-3111303122131111-0122010032202013-2011101001022200-0221332123322110-1223213221131013-1210333203300122-3013123231031011)
+- [default_pool.advanced_options](resources--http_loadbalancer--reference--group-015.md#canonical-2222122111331210-2233310023212212-1032010200303111-0132303220321311-0121033221020120-0233002303021120-1100000123201321-0212203223022100)
 - default_pool.advanced_options.circuit_breaker
 
 <a id="canonical-3233111032021020-3230121313312001-1120032120103330-1002003010201123-0022010201321001-2032101002202110-2203010031122031-1212133000010020"></a>
@@ -223,6 +850,7 @@ reach connection limit.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.AtMost(32768),
 }
@@ -274,6 +902,7 @@ exceed this count.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.AtMost(32768),
 }
@@ -328,6 +957,7 @@ if pending request reach pending\_request.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.AtMost(32768),
 }
@@ -383,6 +1013,8 @@ Priority routing for each request. Default routing mechanism High-Priority routi
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["DEFAULT","HIGH"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("DEFAULT",
     "HIGH"),
@@ -421,6 +1053,7 @@ Remove endpoint out of load balancing decision, if retries for request exceed th
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(0, 32768),
 }
@@ -470,8 +1103,8 @@ Breadcrumbs:
 
 - [xcsh_http_loadbalancer](../resources/http_loadbalancer.md#canonical-1323101131323213-1200201313300133-0300111301103013-3131213012211311-3010002202001122-3231033222023323-2111000220211131-3013003223311203)
 - [Property reference](resources--http_loadbalancer--reference--group-001.md#canonical-2110231031112310-1130011000331010-1312132022002200-1232103213011301-2012100333100023-2000320333201213-1130030102202313-3122301032230233)
-- [default_pool](resources--http_loadbalancer--reference--group-014.md#canonical-3011031210301023-3111303122131111-0122010032202013-2011101001022200-0221332123322110-1223213221131013-1210333203300122-3013123231031011)
-- [default_pool.advanced_options](resources--http_loadbalancer--reference--group-014.md#canonical-2222122111331210-2233310023212212-1032010200303111-0132303220321311-0121033221020120-0233002303021120-1100000123201321-0212203223022100)
+- [default_pool](resources--http_loadbalancer--reference--group-015.md#canonical-3011031210301023-3111303122131111-0122010032202013-2011101001022200-0221332123322110-1223213221131013-1210333203300122-3013123231031011)
+- [default_pool.advanced_options](resources--http_loadbalancer--reference--group-015.md#canonical-2222122111331210-2233310023212212-1032010200303111-0132303220321311-0121033221020120-0233002303021120-1100000123201321-0212203223022100)
 - default_pool.advanced_options.default_circuit_breaker
 
 <a id="canonical-2311223321130021-2322220301201322-3103101100201223-0120313123301311-2321110002000220-2312122131102120-0312000013010231-1231030012332031"></a>
@@ -518,8 +1151,8 @@ Breadcrumbs:
 
 - [xcsh_http_loadbalancer](../resources/http_loadbalancer.md#canonical-1323101131323213-1200201313300133-0300111301103013-3131213012211311-3010002202001122-3231033222023323-2111000220211131-3013003223311203)
 - [Property reference](resources--http_loadbalancer--reference--group-001.md#canonical-2110231031112310-1130011000331010-1312132022002200-1232103213011301-2012100333100023-2000320333201213-1130030102202313-3122301032230233)
-- [default_pool](resources--http_loadbalancer--reference--group-014.md#canonical-3011031210301023-3111303122131111-0122010032202013-2011101001022200-0221332123322110-1223213221131013-1210333203300122-3013123231031011)
-- [default_pool.advanced_options](resources--http_loadbalancer--reference--group-014.md#canonical-2222122111331210-2233310023212212-1032010200303111-0132303220321311-0121033221020120-0233002303021120-1100000123201321-0212203223022100)
+- [default_pool](resources--http_loadbalancer--reference--group-015.md#canonical-3011031210301023-3111303122131111-0122010032202013-2011101001022200-0221332123322110-1223213221131013-1210333203300122-3013123231031011)
+- [default_pool.advanced_options](resources--http_loadbalancer--reference--group-015.md#canonical-2222122111331210-2233310023212212-1032010200303111-0132303220321311-0121033221020120-0233002303021120-1100000123201321-0212203223022100)
 - default_pool.advanced_options.disable_circuit_breaker
 
 <a id="canonical-2012333203011332-2210122221231131-2320332013312011-2020133202331001-1001232330302121-1220010312001323-2323222202230333-3213103103132000"></a>
@@ -565,8 +1198,8 @@ Breadcrumbs:
 
 - [xcsh_http_loadbalancer](../resources/http_loadbalancer.md#canonical-1323101131323213-1200201313300133-0300111301103013-3131213012211311-3010002202001122-3231033222023323-2111000220211131-3013003223311203)
 - [Property reference](resources--http_loadbalancer--reference--group-001.md#canonical-2110231031112310-1130011000331010-1312132022002200-1232103213011301-2012100333100023-2000320333201213-1130030102202313-3122301032230233)
-- [default_pool](resources--http_loadbalancer--reference--group-014.md#canonical-3011031210301023-3111303122131111-0122010032202013-2011101001022200-0221332123322110-1223213221131013-1210333203300122-3013123231031011)
-- [default_pool.advanced_options](resources--http_loadbalancer--reference--group-014.md#canonical-2222122111331210-2233310023212212-1032010200303111-0132303220321311-0121033221020120-0233002303021120-1100000123201321-0212203223022100)
+- [default_pool](resources--http_loadbalancer--reference--group-015.md#canonical-3011031210301023-3111303122131111-0122010032202013-2011101001022200-0221332123322110-1223213221131013-1210333203300122-3013123231031011)
+- [default_pool.advanced_options](resources--http_loadbalancer--reference--group-015.md#canonical-2222122111331210-2233310023212212-1032010200303111-0132303220321311-0121033221020120-0233002303021120-1100000123201321-0212203223022100)
 - default_pool.advanced_options.disable_lb_source_ip_persistence
 
 <a id="canonical-3311300012320322-0121211301313010-1001312211033110-2112333221022112-2000221032332123-3333222120211231-3021032220312201-1010313013033110"></a>
@@ -612,8 +1245,8 @@ Breadcrumbs:
 
 - [xcsh_http_loadbalancer](../resources/http_loadbalancer.md#canonical-1323101131323213-1200201313300133-0300111301103013-3131213012211311-3010002202001122-3231033222023323-2111000220211131-3013003223311203)
 - [Property reference](resources--http_loadbalancer--reference--group-001.md#canonical-2110231031112310-1130011000331010-1312132022002200-1232103213011301-2012100333100023-2000320333201213-1130030102202313-3122301032230233)
-- [default_pool](resources--http_loadbalancer--reference--group-014.md#canonical-3011031210301023-3111303122131111-0122010032202013-2011101001022200-0221332123322110-1223213221131013-1210333203300122-3013123231031011)
-- [default_pool.advanced_options](resources--http_loadbalancer--reference--group-014.md#canonical-2222122111331210-2233310023212212-1032010200303111-0132303220321311-0121033221020120-0233002303021120-1100000123201321-0212203223022100)
+- [default_pool](resources--http_loadbalancer--reference--group-015.md#canonical-3011031210301023-3111303122131111-0122010032202013-2011101001022200-0221332123322110-1223213221131013-1210333203300122-3013123231031011)
+- [default_pool.advanced_options](resources--http_loadbalancer--reference--group-015.md#canonical-2222122111331210-2233310023212212-1032010200303111-0132303220321311-0121033221020120-0233002303021120-1100000123201321-0212203223022100)
 - default_pool.advanced_options.disable_outlier_detection
 
 <a id="canonical-1323102303233300-0000323231203132-3203201112023100-2200332202320100-3123011331310031-1202232022310313-3112323231002230-3212232131030022"></a>
@@ -660,8 +1293,8 @@ Breadcrumbs:
 
 - [xcsh_http_loadbalancer](../resources/http_loadbalancer.md#canonical-1323101131323213-1200201313300133-0300111301103013-3131213012211311-3010002202001122-3231033222023323-2111000220211131-3013003223311203)
 - [Property reference](resources--http_loadbalancer--reference--group-001.md#canonical-2110231031112310-1130011000331010-1312132022002200-1232103213011301-2012100333100023-2000320333201213-1130030102202313-3122301032230233)
-- [default_pool](resources--http_loadbalancer--reference--group-014.md#canonical-3011031210301023-3111303122131111-0122010032202013-2011101001022200-0221332123322110-1223213221131013-1210333203300122-3013123231031011)
-- [default_pool.advanced_options](resources--http_loadbalancer--reference--group-014.md#canonical-2222122111331210-2233310023212212-1032010200303111-0132303220321311-0121033221020120-0233002303021120-1100000123201321-0212203223022100)
+- [default_pool](resources--http_loadbalancer--reference--group-015.md#canonical-3011031210301023-3111303122131111-0122010032202013-2011101001022200-0221332123322110-1223213221131013-1210333203300122-3013123231031011)
+- [default_pool.advanced_options](resources--http_loadbalancer--reference--group-015.md#canonical-2222122111331210-2233310023212212-1032010200303111-0132303220321311-0121033221020120-0233002303021120-1100000123201321-0212203223022100)
 - default_pool.advanced_options.disable_proxy_protocol
 
 <a id="canonical-1023212212311013-1211022333031122-3310032221123012-3233100303313210-3223223220022321-2120110130031302-0323111013200320-1132031110022002"></a>
@@ -707,8 +1340,8 @@ Breadcrumbs:
 
 - [xcsh_http_loadbalancer](../resources/http_loadbalancer.md#canonical-1323101131323213-1200201313300133-0300111301103013-3131213012211311-3010002202001122-3231033222023323-2111000220211131-3013003223311203)
 - [Property reference](resources--http_loadbalancer--reference--group-001.md#canonical-2110231031112310-1130011000331010-1312132022002200-1232103213011301-2012100333100023-2000320333201213-1130030102202313-3122301032230233)
-- [default_pool](resources--http_loadbalancer--reference--group-014.md#canonical-3011031210301023-3111303122131111-0122010032202013-2011101001022200-0221332123322110-1223213221131013-1210333203300122-3013123231031011)
-- [default_pool.advanced_options](resources--http_loadbalancer--reference--group-014.md#canonical-2222122111331210-2233310023212212-1032010200303111-0132303220321311-0121033221020120-0233002303021120-1100000123201321-0212203223022100)
+- [default_pool](resources--http_loadbalancer--reference--group-015.md#canonical-3011031210301023-3111303122131111-0122010032202013-2011101001022200-0221332123322110-1223213221131013-1210333203300122-3013123231031011)
+- [default_pool.advanced_options](resources--http_loadbalancer--reference--group-015.md#canonical-2222122111331210-2233310023212212-1032010200303111-0132303220321311-0121033221020120-0233002303021120-1100000123201321-0212203223022100)
 - default_pool.advanced_options.disable_subsets
 
 <a id="canonical-0102132000213013-3322002221102033-3100320030031203-0311232200232330-2012212020100231-1022012212232312-1031101312203130-3022202110311302"></a>
@@ -755,8 +1388,8 @@ Breadcrumbs:
 
 - [xcsh_http_loadbalancer](../resources/http_loadbalancer.md#canonical-1323101131323213-1200201313300133-0300111301103013-3131213012211311-3010002202001122-3231033222023323-2111000220211131-3013003223311203)
 - [Property reference](resources--http_loadbalancer--reference--group-001.md#canonical-2110231031112310-1130011000331010-1312132022002200-1232103213011301-2012100333100023-2000320333201213-1130030102202313-3122301032230233)
-- [default_pool](resources--http_loadbalancer--reference--group-014.md#canonical-3011031210301023-3111303122131111-0122010032202013-2011101001022200-0221332123322110-1223213221131013-1210333203300122-3013123231031011)
-- [default_pool.advanced_options](resources--http_loadbalancer--reference--group-014.md#canonical-2222122111331210-2233310023212212-1032010200303111-0132303220321311-0121033221020120-0233002303021120-1100000123201321-0212203223022100)
+- [default_pool](resources--http_loadbalancer--reference--group-015.md#canonical-3011031210301023-3111303122131111-0122010032202013-2011101001022200-0221332123322110-1223213221131013-1210333203300122-3013123231031011)
+- [default_pool.advanced_options](resources--http_loadbalancer--reference--group-015.md#canonical-2222122111331210-2233310023212212-1032010200303111-0132303220321311-0121033221020120-0233002303021120-1100000123201321-0212203223022100)
 - default_pool.advanced_options.enable_lb_source_ip_persistence
 
 <a id="canonical-0202213131211030-2213121123310313-1232230113113203-1130231122332210-2311232210013010-3330101020133100-3210222033313003-0003033310313113"></a>
@@ -802,8 +1435,8 @@ Breadcrumbs:
 
 - [xcsh_http_loadbalancer](../resources/http_loadbalancer.md#canonical-1323101131323213-1200201313300133-0300111301103013-3131213012211311-3010002202001122-3231033222023323-2111000220211131-3013003223311203)
 - [Property reference](resources--http_loadbalancer--reference--group-001.md#canonical-2110231031112310-1130011000331010-1312132022002200-1232103213011301-2012100333100023-2000320333201213-1130030102202313-3122301032230233)
-- [default_pool](resources--http_loadbalancer--reference--group-014.md#canonical-3011031210301023-3111303122131111-0122010032202013-2011101001022200-0221332123322110-1223213221131013-1210333203300122-3013123231031011)
-- [default_pool.advanced_options](resources--http_loadbalancer--reference--group-014.md#canonical-2222122111331210-2233310023212212-1032010200303111-0132303220321311-0121033221020120-0233002303021120-1100000123201321-0212203223022100)
+- [default_pool](resources--http_loadbalancer--reference--group-015.md#canonical-3011031210301023-3111303122131111-0122010032202013-2011101001022200-0221332123322110-1223213221131013-1210333203300122-3013123231031011)
+- [default_pool.advanced_options](resources--http_loadbalancer--reference--group-015.md#canonical-2222122111331210-2233310023212212-1032010200303111-0132303220321311-0121033221020120-0233002303021120-1100000123201321-0212203223022100)
 - default_pool.advanced_options.enable_subsets
 
 <a id="canonical-2230231312121130-1032301133102111-3111133223133033-0203011113020101-0313311202133022-2203333022200212-1022103132100131-0013001010332212"></a>
@@ -815,6 +1448,7 @@ Configure subset OPTIONS for origin pool.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("endpoint_subsets"),
   validators.ConflictingObjectAttributes("any_endpoint",
     "default_subset"),
@@ -870,8 +1504,8 @@ Breadcrumbs:
 
 - [xcsh_http_loadbalancer](../resources/http_loadbalancer.md#canonical-1323101131323213-1200201313300133-0300111301103013-3131213012211311-3010002202001122-3231033222023323-2111000220211131-3013003223311203)
 - [Property reference](resources--http_loadbalancer--reference--group-001.md#canonical-2110231031112310-1130011000331010-1312132022002200-1232103213011301-2012100333100023-2000320333201213-1130030102202313-3122301032230233)
-- [default_pool](resources--http_loadbalancer--reference--group-014.md#canonical-3011031210301023-3111303122131111-0122010032202013-2011101001022200-0221332123322110-1223213221131013-1210333203300122-3013123231031011)
-- [default_pool.advanced_options](resources--http_loadbalancer--reference--group-014.md#canonical-2222122111331210-2233310023212212-1032010200303111-0132303220321311-0121033221020120-0233002303021120-1100000123201321-0212203223022100)
+- [default_pool](resources--http_loadbalancer--reference--group-015.md#canonical-3011031210301023-3111303122131111-0122010032202013-2011101001022200-0221332123322110-1223213221131013-1210333203300122-3013123231031011)
+- [default_pool.advanced_options](resources--http_loadbalancer--reference--group-015.md#canonical-2222122111331210-2233310023212212-1032010200303111-0132303220321311-0121033221020120-0233002303021120-1100000123201321-0212203223022100)
 - [default_pool.advanced_options.enable_subsets](resources--http_loadbalancer--reference--group-015.md#canonical-3122011012203130-2032023233101333-0322112222003112-2311302231102332-2113303332212233-1102000111031122-0303332031001202-2221302030020230)
 - default_pool.advanced_options.enable_subsets.any_endpoint
 
@@ -918,8 +1552,8 @@ Breadcrumbs:
 
 - [xcsh_http_loadbalancer](../resources/http_loadbalancer.md#canonical-1323101131323213-1200201313300133-0300111301103013-3131213012211311-3010002202001122-3231033222023323-2111000220211131-3013003223311203)
 - [Property reference](resources--http_loadbalancer--reference--group-001.md#canonical-2110231031112310-1130011000331010-1312132022002200-1232103213011301-2012100333100023-2000320333201213-1130030102202313-3122301032230233)
-- [default_pool](resources--http_loadbalancer--reference--group-014.md#canonical-3011031210301023-3111303122131111-0122010032202013-2011101001022200-0221332123322110-1223213221131013-1210333203300122-3013123231031011)
-- [default_pool.advanced_options](resources--http_loadbalancer--reference--group-014.md#canonical-2222122111331210-2233310023212212-1032010200303111-0132303220321311-0121033221020120-0233002303021120-1100000123201321-0212203223022100)
+- [default_pool](resources--http_loadbalancer--reference--group-015.md#canonical-3011031210301023-3111303122131111-0122010032202013-2011101001022200-0221332123322110-1223213221131013-1210333203300122-3013123231031011)
+- [default_pool.advanced_options](resources--http_loadbalancer--reference--group-015.md#canonical-2222122111331210-2233310023212212-1032010200303111-0132303220321311-0121033221020120-0233002303021120-1100000123201321-0212203223022100)
 - [default_pool.advanced_options.enable_subsets](resources--http_loadbalancer--reference--group-015.md#canonical-3122011012203130-2032023233101333-0322112222003112-2311302231102332-2113303332212233-1102000111031122-0303332031001202-2221302030020230)
 - default_pool.advanced_options.enable_subsets.default_subset
 
@@ -972,8 +1606,8 @@ Breadcrumbs:
 
 - [xcsh_http_loadbalancer](../resources/http_loadbalancer.md#canonical-1323101131323213-1200201313300133-0300111301103013-3131213012211311-3010002202001122-3231033222023323-2111000220211131-3013003223311203)
 - [Property reference](resources--http_loadbalancer--reference--group-001.md#canonical-2110231031112310-1130011000331010-1312132022002200-1232103213011301-2012100333100023-2000320333201213-1130030102202313-3122301032230233)
-- [default_pool](resources--http_loadbalancer--reference--group-014.md#canonical-3011031210301023-3111303122131111-0122010032202013-2011101001022200-0221332123322110-1223213221131013-1210333203300122-3013123231031011)
-- [default_pool.advanced_options](resources--http_loadbalancer--reference--group-014.md#canonical-2222122111331210-2233310023212212-1032010200303111-0132303220321311-0121033221020120-0233002303021120-1100000123201321-0212203223022100)
+- [default_pool](resources--http_loadbalancer--reference--group-015.md#canonical-3011031210301023-3111303122131111-0122010032202013-2011101001022200-0221332123322110-1223213221131013-1210333203300122-3013123231031011)
+- [default_pool.advanced_options](resources--http_loadbalancer--reference--group-015.md#canonical-2222122111331210-2233310023212212-1032010200303111-0132303220321311-0121033221020120-0233002303021120-1100000123201321-0212203223022100)
 - [default_pool.advanced_options.enable_subsets](resources--http_loadbalancer--reference--group-015.md#canonical-3122011012203130-2032023233101333-0322112222003112-2311302231102332-2113303332212233-1102000111031122-0303332031001202-2221302030020230)
 - [default_pool.advanced_options.enable_subsets.default_subset](resources--http_loadbalancer--reference--group-015.md#canonical-0311121031003212-1023312103112111-1223133333320310-2000132222222210-0111223230023131-1033323031033322-0303122132222203-2121101033013301)
 - default_pool.advanced_options.enable_subsets.default_subset.default_subset
@@ -1035,8 +1669,8 @@ Breadcrumbs:
 
 - [xcsh_http_loadbalancer](../resources/http_loadbalancer.md#canonical-1323101131323213-1200201313300133-0300111301103013-3131213012211311-3010002202001122-3231033222023323-2111000220211131-3013003223311203)
 - [Property reference](resources--http_loadbalancer--reference--group-001.md#canonical-2110231031112310-1130011000331010-1312132022002200-1232103213011301-2012100333100023-2000320333201213-1130030102202313-3122301032230233)
-- [default_pool](resources--http_loadbalancer--reference--group-014.md#canonical-3011031210301023-3111303122131111-0122010032202013-2011101001022200-0221332123322110-1223213221131013-1210333203300122-3013123231031011)
-- [default_pool.advanced_options](resources--http_loadbalancer--reference--group-014.md#canonical-2222122111331210-2233310023212212-1032010200303111-0132303220321311-0121033221020120-0233002303021120-1100000123201321-0212203223022100)
+- [default_pool](resources--http_loadbalancer--reference--group-015.md#canonical-3011031210301023-3111303122131111-0122010032202013-2011101001022200-0221332123322110-1223213221131013-1210333203300122-3013123231031011)
+- [default_pool.advanced_options](resources--http_loadbalancer--reference--group-015.md#canonical-2222122111331210-2233310023212212-1032010200303111-0132303220321311-0121033221020120-0233002303021120-1100000123201321-0212203223022100)
 - [default_pool.advanced_options.enable_subsets](resources--http_loadbalancer--reference--group-015.md#canonical-3122011012203130-2032023233101333-0322112222003112-2311302231102332-2113303332212233-1102000111031122-0303332031001202-2221302030020230)
 - default_pool.advanced_options.enable_subsets.endpoint_subsets
 
@@ -1050,6 +1684,7 @@ values of these keys form a subset within the class.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.RequiredListObjectAttributes("keys")}
 ```
 
@@ -1109,6 +1744,7 @@ List of keys that define a cluster subset class.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(16),
 }
@@ -1161,8 +1797,8 @@ Breadcrumbs:
 
 - [xcsh_http_loadbalancer](../resources/http_loadbalancer.md#canonical-1323101131323213-1200201313300133-0300111301103013-3131213012211311-3010002202001122-3231033222023323-2111000220211131-3013003223311203)
 - [Property reference](resources--http_loadbalancer--reference--group-001.md#canonical-2110231031112310-1130011000331010-1312132022002200-1232103213011301-2012100333100023-2000320333201213-1130030102202313-3122301032230233)
-- [default_pool](resources--http_loadbalancer--reference--group-014.md#canonical-3011031210301023-3111303122131111-0122010032202013-2011101001022200-0221332123322110-1223213221131013-1210333203300122-3013123231031011)
-- [default_pool.advanced_options](resources--http_loadbalancer--reference--group-014.md#canonical-2222122111331210-2233310023212212-1032010200303111-0132303220321311-0121033221020120-0233002303021120-1100000123201321-0212203223022100)
+- [default_pool](resources--http_loadbalancer--reference--group-015.md#canonical-3011031210301023-3111303122131111-0122010032202013-2011101001022200-0221332123322110-1223213221131013-1210333203300122-3013123231031011)
+- [default_pool.advanced_options](resources--http_loadbalancer--reference--group-015.md#canonical-2222122111331210-2233310023212212-1032010200303111-0132303220321311-0121033221020120-0233002303021120-1100000123201321-0212203223022100)
 - [default_pool.advanced_options.enable_subsets](resources--http_loadbalancer--reference--group-015.md#canonical-3122011012203130-2032023233101333-0322112222003112-2311302231102332-2113303332212233-1102000111031122-0303332031001202-2221302030020230)
 - default_pool.advanced_options.enable_subsets.fail_request
 
@@ -1209,8 +1845,8 @@ Breadcrumbs:
 
 - [xcsh_http_loadbalancer](../resources/http_loadbalancer.md#canonical-1323101131323213-1200201313300133-0300111301103013-3131213012211311-3010002202001122-3231033222023323-2111000220211131-3013003223311203)
 - [Property reference](resources--http_loadbalancer--reference--group-001.md#canonical-2110231031112310-1130011000331010-1312132022002200-1232103213011301-2012100333100023-2000320333201213-1130030102202313-3122301032230233)
-- [default_pool](resources--http_loadbalancer--reference--group-014.md#canonical-3011031210301023-3111303122131111-0122010032202013-2011101001022200-0221332123322110-1223213221131013-1210333203300122-3013123231031011)
-- [default_pool.advanced_options](resources--http_loadbalancer--reference--group-014.md#canonical-2222122111331210-2233310023212212-1032010200303111-0132303220321311-0121033221020120-0233002303021120-1100000123201321-0212203223022100)
+- [default_pool](resources--http_loadbalancer--reference--group-015.md#canonical-3011031210301023-3111303122131111-0122010032202013-2011101001022200-0221332123322110-1223213221131013-1210333203300122-3013123231031011)
+- [default_pool.advanced_options](resources--http_loadbalancer--reference--group-015.md#canonical-2222122111331210-2233310023212212-1032010200303111-0132303220321311-0121033221020120-0233002303021120-1100000123201321-0212203223022100)
 - default_pool.advanced_options.http1_config
 
 <a id="canonical-2221310333013012-0112023230002320-1220133001210101-1011302103303010-2030033120011312-3332030320200210-0232223130003102-2003031030013012"></a>
@@ -1258,8 +1894,8 @@ Breadcrumbs:
 
 - [xcsh_http_loadbalancer](../resources/http_loadbalancer.md#canonical-1323101131323213-1200201313300133-0300111301103013-3131213012211311-3010002202001122-3231033222023323-2111000220211131-3013003223311203)
 - [Property reference](resources--http_loadbalancer--reference--group-001.md#canonical-2110231031112310-1130011000331010-1312132022002200-1232103213011301-2012100333100023-2000320333201213-1130030102202313-3122301032230233)
-- [default_pool](resources--http_loadbalancer--reference--group-014.md#canonical-3011031210301023-3111303122131111-0122010032202013-2011101001022200-0221332123322110-1223213221131013-1210333203300122-3013123231031011)
-- [default_pool.advanced_options](resources--http_loadbalancer--reference--group-014.md#canonical-2222122111331210-2233310023212212-1032010200303111-0132303220321311-0121033221020120-0233002303021120-1100000123201321-0212203223022100)
+- [default_pool](resources--http_loadbalancer--reference--group-015.md#canonical-3011031210301023-3111303122131111-0122010032202013-2011101001022200-0221332123322110-1223213221131013-1210333203300122-3013123231031011)
+- [default_pool.advanced_options](resources--http_loadbalancer--reference--group-015.md#canonical-2222122111331210-2233310023212212-1032010200303111-0132303220321311-0121033221020120-0233002303021120-1100000123201321-0212203223022100)
 - [default_pool.advanced_options.http1_config](resources--http_loadbalancer--reference--group-015.md#canonical-0302331112230021-3012012233210300-0212201311313112-1010303210232213-1332033331013232-3023212022323232-1321110310002103-2032000231020000)
 - default_pool.advanced_options.http1_config.header_transformation
 
@@ -1272,6 +1908,7 @@ Header Transformation OPTIONS for HTTP/1.1 request/response headers.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("default_header_transformation",
     "preserve_case_header_transformation"),
   validators.ConflictingObjectAttributes("default_header_transformation",
@@ -1324,8 +1961,8 @@ Breadcrumbs:
 
 - [xcsh_http_loadbalancer](../resources/http_loadbalancer.md#canonical-1323101131323213-1200201313300133-0300111301103013-3131213012211311-3010002202001122-3231033222023323-2111000220211131-3013003223311203)
 - [Property reference](resources--http_loadbalancer--reference--group-001.md#canonical-2110231031112310-1130011000331010-1312132022002200-1232103213011301-2012100333100023-2000320333201213-1130030102202313-3122301032230233)
-- [default_pool](resources--http_loadbalancer--reference--group-014.md#canonical-3011031210301023-3111303122131111-0122010032202013-2011101001022200-0221332123322110-1223213221131013-1210333203300122-3013123231031011)
-- [default_pool.advanced_options](resources--http_loadbalancer--reference--group-014.md#canonical-2222122111331210-2233310023212212-1032010200303111-0132303220321311-0121033221020120-0233002303021120-1100000123201321-0212203223022100)
+- [default_pool](resources--http_loadbalancer--reference--group-015.md#canonical-3011031210301023-3111303122131111-0122010032202013-2011101001022200-0221332123322110-1223213221131013-1210333203300122-3013123231031011)
+- [default_pool.advanced_options](resources--http_loadbalancer--reference--group-015.md#canonical-2222122111331210-2233310023212212-1032010200303111-0132303220321311-0121033221020120-0233002303021120-1100000123201321-0212203223022100)
 - [default_pool.advanced_options.http1_config](resources--http_loadbalancer--reference--group-015.md#canonical-0302331112230021-3012012233210300-0212201311313112-1010303210232213-1332033331013232-3023212022323232-1321110310002103-2032000231020000)
 - [default_pool.advanced_options.http1_config.header_transformation](resources--http_loadbalancer--reference--group-015.md#canonical-1101330321000013-2212300010220002-1310000332322113-3003211002121311-0123331303233202-0131033311223202-2123300010020112-1321021330013301)
 - default_pool.advanced_options.http1_config.header_transformation.default_header_transformation
@@ -1369,8 +2006,8 @@ Breadcrumbs:
 
 - [xcsh_http_loadbalancer](../resources/http_loadbalancer.md#canonical-1323101131323213-1200201313300133-0300111301103013-3131213012211311-3010002202001122-3231033222023323-2111000220211131-3013003223311203)
 - [Property reference](resources--http_loadbalancer--reference--group-001.md#canonical-2110231031112310-1130011000331010-1312132022002200-1232103213011301-2012100333100023-2000320333201213-1130030102202313-3122301032230233)
-- [default_pool](resources--http_loadbalancer--reference--group-014.md#canonical-3011031210301023-3111303122131111-0122010032202013-2011101001022200-0221332123322110-1223213221131013-1210333203300122-3013123231031011)
-- [default_pool.advanced_options](resources--http_loadbalancer--reference--group-014.md#canonical-2222122111331210-2233310023212212-1032010200303111-0132303220321311-0121033221020120-0233002303021120-1100000123201321-0212203223022100)
+- [default_pool](resources--http_loadbalancer--reference--group-015.md#canonical-3011031210301023-3111303122131111-0122010032202013-2011101001022200-0221332123322110-1223213221131013-1210333203300122-3013123231031011)
+- [default_pool.advanced_options](resources--http_loadbalancer--reference--group-015.md#canonical-2222122111331210-2233310023212212-1032010200303111-0132303220321311-0121033221020120-0233002303021120-1100000123201321-0212203223022100)
 - [default_pool.advanced_options.http1_config](resources--http_loadbalancer--reference--group-015.md#canonical-0302331112230021-3012012233210300-0212201311313112-1010303210232213-1332033331013232-3023212022323232-1321110310002103-2032000231020000)
 - [default_pool.advanced_options.http1_config.header_transformation](resources--http_loadbalancer--reference--group-015.md#canonical-1101330321000013-2212300010220002-1310000332322113-3003211002121311-0123331303233202-0131033311223202-2123300010020112-1321021330013301)
 - default_pool.advanced_options.http1_config.header_transformation.preserve_case_header_transformation
@@ -1414,8 +2051,8 @@ Breadcrumbs:
 
 - [xcsh_http_loadbalancer](../resources/http_loadbalancer.md#canonical-1323101131323213-1200201313300133-0300111301103013-3131213012211311-3010002202001122-3231033222023323-2111000220211131-3013003223311203)
 - [Property reference](resources--http_loadbalancer--reference--group-001.md#canonical-2110231031112310-1130011000331010-1312132022002200-1232103213011301-2012100333100023-2000320333201213-1130030102202313-3122301032230233)
-- [default_pool](resources--http_loadbalancer--reference--group-014.md#canonical-3011031210301023-3111303122131111-0122010032202013-2011101001022200-0221332123322110-1223213221131013-1210333203300122-3013123231031011)
-- [default_pool.advanced_options](resources--http_loadbalancer--reference--group-014.md#canonical-2222122111331210-2233310023212212-1032010200303111-0132303220321311-0121033221020120-0233002303021120-1100000123201321-0212203223022100)
+- [default_pool](resources--http_loadbalancer--reference--group-015.md#canonical-3011031210301023-3111303122131111-0122010032202013-2011101001022200-0221332123322110-1223213221131013-1210333203300122-3013123231031011)
+- [default_pool.advanced_options](resources--http_loadbalancer--reference--group-015.md#canonical-2222122111331210-2233310023212212-1032010200303111-0132303220321311-0121033221020120-0233002303021120-1100000123201321-0212203223022100)
 - [default_pool.advanced_options.http1_config](resources--http_loadbalancer--reference--group-015.md#canonical-0302331112230021-3012012233210300-0212201311313112-1010303210232213-1332033331013232-3023212022323232-1321110310002103-2032000231020000)
 - [default_pool.advanced_options.http1_config.header_transformation](resources--http_loadbalancer--reference--group-015.md#canonical-1101330321000013-2212300010220002-1310000332322113-3003211002121311-0123331303233202-0131033311223202-2123300010020112-1321021330013301)
 - default_pool.advanced_options.http1_config.header_transformation.proper_case_header_transformation
@@ -1459,8 +2096,8 @@ Breadcrumbs:
 
 - [xcsh_http_loadbalancer](../resources/http_loadbalancer.md#canonical-1323101131323213-1200201313300133-0300111301103013-3131213012211311-3010002202001122-3231033222023323-2111000220211131-3013003223311203)
 - [Property reference](resources--http_loadbalancer--reference--group-001.md#canonical-2110231031112310-1130011000331010-1312132022002200-1232103213011301-2012100333100023-2000320333201213-1130030102202313-3122301032230233)
-- [default_pool](resources--http_loadbalancer--reference--group-014.md#canonical-3011031210301023-3111303122131111-0122010032202013-2011101001022200-0221332123322110-1223213221131013-1210333203300122-3013123231031011)
-- [default_pool.advanced_options](resources--http_loadbalancer--reference--group-014.md#canonical-2222122111331210-2233310023212212-1032010200303111-0132303220321311-0121033221020120-0233002303021120-1100000123201321-0212203223022100)
+- [default_pool](resources--http_loadbalancer--reference--group-015.md#canonical-3011031210301023-3111303122131111-0122010032202013-2011101001022200-0221332123322110-1223213221131013-1210333203300122-3013123231031011)
+- [default_pool.advanced_options](resources--http_loadbalancer--reference--group-015.md#canonical-2222122111331210-2233310023212212-1032010200303111-0132303220321311-0121033221020120-0233002303021120-1100000123201321-0212203223022100)
 - default_pool.advanced_options.http2_options
 
 <a id="canonical-0310020333302010-1022102012022203-0220011012212123-0003210220202020-1003300332320321-0303320121313212-3330130321032323-2113301001212100"></a>
@@ -1527,8 +2164,8 @@ Breadcrumbs:
 
 - [xcsh_http_loadbalancer](../resources/http_loadbalancer.md#canonical-1323101131323213-1200201313300133-0300111301103013-3131213012211311-3010002202001122-3231033222023323-2111000220211131-3013003223311203)
 - [Property reference](resources--http_loadbalancer--reference--group-001.md#canonical-2110231031112310-1130011000331010-1312132022002200-1232103213011301-2012100333100023-2000320333201213-1130030102202313-3122301032230233)
-- [default_pool](resources--http_loadbalancer--reference--group-014.md#canonical-3011031210301023-3111303122131111-0122010032202013-2011101001022200-0221332123322110-1223213221131013-1210333203300122-3013123231031011)
-- [default_pool.advanced_options](resources--http_loadbalancer--reference--group-014.md#canonical-2222122111331210-2233310023212212-1032010200303111-0132303220321311-0121033221020120-0233002303021120-1100000123201321-0212203223022100)
+- [default_pool](resources--http_loadbalancer--reference--group-015.md#canonical-3011031210301023-3111303122131111-0122010032202013-2011101001022200-0221332123322110-1223213221131013-1210333203300122-3013123231031011)
+- [default_pool.advanced_options](resources--http_loadbalancer--reference--group-015.md#canonical-2222122111331210-2233310023212212-1032010200303111-0132303220321311-0121033221020120-0233002303021120-1100000123201321-0212203223022100)
 - default_pool.advanced_options.no_panic_threshold
 
 <a id="canonical-1022211332103313-3020222102122012-3312232213020301-1031331320310032-2310123103321230-0201130000300002-0132123001123331-3011022332011223"></a>
@@ -1575,8 +2212,8 @@ Breadcrumbs:
 
 - [xcsh_http_loadbalancer](../resources/http_loadbalancer.md#canonical-1323101131323213-1200201313300133-0300111301103013-3131213012211311-3010002202001122-3231033222023323-2111000220211131-3013003223311203)
 - [Property reference](resources--http_loadbalancer--reference--group-001.md#canonical-2110231031112310-1130011000331010-1312132022002200-1232103213011301-2012100333100023-2000320333201213-1130030102202313-3122301032230233)
-- [default_pool](resources--http_loadbalancer--reference--group-014.md#canonical-3011031210301023-3111303122131111-0122010032202013-2011101001022200-0221332123322110-1223213221131013-1210333203300122-3013123231031011)
-- [default_pool.advanced_options](resources--http_loadbalancer--reference--group-014.md#canonical-2222122111331210-2233310023212212-1032010200303111-0132303220321311-0121033221020120-0233002303021120-1100000123201321-0212203223022100)
+- [default_pool](resources--http_loadbalancer--reference--group-015.md#canonical-3011031210301023-3111303122131111-0122010032202013-2011101001022200-0221332123322110-1223213221131013-1210333203300122-3013123231031011)
+- [default_pool.advanced_options](resources--http_loadbalancer--reference--group-015.md#canonical-2222122111331210-2233310023212212-1032010200303111-0132303220321311-0121033221020120-0233002303021120-1100000123201321-0212203223022100)
 - default_pool.advanced_options.no_request_limit_per_connection
 
 <a id="canonical-0232033110230333-1121230303102131-3231103211320301-1001102220101103-1200202132200112-2001221021002130-0201000313020000-1023312220323033"></a>
@@ -1623,8 +2260,8 @@ Breadcrumbs:
 
 - [xcsh_http_loadbalancer](../resources/http_loadbalancer.md#canonical-1323101131323213-1200201313300133-0300111301103013-3131213012211311-3010002202001122-3231033222023323-2111000220211131-3013003223311203)
 - [Property reference](resources--http_loadbalancer--reference--group-001.md#canonical-2110231031112310-1130011000331010-1312132022002200-1232103213011301-2012100333100023-2000320333201213-1130030102202313-3122301032230233)
-- [default_pool](resources--http_loadbalancer--reference--group-014.md#canonical-3011031210301023-3111303122131111-0122010032202013-2011101001022200-0221332123322110-1223213221131013-1210333203300122-3013123231031011)
-- [default_pool.advanced_options](resources--http_loadbalancer--reference--group-014.md#canonical-2222122111331210-2233310023212212-1032010200303111-0132303220321311-0121033221020120-0233002303021120-1100000123201321-0212203223022100)
+- [default_pool](resources--http_loadbalancer--reference--group-015.md#canonical-3011031210301023-3111303122131111-0122010032202013-2011101001022200-0221332123322110-1223213221131013-1210333203300122-3013123231031011)
+- [default_pool.advanced_options](resources--http_loadbalancer--reference--group-015.md#canonical-2222122111331210-2233310023212212-1032010200303111-0132303220321311-0121033221020120-0233002303021120-1100000123201321-0212203223022100)
 - default_pool.advanced_options.outlier_detection
 
 <a id="canonical-0322033302102001-0111111010013331-0310230033311320-1211011211033023-2110233221133002-1221112103100020-2111010030323303-3232130210033131"></a>
@@ -1685,6 +2322,7 @@ they continue to fail. Defaults to 30000ms or 30s. Specified in milliseconds.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.AtMost(1800000),
 }
@@ -1737,6 +2375,7 @@ number of consecutive 5xx responses required before a consecutive 5xx ejection o
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.AtMost(1024),
 }
@@ -1789,6 +2428,7 @@ consecutive gateway failure ejection occurs. Defaults to 5.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.AtMost(1024),
 }
@@ -1842,6 +2482,7 @@ Defaults to 10000ms or 10s. Specified in milliseconds.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(1, 600000),
 }
@@ -1898,6 +2539,7 @@ but will eject at least one host regardless of the value.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.AtMost(100),
 }
@@ -1945,8 +2587,8 @@ Breadcrumbs:
 
 - [xcsh_http_loadbalancer](../resources/http_loadbalancer.md#canonical-1323101131323213-1200201313300133-0300111301103013-3131213012211311-3010002202001122-3231033222023323-2111000220211131-3013003223311203)
 - [Property reference](resources--http_loadbalancer--reference--group-001.md#canonical-2110231031112310-1130011000331010-1312132022002200-1232103213011301-2012100333100023-2000320333201213-1130030102202313-3122301032230233)
-- [default_pool](resources--http_loadbalancer--reference--group-014.md#canonical-3011031210301023-3111303122131111-0122010032202013-2011101001022200-0221332123322110-1223213221131013-1210333203300122-3013123231031011)
-- [default_pool.advanced_options](resources--http_loadbalancer--reference--group-014.md#canonical-2222122111331210-2233310023212212-1032010200303111-0132303220321311-0121033221020120-0233002303021120-1100000123201321-0212203223022100)
+- [default_pool](resources--http_loadbalancer--reference--group-015.md#canonical-3011031210301023-3111303122131111-0122010032202013-2011101001022200-0221332123322110-1223213221131013-1210333203300122-3013123231031011)
+- [default_pool.advanced_options](resources--http_loadbalancer--reference--group-015.md#canonical-2222122111331210-2233310023212212-1032010200303111-0132303220321311-0121033221020120-0233002303021120-1100000123201321-0212203223022100)
 - default_pool.advanced_options.proxy_protocol_v1
 
 <a id="canonical-1100222112113012-3331221121020132-0002130310313301-2031133103032001-1123033001100031-2130333133322222-2211303320132010-0033123222311220"></a>
@@ -1992,8 +2634,8 @@ Breadcrumbs:
 
 - [xcsh_http_loadbalancer](../resources/http_loadbalancer.md#canonical-1323101131323213-1200201313300133-0300111301103013-3131213012211311-3010002202001122-3231033222023323-2111000220211131-3013003223311203)
 - [Property reference](resources--http_loadbalancer--reference--group-001.md#canonical-2110231031112310-1130011000331010-1312132022002200-1232103213011301-2012100333100023-2000320333201213-1130030102202313-3122301032230233)
-- [default_pool](resources--http_loadbalancer--reference--group-014.md#canonical-3011031210301023-3111303122131111-0122010032202013-2011101001022200-0221332123322110-1223213221131013-1210333203300122-3013123231031011)
-- [default_pool.advanced_options](resources--http_loadbalancer--reference--group-014.md#canonical-2222122111331210-2233310023212212-1032010200303111-0132303220321311-0121033221020120-0233002303021120-1100000123201321-0212203223022100)
+- [default_pool](resources--http_loadbalancer--reference--group-015.md#canonical-3011031210301023-3111303122131111-0122010032202013-2011101001022200-0221332123322110-1223213221131013-1210333203300122-3013123231031011)
+- [default_pool.advanced_options](resources--http_loadbalancer--reference--group-015.md#canonical-2222122111331210-2233310023212212-1032010200303111-0132303220321311-0121033221020120-0233002303021120-1100000123201321-0212203223022100)
 - default_pool.advanced_options.proxy_protocol_v2
 
 <a id="canonical-0131302130110311-0323020023003313-3312112231113110-1321203003332230-0232213210200303-3201131313312003-2102203020001222-3311210232020033"></a>
@@ -2039,7 +2681,7 @@ Breadcrumbs:
 
 - [xcsh_http_loadbalancer](../resources/http_loadbalancer.md#canonical-1323101131323213-1200201313300133-0300111301103013-3131213012211311-3010002202001122-3231033222023323-2111000220211131-3013003223311203)
 - [Property reference](resources--http_loadbalancer--reference--group-001.md#canonical-2110231031112310-1130011000331010-1312132022002200-1232103213011301-2012100333100023-2000320333201213-1130030102202313-3122301032230233)
-- [default_pool](resources--http_loadbalancer--reference--group-014.md#canonical-3011031210301023-3111303122131111-0122010032202013-2011101001022200-0221332123322110-1223213221131013-1210333203300122-3013123231031011)
+- [default_pool](resources--http_loadbalancer--reference--group-015.md#canonical-3011031210301023-3111303122131111-0122010032202013-2011101001022200-0221332123322110-1223213221131013-1210333203300122-3013123231031011)
 - default_pool.automatic_port
 
 <a id="canonical-2313110132311100-3111321122021032-3123313000302213-1213001120002121-2312123132031000-3002131231002120-3122032130323102-3221311302001001"></a>
@@ -2085,7 +2727,7 @@ Breadcrumbs:
 
 - [xcsh_http_loadbalancer](../resources/http_loadbalancer.md#canonical-1323101131323213-1200201313300133-0300111301103013-3131213012211311-3010002202001122-3231033222023323-2111000220211131-3013003223311203)
 - [Property reference](resources--http_loadbalancer--reference--group-001.md#canonical-2110231031112310-1130011000331010-1312132022002200-1232103213011301-2012100333100023-2000320333201213-1130030102202313-3122301032230233)
-- [default_pool](resources--http_loadbalancer--reference--group-014.md#canonical-3011031210301023-3111303122131111-0122010032202013-2011101001022200-0221332123322110-1223213221131013-1210333203300122-3013123231031011)
+- [default_pool](resources--http_loadbalancer--reference--group-015.md#canonical-3011031210301023-3111303122131111-0122010032202013-2011101001022200-0221332123322110-1223213221131013-1210333203300122-3013123231031011)
 - default_pool.healthcheck
 
 <a id="canonical-3321201032103203-0010132301030130-0101111301123300-3232003021233132-3102003223230202-2233101310232110-2131000130131013-0131200331133313"></a>
@@ -2098,6 +2740,7 @@ omitted.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.RequiredListObjectAttributes("name")}
 ```
 
@@ -2156,6 +2799,7 @@ referred object's(e.g. Route's) name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 128),
 }
@@ -2216,6 +2860,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -2283,6 +2928,7 @@ the referred object's(e.g. Route's) tenant.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(64),
 }
@@ -2334,7 +2980,7 @@ Breadcrumbs:
 
 - [xcsh_http_loadbalancer](../resources/http_loadbalancer.md#canonical-1323101131323213-1200201313300133-0300111301103013-3131213012211311-3010002202001122-3231033222023323-2111000220211131-3013003223311203)
 - [Property reference](resources--http_loadbalancer--reference--group-001.md#canonical-2110231031112310-1130011000331010-1312132022002200-1232103213011301-2012100333100023-2000320333201213-1130030102202313-3122301032230233)
-- [default_pool](resources--http_loadbalancer--reference--group-014.md#canonical-3011031210301023-3111303122131111-0122010032202013-2011101001022200-0221332123322110-1223213221131013-1210333203300122-3013123231031011)
+- [default_pool](resources--http_loadbalancer--reference--group-015.md#canonical-3011031210301023-3111303122131111-0122010032202013-2011101001022200-0221332123322110-1223213221131013-1210333203300122-3013123231031011)
 - default_pool.lb_port
 
 <a id="canonical-2110013230303102-3103011311021101-0103233330101302-2331301030331121-2333030110030320-1023233022120300-3321012212011110-1300010023230300"></a>
@@ -2380,7 +3026,7 @@ Breadcrumbs:
 
 - [xcsh_http_loadbalancer](../resources/http_loadbalancer.md#canonical-1323101131323213-1200201313300133-0300111301103013-3131213012211311-3010002202001122-3231033222023323-2111000220211131-3013003223311203)
 - [Property reference](resources--http_loadbalancer--reference--group-001.md#canonical-2110231031112310-1130011000331010-1312132022002200-1232103213011301-2012100333100023-2000320333201213-1130030102202313-3122301032230233)
-- [default_pool](resources--http_loadbalancer--reference--group-014.md#canonical-3011031210301023-3111303122131111-0122010032202013-2011101001022200-0221332123322110-1223213221131013-1210333203300122-3013123231031011)
+- [default_pool](resources--http_loadbalancer--reference--group-015.md#canonical-3011031210301023-3111303122131111-0122010032202013-2011101001022200-0221332123322110-1223213221131013-1210333203300122-3013123231031011)
 - default_pool.no_tls
 
 <a id="canonical-3201312012232201-1110033123111301-1020312022211332-3310331103120332-2103221222002020-0120230301023211-0001112030231102-0322002331022010"></a>
@@ -2426,7 +3072,7 @@ Breadcrumbs:
 
 - [xcsh_http_loadbalancer](../resources/http_loadbalancer.md#canonical-1323101131323213-1200201313300133-0300111301103013-3131213012211311-3010002202001122-3231033222023323-2111000220211131-3013003223311203)
 - [Property reference](resources--http_loadbalancer--reference--group-001.md#canonical-2110231031112310-1130011000331010-1312132022002200-1232103213011301-2012100333100023-2000320333201213-1130030102202313-3122301032230233)
-- [default_pool](resources--http_loadbalancer--reference--group-014.md#canonical-3011031210301023-3111303122131111-0122010032202013-2011101001022200-0221332123322110-1223213221131013-1210333203300122-3013123231031011)
+- [default_pool](resources--http_loadbalancer--reference--group-015.md#canonical-3011031210301023-3111303122131111-0122010032202013-2011101001022200-0221332123322110-1223213221131013-1210333203300122-3013123231031011)
 - default_pool.origin_servers
 
 <a id="canonical-2120323112222332-2100013231020103-0321331203103333-0110132300202113-0322332002332001-1212121003303002-3031013232333230-1020230033331222"></a>
@@ -2438,6 +3084,7 @@ Origin Servers. List of origin servers in this pool.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.ConflictingListObjectAttributes("cbip_service",
     "consul_service"),
   validators.ConflictingListObjectAttributes("cbip_service",
@@ -2586,7 +3233,7 @@ origin_servers {
 
 - [consul_service](resources--http_loadbalancer--reference--group-015.md#canonical-2020023111021302-1200212320111301-0102000200230210-2010021200130100-2000133311311320-2220000303333020-0002102320120101-3200312012201003): complete subsection reference.
 
-- [custom_endpoint_object](resources--http_loadbalancer--reference--group-015.md#canonical-3320101200101333-0101332020212110-3023110121121203-0211302010232331-0301203130200233-3221233212020201-1322313330211100-1110201120130123): complete subsection reference.
+- [custom_endpoint_object](resources--http_loadbalancer--reference--group-016.md#canonical-3320101200101333-0101332020212110-3023110121121203-0211302010232331-0301203130200233-3221233212020201-1322313330211100-1110201120130123): complete subsection reference.
 
 - [k8s_service](resources--http_loadbalancer--reference--group-016.md#canonical-0100230210321023-0023121030121111-1331103102003302-1011001233230211-3322100123012322-1333212023202112-1222312332312123-3210332033123213): complete subsection reference.
 
@@ -2637,7 +3284,7 @@ Breadcrumbs:
 
 - [xcsh_http_loadbalancer](../resources/http_loadbalancer.md#canonical-1323101131323213-1200201313300133-0300111301103013-3131213012211311-3010002202001122-3231033222023323-2111000220211131-3013003223311203)
 - [Property reference](resources--http_loadbalancer--reference--group-001.md#canonical-2110231031112310-1130011000331010-1312132022002200-1232103213011301-2012100333100023-2000320333201213-1130030102202313-3122301032230233)
-- [default_pool](resources--http_loadbalancer--reference--group-014.md#canonical-3011031210301023-3111303122131111-0122010032202013-2011101001022200-0221332123322110-1223213221131013-1210333203300122-3013123231031011)
+- [default_pool](resources--http_loadbalancer--reference--group-015.md#canonical-3011031210301023-3111303122131111-0122010032202013-2011101001022200-0221332123322110-1223213221131013-1210333203300122-3013123231031011)
 - [default_pool.origin_servers](resources--http_loadbalancer--reference--group-015.md#canonical-3032210112122003-3001300202101031-2123213322103223-0023311332223220-3323333210222101-3133123322012320-1210021330031123-1312333220120031)
 - default_pool.origin_servers.cbip_service
 
@@ -2650,6 +3297,7 @@ Specify origin server with Classic BIG-IP Service (Virtual Server).
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("service_name")}
 ```
 
@@ -2727,7 +3375,7 @@ Breadcrumbs:
 
 - [xcsh_http_loadbalancer](../resources/http_loadbalancer.md#canonical-1323101131323213-1200201313300133-0300111301103013-3131213012211311-3010002202001122-3231033222023323-2111000220211131-3013003223311203)
 - [Property reference](resources--http_loadbalancer--reference--group-001.md#canonical-2110231031112310-1130011000331010-1312132022002200-1232103213011301-2012100333100023-2000320333201213-1130030102202313-3122301032230233)
-- [default_pool](resources--http_loadbalancer--reference--group-014.md#canonical-3011031210301023-3111303122131111-0122010032202013-2011101001022200-0221332123322110-1223213221131013-1210333203300122-3013123231031011)
+- [default_pool](resources--http_loadbalancer--reference--group-015.md#canonical-3011031210301023-3111303122131111-0122010032202013-2011101001022200-0221332123322110-1223213221131013-1210333203300122-3013123231031011)
 - [default_pool.origin_servers](resources--http_loadbalancer--reference--group-015.md#canonical-3032210112122003-3001300202101031-2123213322103223-0023311332223220-3323333210222101-3133123322012320-1210021330031123-1312333220120031)
 - default_pool.origin_servers.consul_service
 
@@ -2740,6 +3388,7 @@ Specify origin server with HashiCorp Consul service name and site information.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("service_name"),
   validators.ConflictingObjectAttributes("inside_network",
     "outside_network")}
@@ -2817,7 +3466,7 @@ Receipt-pinned upstream constraints:
 
 - [site_locator](resources--http_loadbalancer--reference--group-015.md#canonical-1323111100223303-1312011332301001-3103112212130120-1123302201120002-2201130210332220-3203331113133221-3111311301322111-1101213123011332): complete subsection reference.
 
-- [snat_pool](resources--http_loadbalancer--reference--group-015.md#canonical-1203200311313231-3123130203231211-0212312001001320-2000333120210300-0003011112231121-2210223300312313-2213133112232123-2212023301012001): complete subsection reference.
+- [snat_pool](resources--http_loadbalancer--reference--group-016.md#canonical-1203200311313231-3123130203231211-0212312001001320-2000333120210300-0003011112231121-2210223300312313-2213133112232123-2212023301012001): complete subsection reference.
 
 <a id="canonical-0021012310103003-3301013203103103-2103030200210222-2210112310201122-2220132020123330-0332113323120102-2000131110202233-3103320222100133"></a>
 
@@ -2831,7 +3480,7 @@ Breadcrumbs:
 
 - [xcsh_http_loadbalancer](../resources/http_loadbalancer.md#canonical-1323101131323213-1200201313300133-0300111301103013-3131213012211311-3010002202001122-3231033222023323-2111000220211131-3013003223311203)
 - [Property reference](resources--http_loadbalancer--reference--group-001.md#canonical-2110231031112310-1130011000331010-1312132022002200-1232103213011301-2012100333100023-2000320333201213-1130030102202313-3122301032230233)
-- [default_pool](resources--http_loadbalancer--reference--group-014.md#canonical-3011031210301023-3111303122131111-0122010032202013-2011101001022200-0221332123322110-1223213221131013-1210333203300122-3013123231031011)
+- [default_pool](resources--http_loadbalancer--reference--group-015.md#canonical-3011031210301023-3111303122131111-0122010032202013-2011101001022200-0221332123322110-1223213221131013-1210333203300122-3013123231031011)
 - [default_pool.origin_servers](resources--http_loadbalancer--reference--group-015.md#canonical-3032210112122003-3001300202101031-2123213322103223-0023311332223220-3323333210222101-3133123322012320-1210021330031123-1312333220120031)
 - [default_pool.origin_servers.consul_service](resources--http_loadbalancer--reference--group-015.md#canonical-2020023111021302-1200212320111301-0102000200230210-2010021200130100-2000133311311320-2220000303333020-0002102320120101-3200312012201003)
 - default_pool.origin_servers.consul_service.inside_network
@@ -2879,7 +3528,7 @@ Breadcrumbs:
 
 - [xcsh_http_loadbalancer](../resources/http_loadbalancer.md#canonical-1323101131323213-1200201313300133-0300111301103013-3131213012211311-3010002202001122-3231033222023323-2111000220211131-3013003223311203)
 - [Property reference](resources--http_loadbalancer--reference--group-001.md#canonical-2110231031112310-1130011000331010-1312132022002200-1232103213011301-2012100333100023-2000320333201213-1130030102202313-3122301032230233)
-- [default_pool](resources--http_loadbalancer--reference--group-014.md#canonical-3011031210301023-3111303122131111-0122010032202013-2011101001022200-0221332123322110-1223213221131013-1210333203300122-3013123231031011)
+- [default_pool](resources--http_loadbalancer--reference--group-015.md#canonical-3011031210301023-3111303122131111-0122010032202013-2011101001022200-0221332123322110-1223213221131013-1210333203300122-3013123231031011)
 - [default_pool.origin_servers](resources--http_loadbalancer--reference--group-015.md#canonical-3032210112122003-3001300202101031-2123213322103223-0023311332223220-3323333210222101-3133123322012320-1210021330031123-1312333220120031)
 - [default_pool.origin_servers.consul_service](resources--http_loadbalancer--reference--group-015.md#canonical-2020023111021302-1200212320111301-0102000200230210-2010021200130100-2000133311311320-2220000303333020-0002102320120101-3200312012201003)
 - default_pool.origin_servers.consul_service.outside_network
@@ -2927,7 +3576,7 @@ Breadcrumbs:
 
 - [xcsh_http_loadbalancer](../resources/http_loadbalancer.md#canonical-1323101131323213-1200201313300133-0300111301103013-3131213012211311-3010002202001122-3231033222023323-2111000220211131-3013003223311203)
 - [Property reference](resources--http_loadbalancer--reference--group-001.md#canonical-2110231031112310-1130011000331010-1312132022002200-1232103213011301-2012100333100023-2000320333201213-1130030102202313-3122301032230233)
-- [default_pool](resources--http_loadbalancer--reference--group-014.md#canonical-3011031210301023-3111303122131111-0122010032202013-2011101001022200-0221332123322110-1223213221131013-1210333203300122-3013123231031011)
+- [default_pool](resources--http_loadbalancer--reference--group-015.md#canonical-3011031210301023-3111303122131111-0122010032202013-2011101001022200-0221332123322110-1223213221131013-1210333203300122-3013123231031011)
 - [default_pool.origin_servers](resources--http_loadbalancer--reference--group-015.md#canonical-3032210112122003-3001300202101031-2123213322103223-0023311332223220-3323333210222101-3133123322012320-1210021330031123-1312333220120031)
 - [default_pool.origin_servers.consul_service](resources--http_loadbalancer--reference--group-015.md#canonical-2020023111021302-1200212320111301-0102000200230210-2010021200130100-2000133311311320-2220000303333020-0002102320120101-3200312012201003)
 - default_pool.origin_servers.consul_service.site_locator
@@ -2941,6 +3590,7 @@ This message defines a reference to a site or virtual site object.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("site",
     "virtual_site")}
 ```
@@ -2973,7 +3623,7 @@ site_locator {
 
 - [site](resources--http_loadbalancer--reference--group-015.md#canonical-2030012200213100-0032323231132322-0220132010110331-1100102333013123-1330312330003113-1220211020120123-0211022231001203-3231002303021200): complete subsection reference.
 
-- [virtual_site](resources--http_loadbalancer--reference--group-015.md#canonical-0133302031203232-3121110331002233-0133300101033002-1311320120221330-2330211033311312-3111021032210110-3212310010101333-1232332132302231): complete subsection reference.
+- [virtual_site](resources--http_loadbalancer--reference--group-016.md#canonical-0133302031203232-3121110331002233-0133300101033002-1311320120221330-2330211033311312-3111021032210110-3212310010101333-1232332132302231): complete subsection reference.
 
 <a id="canonical-2030012200213100-0032323231132322-0220132010110331-1100102333013123-1330312330003113-1220211020120123-0211022231001203-3231002303021200"></a>
 
@@ -2987,7 +3637,7 @@ Breadcrumbs:
 
 - [xcsh_http_loadbalancer](../resources/http_loadbalancer.md#canonical-1323101131323213-1200201313300133-0300111301103013-3131213012211311-3010002202001122-3231033222023323-2111000220211131-3013003223311203)
 - [Property reference](resources--http_loadbalancer--reference--group-001.md#canonical-2110231031112310-1130011000331010-1312132022002200-1232103213011301-2012100333100023-2000320333201213-1130030102202313-3122301032230233)
-- [default_pool](resources--http_loadbalancer--reference--group-014.md#canonical-3011031210301023-3111303122131111-0122010032202013-2011101001022200-0221332123322110-1223213221131013-1210333203300122-3013123231031011)
+- [default_pool](resources--http_loadbalancer--reference--group-015.md#canonical-3011031210301023-3111303122131111-0122010032202013-2011101001022200-0221332123322110-1223213221131013-1210333203300122-3013123231031011)
 - [default_pool.origin_servers](resources--http_loadbalancer--reference--group-015.md#canonical-3032210112122003-3001300202101031-2123213322103223-0023311332223220-3323333210222101-3133123322012320-1210021330031123-1312333220120031)
 - [default_pool.origin_servers.consul_service](resources--http_loadbalancer--reference--group-015.md#canonical-2020023111021302-1200212320111301-0102000200230210-2010021200130100-2000133311311320-2220000303333020-0002102320120101-3200312012201003)
 - [default_pool.origin_servers.consul_service.site_locator](resources--http_loadbalancer--reference--group-015.md#canonical-1323111100223303-1312011332301001-3103112212130120-1123302201120002-2201130210332220-3203331113133221-3111311301322111-1101213123011332)
@@ -3003,6 +3653,7 @@ Such a reference is in form of tenant/namespace/name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
 ```
 
@@ -3043,6 +3694,7 @@ referred object's(e.g. Route's) name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 128),
 }
@@ -3103,6 +3755,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -3157,547 +3810,3 @@ Receipt-pinned upstream constraints:
 ```
 
 <a id="canonical-2022121013300332-1213011100000302-2100321100030020-1001132213333013-0132033202123001-0112012302003102-2220031301330221-0130312032320122"></a>
-
-<a id="canonical-1013101020301211-0300113323013020-1012211223002133-1221021010320123-0201111110312321-3122000023212320-3102123312313202-3203312200103233"></a>
-
-#### `default_pool.origin_servers.consul_service.site_locator.site.tenant` property
-
-Type: `"string"`. Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
-the referred object's(e.g. Route's) tenant.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.String{
-  stringvalidator.LengthAtMost(64),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxLength": 64,
-  "x-f5xc-constraints": {
-    "byteLength": {
-      "max": 64
-    },
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "maxLength": 64,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.string.max_bytes": "64"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.string.max_bytes": "64"
-  }
-}
-```
-
-<a id="canonical-0133302031203232-3121110331002233-0133300101033002-1311320120221330-2330211033311312-3111021032210110-3212310010101333-1232332132302231"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-## `default_pool.origin_servers.consul_service.site_locator.virtual_site` properties
-
-Breadcrumbs:
-
-- [xcsh_http_loadbalancer](../resources/http_loadbalancer.md#canonical-1323101131323213-1200201313300133-0300111301103013-3131213012211311-3010002202001122-3231033222023323-2111000220211131-3013003223311203)
-- [Property reference](resources--http_loadbalancer--reference--group-001.md#canonical-2110231031112310-1130011000331010-1312132022002200-1232103213011301-2012100333100023-2000320333201213-1130030102202313-3122301032230233)
-- [default_pool](resources--http_loadbalancer--reference--group-014.md#canonical-3011031210301023-3111303122131111-0122010032202013-2011101001022200-0221332123322110-1223213221131013-1210333203300122-3013123231031011)
-- [default_pool.origin_servers](resources--http_loadbalancer--reference--group-015.md#canonical-3032210112122003-3001300202101031-2123213322103223-0023311332223220-3323333210222101-3133123322012320-1210021330031123-1312333220120031)
-- [default_pool.origin_servers.consul_service](resources--http_loadbalancer--reference--group-015.md#canonical-2020023111021302-1200212320111301-0102000200230210-2010021200130100-2000133311311320-2220000303333020-0002102320120101-3200312012201003)
-- [default_pool.origin_servers.consul_service.site_locator](resources--http_loadbalancer--reference--group-015.md#canonical-1323111100223303-1312011332301001-3103112212130120-1123302201120002-2201130210332220-3203331113133221-3111311301322111-1101213123011332)
-- default_pool.origin_servers.consul_service.site_locator.virtual_site
-
-<a id="canonical-1010330112120130-2120210010302032-2230021300032203-0200331032320112-0320110120010231-1323303003110231-3231021131012020-1002132310000010"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-This type establishes a direct reference from one object(the referrer) to another(the referred).
-Such a reference is in form of tenant/namespace/name.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-virtual_site {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-0033233033310033-3012023302020132-2120112331232131-2133000111120103-0023302131301132-0101211011332131-3132112000331100-2203332033223003"></a>
-
-### Direct properties for `default_pool.origin_servers.consul_service.site_locator.virtual_site`
-
-<a id="canonical-1221300210130230-0322202303012020-0021033311032303-2111211001020002-0212103320130101-3023223203102213-2103323202131000-0312313232211021"></a>
-
-#### `default_pool.origin_servers.consul_service.site_locator.virtual_site.name` property
-
-Type: `"string"`. Optional.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
-referred object's(e.g. Route's) name.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 128),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxLength": 128,
-  "minLength": 1,
-  "x-f5xc-constraints": {
-    "byteLength": {
-      "max": 128,
-      "min": 1
-    },
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "maxLength": 128,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
-    },
-    "minLength": 1
-  },
-  "x-f5xc-required-for": {
-    "create": true,
-    "minimum_config": true,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.max_bytes": "128",
-    "ves.io.schema.rules.string.min_bytes": "1"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.max_bytes": "128",
-    "ves.io.schema.rules.string.min_bytes": "1"
-  }
-}
-```
-
-<a id="canonical-2312220231000012-1103233323120132-2131332130213223-2003010001231032-2333100322100123-3103212111132222-2120100210022103-3221021203202333"></a>
-
-<a id="canonical-1221103021123023-2112210220020202-0103220332200102-3112011100200100-3023211102321013-0232213131333312-0200230110022113-1203302102102020"></a>
-
-#### `default_pool.origin_servers.consul_service.site_locator.virtual_site.namespace` property
-
-Type: `"string"`. Optional, Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
-hold the referred object's(e.g. Route's) namespace.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 63),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxLength": 64,
-  "x-f5xc-constraints": {
-    "byteLength": {
-      "max": 64
-    },
-    "category": "discovery",
-    "characterSet": {
-      "allowed": "[a-z0-9-]",
-      "description": "Lowercase letter start, alphanumeric with hyphens, alphanumeric end",
-      "required": "[a-z0-9]",
-      "restricted": "[^a-z0-9-]"
-    },
-    "constraintType": "string",
-    "deterministic": true,
-    "format": "dns-label",
-    "formatDescription": "DNS-1035 label: must start with a lowercase letter",
-    "maxLength": 63,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
-    },
-    "minLength": 1,
-    "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
-    "validation": {
-      "rfc": "RFC 1035",
-      "standard": "DNS-1035 label (alpha-first)"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.string.max_bytes": "64"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.string.max_bytes": "64"
-  }
-}
-```
-
-<a id="canonical-3100313222210030-3011102231111132-0312013102122011-2211101002330110-2013202222001023-2033013203232112-2222203103132313-0201223210102231"></a>
-
-<a id="canonical-2232010003332321-2021011022020132-0022033310232330-0311233002132120-0310323231032303-0110111103101120-3031230220002233-2221201233002311"></a>
-
-#### `default_pool.origin_servers.consul_service.site_locator.virtual_site.tenant` property
-
-Type: `"string"`. Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
-the referred object's(e.g. Route's) tenant.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.String{
-  stringvalidator.LengthAtMost(64),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxLength": 64,
-  "x-f5xc-constraints": {
-    "byteLength": {
-      "max": 64
-    },
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "maxLength": 64,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.string.max_bytes": "64"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.string.max_bytes": "64"
-  }
-}
-```
-
-<a id="canonical-1203200311313231-3123130203231211-0212312001001320-2000333120210300-0003011112231121-2210223300312313-2213133112232123-2212023301012001"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-## `default_pool.origin_servers.consul_service.snat_pool` properties
-
-Breadcrumbs:
-
-- [xcsh_http_loadbalancer](../resources/http_loadbalancer.md#canonical-1323101131323213-1200201313300133-0300111301103013-3131213012211311-3010002202001122-3231033222023323-2111000220211131-3013003223311203)
-- [Property reference](resources--http_loadbalancer--reference--group-001.md#canonical-2110231031112310-1130011000331010-1312132022002200-1232103213011301-2012100333100023-2000320333201213-1130030102202313-3122301032230233)
-- [default_pool](resources--http_loadbalancer--reference--group-014.md#canonical-3011031210301023-3111303122131111-0122010032202013-2011101001022200-0221332123322110-1223213221131013-1210333203300122-3013123231031011)
-- [default_pool.origin_servers](resources--http_loadbalancer--reference--group-015.md#canonical-3032210112122003-3001300202101031-2123213322103223-0023311332223220-3323333210222101-3133123322012320-1210021330031123-1312333220120031)
-- [default_pool.origin_servers.consul_service](resources--http_loadbalancer--reference--group-015.md#canonical-2020023111021302-1200212320111301-0102000200230210-2010021200130100-2000133311311320-2220000303333020-0002102320120101-3200312012201003)
-- default_pool.origin_servers.consul_service.snat_pool
-
-<a id="canonical-1130002121200030-1210331321012030-1101033102130212-2302323320332020-2113310120230120-0221122133223322-2102130321110331-0001202023212012"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-SNAT Pool. SNAT Pool configuration.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.Object{validators.ConflictingObjectAttributes("no_snat_pool",
-    "snat_pool")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-ves-oneof-field-snat_pool_choice": "[\"no_snat_pool\",\"snat_pool\"]"
-}
-```
-
-Terraform syntax:
-
-```terraform
-snat_pool {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-0233311120100011-2102223111032200-2232021321010011-2112001313103120-2223330123223000-2201033313023233-0010023121211031-1320230033030313"></a>
-
-### Direct properties for `default_pool.origin_servers.consul_service.snat_pool`
-
-- [no_snat_pool](resources--http_loadbalancer--reference--group-015.md#canonical-2301003111221220-1013111013322223-1111022020003311-0333002213101120-0020010010223201-1231300022231210-3333012213310323-2023133312210021): complete subsection reference.
-
-- [snat_pool](resources--http_loadbalancer--reference--group-015.md#canonical-0333102310112313-2200020111021211-3323021323313103-0203103011312223-3303300232010221-1333120302212132-2110213221332113-3013312020122112): complete subsection reference.
-
-<a id="canonical-2301003111221220-1013111013322223-1111022020003311-0333002213101120-0020010010223201-1231300022231210-3333012213310323-2023133312210021"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-## `default_pool.origin_servers.consul_service.snat_pool.no_snat_pool` properties
-
-Breadcrumbs:
-
-- [xcsh_http_loadbalancer](../resources/http_loadbalancer.md#canonical-1323101131323213-1200201313300133-0300111301103013-3131213012211311-3010002202001122-3231033222023323-2111000220211131-3013003223311203)
-- [Property reference](resources--http_loadbalancer--reference--group-001.md#canonical-2110231031112310-1130011000331010-1312132022002200-1232103213011301-2012100333100023-2000320333201213-1130030102202313-3122301032230233)
-- [default_pool](resources--http_loadbalancer--reference--group-014.md#canonical-3011031210301023-3111303122131111-0122010032202013-2011101001022200-0221332123322110-1223213221131013-1210333203300122-3013123231031011)
-- [default_pool.origin_servers](resources--http_loadbalancer--reference--group-015.md#canonical-3032210112122003-3001300202101031-2123213322103223-0023311332223220-3323333210222101-3133123322012320-1210021330031123-1312333220120031)
-- [default_pool.origin_servers.consul_service](resources--http_loadbalancer--reference--group-015.md#canonical-2020023111021302-1200212320111301-0102000200230210-2010021200130100-2000133311311320-2220000303333020-0002102320120101-3200312012201003)
-- [default_pool.origin_servers.consul_service.snat_pool](resources--http_loadbalancer--reference--group-015.md#canonical-1203200311313231-3123130203231211-0212312001001320-2000333120210300-0003011112231121-2210223300312313-2213133112232123-2212023301012001)
-- default_pool.origin_servers.consul_service.snat_pool.no_snat_pool
-
-<a id="canonical-2021223113030031-1110221031332332-3001122220211012-1013103123013332-3313111221213020-1110103102002310-1121000130201202-3330032032023020"></a>
-
-Type: `["object", {}]`. Optional.
-
-Configuration parameter for no snat pool.
-
-Additional upstream details:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-no_snat_pool = {}
-```
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-0333102310112313-2200020111021211-3323021323313103-0203103011312223-3303300232010221-1333120302212132-2110213221332113-3013312020122112"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-## `default_pool.origin_servers.consul_service.snat_pool.snat_pool` properties
-
-Breadcrumbs:
-
-- [xcsh_http_loadbalancer](../resources/http_loadbalancer.md#canonical-1323101131323213-1200201313300133-0300111301103013-3131213012211311-3010002202001122-3231033222023323-2111000220211131-3013003223311203)
-- [Property reference](resources--http_loadbalancer--reference--group-001.md#canonical-2110231031112310-1130011000331010-1312132022002200-1232103213011301-2012100333100023-2000320333201213-1130030102202313-3122301032230233)
-- [default_pool](resources--http_loadbalancer--reference--group-014.md#canonical-3011031210301023-3111303122131111-0122010032202013-2011101001022200-0221332123322110-1223213221131013-1210333203300122-3013123231031011)
-- [default_pool.origin_servers](resources--http_loadbalancer--reference--group-015.md#canonical-3032210112122003-3001300202101031-2123213322103223-0023311332223220-3323333210222101-3133123322012320-1210021330031123-1312333220120031)
-- [default_pool.origin_servers.consul_service](resources--http_loadbalancer--reference--group-015.md#canonical-2020023111021302-1200212320111301-0102000200230210-2010021200130100-2000133311311320-2220000303333020-0002102320120101-3200312012201003)
-- [default_pool.origin_servers.consul_service.snat_pool](resources--http_loadbalancer--reference--group-015.md#canonical-1203200311313231-3123130203231211-0212312001001320-2000333120210300-0003011112231121-2210223300312313-2213133112232123-2212023301012001)
-- default_pool.origin_servers.consul_service.snat_pool.snat_pool
-
-<a id="canonical-0023100133110100-1030210002100220-1132133221023000-0012233223130233-1221111111010322-0132032330301322-0322100210333323-1301110301102312"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-List of IPv4 prefixes that represent an endpoint.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-snat_pool {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-1203231132230122-0000300303033020-0312210032123201-1303122332112220-1220121102113203-1113230203310111-0010232033302222-0202120210223133"></a>
-
-### Direct properties for `default_pool.origin_servers.consul_service.snat_pool.snat_pool`
-
-<a id="canonical-3001223031222320-2032103220313332-2203203011212113-0032131000002323-1101022020231201-1022333323222101-1210330201233230-2331301033302233"></a>
-
-#### `default_pool.origin_servers.consul_service.snat_pool.snat_pool.prefixes` property
-
-Type: `["list", "string"]`. Optional.
-
-List of IPv4 prefixes that represent an endpoint.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.List{
-  listvalidator.SizeAtMost(128),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxItems": 128,
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "array",
-    "deterministic": true,
-    "maxItems": 128,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
-    },
-    "uniqueItems": true
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.repeated.items.string.ipv4_prefix": "true",
-    "ves.io.schema.rules.repeated.max_items": "128",
-    "ves.io.schema.rules.repeated.unique": "true"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.repeated.items.string.ipv4_prefix": "true",
-    "ves.io.schema.rules.repeated.max_items": "128",
-    "ves.io.schema.rules.repeated.unique": "true"
-  }
-}
-```
-
-<a id="canonical-3320101200101333-0101332020212110-3023110121121203-0211302010232331-0301203130200233-3221233212020201-1322313330211100-1110201120130123"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-## `default_pool.origin_servers.custom_endpoint_object` properties
-
-Breadcrumbs:
-
-- [xcsh_http_loadbalancer](../resources/http_loadbalancer.md#canonical-1323101131323213-1200201313300133-0300111301103013-3131213012211311-3010002202001122-3231033222023323-2111000220211131-3013003223311203)
-- [Property reference](resources--http_loadbalancer--reference--group-001.md#canonical-2110231031112310-1130011000331010-1312132022002200-1232103213011301-2012100333100023-2000320333201213-1130030102202313-3122301032230233)
-- [default_pool](resources--http_loadbalancer--reference--group-014.md#canonical-3011031210301023-3111303122131111-0122010032202013-2011101001022200-0221332123322110-1223213221131013-1210333203300122-3013123231031011)
-- [default_pool.origin_servers](resources--http_loadbalancer--reference--group-015.md#canonical-3032210112122003-3001300202101031-2123213322103223-0023311332223220-3323333210222101-3133123322012320-1210021330031123-1312333220120031)
-- default_pool.origin_servers.custom_endpoint_object
-
-<a id="canonical-2331023211122210-1200120121113323-2003331303312332-0010022011110030-0012031320013223-0113001010323101-3133031330102311-3110223022212210"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-Specify origin server with a reference to endpoint object.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-custom_endpoint_object {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-2002033201123220-2330202023021221-3030003201330131-1222233220022320-1331010020110223-3101133203303321-0220121003332132-0012023132213313"></a>
-
-### Direct properties for `default_pool.origin_servers.custom_endpoint_object`
-
-- [endpoint](resources--http_loadbalancer--reference--group-016.md#canonical-0001211020103113-3111202302021333-0000212031000100-0120322133302003-0122131200013113-1331113023220013-0220023121220103-1312230312211202): complete subsection reference.

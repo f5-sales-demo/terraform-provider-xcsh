@@ -2,8 +2,10 @@
 """Retrieval metadata contracts independent of generated corpora."""
 
 import importlib.util
+import json
 import unittest
 from pathlib import Path
+from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
 SPEC = importlib.util.spec_from_file_location(
@@ -124,6 +126,31 @@ class RetrievalMetadataTests(unittest.TestCase):
         )
         self.assertIsNone(
             rules.reviewed_summary("resources", "origin_pool", ["https_auto_cert"])
+        )
+
+    def test_http_hostnames_aliases_remain_exact_and_role_qualified(self):
+        rules = MODULE.RetrievalRules.default()
+        for role in ["resources", "data-sources"]:
+            aliases = rules.reviewed_aliases(role, "http_loadbalancer", ["domains"])
+            self.assertIn("hostnames", aliases)
+            self.assertIn("host header domains", aliases)
+            self.assertIn("authority header domains", aliases)
+            self.assertEqual(
+                rules.reviewed_aliases(
+                    role, "http_loadbalancer", ["routes", "domains"]
+                ),
+                [],
+            )
+            self.assertEqual(rules.reviewed_aliases(role, "dns_zone", ["domains"]), [])
+        self.assertTrue(
+            rules.reviewed_summary(
+                "resources", "http_loadbalancer", ["domains"]
+            ).startswith("Configure")
+        )
+        self.assertTrue(
+            rules.reviewed_summary(
+                "data-sources", "http_loadbalancer", ["domains"]
+            ).startswith("Inspect")
         )
 
     def test_invalid_reviewed_summary_rules_fail_before_generation(self):
@@ -272,6 +299,18 @@ class RetrievalMetadataTests(unittest.TestCase):
             "duration", rules.aliases("connection_timeout", "Timeout duration.")
         )
 
+    def test_bgp_asn_reviewed_summaries_preserve_local_and_peer_ownership(self):
+        rules = MODULE.RetrievalRules.default()
+        for role in ("resources", "data-sources"):
+            local = rules.reviewed_summary(role, "bgp", ["bgp_parameters", "asn"])
+            peer = rules.reviewed_summary(role, "bgp", ["peers", "external", "asn"])
+            self.assertIn("local site", local)
+            self.assertIn("external BGP peer", peer)
+            self.assertIsNone(rules.reviewed_summary(role, "bgp", ["other", "asn"]))
+            self.assertIsNone(
+                rules.reviewed_summary(role, "other", ["bgp_parameters", "asn"])
+            )
+
     def test_summary_preserves_complete_words(self):
         text = "complete " * 40
         result = MODULE.summary(text, "fallback")
@@ -320,3 +359,146 @@ class RetrievalMetadataTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class LiteralEnumEvidenceTests(unittest.TestCase):
+    def evidence(self) -> dict[str, Any]:
+        return {
+            "version": 1,
+            "validator": "OneOf",
+            "values": ["GRE", "IPSEC"],
+            "complete": True,
+            "case_sensitive": True,
+            "source": "ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf",
+        }
+
+    def test_literal_enum_preserves_exact_values_and_unresolved_state(self):
+        item = self.evidence()
+        self.assertEqual(
+            MODULE.literal_enum_evidence({"EnumValidators": json.dumps([item])}), [item]
+        )
+        unresolved = {**item, "complete": False, "values": []}
+        self.assertEqual(
+            MODULE.literal_enum_evidence({"EnumValidators": json.dumps([unresolved])}),
+            [unresolved],
+        )
+        self.assertEqual(
+            MODULE.literal_enum_evidence(
+                {"Validators": 'stringvalidator.OneOf("GRE")'}
+            ),
+            [],
+        )
+
+    def test_malformed_or_partial_evidence_rejects(self):
+        changes: list[dict[str, Any]] = [
+            {"version": True},
+            {"complete": "true"},
+            {"case_sensitive": False},
+            {"source": "description"},
+            {"values": ["IPSEC", "GRE"]},
+            {"complete": False},
+            {"values": []},
+            {"values": [1]},
+        ]
+        for change in changes:
+            with self.assertRaisesRegex(ValueError, "invalid enum"):
+                MODULE.literal_enum_evidence(
+                    {"EnumValidators": json.dumps([{**self.evidence(), **change}])}
+                )
+
+
+class EnumExtractionCoverageTests(unittest.TestCase):
+    def test_absent_and_unresolved_coverage_never_assert_no_restriction(self):
+        self.assertFalse(MODULE.enum_extraction_complete({}))
+        self.assertFalse(
+            MODULE.enum_extraction_complete({"EnumExtractionComplete": "false"})
+        )
+        self.assertTrue(
+            MODULE.enum_extraction_complete({"EnumExtractionComplete": "true"})
+        )
+        with self.assertRaises(ValueError):
+            MODULE.enum_extraction_complete({"EnumExtractionComplete": "yes"})
+
+
+class EnumTargetCoverageTests(LiteralEnumEvidenceTests):
+    def test_every_enum_record_requires_a_verified_exact_schema_destination(self):
+        fields = {
+            "fixture_resource.go": {
+                "nested.protocol": {"EnumValidators": json.dumps([self.evidence()])}
+            }
+        }
+        MODULE.validate_enum_targets(
+            fields, {"fixture_resource.go": {"nested.protocol"}}
+        )
+        for coverage in [{}, {"fixture_resource.go": {"protocol"}}]:
+            with self.assertRaisesRegex(ValueError, "unmatched enum"):
+                MODULE.validate_enum_targets(fields, coverage)
+
+
+class EnumCoverageInventoryTests(LiteralEnumEvidenceTests):
+    def test_inventory_accounts_for_every_installed_field(self):
+        sources = {
+            "fixture_resource.go": {
+                "known": {
+                    "EnumExtractionComplete": "true",
+                    "EnumValidators": json.dumps([self.evidence()]),
+                },
+                "dynamic": {"EnumExtractionComplete": "false"},
+                "absent": {},
+            }
+        }
+        result = MODULE.enum_coverage_inventory(
+            sources, {"fixture_resource.go": {"known", "dynamic", "absent", "missing"}}
+        )
+        self.assertEqual(result["installed_fields"], 4)
+        self.assertEqual(result["complete_fields"], 1)
+        self.assertEqual(result["unresolved_fields"], 3)
+        self.assertEqual(result["enum_fields"], 1)
+        self.assertEqual(
+            result["unresolved"],
+            [
+                {
+                    "source": "fixture_resource.go",
+                    "schema_path": "absent",
+                    "reason": "coverage-not-exported",
+                },
+                {
+                    "source": "fixture_resource.go",
+                    "schema_path": "dynamic",
+                    "reason": "bounded-extraction-unresolved",
+                },
+                {
+                    "source": "fixture_resource.go",
+                    "schema_path": "missing",
+                    "reason": "field-not-exported",
+                },
+            ],
+        )
+        self.assertFalse(result["complete"])
+        self.assertFalse(result["runtime_registration_verified"])
+
+    def test_partial_enum_record_cannot_be_complete_inventory(self):
+        item = {**self.evidence(), "complete": False, "values": []}
+        with self.assertRaisesRegex(ValueError, "unresolved enum"):
+            MODULE.enum_coverage_inventory(
+                {
+                    "fixture_resource.go": {
+                        "field": {
+                            "EnumExtractionComplete": "true",
+                            "EnumValidators": json.dumps([item]),
+                        }
+                    }
+                },
+                {"fixture_resource.go": {"field"}},
+            )
+
+    def test_orphaned_enum_evidence_still_fails_inventory(self):
+        with self.assertRaisesRegex(ValueError, "unmatched enum"):
+            MODULE.enum_coverage_inventory(
+                {
+                    "fixture_resource.go": {
+                        "field": {"EnumValidators": json.dumps([self.evidence()])}
+                    }
+                },
+                {},
+            )

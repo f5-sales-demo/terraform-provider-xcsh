@@ -121,6 +121,7 @@ not overwritten. It is just passed.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(8096),
 }
@@ -192,6 +193,7 @@ specified in milliseconds. The default value is 2 minutes.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.AtMost(600000),
 }
@@ -258,6 +260,7 @@ pages are not editable. User has an option to disable the use of default F5XC er
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Map{
   validators.MapConstraintsValidator("{\"cardinality\":{\"maxProperties\":16},\"category\":\"discovery\",\"constraintType\":\"map\",\"deterministic\":true,\"keys\":{\"maximum\":599,\"minimum\":3,\"type\":\"uint32-string\"},\"originalRules\":{\"ves.io.schema.rules.map.keys.uint32.gte\":\"3\",\"ves.io.schema.rules.map.keys.uint32.lte\":\"599\",\"ves.io.schema.rules.map.max_pairs\":\"16\",\"ves.io.schema.rules.map.values.string.max_len\":\"65536\",\"ves.io.schema.rules.map.values.string.uri_ref\":\"true\"},\"values\":{\"format\":\"uri-reference\",\"maxLength\":65536,\"type\":\"string\"}}"),
 }
@@ -475,6 +478,7 @@ will be automatically resolved to IP addresses by the system.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeBetween(1, 33),
 }
@@ -626,6 +630,7 @@ header size" for such virtual hosts is the highest value configured on any of th
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.AtMost(96),
 }
@@ -677,6 +682,7 @@ a value &gt;=1 to define the request limit per connection.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.AtLeast(1),
 }
@@ -738,6 +744,7 @@ follow DNS-1035 format.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   validators.NameValidator(),
 }
@@ -805,6 +812,7 @@ DNS\_LABEL format. For a namespace object itself, namespace value will be ""
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   validators.NamespaceValidator(),
 }
@@ -929,6 +937,8 @@ Install TMM QUIC proxy for HTTP/3 traffic. Used by TMM proxy type.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["DNS_PROXY","SMA_PROXY","TMM_HTTPS_PROXY","TMM_HTTP_PROXY","TMM_QUIC_PROXY","TMM_TCP_PROXY","TMM_UDP_PROXY","UDP_PROXY","UZTNA_PROXY","ZTNA_PROXY"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("UDP_PROXY",
     "SMA_PROXY",
@@ -985,6 +995,7 @@ List of keys of Cookies to be removed from the HTTP request being sent towards u
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(32),
 }
@@ -1043,6 +1054,7 @@ List of keys of Headers to be removed from the HTTP request being sent towards u
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(32),
 }
@@ -1098,6 +1110,7 @@ set-cookie header will be removed.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(32),
 }
@@ -1156,6 +1169,7 @@ List of keys of Headers to be removed from the HTTP response being sent towards 
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(32),
 }
@@ -1216,6 +1230,7 @@ Header.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(8096),
 }
@@ -1340,7 +1355,7 @@ Each exact path has one authoritative reference destination. Collection element 
 | `cors_policy.expose_headers` | [cors_policy.expose_headers](resources--virtual_host--reference--group-001.md#canonical-0011322302112011-1223033011121000-0330231302300223-2000132022002001-3132212033231120-0030300313032222-0013223333123311-1032322202030233) |
 | `cors_policy.maximum_age` | [cors_policy.maximum_age](resources--virtual_host--reference--group-001.md#canonical-1211222333020113-1100002102312331-3121031203111333-2111001231213323-0303133212213102-0111112133311003-3002203200101121-3300300122112302) |
 | `csrf_policy` | [csrf_policy](resources--virtual_host--reference--group-001.md#canonical-3000331031023322-3131110331302003-2320301022032003-1010232010300203-1103201100200333-0321313303002220-3023320100320230-1120102030310133) |
-| `csrf_policy.all_load_balancer_domains` | [csrf_policy.all_load_balancer_domains](resources--virtual_host--reference--group-001.md#canonical-3133102211130012-2123322312022330-0023111120020320-1231211020211130-3320222020302212-3221122332320201-0312001003320213-0121333032231313) |
+| `csrf_policy.all_load_balancer_domains` | [csrf_policy.all_load_balancer_domains](resources--virtual_host--reference--group-002.md#canonical-3133102211130012-2123322312022330-0023111120020320-1231211020211130-3320222020302212-3221122332320201-0312001003320213-0121333032231313) |
 | `csrf_policy.custom_domain_list` | [csrf_policy.custom_domain_list](resources--virtual_host--reference--group-002.md#canonical-3022331111332211-0031131112222202-3131030223330302-0110001000321200-3232202013212100-1320302022121232-3001233213210200-2200323031112011) |
 | `csrf_policy.custom_domain_list.domains` | [csrf_policy.custom_domain_list.domains](resources--virtual_host--reference--group-002.md#canonical-2101300102020301-2101200313113331-0220321031323312-2230003102122130-3301001111312030-3033323303300033-0031233233321032-0321210100033133) |
 | `csrf_policy.disabled` | [csrf_policy.disabled](resources--virtual_host--reference--group-002.md#canonical-3121103112021120-0011030112000311-2302123123110223-3223313113231001-2131230123131131-0202132333333211-1022120220221321-1323331310320122) |
@@ -1539,9 +1554,9 @@ Each exact path has one authoritative reference destination. Collection element 
 | `tls_parameters.common_params.tls_certificates.private_key.blindfold_secret_info.decryption_provider` | [tls_parameters.common_params.tls_certificates.private_key.blindfold_secret_info.decryption_provider](resources--virtual_host--reference--group-002.md#canonical-3030230232232312-3303112101112320-3212030010310032-1010013100021230-3031122122133033-2220333111231020-2003122101201021-0213213332311220) |
 | `tls_parameters.common_params.tls_certificates.private_key.blindfold_secret_info.location` | [tls_parameters.common_params.tls_certificates.private_key.blindfold_secret_info.location](resources--virtual_host--reference--group-002.md#canonical-3100331112122311-3220232233111123-0321301322130101-2002001331113332-2202302003200313-3322032002010310-2322303201033033-2113030033012023) |
 | `tls_parameters.common_params.tls_certificates.private_key.blindfold_secret_info.store_provider` | [tls_parameters.common_params.tls_certificates.private_key.blindfold_secret_info.store_provider](resources--virtual_host--reference--group-002.md#canonical-0303011010303232-3221003323310310-3110111121213110-0123330223321133-2323313211311122-1233331330121300-0032333223022030-0232030103311203) |
-| `tls_parameters.common_params.tls_certificates.private_key.clear_secret_info` | [tls_parameters.common_params.tls_certificates.private_key.clear_secret_info](resources--virtual_host--reference--group-002.md#canonical-0301020201000130-1303100322320331-2223120202001311-0022210010221201-3120021103322203-3002120231130230-2002132332210033-0030221312122011) |
-| `tls_parameters.common_params.tls_certificates.private_key.clear_secret_info.provider_ref` | [tls_parameters.common_params.tls_certificates.private_key.clear_secret_info.provider_ref](resources--virtual_host--reference--group-002.md#canonical-3313010330101223-3000011030300100-1313321023120311-1230220310221010-2011111133113232-1330302100232100-0131211033333122-0102000321130332) |
-| `tls_parameters.common_params.tls_certificates.private_key.clear_secret_info.url` | [tls_parameters.common_params.tls_certificates.private_key.clear_secret_info.url](resources--virtual_host--reference--group-002.md#canonical-1022201333211033-3102322311210000-3323103323031202-1213302020101211-2330103303103001-0202000111131313-3223221132332232-1031323102102212) |
+| `tls_parameters.common_params.tls_certificates.private_key.clear_secret_info` | [tls_parameters.common_params.tls_certificates.private_key.clear_secret_info](resources--virtual_host--reference--group-003.md#canonical-0301020201000130-1303100322320331-2223120202001311-0022210010221201-3120021103322203-3002120231130230-2002132332210033-0030221312122011) |
+| `tls_parameters.common_params.tls_certificates.private_key.clear_secret_info.provider_ref` | [tls_parameters.common_params.tls_certificates.private_key.clear_secret_info.provider_ref](resources--virtual_host--reference--group-003.md#canonical-3313010330101223-3000011030300100-1313321023120311-1230220310221010-2011111133113232-1330302100232100-0131211033333122-0102000321130332) |
+| `tls_parameters.common_params.tls_certificates.private_key.clear_secret_info.url` | [tls_parameters.common_params.tls_certificates.private_key.clear_secret_info.url](resources--virtual_host--reference--group-003.md#canonical-1022201333211033-3102322311210000-3323103323031202-1213302020101211-2330103303103001-0202000111131313-3223221132332232-1031323102102212) |
 | `tls_parameters.common_params.tls_certificates.use_system_defaults` | [tls_parameters.common_params.tls_certificates.use_system_defaults](resources--virtual_host--reference--group-003.md#canonical-3233303122201020-3302201102012022-2002230132202021-1022313312101123-2320113202122202-1223303101311133-2323210201310212-0132132113032203) |
 | `tls_parameters.common_params.validation_params` | [tls_parameters.common_params.validation_params](resources--virtual_host--reference--group-003.md#canonical-2031103232112023-1301131322123321-3322010330112122-2333130021322233-1130323231323001-3333003021210333-3103131313200010-2310321101122310) |
 | `tls_parameters.common_params.validation_params.skip_hostname_verification` | [tls_parameters.common_params.validation_params.skip_hostname_verification](resources--virtual_host--reference--group-003.md#canonical-2300021102323300-0221100330002100-3333213200321211-2031123132031202-3113301010112003-0223102333201011-3303311102310130-2213332022212001) |
@@ -1706,6 +1721,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
   stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`),
@@ -1844,6 +1860,7 @@ Object Reference, configuration of cookie params etc.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("auth_config"),
   validators.ConflictingObjectAttributes("cookie_params",
     "use_auth_object_config"),
@@ -1906,6 +1923,7 @@ OIDC provider.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 128),
 }
@@ -2102,6 +2120,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
   stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`),
@@ -2239,6 +2258,7 @@ Specifies different cookie related config parameters for authentication.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("auth_hmac",
     "kms_key_hmac")}
 ```
@@ -2286,6 +2306,7 @@ be setting the cookie as part of the request. Default cookie expiry is 3600 seco
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.AtMost(86400),
 }
@@ -2337,6 +2358,7 @@ session expiry. Default refresh interval is 3000 seconds.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.AtMost(86400),
 }
@@ -2388,6 +2410,7 @@ login again. Default session expiry is 86400 seconds(24 hours).
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.AtMost(1296000),
 }
@@ -2449,6 +2472,7 @@ expiry timestamp, beyond which key is invalid.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("prim_key_expiry",
     "sec_key_expiry")}
 ```
@@ -2588,6 +2612,7 @@ SecretType is used in an object to indicate a sensitive/confidential field.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info",
     "clear_secret_info")}
 ```
@@ -2649,6 +2674,7 @@ BlindfoldSecretInfoType specifies information about the Secret managed by F5XC S
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("location")}
 ```
 
@@ -2723,6 +2749,7 @@ store provider is an HTTP/HTTPS location.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(4, 131072),
 }
@@ -2826,6 +2853,7 @@ ClearSecretInfoType specifies information about the Secret that is not encrypted
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("url")}
 ```
 
@@ -2878,6 +2906,7 @@ base64 decoding.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 131072),
 }
@@ -2955,6 +2984,7 @@ SecretType is used in an object to indicate a sensitive/confidential field.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info",
     "clear_secret_info")}
 ```
@@ -3016,6 +3046,7 @@ BlindfoldSecretInfoType specifies information about the Secret managed by F5XC S
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("location")}
 ```
 
@@ -3090,6 +3121,7 @@ store provider is an HTTP/HTTPS location.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(4, 131072),
 }
@@ -3193,6 +3225,7 @@ ClearSecretInfoType specifies information about the Secret that is not encrypted
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("url")}
 ```
 
@@ -3245,6 +3278,7 @@ base64 decoding.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 131072),
 }
@@ -3521,6 +3555,7 @@ buffering and return a RequestEntityTooLarge (413) response.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.AtMost(10485760),
 }
@@ -3594,6 +3629,7 @@ can enable either JavaScript challenge or Captcha challenge on a virtual host.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("cookie_expiry")}
 ```
 
@@ -3642,6 +3678,7 @@ challenge.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(1, 86400),
 }
@@ -3697,6 +3734,7 @@ base64 string E.g. "&lt;p&gt; Please Wait &lt;/p&gt;". base64 encoded string for
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(65536),
 }
@@ -3759,6 +3797,7 @@ TLS connection coalescing configuration (not compatible with mTLS).
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("default_coalescing",
     "strict_coalescing")}
 ```
@@ -3935,6 +3974,7 @@ A value which is optimal balance between speed of compression and amount of comp
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("content_length")}
 ```
 
@@ -3978,6 +4018,7 @@ The default value is 30.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.AtLeast(30),
 }
@@ -4036,6 +4077,7 @@ defined, compression will be applied to the following mime-types: "application/J
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(50),
 }
@@ -4306,6 +4348,7 @@ allow\_origin or allow\_origin\_regex match.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(128),
 }
@@ -4363,6 +4406,7 @@ allow\_origin\_regex match.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(16),
 }
@@ -4480,6 +4524,7 @@ value is 86400 seconds (24 hours).
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(-1, 86400),
 }
@@ -4551,6 +4596,7 @@ state-changing requests, the policy only acts on the HTTP requests that have sta
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("all_load_balancer_domains",
     "custom_domain_list"),
   validators.ConflictingObjectAttributes("all_load_balancer_domains",
@@ -4585,54 +4631,8 @@ csrf_policy {
 
 ### Direct properties for `csrf_policy`
 
-- [all_load_balancer_domains](resources--virtual_host--reference--group-001.md#canonical-0110122323300011-3202101110312103-1212210232132200-3123012203220303-0012003220313200-1100012030223133-3011220003003221-2131002333120213): complete subsection reference.
+- [all_load_balancer_domains](resources--virtual_host--reference--group-002.md#canonical-0110122323300011-3202101110312103-1212210232132200-3123012203220303-0012003220313200-1100012030223133-3011220003003221-2131002333120213): complete subsection reference.
 
 - [custom_domain_list](resources--virtual_host--reference--group-002.md#canonical-0210302321013100-1300220003111020-1330033301211103-3021331002113120-2311332011003021-2100020010022101-3320121011300333-3030122322323001): complete subsection reference.
 
 - [disabled](resources--virtual_host--reference--group-002.md#canonical-1002103013312222-1311000201003223-0013030330132112-0012122333221101-2120131022311012-0030223010122223-0301322123230103-2210301232001223): complete subsection reference.
-
-<a id="canonical-0110122323300011-3202101110312103-1212210232132200-3123012203220303-0012003220313200-1100012030223133-3011220003003221-2131002333120213"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-## `csrf_policy.all_load_balancer_domains` properties
-
-Breadcrumbs:
-
-- [xcsh_virtual_host](../resources/virtual_host.md#canonical-3223131132111310-0302331213231313-3010210001002120-2000312103313323-2221222232122213-2203113131033213-2103120313003230-3112232203320222)
-- [Property reference](resources--virtual_host--reference--group-001.md#canonical-0213223201331332-3131232310010210-0330121003120232-2120200222200312-0323331101112032-1020103022113222-1023223202200132-0323130101032220)
-- [csrf_policy](resources--virtual_host--reference--group-001.md#canonical-0032333010121002-0332331033300212-2002033020321220-2332202013303113-2313133231100331-0003222333003100-3133200232230203-0121213102202020)
-- csrf_policy.all_load_balancer_domains
-
-<a id="canonical-3133102211130012-2123322312022330-0023111120020320-1231211020211130-3320222020302212-3221122332320201-0312001003320213-0121333032231313"></a>
-
-Type: `["object", {}]`. Optional.
-
-Configuration parameter for all load balancer domains.
-
-Additional upstream details:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-all_load_balancer_domains = {}
-```
-
-This is an empty object or choice marker. It has no direct properties.

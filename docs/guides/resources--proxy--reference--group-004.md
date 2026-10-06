@@ -30,6 +30,7 @@ This defines various OPTIONS to define a route.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("disable_path_normalize",
     "enable_path_normalize"),
   validators.ConflictingObjectAttributes("max_requests_per_connection",
@@ -86,6 +87,7 @@ matches for a request.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Map{validators.MapConstraintsValidator("{\"cardinality\":{\"maxProperties\":16},\"category\":\"discovery\",\"constraintType\":\"map\",\"deterministic\":true,\"keys\":{\"ranges\":[[3,3],[4,4],[5,5],[300,599]],\"type\":\"uint32-string\"},\"originalRules\":{\"ves.io.schema.rules.map.keys.uint32.ranges\":\"3,4,5,300-599\",\"ves.io.schema.rules.map.max_pairs\":\"16\",\"ves.io.schema.rules.map.values.string.max_len\":\"65536\",\"ves.io.schema.rules.map.values.string.uri_ref\":\"true\"},\"values\":{\"format\":\"uri-reference\",\"maxLength\":65536,\"type\":\"string\"}}")}
 ```
 
@@ -196,6 +198,7 @@ header has been received, otherwise the stream is reset.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.AtMost(3600000),
 }
@@ -248,6 +251,7 @@ such load balancers is used for all the load balancers in question.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.AtMost(96),
 }
@@ -298,6 +302,7 @@ request limit per connection.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.AtLeast(1),
 }
@@ -350,6 +355,7 @@ List of keys of Cookies to be removed from the HTTP request being sent towards u
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(32),
 }
@@ -408,6 +414,7 @@ List of keys of Headers to be removed from the HTTP request being sent towards u
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(32),
 }
@@ -467,6 +474,7 @@ set-cookie header will be removed.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(32),
 }
@@ -525,6 +533,7 @@ List of keys of Headers to be removed from the HTTP response being sent towards 
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(32),
 }
@@ -656,6 +665,7 @@ buffering and return a RequestEntityTooLarge (413) response.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.AtMost(10485760),
 }
@@ -743,6 +753,7 @@ A value which is optimal balance between speed of compression and amount of comp
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("content_length")}
 ```
 
@@ -786,6 +797,7 @@ The default value is 30.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.AtLeast(30),
 }
@@ -844,6 +856,7 @@ defined, compression will be applied to the following mime-types: "application/J
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(50),
 }
@@ -1102,6 +1115,7 @@ specified at this level are applied after cookies from matched Route are applied
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.RequiredListObjectAttributes("name"),
   validators.ConflictingListObjectAttributes("secret_value",
     "value")}
@@ -1164,6 +1178,7 @@ Name. Name of the cookie in Cookie header.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 256),
 }
@@ -1261,6 +1276,7 @@ Exclusive with \[secret\_value\] Value of the Cookie header.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(8096),
 }
@@ -1323,6 +1339,7 @@ SecretType is used in an object to indicate a sensitive/confidential field.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info",
     "clear_secret_info")}
 ```
@@ -1384,6 +1401,7 @@ BlindfoldSecretInfoType specifies information about the Secret managed by F5XC S
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("location")}
 ```
 
@@ -1458,6 +1476,7 @@ store provider is an HTTP/HTTPS location.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(4, 131072),
 }
@@ -1561,6 +1580,7 @@ ClearSecretInfoType specifies information about the Secret that is not encrypted
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("url")}
 ```
 
@@ -1613,6 +1633,7 @@ base64 decoding.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 131072),
 }
@@ -1690,6 +1711,7 @@ specified at this level are applied after headers from matched Route are applied
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.RequiredListObjectAttributes("name"),
   validators.ConflictingListObjectAttributes("secret_value",
     "value")}
@@ -1780,6 +1802,7 @@ Name. Name of the HTTP header.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 256),
 }
@@ -1847,6 +1870,7 @@ Exclusive with \[secret\_value\] Value of the HTTP header.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(8096),
 }
@@ -1909,6 +1933,7 @@ SecretType is used in an object to indicate a sensitive/confidential field.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info",
     "clear_secret_info")}
 ```
@@ -1970,6 +1995,7 @@ BlindfoldSecretInfoType specifies information about the Secret managed by F5XC S
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("location")}
 ```
 
@@ -2044,6 +2070,7 @@ store provider is an HTTP/HTTPS location.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(4, 131072),
 }
@@ -2147,6 +2174,7 @@ ClearSecretInfoType specifies information about the Secret that is not encrypted
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("url")}
 ```
 
@@ -2199,6 +2227,7 @@ base64 decoding.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 131072),
 }
@@ -2277,6 +2306,7 @@ matched Route are applied.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.RequiredListObjectAttributes("name"),
   validators.ConflictingListObjectAttributes("add_domain",
     "ignore_domain"),
@@ -2369,6 +2399,7 @@ Exclusive with \[ignore\_domain\] Add domain attribute.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 256),
 }
@@ -2425,6 +2456,7 @@ Exclusive with \[ignore\_expiry\] Add expiry attribute.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(256),
 }
@@ -2478,6 +2510,7 @@ Exclusive with \[ignore\_path\] Add path attribute.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(256),
 }
@@ -2549,6 +2582,7 @@ Exclusive with \[ignore\_max\_age\] Add max age attribute.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.AtMost(34560000),
 }
@@ -2597,6 +2631,7 @@ Name. Name of the cookie in Cookie header.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 256),
 }
@@ -2700,6 +2735,7 @@ Exclusive with \[ignore\_value secret\_value\] Value of the Cookie header.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(8096),
 }
@@ -3482,6 +3518,7 @@ SecretType is used in an object to indicate a sensitive/confidential field.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info",
     "clear_secret_info")}
 ```
@@ -3512,57 +3549,6 @@ secret_value {
 
 ### Direct properties for `http_proxy.more_option.response_cookies_to_add.secret_value`
 
-- [blindfold_secret_info](resources--proxy--reference--group-004.md#canonical-1210113233221230-1203323122300112-2012110322330310-2123210112123301-2110120032232111-0200223332121310-3122221101333302-1132231101001031): complete subsection reference.
+- [blindfold_secret_info](resources--proxy--reference--group-005.md#canonical-1210113233221230-1203323122300112-2012110322330310-2123210112123301-2110120032232111-0200223332121310-3122221101333302-1132231101001031): complete subsection reference.
 
 - [clear_secret_info](resources--proxy--reference--group-005.md#canonical-2111320201010202-1001012323322201-0233312100110032-2123030212002221-3332123331003122-0122100302330333-2233101000313130-2011200001003302): complete subsection reference.
-
-<a id="canonical-1210113233221230-1203323122300112-2012110322330310-2123210112123301-2110120032232111-0200223332121310-3122221101333302-1132231101001031"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-## `http_proxy.more_option.response_cookies_to_add.secret_value.blindfold_secret_info` properties
-
-Breadcrumbs:
-
-- [xcsh_proxy](../resources/proxy.md#canonical-0132300111013030-3233132200202310-2233332113220102-2031222100321320-0203021302013323-3111102110130123-3333011301331210-2310111332313332)
-- [Property reference](resources--proxy--reference--group-001.md#canonical-1332312330112202-0302233320331232-2000013322011121-0003103202230221-3121132031010303-2222021012203301-0203131033201011-3322301300211003)
-- [http_proxy](resources--proxy--reference--group-003.md#canonical-3302133012220212-1002331310020302-1203301311211210-0210121333012131-2110013230033031-1011330131123021-1320232033123130-1032121203032331)
-- [http_proxy.more_option](resources--proxy--reference--group-004.md#canonical-3001012213010301-3221113322132133-1003230211323111-2221122020301212-1212323320201323-2103212032121003-0332130232112122-0312011030301003)
-- [http_proxy.more_option.response_cookies_to_add](resources--proxy--reference--group-004.md#canonical-0000001231023213-2333232322200002-1101223312110200-1332032022023223-3210130302001101-3210211200123011-3203100230022300-3110000311031311)
-- [http_proxy.more_option.response_cookies_to_add.secret_value](resources--proxy--reference--group-004.md#canonical-0032223220331321-2122103333322322-0112302321320233-1222120311123120-3122320100100323-2000101331022231-0320013223311032-0110033301203222)
-- http_proxy.more_option.response_cookies_to_add.secret_value.blindfold_secret_info
-
-<a id="canonical-3333123130100000-2100030320313133-1023322130300210-2110122230231023-1003110310131130-2231022121323302-0201202132100000-0313013132223032"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.Object{validators.RequiredObjectAttributes("location")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-blindfold_secret_info {
-  # Configure direct properties listed below.
-}
-```

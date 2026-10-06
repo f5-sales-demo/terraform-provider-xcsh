@@ -6,13 +6,47 @@ description: "Complete grouped canonical reference for xcsh_site_registrations r
 
 # xcsh_site_registrations reference
 
+<a id="canonical-1331312333110133-3003323011001103-1033321121232230-1112111022001322-0010233021033100-0002223022223100-1003203110311010-2012322203130001"></a>
+
+## `items.object.spec.gc_spec.infra.hw_info.network.speed` property
+
+Type: `"number"`. Computed.
+
+Speed. Device max supported speed in Mbps.
+
+<a id="canonical-0030131321201103-1112233120203031-0313032211001103-0000131300312201-3210320201010000-0103033010122102-0210010303131012-1020000301232312"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `items.object.spec.gc_spec.infra.hw_info.os` properties
+
+Breadcrumbs:
+
+- [xcsh_site_registrations](../data-sources/site_registrations.md#canonical-2320011012012203-1211121021012323-3333302232010031-0232010323320310-2122323133012221-2310311330012133-3232132103233312-1122133001030203)
+- [Property reference](data-sources--site_registrations--reference--group-001.md#canonical-3221303221330313-3221311133231332-1110021131331113-3112110232131000-0111222003200113-2200322113211230-1112020222311121-0102203311103030)
+- [items](data-sources--site_registrations--reference--group-001.md#canonical-2113302001011310-2021332113011132-2112313323001012-1132002233231231-0130100100202200-0333013122331002-3100032012201301-2033012302231332)
+- [items.object](data-sources--site_registrations--reference--group-002.md#canonical-3232231033322100-3201310333020303-3010031030002223-1023233122220331-2222333223031331-0202221320012112-0331222300131210-0220102020130021)
+- [items.object.spec](data-sources--site_registrations--reference--group-002.md#canonical-0103232223322310-1230201021211301-2120003322321313-0122103310233102-1110010221101011-0203100103021110-0200120112310013-0211202233102030)
+- [items.object.spec.gc_spec](data-sources--site_registrations--reference--group-002.md#canonical-1030101233031222-1002233113211320-3232321032333213-0231300013231132-3032101123211102-2022211203311030-2013312033010111-0010302013023311)
+- [items.object.spec.gc_spec.infra](data-sources--site_registrations--reference--group-002.md#canonical-3003332231220313-1231032222233203-0130311223131100-3311001313302220-0020000330312301-2322231333333220-3211312323310323-3031233132111020)
+- [items.object.spec.gc_spec.infra.hw_info](data-sources--site_registrations--reference--group-002.md#canonical-0201113023032112-3122012230110210-1223130021323012-3330301130331000-2123302120202133-1102212331120110-0123012100133102-3302120022032000)
+- items.object.spec.gc_spec.infra.hw_info.os
+
+<a id="canonical-0310123312122012-1033320223020030-3100020322212322-0221000103300101-3031012203201233-3233202232021303-0131313020230320-3310133100121100"></a>
+
+Type: `"single"`. Computed.
+
+OS. Details of Operating System.
+
 <a id="canonical-2203023000011302-2302111220030211-2200110211132212-2101211132312020-1011003233321220-0213002230101301-0330203331201303-3233232113302232"></a>
 
-## Direct properties for `items.object.spec.gc_spec.infra.hw_info.os`
+### Direct properties for `items.object.spec.gc_spec.infra.hw_info.os`
 
 <a id="canonical-1313323301333332-2223101131023030-3303021301301032-3222033101012313-1200200031100032-3133121303033123-0023012232300132-2331231003122302"></a>
 
-### `items.object.spec.gc_spec.infra.hw_info.os.architecture` property
+#### `items.object.spec.gc_spec.infra.hw_info.os.architecture` property
 
 Type: `"string"`. Computed.
 
@@ -22,7 +56,7 @@ Architecture. Architecture of OS.
 
 <a id="canonical-1332023232022121-2110102231210130-0230332000030111-3111120013023020-2302301321223100-0021203230102220-1212013233103003-0110230322031333"></a>
 
-### `items.object.spec.gc_spec.infra.hw_info.os.name` property
+#### `items.object.spec.gc_spec.infra.hw_info.os.name` property
 
 Type: `"string"`. Computed.
 
@@ -31,6 +65,7 @@ Name. Name of OS.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
   stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`),
@@ -42,7 +77,7 @@ Validators: []validator.String{
 
 <a id="canonical-3202001321110332-0311112222312101-0233220132111210-3312010333001203-0001330321312311-0100213313102013-0010313011111221-0110123202032100"></a>
 
-### `items.object.spec.gc_spec.infra.hw_info.os.release` property
+#### `items.object.spec.gc_spec.infra.hw_info.os.release` property
 
 Type: `"string"`. Computed.
 
@@ -52,7 +87,7 @@ Release. Release of the OS.
 
 <a id="canonical-1110030031223001-3123300223001102-1130320013213311-2011311300121300-0330122311320112-3110221312233211-3010023320330121-1013022222320002"></a>
 
-### `items.object.spec.gc_spec.infra.hw_info.os.vendor` property
+#### `items.object.spec.gc_spec.infra.hw_info.os.vendor` property
 
 Type: `"string"`. Computed.
 
@@ -62,7 +97,7 @@ Vendor. Vendor of OS.
 
 <a id="canonical-3223020210201212-1111001311111202-1102232211322102-1111331133111211-1322110232230331-0120323200033120-3020210021110132-1131321323013101"></a>
 
-### `items.object.spec.gc_spec.infra.hw_info.os.version` property
+#### `items.object.spec.gc_spec.infra.hw_info.os.version` property
 
 Type: `"string"`. Computed.
 
@@ -109,6 +144,7 @@ Name. Product name, eg. For AWS m5a.xlarge. Info taken from /sys/class/dmi/ID/pr
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
   stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`),
@@ -208,6 +244,7 @@ Name. Name of device, eg. Nvme0n1.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
   stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`),
@@ -426,6 +463,7 @@ Port on which the device was detected in decimal.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(1, 65535),
 }
@@ -467,6 +505,8 @@ be matched by USB rules. Possible values are \`UNKNOWN\_USB\`, \`INTERNAL\`, \`R
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["CONFIGURABLE","INTERNAL","REGISTERED","UNKNOWN_USB"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("UNKNOWN_USB",
     "INTERNAL",
@@ -717,6 +757,7 @@ to specify target SW version for particular site e.g. 7.2009.10.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(20),
 }
@@ -736,6 +777,7 @@ CloudLink and L3VPN.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(64),
 }
@@ -755,6 +797,7 @@ specify target SW version for particular site e.g. Crt-20210329-1002.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(20),
 }
@@ -876,6 +919,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
   stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`),
@@ -949,6 +993,8 @@ Possible values are \`NOTSET\`, \`NEW\`, \`APPROVED\`, \`ADMITTED\`, \`RETIRED\`
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["ADMITTED","APPROVED","DONE","FAILED","FAILED_INACTIVE","MAINTENANCE","NEW","NOTSET","ONLINE","PENDING","RETIRED","UPGRADING"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("NOTSET",
     "NEW",
@@ -991,6 +1037,8 @@ connected Regional Edge. Site is in process of upgrade. Possible values are \`ON
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["DECOMMISSIONING","DELETED_CLOUD_RESOURCES","DELETE_QUEUED","DELETING_CLOUD_RESOURCES","ERROR_DELETING_CLOUD_RESOURCES","ERROR_IN_ORCHESTRATION","ERROR_UPDATING_CLOUD_RESOURCES","FAILED","FAILED_INACTIVE","ONLINE","ORCHESTRATION_COMPLETE","ORCHESTRATION_IN_PROGRESS","ORCHESTRATION_QUEUED","PROVISIONING","REREGISTRATION","STANDBY","UPDATE_QUEUED","UPDATING_CLOUD_RESOURCES","UPGRADING","VALIDATION_FAILED","VALIDATION_IN_PROGRESS","VALIDATION_SUCCESS","WAITINGNODES","WAITING_FOR_REGISTRATION"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("ONLINE",
     "PROVISIONING",
@@ -1371,6 +1419,7 @@ Name of the service that is responsible for initializing this object.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
   stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`),
@@ -1489,6 +1538,7 @@ metadata.namespace field when an object is created.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(1),
 }
@@ -1532,6 +1582,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
   stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`),
@@ -1610,6 +1661,7 @@ referred object's(e.g. Route's) name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
   stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`),
@@ -1631,6 +1683,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
   stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`),
@@ -1695,6 +1748,7 @@ referred object's(e.g. Route's) name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
   stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`),
@@ -1716,6 +1770,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
   stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`),
@@ -1934,6 +1989,7 @@ Name of the service that is responsible for initializing this object.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
   stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`),
@@ -2071,6 +2127,7 @@ referred object's(e.g. Route's) name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
   stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`),
@@ -2092,6 +2149,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
   stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`),

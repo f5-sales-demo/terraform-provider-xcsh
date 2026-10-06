@@ -1,0 +1,19 @@
+**Request changes: two concrete issues remain.**
+
+1. **[P2] Indirect enums can still receive complete coverage.** At [enum.go:351](/data/robin-GIT/worktrees/terraform-provider-xcsh-2421-retrieval-enums/tools/pkg/docconstraints/enum.go:351), the exclusion covers only `Any` and `All`. The pinned validator dependency also provides `AnyWithAllWarnings`. For:
+   ```go
+   []validator.String{sv.AnyWithAllWarnings(savedValidators...)}
+   ```
+   `LiteralEnums` yields no evidence, the argument contains no nested call, and `EnumCoverage` returns `true`—even when `savedValidators` contains dynamic `OneOf` validators. Reject this combinator too and cover both individual and spread references. This is a remaining pre-existing completeness gap.
+
+2. **[P2] Provider registration binding still depends on assertion placement.** At [registration.go:59](/data/robin-GIT/worktrees/terraform-provider-xcsh-2421-retrieval-enums/tools/pkg/docconstraints/registration.go:59), registration methods use file-local `ReceiverContracts`, despite the package-wide contracts already collected. Put `var _ p.Provider = &Provider{}` in `provider.go` and its direct `Resources` method in `registrations.go`: the method is skipped, so the new export filter silently removes its resource schemas. Use the package-wide contract here and add that split-file fixture.
+
+The reviewed paths otherwise conservatively handle factory identity, parameter shadowing, conditional constructors, duplicate factory declarations, import ownership, receiver-role matching, and provider-schema retention. The original factory/schema split and direct dynamic-enum fixes look correct by inspection.
+
+Remaining proof gaps:
+
+- The four-role test verifies registration-map entries; it does not verify schema destinations through the exporter for every role.
+- Export identity remains filename plus field path. Multiple registered receivers sharing a schema file are not independently represented.
+- Your matching export hash and **331 files / 38,859 fields / 628 enums** establish the reported real-source stability, but do not exercise these counterexamples. I did not independently rerun the exports.
+
+`git diff --check` passed. Focused tests could not start because the read-only filesystem prevented Go from creating `/tmp/go-build…`. No files were changed; no subagents, contacts, or benchmark-prompt inspection occurred. This review grants no qualification or release approval.

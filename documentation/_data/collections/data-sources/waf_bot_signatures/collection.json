@@ -75,7 +75,7 @@
         "xcsh-docs:data-sources:waf_bot_signatures:examples"
       ],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -116,7 +116,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:waf_bot_signatures:properties:bot_signatures"],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -142,6 +142,8 @@
           "anchor": "section",
           "description": "Bot Signatures. A list of all supported bot signatures.",
           "document_id": "xcsh-docs:data-sources:waf_bot_signatures:properties:bot_signatures",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -156,6 +158,8 @@
           "anchor": "schema-known_version",
           "description": "Version of the bot signatures list that the client currently has, can be used for caching.",
           "document_id": "xcsh-docs:data-sources:waf_bot_signatures:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -170,6 +174,8 @@
           "anchor": "schema-not_modified",
           "description": "Indicates if the attack signatures list has not been modified since the last version.",
           "document_id": "xcsh-docs:data-sources:waf_bot_signatures:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -184,6 +190,8 @@
           "anchor": "schema-version",
           "description": "Version of the attack signatures list, can be used for caching.",
           "document_id": "xcsh-docs:data-sources:waf_bot_signatures:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -207,13 +215,13 @@
     },
     {
       "aliases": ["bot signatures"],
-      "body_bytes": 1732,
-      "body_sha256": "sha256:2154e2dd3959db2fdd17acaeb7e7f2793505635d82b04d9f0c64c2166466554e",
+      "body_bytes": 2009,
+      "body_sha256": "sha256:1eb5316fb9463cead8a78e8935022145a964fd71c51e5c09a64d084ad1d02fde",
       "capabilities": [],
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -239,6 +247,17 @@
           "anchor": "schema-bot_signatures--bot_class",
           "description": "Bot Class. Enumeration for Bot Class. Possible values are `None`, `Malicious`, `Trusted`, `Untrusted`.",
           "document_id": "xcsh-docs:data-sources:waf_bot_signatures:properties:bot_signatures",
+          "enum_extraction_complete": true,
+          "enum_validators": [
+            {
+              "case_sensitive": true,
+              "complete": true,
+              "source": "ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf",
+              "validator": "OneOf",
+              "values": ["Malicious", "None", "Trusted", "Untrusted"],
+              "version": 1
+            }
+          ],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -253,6 +272,8 @@
           "anchor": "schema-bot_signatures--bot_name",
           "description": "Bot Name. The Bot name.",
           "document_id": "xcsh-docs:data-sources:waf_bot_signatures:properties:bot_signatures",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -267,6 +288,8 @@
           "anchor": "schema-bot_signatures--category",
           "description": "Category. The Bot category.",
           "document_id": "xcsh-docs:data-sources:waf_bot_signatures:properties:bot_signatures",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -281,6 +304,8 @@
           "anchor": "schema-bot_signatures--hostnames",
           "description": "List of hostnames associated with the bot.",
           "document_id": "xcsh-docs:data-sources:waf_bot_signatures:properties:bot_signatures",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -295,6 +320,8 @@
           "anchor": "schema-bot_signatures--id",
           "description": "ID. The Signature ID.",
           "document_id": "xcsh-docs:data-sources:waf_bot_signatures:properties:bot_signatures",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -309,6 +336,8 @@
           "anchor": "schema-bot_signatures--last_updated",
           "description": "Last Update. The Signature last update time.",
           "document_id": "xcsh-docs:data-sources:waf_bot_signatures:properties:bot_signatures",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -323,6 +352,8 @@
           "anchor": "schema-bot_signatures--risk",
           "description": "Risk. The Bot risk.",
           "document_id": "xcsh-docs:data-sources:waf_bot_signatures:properties:bot_signatures",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -352,7 +383,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:waf_bot_signatures:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -392,7 +423,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"

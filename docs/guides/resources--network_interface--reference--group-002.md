@@ -6,13 +6,56 @@ description: "Complete grouped canonical reference for xcsh_network_interface re
 
 # xcsh_network_interface reference
 
+<a id="canonical-0232120022322031-3313020233012102-2312002301013120-2321332230103331-2020223100102302-3111233000312022-3020013133323300-0310101311120220"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `tunnel_interface.static_ip.cluster_static_ip` properties
+
+Breadcrumbs:
+
+- [xcsh_network_interface](../resources/network_interface.md#canonical-3303002200232320-3331233131000231-2111111223023013-2313310022210202-2333223030322133-2311103000000220-1221101012132133-2022200333323310)
+- [Property reference](resources--network_interface--reference--group-001.md#canonical-2322022123030133-3000312103003333-0310202220121330-0310123030213020-3022333010321131-3222303201013302-0200010223022132-2000311123301212)
+- [tunnel_interface](resources--network_interface--reference--group-001.md#canonical-0031231223100101-0221202300220330-0013311301301203-3301232310130302-2330031103323032-2221301010223301-3302220320030311-3202002232312200)
+- [tunnel_interface.static_ip](resources--network_interface--reference--group-001.md#canonical-3000301202120000-2120302233320331-1032223120223111-2120030310022133-0301211132223101-1120232202101331-0120120333222230-2033213332133001)
+- tunnel_interface.static_ip.cluster_static_ip
+
+<a id="canonical-3103023112313303-1330310000000202-2213101302200113-1310001112300330-0210102031302011-3103313101122121-0312332132313030-2331003130002220"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+Configure Static IP parameters for cluster.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+cluster_static_ip {
+  # Configure direct properties listed below.
+}
+```
+
 <a id="canonical-2213321332300020-1020311031120301-1321111203210032-2013120101333021-2110012000121100-3331203023010013-2013000231120231-2130103113123333"></a>
 
-## Direct properties for `tunnel_interface.static_ip.cluster_static_ip`
+### Direct properties for `tunnel_interface.static_ip.cluster_static_ip`
 
 <a id="canonical-3021112021230211-2011132303113103-1132300102111101-2113300222131230-2232221113031211-2322211022021220-3220331230030101-2121332323103210"></a>
 
-### `tunnel_interface.static_ip.cluster_static_ip.interface_ip_map` property
+#### `tunnel_interface.static_ip.cluster_static_ip.interface_ip_map` property
 
 Type: `["map", "string"]`. Optional.
 
@@ -21,6 +64,7 @@ Map of Node to Static IP configuration value, Key:Node, Value:IP Address.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Map{validators.MapConstraintsValidator("{\"cardinality\":{\"maxProperties\":128},\"category\":\"discovery\",\"constraintType\":\"map\",\"deterministic\":true,\"keys\":{\"maxLength\":128,\"minLength\":1,\"type\":\"string\"},\"originalRules\":{\"ves.io.schema.rules.map.keys.string.max_len\":\"128\",\"ves.io.schema.rules.map.keys.string.min_len\":\"1\",\"ves.io.schema.rules.map.max_pairs\":\"128\"}}")}
 ```
 
@@ -90,6 +134,7 @@ Configure Static IP parameters for a node.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("ip_address")}
 ```
 
@@ -129,6 +174,7 @@ Default Gateway. IP address of the default gateway.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthAtMost(1024),
   validators.IPValidator(),
@@ -189,6 +235,7 @@ IP address of the interface and prefix length.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(7, 1024),
   validators.CIDRValidator(),
@@ -256,6 +303,7 @@ Such a reference is in form of tenant/namespace/name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
 ```
 
@@ -296,6 +344,7 @@ referred object's(e.g. Route's) name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 128),
 }
@@ -356,6 +405,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -423,6 +473,7 @@ the referred object's(e.g. Route's) tenant.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(64),
 }

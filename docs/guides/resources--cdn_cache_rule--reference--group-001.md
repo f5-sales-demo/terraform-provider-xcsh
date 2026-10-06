@@ -214,6 +214,7 @@ follow DNS-1035 format.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   validators.NameValidator(),
 }
@@ -281,6 +282,7 @@ DNS\_LABEL format. For a namespace object itself, namespace value will be ""
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   validators.NamespaceValidator(),
 }
@@ -432,6 +434,7 @@ Cache Rule. This defines a CDN Cache Rule.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("rule_expression_list",
     "rule_name"),
   validators.ConflictingObjectAttributes("cache_bypass",
@@ -483,6 +486,7 @@ Rule Name. Name of the Cache Rule.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(128),
 }
@@ -595,6 +599,7 @@ List of OPTIONS for Cache Action.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("scheme_proxy_host_request_uri",
     "scheme_proxy_host_uri")}
 ```
@@ -654,6 +659,7 @@ Cache TTL Enable Props. Cache TTL Enable Values.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("cache_ttl")}
 ```
 
@@ -794,6 +800,7 @@ Cache TTL Enable Props. Cache TTL Enable Values.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("cache_ttl")}
 ```
 
@@ -934,6 +941,7 @@ first rule match occurs.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.RequiredListObjectAttributes("cache_rule_expression",
     "expression_name")}
 ```
@@ -1005,6 +1013,7 @@ Name of the Expressions items that are ANDed.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(128),
 }
@@ -1209,6 +1218,8 @@ USER\_AGENT: User Agent The user agent string of the user agent. Possible values
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["PROXY_HOST","REFERER","SCHEME","USER_AGENT"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("PROXY_HOST",
     "REFERER",
@@ -1266,6 +1277,7 @@ Operator
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("contains",
     "does_not_contain"),
   validators.ConflictingObjectAttributes("contains",
@@ -1455,6 +1467,7 @@ Equals Startswith\] The header value must match the specified regular expression
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 256),
 }
@@ -1500,6 +1513,7 @@ matcher predicates must evaluate to true.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.RequiredListObjectAttributes("name")}
 ```
 
@@ -1560,6 +1574,7 @@ Cookie Name. Enter the name of the cookie to match.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -1644,6 +1659,7 @@ Operator
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("contains",
     "does_not_contain"),
   validators.ConflictingObjectAttributes("contains",
@@ -1834,6 +1850,7 @@ format.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 256),
 }
@@ -1927,6 +1944,7 @@ Operator
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("contains",
     "does_not_contain"),
   validators.ConflictingObjectAttributes("contains",
@@ -2117,6 +2135,7 @@ Equals Startswith\] The path must match the specified regular expression pattern
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 256),
 }
@@ -2159,6 +2178,7 @@ Query Parameters. List of (key, value) query parameters.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.RequiredListObjectAttributes("key")}
 ```
 
@@ -2219,6 +2239,7 @@ The name of the query parameter to match.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 256),
 }
@@ -2294,6 +2315,7 @@ Operator
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("contains",
     "does_not_contain"),
   validators.ConflictingObjectAttributes("contains",
@@ -2484,6 +2506,7 @@ PCRE format.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 256),
 }

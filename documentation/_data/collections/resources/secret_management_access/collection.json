@@ -915,7 +915,7 @@
         "xcsh-docs:resources:secret_management_access:timeouts"
       ],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -950,8 +950,8 @@
     },
     {
       "aliases": ["secret management access"],
-      "body_bytes": 51228,
-      "body_sha256": "sha256:ec4f1839ce9318734cd396065a68f54658c8f921a2999c82761473c1a3cc1dbb",
+      "body_bytes": 51317,
+      "body_sha256": "sha256:5b039faf0bca928d32c4f7240d6abb349420ca4bcbe9c6f23f978bf82a46e24c",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [
@@ -960,7 +960,7 @@
         "xcsh-docs:resources:secret_management_access:properties:where"
       ],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -986,6 +986,8 @@
           "anchor": "section",
           "description": "HostAccessInfoType contains the information about how to connect to the remote host.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:access_info",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -1025,6 +1027,8 @@
           "anchor": "schema-annotations",
           "description": "Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when modifying objects.",
           "document_id": "xcsh-docs:resources:secret_management_access:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -1039,6 +1043,8 @@
           "anchor": "schema-description",
           "description": "Human readable description for the object.",
           "document_id": "xcsh-docs:resources:secret_management_access:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -1053,6 +1059,8 @@
           "anchor": "schema-disable",
           "description": "A value of true will administratively disable the object.",
           "document_id": "xcsh-docs:resources:secret_management_access:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -1067,6 +1075,8 @@
           "anchor": "schema-id",
           "description": "Unique identifier for the resource.",
           "document_id": "xcsh-docs:resources:secret_management_access:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -1081,6 +1091,8 @@
           "anchor": "schema-labels",
           "description": "Map of string keys and values that can be used to organize and categorize (scope and select) objects as chosen by the user. Values specified here will be used by selector expression.",
           "document_id": "xcsh-docs:resources:secret_management_access:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -1095,6 +1107,8 @@
           "anchor": "schema-name",
           "description": "This is the name of configuration object. It has to be unique within the namespace. It can only be specified during create API and cannot be changed during replace API. The value of name has to follow DNS-1035 format.",
           "document_id": "xcsh-docs:resources:secret_management_access:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["required"],
           "max_items": null,
           "min_items": null,
@@ -1109,6 +1123,8 @@
           "anchor": "schema-namespace",
           "description": "This defines the workspace within which each the configuration object is to be created. Must be a DNS_LABEL format. For a namespace object itself, namespace value will be \"\"",
           "document_id": "xcsh-docs:resources:secret_management_access:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["required"],
           "max_items": null,
           "min_items": null,
@@ -1123,6 +1139,8 @@
           "anchor": "schema-provider_name",
           "description": "Name given to this secret management backend. site.provider needs to be unique, and will be referenced for using this object.",
           "document_id": "xcsh-docs:resources:secret_management_access:reference",
+          "enum_extraction_complete": true,
+          "enum_validators": [],
           "flags": ["required"],
           "max_items": null,
           "min_items": null,
@@ -1137,6 +1155,8 @@
           "anchor": "section",
           "description": "timeouts",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:timeouts",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -1151,6 +1171,8 @@
           "anchor": "section",
           "description": "NetworkSiteRefSelector defines a union of reference to site or reference to virtual_network or reference to virtual_site It is used to determine virtual network using following rules * Direct reference to virtual_network object * Site local network when referring to site object * All site local networks for sites",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:where",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -1223,8 +1245,8 @@
     },
     {
       "aliases": ["access info"],
-      "body_bytes": 3500,
-      "body_sha256": "sha256:925ec693a38debbb9092f469cb06859a59a9c2e71adb46d76e84ae0d048e67c4",
+      "body_bytes": 3810,
+      "body_sha256": "sha256:ae4bc7060f204381d75f83dda0d10eaf40cad60136d1d4d242cfdb2fe567fe82",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [
@@ -1233,7 +1255,7 @@
         "xcsh-docs:resources:secret_management_access:properties:access_info:vault_auth_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1284,6 +1306,8 @@
           "anchor": "section",
           "description": "Authentication parameters for REST based hosts.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:access_info:rest_auth_info",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -1347,6 +1371,17 @@
           "anchor": "schema-access_info--scheme",
           "description": "SchemeType is used to indicate URL scheme HTTP:// scheme HTTPS:// scheme.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:access_info",
+          "enum_extraction_complete": true,
+          "enum_validators": [
+            {
+              "case_sensitive": true,
+              "complete": true,
+              "source": "ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf",
+              "validator": "OneOf",
+              "values": ["HTTP", "HTTPS"],
+              "version": 1
+            }
+          ],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -1361,6 +1396,8 @@
           "anchor": "schema-access_info--server_endpoint",
           "description": "Endpoint to connect to, in host:port format.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:access_info",
+          "enum_extraction_complete": true,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -1375,6 +1412,8 @@
           "anchor": "section",
           "description": "TLS configuration for upstream connections.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:access_info:tls_config",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -1502,6 +1541,8 @@
           "anchor": "section",
           "description": "Authentication parameters for Hashicorp Vault hosts.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:access_info:vault_auth_info",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -1542,8 +1583,8 @@
     },
     {
       "aliases": ["access info rest auth info"],
-      "body_bytes": 1996,
-      "body_sha256": "sha256:4f6896818bb0999060a3f300aa9370e92a19dfed99d8890fb86fc38a98428afe",
+      "body_bytes": 2026,
+      "body_sha256": "sha256:d58d53b86ad21205fc6653659489b32f01d6bb779186c2b70cabaabb89d86d20",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [
@@ -1552,7 +1593,7 @@
         "xcsh-docs:resources:secret_management_access:properties:access_info:rest_auth_info:query_params_auth"
       ],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1627,6 +1668,8 @@
           "anchor": "section",
           "description": "AuthnTypeBasicAuth is used for using basic_auth mode of HTTP authentication.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:access_info:rest_auth_info:basic_auth",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -1641,6 +1684,8 @@
           "anchor": "section",
           "description": "AuthnTypeHeaders is used for setting headers for authentication.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:access_info:rest_auth_info:headers_auth",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -1655,6 +1700,8 @@
           "anchor": "section",
           "description": "AuthnTypeQueryParams is used for setting query_params for authentication.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:access_info:rest_auth_info:query_params_auth",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -1686,7 +1733,7 @@
         "xcsh-docs:resources:secret_management_access:properties:access_info:rest_auth_info:basic_auth:password"
       ],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1712,6 +1759,8 @@
           "anchor": "section",
           "description": "SecretType is used in an object to indicate a sensitive/confidential field.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:access_info:rest_auth_info:basic_auth:password",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -1743,6 +1792,8 @@
           "anchor": "schema-access_info--rest_auth_info--basic_auth--username",
           "description": "The username to encode in Basic Auth scheme.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:access_info:rest_auth_info:basic_auth",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -1766,8 +1817,8 @@
     },
     {
       "aliases": ["access info rest auth info basic auth password"],
-      "body_bytes": 2124,
-      "body_sha256": "sha256:42daf31a26857165f2aa4694b3f659cfe0cec116ada239227b87504f3fe62fc8",
+      "body_bytes": 2154,
+      "body_sha256": "sha256:4bd5a9a6e49cc38ff9ae330e87a3538085cd059b20af1255cc59b82d7754093d",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [
@@ -1775,7 +1826,7 @@
         "xcsh-docs:resources:secret_management_access:properties:access_info:rest_auth_info:basic_auth:password:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1818,6 +1869,8 @@
           "anchor": "section",
           "description": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:access_info:rest_auth_info:basic_auth:password:blindfold_secret_info",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -1841,6 +1894,8 @@
           "anchor": "section",
           "description": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:access_info:rest_auth_info:basic_auth:password:clear_secret_info",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -1873,13 +1928,13 @@
     },
     {
       "aliases": ["access info rest auth info basic auth password blindfold secret info"],
-      "body_bytes": 4777,
-      "body_sha256": "sha256:354e8077398d5cac01598f41446a04525f657deb2b5a6d6b592b00dcd556a882",
+      "body_bytes": 4836,
+      "body_sha256": "sha256:6f4363fcf3000d1c0993b19dc7b89b5b5ba4371091e6b4ded3472ec1f83e31bc",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1914,6 +1969,8 @@
           "anchor": "schema-access_info--rest_auth_info--basic_auth--password--blindfold_secret_info--decryption_provider",
           "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:access_info:rest_auth_info:basic_auth:password:blindfold_secret_info",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -1935,6 +1992,8 @@
           "anchor": "schema-access_info--rest_auth_info--basic_auth--password--blindfold_secret_info--location",
           "description": "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:access_info:rest_auth_info:basic_auth:password:blindfold_secret_info",
+          "enum_extraction_complete": true,
+          "enum_validators": [],
           "flags": ["optional", "sensitive"],
           "max_items": null,
           "min_items": null,
@@ -1956,6 +2015,8 @@
           "anchor": "schema-access_info--rest_auth_info--basic_auth--password--blindfold_secret_info--store_provider",
           "description": "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:access_info:rest_auth_info:basic_auth:password:blindfold_secret_info",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -1986,13 +2047,13 @@
     },
     {
       "aliases": ["access info rest auth info basic auth password clear secret info"],
-      "body_bytes": 3773,
-      "body_sha256": "sha256:88a4367d109746f3b25de72295df9d684bd7795aa0fa0a88948efeed99ea6d35",
+      "body_bytes": 3832,
+      "body_sha256": "sha256:e080191e426143078892eb122d826550403d1bf03b57f74b5ba8fa968b149c57",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2027,6 +2088,8 @@
           "anchor": "schema-access_info--rest_auth_info--basic_auth--password--clear_secret_info--provider_ref",
           "description": "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:access_info:rest_auth_info:basic_auth:password:clear_secret_info",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -2048,6 +2111,8 @@
           "anchor": "schema-access_info--rest_auth_info--basic_auth--password--clear_secret_info--url",
           "description": "URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:access_info:rest_auth_info:basic_auth:password:clear_secret_info",
+          "enum_extraction_complete": true,
+          "enum_validators": [],
           "flags": ["optional", "sensitive"],
           "max_items": null,
           "min_items": null,
@@ -2079,7 +2144,7 @@
         "xcsh-docs:resources:secret_management_access:properties:access_info:rest_auth_info:headers_auth:headers"
       ],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2105,6 +2170,8 @@
           "anchor": "section",
           "description": "The set of authentication headers to pass in HTTP request.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:access_info:rest_auth_info:headers_auth:headers",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -2134,7 +2201,7 @@
       "category": "identity",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2176,7 +2243,7 @@
         "xcsh-docs:resources:secret_management_access:properties:access_info:rest_auth_info:query_params_auth:query_params"
       ],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2202,6 +2269,8 @@
           "anchor": "section",
           "description": "The set of authentication parameters to be passed as query parameters.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:access_info:rest_auth_info:query_params_auth:query_params",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -2231,7 +2300,7 @@
       "category": "identity",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2265,8 +2334,8 @@
     },
     {
       "aliases": ["access info tls config"],
-      "body_bytes": 5342,
-      "body_sha256": "sha256:0b775d7f0f5577d5900828ec1f769eeafdd24b50ccb5ffe69fa49dfef1f6aa17",
+      "body_bytes": 5431,
+      "body_sha256": "sha256:e648ea9529961e24288b230f5370ac3a2a70fe793676d82ff40c34241cfef8ed",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [
@@ -2278,7 +2347,7 @@
         "xcsh-docs:resources:secret_management_access:properties:access_info:tls_config:use_host_header_as_sni"
       ],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2417,6 +2486,8 @@
           "anchor": "section",
           "description": "Certificate Parameters for authentication, TLS ciphers, and trust store.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:access_info:tls_config:cert_params",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -2488,6 +2559,8 @@
           "anchor": "section",
           "description": "Information of different aspects for TLS authentication related to ciphers, certificates and trust store.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:access_info:tls_config:common_params",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -2502,6 +2575,8 @@
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:access_info:tls_config:default_session_key_caching",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -2516,6 +2591,8 @@
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:access_info:tls_config:disable_session_key_caching",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -2530,6 +2607,8 @@
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:access_info:tls_config:disable_sni",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -2544,6 +2623,8 @@
           "anchor": "schema-access_info--tls_config--max_session_keys",
           "description": "Exclusive with Number of session keys that are cached.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:access_info:tls_config",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -2558,6 +2639,8 @@
           "anchor": "schema-access_info--tls_config--sni",
           "description": "Exclusive with SNI value to be used.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:access_info:tls_config",
+          "enum_extraction_complete": true,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -2572,6 +2655,8 @@
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:access_info:tls_config:use_host_header_as_sni",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -2595,8 +2680,8 @@
     },
     {
       "aliases": ["access info tls config cert params"],
-      "body_bytes": 7859,
-      "body_sha256": "sha256:81313d2873f96ffd48e0b4dbe9ae47d7ca3c217b00edb5ccf7e8b032fdc43ec2",
+      "body_bytes": 8463,
+      "body_sha256": "sha256:f3ff04c67c3c0b556a1dd7595b930189ad852a56396ecd9fc88156b5e2270e70",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [
@@ -2606,7 +2691,7 @@
         "xcsh-docs:resources:secret_management_access:properties:access_info:tls_config:cert_params:volterra_trusted_ca"
       ],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2695,6 +2780,8 @@
           "anchor": "section",
           "description": "Client TLS Certificate required for mTLS authentication.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:access_info:tls_config:cert_params:certificates",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -2709,6 +2796,8 @@
           "anchor": "schema-access_info--tls_config--cert_params--cipher_suites",
           "description": "The following list specifies the supported cipher suite TLS_AES_128_GCM_SHA256 TLS_AES_256_GCM_SHA384 TLS_CHACHA20_POLY1305_SHA256 TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:access_info:tls_config:cert_params",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -2723,6 +2812,17 @@
           "anchor": "schema-access_info--tls_config--cert_params--maximum_protocol_version",
           "description": "TlsProtocol is enumeration of supported TLS versions F5 Distributed Cloud will choose the optimal TLS version.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:access_info:tls_config:cert_params",
+          "enum_extraction_complete": true,
+          "enum_validators": [
+            {
+              "case_sensitive": true,
+              "complete": true,
+              "source": "ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf",
+              "validator": "OneOf",
+              "values": ["TLS_AUTO", "TLSv1_0", "TLSv1_1", "TLSv1_2", "TLSv1_3"],
+              "version": 1
+            }
+          ],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -2737,6 +2837,17 @@
           "anchor": "schema-access_info--tls_config--cert_params--minimum_protocol_version",
           "description": "TlsProtocol is enumeration of supported TLS versions F5 Distributed Cloud will choose the optimal TLS version.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:access_info:tls_config:cert_params",
+          "enum_extraction_complete": true,
+          "enum_validators": [
+            {
+              "case_sensitive": true,
+              "complete": true,
+              "source": "ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf",
+              "validator": "OneOf",
+              "values": ["TLS_AUTO", "TLSv1_0", "TLSv1_1", "TLSv1_2", "TLSv1_3"],
+              "version": 1
+            }
+          ],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -2751,6 +2862,8 @@
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:access_info:tls_config:cert_params:skip_server_verification",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -2765,6 +2878,8 @@
           "anchor": "section",
           "description": "This includes URL for a trust store, whether SAN verification is required and list of Subject Alt Names for verification.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:access_info:tls_config:cert_params:tls_validation_params",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -2796,6 +2911,8 @@
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:access_info:tls_config:cert_params:volterra_trusted_ca",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -2825,13 +2942,13 @@
         "existing certificates",
         "tls certificates"
       ],
-      "body_bytes": 6033,
-      "body_sha256": "sha256:2391c9a9ee8bfa747dad6f660579f186f2574b4ff69ead2a28886e0da0ffdfe1",
+      "body_bytes": 6063,
+      "body_sha256": "sha256:c9d86cbeb212acff185e3c31cb2f7b3ebb8ead794b2a88c48f3c4c36fa505e11",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2857,10 +2974,19 @@
           "anchor": "schema-access_info--tls_config--cert_params--certificates--kind",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. \"route\")",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:access_info:tls_config:cert_params:certificates",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
           "nesting": null,
+          "reference_identity": {
+            "member": "kind",
+            "scope_path": ["access_info", "tls_config", "cert_params", "certificates"],
+            "source": "receipt-pinned-schema-identity",
+            "upstream_message": "ves.io.schema.ObjectRefType",
+            "version": 1
+          },
           "relationships": [],
           "schema_path": ["access_info", "tls_config", "cert_params", "certificates", "kind"],
           "syntax": "attribute",
@@ -2871,10 +2997,19 @@
           "anchor": "schema-access_info--tls_config--cert_params--certificates--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:access_info:tls_config:cert_params:certificates",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
           "nesting": null,
+          "reference_identity": {
+            "member": "name",
+            "scope_path": ["access_info", "tls_config", "cert_params", "certificates"],
+            "source": "receipt-pinned-schema-identity",
+            "upstream_message": "ves.io.schema.ObjectRefType",
+            "version": 1
+          },
           "relationships": [],
           "schema_path": ["access_info", "tls_config", "cert_params", "certificates", "name"],
           "syntax": "attribute",
@@ -2885,10 +3020,19 @@
           "anchor": "schema-access_info--tls_config--cert_params--certificates--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:access_info:tls_config:cert_params:certificates",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional", "computed"],
           "max_items": null,
           "min_items": null,
           "nesting": null,
+          "reference_identity": {
+            "member": "namespace",
+            "scope_path": ["access_info", "tls_config", "cert_params", "certificates"],
+            "source": "receipt-pinned-schema-identity",
+            "upstream_message": "ves.io.schema.ObjectRefType",
+            "version": 1
+          },
           "relationships": [],
           "schema_path": ["access_info", "tls_config", "cert_params", "certificates", "namespace"],
           "syntax": "attribute",
@@ -2899,10 +3043,19 @@
           "anchor": "schema-access_info--tls_config--cert_params--certificates--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:access_info:tls_config:cert_params:certificates",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
           "nesting": null,
+          "reference_identity": {
+            "member": "tenant",
+            "scope_path": ["access_info", "tls_config", "cert_params", "certificates"],
+            "source": "receipt-pinned-schema-identity",
+            "upstream_message": "ves.io.schema.ObjectRefType",
+            "version": 1
+          },
           "relationships": [],
           "schema_path": ["access_info", "tls_config", "cert_params", "certificates", "tenant"],
           "syntax": "attribute",
@@ -2913,10 +3066,19 @@
           "anchor": "schema-access_info--tls_config--cert_params--certificates--uid",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:access_info:tls_config:cert_params:certificates",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
           "nesting": null,
+          "reference_identity": {
+            "member": "uid",
+            "scope_path": ["access_info", "tls_config", "cert_params", "certificates"],
+            "source": "receipt-pinned-schema-identity",
+            "upstream_message": "ves.io.schema.ObjectRefType",
+            "version": 1
+          },
           "relationships": [],
           "schema_path": ["access_info", "tls_config", "cert_params", "certificates", "uid"],
           "syntax": "attribute",
@@ -2942,7 +3104,7 @@
       "category": "identity",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2976,15 +3138,15 @@
     },
     {
       "aliases": ["access info tls config cert params tls validation params"],
-      "body_bytes": 4163,
-      "body_sha256": "sha256:8cbfb7ff08089a2c619670abfd7d01ea11f770e085312ca437ba5f3799dd3048",
+      "body_bytes": 4222,
+      "body_sha256": "sha256:fa93da9cfb7f53df8a1460bd4fa81d818de55f45f3fd4e718b2688e233d8fd4e",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [
         "xcsh-docs:resources:secret_management_access:properties:access_info:tls_config:cert_params:tls_validation_params:trusted_ca"
       ],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3027,6 +3189,8 @@
           "anchor": "schema-access_info--tls_config--cert_params--tls_validation_params--skip_hostname_verification",
           "description": "When True, skip verification of hostname i.e. CN/Subject Alt Name of certificate is not matched to the connecting hostname.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:access_info:tls_config:cert_params:tls_validation_params",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -3047,6 +3211,8 @@
           "anchor": "section",
           "description": "Reference to Root CA Certificate.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:access_info:tls_config:cert_params:tls_validation_params:trusted_ca",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -3061,6 +3227,8 @@
           "anchor": "schema-access_info--tls_config--cert_params--tls_validation_params--trusted_ca_url",
           "description": "Exclusive with Inline Root CA Certificate.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:access_info:tls_config:cert_params:tls_validation_params",
+          "enum_extraction_complete": true,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -3075,6 +3243,8 @@
           "anchor": "schema-access_info--tls_config--cert_params--tls_validation_params--verify_subject_alt_names",
           "description": "List of acceptable Subject Alt Names/CN in the peer's certificate. When skip_hostname_verification is false and verify_subject_alt_names is empty, the hostname of the peer will be used for matching against SAN/CN of peer's certificate.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:access_info:tls_config:cert_params:tls_validation_params",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -3112,7 +3282,7 @@
         "xcsh-docs:resources:secret_management_access:properties:access_info:tls_config:cert_params:tls_validation_params:trusted_ca:trusted_ca_list"
       ],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3138,6 +3308,8 @@
           "anchor": "section",
           "description": "Reference to Root CA Certificate.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:access_info:tls_config:cert_params:tls_validation_params:trusted_ca:trusted_ca_list",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -3168,13 +3340,13 @@
     },
     {
       "aliases": ["access info tls config cert params tls validation params trusted ca trusted ca list"],
-      "body_bytes": 6866,
-      "body_sha256": "sha256:74aa357f4740abe09e4eed9095e402a3c9e08c3a96a99dfd00ea657e8436fb9b",
+      "body_bytes": 6896,
+      "body_sha256": "sha256:555c56be0278dc1918f841ab52212be92b188125e3333089252974a778936553",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3207,10 +3379,26 @@
           "anchor": "schema-access_info--tls_config--cert_params--tls_validation_params--trusted_ca--trusted_ca_list--kind",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. \"route\")",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:access_info:tls_config:cert_params:tls_validation_params:trusted_ca:trusted_ca_list",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
           "nesting": null,
+          "reference_identity": {
+            "member": "kind",
+            "scope_path": [
+              "access_info",
+              "tls_config",
+              "cert_params",
+              "tls_validation_params",
+              "trusted_ca",
+              "trusted_ca_list"
+            ],
+            "source": "receipt-pinned-schema-identity",
+            "upstream_message": "ves.io.schema.ObjectRefType",
+            "version": 1
+          },
           "relationships": [],
           "schema_path": [
             "access_info",
@@ -3229,10 +3417,26 @@
           "anchor": "schema-access_info--tls_config--cert_params--tls_validation_params--trusted_ca--trusted_ca_list--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:access_info:tls_config:cert_params:tls_validation_params:trusted_ca:trusted_ca_list",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
           "nesting": null,
+          "reference_identity": {
+            "member": "name",
+            "scope_path": [
+              "access_info",
+              "tls_config",
+              "cert_params",
+              "tls_validation_params",
+              "trusted_ca",
+              "trusted_ca_list"
+            ],
+            "source": "receipt-pinned-schema-identity",
+            "upstream_message": "ves.io.schema.ObjectRefType",
+            "version": 1
+          },
           "relationships": [],
           "schema_path": [
             "access_info",
@@ -3251,10 +3455,26 @@
           "anchor": "schema-access_info--tls_config--cert_params--tls_validation_params--trusted_ca--trusted_ca_list--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:access_info:tls_config:cert_params:tls_validation_params:trusted_ca:trusted_ca_list",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional", "computed"],
           "max_items": null,
           "min_items": null,
           "nesting": null,
+          "reference_identity": {
+            "member": "namespace",
+            "scope_path": [
+              "access_info",
+              "tls_config",
+              "cert_params",
+              "tls_validation_params",
+              "trusted_ca",
+              "trusted_ca_list"
+            ],
+            "source": "receipt-pinned-schema-identity",
+            "upstream_message": "ves.io.schema.ObjectRefType",
+            "version": 1
+          },
           "relationships": [],
           "schema_path": [
             "access_info",
@@ -3273,10 +3493,26 @@
           "anchor": "schema-access_info--tls_config--cert_params--tls_validation_params--trusted_ca--trusted_ca_list--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:access_info:tls_config:cert_params:tls_validation_params:trusted_ca:trusted_ca_list",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
           "nesting": null,
+          "reference_identity": {
+            "member": "tenant",
+            "scope_path": [
+              "access_info",
+              "tls_config",
+              "cert_params",
+              "tls_validation_params",
+              "trusted_ca",
+              "trusted_ca_list"
+            ],
+            "source": "receipt-pinned-schema-identity",
+            "upstream_message": "ves.io.schema.ObjectRefType",
+            "version": 1
+          },
           "relationships": [],
           "schema_path": [
             "access_info",
@@ -3295,10 +3531,26 @@
           "anchor": "schema-access_info--tls_config--cert_params--tls_validation_params--trusted_ca--trusted_ca_list--uid",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:access_info:tls_config:cert_params:tls_validation_params:trusted_ca:trusted_ca_list",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
           "nesting": null,
+          "reference_identity": {
+            "member": "uid",
+            "scope_path": [
+              "access_info",
+              "tls_config",
+              "cert_params",
+              "tls_validation_params",
+              "trusted_ca",
+              "trusted_ca_list"
+            ],
+            "source": "receipt-pinned-schema-identity",
+            "upstream_message": "ves.io.schema.ObjectRefType",
+            "version": 1
+          },
           "relationships": [],
           "schema_path": [
             "access_info",
@@ -3332,7 +3584,7 @@
       "category": "identity",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3366,8 +3618,8 @@
     },
     {
       "aliases": ["access info tls config common params"],
-      "body_bytes": 6893,
-      "body_sha256": "sha256:8b203865e600d21543f6b6a287c3e45d90b80b5f5f652cb616b232cda20ea59e",
+      "body_bytes": 7467,
+      "body_sha256": "sha256:218c1f74579df7e8db73eb319b53ac5ea4918170ef03e9ade4a0cb4ecf1b3448",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [
@@ -3375,7 +3627,7 @@
         "xcsh-docs:resources:secret_management_access:properties:access_info:tls_config:common_params:validation_params"
       ],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3401,6 +3653,8 @@
           "anchor": "schema-access_info--tls_config--common_params--cipher_suites",
           "description": "The following list specifies the supported cipher suite TLS_AES_128_GCM_SHA256 TLS_AES_256_GCM_SHA384 TLS_CHACHA20_POLY1305_SHA256 TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:access_info:tls_config:common_params",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -3415,6 +3669,17 @@
           "anchor": "schema-access_info--tls_config--common_params--maximum_protocol_version",
           "description": "TlsProtocol is enumeration of supported TLS versions F5 Distributed Cloud will choose the optimal TLS version.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:access_info:tls_config:common_params",
+          "enum_extraction_complete": true,
+          "enum_validators": [
+            {
+              "case_sensitive": true,
+              "complete": true,
+              "source": "ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf",
+              "validator": "OneOf",
+              "values": ["TLS_AUTO", "TLSv1_0", "TLSv1_1", "TLSv1_2", "TLSv1_3"],
+              "version": 1
+            }
+          ],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -3429,6 +3694,17 @@
           "anchor": "schema-access_info--tls_config--common_params--minimum_protocol_version",
           "description": "TlsProtocol is enumeration of supported TLS versions F5 Distributed Cloud will choose the optimal TLS version.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:access_info:tls_config:common_params",
+          "enum_extraction_complete": true,
+          "enum_validators": [
+            {
+              "case_sensitive": true,
+              "complete": true,
+              "source": "ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf",
+              "validator": "OneOf",
+              "values": ["TLS_AUTO", "TLSv1_0", "TLSv1_1", "TLSv1_2", "TLSv1_3"],
+              "version": 1
+            }
+          ],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -3449,6 +3725,8 @@
           "anchor": "section",
           "description": "Set of TLS certificates.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:access_info:tls_config:common_params:tls_certificates",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -3520,6 +3798,8 @@
           "anchor": "section",
           "description": "This includes URL for a trust store, whether SAN verification is required and list of Subject Alt Names for verification.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:access_info:tls_config:common_params:validation_params",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -3566,8 +3846,8 @@
         "existing certificates",
         "tls certificates"
       ],
-      "body_bytes": 4404,
-      "body_sha256": "sha256:e3e7238b64d9b850c0378ef26b23984e17f9a8d60f1c0804182f1d27dc103f01",
+      "body_bytes": 4463,
+      "body_sha256": "sha256:fbde2fa84e326711783f98cc3fc0ba1585026be783b679ee49f7689960e55347",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [
@@ -3577,7 +3857,7 @@
         "xcsh-docs:resources:secret_management_access:properties:access_info:tls_config:common_params:tls_certificates:use_system_defaults"
       ],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3666,6 +3946,8 @@
           "anchor": "schema-access_info--tls_config--common_params--tls_certificates--certificate_url",
           "description": "TLS certificate. Certificate or certificate chain in PEM format including the PEM headers.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:access_info:tls_config:common_params:tls_certificates",
+          "enum_extraction_complete": true,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -3680,6 +3962,8 @@
           "anchor": "section",
           "description": "Specifies the hash algorithms to be used.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:access_info:tls_config:common_params:tls_certificates:custom_hash_algorithms",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -3703,6 +3987,8 @@
           "anchor": "schema-access_info--tls_config--common_params--tls_certificates--description_spec",
           "description": "Description. Description for the certificate.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:access_info:tls_config:common_params:tls_certificates",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -3717,6 +4003,8 @@
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:access_info:tls_config:common_params:tls_certificates:disable_ocsp_stapling",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -3731,6 +4019,8 @@
           "anchor": "section",
           "description": "SecretType is used in an object to indicate a sensitive/confidential field.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:access_info:tls_config:common_params:tls_certificates:private_key",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -3762,6 +4052,8 @@
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:access_info:tls_config:common_params:tls_certificates:use_system_defaults",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -3785,13 +4077,13 @@
     },
     {
       "aliases": ["access info tls config common params tls certificates custom hash algorithms"],
-      "body_bytes": 3304,
-      "body_sha256": "sha256:b8dd7534e53a9ff6e85e5edc4438fcea88be51915ef7c4e4d76bc65e0f3c333e",
+      "body_bytes": 3364,
+      "body_sha256": "sha256:1509b02320b72d1a0730212c0dc7a7abda80f4983e758fff0cd37c359d0c1f33",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3826,6 +4118,8 @@
           "anchor": "schema-access_info--tls_config--common_params--tls_certificates--custom_hash_algorithms--hash_algorithms",
           "description": "Ordered list of hash algorithms to be used.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:access_info:tls_config:common_params:tls_certificates:custom_hash_algorithms",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -3862,7 +4156,7 @@
       "category": "identity",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3896,8 +4190,8 @@
     },
     {
       "aliases": ["access info tls config common params tls certificates private key"],
-      "body_bytes": 2409,
-      "body_sha256": "sha256:a262f2ce69a7eed18be17094935776834ea1c0b479991210eefdb06b9c765caf",
+      "body_bytes": 2439,
+      "body_sha256": "sha256:9b75998ab7666f863ef0bf5cf1829095d972a621733068742082b45ee8c42cb3",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [
@@ -3905,7 +4199,7 @@
         "xcsh-docs:resources:secret_management_access:properties:access_info:tls_config:common_params:tls_certificates:private_key:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3948,6 +4242,8 @@
           "anchor": "section",
           "description": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:access_info:tls_config:common_params:tls_certificates:private_key:blindfold_secret_info",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -3978,6 +4274,8 @@
           "anchor": "section",
           "description": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:access_info:tls_config:common_params:tls_certificates:private_key:clear_secret_info",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -4017,13 +4315,13 @@
     },
     {
       "aliases": ["access info tls config common params tls certificates private key blindfold secret info"],
-      "body_bytes": 5119,
-      "body_sha256": "sha256:bce4acbf42444d8a9f86bd88116a948fc6d61946d44738df0d57482b5ab54081",
+      "body_bytes": 5178,
+      "body_sha256": "sha256:94e15a37602c1af0b3a88ce37f713c2dd873c8147f3f36980a777b88a581af0e",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4067,6 +4365,8 @@
           "anchor": "schema-access_info--tls_config--common_params--tls_certificates--private_key--blindfold_secret_info--decryption_provider",
           "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:access_info:tls_config:common_params:tls_certificates:private_key:blindfold_secret_info",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -4091,6 +4391,8 @@
           "anchor": "schema-access_info--tls_config--common_params--tls_certificates--private_key--blindfold_secret_info--location",
           "description": "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:access_info:tls_config:common_params:tls_certificates:private_key:blindfold_secret_info",
+          "enum_extraction_complete": true,
+          "enum_validators": [],
           "flags": ["optional", "sensitive"],
           "max_items": null,
           "min_items": null,
@@ -4115,6 +4417,8 @@
           "anchor": "schema-access_info--tls_config--common_params--tls_certificates--private_key--blindfold_secret_info--store_provider",
           "description": "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:access_info:tls_config:common_params:tls_certificates:private_key:blindfold_secret_info",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -4146,13 +4450,13 @@
     },
     {
       "aliases": ["access info tls config common params tls certificates private key clear secret info"],
-      "body_bytes": 4095,
-      "body_sha256": "sha256:91f3e0f37d5ab1556b06307382a2146bf721fd102ebe7b854c1c0cbd8e1e0f69",
+      "body_bytes": 4154,
+      "body_sha256": "sha256:fda0f185abf2219f81409a23afafd98a538acf86ec451965f95b5099b2631b2b",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4196,6 +4500,8 @@
           "anchor": "schema-access_info--tls_config--common_params--tls_certificates--private_key--clear_secret_info--provider_ref",
           "description": "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:access_info:tls_config:common_params:tls_certificates:private_key:clear_secret_info",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -4218,6 +4524,8 @@
           "anchor": "schema-access_info--tls_config--common_params--tls_certificates--private_key--clear_secret_info--url",
           "description": "URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:access_info:tls_config:common_params:tls_certificates:private_key:clear_secret_info",
+          "enum_extraction_complete": true,
+          "enum_validators": [],
           "flags": ["optional", "sensitive"],
           "max_items": null,
           "min_items": null,
@@ -4255,7 +4563,7 @@
       "category": "identity",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4289,15 +4597,15 @@
     },
     {
       "aliases": ["access info tls config common params validation params"],
-      "body_bytes": 4151,
-      "body_sha256": "sha256:b1fbeea843025bc8c0bdbac51f4e1365cee337758f0b8d50a704bd9abad018bd",
+      "body_bytes": 4210,
+      "body_sha256": "sha256:bfb2c522d6b2851a8dd155593a76e9789a4b8d433f60ec19051c1b578488145d",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [
         "xcsh-docs:resources:secret_management_access:properties:access_info:tls_config:common_params:validation_params:trusted_ca"
       ],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4340,6 +4648,8 @@
           "anchor": "schema-access_info--tls_config--common_params--validation_params--skip_hostname_verification",
           "description": "When True, skip verification of hostname i.e. CN/Subject Alt Name of certificate is not matched to the connecting hostname.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:access_info:tls_config:common_params:validation_params",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -4360,6 +4670,8 @@
           "anchor": "section",
           "description": "Reference to Root CA Certificate.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:access_info:tls_config:common_params:validation_params:trusted_ca",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -4374,6 +4686,8 @@
           "anchor": "schema-access_info--tls_config--common_params--validation_params--trusted_ca_url",
           "description": "Exclusive with Inline Root CA Certificate.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:access_info:tls_config:common_params:validation_params",
+          "enum_extraction_complete": true,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -4388,6 +4702,8 @@
           "anchor": "schema-access_info--tls_config--common_params--validation_params--verify_subject_alt_names",
           "description": "List of acceptable Subject Alt Names/CN in the peer's certificate. When skip_hostname_verification is false and verify_subject_alt_names is empty, the hostname of the peer will be used for matching against SAN/CN of peer's certificate.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:access_info:tls_config:common_params:validation_params",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -4425,7 +4741,7 @@
         "xcsh-docs:resources:secret_management_access:properties:access_info:tls_config:common_params:validation_params:trusted_ca:trusted_ca_list"
       ],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4451,6 +4767,8 @@
           "anchor": "section",
           "description": "Reference to Root CA Certificate.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:access_info:tls_config:common_params:validation_params:trusted_ca:trusted_ca_list",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -4481,13 +4799,13 @@
     },
     {
       "aliases": ["access info tls config common params validation params trusted ca trusted ca list"],
-      "body_bytes": 6848,
-      "body_sha256": "sha256:bff62832b28e906cf4748463a9221b30b3a5b4df86abf1d11af85cfb50aab8cd",
+      "body_bytes": 6878,
+      "body_sha256": "sha256:2939dd529397d24c7f09c11df8d1577f4c5795799b07c3b78250f6b66ee701f6",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4520,10 +4838,26 @@
           "anchor": "schema-access_info--tls_config--common_params--validation_params--trusted_ca--trusted_ca_list--kind",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. \"route\")",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:access_info:tls_config:common_params:validation_params:trusted_ca:trusted_ca_list",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
           "nesting": null,
+          "reference_identity": {
+            "member": "kind",
+            "scope_path": [
+              "access_info",
+              "tls_config",
+              "common_params",
+              "validation_params",
+              "trusted_ca",
+              "trusted_ca_list"
+            ],
+            "source": "receipt-pinned-schema-identity",
+            "upstream_message": "ves.io.schema.ObjectRefType",
+            "version": 1
+          },
           "relationships": [],
           "schema_path": [
             "access_info",
@@ -4542,10 +4876,26 @@
           "anchor": "schema-access_info--tls_config--common_params--validation_params--trusted_ca--trusted_ca_list--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:access_info:tls_config:common_params:validation_params:trusted_ca:trusted_ca_list",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
           "nesting": null,
+          "reference_identity": {
+            "member": "name",
+            "scope_path": [
+              "access_info",
+              "tls_config",
+              "common_params",
+              "validation_params",
+              "trusted_ca",
+              "trusted_ca_list"
+            ],
+            "source": "receipt-pinned-schema-identity",
+            "upstream_message": "ves.io.schema.ObjectRefType",
+            "version": 1
+          },
           "relationships": [],
           "schema_path": [
             "access_info",
@@ -4564,10 +4914,26 @@
           "anchor": "schema-access_info--tls_config--common_params--validation_params--trusted_ca--trusted_ca_list--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:access_info:tls_config:common_params:validation_params:trusted_ca:trusted_ca_list",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional", "computed"],
           "max_items": null,
           "min_items": null,
           "nesting": null,
+          "reference_identity": {
+            "member": "namespace",
+            "scope_path": [
+              "access_info",
+              "tls_config",
+              "common_params",
+              "validation_params",
+              "trusted_ca",
+              "trusted_ca_list"
+            ],
+            "source": "receipt-pinned-schema-identity",
+            "upstream_message": "ves.io.schema.ObjectRefType",
+            "version": 1
+          },
           "relationships": [],
           "schema_path": [
             "access_info",
@@ -4586,10 +4952,26 @@
           "anchor": "schema-access_info--tls_config--common_params--validation_params--trusted_ca--trusted_ca_list--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:access_info:tls_config:common_params:validation_params:trusted_ca:trusted_ca_list",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
           "nesting": null,
+          "reference_identity": {
+            "member": "tenant",
+            "scope_path": [
+              "access_info",
+              "tls_config",
+              "common_params",
+              "validation_params",
+              "trusted_ca",
+              "trusted_ca_list"
+            ],
+            "source": "receipt-pinned-schema-identity",
+            "upstream_message": "ves.io.schema.ObjectRefType",
+            "version": 1
+          },
           "relationships": [],
           "schema_path": [
             "access_info",
@@ -4608,10 +4990,26 @@
           "anchor": "schema-access_info--tls_config--common_params--validation_params--trusted_ca--trusted_ca_list--uid",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:access_info:tls_config:common_params:validation_params:trusted_ca:trusted_ca_list",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
           "nesting": null,
+          "reference_identity": {
+            "member": "uid",
+            "scope_path": [
+              "access_info",
+              "tls_config",
+              "common_params",
+              "validation_params",
+              "trusted_ca",
+              "trusted_ca_list"
+            ],
+            "source": "receipt-pinned-schema-identity",
+            "upstream_message": "ves.io.schema.ObjectRefType",
+            "version": 1
+          },
           "relationships": [],
           "schema_path": [
             "access_info",
@@ -4645,7 +5043,7 @@
       "category": "identity",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4685,7 +5083,7 @@
       "category": "identity",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4725,7 +5123,7 @@
       "category": "identity",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4765,7 +5163,7 @@
       "category": "identity",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4799,8 +5197,8 @@
     },
     {
       "aliases": ["access info vault auth info"],
-      "body_bytes": 1600,
-      "body_sha256": "sha256:f7450c895698baa29c430a80a602677356a5aa5ebc4cb7ca50f6b09843c8b2cd",
+      "body_bytes": 1630,
+      "body_sha256": "sha256:ae8786589b659afef89797f37a394c5d4e2809985d2960cc9e937db80e72b785",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [
@@ -4808,7 +5206,7 @@
         "xcsh-docs:resources:secret_management_access:properties:access_info:vault_auth_info:token"
       ],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4851,6 +5249,8 @@
           "anchor": "section",
           "description": "AppRoleAuthInfoType contains parameters for AppRole authentication in Hashicorp Vault.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:access_info:vault_auth_info:app_role_auth",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -4865,6 +5265,8 @@
           "anchor": "section",
           "description": "SecretType is used in an object to indicate a sensitive/confidential field.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:access_info:vault_auth_info:token",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -4913,7 +5315,7 @@
         "xcsh-docs:resources:secret_management_access:properties:access_info:vault_auth_info:app_role_auth:secret_id"
       ],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4939,6 +5341,8 @@
           "anchor": "schema-access_info--vault_auth_info--app_role_auth--role_id",
           "description": "Role-ID to be used for authentication.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:access_info:vault_auth_info:app_role_auth",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -4953,6 +5357,8 @@
           "anchor": "section",
           "description": "SecretType is used in an object to indicate a sensitive/confidential field.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:access_info:vault_auth_info:app_role_auth:secret_id",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -4993,8 +5399,8 @@
     },
     {
       "aliases": ["access info vault auth info app role auth secret id"],
-      "body_bytes": 2155,
-      "body_sha256": "sha256:65a479db343a89c26f4625b3c6a697530c63f373115f6aef11fbaf958bfa1008",
+      "body_bytes": 2185,
+      "body_sha256": "sha256:4875894c4790bc2812884dfbe03a00e23f2ea47d18a717428ff7f6ecad8f7ad0",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [
@@ -5002,7 +5408,7 @@
         "xcsh-docs:resources:secret_management_access:properties:access_info:vault_auth_info:app_role_auth:secret_id:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5045,6 +5451,8 @@
           "anchor": "section",
           "description": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:access_info:vault_auth_info:app_role_auth:secret_id:blindfold_secret_info",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -5068,6 +5476,8 @@
           "anchor": "section",
           "description": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:access_info:vault_auth_info:app_role_auth:secret_id:clear_secret_info",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -5100,13 +5510,13 @@
     },
     {
       "aliases": ["access info vault auth info app role auth secret id blindfold secret info"],
-      "body_bytes": 4822,
-      "body_sha256": "sha256:36a12708a9742be515a673fccd556d64859df4a97491aa86faf6cb623fa20a89",
+      "body_bytes": 4881,
+      "body_sha256": "sha256:3933031f2d59ca1d2d760071a53870d3caf75e26dcfc4793aab9d1505637f76c",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5141,6 +5551,8 @@
           "anchor": "schema-access_info--vault_auth_info--app_role_auth--secret_id--blindfold_secret_info--decryption_provider",
           "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:access_info:vault_auth_info:app_role_auth:secret_id:blindfold_secret_info",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -5162,6 +5574,8 @@
           "anchor": "schema-access_info--vault_auth_info--app_role_auth--secret_id--blindfold_secret_info--location",
           "description": "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:access_info:vault_auth_info:app_role_auth:secret_id:blindfold_secret_info",
+          "enum_extraction_complete": true,
+          "enum_validators": [],
           "flags": ["optional", "sensitive"],
           "max_items": null,
           "min_items": null,
@@ -5183,6 +5597,8 @@
           "anchor": "schema-access_info--vault_auth_info--app_role_auth--secret_id--blindfold_secret_info--store_provider",
           "description": "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:access_info:vault_auth_info:app_role_auth:secret_id:blindfold_secret_info",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -5213,13 +5629,13 @@
     },
     {
       "aliases": ["access info vault auth info app role auth secret id clear secret info"],
-      "body_bytes": 3813,
-      "body_sha256": "sha256:0a1af073b88610c43cd899a1fc9d667d73e1606e858626af822d79ba49756e96",
+      "body_bytes": 3872,
+      "body_sha256": "sha256:2dd8e12b8db247ae161b1058050f22c0387d0ba10c301f9406532536ce40f1cd",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5254,6 +5670,8 @@
           "anchor": "schema-access_info--vault_auth_info--app_role_auth--secret_id--clear_secret_info--provider_ref",
           "description": "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:access_info:vault_auth_info:app_role_auth:secret_id:clear_secret_info",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -5275,6 +5693,8 @@
           "anchor": "schema-access_info--vault_auth_info--app_role_auth--secret_id--clear_secret_info--url",
           "description": "URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:access_info:vault_auth_info:app_role_auth:secret_id:clear_secret_info",
+          "enum_extraction_complete": true,
+          "enum_validators": [],
           "flags": ["optional", "sensitive"],
           "max_items": null,
           "min_items": null,
@@ -5298,8 +5718,8 @@
     },
     {
       "aliases": ["access info vault auth info token"],
-      "body_bytes": 1887,
-      "body_sha256": "sha256:9f1ca2574f76048848fc0b032837df9a194a42c8526c44faefca7b841ff06b82",
+      "body_bytes": 1917,
+      "body_sha256": "sha256:f0f36a01d4ddeb6b69b70ebcf9b26524e7d44e96decb54f2438338ae0af667ba",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [
@@ -5307,7 +5727,7 @@
         "xcsh-docs:resources:secret_management_access:properties:access_info:vault_auth_info:token:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5350,6 +5770,8 @@
           "anchor": "section",
           "description": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:access_info:vault_auth_info:token:blindfold_secret_info",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -5373,6 +5795,8 @@
           "anchor": "section",
           "description": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:access_info:vault_auth_info:token:clear_secret_info",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -5405,13 +5829,13 @@
     },
     {
       "aliases": ["access info vault auth info token blindfold secret info"],
-      "body_bytes": 4501,
-      "body_sha256": "sha256:0c952540cddb6ca01a1a75170657c61571ba0d39c4a2e293a42da8f3cc8f72be",
+      "body_bytes": 4560,
+      "body_sha256": "sha256:5a7770e3f0ab9383d0a54c4283b317d7ba5907019f4f16e0b1bc2b02708bbc0e",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5446,6 +5870,8 @@
           "anchor": "schema-access_info--vault_auth_info--token--blindfold_secret_info--decryption_provider",
           "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:access_info:vault_auth_info:token:blindfold_secret_info",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -5460,6 +5886,8 @@
           "anchor": "schema-access_info--vault_auth_info--token--blindfold_secret_info--location",
           "description": "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:access_info:vault_auth_info:token:blindfold_secret_info",
+          "enum_extraction_complete": true,
+          "enum_validators": [],
           "flags": ["optional", "sensitive"],
           "max_items": null,
           "min_items": null,
@@ -5474,6 +5902,8 @@
           "anchor": "schema-access_info--vault_auth_info--token--blindfold_secret_info--store_provider",
           "description": "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:access_info:vault_auth_info:token:blindfold_secret_info",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -5497,13 +5927,13 @@
     },
     {
       "aliases": ["access info vault auth info token clear secret info"],
-      "body_bytes": 3511,
-      "body_sha256": "sha256:ffd9d6b1574d199880594974c2f8e9b87ef2248fb7597be362be55e694bb6dc6",
+      "body_bytes": 3570,
+      "body_sha256": "sha256:2dc76adb44713cb7e1032685e0eea43f40de2ed857461aaf3f961846ae069253",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5538,6 +5968,8 @@
           "anchor": "schema-access_info--vault_auth_info--token--clear_secret_info--provider_ref",
           "description": "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:access_info:vault_auth_info:token:clear_secret_info",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -5552,6 +5984,8 @@
           "anchor": "schema-access_info--vault_auth_info--token--clear_secret_info--url",
           "description": "URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:access_info:vault_auth_info:token:clear_secret_info",
+          "enum_extraction_complete": true,
+          "enum_validators": [],
           "flags": ["optional", "sensitive"],
           "max_items": null,
           "min_items": null,
@@ -5581,7 +6015,7 @@
       "category": "identity",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5615,6 +6049,8 @@
           "anchor": "schema-timeouts--create",
           "description": "Configures the timeout duration for resource creation.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:timeouts",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -5638,6 +6074,8 @@
           "anchor": "schema-timeouts--delete",
           "description": "Configures the timeout duration for resource deletion, applicable only if changes are saved into state before destroy.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:timeouts",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -5661,6 +6099,8 @@
           "anchor": "schema-timeouts--read",
           "description": "Configures the timeout duration for read operations during refresh or planning.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:timeouts",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -5684,6 +6124,8 @@
           "anchor": "schema-timeouts--update",
           "description": "Configures the timeout duration for resource update operations.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:timeouts",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -5707,8 +6149,8 @@
     },
     {
       "aliases": ["where"],
-      "body_bytes": 2034,
-      "body_sha256": "sha256:6312731adebe5de2b4038269c2fcc4825c51130291a5d918d04d9fa4a3f371d8",
+      "body_bytes": 2064,
+      "body_sha256": "sha256:1fbb3b714e5c9ef14bb7b6a78a210260833972213f7168486c8e8877323b919a",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [
@@ -5717,7 +6159,7 @@
         "xcsh-docs:resources:secret_management_access:properties:where:virtual_site"
       ],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5792,6 +6234,8 @@
           "anchor": "section",
           "description": "This specifies a direct reference to a site configuration object.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:where:site",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -5831,6 +6275,8 @@
           "anchor": "section",
           "description": "This specifies a direct reference to a network configuration object.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:where:virtual_network",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -5854,6 +6300,8 @@
           "anchor": "section",
           "description": "A reference to virtual_site object.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:where:virtual_site",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -5902,8 +6350,8 @@
     },
     {
       "aliases": ["where site"],
-      "body_bytes": 7979,
-      "body_sha256": "sha256:df1a023a0b8294f00dc322cfa50ad6017baba73bee0055262d04eeb0c6a1a79f",
+      "body_bytes": 8675,
+      "body_sha256": "sha256:49c3a717a0bcd0f058eeb46438f988dee03cb58c7ae637eecff03d41f91afd0b",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [
@@ -5912,7 +6360,7 @@
         "xcsh-docs:resources:secret_management_access:properties:where:site:ref"
       ],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5963,6 +6411,8 @@
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:where:site:disable_internet_vip",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -5977,6 +6427,8 @@
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:where:site:enable_internet_vip",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -5991,6 +6443,32 @@
           "anchor": "schema-where--site--network_type",
           "description": "Different types of virtual networks understood by the system Virtual-network of type VIRTUAL_NETWORK_SITE_LOCAL provides connectivity to public (outside) network. This is an insecure network and is connected to public internet via NAT Gateways/firwalls Virtual-network of this type is local to every site. Two virtual",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:where:site",
+          "enum_extraction_complete": true,
+          "enum_validators": [
+            {
+              "case_sensitive": true,
+              "complete": true,
+              "source": "ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf",
+              "validator": "OneOf",
+              "values": [
+                "VIRTUAL_NETWORK_GLOBAL",
+                "VIRTUAL_NETWORK_IP_AUTO",
+                "VIRTUAL_NETWORK_IP_FABRIC",
+                "VIRTUAL_NETWORK_MANAGEMENT",
+                "VIRTUAL_NETWORK_PER_SITE",
+                "VIRTUAL_NETWORK_PUBLIC",
+                "VIRTUAL_NETWORK_SEGMENT",
+                "VIRTUAL_NETWORK_SITE_LOCAL",
+                "VIRTUAL_NETWORK_SITE_LOCAL_INSIDE",
+                "VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE",
+                "VIRTUAL_NETWORK_SITE_SERVICE",
+                "VIRTUAL_NETWORK_SRV6_NETWORK",
+                "VIRTUAL_NETWORK_VER_INTERNAL",
+                "VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK"
+              ],
+              "version": 1
+            }
+          ],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -6005,6 +6483,8 @@
           "anchor": "section",
           "description": "A site direct reference.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:where:site:ref",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -6034,7 +6514,7 @@
       "category": "identity",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6049,7 +6529,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3322021123121120-1331101321210003-0101221331112313-0323133121220331-1012102110102230-1011002102022021-0102001122103112-1312103231303100",
-      "registry_path": "docs/guides/resources--secret_management_access--reference--group-001.md",
+      "registry_path": "docs/guides/resources--secret_management_access--reference--group-002.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -6074,7 +6554,7 @@
       "category": "identity",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6108,13 +6588,13 @@
     },
     {
       "aliases": ["where site ref"],
-      "body_bytes": 5749,
-      "body_sha256": "sha256:0fd5b54e8a9f6e64ad4da31574cf85a468d56a1c0dd75afb644190b6088ddc87",
+      "body_bytes": 5779,
+      "body_sha256": "sha256:abe46584f64700f612fbc9c1f8ba5499ba21d5fe8ab6383ccbe4393b9b5f2ce0",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6140,10 +6620,19 @@
           "anchor": "schema-where--site--ref--kind",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. \"route\")",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:where:site:ref",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
           "nesting": null,
+          "reference_identity": {
+            "member": "kind",
+            "scope_path": ["where", "site", "ref"],
+            "source": "receipt-pinned-schema-identity",
+            "upstream_message": "ves.io.schema.ObjectRefType",
+            "version": 1
+          },
           "relationships": [],
           "schema_path": ["where", "site", "ref", "kind"],
           "syntax": "attribute",
@@ -6154,10 +6643,19 @@
           "anchor": "schema-where--site--ref--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:where:site:ref",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
           "nesting": null,
+          "reference_identity": {
+            "member": "name",
+            "scope_path": ["where", "site", "ref"],
+            "source": "receipt-pinned-schema-identity",
+            "upstream_message": "ves.io.schema.ObjectRefType",
+            "version": 1
+          },
           "relationships": [],
           "schema_path": ["where", "site", "ref", "name"],
           "syntax": "attribute",
@@ -6168,10 +6666,19 @@
           "anchor": "schema-where--site--ref--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:where:site:ref",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional", "computed"],
           "max_items": null,
           "min_items": null,
           "nesting": null,
+          "reference_identity": {
+            "member": "namespace",
+            "scope_path": ["where", "site", "ref"],
+            "source": "receipt-pinned-schema-identity",
+            "upstream_message": "ves.io.schema.ObjectRefType",
+            "version": 1
+          },
           "relationships": [],
           "schema_path": ["where", "site", "ref", "namespace"],
           "syntax": "attribute",
@@ -6182,10 +6689,19 @@
           "anchor": "schema-where--site--ref--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:where:site:ref",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
           "nesting": null,
+          "reference_identity": {
+            "member": "tenant",
+            "scope_path": ["where", "site", "ref"],
+            "source": "receipt-pinned-schema-identity",
+            "upstream_message": "ves.io.schema.ObjectRefType",
+            "version": 1
+          },
           "relationships": [],
           "schema_path": ["where", "site", "ref", "tenant"],
           "syntax": "attribute",
@@ -6196,10 +6712,19 @@
           "anchor": "schema-where--site--ref--uid",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:where:site:ref",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
           "nesting": null,
+          "reference_identity": {
+            "member": "uid",
+            "scope_path": ["where", "site", "ref"],
+            "source": "receipt-pinned-schema-identity",
+            "upstream_message": "ves.io.schema.ObjectRefType",
+            "version": 1
+          },
           "relationships": [],
           "schema_path": ["where", "site", "ref", "uid"],
           "syntax": "attribute",
@@ -6219,13 +6744,13 @@
     },
     {
       "aliases": ["where virtual network"],
-      "body_bytes": 1291,
-      "body_sha256": "sha256:ff5ec5eff5c9c133f199720c944df69f9929fae03c4d23454d48f6b0eedfa098",
+      "body_bytes": 1321,
+      "body_sha256": "sha256:6be81f24faf5f907bdf2f78502e0f6f36fb835528ec0f376ce94522e6e26528d",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": ["xcsh-docs:resources:secret_management_access:properties:where:virtual_network:ref"],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6260,6 +6785,8 @@
           "anchor": "section",
           "description": "A virtual network direct reference.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:where:virtual_network:ref",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -6283,13 +6810,13 @@
     },
     {
       "aliases": ["where virtual network ref"],
-      "body_bytes": 5859,
-      "body_sha256": "sha256:cb28b5827ddb69679defbe83fa4397e30962d3f8d3cdb1e2ed489f321caf2ad2",
+      "body_bytes": 5889,
+      "body_sha256": "sha256:b8c0a2893f6686fe0d2873b7da00343977358684622a4347352d128a6a2d4d3c",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6315,10 +6842,19 @@
           "anchor": "schema-where--virtual_network--ref--kind",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. \"route\")",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:where:virtual_network:ref",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
           "nesting": null,
+          "reference_identity": {
+            "member": "kind",
+            "scope_path": ["where", "virtual_network", "ref"],
+            "source": "receipt-pinned-schema-identity",
+            "upstream_message": "ves.io.schema.ObjectRefType",
+            "version": 1
+          },
           "relationships": [],
           "schema_path": ["where", "virtual_network", "ref", "kind"],
           "syntax": "attribute",
@@ -6329,10 +6865,19 @@
           "anchor": "schema-where--virtual_network--ref--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:where:virtual_network:ref",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
           "nesting": null,
+          "reference_identity": {
+            "member": "name",
+            "scope_path": ["where", "virtual_network", "ref"],
+            "source": "receipt-pinned-schema-identity",
+            "upstream_message": "ves.io.schema.ObjectRefType",
+            "version": 1
+          },
           "relationships": [],
           "schema_path": ["where", "virtual_network", "ref", "name"],
           "syntax": "attribute",
@@ -6343,10 +6888,19 @@
           "anchor": "schema-where--virtual_network--ref--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:where:virtual_network:ref",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional", "computed"],
           "max_items": null,
           "min_items": null,
           "nesting": null,
+          "reference_identity": {
+            "member": "namespace",
+            "scope_path": ["where", "virtual_network", "ref"],
+            "source": "receipt-pinned-schema-identity",
+            "upstream_message": "ves.io.schema.ObjectRefType",
+            "version": 1
+          },
           "relationships": [],
           "schema_path": ["where", "virtual_network", "ref", "namespace"],
           "syntax": "attribute",
@@ -6357,10 +6911,19 @@
           "anchor": "schema-where--virtual_network--ref--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:where:virtual_network:ref",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
           "nesting": null,
+          "reference_identity": {
+            "member": "tenant",
+            "scope_path": ["where", "virtual_network", "ref"],
+            "source": "receipt-pinned-schema-identity",
+            "upstream_message": "ves.io.schema.ObjectRefType",
+            "version": 1
+          },
           "relationships": [],
           "schema_path": ["where", "virtual_network", "ref", "tenant"],
           "syntax": "attribute",
@@ -6371,10 +6934,19 @@
           "anchor": "schema-where--virtual_network--ref--uid",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:where:virtual_network:ref",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
           "nesting": null,
+          "reference_identity": {
+            "member": "uid",
+            "scope_path": ["where", "virtual_network", "ref"],
+            "source": "receipt-pinned-schema-identity",
+            "upstream_message": "ves.io.schema.ObjectRefType",
+            "version": 1
+          },
           "relationships": [],
           "schema_path": ["where", "virtual_network", "ref", "uid"],
           "syntax": "attribute",
@@ -6394,8 +6966,8 @@
     },
     {
       "aliases": ["where virtual site"],
-      "body_bytes": 8020,
-      "body_sha256": "sha256:eed14e980e4e0171e3f3c3dcefd7fa2c9c0e08f49fbf42b3bae1b7e263834d2f",
+      "body_bytes": 8716,
+      "body_sha256": "sha256:143af05d37885560671ac6fb11feb08a16e05a9bbe71c78ceece3b8df00962bb",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [
@@ -6404,7 +6976,7 @@
         "xcsh-docs:resources:secret_management_access:properties:where:virtual_site:ref"
       ],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6455,6 +7027,8 @@
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:where:virtual_site:disable_internet_vip",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -6469,6 +7043,8 @@
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:where:virtual_site:enable_internet_vip",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -6483,6 +7059,32 @@
           "anchor": "schema-where--virtual_site--network_type",
           "description": "Different types of virtual networks understood by the system Virtual-network of type VIRTUAL_NETWORK_SITE_LOCAL provides connectivity to public (outside) network. This is an insecure network and is connected to public internet via NAT Gateways/firwalls Virtual-network of this type is local to every site. Two virtual",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:where:virtual_site",
+          "enum_extraction_complete": true,
+          "enum_validators": [
+            {
+              "case_sensitive": true,
+              "complete": true,
+              "source": "ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf",
+              "validator": "OneOf",
+              "values": [
+                "VIRTUAL_NETWORK_GLOBAL",
+                "VIRTUAL_NETWORK_IP_AUTO",
+                "VIRTUAL_NETWORK_IP_FABRIC",
+                "VIRTUAL_NETWORK_MANAGEMENT",
+                "VIRTUAL_NETWORK_PER_SITE",
+                "VIRTUAL_NETWORK_PUBLIC",
+                "VIRTUAL_NETWORK_SEGMENT",
+                "VIRTUAL_NETWORK_SITE_LOCAL",
+                "VIRTUAL_NETWORK_SITE_LOCAL_INSIDE",
+                "VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE",
+                "VIRTUAL_NETWORK_SITE_SERVICE",
+                "VIRTUAL_NETWORK_SRV6_NETWORK",
+                "VIRTUAL_NETWORK_VER_INTERNAL",
+                "VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK"
+              ],
+              "version": 1
+            }
+          ],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -6497,6 +7099,8 @@
           "anchor": "section",
           "description": "A virtual_site direct reference.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:where:virtual_site:ref",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -6526,7 +7130,7 @@
       "category": "identity",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6566,7 +7170,7 @@
       "category": "identity",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6600,13 +7204,13 @@
     },
     {
       "aliases": ["where virtual site ref"],
-      "body_bytes": 5830,
-      "body_sha256": "sha256:847af4c9867e3bf3050f859b03e3b4e321736c56dfa597d1e722bf81b087acc0",
+      "body_bytes": 5860,
+      "body_sha256": "sha256:c6c25c5e790606bce71615a196ba7d9bd46e48fc9f23104b04781c7b48b6ae3c",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6632,10 +7236,19 @@
           "anchor": "schema-where--virtual_site--ref--kind",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. \"route\")",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:where:virtual_site:ref",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
           "nesting": null,
+          "reference_identity": {
+            "member": "kind",
+            "scope_path": ["where", "virtual_site", "ref"],
+            "source": "receipt-pinned-schema-identity",
+            "upstream_message": "ves.io.schema.ObjectRefType",
+            "version": 1
+          },
           "relationships": [],
           "schema_path": ["where", "virtual_site", "ref", "kind"],
           "syntax": "attribute",
@@ -6646,10 +7259,19 @@
           "anchor": "schema-where--virtual_site--ref--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:where:virtual_site:ref",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
           "nesting": null,
+          "reference_identity": {
+            "member": "name",
+            "scope_path": ["where", "virtual_site", "ref"],
+            "source": "receipt-pinned-schema-identity",
+            "upstream_message": "ves.io.schema.ObjectRefType",
+            "version": 1
+          },
           "relationships": [],
           "schema_path": ["where", "virtual_site", "ref", "name"],
           "syntax": "attribute",
@@ -6660,10 +7282,19 @@
           "anchor": "schema-where--virtual_site--ref--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:where:virtual_site:ref",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional", "computed"],
           "max_items": null,
           "min_items": null,
           "nesting": null,
+          "reference_identity": {
+            "member": "namespace",
+            "scope_path": ["where", "virtual_site", "ref"],
+            "source": "receipt-pinned-schema-identity",
+            "upstream_message": "ves.io.schema.ObjectRefType",
+            "version": 1
+          },
           "relationships": [],
           "schema_path": ["where", "virtual_site", "ref", "namespace"],
           "syntax": "attribute",
@@ -6674,10 +7305,19 @@
           "anchor": "schema-where--virtual_site--ref--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:where:virtual_site:ref",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
           "nesting": null,
+          "reference_identity": {
+            "member": "tenant",
+            "scope_path": ["where", "virtual_site", "ref"],
+            "source": "receipt-pinned-schema-identity",
+            "upstream_message": "ves.io.schema.ObjectRefType",
+            "version": 1
+          },
           "relationships": [],
           "schema_path": ["where", "virtual_site", "ref", "tenant"],
           "syntax": "attribute",
@@ -6688,10 +7328,19 @@
           "anchor": "schema-where--virtual_site--ref--uid",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
           "document_id": "xcsh-docs:resources:secret_management_access:properties:where:virtual_site:ref",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
           "nesting": null,
+          "reference_identity": {
+            "member": "uid",
+            "scope_path": ["where", "virtual_site", "ref"],
+            "source": "receipt-pinned-schema-identity",
+            "upstream_message": "ves.io.schema.ObjectRefType",
+            "version": 1
+          },
           "relationships": [],
           "schema_path": ["where", "virtual_site", "ref", "uid"],
           "syntax": "attribute",
@@ -6717,7 +7366,7 @@
       "category": "identity",
       "child_ids": ["xcsh-docs:resources:secret_management_access:example:resource"],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6757,7 +7406,7 @@
       "category": "identity",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6804,7 +7453,7 @@
       "category": "identity",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6845,7 +7494,7 @@
       "category": "identity",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"

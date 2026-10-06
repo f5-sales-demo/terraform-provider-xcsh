@@ -1,0 +1,13 @@
+**Withhold approval for the registration/export changes. The direct-enum guard is sound in isolation, but completeness still has a gap.**
+
+- **P2 — Cross-file constructors silently lose schema evidence.** [registration.go:97](/data/robin-GIT/worktrees/terraform-provider-xcsh-2421-retrieval-enums/tools/pkg/docconstraints/registration.go:97) requires the receiver assertion in the factory’s file and records registration under that filename. [export-doc-constraints.go:53](/data/robin-GIT/worktrees/terraform-provider-xcsh-2421-retrieval-enums/tools/export-doc-constraints.go:53) looks it up using the schema’s filename. Moving `NewThing` into `constructors.go` while keeping `Thing.Schema` and its assertion in `thing.go` therefore removes previously exported fields. Even duplicating the assertion leaves the filename mismatch. Bind registration by package/receiver identity, then associate schema destinations.
+
+- **P2 — Indirect dynamic enums can still receive complete coverage; pre-existing gap.** In [enum.go:349](/data/robin-GIT/worktrees/terraform-provider-xcsh-2421-retrieval-enums/tools/pkg/docconstraints/enum.go:349), `[]validator.String{sv.Any(savedValidator)}` passes: `LiteralEnums` returns no evidence, the import is official, and the argument contains no call expression. If `savedValidator` holds `sv.OneOf(values...)`, coverage incorrectly becomes `true`. `sv.All(savedValidators...)` has the same problem. Unresolved combinator inputs must return incomplete coverage.
+
+The inspected guards correctly reject shadowed factory identifiers, duplicate factory declarations, conditional constructor bodies, wrong role imports, unlisted receivers, and mismatched schema response/literal roles.
+
+Remaining proof gaps: registration tests lack positive cases for datasource/action/ephemeral roles, provider-schema retention, and an end-to-end split-file destination case. Full method signatures and build selection remain unverified; this establishes declared source evidence only.
+
+`git diff --check` passed. Focused tests could not run: the installed matching Go toolchain cannot create `/tmp/go-build…` on the read-only filesystem. Your reported two matching exports—SHA256 `43f7fbdf81e00b10052078ba036b5fbac8c51d6a8f8c336f8cf672174571ddec`, 331 files / 38,859 fields / 628 enums—were not independently rerun and do not cover these edge cases.
+
+No files changed, contacts made, subagents started, or benchmark prompts inspected. No qualification or release approval.

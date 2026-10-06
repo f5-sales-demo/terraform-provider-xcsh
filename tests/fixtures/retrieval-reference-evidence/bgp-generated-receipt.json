@@ -1,0 +1,18 @@
+{
+  "development_only": true,
+  "qualification_passed": false,
+  "producer_commit": "caa275fd1b7a60260ddb9fc2c403b664d3839c94",
+  "corpus_tests": 58,
+  "pages": 18958,
+  "destinations": 39565,
+  "deterministic_generation": true,
+  "manifest_sha256": "sha256:82015eea520a478bd3372585825a2902d76b911dcbd95bc81c8e1b991681b0b1",
+  "archive_sha256": "sha256:7332333639d8fe90c2a3413e2c5a5cce0a26ad4c561b441a56e57228bad7a892",
+  "archive_bytes": 62221171,
+  "preview_index_sha256": "sha256:7d453adc095c16eb2ce391d7956d1f6e02e4ab731d68ff4701362396733bdc60",
+  "correct": 104,
+  "answerable": 140,
+  "top5": 128,
+  "route_p95_ms": 89.58677300000272,
+  "remaining": "Accuracy below95percent; no immutable publication/installed qualification."
+}

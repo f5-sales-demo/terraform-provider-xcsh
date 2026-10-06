@@ -1,0 +1,33 @@
+{
+  "development_only": true,
+  "qualification_passed": false,
+  "correct": 104,
+  "answerable": 140,
+  "top5": 128,
+  "changes": [
+    {
+      "id": "A068",
+      "before": false,
+      "after": true,
+      "before_top5": false,
+      "after_top5": true,
+      "destinations": [
+        "xcsh://terraform-documentation/documentation/resources/bgp/properties/bgp_parameters/index.md#schema-bgp_parameters--asn"
+      ]
+    },
+    {
+      "id": "A093",
+      "before": false,
+      "after": false,
+      "before_top5": false,
+      "after_top5": true,
+      "destinations": [
+        "xcsh://terraform-documentation/documentation/resources/voltstack_site/properties/custom_network_config/interface_list/interfaces/ethernet_interface/dhcp_server/dhcp_networks/index.md#schema-custom_network_config--interface_list--interfaces--ethernet_interface--dhcp_server--dhcp_networks--pool_settings",
+        "xcsh://terraform-documentation/documentation/resources/voltstack_site/properties/custom_network_config/interface_list/interfaces/ethernet_interface/dhcp_server/dhcp_networks/pools/index.md#schema-custom_network_config--interface_list--interfaces--ethernet_interface--dhcp_server--dhcp_networks--pools--start_ip"
+      ]
+    }
+  ],
+  "prototype_only": true,
+  "generated_artifact": false,
+  "source_review": "approve exact local and peer ASN summaries"
+}

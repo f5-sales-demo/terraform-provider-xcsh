@@ -6,9 +6,142 @@ description: "Complete grouped canonical reference for xcsh_securemesh_site_v2 r
 
 # xcsh_securemesh_site_v2 reference
 
+<a id="canonical-2332030330301333-3201233300031002-1103321011310302-0031032130131231-0120121310220101-1110333220000132-2102030201313223-2303202312213300"></a>
+
+## `eks_k8s.not_managed.node_list.interface_list.priority` property
+
+Type: `"number"`. Optional.
+
+For a node, if multiple interfaces are configured in a VRF, interfaces with highest priority will be
+used as active and interfaces with lower priority will be used as backup. If multiple interfaces
+have the same priority, ECMP will be used. Greater the value, higher the priority.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: false
+Validators: []validator.Int64{
+  int64validator.Between(0, 255),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "number",
+    "deterministic": true,
+    "maximum": 255,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "api-probed",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "minimum": 0,
+    "multipleOf": 1
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.uint32.gte": "0",
+    "ves.io.schema.rules.uint32.lte": "255"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.uint32.gte": "0",
+    "ves.io.schema.rules.uint32.lte": "255"
+  }
+}
+```
+
+- [site_to_site_connectivity_interface_disabled](resources--securemesh_site_v2--reference--group-008.md#canonical-0103332210102222-0101313012123113-3110223010330231-1233210031332122-1220201120130302-1030220311033000-1331310033002133-3213231231323310): complete subsection reference.
+
+- [site_to_site_connectivity_interface_enabled](resources--securemesh_site_v2--reference--group-008.md#canonical-2031202033300012-1103300021230131-2131322123021211-3111003121233331-0121331212100212-2222021220102331-2311321321112233-0313323220023112): complete subsection reference.
+
+- [static_ip](resources--securemesh_site_v2--reference--group-008.md#canonical-3030211032102301-0013032213201203-2331222321333320-0011121300110003-0303323230202321-1230002033332221-3333131203032011-3301013013201112): complete subsection reference.
+
+- [static_ipv6_address](resources--securemesh_site_v2--reference--group-008.md#canonical-2122021200012213-0332230132132110-0131200032202221-0033201320313133-0022021231202330-2201100002332233-2302222300130131-3133203210310221): complete subsection reference.
+
+- [vlan_interface](resources--securemesh_site_v2--reference--group-008.md#canonical-0301032123232223-1100031103321323-0133220303233001-0223330231112002-3230302111330102-2033000033312333-2302233132112031-3122210031202101): complete subsection reference.
+
+<a id="canonical-3212321310022010-2311313233011120-0211230212110331-3013121331230112-3103201022013300-2110131302223120-3203330202013103-2120130211131331"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `eks_k8s.not_managed.node_list.interface_list.bond_interface` properties
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
+- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
+- [eks_k8s](resources--securemesh_site_v2--reference--group-006.md#canonical-0022130130300012-0230333000310233-1322033213223312-3321101002313103-1201131030031302-2021203021021121-0133011100321201-1030300311013100)
+- [eks_k8s.not_managed](resources--securemesh_site_v2--reference--group-006.md#canonical-1110112122310000-1333332210131211-0233031011331213-0020022112032211-3102103310003112-0302021001133131-2202131332021122-0222311013020010)
+- [eks_k8s.not_managed.node_list](resources--securemesh_site_v2--reference--group-006.md#canonical-2121032313322223-3333000313313333-3110022111111033-0101201201203110-1101302202200200-3330001130302311-0011302121022331-2122121230101231)
+- [eks_k8s.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-006.md#canonical-2220203201033202-1121022310000310-3002113303130320-3120122021013313-0003130111303222-0330101230013032-1302121101030103-2013232013323210)
+- eks_k8s.not_managed.node_list.interface_list.bond_interface
+
+<a id="canonical-2222203202312133-0332331232200033-3301122010223112-0300330110312113-1203210321311032-2122133113022100-0013303010131221-0312032031001011"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+Configuration parameter for bond interface.
+
+Additional upstream details:
+
+Bond devices configuration for fleet.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: false
+Validators: []validator.Object{validators.RequiredObjectAttributes("devices",
+    "link_polling_interval",
+    "link_up_delay",
+    "name"),
+  validators.ConflictingObjectAttributes("active_backup",
+    "lacp")}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-lacp_choice": "[\"active_backup\",\"lacp\"]"
+}
+```
+
+Terraform syntax:
+
+```terraform
+bond_interface {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-1013200021321120-1233320021110331-0102130001332222-1332100130203210-0332101011001023-0222033221203001-1200223330220332-1320132322222202"></a>
+
+### Direct properties for `eks_k8s.not_managed.node_list.interface_list.bond_interface`
+
+- [active_backup](resources--securemesh_site_v2--reference--group-007.md#canonical-2123232033001200-0323200020121300-2303121110330103-1333122230220202-0101123010100133-2023003022010201-3101310213003032-3110302321023122): complete subsection reference.
+
+<a id="canonical-0001201102330303-0100012320323213-2131211333201000-1331131230212300-0020001310123220-2212230001201313-2223032130022030-2222221110201120"></a>
+
 <a id="canonical-0120102213311000-3330232322103231-1003111122022032-1100021223211233-2310012013312033-0202320203123303-3111100202313022-2213311012231120"></a>
 
-## `eks_k8s.not_managed.node_list.interface_list.bond_interface.devices` property
+#### `eks_k8s.not_managed.node_list.interface_list.bond_interface.devices` property
 
 Type: `["list", "string"]`. Optional.
 
@@ -17,6 +150,7 @@ Ethernet devices that will make up this bond.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeBetween(1, 8),
 }
@@ -70,7 +204,7 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-3201111213303110-3230231200022231-0201203023333101-0323323331023201-2100313232130301-3302013223020220-2001322130001222-3301320120033123"></a>
 
-## `eks_k8s.not_managed.node_list.interface_list.bond_interface.link_polling_interval` property
+#### `eks_k8s.not_managed.node_list.interface_list.bond_interface.link_polling_interval` property
 
 Type: `"number"`. Optional.
 
@@ -79,6 +213,7 @@ Link Polling Interval. Link polling interval in milliseconds.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(500, 5000),
 }
@@ -123,7 +258,7 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-2120303333113303-1233212030103100-1031131013311220-2111203010312200-3213031232222022-3233102001320221-1001111221201010-2331311133221231"></a>
 
-## `eks_k8s.not_managed.node_list.interface_list.bond_interface.link_up_delay` property
+#### `eks_k8s.not_managed.node_list.interface_list.bond_interface.link_up_delay` property
 
 Type: `"number"`. Optional.
 
@@ -132,6 +267,7 @@ Milliseconds wait before link is declared up.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(0, 1000),
 }
@@ -176,7 +312,7 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-1331103223111013-0303120112311131-1203213332033333-3331213001121310-1321101312221130-3102332232103303-0112220330021123-2232223332101220"></a>
 
-## `eks_k8s.not_managed.node_list.interface_list.bond_interface.name` property
+#### `eks_k8s.not_managed.node_list.interface_list.bond_interface.name` property
 
 Type: `"string"`. Optional.
 
@@ -185,6 +321,7 @@ Bond Device Name. Name for the Bond. Ex 'bond0'
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 64),
 }
@@ -253,7 +390,7 @@ Breadcrumbs:
 - [eks_k8s.not_managed](resources--securemesh_site_v2--reference--group-006.md#canonical-1110112122310000-1333332210131211-0233031011331213-0020022112032211-3102103310003112-0302021001133131-2202131332021122-0222311013020010)
 - [eks_k8s.not_managed.node_list](resources--securemesh_site_v2--reference--group-006.md#canonical-2121032313322223-3333000313313333-3110022111111033-0101201201203110-1101302202200200-3330001130302311-0011302121022331-2122121230101231)
 - [eks_k8s.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-006.md#canonical-2220203201033202-1121022310000310-3002113303130320-3120122021013313-0003130111303222-0330101230013032-1302121101030103-2013232013323210)
-- [eks_k8s.not_managed.node_list.interface_list.bond_interface](resources--securemesh_site_v2--reference--group-006.md#canonical-3212321310022010-2311313233011120-0211230212110331-3013121331230112-3103201022013300-2110131302223120-3203330202013103-2120130211131331)
+- [eks_k8s.not_managed.node_list.interface_list.bond_interface](resources--securemesh_site_v2--reference--group-007.md#canonical-3212321310022010-2311313233011120-0211230212110331-3013121331230112-3103201022013300-2110131302223120-3203330202013103-2120130211131331)
 - eks_k8s.not_managed.node_list.interface_list.bond_interface.active_backup
 
 <a id="canonical-3220211020330112-2110011132230130-0010212301201313-0323202211103231-3013101030002330-0111203132012312-2330233110132231-0213231303211332"></a>
@@ -303,7 +440,7 @@ Breadcrumbs:
 - [eks_k8s.not_managed](resources--securemesh_site_v2--reference--group-006.md#canonical-1110112122310000-1333332210131211-0233031011331213-0020022112032211-3102103310003112-0302021001133131-2202131332021122-0222311013020010)
 - [eks_k8s.not_managed.node_list](resources--securemesh_site_v2--reference--group-006.md#canonical-2121032313322223-3333000313313333-3110022111111033-0101201201203110-1101302202200200-3330001130302311-0011302121022331-2122121230101231)
 - [eks_k8s.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-006.md#canonical-2220203201033202-1121022310000310-3002113303130320-3120122021013313-0003130111303222-0330101230013032-1302121101030103-2013232013323210)
-- [eks_k8s.not_managed.node_list.interface_list.bond_interface](resources--securemesh_site_v2--reference--group-006.md#canonical-3212321310022010-2311313233011120-0211230212110331-3013121331230112-3103201022013300-2110131302223120-3203330202013103-2120130211131331)
+- [eks_k8s.not_managed.node_list.interface_list.bond_interface](resources--securemesh_site_v2--reference--group-007.md#canonical-3212321310022010-2311313233011120-0211230212110331-3013121331230112-3103201022013300-2110131302223120-3203330202013103-2120130211131331)
 - eks_k8s.not_managed.node_list.interface_list.bond_interface.lacp
 
 <a id="canonical-1210323321310103-0023110103003103-1000100202103103-3113112021001021-0200223212230120-0120330223300132-1020103330313233-0231221232003202"></a>
@@ -315,6 +452,7 @@ LACP parameters. LACP parameters for the bond device.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("rate")}
 ```
 
@@ -354,6 +492,7 @@ Interval in seconds to transmit LACP packets.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(1, 30),
 }
@@ -472,6 +611,7 @@ DHCP server configuration for this interface.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("dhcp_networks"),
   validators.ConflictingObjectAttributes("automatic_from_end",
     "automatic_from_start"),
@@ -530,6 +670,7 @@ Assign fixed IPv4 addresses based on the MAC Address of the DHCP Client.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Map{validators.MapConstraintsValidator("{\"cardinality\":{\"maxProperties\":128},\"category\":\"discovery\",\"constraintType\":\"map\",\"crossEntry\":{\"uniqueValues\":true},\"deterministic\":true,\"keys\":{\"format\":\"mac-address\",\"type\":\"string\"},\"originalRules\":{\"ves.io.schema.rules.map.keys.string.mac\":\"true\",\"ves.io.schema.rules.map.max_pairs\":\"128\",\"ves.io.schema.rules.map.unique_values\":\"true\",\"ves.io.schema.rules.map.values.string.ipv4\":\"true\"},\"values\":{\"format\":\"ipv4\",\"type\":\"string\"}}")}
 ```
 
@@ -713,6 +854,7 @@ List of networks from which DHCP Server can allocate IPv4 Addresses.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.ConflictingListObjectAttributes("dgw_address",
     "first_address"),
   validators.ConflictingListObjectAttributes("dgw_address",
@@ -787,6 +929,7 @@ used as the default gateway.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthAtMost(1024),
   validators.IPv4Validator(),
@@ -838,6 +981,7 @@ server.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthAtMost(1024),
   validators.IPv4Validator(),
@@ -936,6 +1080,8 @@ Possible values are \`INCLUDE\_IP\_ADDRESSES\_FROM\_DHCP\_POOLS\`,
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["EXCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS","INCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("INCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS",
     "EXCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS"),
@@ -1151,6 +1297,7 @@ prefix. 192.0.2.39 with prefix length of 24, end offset is 192.0.2.186.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthAtMost(1024),
   validators.IPv4Validator(),
@@ -1212,6 +1359,7 @@ prefix. 192.0.2.173 with prefix length of 24, start offset is 192.0.2.96.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthAtMost(1024),
   validators.IPv4Validator(),
@@ -1361,6 +1509,7 @@ Specify static IPv4 addresses per site:node.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Map{validators.MapConstraintsValidator("{\"cardinality\":{\"maxProperties\":64},\"category\":\"discovery\",\"constraintType\":\"map\",\"deterministic\":true,\"keys\":{\"maxLength\":128,\"minLength\":1,\"type\":\"string\"},\"originalRules\":{\"ves.io.schema.rules.map.keys.string.max_len\":\"128\",\"ves.io.schema.rules.map.keys.string.min_len\":\"1\",\"ves.io.schema.rules.map.max_pairs\":\"64\",\"ves.io.schema.rules.map.values.string.ipv4\":\"true\"},\"values\":{\"format\":\"ipv4\",\"type\":\"string\"}}")}
 ```
 
@@ -1439,6 +1588,7 @@ Configuration parameter for ethernet interface.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("mac")}
 ```
 
@@ -1480,6 +1630,7 @@ configured on this site.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 64),
 }
@@ -1532,6 +1683,7 @@ MAC Address. Configuration parameter for mac
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthAtMost(1024),
   validators.MACValidator(),
@@ -1595,6 +1747,7 @@ IPV6AutoConfigType.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("host",
     "router")}
 ```
@@ -1707,6 +1860,7 @@ IPV6AutoConfigRouterType.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("network_prefix",
     "stateful")}
 ```
@@ -1753,6 +1907,7 @@ prefix length as per RFC 4862.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(1024),
 }
@@ -1822,6 +1977,7 @@ IPV6DnsConfig.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("configured_list",
     "local_dns")}
 ```
@@ -1886,6 +2042,7 @@ IPV6DnsList.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("dns_list")}
 ```
 
@@ -1925,6 +2082,7 @@ List of IPv6 Addresses acting as DNS servers.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeBetween(1, 4),
 }
@@ -2002,6 +2160,7 @@ IPV6LocalDnsAddress.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("configured_address",
     "first_address"),
   validators.ConflictingObjectAttributes("configured_address",
@@ -2048,6 +2207,7 @@ as DNS server.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthAtMost(1024),
   validators.IPv6Validator(),
@@ -2224,6 +2384,7 @@ DHCPIPV6 Stateful Server.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("dhcp_networks"),
   validators.ConflictingObjectAttributes("automatic_from_end",
     "automatic_from_start"),
@@ -2279,6 +2440,7 @@ addresses based on the MAC Address of the DHCP Client.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Map{validators.MapConstraintsValidator("{\"cardinality\":{\"maxProperties\":128},\"category\":\"discovery\",\"constraintType\":\"map\",\"crossEntry\":{\"uniqueValues\":true},\"deterministic\":true,\"keys\":{\"format\":\"mac-address\",\"type\":\"string\"},\"originalRules\":{\"ves.io.schema.rules.map.keys.string.mac\":\"true\",\"ves.io.schema.rules.map.max_pairs\":\"128\",\"ves.io.schema.rules.map.unique_values\":\"true\",\"ves.io.schema.rules.map.values.string.ipv6\":\"true\"},\"values\":{\"format\":\"ipv6\",\"type\":\"string\"}}")}
 ```
 
@@ -2572,6 +2734,8 @@ Possible values are \`INCLUDE\_IP\_ADDRESSES\_FROM\_DHCP\_POOLS\`,
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["EXCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS","INCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("INCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS",
     "EXCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS"),
@@ -2685,6 +2849,7 @@ network prefix.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthAtMost(1024),
   validators.IPv6Validator(),
@@ -2736,6 +2901,7 @@ network prefix. 2001::1 with prefix length of 64, start offset is 5.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthAtMost(1024),
   validators.IPv6Validator(),
@@ -2836,6 +3002,7 @@ Site:Node to IPv6 Mapping. Map of Site:Node to IPv6 address.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Map{validators.MapConstraintsValidator("{\"cardinality\":{\"maxProperties\":64},\"category\":\"discovery\",\"constraintType\":\"map\",\"deterministic\":true,\"keys\":{\"maxLength\":128,\"minLength\":1,\"type\":\"string\"},\"originalRules\":{\"ves.io.schema.rules.map.keys.string.max_len\":\"128\",\"ves.io.schema.rules.map.keys.string.min_len\":\"1\",\"ves.io.schema.rules.map.max_pairs\":\"64\",\"ves.io.schema.rules.map.values.string.ipv6\":\"true\"},\"values\":{\"format\":\"ipv6\",\"type\":\"string\"}}")}
 ```
 
@@ -3012,6 +3179,7 @@ Segments (global VRFs).
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("site_local_inside_network",
     "site_local_network")}
 ```
@@ -3142,104 +3310,6 @@ Terraform syntax:
 
 ```terraform
 site_local_network = {}
-```
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-2301031122023323-2312030233133232-0003013033030323-3223231102220222-3121003131102022-1010213001332131-0132020321212203-3121010111120023"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-## `eks_k8s.not_managed.node_list.interface_list.no_ipv4_address` properties
-
-Breadcrumbs:
-
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
-- [eks_k8s](resources--securemesh_site_v2--reference--group-006.md#canonical-0022130130300012-0230333000310233-1322033213223312-3321101002313103-1201131030031302-2021203021021121-0133011100321201-1030300311013100)
-- [eks_k8s.not_managed](resources--securemesh_site_v2--reference--group-006.md#canonical-1110112122310000-1333332210131211-0233031011331213-0020022112032211-3102103310003112-0302021001133131-2202131332021122-0222311013020010)
-- [eks_k8s.not_managed.node_list](resources--securemesh_site_v2--reference--group-006.md#canonical-2121032313322223-3333000313313333-3110022111111033-0101201201203110-1101302202200200-3330001130302311-0011302121022331-2122121230101231)
-- [eks_k8s.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-006.md#canonical-2220203201033202-1121022310000310-3002113303130320-3120122021013313-0003130111303222-0330101230013032-1302121101030103-2013232013323210)
-- eks_k8s.not_managed.node_list.interface_list.no_ipv4_address
-
-<a id="canonical-2230220011102022-0032211113020030-0110002013322200-3011220122012300-3010000130333132-1303231131302213-0203010013031110-0201333011301320"></a>
-
-Type: `["object", {}]`. Optional.
-
-Enable this option
-
-Additional upstream details:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-no_ipv4_address = {}
-```
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-1130210113011010-0201323203331131-2111202121232233-0002232003002002-1113221321222220-3032221120013120-1301312312021220-3211333120012012"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-## `eks_k8s.not_managed.node_list.interface_list.no_ipv6_address` properties
-
-Breadcrumbs:
-
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
-- [eks_k8s](resources--securemesh_site_v2--reference--group-006.md#canonical-0022130130300012-0230333000310233-1322033213223312-3321101002313103-1201131030031302-2021203021021121-0133011100321201-1030300311013100)
-- [eks_k8s.not_managed](resources--securemesh_site_v2--reference--group-006.md#canonical-1110112122310000-1333332210131211-0233031011331213-0020022112032211-3102103310003112-0302021001133131-2202131332021122-0222311013020010)
-- [eks_k8s.not_managed.node_list](resources--securemesh_site_v2--reference--group-006.md#canonical-2121032313322223-3333000313313333-3110022111111033-0101201201203110-1101302202200200-3330001130302311-0011302121022331-2122121230101231)
-- [eks_k8s.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-006.md#canonical-2220203201033202-1121022310000310-3002113303130320-3120122021013313-0003130111303222-0330101230013032-1302121101030103-2013232013323210)
-- eks_k8s.not_managed.node_list.interface_list.no_ipv6_address
-
-<a id="canonical-0012222112231101-2121133312332213-3323221233312333-1032331333021000-2102320331002130-0132110203310032-1013132130120020-0323123211030031"></a>
-
-Type: `["object", {}]`. Optional.
-
-Enable this option
-
-Additional upstream details:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-no_ipv6_address = {}
 ```
 
 This is an empty object or choice marker. It has no direct properties.

@@ -212,6 +212,7 @@ follow DNS-1035 format.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   validators.NameValidator(),
 }
@@ -281,6 +282,8 @@ Provider validators and defaults (from schema source):
 
 ```go
 Default: stringdefault.StaticString("system")
+EnumExtractionComplete: false
+EnumValidators: [{"version":1,"validator":"OneOf","values":["system"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   validators.NamespaceValidator(),
   stringvalidator.OneOf("system"),
@@ -380,6 +383,7 @@ K8s Pod Security Admission. Uniform Resource Identifier
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.ConflictingListObjectAttributes("audit",
     "enforce"),
   validators.ConflictingListObjectAttributes("audit",

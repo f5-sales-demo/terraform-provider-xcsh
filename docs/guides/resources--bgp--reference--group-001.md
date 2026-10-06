@@ -214,6 +214,7 @@ follow DNS-1035 format.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   validators.NameValidator(),
 }
@@ -281,6 +282,7 @@ DNS\_LABEL format. For a namespace object itself, namespace value will be ""
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   validators.NamespaceValidator(),
 }
@@ -466,6 +468,7 @@ BGP parameters for the local site.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("asn"),
   validators.ConflictingObjectAttributes("from_site",
     "ip_address"),
@@ -512,6 +515,7 @@ ASN. Autonomous System Number.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.AtLeast(1),
 }
@@ -564,6 +568,7 @@ Exclusive with \[from\_site local\_address\] Use the configured IPv4 Address as 
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(7, 1024),
   validators.IPv4Validator(),
@@ -721,6 +726,7 @@ Peers. List of peers.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.ConflictingListObjectAttributes("bfd_disabled",
     "bfd_enabled"),
   validators.ConflictingListObjectAttributes("disable_spec",
@@ -903,6 +909,7 @@ BFD. BFD parameters.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("multiplier",
     "receive_interval_milliseconds",
     "transmit_interval_milliseconds")}
@@ -948,6 +955,7 @@ Specify Number of missed packets to bring session down"
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(2, 255),
 }
@@ -1001,6 +1009,7 @@ BFD receive interval timer, in milliseconds.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(300, 60000),
 }
@@ -1054,6 +1063,7 @@ BFD transmit interval timer, in milliseconds.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(300, 60000),
 }
@@ -1239,6 +1249,7 @@ External BGP Peer. External BGP Peer parameters.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("asn",
     "port"),
   validators.ConflictingObjectAttributes("address",
@@ -1360,6 +1371,7 @@ subnet\_end\_offset\] Specify IPv4 peer address.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthAtMost(1024),
   validators.IPv4Validator(),
@@ -1411,6 +1423,7 @@ subnet\_end\_offset\_v6\] Specify peer IPv6 address.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthAtMost(1024),
   validators.IPv6Validator(),
@@ -1461,6 +1474,7 @@ ASN. Autonomous System Number for BGP peer.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.AtLeast(1),
 }
@@ -1566,6 +1580,7 @@ Peer Port. Peer TCP port number.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(1, 65535),
 }
@@ -1619,6 +1634,7 @@ subnet\_end\_offset\] Calculate peer address using offset from the beginning of 
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(0, 32),
 }
@@ -1671,6 +1687,7 @@ subnet\_end\_offset\_v6\] Calculate peer address using offset from the beginning
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(0, 32),
 }
@@ -1723,6 +1740,7 @@ subnet\_begin\_offset\] Calculate peer address using offset from the end of the 
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(0, 32),
 }
@@ -1775,6 +1793,7 @@ subnet\_begin\_offset\_v6\] Calculate peer address using offset from the end of 
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(0, 32),
 }
@@ -2060,6 +2079,7 @@ Parameters for inet family.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("disable_spec",
     "enable")}
 ```
@@ -2522,6 +2542,7 @@ Such a reference is in form of tenant/namespace/name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
 ```
 
@@ -2562,6 +2583,7 @@ referred object's(e.g. Route's) name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 128),
 }
@@ -2622,6 +2644,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -2689,6 +2712,7 @@ the referred object's(e.g. Route's) tenant.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(64),
 }

@@ -216,6 +216,7 @@ follow DNS-1035 format.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   validators.NameValidator(),
 }
@@ -283,6 +284,7 @@ DNS\_LABEL format. For a namespace object itself, namespace value will be ""
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   validators.NamespaceValidator(),
 }
@@ -379,6 +381,7 @@ Settings specifying how API Discovery will be performed.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("disable_spec",
     "enable")}
 ```
@@ -468,6 +471,7 @@ Discovered API Settings. Configure Discovered API Settings.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("purge_duration_for_inactive_discovered_apis")}
 ```
 
@@ -507,6 +511,7 @@ Inactive discovered API will be deleted after configured duration.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(1, 7),
 }
@@ -679,6 +684,8 @@ analysis.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["BUSINESS_LOGIC_MARKUP","PER_REQ_ANOMALY_DETECTION","TIMESERIES_ANOMALY_DETECTION","USER_BEHAVIOR_ANALYSIS"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("BUSINESS_LOGIC_MARKUP",
     "TIMESERIES_ANOMALY_DETECTION",

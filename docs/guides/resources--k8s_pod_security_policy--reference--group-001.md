@@ -212,6 +212,7 @@ follow DNS-1035 format.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   validators.NameValidator(),
 }
@@ -279,6 +280,7 @@ DNS\_LABEL format. For a namespace object itself, namespace value will be ""
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   validators.NamespaceValidator(),
 }
@@ -339,6 +341,7 @@ Exclusive with \[psp\_spec\] K8s YAML for Pod Security Policy.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 4096),
 }
@@ -481,6 +484,7 @@ Type: `"object"`. single nested block, Optional.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("allowed_capabilities",
     "no_allowed_capabilities"),
   validators.ConflictingObjectAttributes("default_capabilities",
@@ -574,6 +578,7 @@ Restrict the available CSI drivers for POD, default all drivers are available.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(8),
 }
@@ -630,6 +635,7 @@ Restrict list of Flex volumes, default all volumes are allowed.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(8),
 }
@@ -688,6 +694,7 @@ Allowed list of proc mounts, empty list allows default proc mounts.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(8),
 }
@@ -740,6 +747,7 @@ Allowed list of unsafe sysctls, empty list allows none. Supports prefix reg-ex.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(16),
 }
@@ -819,6 +827,7 @@ Forbidden list of sysctls, empty list forbids none. Supports prefix reg-ex.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(16),
 }
@@ -1051,6 +1060,7 @@ Allow List of volume plugins. Empty no volumes are allowed.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(8),
 }
@@ -1118,6 +1128,7 @@ List of capabilities that Docker container has.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("capabilities")}
 ```
 
@@ -1157,6 +1168,7 @@ List of capabilities that Docker container has.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeBetween(1, 64),
 }
@@ -1226,6 +1238,7 @@ Restrict list of host paths, default all host paths are allowed.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.RequiredListObjectAttributes("path_prefix")}
 ```
 
@@ -1286,6 +1299,7 @@ Host path prefix is the path prefix that the host volume must match. It does not
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 128),
 }
@@ -1375,6 +1389,7 @@ List of capabilities that Docker container has.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("capabilities")}
 ```
 
@@ -1414,6 +1429,7 @@ List of capabilities that Docker container has.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeBetween(1, 64),
 }
@@ -1483,6 +1499,7 @@ List of capabilities that Docker container has.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("capabilities")}
 ```
 
@@ -1522,6 +1539,7 @@ List of capabilities that Docker container has.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeBetween(1, 64),
 }
@@ -1595,6 +1613,7 @@ ID ranges and rules.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("rule")}
 ```
 
@@ -1638,6 +1657,7 @@ Rule indicated how the FS group ID range is used.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 128),
 }
@@ -1707,6 +1727,7 @@ ID Ranges. List of range of ID(s)
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.RequiredListObjectAttributes("max_id",
     "min_id")}
 ```
@@ -1765,6 +1786,7 @@ Ending ID. Ending(maximum) ID for for ID range.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(1, 65535),
 }
@@ -1818,6 +1840,7 @@ Starting ID. Starting(minimum) ID for for ID range.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(1, 65535),
 }
@@ -2300,6 +2323,7 @@ ID ranges and rules.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("rule")}
 ```
 
@@ -2343,6 +2367,7 @@ Rule indicated how the FS group ID range is used.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 128),
 }
@@ -2412,6 +2437,7 @@ ID Ranges. List of range of ID(s)
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.RequiredListObjectAttributes("max_id",
     "min_id")}
 ```
@@ -2470,6 +2496,7 @@ Ending ID. Ending(maximum) ID for for ID range.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(1, 65535),
 }
@@ -2523,6 +2550,7 @@ Starting ID. Starting(minimum) ID for for ID range.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(1, 65535),
 }
@@ -2591,6 +2619,7 @@ ID ranges and rules.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("rule")}
 ```
 
@@ -2634,6 +2663,7 @@ Rule indicated how the FS group ID range is used.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 128),
 }
@@ -2703,6 +2733,7 @@ ID Ranges. List of range of ID(s)
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.RequiredListObjectAttributes("max_id",
     "min_id")}
 ```
@@ -2761,6 +2792,7 @@ Ending ID. Ending(maximum) ID for for ID range.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(1, 65535),
 }
@@ -2814,6 +2846,7 @@ Starting ID. Starting(minimum) ID for for ID range.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(1, 65535),
 }
@@ -2878,6 +2911,7 @@ ID(User,Group,FSGroup) Strategy. ID ranges and rules.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("rule")}
 ```
 
@@ -2921,6 +2955,7 @@ Rule indicated how the FS group ID range is used.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 128),
 }
@@ -2990,6 +3025,7 @@ ID Ranges. List of range of ID(s)
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.RequiredListObjectAttributes("max_id",
     "min_id")}
 ```
@@ -3048,6 +3084,7 @@ Ending ID. Ending(maximum) ID for for ID range.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(1, 65535),
 }
@@ -3101,6 +3138,7 @@ Starting ID. Starting(minimum) ID for for ID range.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(1, 65535),
 }

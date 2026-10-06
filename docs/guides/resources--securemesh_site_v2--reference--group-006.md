@@ -6,6 +6,147 @@ description: "Complete grouped canonical reference for xcsh_securemesh_site_v2 r
 
 # xcsh_securemesh_site_v2 reference
 
+<a id="canonical-3131030030231103-3100013311313213-2312122111023223-1332210200121031-0330203011101002-2022022223113302-3031131031332103-1112001030211132"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `blocked_services.blocked_service.dns` properties
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
+- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
+- [blocked_services](resources--securemesh_site_v2--reference--group-005.md#canonical-1023020113032331-1130112021101312-2020122123031022-1200330020130000-0332012013303030-0103033110120230-3200102311032133-1212201133110122)
+- [blocked_services.blocked_service](resources--securemesh_site_v2--reference--group-005.md#canonical-3311110301202031-3012023312233113-3323122301011333-1110311100211111-0012323011332303-0033312120030231-0310110101333113-1223301211202032)
+- blocked_services.blocked_service.DNS
+
+<a id="canonical-1313133131030320-1310101202031021-2323201013102223-1101220122201111-0031010332323001-2311001211030200-3232332222111122-0213033220132212"></a>
+
+Type: `["object", {}]`. Optional.
+
+Enable this option
+
+Additional upstream details:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+dns = {}
+```
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-2013313321133020-3000322300332212-2023330213032300-1101011303221033-0003302332133321-2133300013200133-1031111333331013-0230020002023301"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `blocked_services.blocked_service.ssh` properties
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
+- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
+- [blocked_services](resources--securemesh_site_v2--reference--group-005.md#canonical-1023020113032331-1130112021101312-2020122123031022-1200330020130000-0332012013303030-0103033110120230-3200102311032133-1212201133110122)
+- [blocked_services.blocked_service](resources--securemesh_site_v2--reference--group-005.md#canonical-3311110301202031-3012023312233113-3323122301011333-1110311100211111-0012323011332303-0033312120030231-0310110101333113-1223301211202032)
+- blocked_services.blocked_service.SSH
+
+<a id="canonical-0333302002332220-2132030323021223-1301110310321313-2110121232033303-2002113030200230-2113313030002011-2313231000122210-2121111030201112"></a>
+
+Type: `["object", {}]`. Optional.
+
+Enable this option
+
+Additional upstream details:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+ssh = {}
+```
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-0311113333110132-1332331102333301-1033301322332030-2201030230223030-1032031310230003-2320012320231200-1301031130212110-1031030131310223"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `blocked_services.blocked_service.web_user_interface` properties
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
+- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
+- [blocked_services](resources--securemesh_site_v2--reference--group-005.md#canonical-1023020113032331-1130112021101312-2020122123031022-1200330020130000-0332012013303030-0103033110120230-3200102311032133-1212201133110122)
+- [blocked_services.blocked_service](resources--securemesh_site_v2--reference--group-005.md#canonical-3311110301202031-3012023312233113-3323122301011333-1110311100211111-0012323011332303-0033312120030231-0310110101333113-1223301211202032)
+- blocked_services.blocked_service.web_user_interface
+
+<a id="canonical-1331200200130100-0002102132110323-2011012011321222-2333332031310103-1000022000122032-2033303011202321-3231220110301310-2202321210013111"></a>
+
+Type: `["object", {}]`. Optional.
+
+Enable this option
+
+Additional upstream details:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+web_user_interface = {}
+```
+
+This is an empty object or choice marker. It has no direct properties.
+
 <a id="canonical-1002312300302030-1233211121221322-1133130202001302-3111103230122000-0211003002110003-1012033010002203-3321112312311233-3033212203133131"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -33,6 +174,7 @@ Custom Enterprise Proxy.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("proxy_ip_address",
     "proxy_port"),
   validators.ConflictingObjectAttributes("disable_re_tunnel",
@@ -56,7 +198,7 @@ Receipt-pinned upstream constraints:
 OneOf alternatives in this subsection:
 
 - [custom_proxy](resources--securemesh_site_v2--reference--group-006.md#canonical-0133132100102112-1321232211122100-3231121222211020-1323020332320220-3100221323323313-2002012322321002-1030330013212022-1310232101232330)
-- [f5_proxy](resources--securemesh_site_v2--reference--group-008.md#canonical-0323202033202102-2203130323103033-2120333100022103-1031333331023101-0001233230123023-0302313331331233-0112221333211032-1203223313013302)
+- [f5_proxy](resources--securemesh_site_v2--reference--group-009.md#canonical-0323202033202102-2203130323103033-2120333100022103-1031333331023101-0001233230123023-0302313331331233-0112221333211032-1203223313013302)
 - [private_adn](resources--securemesh_site_v2--reference--group-016.md#canonical-3001100011332303-2231203223000211-1230200300233313-2012022223033331-1002001201232231-1312011231123311-2020311101200103-0010032010320220)
 
 Select alternatives according to the provider validators above.
@@ -92,6 +234,7 @@ Specify the IPv4 Address of the internal Enterprise Proxy.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthAtMost(1024),
   validators.IPv4Validator(),
@@ -144,6 +287,7 @@ Specify the Port of the internal Enterprise Proxy.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(0, 65535),
 }
@@ -340,6 +484,7 @@ SecretType is used in an object to indicate a sensitive/confidential field.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info",
     "clear_secret_info")}
 ```
@@ -399,6 +544,7 @@ BlindfoldSecretInfoType specifies information about the Secret managed by F5XC S
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("location")}
 ```
 
@@ -473,6 +619,7 @@ store provider is an HTTP/HTTPS location.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(4, 131072),
 }
@@ -574,6 +721,7 @@ ClearSecretInfoType specifies information about the Secret that is not encrypted
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("url")}
 ```
 
@@ -626,6 +774,7 @@ base64 decoding.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 131072),
 }
@@ -745,6 +894,7 @@ Proxy Bypass. List of domains to bypass the proxy.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(64),
 }
@@ -817,6 +967,7 @@ This type establishes a direct reference from one object(the referrer) to anothe
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
 ```
 
@@ -864,6 +1015,7 @@ referred object's(e.g. Route's) name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 128),
 }
@@ -924,6 +1076,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -991,6 +1144,7 @@ the referred object's(e.g. Route's) tenant.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(64),
 }
@@ -1059,6 +1213,7 @@ This type establishes a direct reference from one object(the referrer) to anothe
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
 ```
 
@@ -1107,6 +1262,7 @@ referred object's(e.g. Route's) name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 128),
 }
@@ -1167,6 +1323,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -1234,6 +1391,7 @@ the referred object's(e.g. Route's) tenant.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(64),
 }
@@ -1560,6 +1718,7 @@ Specify DNS and NTP servers that will be used by the nodes in this Customer Edge
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("custom_dns",
     "f5_dns_default"),
   validators.ConflictingObjectAttributes("custom_ntp",
@@ -1658,6 +1817,7 @@ DNS Servers. DNS Servers.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(64),
 }
@@ -1754,6 +1914,7 @@ NTP Servers. NTP Servers.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(64),
 }
@@ -1908,6 +2069,7 @@ Kubernetes Provider Type. Kubernetes Provider Type.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("disable_anti_affinity",
     "enable_anti_affinity")}
 ```
@@ -1966,6 +2128,8 @@ workloads requiring additional performance and capacity.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["KUBERNETES_DEPLOYMENT_SIZE_LARGE","KUBERNETES_DEPLOYMENT_SIZE_MEDIUM"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("KUBERNETES_DEPLOYMENT_SIZE_MEDIUM",
     "KUBERNETES_DEPLOYMENT_SIZE_LARGE"),
@@ -2009,6 +2173,7 @@ Kubernetes nodeSelector to schedule pods only on nodes with matching labels.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Map{validators.MapConstraintsValidator("{\"cardinality\":{\"maxProperties\":64},\"category\":\"discovery\",\"constraintType\":\"map\",\"deterministic\":true,\"keys\":{\"maxLength\":253,\"minLength\":1,\"type\":\"string\"},\"originalRules\":{\"ves.io.schema.rules.map.keys.string.max_len\":\"253\",\"ves.io.schema.rules.map.keys.string.min_len\":\"1\",\"ves.io.schema.rules.map.max_pairs\":\"64\",\"ves.io.schema.rules.map.values.string.max_len\":\"63\",\"ves.io.schema.rules.map.values.string.min_len\":\"1\"},\"values\":{\"maxLength\":63,\"minLength\":1,\"type\":\"string\"}}")}
 ```
 
@@ -2137,6 +2302,7 @@ applications/components are distributed across your Kubernetes cluster.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("rules")}
 ```
 
@@ -2194,6 +2360,7 @@ distributed across which topology domains. Example: Rule 1 - Distribute VPM pods
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.RequiredListObjectAttributes("label_key",
     "label_value",
     "topology_keys")}
@@ -2263,6 +2430,7 @@ Combined with the label value below, this identifies the target pods.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 253),
 }
@@ -2318,6 +2486,7 @@ Specify the label value that, together with the label key, identifies the custom
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -2376,6 +2545,7 @@ kept off any node running the matching customer pod.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeBetween(1, 10),
 }
@@ -2556,6 +2726,7 @@ Hostname. Hostname for this Node.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 256),
 }
@@ -2613,6 +2784,7 @@ Public IP. Public IP for this Node.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(256),
 }
@@ -2663,6 +2835,8 @@ Type: `"string"`. Optional.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["Control","Worker"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("Control",
     "Worker"),
@@ -2728,6 +2902,7 @@ Manage interfaces belonging to this node.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.ConflictingListObjectAttributes("bond_interface",
     "ethernet_interface"),
   validators.ConflictingListObjectAttributes("bond_interface",
@@ -2804,7 +2979,7 @@ interface_list {
 
 ### Direct properties for `eks_k8s.not_managed.node_list.interface_list`
 
-- [bond_interface](resources--securemesh_site_v2--reference--group-006.md#canonical-3212321310022010-2311313233011120-0211230212110331-3013121331230112-3103201022013300-2110131302223120-3203330202013103-2120130211131331): complete subsection reference.
+- [bond_interface](resources--securemesh_site_v2--reference--group-007.md#canonical-3212321310022010-2311313233011120-0211230212110331-3013121331230112-3103201022013300-2110131302223120-3203330202013103-2120130211131331): complete subsection reference.
 
 <a id="canonical-2231213231231020-3201113010022121-1103331331121023-2332030200332231-0113020332210120-3131003133320020-1022231113322310-1022003133132322"></a>
 
@@ -2819,6 +2994,7 @@ Interface Description. Description for this Interface.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(256),
 }
@@ -2865,6 +3041,7 @@ Add Labels for this Interface, these labels can be used in firewall policy.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Map{validators.MapConstraintsValidator("{\"cardinality\":{\"maxProperties\":16},\"category\":\"discovery\",\"constraintType\":\"map\",\"deterministic\":true,\"keys\":{\"maxLength\":64,\"minLength\":1,\"type\":\"string\"},\"originalRules\":{\"ves.io.schema.rules.map.keys.string.max_len\":\"64\",\"ves.io.schema.rules.map.keys.string.min_len\":\"1\",\"ves.io.schema.rules.map.max_pairs\":\"16\",\"ves.io.schema.rules.map.values.string.max_len\":\"64\",\"ves.io.schema.rules.map.values.string.min_len\":\"1\"},\"values\":{\"maxLength\":64,\"minLength\":1,\"type\":\"string\"}}")}
 ```
 
@@ -2938,6 +3115,7 @@ Maximum packet size (Maximum Transfer Unit) of the interface When configured, MT
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   validators.Int64RangeSetValidator(
     validators.Int64Range{Minimum: 0, Maximum: 0},
@@ -2989,6 +3167,7 @@ Interface Name. Name of this Interface.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 256),
 }
@@ -3041,139 +3220,8 @@ Receipt-pinned upstream constraints:
 
 - [network_option](resources--securemesh_site_v2--reference--group-007.md#canonical-1012031123332102-1310222131203300-2100231031013313-0112133021032111-2001121102220030-2221212132103031-3003320131021203-3320102321032133): complete subsection reference.
 
-- [no_ipv4_address](resources--securemesh_site_v2--reference--group-007.md#canonical-2301031122023323-2312030233133232-0003013033030323-3223231102220222-3121003131102022-1010213001332131-0132020321212203-3121010111120023): complete subsection reference.
+- [no_ipv4_address](resources--securemesh_site_v2--reference--group-008.md#canonical-2301031122023323-2312030233133232-0003013033030323-3223231102220222-3121003131102022-1010213001332131-0132020321212203-3121010111120023): complete subsection reference.
 
-- [no_ipv6_address](resources--securemesh_site_v2--reference--group-007.md#canonical-1130210113011010-0201323203331131-2111202121232233-0002232003002002-1113221321222220-3032221120013120-1301312312021220-3211333120012012): complete subsection reference.
+- [no_ipv6_address](resources--securemesh_site_v2--reference--group-008.md#canonical-1130210113011010-0201323203331131-2111202121232233-0002232003002002-1113221321222220-3032221120013120-1301312312021220-3211333120012012): complete subsection reference.
 
 <a id="canonical-0231332122113033-0023022123003230-1130213133212122-1020213220303111-2030323333210223-1312023322312323-3133133330012323-3133210130300330"></a>
-
-<a id="canonical-2332030330301333-3201233300031002-1103321011310302-0031032130131231-0120121310220101-1110333220000132-2102030201313223-2303202312213300"></a>
-
-#### `eks_k8s.not_managed.node_list.interface_list.priority` property
-
-Type: `"number"`. Optional.
-
-For a node, if multiple interfaces are configured in a VRF, interfaces with highest priority will be
-used as active and interfaces with lower priority will be used as backup. If multiple interfaces
-have the same priority, ECMP will be used. Greater the value, higher the priority.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.Int64{
-  int64validator.Between(0, 255),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "number",
-    "deterministic": true,
-    "maximum": 255,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "api-probed",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
-    },
-    "minimum": 0,
-    "multipleOf": 1
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.uint32.gte": "0",
-    "ves.io.schema.rules.uint32.lte": "255"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.uint32.gte": "0",
-    "ves.io.schema.rules.uint32.lte": "255"
-  }
-}
-```
-
-- [site_to_site_connectivity_interface_disabled](resources--securemesh_site_v2--reference--group-008.md#canonical-0103332210102222-0101313012123113-3110223010330231-1233210031332122-1220201120130302-1030220311033000-1331310033002133-3213231231323310): complete subsection reference.
-
-- [site_to_site_connectivity_interface_enabled](resources--securemesh_site_v2--reference--group-008.md#canonical-2031202033300012-1103300021230131-2131322123021211-3111003121233331-0121331212100212-2222021220102331-2311321321112233-0313323220023112): complete subsection reference.
-
-- [static_ip](resources--securemesh_site_v2--reference--group-008.md#canonical-3030211032102301-0013032213201203-2331222321333320-0011121300110003-0303323230202321-1230002033332221-3333131203032011-3301013013201112): complete subsection reference.
-
-- [static_ipv6_address](resources--securemesh_site_v2--reference--group-008.md#canonical-2122021200012213-0332230132132110-0131200032202221-0033201320313133-0022021231202330-2201100002332233-2302222300130131-3133203210310221): complete subsection reference.
-
-- [vlan_interface](resources--securemesh_site_v2--reference--group-008.md#canonical-0301032123232223-1100031103321323-0133220303233001-0223330231112002-3230302111330102-2033000033312333-2302233132112031-3122210031202101): complete subsection reference.
-
-<a id="canonical-3212321310022010-2311313233011120-0211230212110331-3013121331230112-3103201022013300-2110131302223120-3203330202013103-2120130211131331"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-## `eks_k8s.not_managed.node_list.interface_list.bond_interface` properties
-
-Breadcrumbs:
-
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
-- [eks_k8s](resources--securemesh_site_v2--reference--group-006.md#canonical-0022130130300012-0230333000310233-1322033213223312-3321101002313103-1201131030031302-2021203021021121-0133011100321201-1030300311013100)
-- [eks_k8s.not_managed](resources--securemesh_site_v2--reference--group-006.md#canonical-1110112122310000-1333332210131211-0233031011331213-0020022112032211-3102103310003112-0302021001133131-2202131332021122-0222311013020010)
-- [eks_k8s.not_managed.node_list](resources--securemesh_site_v2--reference--group-006.md#canonical-2121032313322223-3333000313313333-3110022111111033-0101201201203110-1101302202200200-3330001130302311-0011302121022331-2122121230101231)
-- [eks_k8s.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-006.md#canonical-2220203201033202-1121022310000310-3002113303130320-3120122021013313-0003130111303222-0330101230013032-1302121101030103-2013232013323210)
-- eks_k8s.not_managed.node_list.interface_list.bond_interface
-
-<a id="canonical-2222203202312133-0332331232200033-3301122010223112-0300330110312113-1203210321311032-2122133113022100-0013303010131221-0312032031001011"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-Configuration parameter for bond interface.
-
-Additional upstream details:
-
-Bond devices configuration for fleet.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.Object{validators.RequiredObjectAttributes("devices",
-    "link_polling_interval",
-    "link_up_delay",
-    "name"),
-  validators.ConflictingObjectAttributes("active_backup",
-    "lacp")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-ves-oneof-field-lacp_choice": "[\"active_backup\",\"lacp\"]"
-}
-```
-
-Terraform syntax:
-
-```terraform
-bond_interface {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-1013200021321120-1233320021110331-0102130001332222-1332100130203210-0332101011001023-0222033221203001-1200223330220332-1320132322222202"></a>
-
-### Direct properties for `eks_k8s.not_managed.node_list.interface_list.bond_interface`
-
-- [active_backup](resources--securemesh_site_v2--reference--group-007.md#canonical-2123232033001200-0323200020121300-2303121110330103-1333122230220202-0101123010100133-2023003022010201-3101310213003032-3110302321023122): complete subsection reference.
-
-<a id="canonical-0001201102330303-0100012320323213-2131211333201000-1331131230212300-0020001310123220-2212230001201313-2223032130022030-2222221110201120"></a>

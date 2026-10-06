@@ -60,7 +60,7 @@
         "xcsh-docs:resources:public_ip_binding:examples"
       ],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -101,7 +101,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -127,6 +127,8 @@
           "anchor": "schema-expected_ip",
           "description": "Exact IPv4/IPv6 address expected in the allocated object.",
           "document_id": "xcsh-docs:resources:public_ip_binding:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["required"],
           "max_items": null,
           "min_items": null,
@@ -141,6 +143,8 @@
           "anchor": "schema-id",
           "description": "id",
           "document_id": "xcsh-docs:resources:public_ip_binding:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -155,6 +159,8 @@
           "anchor": "schema-managed_bindings",
           "description": "Last applied binding retained to reject foreign changes at teardown.",
           "document_id": "xcsh-docs:resources:public_ip_binding:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -169,6 +175,8 @@
           "anchor": "schema-name",
           "description": "Existing public IP object name.",
           "document_id": "xcsh-docs:resources:public_ip_binding:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["required"],
           "max_items": null,
           "min_items": null,
@@ -183,6 +191,8 @@
           "anchor": "schema-namespace",
           "description": "Existing public IP namespace, usually shared.",
           "document_id": "xcsh-docs:resources:public_ip_binding:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["required"],
           "max_items": null,
           "min_items": null,
@@ -197,6 +207,8 @@
           "anchor": "schema-original_bindings",
           "description": "Original virtual-site bindings restored on delete; kept in Terraform state.",
           "document_id": "xcsh-docs:resources:public_ip_binding:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -211,6 +223,8 @@
           "anchor": "schema-virtual_site",
           "description": "Desired REGIONAL_EDGE virtual site. Refreshed from the actual binding so drift is repairable.",
           "document_id": "xcsh-docs:resources:public_ip_binding:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["required"],
           "max_items": null,
           "min_items": null,
@@ -225,6 +239,8 @@
           "anchor": "schema-virtual_site_namespace",
           "description": "Namespace of the regional virtual site.",
           "document_id": "xcsh-docs:resources:public_ip_binding:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["required"],
           "max_items": null,
           "min_items": null,
@@ -254,7 +270,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:resources:public_ip_binding:example:resource"],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -294,7 +310,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"

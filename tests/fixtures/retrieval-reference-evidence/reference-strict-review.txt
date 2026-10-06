@@ -1,0 +1,7 @@
+Not yet approved: one composition gap remains.
+
+- **[P2] `oneOf`/`anyOf` bypass the ownership guard.** [resolve_reference_identity](/data/robin-GIT/worktrees/terraform-provider-xcsh-2421-retrieval-enums/tools/generate-doc-collections.py:277) accepts a single-member `allOf` with an `anyOf` sibling and silently discards that sibling. Inline identity-bearing schemas containing `oneOf` also pass through. In-memory probes confirmed both emit `reference_identity`, contrary to the requested rejection of composed ownership. Reject these compositions and add regressions.
+
+Verified otherwise: all three filesystem-free reference regressions pass; missing and cyclic references are rejected. An in-memory integration check confirmed exact parent/member binding, no root-field leakage, and unchanged page/section data after removing the new metadata—including destinations and relationships. No prerequisite or target inference was introduced.
+
+No files changed. Narrow producer approval remains pending that guard; qualification and release were outside this review.

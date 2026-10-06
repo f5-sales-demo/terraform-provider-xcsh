@@ -212,6 +212,7 @@ follow DNS-1035 format.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   validators.NameValidator(),
 }
@@ -279,6 +280,7 @@ DNS\_LABEL format. For a namespace object itself, namespace value will be ""
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   validators.NamespaceValidator(),
 }
@@ -465,6 +467,7 @@ Action to be enforced if the BGP route matches the rule.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("allow",
     "as_path"),
   validators.ConflictingObjectAttributes("allow",
@@ -683,6 +686,7 @@ BGP Community list. List of BGP communities.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("community")}
 ```
 
@@ -723,6 +727,7 @@ being value.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeBetween(1, 8),
 }
@@ -841,6 +846,7 @@ Predicates which have to match information in route for action to be applied.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("as_path",
     "community"),
   validators.ConflictingObjectAttributes("as_path",
@@ -936,6 +942,7 @@ BGP Community list. List of BGP communities.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("community")}
 ```
 
@@ -976,6 +983,7 @@ being value.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeBetween(1, 8),
 }
@@ -1048,6 +1056,7 @@ List of IP prefix and prefix length range match condition.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("prefixes")}
 ```
 
@@ -1104,6 +1113,7 @@ Prefix list. List of IP prefix.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.ConflictingListObjectAttributes("equal_or_longer_than",
     "exact_match"),
   validators.ConflictingListObjectAttributes("equal_or_longer_than",
@@ -1178,6 +1188,7 @@ IP Prefix. IP prefix to match on BGP route.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthAtMost(1024),
   validators.CIDRValidator(),

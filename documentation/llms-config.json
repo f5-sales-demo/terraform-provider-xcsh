@@ -1,7 +1,7 @@
 {
   "canonicalCorpus": {
     "taxonomy": {
-      "rulesDigest": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+      "rulesDigest": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
       "evidence": "Canonical classification metadata derived from receipt-pinned upstream descriptions and reviewed provider taxonomy rules. Unresolved collections remain Unclassified.",
       "topics": {
         "security": {

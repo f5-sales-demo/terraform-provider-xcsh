@@ -39,6 +39,7 @@ Port. Port
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("name",
     "num")}
 ```
@@ -80,6 +81,7 @@ Port Name. Exclusive with \[num\] Port Name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
   stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`),
@@ -144,6 +146,7 @@ Port Number. Exclusive with \[name\] Port number.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(1, 65535),
 }
@@ -206,6 +209,7 @@ Deploy OPTIONS are used to configure the workload deployment OPTIONS.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("all_res",
     "default_virtual_sites"),
   validators.ConflictingObjectAttributes("all_res",
@@ -395,6 +399,7 @@ This defines a way to deploy a workload on specific Customer sites.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("site")}
 ```
 
@@ -451,6 +456,7 @@ Which customer sites should this workload be deployed.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.RequiredListObjectAttributes("name")}
 ```
 
@@ -518,6 +524,7 @@ referred object's(e.g. Route's) name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 128),
 }
@@ -578,6 +585,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -645,6 +653,7 @@ the referred object's(e.g. Route's) tenant.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(64),
 }
@@ -709,6 +718,7 @@ This defines a way to deploy a workload on specific Customer virtual sites.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("virtual_site")}
 ```
 
@@ -765,6 +775,7 @@ Which customer virtual sites should this workload be deployed.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.RequiredListObjectAttributes("name")}
 ```
 
@@ -832,6 +843,7 @@ referred object's(e.g. Route's) name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 128),
 }
@@ -892,6 +904,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -959,6 +972,7 @@ the referred object's(e.g. Route's) tenant.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(64),
 }
@@ -1023,6 +1037,7 @@ This defines a way to deploy a workload on specific Regional Edge sites.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("site")}
 ```
 
@@ -1079,6 +1094,7 @@ Which regional edge sites should this workload be deployed.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.RequiredListObjectAttributes("name")}
 ```
 
@@ -1146,6 +1162,7 @@ referred object's(e.g. Route's) name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 128),
 }
@@ -1206,6 +1223,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -1273,6 +1291,7 @@ the referred object's(e.g. Route's) tenant.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(64),
 }
@@ -1337,6 +1356,7 @@ This defines a way to deploy a workload on specific Regional Edge virtual sites.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("virtual_site")}
 ```
 
@@ -1393,6 +1413,7 @@ Which regional edge virtual sites should this workload be deployed.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.RequiredListObjectAttributes("name")}
 ```
 
@@ -1460,6 +1481,7 @@ referred object's(e.g. Route's) name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 128),
 }
@@ -1520,6 +1542,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -1587,6 +1610,7 @@ the referred object's(e.g. Route's) tenant.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(64),
 }
@@ -1650,6 +1674,7 @@ Volumes. Volumes for the job.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.ConflictingListObjectAttributes("empty_dir",
     "host_path"),
   validators.ConflictingListObjectAttributes("empty_dir",
@@ -1718,6 +1743,7 @@ Name. Name of the volume.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -1794,6 +1820,7 @@ Volume containing a temporary directory whose lifetime is the same as a replica 
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("size_limit")}
 ```
 
@@ -1881,6 +1908,7 @@ Volume mount describes how volume is mounted inside a workload.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("mount_path")}
 ```
 
@@ -1924,6 +1952,8 @@ VOLUME\_MOUNT\_READ\_WRITE: Read Write Mount the volume in read-write mode. Poss
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["VOLUME_MOUNT_READ_ONLY","VOLUME_MOUNT_READ_WRITE"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("VOLUME_MOUNT_READ_ONLY",
     "VOLUME_MOUNT_READ_WRITE"),
@@ -1961,6 +1991,7 @@ Path within the workload container at which the volume should be mounted. Must n
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(256),
 }
@@ -2020,6 +2051,7 @@ Defaults to "" (volume's root).
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(256),
 }
@@ -2081,6 +2113,7 @@ Volume containing a host mapped path into the workload.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("path")}
 ```
 
@@ -2124,6 +2157,7 @@ Path. Path of the directory on the host.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 256),
 }
@@ -2192,6 +2226,7 @@ Volume mount describes how volume is mounted inside a workload.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("mount_path")}
 ```
 
@@ -2235,6 +2270,8 @@ VOLUME\_MOUNT\_READ\_WRITE: Read Write Mount the volume in read-write mode. Poss
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["VOLUME_MOUNT_READ_ONLY","VOLUME_MOUNT_READ_WRITE"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("VOLUME_MOUNT_READ_ONLY",
     "VOLUME_MOUNT_READ_WRITE"),
@@ -2272,6 +2309,7 @@ Path within the workload container at which the volume should be mounted. Must n
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(256),
 }
@@ -2331,6 +2369,7 @@ Defaults to "" (volume's root).
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(256),
 }
@@ -2444,6 +2483,7 @@ Volume mount describes how volume is mounted inside a workload.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("mount_path")}
 ```
 
@@ -2487,6 +2527,8 @@ VOLUME\_MOUNT\_READ\_WRITE: Read Write Mount the volume in read-write mode. Poss
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["VOLUME_MOUNT_READ_ONLY","VOLUME_MOUNT_READ_WRITE"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("VOLUME_MOUNT_READ_ONLY",
     "VOLUME_MOUNT_READ_WRITE"),
@@ -2524,6 +2566,7 @@ Path within the workload container at which the volume should be mounted. Must n
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(256),
 }
@@ -2583,6 +2626,7 @@ Defaults to "" (volume's root).
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(256),
 }
@@ -2645,6 +2689,7 @@ Persistent storage configuration is used to configure Persistent Volume Claim (P
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("storage_size"),
   validators.ConflictingObjectAttributes("class_name",
     "default")}
@@ -2708,6 +2753,8 @@ Read Only Many is used to mount persistent storage in read-only mode to many hos
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["ACCESS_MODE_READ_ONLY_MANY","ACCESS_MODE_READ_WRITE_MANY","ACCESS_MODE_READ_WRITE_ONCE"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("ACCESS_MODE_READ_WRITE_ONCE",
     "ACCESS_MODE_READ_WRITE_MANY",
@@ -2747,6 +2794,7 @@ Exclusive with \[default\] Use the specified class name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(256),
 }
@@ -2893,6 +2941,7 @@ traditional SQL databases, etc.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("containers"),
   validators.ConflictingObjectAttributes("num_replicas",
     "scale_to_zero")}
@@ -2926,11 +2975,11 @@ service {
 
 - [advertise_options](resources--workload--reference--group-005.md#canonical-2321101321310001-0022332320310221-1010303010131020-3231233110321220-1121213033111131-2021113020233203-2010000000223003-2113200202030130): complete subsection reference.
 
-- [configuration](resources--workload--reference--group-015.md#canonical-0120300131213121-2030323030023013-0301331320133010-0123120231213121-1220222031210011-1001323001213020-0213022223133211-2110030001312333): complete subsection reference.
+- [configuration](resources--workload--reference--group-014.md#canonical-0120300131213121-2030323030023013-0301331320133010-0123120231213121-1220222031210011-1001323001213020-0213022223133211-2110030001312333): complete subsection reference.
 
-- [containers](resources--workload--reference--group-015.md#canonical-0333202010020223-0311032212110312-0322013032012300-3111121223203012-2222131221222013-3020133002033023-0203232021132003-0203222130000122): complete subsection reference.
+- [containers](resources--workload--reference--group-014.md#canonical-0333202010020223-0311032212110312-0322013032012300-3111121223203012-2222131221222013-3020133002033023-0203232021132003-0203222130000122): complete subsection reference.
 
-- [deploy_options](resources--workload--reference--group-016.md#canonical-0011011211333310-1311031311001132-3121223032103322-0223110022300031-0201021032310133-3010100110301231-0220203002321211-2031113202323003): complete subsection reference.
+- [deploy_options](resources--workload--reference--group-015.md#canonical-0011011211333310-1311031311001132-3121223032103322-0223110022300031-0201021032310133-3010100110301231-0220203002321211-2031113202323003): complete subsection reference.
 
 <a id="canonical-0333212012011110-2130112003031213-0311010210012302-1221223333233322-0201111111323232-0030112320000202-1212020101231213-2123201101310111"></a>
 
@@ -2945,6 +2994,7 @@ Exclusive with \[scale\_to\_zero\] Number of replicas of service to spawn per si
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(1, 5),
 }
@@ -2983,9 +3033,9 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [scale_to_zero](resources--workload--reference--group-016.md#canonical-2112203323032023-1022033211220013-2331111010311212-0200221020302323-2123121101110311-2211200012322311-2122132200232301-3022222221010211): complete subsection reference.
+- [scale_to_zero](resources--workload--reference--group-015.md#canonical-2112203323032023-1022033211220013-2331111010311212-0200221020302323-2123121101110311-2211200012322311-2122132200232301-3022222221010211): complete subsection reference.
 
-- [volumes](resources--workload--reference--group-016.md#canonical-3322223031121220-1122333131231013-0332331210233133-1311312333300020-2001331131131300-0232320011132231-2013021033301233-0003032133003003): complete subsection reference.
+- [volumes](resources--workload--reference--group-015.md#canonical-3322223031121220-1122333131231013-0332331210233133-1311312333300020-2001331131131300-0232320011132231-2013021033301233-0003032133003003): complete subsection reference.
 
 <a id="canonical-2321101321310001-0022332320310221-1010303010131020-3231233110321220-1121213033111131-2021113020233203-2010000000223003-2113200202030130"></a>
 
@@ -3012,6 +3062,7 @@ balancers.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("advertise_custom",
     "advertise_in_cluster"),
   validators.ConflictingObjectAttributes("advertise_custom",
@@ -3054,11 +3105,11 @@ advertise_options {
 
 - [advertise_custom](resources--workload--reference--group-005.md#canonical-2121230312030330-3010113231323001-1233013032320322-1032203002210311-2022021002113232-1123312032112001-0012103213230102-1112311001110020): complete subsection reference.
 
-- [advertise_in_cluster](resources--workload--reference--group-009.md#canonical-0330023301131021-0130211002331300-3002122032320301-2112231133101233-3303101211030122-3300030030023300-1213020320030020-0213001312211213): complete subsection reference.
+- [advertise_in_cluster](resources--workload--reference--group-008.md#canonical-0330023301131021-0130211002331300-3002122032320301-2112231133101233-3303101211030122-3300030030023300-1213020320030020-0213001312211213): complete subsection reference.
 
-- [advertise_on_public](resources--workload--reference--group-009.md#canonical-1222100102223033-2323000102001021-0112111031020311-0221301000203113-2112023321023331-2013201202121333-3010012033322311-0310303301113101): complete subsection reference.
+- [advertise_on_public](resources--workload--reference--group-008.md#canonical-1222100102223033-2323000102001021-0112111031020311-0221301000203113-2112023321023331-2013201202121333-3010012033322311-0310303301113101): complete subsection reference.
 
-- [do_not_advertise](resources--workload--reference--group-015.md#canonical-0310302023323212-1013021312131132-1222231111312001-2121122023132203-1332202130321213-0133012220300033-3111032100113201-3031211330022333): complete subsection reference.
+- [do_not_advertise](resources--workload--reference--group-014.md#canonical-0310302023323212-1013021312131132-1222231111312001-2121122023132203-1332202130321213-0133012220300033-3111032100113201-3031211330022333): complete subsection reference.
 
 <a id="canonical-2121230312030330-3010113231323001-1233013032320322-1032203002210311-2022021002113232-1123312032112001-0012103213230102-1112311001110020"></a>
 
@@ -3085,6 +3136,7 @@ Advertise this workload via loadbalancer on specific sites.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("advertise_where",
     "ports")}
 ```
@@ -3144,6 +3196,7 @@ Where should this load balancer be available.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.ConflictingListObjectAttributes("site",
     "virtual_site"),
   validators.ConflictingListObjectAttributes("site",
@@ -3271,6 +3324,7 @@ Use given IP address as VIP on the site.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthAtMost(1024),
   validators.IPv4Validator(),
@@ -3339,6 +3393,8 @@ for endpoint in IP Fabric network.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["SITE_NETWORK_INSIDE","SITE_NETWORK_INSIDE_AND_OUTSIDE","SITE_NETWORK_INSIDE_AND_OUTSIDE_WITH_INTERNET_VIP","SITE_NETWORK_IP_FABRIC","SITE_NETWORK_OUTSIDE","SITE_NETWORK_OUTSIDE_WITH_INTERNET_VIP","SITE_NETWORK_SERVICE"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("SITE_NETWORK_INSIDE_AND_OUTSIDE",
     "SITE_NETWORK_INSIDE",
@@ -3404,6 +3460,7 @@ Such a reference is in form of tenant/namespace/name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
 ```
 
@@ -3444,6 +3501,7 @@ referred object's(e.g. Route's) name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 128),
 }
@@ -3504,6 +3562,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -3571,6 +3630,7 @@ the referred object's(e.g. Route's) tenant.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(64),
 }
@@ -3655,72 +3715,3 @@ virtual_site {
   # Configure direct properties listed below.
 }
 ```
-
-<a id="canonical-2310223220102202-1110133102200010-1312001021210201-0210132012013033-3333012101222333-1113132312100022-3333103001030132-3113120003230231"></a>
-
-### Direct properties for `service.advertise_options.advertise_custom.advertise_where.virtual_site`
-
-<a id="canonical-3030021213122133-2211120333111013-1233323112022120-3301203032310133-1202333003200213-1231000002001330-2021001233210123-0120333013230003"></a>
-
-#### `service.advertise_options.advertise_custom.advertise_where.virtual_site.network` property
-
-Type: `"string"`. Optional.
-
-\[Enum:
-SITE\_NETWORK\_INSIDE\_AND\_OUTSIDE|SITE\_NETWORK\_INSIDE|SITE\_NETWORK\_OUTSIDE|SITE\_NETWORK\_SERVICE|SITE\_NETWORK\_OUTSIDE\_WITH\_INTERNET\_VIP|SITE\_NETWORK\_INSIDE\_AND\_OUTSIDE\_WITH\_INTERNET\_VIP|SITE\_NETWORK\_IP\_FABRIC\]
-Defines network types to be used on site All inside and outside networks. All inside and outside
-networks with internet VIP support. All inside networks. Possible values are
-\`SITE\_NETWORK\_INSIDE\_AND\_OUTSIDE\`, \`SITE\_NETWORK\_INSIDE\`, \`SITE\_NETWORK\_OUTSIDE\`,
-\`SITE\_NETWORK\_SERVICE\`, \`SITE\_NETWORK\_OUTSIDE\_WITH\_INTERNET\_VIP\`,
-\`SITE\_NETWORK\_INSIDE\_AND\_OUTSIDE\_WITH\_INTERNET\_VIP\`, \`SITE\_NETWORK\_IP\_FABRIC\`.
-Defaults to \`SITE\_NETWORK\_INSIDE\_AND\_OUTSIDE\`.
-
-Additional upstream details:
-
-This defines network types to be used on site
-
-All inside and outside networks. All outside networks. All outside networks with internet VIP
-support. VK8s service network. &#8203;- SITE\_NETWORK\_IP\_FABRIC: VER IP Fabric network for the
-site
-
-This Virtual network type is used for exposing virtual host on IP Fabric network on the VER site or
-for endpoint in IP Fabric network.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.String{
-  stringvalidator.OneOf("SITE_NETWORK_INSIDE_AND_OUTSIDE",
-    "SITE_NETWORK_INSIDE",
-    "SITE_NETWORK_OUTSIDE",
-    "SITE_NETWORK_SERVICE",
-    "SITE_NETWORK_OUTSIDE_WITH_INTERNET_VIP",
-    "SITE_NETWORK_INSIDE_AND_OUTSIDE_WITH_INTERNET_VIP",
-    "SITE_NETWORK_IP_FABRIC"),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "default": "SITE_NETWORK_INSIDE_AND_OUTSIDE",
-  "enum": [
-    "SITE_NETWORK_INSIDE_AND_OUTSIDE",
-    "SITE_NETWORK_INSIDE",
-    "SITE_NETWORK_OUTSIDE",
-    "SITE_NETWORK_SERVICE",
-    "SITE_NETWORK_OUTSIDE_WITH_INTERNET_VIP",
-    "SITE_NETWORK_INSIDE_AND_OUTSIDE_WITH_INTERNET_VIP",
-    "SITE_NETWORK_IP_FABRIC"
-  ],
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-- [virtual_site](resources--workload--reference--group-006.md#canonical-3111211030302213-0110213100301232-1020233303203221-3032002013303100-2020003131020020-2123313002320022-0102003213012311-0112003323132321): complete subsection reference.

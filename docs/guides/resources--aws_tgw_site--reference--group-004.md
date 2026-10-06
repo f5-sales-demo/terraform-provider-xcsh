@@ -72,6 +72,7 @@ IPv4 Address in string form with dot-decimal notation.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthAtMost(1024),
   validators.IPv4Validator(),
@@ -173,6 +174,7 @@ IPv6 Address in form of string. IPv6 address must be specified as hexadecimal nu
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthAtMost(1024),
   validators.IPv6Validator(),
@@ -237,6 +239,7 @@ Subnets. List of route prefixes.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.ConflictingListObjectAttributes("ipv4",
     "ipv6")}
 ```
@@ -351,6 +354,7 @@ Prefix-length of the IPv4 subnet. Must be &lt;= 32.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.AtMost(32),
 }
@@ -399,6 +403,7 @@ Prefix part of the IPv4 subnet in string form with dot-decimal notation.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthAtMost(1024),
   validators.IPv4Validator(),
@@ -497,6 +502,7 @@ Prefix length of the IPv6 subnet. Must be &lt;= 128.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.AtMost(128),
 }
@@ -552,6 +558,7 @@ The address can be compacted by suppressing zeros e.g. "2001:db8::2::"
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthAtMost(1024),
   validators.IPv6Validator(),
@@ -801,6 +808,7 @@ List of static routes.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("static_route_list")}
 ```
 
@@ -856,6 +864,7 @@ List of Static Routes. List of Static routes.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.ConflictingListObjectAttributes("custom_static_route",
     "simple_static_route")}
 ```
@@ -977,6 +986,7 @@ Defines a static route, configuring a list of prefixes and a next-hop to be used
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("subnets")}
 ```
 
@@ -1021,6 +1031,7 @@ List of route attributes associated with the static route. Possible values are
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(4),
 }
@@ -1187,6 +1198,8 @@ in VoltADN private virtual network.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["NEXT_HOP_DEFAULT_GATEWAY","NEXT_HOP_NETWORK_INTERFACE","NEXT_HOP_USE_CONFIGURED"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("NEXT_HOP_DEFAULT_GATEWAY",
     "NEXT_HOP_USE_CONFIGURED",
@@ -1370,6 +1383,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
   stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`),
@@ -1511,6 +1525,7 @@ IP Address used to specify an IPv4 or IPv6 address.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("dual_stack",
     "ipv4"),
   validators.ConflictingObjectAttributes("dual_stack",
@@ -1673,6 +1688,7 @@ IPv4 Address in string form with dot-decimal notation.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthAtMost(1024),
   validators.IPv4Validator(),
@@ -1775,6 +1791,7 @@ IPv6 Address in form of string. IPv6 address must be specified as hexadecimal nu
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthAtMost(1024),
   validators.IPv6Validator(),
@@ -1878,6 +1895,7 @@ IPv4 Address in string form with dot-decimal notation.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthAtMost(1024),
   validators.IPv4Validator(),
@@ -1979,6 +1997,7 @@ IPv6 Address in form of string. IPv6 address must be specified as hexadecimal nu
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthAtMost(1024),
   validators.IPv6Validator(),
@@ -2043,6 +2062,7 @@ Subnets. List of route prefixes.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.ConflictingListObjectAttributes("ipv4",
     "ipv6")}
 ```
@@ -2157,6 +2177,7 @@ Prefix-length of the IPv4 subnet. Must be &lt;= 32.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.AtMost(32),
 }
@@ -2205,6 +2226,7 @@ Prefix part of the IPv4 subnet in string form with dot-decimal notation.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthAtMost(1024),
   validators.IPv4Validator(),
@@ -2303,6 +2325,7 @@ Prefix length of the IPv6 subnet. Must be &lt;= 128.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.AtMost(128),
 }
@@ -2358,6 +2381,7 @@ The address can be compacted by suppressing zeros e.g. "2001:db8::2::"
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthAtMost(1024),
   validators.IPv6Validator(),
@@ -2613,6 +2637,7 @@ VPC ID. Information about existing VPC.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(64),
 }
@@ -2720,6 +2745,7 @@ manually. Refer to release notes for details about available Signatures update m
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("automatic",
     "manual")}
 ```

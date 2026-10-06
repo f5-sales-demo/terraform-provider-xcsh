@@ -36,7 +36,7 @@
         "xcsh-docs:ephemeral-resources:artifact_registry_token:lifecycle"
       ],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -77,7 +77,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -103,6 +103,8 @@
           "anchor": "schema-expiration_time",
           "description": "Expiration Time. Expiration time of the token.",
           "document_id": "xcsh-docs:ephemeral-resources:artifact_registry_token:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed", "sensitive"],
           "max_items": null,
           "min_items": null,
@@ -117,6 +119,8 @@
           "anchor": "schema-namespace",
           "description": "Namespace. Namespace is used to scope the query.",
           "document_id": "xcsh-docs:ephemeral-resources:artifact_registry_token:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["required"],
           "max_items": null,
           "min_items": null,
@@ -131,6 +135,8 @@
           "anchor": "schema-token",
           "description": "Access token for the F5 Artifact Registry (FAR) This token can be used to authenticate with FAR when pulling related images for Kubernetes bot infrastructure.",
           "document_id": "xcsh-docs:ephemeral-resources:artifact_registry_token:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed", "sensitive"],
           "max_items": null,
           "min_items": null,
@@ -160,7 +166,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:ephemeral-resources:artifact_registry_token:example:ephemeral"],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -200,7 +206,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -247,7 +253,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"

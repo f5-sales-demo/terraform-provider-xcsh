@@ -1,0 +1,8 @@
+Approved for source-backed summary enrichment; no blocking findings.
+
+- Verified receipt hashes and exact BGP references: `BgpParameters` establishes **local-site** ownership; `PeerExternal` plus its direct `asn` description establishes **external BGP peer** ownership.
+- All four rules match exact provider type, `bgp` collection, and schema path.
+- Resource “Configure” and computed datasource “Inspect” introduce no requiredness, validation, live-apply, or field-support claims.
+- The added test checks ownership and rejects unrelated paths/collections. All **27 metadata tests pass**; `git diff --check` passes.
+
+Read-only review completed. Approval covers summary enrichment only, not qualification or release.

@@ -1,0 +1,19 @@
+{
+  "basis": "Development inventory from checked-in canonical destinations; not a newly generated installed schema.",
+  "checks": [
+    "42 focused tests",
+    "ruff check and format",
+    "mypy",
+    "pylint --rcfile .python-lint",
+    "Ubuntu ChatGPT-authenticated read-only review"
+  ],
+  "complete": false,
+  "complete_fields": 4101,
+  "draft_only": true,
+  "enum_fields": 628,
+  "installed_fields": 39565,
+  "qualification_passed": false,
+  "runtime_registration_verified": false,
+  "unresolved_fields": 35464,
+  "version": 1
+}

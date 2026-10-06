@@ -36,7 +36,7 @@
         "xcsh-docs:actions:dns_zone_add_cryptokey:lifecycle"
       ],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -71,13 +71,13 @@
     },
     {
       "aliases": ["dns zone add cryptokey"],
-      "body_bytes": 1574,
-      "body_sha256": "sha256:8fd88d50cfb039fddbc5b0bc6350b08dcada3e89a5e8b2af007eb1b1d952e86b",
+      "body_bytes": 1604,
+      "body_sha256": "sha256:915287546e7558c5f03986817a45d49fd9f801eecf150f2235a4f2fe74a81d43",
       "capabilities": [],
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -103,6 +103,8 @@
           "anchor": "schema-key_type",
           "description": "Key Type. Type or category classification",
           "document_id": "xcsh-docs:actions:dns_zone_add_cryptokey:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -117,6 +119,8 @@
           "anchor": "schema-namespace",
           "description": "Namespace is always system for dns_zone.",
           "document_id": "xcsh-docs:actions:dns_zone_add_cryptokey:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -131,6 +135,8 @@
           "anchor": "schema-zone_name",
           "description": "Zone Name. Human-readable name for the resource",
           "document_id": "xcsh-docs:actions:dns_zone_add_cryptokey:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -160,7 +166,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:actions:dns_zone_add_cryptokey:example:action"],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -200,7 +206,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -247,7 +253,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"

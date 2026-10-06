@@ -140,7 +140,7 @@
         "xcsh-docs:data-sources:tmm_session_metrics:examples"
       ],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -175,8 +175,8 @@
     },
     {
       "aliases": ["tmm session metrics"],
-      "body_bytes": 8251,
-      "body_sha256": "sha256:76d52373ffdbc60ed1058c944a3a322d79acf19541e09e74ba13d5623f7662cc",
+      "body_bytes": 8281,
+      "body_sha256": "sha256:9ac21dbb1a408cdedeef0a468792e6a3a5e5ce2c7899160086d1d573b78ba344",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -184,7 +184,7 @@
         "xcsh-docs:data-sources:tmm_session_metrics:properties:label_filter"
       ],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -210,6 +210,8 @@
           "anchor": "section",
           "description": "Data contains time-series TMM Session data.",
           "document_id": "xcsh-docs:data-sources:tmm_session_metrics:properties:data",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -224,6 +226,8 @@
           "anchor": "schema-end_time",
           "description": "End time of metric collection from which data will be considered to build dashboard. Format: unix_timestamp|RFC 3339 Optional: If not specified, then the end_time will be evaluated to start_time+10m If start_time is not specified, then the end_time will be evaluated to <current time>.",
           "document_id": "xcsh-docs:data-sources:tmm_session_metrics:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -238,6 +242,8 @@
           "anchor": "schema-field_selector",
           "description": "Select fields to be returned in the response. Field_selector is used to specify the fields to be returned in the response, thereby limiting the amount of data returned in the response. Possible values are `METRIC_TYPE_NONE`, `METRIC_TYPE_ACTIVE`, `METRIC_TYPE_ALLOWED`, `METRIC_TYPE_DENIED`, `METRIC_TYPE_TOTAL`,",
           "document_id": "xcsh-docs:data-sources:tmm_session_metrics:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -252,6 +258,8 @@
           "anchor": "schema-group_by",
           "description": "Aggregate data by any or all of namespace, site and virtual_server. Optional: If not specified, then the data is aggregated/grouped by namespace and service. Possible values are `METRIC_LABEL_NONE`, `METRIC_LABEL_NAMESPACE`, `METRIC_LABEL_VIRTUAL_SERVER`. Defaults to `METRIC_LABEL_NONE`.",
           "document_id": "xcsh-docs:data-sources:tmm_session_metrics:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -266,6 +274,8 @@
           "anchor": "schema-is_trend_request",
           "description": "Trend value computation requested by the user Optional:. Defaults to `false`.",
           "document_id": "xcsh-docs:data-sources:tmm_session_metrics:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -280,6 +290,8 @@
           "anchor": "section",
           "description": "List of label filter expressions of the form 'label key' QueryOp 'value'. Response will only contain data that matches all the conditions specified in the label_filter.",
           "document_id": "xcsh-docs:data-sources:tmm_session_metrics:properties:label_filter",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -294,6 +306,8 @@
           "anchor": "schema-namespace",
           "description": "Namespace namespace is used to scope session metrics. Only virtual server in given namespace will be considered.",
           "document_id": "xcsh-docs:data-sources:tmm_session_metrics:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["required"],
           "max_items": null,
           "min_items": null,
@@ -308,6 +322,8 @@
           "anchor": "schema-start_time",
           "description": "Start time of metric collection from which data will be considered to build metrics dashboard. Format: unix_timestamp|RFC 3339 Optional: If not specified, then the start_time will be evaluated to end_time-10m If end_time is not specified, then the start_time will be evaluated to <current time>-10m.",
           "document_id": "xcsh-docs:data-sources:tmm_session_metrics:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -322,6 +338,8 @@
           "anchor": "schema-step",
           "description": "Step is the resolution width, which determines the number of the data points to be returned in the response. The timestamps in the response will be t1=start_time, t2=t1+step, .. Tn=tn-1+step, where tn <= end_time.",
           "document_id": "xcsh-docs:data-sources:tmm_session_metrics:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -345,13 +363,13 @@
     },
     {
       "aliases": ["data"],
-      "body_bytes": 4081,
-      "body_sha256": "sha256:8f3eecd63d89c22efad963f106fb330e5e4dc008ace629d93d6c20f09eb67e5e",
+      "body_bytes": 5286,
+      "body_sha256": "sha256:32cd7df8e59f414cb3540458e8f4a797b31ac6bad5e3711b22d28912ab0066d6",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:tmm_session_metrics:properties:data:metric"],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -377,6 +395,8 @@
           "anchor": "section",
           "description": "Metric. List of metrics.",
           "document_id": "xcsh-docs:data-sources:tmm_session_metrics:properties:data:metric",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -391,6 +411,27 @@
           "anchor": "schema-data--type",
           "description": "X-displayName: TMM Session Metric Type' FieldSelector specifies the metrics that can be queried for virtual servers. Indicates field not being set x-unit: 'count' Total number of active sessions x-unit: 'count' Total number of allowed sessions x-unit: 'count' Total number of denied Session.. Possible values are",
           "document_id": "xcsh-docs:data-sources:tmm_session_metrics:properties:data",
+          "enum_extraction_complete": true,
+          "enum_validators": [
+            {
+              "case_sensitive": true,
+              "complete": true,
+              "source": "ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf",
+              "validator": "OneOf",
+              "values": [
+                "METRIC_TYPE_ACTIVE",
+                "METRIC_TYPE_ADMIN_TERMINATED",
+                "METRIC_TYPE_ALLOWED",
+                "METRIC_TYPE_DENIED",
+                "METRIC_TYPE_ESTABLISHED_TIMEOUT",
+                "METRIC_TYPE_EVALUATION_TIMEOUT",
+                "METRIC_TYPE_LOGOUT",
+                "METRIC_TYPE_NONE",
+                "METRIC_TYPE_TOTAL"
+              ],
+              "version": 1
+            }
+          ],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -405,6 +446,45 @@
           "anchor": "schema-data--unit",
           "description": "UnitType is enumeration of units for scalar fields. Possible values are `UNIT_MILLISECONDS`, `UNIT_SECONDS`, `UNIT_MINUTES`, `UNIT_HOURS`, `UNIT_DAYS`, `UNIT_BYTES`, `UNIT_KBYTES`, `UNIT_MBYTES`, `UNIT_GBYTES`, `UNIT_TBYTES`, `UNIT_KIBIBYTES`, `UNIT_MIBIBYTES`, `UNIT_GIBIBYTES`, `UNIT_TEBIBYTES`,",
           "document_id": "xcsh-docs:data-sources:tmm_session_metrics:properties:data",
+          "enum_extraction_complete": true,
+          "enum_validators": [
+            {
+              "case_sensitive": true,
+              "complete": true,
+              "source": "ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf",
+              "validator": "OneOf",
+              "values": [
+                "UNIT_BITS_PER_SECOND",
+                "UNIT_BYTES",
+                "UNIT_BYTES_PER_SECOND",
+                "UNIT_CONNECTIONS_PER_SECOND",
+                "UNIT_COUNT",
+                "UNIT_DAYS",
+                "UNIT_ERRORS_PER_SECOND",
+                "UNIT_GBYTES",
+                "UNIT_GIBIBYTES",
+                "UNIT_HOURS",
+                "UNIT_KBITS_PER_SECOND",
+                "UNIT_KBYTES",
+                "UNIT_KBYTES_PER_SECOND",
+                "UNIT_KIBIBYTES",
+                "UNIT_MBITS_PER_SECOND",
+                "UNIT_MBYTES",
+                "UNIT_MBYTES_PER_SECOND",
+                "UNIT_MIBIBYTES",
+                "UNIT_MILLISECONDS",
+                "UNIT_MINUTES",
+                "UNIT_PACKETS",
+                "UNIT_PACKETS_PER_SECOND",
+                "UNIT_PERCENTAGE",
+                "UNIT_REQUESTS_PER_SECOND",
+                "UNIT_SECONDS",
+                "UNIT_TBYTES",
+                "UNIT_TEBIBYTES"
+              ],
+              "version": 1
+            }
+          ],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -437,7 +517,7 @@
         "xcsh-docs:data-sources:tmm_session_metrics:properties:data:metric:value"
       ],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -463,6 +543,8 @@
           "anchor": "section",
           "description": "Key contains the name/value pair. 'name' is the label name defined in 'MetricLabel'.",
           "document_id": "xcsh-docs:data-sources:tmm_session_metrics:properties:data:metric:key",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -477,6 +559,8 @@
           "anchor": "section",
           "description": "Value. List of metric values.",
           "document_id": "xcsh-docs:data-sources:tmm_session_metrics:properties:data:metric:value",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -506,7 +590,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -546,7 +630,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:tmm_session_metrics:properties:data:metric:value:trend_value"],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -572,6 +656,8 @@
           "anchor": "schema-data--metric--value--timestamp",
           "description": "Timestamp. Timestamp",
           "document_id": "xcsh-docs:data-sources:tmm_session_metrics:properties:data:metric:value",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -586,6 +672,8 @@
           "anchor": "section",
           "description": "Trend value contains trend value, trend sentiment and trend calculation description and window size.",
           "document_id": "xcsh-docs:data-sources:tmm_session_metrics:properties:data:metric:value:trend_value",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -600,6 +688,8 @@
           "anchor": "schema-data--metric--value--value",
           "description": "Value. Configuration parameter for value",
           "document_id": "xcsh-docs:data-sources:tmm_session_metrics:properties:data:metric:value",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -623,13 +713,13 @@
     },
     {
       "aliases": ["data metric value trend value"],
-      "body_bytes": 2160,
-      "body_sha256": "sha256:334572a00222f23d498cc4b45f45176daffc35d681baed495c8b9638acafe879",
+      "body_bytes": 2473,
+      "body_sha256": "sha256:2e37722435de03e79045466f6a037d1d8e6df5c0ae33ffa5b28b63a55ac5c5b6",
       "capabilities": [],
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -655,6 +745,8 @@
           "anchor": "schema-data--metric--value--trend_value--description_spec",
           "description": "Description of the method used to calculate trend.",
           "document_id": "xcsh-docs:data-sources:tmm_session_metrics:properties:data:metric:value:trend_value",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -669,6 +761,8 @@
           "anchor": "schema-data--metric--value--trend_value--previous_value",
           "description": "Configuration parameter for previous value.",
           "document_id": "xcsh-docs:data-sources:tmm_session_metrics:properties:data:metric:value:trend_value",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -683,6 +777,17 @@
           "anchor": "schema-data--metric--value--trend_value--sentiment",
           "description": "Trend sentiment Indicates trend sentiment is positive Indicates trend sentiment is negative. Possible values are `TREND_SENTIMENT_NONE`, `TREND_SENTIMENT_POSITIVE`, `TREND_SENTIMENT_NEGATIVE`. Defaults to `TREND_SENTIMENT_NONE`.",
           "document_id": "xcsh-docs:data-sources:tmm_session_metrics:properties:data:metric:value:trend_value",
+          "enum_extraction_complete": true,
+          "enum_validators": [
+            {
+              "case_sensitive": true,
+              "complete": true,
+              "source": "ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf",
+              "validator": "OneOf",
+              "values": ["TREND_SENTIMENT_NEGATIVE", "TREND_SENTIMENT_NONE", "TREND_SENTIMENT_POSITIVE"],
+              "version": 1
+            }
+          ],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -697,6 +802,8 @@
           "anchor": "schema-data--metric--value--trend_value--value",
           "description": "Value. Configuration parameter for value",
           "document_id": "xcsh-docs:data-sources:tmm_session_metrics:properties:data:metric:value:trend_value",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -720,13 +827,13 @@
     },
     {
       "aliases": ["label filter"],
-      "body_bytes": 2206,
-      "body_sha256": "sha256:085303d30049c26f5e231a55b6cae6dc45ecaa346aa9080fd7076fc4ff780f79",
+      "body_bytes": 2823,
+      "body_sha256": "sha256:72cb26216607ffafc1cd5cde70992be8aa510d30501ee60a3872b53db0b4350f",
       "capabilities": [],
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -752,6 +859,17 @@
           "anchor": "schema-label_filter--label",
           "description": "Metrics used to construct the session metrics are tagged with these labels and therefore the metrics can be sliced and diced based on one or more of these labels. Indicates the field not being set Identifies the workspace where the service is deployed Identifies the virtual server. Possible values are",
           "document_id": "xcsh-docs:data-sources:tmm_session_metrics:properties:label_filter",
+          "enum_extraction_complete": true,
+          "enum_validators": [
+            {
+              "case_sensitive": true,
+              "complete": true,
+              "source": "ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf",
+              "validator": "OneOf",
+              "values": ["METRIC_LABEL_NAMESPACE", "METRIC_LABEL_NONE", "METRIC_LABEL_VIRTUAL_SERVER"],
+              "version": 1
+            }
+          ],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -766,6 +884,17 @@
           "anchor": "schema-label_filter--op",
           "description": "The operator to use when filtering metrics based on label values. Possible values are `EQ`, `NEQ`. Defaults to `EQ`.",
           "document_id": "xcsh-docs:data-sources:tmm_session_metrics:properties:label_filter",
+          "enum_extraction_complete": true,
+          "enum_validators": [
+            {
+              "case_sensitive": true,
+              "complete": true,
+              "source": "ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf",
+              "validator": "OneOf",
+              "values": ["EQ", "NEQ"],
+              "version": 1
+            }
+          ],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -780,6 +909,8 @@
           "anchor": "schema-label_filter--value",
           "description": "Value. Value of the label.",
           "document_id": "xcsh-docs:data-sources:tmm_session_metrics:properties:label_filter",
+          "enum_extraction_complete": true,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -809,7 +940,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:tmm_session_metrics:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -849,7 +980,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"

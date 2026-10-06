@@ -27,6 +27,9 @@ from registry_projection import project as grouped_project
 from retrieval_metadata import (
     RetrievalRules,
     constraint_relationships,
+    enum_coverage_inventory,
+    enum_extraction_complete,
+    literal_enum_evidence,
     summary as retrieval_summary,
 )
 
@@ -299,6 +302,76 @@ class Specs:
             value = value.get("properties", {}).get(segment, {})
         return self.resolve(value, schemas)
 
+    @staticmethod
+    def resolve_reference_identity(value, schemas, seen=()):
+        """Resolve unambiguous local schemas without merging unrelated ownership."""
+        result = {}
+        if isinstance(value, dict) and not any(k in value for k in ("oneOf", "anyOf")):
+            if "$ref" in value:
+                ref = value["$ref"]
+                prefix = "#/components/schemas/"
+                key = (
+                    ref.removeprefix(prefix)
+                    if isinstance(ref, str) and ref.startswith(prefix)
+                    else ""
+                )
+                valid = key and "/" not in key and key not in seen and key in schemas
+                overridden = any(
+                    k in value
+                    for k in ("properties", "type", "allOf", "x-ves-proto-message")
+                )
+                if valid and not overridden:
+                    result = Specs.resolve_reference_identity(
+                        schemas[key], schemas, (*seen, key)
+                    )
+            elif "allOf" in value:
+                members = value["allOf"]
+                overridden = any(
+                    k in value for k in ("properties", "type", "x-ves-proto-message")
+                )
+                if isinstance(members, list) and len(members) == 1 and not overridden:
+                    result = Specs.resolve_reference_identity(members[0], schemas, seen)
+            else:
+                result = value
+        return result
+
+    def reference_member(self, roots, schemas, path):
+        """Bind only known upstream reference identities to their direct fields."""
+        if not path[:-1] or path[-1] not in {
+            "name",
+            "namespace",
+            "tenant",
+            "kind",
+            "uid",
+        }:
+            return None
+        parent = {"properties": roots}
+        for segment in path[:-1]:
+            parent = self.resolve_reference_identity(parent, schemas)
+            if parent.get("type") == "array":
+                parent = self.resolve_reference_identity(
+                    parent.get("items", {}), schemas
+                )
+            parent = parent.get("properties", {}).get(segment, {})
+        parent = self.resolve_reference_identity(parent, schemas)
+        if parent.get("type") == "array":
+            parent = self.resolve_reference_identity(parent.get("items", {}), schemas)
+        identity = parent.get("x-ves-proto-message")
+        if identity not in {
+            "ves.io.schema.ObjectRefType",
+            "ves.io.schema.views.ObjectRefType",
+        }:
+            return None
+        if path[-1] not in parent.get("properties", {}):
+            return None
+        return {
+            "version": 1,
+            "scope_path": list(path[:-1]),
+            "member": path[-1],
+            "upstream_message": identity,
+            "source": "receipt-pinned-schema-identity",
+        }
+
 
 class Collection:
     def __init__(self, kind, name, schema, specs, constraints, root, schema_digest):
@@ -401,8 +474,12 @@ class Collection:
                 prose = retrieval_summary(
                     reviewed or upstream or description, name.replace("_", " ")
                 )
+                reference = getattr(
+                    self.specs, "reference_member", lambda *_args: None
+                )(self.spec_roots, self.spec_schemas, exact)
                 page["sections"].append(
                     {
+                        **({"reference_identity": reference} if reference else {}),
                         "schema_path": exact,
                         "document_id": target["document_id"],
                         "anchor": target["anchor"],
@@ -436,6 +513,12 @@ class Collection:
                         "min_items": field.get("min_items"),
                         "max_items": field.get("max_items"),
                         "syntax": syntax,
+                        "enum_extraction_complete": enum_extraction_complete(
+                            self.constraints.get(".".join(exact), {})
+                        ),
+                        "enum_validators": literal_enum_evidence(
+                            self.constraints.get(".".join(exact), {})
+                        ),
                         "type": field.get("type", "object")[0]
                         if isinstance(field.get("type"), list)
                         else field.get("type", "object"),
@@ -1101,6 +1184,7 @@ def generate(root, schema_path, constraints_path):
     specs = Specs(root)
     surface = read_json(root / "provider-release-surface.json")
     collections, pages, outputs, categories = [], [], {}, {}
+    covered_sources: dict[str, set[str]] = {}
     for kind, (schema_key, surface_key, _, source_suffix) in TYPES.items():
         schemas = provider.get(schema_key, {})
         expected = {"xcsh_" + name for name in surface[surface_key]}
@@ -1113,6 +1197,9 @@ def generate(root, schema_path, constraints_path):
                 kind, name, schema, specs, source_fields, root, schema_digest
             )
             collections.append(collection)
+            covered_sources.setdefault(f"{name}_{source_suffix}.go", set()).update(
+                collection.coverage
+            )
             categories[stable_id(kind, name, "collection")] = collection.category
             for page in collection.pages.values():
                 page["source_url"] = (
@@ -1129,6 +1216,11 @@ def generate(root, schema_path, constraints_path):
                 )
                 outputs[page["path"]] = frontmatter(page, body, collection.category)
                 pages.append(page)
+    enum_inventory = enum_coverage_inventory(constraints, covered_sources)
+    enum_inventory["schema_digest"] = schema_digest
+    outputs["documentation/retrieval-enum-coverage.json"] = (
+        json.dumps(enum_inventory, indent=2, sort_keys=True) + "\n"
+    )
     missing_overrides = set(DISPLAY_OVERRIDES) - USED_DISPLAY_OVERRIDES
     if missing_overrides:
         raise ValueError(

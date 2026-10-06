@@ -253,6 +253,7 @@ follow DNS-1035 format.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   validators.NameValidator(),
 }
@@ -320,6 +321,7 @@ DNS\_LABEL format. For a namespace object itself, namespace value will be ""
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   validators.NamespaceValidator(),
 }
@@ -421,6 +423,7 @@ List of fields and their values selected by the user.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.RequiredListObjectAttributes("field_id"),
   validators.ConflictingListObjectAttributes("date_field",
     "filter_expression_field"),
@@ -547,6 +550,7 @@ Either an absolute time range or a relative time interval.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("absolute",
     "relative")}
 ```
@@ -637,6 +641,7 @@ Date range is for selecting a date range.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("end_date",
     "start_date")}
 ```
@@ -768,6 +773,7 @@ Filter Expression Field.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("expression")}
 ```
 
@@ -858,6 +864,7 @@ Filter String Field.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("field_values")}
 ```
 

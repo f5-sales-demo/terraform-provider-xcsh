@@ -222,6 +222,7 @@ follow DNS-1035 format.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   validators.NameValidator(),
 }
@@ -289,6 +290,7 @@ DNS\_LABEL format. For a namespace object itself, namespace value will be ""
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   validators.NamespaceValidator(),
 }
@@ -528,7 +530,7 @@ Each exact path has one authoritative reference destination. Collection element 
 | `proxy_config.https.tls_cert_params.certificates` | [proxy_config.https.tls_cert_params.certificates](resources--bigip_http_proxy--reference--group-003.md#canonical-2331102121213232-3113200110102120-2130311031232123-0023131022032013-3310110201230102-3121330232000222-1112023203131030-2233312113200011) |
 | `proxy_config.https.tls_cert_params.certificates.name` | [proxy_config.https.tls_cert_params.certificates.name](resources--bigip_http_proxy--reference--group-003.md#canonical-3020130213211231-0110022032110102-0103110201032332-3130011011102112-0000032222200003-0123132112301022-0321313310003111-2101002230132021) |
 | `proxy_config.https.tls_cert_params.certificates.namespace` | [proxy_config.https.tls_cert_params.certificates.namespace](resources--bigip_http_proxy--reference--group-003.md#canonical-2221332102220321-1233103023203000-1132122302301322-0032233310020101-1333331321231302-1120223010000332-3232003120111120-1213133331301100) |
-| `proxy_config.https.tls_cert_params.certificates.tenant` | [proxy_config.https.tls_cert_params.certificates.tenant](resources--bigip_http_proxy--reference--group-003.md#canonical-1310220210131220-0001132111131111-0320020301231232-3001111231312233-1003032012100032-2020230333123220-1220301033122022-2131101123313200) |
+| `proxy_config.https.tls_cert_params.certificates.tenant` | [proxy_config.https.tls_cert_params.certificates.tenant](resources--bigip_http_proxy--reference--group-004.md#canonical-1310220210131220-0001132111131111-0320020301231232-3001111231312233-1003032012100032-2020230333123220-1220301033122022-2131101123313200) |
 | `proxy_config.https.tls_cert_params.no_mtls` | [proxy_config.https.tls_cert_params.no_mtls](resources--bigip_http_proxy--reference--group-004.md#canonical-3321313102220133-2311213030011233-0012110132133220-3203323230330000-1013313202132332-1232000110102031-0001132120123232-0210022212030103) |
 | `proxy_config.https.tls_cert_params.tls_config` | [proxy_config.https.tls_cert_params.tls_config](resources--bigip_http_proxy--reference--group-004.md#canonical-2133230230132223-0013202033222321-1032221331203013-1213030201201130-1012122111333111-0122020311333212-0030313001002123-3011211110212103) |
 | `proxy_config.https.tls_cert_params.tls_config.custom_security` | [proxy_config.https.tls_cert_params.tls_config.custom_security](resources--bigip_http_proxy--reference--group-004.md#canonical-0031303213213230-2003331031200220-2032201120012222-1300113230130211-3321122000021131-1133222112012330-2331302010011132-3122231122103321) |
@@ -671,6 +673,7 @@ This defines various advanced Profile OPTIONS for a Loadbalancer.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("disable_spec",
     "enable_default_profile")}
 ```
@@ -807,6 +810,7 @@ BIG-IP DDoS Protection Rules.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("disable_ddos_mitigation",
     "enable_ddos_mitigation")}
 ```
@@ -1004,6 +1008,7 @@ OPTIONS for attaching iRules to BIG-IP HTTP Proxy.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.RequiredListObjectAttributes("name")}
 ```
 
@@ -1065,6 +1070,7 @@ referred object's(e.g. Route's) name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 128),
 }
@@ -1125,6 +1131,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -1192,6 +1199,7 @@ the referred object's(e.g. Route's) tenant.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(64),
 }
@@ -1404,6 +1412,7 @@ Origin Pools. List of Origin Pools.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.RequiredListObjectAttributes("name")}
 ```
 
@@ -1465,6 +1474,7 @@ Name. Name of the origin pool.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
   stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`),
@@ -1533,6 +1543,7 @@ pools are made active as per the increasing priority.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(0, 32),
 }
@@ -1630,6 +1641,7 @@ List of origin Servers for the BIG-IP HTTP Proxy.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("origin_servers"),
   validators.ConflictingObjectAttributes("automatic_port",
     "lb_port"),
@@ -1686,6 +1698,7 @@ Exclusive with \[automatic\_port lb\_port\] Endpoint service is available on thi
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(1, 65535),
 }
@@ -1803,6 +1816,7 @@ Origin Server Health Checks.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("health_check",
     "healthy_threshold",
     "interval",
@@ -1852,6 +1866,7 @@ single successful health check is required to mark a host healthy.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(1, 16),
 }
@@ -1905,6 +1920,7 @@ Time interval in seconds between two health check requests.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(1, 600),
 }
@@ -1961,6 +1977,7 @@ failure.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(1, 600),
 }
@@ -2018,6 +2035,7 @@ immediately.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(1, 16),
 }
@@ -2085,6 +2103,7 @@ List of Health Checks. List of Health Checks.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.ConflictingListObjectAttributes("icmp_health_check",
     "tcp_health_check")}
 ```
@@ -2223,6 +2242,7 @@ response pattern.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("expected_response",
     "send_payload")}
 ```
@@ -2263,6 +2283,7 @@ Specifies a regular expression pattern which will be matched against response pa
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(2048),
 }
@@ -2314,6 +2335,7 @@ Send string. Text string sent in the request.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(2048),
 }
@@ -2426,6 +2448,7 @@ List of Origin Servers. List of origin servers for Proxy.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.ConflictingListObjectAttributes("k8s_service",
     "private_ip"),
   validators.ConflictingListObjectAttributes("k8s_service",
@@ -2527,6 +2550,7 @@ Specify origin server with K8s service name and site information.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("inside_network",
     "outside_network"),
   validators.ConflictingObjectAttributes("inside_network",
@@ -2580,6 +2604,8 @@ Possible values are \`PROTOCOL\_TCP\`, \`PROTOCOL\_UDP\`. Defaults to \`PROTOCOL
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["PROTOCOL_TCP","PROTOCOL_UDP"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("PROTOCOL_TCP",
     "PROTOCOL_UDP"),
@@ -2786,6 +2812,7 @@ This message defines a reference to a site or virtual site object.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("site",
     "virtual_site")}
 ```
@@ -2850,6 +2877,7 @@ Such a reference is in form of tenant/namespace/name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
 ```
 
@@ -2890,6 +2918,7 @@ referred object's(e.g. Route's) name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 128),
 }
@@ -2950,6 +2979,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -3017,6 +3047,7 @@ the referred object's(e.g. Route's) tenant.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(64),
 }
@@ -3086,6 +3117,7 @@ Such a reference is in form of tenant/namespace/name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
 ```
 
@@ -3126,6 +3158,7 @@ referred object's(e.g. Route's) name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 128),
 }
@@ -3186,6 +3219,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -3253,6 +3287,7 @@ the referred object's(e.g. Route's) tenant.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(64),
 }
@@ -3320,6 +3355,7 @@ SNAT Pool. SNAT Pool configuration.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("no_snat_pool",
     "snat_pool")}
 ```
