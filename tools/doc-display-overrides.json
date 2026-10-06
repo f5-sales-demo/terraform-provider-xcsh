@@ -1,0 +1,758 @@
+{
+  "actions/access_active_session_terminate/@root": {
+    "original": "Resource deletion operation.",
+    "replacement": "Terminates one active access session in F5 Distributed Cloud."
+  },
+  "actions/access_active_sessions_terminate/@root": {
+    "original": "Resource creation operation.",
+    "replacement": "Terminates active access sessions in F5 Distributed Cloud."
+  },
+  "actions/device_intelligence_subscribe/@root": {
+    "original": "Resource creation operation.",
+    "replacement": "Subscribes to Device Intelligence updates."
+  },
+  "actions/device_intelligence_unsubscribe/@root": {
+    "original": "Resource creation operation.",
+    "replacement": "Unsubscribes from Device Intelligence updates."
+  },
+  "actions/dns_zone_add_cryptokey/@root": {
+    "original": "Resource creation operation.",
+    "replacement": "Adds a cryptographic key to a DNS zone."
+  },
+  "actions/dns_zone_delete_cryptokey/@root": {
+    "original": "Resource creation operation.",
+    "replacement": "Deletes a cryptographic key from a DNS zone."
+  },
+  "actions/dns_zone_edit_cryptokey/@root": {
+    "original": "Resource creation operation.",
+    "replacement": "Edits a cryptographic key in a DNS zone."
+  },
+  "actions/infraprotect_synchronize_configuration/@root": {
+    "original": "Resource creation operation.",
+    "replacement": "Synchronizes infrastructure protection configuration."
+  },
+  "actions/site_signatures_update/@root": {
+    "original": "Resource creation operation.",
+    "replacement": "Requests an update of site signatures."
+  },
+  "data-sources/access_active_session/@root": {
+    "original": "Resource retrieval operation.",
+    "replacement": "Reads active access session information from F5 Distributed Cloud."
+  },
+  "data-sources/access_active_sessions/@root": {
+    "original": "Resource retrieval operation.",
+    "replacement": "Reads active access sessions information from F5 Distributed Cloud."
+  },
+  "data-sources/address_allocator/@root": {
+    "original": "Manages Address Allocator will create an address allocator object in 'system' namespace of the user in F5 Distributed Cloud.",
+    "replacement": "Reads Address Allocator information from F5 Distributed Cloud."
+  },
+  "data-sources/advertise_policy/@root": {
+    "original": "Manages a Advertise Policy resource in F5 Distributed Cloud for advertise_policy object controls how and where a service represented by a given virtual_host object is advertised to consumers. configuration.",
+    "replacement": "Reads an Advertise Policy that controls where a service represented by a virtual host is advertised to consumers."
+  },
+  "data-sources/alert_gen_policy/@root": {
+    "original": "Manages Alert Generation Policy in F5 Distributed Cloud.",
+    "replacement": "Reads Alert Gen Policy information from F5 Distributed Cloud."
+  },
+  "data-sources/alert_policy/@root": {
+    "original": "Manages new Alert Policy Object in F5 Distributed Cloud.",
+    "replacement": "Reads Alert Policy information from F5 Distributed Cloud."
+  },
+  "data-sources/alert_receiver/@root": {
+    "original": "Manages new Alert Receiver object in F5 Distributed Cloud.",
+    "replacement": "Reads Alert Receiver information from F5 Distributed Cloud."
+  },
+  "data-sources/alert_template/@root": {
+    "original": "Manages Domain to protect in F5 Distributed Cloud.",
+    "replacement": "Reads Alert Template information from F5 Distributed Cloud."
+  },
+  "data-sources/allowed_domain/@root": {
+    "original": "Manages allowed domain in F5 Distributed Cloud.",
+    "replacement": "Reads Allowed Domain information from F5 Distributed Cloud."
+  },
+  "data-sources/api_crawler/@root": {
+    "original": "Manages a API Crawler resource in F5 Distributed Cloud.",
+    "replacement": "Reads API Crawler information from F5 Distributed Cloud."
+  },
+  "data-sources/api_definition/@root": {
+    "original": "Manages API Definition in F5 Distributed Cloud.",
+    "replacement": "Reads API Definition information from F5 Distributed Cloud."
+  },
+  "data-sources/api_discovery/@root": {
+    "original": "Manages API discovery creates a new object in the storage backend for metadata.namespace in F5 Distributed Cloud.",
+    "replacement": "Reads API Discovery information from F5 Distributed Cloud."
+  },
+  "data-sources/api_testing/@root": {
+    "original": "Manages a API Testing resource in F5 Distributed Cloud.",
+    "replacement": "Reads API Testing information from F5 Distributed Cloud."
+  },
+  "data-sources/app_api_group/@root": {
+    "original": "Manages app_api_group creates a new object in the storage backend for metadata.namespace in F5 Distributed Cloud.",
+    "replacement": "Reads App API Group information from F5 Distributed Cloud."
+  },
+  "data-sources/app_firewall/@root": {
+    "original": "Manages Application Firewall in F5 Distributed Cloud.",
+    "replacement": "Reads App Firewall information from F5 Distributed Cloud."
+  },
+  "data-sources/app_security_evidence/@root": {
+    "original": "Resource creation operation.",
+    "replacement": "Reads App Security Evidence information from F5 Distributed Cloud."
+  },
+  "data-sources/app_setting/@root": {
+    "original": "Manages App setting configuration in namespace metadata.namespace in F5 Distributed Cloud.",
+    "replacement": "Reads App Setting information from F5 Distributed Cloud."
+  },
+  "data-sources/app_type/@root": {
+    "original": "Manages App type will create the configuration in namespace metadata.namespace in F5 Distributed Cloud.",
+    "replacement": "Reads App Type information from F5 Distributed Cloud."
+  },
+  "data-sources/application_profiles/@root": {
+    "original": "Manages Application Profiles in a given namespace. If one already exists it will give an error in F5 Distributed Cloud.",
+    "replacement": "Reads Application Profiles information from F5 Distributed Cloud."
+  },
+  "data-sources/authentication/@root": {
+    "original": "Manages a Authentication resource in F5 Distributed Cloud.",
+    "replacement": "Reads Authentication information from F5 Distributed Cloud."
+  },
+  "data-sources/authorization_server/@root": {
+    "original": "Manages authorization_server creates a new object in the storage backend for metadata.namespace in F5 Distributed Cloud.",
+    "replacement": "Reads Authorization Server information from F5 Distributed Cloud."
+  },
+  "data-sources/aws_tgw_site/@root": {
+    "original": "Manages a AWS TGW Site resource in F5 Distributed Cloud for deploying F5 sites connected via AWS Transit Gateway.",
+    "replacement": "Reads AWS TGW Site information from F5 Distributed Cloud."
+  },
+  "data-sources/bgp/@root": {
+    "original": "Manages a BGP resource in F5 Distributed Cloud for bgp object is the configuration for peering with external bgp servers. it is created by users in system namespace. configuration.",
+    "replacement": "Reads BGP peering configuration with external BGP servers in the system namespace."
+  },
+  "data-sources/bgp_asn_set/@root": {
+    "original": "Manages bgp_asn_set creates a new object in the storage backend for metadata.namespace in F5 Distributed Cloud.",
+    "replacement": "Reads BGP Asn Set information from F5 Distributed Cloud."
+  },
+  "data-sources/bgp_routing_policy/@root": {
+    "original": "Manages a BGP Routing Policy resource in F5 Distributed Cloud for bgp routing policy is a list of rules containing match criteria and action to be applied. these rules help control routes which are imported or exported to bgp peers. configuration.",
+    "replacement": "Reads BGP routing rules with match criteria and actions that control imported or exported routes."
+  },
+  "data-sources/bigip_http_proxy/@root": {
+    "original": "Manages BIG-IP HTTP Proxy in a given namespace. If one already exists, it will give an error in F5 Distributed Cloud.",
+    "replacement": "Reads BIG-IP HTTP Proxy information from F5 Distributed Cloud."
+  },
+  "data-sources/bigip_virtual_server/@root": {
+    "original": "Manages a BIG-IP Virtual Server resource in F5 Distributed Cloud for big-ip virtual server specification. configuration. (read-only data source)",
+    "replacement": "Reads BIG-IP Virtual Server information from F5 Distributed Cloud."
+  },
+  "data-sources/bot_allowlist_policy/@root": {
+    "original": "Manages a Bot Allowlist Policy resource in F5 Distributed Cloud for get bot allowlist policy. configuration. (read-only data source)",
+    "replacement": "Reads Bot Allowlist Policy information from F5 Distributed Cloud."
+  },
+  "data-sources/bot_defense_app_infrastructure/@root": {
+    "original": "Manages Bot Defense App Infrastructure in a given namespace in F5 Distributed Cloud.",
+    "replacement": "Reads Bot Defense App Infrastructure information from F5 Distributed Cloud."
+  },
+  "data-sources/bot_detection_rule/@root": {
+    "original": "Manages a Bot Detection Rule resource in F5 Distributed Cloud for get bot detection rule. configuration. (read-only data source)",
+    "replacement": "Reads Bot Detection Rule information from F5 Distributed Cloud."
+  },
+  "data-sources/bot_endpoint_policy/@root": {
+    "original": "Manages a Bot Endpoint Policy resource in F5 Distributed Cloud for get bot endpoint policy. configuration. (read-only data source)",
+    "replacement": "Reads Bot Endpoint Policy information from F5 Distributed Cloud."
+  },
+  "data-sources/bot_infrastructure/@root": {
+    "original": "Manages Bot Infrastructure in F5 Distributed Cloud.",
+    "replacement": "Reads Bot Infrastructure information from F5 Distributed Cloud."
+  },
+  "data-sources/bot_network_policy/@root": {
+    "original": "Manages a Bot Network Policy resource in F5 Distributed Cloud for get bot network policy. configuration. (read-only data source)",
+    "replacement": "Reads Bot Network Policy information from F5 Distributed Cloud."
+  },
+  "data-sources/bot_peer_status/@root": {
+    "original": "Resource creation operation.",
+    "replacement": "Reads Bot Peer Status information from F5 Distributed Cloud."
+  },
+  "data-sources/bot_peer_threat_types/@root": {
+    "original": "Resource creation operation.",
+    "replacement": "Reads Bot Peer Threat Types information from F5 Distributed Cloud."
+  },
+  "data-sources/bot_peer_top_reason_codes/@root": {
+    "original": "Resource creation operation.",
+    "replacement": "Reads Bot Peer Top Reason Codes information from F5 Distributed Cloud."
+  },
+  "data-sources/bot_peer_traffic_overview/@root": {
+    "original": "Resource creation operation.",
+    "replacement": "Reads Bot Peer Traffic Overview information from F5 Distributed Cloud."
+  },
+  "data-sources/bot_suggest_values/@root": {
+    "original": "Resource creation operation.",
+    "replacement": "Reads Bot Suggest Values information from F5 Distributed Cloud."
+  },
+  "data-sources/cdn_cache_rule/@root": {
+    "original": "Manages a CDN Cache Rule resource in F5 Distributed Cloud for cdn loadbalancer specification. configuration.",
+    "replacement": "Reads CDN Cache Rule information from F5 Distributed Cloud."
+  },
+  "data-sources/cdn_loadbalancer/@root": {
+    "original": "Manages a CDN Load Balancer resource in F5 Distributed Cloud for content delivery and edge caching with load balancing.",
+    "replacement": "Reads CDN Loadbalancer information from F5 Distributed Cloud."
+  },
+  "data-sources/cdn_purge_command/@root": {
+    "original": "Manages a CDN Purge Command resource in F5 Distributed Cloud for cdn purge command specification. configuration.",
+    "replacement": "Reads CDN Purge Command information from F5 Distributed Cloud."
+  },
+  "data-sources/certificate/@root": {
+    "original": "Manages a Certificate resource in F5 Distributed Cloud for certificate. configuration.",
+    "replacement": "Reads Certificate information from F5 Distributed Cloud."
+  },
+  "data-sources/certificate_chain/@root": {
+    "original": "Manages a Certificate Chain resource in F5 Distributed Cloud for certificate chain configuration for TLS.",
+    "replacement": "Reads Certificate Chain information from F5 Distributed Cloud."
+  },
+  "data-sources/certified_hardware/@root": {
+    "original": "Manages a Certified Hardware resource in F5 Distributed Cloud for get certified hardware object. configuration. (read-only data source)",
+    "replacement": "Reads Certified Hardware information from F5 Distributed Cloud."
+  },
+  "data-sources/cloud_credentials/@root": {
+    "original": "Manages a Cloud Credentials resource in F5 Distributed Cloud for api to create cloud_credentials object. configuration.",
+    "replacement": "Reads Cloud Credentials information from F5 Distributed Cloud."
+  },
+  "data-sources/cloud_elastic_ip/@root": {
+    "original": "Manages Cloud Elastic IP creates Cloud Elastic IP object Object is attached to a site in F5 Distributed Cloud.",
+    "replacement": "Reads Cloud Elastic IP information from F5 Distributed Cloud."
+  },
+  "data-sources/cloud_link/@root": {
+    "original": "Manages new CloudLink with configured parameters in F5 Distributed Cloud.",
+    "replacement": "Reads Cloud Link information from F5 Distributed Cloud."
+  },
+  "data-sources/cloud_region/@root": {
+    "original": "Manages a Cloud Region resource in F5 Distributed Cloud for cloud re specification. configuration. (read-only data source)",
+    "replacement": "Reads Cloud Region information from F5 Distributed Cloud."
+  },
+  "data-sources/cloud_user_account/@root": {
+    "original": "Manages a Cloud User Account resource in F5 Distributed Cloud for cloud user account object create specifications. configuration.",
+    "replacement": "Reads Cloud User Account information from F5 Distributed Cloud."
+  },
+  "data-sources/cluster/@root": {
+    "original": "Manages cluster will create the object in the storage backend for namespace metadata.namespace in F5 Distributed Cloud.",
+    "replacement": "Reads Cluster information from F5 Distributed Cloud."
+  },
+  "data-sources/cminstance/@root": {
+    "original": "Manages App type will create the configuration in namespace metadata.namespace in F5 Distributed Cloud.",
+    "replacement": "Reads Cminstance information from F5 Distributed Cloud."
+  },
+  "data-sources/code_base_integration/@root": {
+    "original": "Manages integration details in F5 Distributed Cloud.",
+    "replacement": "Reads Code Base Integration information from F5 Distributed Cloud."
+  },
+  "data-sources/container_registry/@root": {
+    "original": "Manages a Container Registry resource in F5 Distributed Cloud for container image registry configuration.",
+    "replacement": "Reads Container Registry information from F5 Distributed Cloud."
+  },
+  "data-sources/crl/@root": {
+    "original": "Manages a CRL resource in F5 Distributed Cloud for api to create crl object. configuration.",
+    "replacement": "Reads CRL information from F5 Distributed Cloud."
+  },
+  "data-sources/customer_support_comments/@root": {
+    "original": "Resource retrieval operation.",
+    "replacement": "Reads Customer Support Comments information from F5 Distributed Cloud."
+  },
+  "data-sources/data_group/@root": {
+    "original": "Manages data group in a given namespace. If one already exists it will give an error in F5 Distributed Cloud.",
+    "replacement": "Reads Data Group information from F5 Distributed Cloud."
+  },
+  "data-sources/data_type/@root": {
+    "original": "Manages data_type creates a new object in the storage backend for metadata.namespace in F5 Distributed Cloud.",
+    "replacement": "Reads Data Type information from F5 Distributed Cloud."
+  },
+  "data-sources/dc_cluster_group/@root": {
+    "original": "Manages DC Cluster group in given namespace in F5 Distributed Cloud.",
+    "replacement": "Reads Dc Cluster Group information from F5 Distributed Cloud."
+  },
+  "data-sources/device_intelligence_device_history/@root": {
+    "original": "Resource creation operation.",
+    "replacement": "Reads Device Intelligence Device History information from F5 Distributed Cloud."
+  },
+  "data-sources/device_intelligence_device_summary/@root": {
+    "original": "Resource creation operation.",
+    "replacement": "Reads Device Intelligence Device Summary information from F5 Distributed Cloud."
+  },
+  "data-sources/device_intelligence_devices/@root": {
+    "original": "Resource creation operation.",
+    "replacement": "Reads Device Intelligence Devices information from F5 Distributed Cloud."
+  },
+  "data-sources/device_intelligence_high_risk_transactions/@root": {
+    "original": "Resource creation operation.",
+    "replacement": "Reads Device Intelligence High Risk Transactions information from F5 Distributed Cloud."
+  },
+  "data-sources/device_intelligence_multi_account_devices/@root": {
+    "original": "Resource creation operation.",
+    "replacement": "Reads Device Intelligence Multi Account Devices information from F5 Distributed Cloud."
+  },
+  "data-sources/device_intelligence_risk_score_distribution/@root": {
+    "original": "Resource creation operation.",
+    "replacement": "Reads Device Intelligence Risk Score Distribution information from F5 Distributed Cloud."
+  },
+  "data-sources/device_intelligence_summary/@root": {
+    "original": "Resource creation operation.",
+    "replacement": "Reads Device Intelligence Summary information from F5 Distributed Cloud."
+  },
+  "data-sources/discovery/@root": {
+    "original": "Manages a Discovery resource in F5 Distributed Cloud for api to create discovery object for a site or virtual site in system namespace. configuration.",
+    "replacement": "Reads Discovery information from F5 Distributed Cloud."
+  },
+  "data-sources/dns_compliance_checks/@root": {
+    "original": "Manages DNS Compliance Checks Specification in a given namespace. If one already exists it will give an error in F5 Distributed Cloud.",
+    "replacement": "Reads DNS Compliance Checks information from F5 Distributed Cloud."
+  },
+  "data-sources/dns_lb_health_check/@root": {
+    "original": "Manages DNS Load Balancer Health Check in a given namespace. If one already exist it will give a error in F5 Distributed Cloud.",
+    "replacement": "Reads an existing DNS Load Balancer health check in its namespace."
+  },
+  "data-sources/dns_lb_pool/@root": {
+    "original": "Manages DNS Load Balancer Pool in a given namespace. If one already exist it will give a error in F5 Distributed Cloud.",
+    "replacement": "Reads an existing DNS Load Balancer pool in its namespace."
+  },
+  "data-sources/dns_load_balancer/@root": {
+    "original": "Manages DNS Load Balancer in a given namespace. If one already exist it will give a error in F5 Distributed Cloud.",
+    "replacement": "Reads an existing DNS Load Balancer in its namespace."
+  },
+  "data-sources/dns_proxy/@root": {
+    "original": "Manages DNS Proxy in a given namespace. If one already exists it will give an error in F5 Distributed Cloud.",
+    "replacement": "Reads DNS Proxy information from F5 Distributed Cloud."
+  },
+  "data-sources/dns_zone/@root": {
+    "original": "Manages DNS Zone in a given namespace. If one already exist it will give a error in F5 Distributed Cloud.",
+    "replacement": "Reads an existing DNS zone in its namespace."
+  },
+  "data-sources/dns_zone_cryptokeys/@root": {
+    "original": "Resource creation operation.",
+    "replacement": "Reads DNS zone cryptographic keys information from F5 Distributed Cloud."
+  },
+  "data-sources/endpoint/@root": {
+    "original": "Manages endpoint will create the object in the storage backend for namespace metadata.namespace in F5 Distributed Cloud.",
+    "replacement": "Reads Endpoint information from F5 Distributed Cloud."
+  },
+  "data-sources/enhanced_firewall_policy/@root": {
+    "original": "Manages a Enhanced Firewall Policy resource in F5 Distributed Cloud for enhanced firewall policy specification. configuration.",
+    "replacement": "Reads Enhanced Firewall Policy information from F5 Distributed Cloud."
+  },
+  "data-sources/external_connector/@root": {
+    "original": "Manages a External Connector resource in F5 Distributed Cloud for external_connector configuration specification. configuration.",
+    "replacement": "Reads External Connector information from F5 Distributed Cloud."
+  },
+  "data-sources/fast_acl/@root": {
+    "original": "Manages object, object contains rules to protect site from denial of service It has destination{destination IP, destination port) and references to in F5 Distributed Cloud.",
+    "replacement": "Reads ACL rules that protect a site from denial-of-service traffic, including destination IP and port matching."
+  },
+  "data-sources/fast_acl_rule/@root": {
+    "original": "Manages new Fast ACL rule, has specification to match source IP, source port and action to apply in F5 Distributed Cloud.",
+    "replacement": "Reads a Fast ACL rule with source IP and port matching and an associated action."
+  },
+  "data-sources/filter_set/@root": {
+    "original": "Manages specification in F5 Distributed Cloud.",
+    "replacement": "Reads Filter Set information from F5 Distributed Cloud."
+  },
+  "data-sources/fleet/@root": {
+    "original": "Manages fleet will create a fleet object in 'system' namespace of the user in F5 Distributed Cloud.",
+    "replacement": "Reads Fleet information from F5 Distributed Cloud."
+  },
+  "data-sources/flow_anomaly/@root": {
+    "original": "Manages a Flow Anomaly resource in F5 Distributed Cloud for flow anomaly specification. configuration. (read-only data source)",
+    "replacement": "Reads Flow Anomaly information from F5 Distributed Cloud."
+  },
+  "data-sources/forward_proxy_policy/@root": {
+    "original": "Manages a Forward Proxy Policy resource in F5 Distributed Cloud for forward proxy policy specification. configuration.",
+    "replacement": "Reads Forward Proxy Policy information from F5 Distributed Cloud."
+  },
+  "data-sources/forwarding_class/@root": {
+    "original": "Manages a Forwarding Class resource in F5 Distributed Cloud for forwarding class is created by users in system namespace. configuration.",
+    "replacement": "Reads Forwarding Class information from F5 Distributed Cloud."
+  },
+  "data-sources/geo_location_set/@root": {
+    "original": "Manages Geolocation Set in F5 Distributed Cloud.",
+    "replacement": "Reads Geo Location Set information from F5 Distributed Cloud."
+  },
+  "data-sources/global_log_receiver/@root": {
+    "original": "Manages new Global Log Receiver object in F5 Distributed Cloud.",
+    "replacement": "Reads Global Log Receiver information from F5 Distributed Cloud."
+  },
+  "data-sources/healthcheck/@root": {
+    "original": "Manages a Healthcheck resource in F5 Distributed Cloud for healthcheck object defines method to determine if the given endpoint is healthy. single healthcheck object can be referred to by one or many cluster objects. configuration.",
+    "replacement": "Reads a Healthcheck that determines endpoint health and can be referenced by multiple clusters."
+  },
+  "data-sources/http_loadbalancer/@root": {
+    "original": "Manages a HTTP Load Balancer resource in F5 Distributed Cloud for load balancing HTTP/HTTPS traffic with routing and security controls.",
+    "replacement": "Reads an HTTP Load Balancer that routes HTTP and HTTPS traffic with security controls."
+  },
+  "data-sources/ike1/@root": {
+    "original": "Manages a Ike1 resource in F5 Distributed Cloud for ike phase1 profile specification. configuration.",
+    "replacement": "Reads Ike1 information from F5 Distributed Cloud."
+  },
+  "data-sources/ike2/@root": {
+    "original": "Manages a Ike2 resource in F5 Distributed Cloud for ike phase2 profile specification. configuration.",
+    "replacement": "Reads Ike2 information from F5 Distributed Cloud."
+  },
+  "data-sources/ike_phase1_profile/@root": {
+    "original": "Manages a IKE Phase1 Profile resource in F5 Distributed Cloud for ike phase1 profile specification. configuration.",
+    "replacement": "Reads IKE Phase1 Profile information from F5 Distributed Cloud."
+  },
+  "data-sources/ike_phase2_profile/@root": {
+    "original": "Manages a IKE Phase2 Profile resource in F5 Distributed Cloud for ike phase2 profile specification. configuration.",
+    "replacement": "Reads IKE Phase2 Profile information from F5 Distributed Cloud."
+  },
+  "data-sources/infraprotect_mitigation_ips/@root": {
+    "original": "Resource retrieval operation.",
+    "replacement": "Reads Infraprotect Mitigation Ips information from F5 Distributed Cloud."
+  },
+  "data-sources/ip_prefix_set/@root": {
+    "original": "Manages ip_prefix_set creates a new object in the storage backend for metadata.namespace in F5 Distributed Cloud.",
+    "replacement": "Reads IP Prefix Set information from F5 Distributed Cloud."
+  },
+  "data-sources/irule/@root": {
+    "original": "Manages iRule in a given namespace. If one already exists it will give an error in F5 Distributed Cloud.",
+    "replacement": "Reads Irule information from F5 Distributed Cloud."
+  },
+  "data-sources/k8s_cluster/@root": {
+    "original": "Manages k8s_cluster will create the object in the storage backend for namespace metadata.namespace in F5 Distributed Cloud.",
+    "replacement": "Reads Kubernetes cluster information from F5 Distributed Cloud."
+  },
+  "data-sources/k8s_cluster_role/@root": {
+    "original": "Manages k8s_cluster_role will create the object in the storage backend for namespace metadata.namespace in F5 Distributed Cloud.",
+    "replacement": "Reads Kubernetes cluster role information from F5 Distributed Cloud."
+  },
+  "data-sources/k8s_cluster_role_binding/@root": {
+    "original": "Manages k8s_cluster_role_binding will create the object in the storage backend for namespace metadata.namespace in F5 Distributed Cloud.",
+    "replacement": "Reads Kubernetes cluster role binding information from F5 Distributed Cloud."
+  },
+  "data-sources/k8s_pod_security_admission/@root": {
+    "original": "Manages k8s_pod_security_admission will create the object in the storage backend in F5 Distributed Cloud.",
+    "replacement": "Reads Kubernetes Pod Security Admission information from F5 Distributed Cloud."
+  },
+  "data-sources/k8s_pod_security_policy/@root": {
+    "original": "Manages k8s_pod_security_policy will create the object in the storage backend for namespace metadata.namespace in F5 Distributed Cloud.",
+    "replacement": "Reads Kubernetes pod security policy information from F5 Distributed Cloud."
+  },
+  "data-sources/lma_region/@root": {
+    "original": "Manages a Lma Region resource in F5 Distributed Cloud for lma region specification. configuration. (read-only data source)",
+    "replacement": "Reads LMA Region information from F5 Distributed Cloud."
+  },
+  "data-sources/log_receiver/@root": {
+    "original": "Manages new Log Receiver object in F5 Distributed Cloud.",
+    "replacement": "Reads Log Receiver information from F5 Distributed Cloud."
+  },
+  "data-sources/malicious_user_mitigation/@root": {
+    "original": "Manages malicious_user_mitigation creates a new object in the storage backend for metadata.namespace in F5 Distributed Cloud.",
+    "replacement": "Reads Malicious User Mitigation information from F5 Distributed Cloud."
+  },
+  "data-sources/managed_client_customer_support_comments/@root": {
+    "original": "Resource retrieval operation.",
+    "replacement": "Reads Managed Client Customer Support Comments information from F5 Distributed Cloud."
+  },
+  "data-sources/mitigated_domain/@root": {
+    "original": "Manages Mitigated Domain in F5 Distributed Cloud.",
+    "replacement": "Reads Mitigated Domain information from F5 Distributed Cloud."
+  },
+  "data-sources/namespace/@root": {
+    "original": "Manages new namespace. Name of the object is name of the name space in F5 Distributed Cloud.",
+    "replacement": "Reads Namespace information from F5 Distributed Cloud."
+  },
+  "data-sources/nat_policy/@root": {
+    "original": "Manages a NAT Policy resource in F5 Distributed Cloud for nat policy create specification configures nat policy with multiple rules,. configuration.",
+    "replacement": "Reads a NAT Policy containing multiple rules."
+  },
+  "data-sources/network_connector/@root": {
+    "original": "Manages a Network Connector resource in F5 Distributed Cloud for network connector is created by users in system namespace. configuration.",
+    "replacement": "Reads a Network Connector created in the system namespace."
+  },
+  "data-sources/network_firewall/@root": {
+    "original": "Manages a Network Firewall resource in F5 Distributed Cloud for network firewall is created by users in system namespace. configuration.",
+    "replacement": "Reads a Network Firewall created in the system namespace."
+  },
+  "data-sources/network_interface/@root": {
+    "original": "Manages a Network Interface resource in F5 Distributed Cloud for network interface represents configuration of a network device. it is created by users in system namespace. configuration.",
+    "replacement": "Reads network device interface configuration in the system namespace."
+  },
+  "data-sources/network_policy/@root": {
+    "original": "Manages new network policy with configured parameters in specified namespace in F5 Distributed Cloud.",
+    "replacement": "Reads Network Policy information from F5 Distributed Cloud."
+  },
+  "data-sources/network_policy_rule/@root": {
+    "original": "Manages network policy rule with configured parameters in specified namespace in F5 Distributed Cloud.",
+    "replacement": "Reads Network Policy Rule information from F5 Distributed Cloud."
+  },
+  "data-sources/network_policy_set/@root": {
+    "original": "Manages a Network Policy Set resource in F5 Distributed Cloud for get network policy set in a given namespace. configuration. (read-only data source)",
+    "replacement": "Reads an existing Network Policy Set in the requested namespace."
+  },
+  "data-sources/network_policy_view/@root": {
+    "original": "Manages a Network Policy View resource in F5 Distributed Cloud for network policy view specification. configuration.",
+    "replacement": "Reads Network Policy View information from F5 Distributed Cloud."
+  },
+  "data-sources/nfv_service/@root": {
+    "original": "Manages new NFV service with configured parameters in F5 Distributed Cloud.",
+    "replacement": "Reads NFV Service information from F5 Distributed Cloud."
+  },
+  "data-sources/nginx_csg/@root": {
+    "original": "Manages a Nginx Csg resource in F5 Distributed Cloud for get nginx csg configuration. configuration. (read-only data source)",
+    "replacement": "Reads an NGINX CSG configuration."
+  },
+  "data-sources/nginx_instance/@root": {
+    "original": "Manages a Nginx Instance resource in F5 Distributed Cloud for get nginx instance configuration. configuration. (read-only data source)",
+    "replacement": "Reads an NGINX instance configuration."
+  },
+  "data-sources/nginx_server/@root": {
+    "original": "Manages a Nginx Server resource in F5 Distributed Cloud for get nginx server block configuration. configuration. (read-only data source)",
+    "replacement": "Reads an NGINX server block configuration."
+  },
+  "data-sources/nginx_service_discovery/@root": {
+    "original": "Manages a Nginx Service Discovery resource in F5 Distributed Cloud for api to create nginx service discovery object for a site or virtual site in system namespace. configuration.",
+    "replacement": "Reads NGINX service discovery configuration for a site or virtual site in the system namespace."
+  },
+  "data-sources/oidc_oauth_discovery/@root": {
+    "original": "Resource creation operation.",
+    "replacement": "Reads OIDC/OAuth discovery information from F5 Distributed Cloud."
+  },
+  "data-sources/origin_pool/@root": {
+    "original": "Manages a Origin Pool resource in F5 Distributed Cloud for defining backend server pools for load balancer targets.",
+    "replacement": "Reads an Origin Pool that defines backend servers for load balancer targets."
+  },
+  "data-sources/partner_customer_support_comments/@root": {
+    "original": "Resource retrieval operation.",
+    "replacement": "Reads Partner Customer Support Comments information from F5 Distributed Cloud."
+  },
+  "data-sources/policer/@root": {
+    "original": "Manages new policer with traffic rate limits in F5 Distributed Cloud.",
+    "replacement": "Reads Policer information from F5 Distributed Cloud."
+  },
+  "data-sources/policy_based_routing/@root": {
+    "original": "Manages a Policy Based Routing resource in F5 Distributed Cloud for network policy based routing create specification. configuration.",
+    "replacement": "Reads Policy Based Routing information from F5 Distributed Cloud."
+  },
+  "data-sources/protected_application/@root": {
+    "original": "Manages applications protected by Bot Defense in F5 Distributed Cloud.",
+    "replacement": "Reads Protected Application information from F5 Distributed Cloud."
+  },
+  "data-sources/protected_domain/@root": {
+    "original": "Manages Domain to protect in F5 Distributed Cloud.",
+    "replacement": "Reads Protected Domain information from F5 Distributed Cloud."
+  },
+  "data-sources/protocol_inspection/@root": {
+    "original": "Manages Protocol Inspection Specification in a given namespace. If one already exists it will give an error in F5 Distributed Cloud.",
+    "replacement": "Reads an existing Protocol Inspection configuration in its namespace."
+  },
+  "data-sources/protocol_policer/@root": {
+    "original": "Manages protocol_policer object, protocol_policer object contains list of L4 protocol match condition and corresponding traffic rate limits in F5 Distributed Cloud.",
+    "replacement": "Reads L4 protocol match conditions and associated traffic rate limits."
+  },
+  "data-sources/proxy/@root": {
+    "original": "Manages a Proxy resource in F5 Distributed Cloud for tcp loadbalancer create specification. configuration.",
+    "replacement": "Reads Proxy information from F5 Distributed Cloud."
+  },
+  "data-sources/public_ip/@root": {
+    "original": "Manages a Public IP resource in F5 Distributed Cloud for get public_ip will get the object from the storage backend for namespace metadata.namespace. configuration. (read-only data source)",
+    "replacement": "Reads an existing public IP object from the requested namespace."
+  },
+  "data-sources/rate_limiter/@root": {
+    "original": "Manages rate_limiter creates a new object in the storage backend for metadata.namespace in F5 Distributed Cloud.",
+    "replacement": "Reads Rate Limiter information from F5 Distributed Cloud."
+  },
+  "data-sources/rate_limiter_policy/@root": {
+    "original": "Manages a Rate Limiter Policy resource in F5 Distributed Cloud for rate limiter policy create specification. configuration.",
+    "replacement": "Reads Rate Limiter Policy information from F5 Distributed Cloud."
+  },
+  "data-sources/registration/@root": {
+    "original": "Manages a Registration resource in F5 Distributed Cloud for vpm creates registration using this message, never used by users. configuration.",
+    "replacement": "Reads a VPM registration record from F5 Distributed Cloud."
+  },
+  "data-sources/route/@root": {
+    "original": "Manages route object in a given namespace. Route object is list of route rules. Each rule has match condition to match incoming requests and actions to take on matching requests in F5 Distributed Cloud.",
+    "replacement": "Reads route rules that match incoming requests and select the corresponding actions."
+  },
+  "data-sources/secret_management_access/@root": {
+    "original": "Manages secret_management_access creates a new object in storage backend for metadata.namespace in F5 Distributed Cloud.",
+    "replacement": "Reads Secret Management Access information from F5 Distributed Cloud."
+  },
+  "data-sources/securemesh_site_v2/@root": {
+    "original": "Manages a Securemesh Site V2 resource in F5 Distributed Cloud for deploying secure mesh edge sites with security and networking controls.",
+    "replacement": "Reads a Secure Mesh Site v2 edge site and its security and networking configuration."
+  },
+  "data-sources/segment/@root": {
+    "original": "Manages a Segment resource in F5 Distributed Cloud for segment. configuration.",
+    "replacement": "Reads Segment information from F5 Distributed Cloud."
+  },
+  "data-sources/segment_connection/@root": {
+    "original": "Manages a Segment Connection resource in F5 Distributed Cloud for segment connector specification. configuration. (read-only data source)",
+    "replacement": "Reads Segment Connection information from F5 Distributed Cloud."
+  },
+  "data-sources/sensitive_data_policy/@root": {
+    "original": "Manages sensitive_data_policy creates a new object in the storage backend for metadata.namespace in F5 Distributed Cloud.",
+    "replacement": "Reads Sensitive Data Policy information from F5 Distributed Cloud."
+  },
+  "data-sources/service_policy/@root": {
+    "original": "Manages service_policy creates a new object in the storage backend for metadata.namespace in F5 Distributed Cloud.",
+    "replacement": "Reads Service Policy information from F5 Distributed Cloud."
+  },
+  "data-sources/service_policy_rule/@root": {
+    "original": "Manages service_policy_rule creates a new object in the storage backend for metadata.namespace in F5 Distributed Cloud.",
+    "replacement": "Reads Service Policy Rule information from F5 Distributed Cloud."
+  },
+  "data-sources/service_policy_set/@root": {
+    "original": "Manages a Service Policy Set resource in F5 Distributed Cloud for get service_policy_set reads a given object from storage backend for metadata.namespace. configuration. (read-only data source)",
+    "replacement": "Reads an existing Service Policy Set from the requested namespace."
+  },
+  "data-sources/shape_bot_defense_instance/@root": {
+    "original": "Manages a Shape Bot Defense Instance resource in F5 Distributed Cloud for get virtual host from a given namespace. configuration. (read-only data source)",
+    "replacement": "Reads Shape Bot Defense Instance information from F5 Distributed Cloud."
+  },
+  "data-sources/site/@root": {
+    "original": "Manages a Site resource in F5 Distributed Cloud for get of site. configuration. (read-only data source)",
+    "replacement": "Reads an existing site from F5 Distributed Cloud."
+  },
+  "data-sources/site_mesh_group/@root": {
+    "original": "Manages Site Mesh Group in system namespace of user in F5 Distributed Cloud.",
+    "replacement": "Reads Site Mesh Group information from F5 Distributed Cloud."
+  },
+  "data-sources/srv6_network_slice/@root": {
+    "original": "Manages srv6_network_slice creates a new object in the storage backend for metadata.namespace in F5 Distributed Cloud.",
+    "replacement": "Reads Srv6 Network Slice information from F5 Distributed Cloud."
+  },
+  "data-sources/subnet/@root": {
+    "original": "Manages a Subnet resource in F5 Distributed Cloud for subnet object contains configuration for an interface of a vm/pod. it is created in user or shared namespace. configuration.",
+    "replacement": "Reads subnet configuration for a VM or pod interface in a user or shared namespace."
+  },
+  "data-sources/tcp_loadbalancer/@root": {
+    "original": "Manages a TCP Load Balancer resource in F5 Distributed Cloud for load balancing TCP traffic across origin pools.",
+    "replacement": "Reads TCP Loadbalancer information from F5 Distributed Cloud."
+  },
+  "data-sources/tenant_configuration/@root": {
+    "original": "Manages a Tenant Configuration resource in F5 Distributed Cloud for tenant configuration specification. configuration.",
+    "replacement": "Reads Tenant Configuration information from F5 Distributed Cloud."
+  },
+  "data-sources/third_party_application/@root": {
+    "original": "Manages a Third Party Application resource in F5 Distributed Cloud for third party application specification. configuration. (read-only data source)",
+    "replacement": "Reads Third Party Application information from F5 Distributed Cloud."
+  },
+  "data-sources/tmm_session_metrics/@root": {
+    "original": "Resource creation operation.",
+    "replacement": "Reads TMM session metrics information from F5 Distributed Cloud."
+  },
+  "data-sources/token/@root": {
+    "original": "Manages new token. Token object is used to manage site admission. User must generate token before provisioning and pass this token to site during it's registration in F5 Distributed Cloud.",
+    "replacement": "Reads a site admission token used during registration and provisioning."
+  },
+  "data-sources/trusted_ca_list/@root": {
+    "original": "Manages a Trusted CA List resource in F5 Distributed Cloud for trusted certificate authority list management.",
+    "replacement": "Reads Trusted Ca List information from F5 Distributed Cloud."
+  },
+  "data-sources/tunnel/@root": {
+    "original": "Manages tunnel in a given namespace. If one already exist it will give a error in F5 Distributed Cloud.",
+    "replacement": "Reads Tunnel information from F5 Distributed Cloud."
+  },
+  "data-sources/udp_loadbalancer/@root": {
+    "original": "Manages a UDP Load Balancer resource in F5 Distributed Cloud for load balancing UDP traffic across origin pools.",
+    "replacement": "Reads UDP Loadbalancer information from F5 Distributed Cloud."
+  },
+  "data-sources/usb_policy/@root": {
+    "original": "Manages new USB policy object in F5 Distributed Cloud.",
+    "replacement": "Reads USB Policy information from F5 Distributed Cloud."
+  },
+  "data-sources/user_identification/@root": {
+    "original": "Manages user_identification creates a new object in the storage backend for metadata.namespace in F5 Distributed Cloud.",
+    "replacement": "Reads User Identification information from F5 Distributed Cloud."
+  },
+  "data-sources/virtual_host/@root": {
+    "original": "Manages virtual host in a given namespace in F5 Distributed Cloud.",
+    "replacement": "Reads Virtual Host information from F5 Distributed Cloud."
+  },
+  "data-sources/virtual_k8s/@root": {
+    "original": "Manages virtual_k8s will create the object in the storage backend for namespace metadata.namespace in F5 Distributed Cloud.",
+    "replacement": "Reads an existing virtual Kubernetes configuration."
+  },
+  "data-sources/virtual_network/@root": {
+    "original": "Manages virtual network in given namespace in F5 Distributed Cloud.",
+    "replacement": "Reads Virtual Network information from F5 Distributed Cloud."
+  },
+  "data-sources/virtual_site/@root": {
+    "original": "Manages virtual site object in given namespace in F5 Distributed Cloud.",
+    "replacement": "Reads Virtual Site information from F5 Distributed Cloud."
+  },
+  "data-sources/waf_attack_signatures/@root": {
+    "original": "Resource retrieval operation.",
+    "replacement": "Reads WAF attack signatures information from F5 Distributed Cloud."
+  },
+  "data-sources/waf_exclusion_policy/@root": {
+    "original": "Manages WAF exclusion policy in F5 Distributed Cloud.",
+    "replacement": "Reads WAF Exclusion Policy information from F5 Distributed Cloud."
+  },
+  "data-sources/waf_latest_signatures_version/@root": {
+    "original": "Resource retrieval operation.",
+    "replacement": "Reads latest WAF signatures version information from F5 Distributed Cloud."
+  },
+  "data-sources/waf_threat_campaigns/@root": {
+    "original": "Resource retrieval operation.",
+    "replacement": "Reads WAF Threat Campaigns information from F5 Distributed Cloud."
+  },
+  "data-sources/waf_threats/@root": {
+    "original": "Resource creation operation.",
+    "replacement": "Reads WAF threats information from F5 Distributed Cloud."
+  },
+  "data-sources/workload/@root": {
+    "original": "Manages a Workload resource in F5 Distributed Cloud for workload. configuration.",
+    "replacement": "Reads Workload information from F5 Distributed Cloud."
+  },
+  "data-sources/workload_flavor/@root": {
+    "original": "Manages workload_flavor in F5 Distributed Cloud.",
+    "replacement": "Reads Workload Flavor information from F5 Distributed Cloud."
+  },
+  "resources/advertise_policy/@root": {
+    "original": "Manages a Advertise Policy resource in F5 Distributed Cloud for advertise_policy object controls how and where a service represented by a given virtual_host object is advertised to consumers. configuration.",
+    "replacement": "Manages an Advertise Policy resource in F5 Distributed Cloud for advertise_policy object controls how and where a service represented by a given virtual_host object is advertised to consumers. configuration."
+  },
+  "resources/api_crawler/@root": {
+    "original": "Manages a API Crawler resource in F5 Distributed Cloud.",
+    "replacement": "Manages an API Crawler resource in F5 Distributed Cloud."
+  },
+  "resources/api_testing/@root": {
+    "original": "Manages a API Testing resource in F5 Distributed Cloud.",
+    "replacement": "Manages an API Testing resource in F5 Distributed Cloud."
+  },
+  "resources/authentication/@root": {
+    "original": "Manages a Authentication resource in F5 Distributed Cloud.",
+    "replacement": "Manages an Authentication resource in F5 Distributed Cloud."
+  },
+  "resources/aws_tgw_site/@root": {
+    "original": "Manages a AWS TGW Site resource in F5 Distributed Cloud for deploying F5 sites connected via AWS Transit Gateway.",
+    "replacement": "Manages an AWS TGW Site resource in F5 Distributed Cloud for deploying F5 sites connected via AWS Transit Gateway."
+  },
+  "resources/enhanced_firewall_policy/@root": {
+    "original": "Manages a Enhanced Firewall Policy resource in F5 Distributed Cloud for enhanced firewall policy specification. configuration.",
+    "replacement": "Manages an Enhanced Firewall Policy resource in F5 Distributed Cloud for enhanced firewall policy specification. configuration."
+  },
+  "resources/external_connector/@root": {
+    "original": "Manages a External Connector resource in F5 Distributed Cloud for external_connector configuration specification. configuration.",
+    "replacement": "Manages an External Connector resource in F5 Distributed Cloud for external_connector configuration specification. configuration."
+  },
+  "resources/http_loadbalancer/@root": {
+    "original": "Manages a HTTP Load Balancer resource in F5 Distributed Cloud for load balancing HTTP/HTTPS traffic with routing and security controls.",
+    "replacement": "Manages an HTTP Load Balancer resource in F5 Distributed Cloud for load balancing HTTP/HTTPS traffic with routing and security controls."
+  },
+  "resources/ike1/@root": {
+    "original": "Manages a Ike1 resource in F5 Distributed Cloud for ike phase1 profile specification. configuration.",
+    "replacement": "Manages an Ike1 resource in F5 Distributed Cloud for ike phase1 profile specification. configuration."
+  },
+  "resources/ike2/@root": {
+    "original": "Manages a Ike2 resource in F5 Distributed Cloud for ike phase2 profile specification. configuration.",
+    "replacement": "Manages an Ike2 resource in F5 Distributed Cloud for ike phase2 profile specification. configuration."
+  },
+  "resources/ike_phase1_profile/@root": {
+    "original": "Manages a IKE Phase1 Profile resource in F5 Distributed Cloud for ike phase1 profile specification. configuration.",
+    "replacement": "Manages an IKE Phase1 Profile resource in F5 Distributed Cloud for ike phase1 profile specification. configuration."
+  },
+  "resources/ike_phase2_profile/@root": {
+    "original": "Manages a IKE Phase2 Profile resource in F5 Distributed Cloud for ike phase2 profile specification. configuration.",
+    "replacement": "Manages an IKE Phase2 Profile resource in F5 Distributed Cloud for ike phase2 profile specification. configuration."
+  },
+  "resources/origin_pool/@root": {
+    "original": "Manages a Origin Pool resource in F5 Distributed Cloud for defining backend server pools for load balancer targets.",
+    "replacement": "Manages an Origin Pool resource in F5 Distributed Cloud for defining backend server pools for load balancer targets."
+  }
+}

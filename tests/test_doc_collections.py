@@ -56,6 +56,52 @@ class CollectionTests(unittest.TestCase):
                 paths.update(CollectionTests.schema_paths(shape, exact))
         return paths
 
+    def test_display_override_requires_exact_source_and_scope(self):
+        original = DOCS.DISPLAY_OVERRIDES["resources/http_loadbalancer/@root"][
+            "original"
+        ]
+        corrected = DOCS.display_description(
+            "resources", "http_loadbalancer", (), original
+        )
+        self.assertIn("an HTTP Load Balancer", corrected)
+        self.assertEqual(
+            DOCS.display_description("data-sources", "fixture", (), original),
+            original,
+        )
+        with self.assertRaisesRegex(ValueError, "source changed"):
+            DOCS.display_description("resources", "http_loadbalancer", (), "new source")
+
+    def test_reviewed_phrase_repair_is_bounded_to_prose(self):
+        self.assertEqual(
+            DOCS.reviewed_phrases("A HTTP request uses a API token."),
+            "An HTTP request uses an API token.",
+        )
+        self.assertEqual(DOCS.reviewed_phrases("data HTTP"), "data HTTP")
+
+    def test_distinct_descriptions_keep_new_facts_once(self):
+        self.assertEqual(
+            DOCS.distinct_descriptions(
+                "Uses TLS. Requires DNS.", "Uses TLS. Adds a WAF policy."
+            ),
+            ("Uses TLS. Requires DNS.", "Adds a WAF policy."),
+        )
+        self.assertEqual(
+            DOCS.distinct_descriptions("Uses TLS.", "Uses TLS. Adds a WAF policy."),
+            ("Uses TLS. Adds a WAF policy.", ""),
+        )
+
+    def test_empty_properties_have_no_section_wrapper_or_leaf_navigation(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            block = {"block_types": {"choice": {"nesting_mode": "single", "block": {}}}}
+            collection = self.collection(Path(temporary), block)
+            page = collection.pages[
+                DOCS.stable_id("resources", "fixture", "properties", ("choice",))
+            ]
+            body = collection.body(page)
+            self.assertNotIn("## Direct properties", body)
+            self.assertNotIn("## Next pages", body)
+            self.assertIn("empty object or choice marker", body)
+
     def test_schema_paths_include_new_and_nested_attributes(self):
         block = {
             "attributes": {"new_attribute": {"type": "string", "required": True}},
