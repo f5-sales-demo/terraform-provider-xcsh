@@ -50,6 +50,8 @@ MANUALLY_MAINTAINED_FILES=(
   "internal/provider/network_allowlist_data_source.go"
   "internal/provider/smsv2_kvm_runtime_interface_resource.go"
   "internal/provider/public_ip_binding_resource.go"
+  "internal/provider/swagger_object_resource.go"
+  "examples/resources/xcsh_swagger_object/resource.tf"
   "internal/provider/site_registration_data_source.go"
   "internal/provider/site_bgp_status_data_source.go"
   "internal/provider/site_upgrade_status_data_source.go"

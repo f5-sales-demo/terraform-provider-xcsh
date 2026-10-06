@@ -46,6 +46,7 @@ var manuallyMaintained = map[string]bool{
 	"network_regional_edges":               true,
 	"network_secondary_dns_zone_transfer":  true,
 	"smsv2_kvm_runtime_interface":          true,
+	"swagger_object":                       true,
 	"site_bgp_status":                      true,
 	"site_upgrade_status":                  true,
 	"site_registration":                    true,

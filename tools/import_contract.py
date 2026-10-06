@@ -6,6 +6,7 @@ import re
 FORMATS = {
     "name",
     "namespace/name",
+    "namespace/name/version",
     "namespace/name/allowed_domain",
     "namespace/name/mitigated_domain",
     "namespace/name/protected_domain",
@@ -30,7 +31,8 @@ def resolve_import_contract(text: str, name: str) -> dict[str, str] | None:
         guidance = "This tenant-level resource uses its bare name. The `namespace` argument is omitted."
     else:
         identity = "/".join(
-            "system" if part == "namespace" else "example" for part in syntax.split("/")
+            "system" if part == "namespace" else "v1" if part == "version" else "example"
+            for part in syntax.split("/")
         )
         address = f"xcsh_{name}.example"
         guidance = f"Import using the `{syntax}` identifier format."
