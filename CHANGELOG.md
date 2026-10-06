@@ -7,8 +7,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-### Added
-
 - Own immutable Swagger object versions with `xcsh_swagger_object`, exact-version import, verified content hashes, and deletion limited to the owned version.
 
 ## [v14.0.0](https://github.com/f5-sales-demo/terraform-provider-xcsh/releases/tag/v14.0.0) - 2026-10-05

@@ -31,7 +31,11 @@ def resolve_import_contract(text: str, name: str) -> dict[str, str] | None:
         guidance = "This tenant-level resource uses its bare name. The `namespace` argument is omitted."
     else:
         identity = "/".join(
-            "system" if part == "namespace" else "v1" if part == "version" else "example"
+            "system"
+            if part == "namespace"
+            else "v1"
+            if part == "version"
+            else "example"
             for part in syntax.split("/")
         )
         address = f"xcsh_{name}.example"
