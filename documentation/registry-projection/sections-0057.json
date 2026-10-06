@@ -2,6 +2,270 @@
   "schema_version": 1,
   "sections": [
     {
+      "canonical_id": "xcsh-docs:data-sources:dns_load_balancer:properties:rule_list:rules:pool",
+      "section_id": "xcsh-docs:data-sources:dns_load_balancer:properties:rule_list:rules:pool:section:1",
+      "source_sha256": "sha256:912b86f2a1eba7c98d40ffc21a00d450ec35754a6e0f59fd708312f771f544b1",
+      "source_bytes": 1243,
+      "canonical_source_sha256": "sha256:cdd839ce905f4bc6ec33c303c74ef2741bbb7ed506b96296b4ad0b463611269f",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/dns_load_balancer/properties/rule_list/rules/pool/",
+      "anchor": "canonical-2122210031122230-0212001322313300-3300000033313032-0100311212232231-0010030322130101-3021030210311213-2212222311023302-2022102103210112",
+      "anchor_map": [
+        [
+          "schema-rule_list--rules--pool--name",
+          "canonical-0210213210123102-1220133333130031-3133220301103221-2032032202321331-3200230321213230-0222021201112223-2013010122003130-2122212033323223"
+        ],
+        [
+          "schema-rule_list--rules--pool--namespace",
+          "canonical-3011000131120303-0331010021022221-3200201331010231-1012111213102000-3022102002120301-3231230032211320-2111020332320233-3020321020011210"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--dns_load_balancer--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:dns_load_balancer:properties:rule_list:rules:pool",
+      "section_id": "xcsh-docs:data-sources:dns_load_balancer:properties:rule_list:rules:pool:section:2",
+      "source_sha256": "sha256:4403ac64f5a645bfd9c45026e0d5a1f58f05add4b98029a07e003dc33a885491",
+      "source_bytes": 1412,
+      "canonical_source_sha256": "sha256:cdd839ce905f4bc6ec33c303c74ef2741bbb7ed506b96296b4ad0b463611269f",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/dns_load_balancer/properties/rule_list/rules/pool/",
+      "anchor": "canonical-0110201111232021-0232300131310231-3321201222232123-3021122232013001-2222001211233130-0001000201030123-1123202003331131-0211221000331130",
+      "anchor_map": [
+        [
+          "schema-rule_list--rules--pool--tenant",
+          "canonical-1213010322112020-3131302032032023-1223003300121122-3131112130102031-0003010201231322-3202222323033131-1323112030331212-2202220221000011"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--dns_load_balancer--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:dns_load_balancer:properties:rule_list:rules:pool",
+      "section_id": "xcsh-docs:data-sources:dns_load_balancer:properties:rule_list:rules:pool:section:3",
+      "source_sha256": "sha256:7cef62c4c74991d0997fe4e0f303cadca7c8fc3902749072ab8892668831a2e2",
+      "source_bytes": 862,
+      "canonical_source_sha256": "sha256:cdd839ce905f4bc6ec33c303c74ef2741bbb7ed506b96296b4ad0b463611269f",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/dns_load_balancer/properties/rule_list/rules/pool/",
+      "anchor": "canonical-1212222220332322-2310131020013130-2113331112111221-1222003313313313-3021030200223310-3320023020211222-0320330320200110-1303313102000313",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--dns_load_balancer--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:dns_load_balancer:examples",
+      "section_id": "xcsh-docs:data-sources:dns_load_balancer:examples:section:0",
+      "source_sha256": "sha256:c0583a437076ef04b38e0090d8603305914e0e2e62e38b31e7396d4cda9dd3ee",
+      "source_bytes": 253,
+      "canonical_source_sha256": "sha256:e65d8e6c88eb55beef9c518e8616e57043b851d08e787065fd4f4ce12354eb66",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/dns_load_balancer/examples/",
+      "anchor": "canonical-1103031313232103-1010000131011003-3223220023303122-0210012223013222-2333202231003212-0333030130323003-3131202221232220-1110102010021310",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--dns_load_balancer--examples--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:dns_load_balancer:examples",
+      "section_id": "xcsh-docs:data-sources:dns_load_balancer:examples:section:1",
+      "source_sha256": "sha256:8ccfd2a516dca2ae93bb029b57f4c2fc299537786a6dd3f784a27068e754b885",
+      "source_bytes": 176,
+      "canonical_source_sha256": "sha256:e65d8e6c88eb55beef9c518e8616e57043b851d08e787065fd4f4ce12354eb66",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/dns_load_balancer/examples/",
+      "anchor": "canonical-0221020110101320-1020201230013332-1010010020210323-1203333022311002-3000003131001031-2103101030133233-2212330211121111-2303211023320131",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--dns_load_balancer--examples--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:dns_load_balancer:example:data-source",
+      "section_id": "xcsh-docs:data-sources:dns_load_balancer:example:data-source:section:0",
+      "source_sha256": "sha256:18746a853e94627e4d71c702549d277006f790c8abddf47e685128070882950c",
+      "source_bytes": 1098,
+      "canonical_source_sha256": "sha256:18746a853e94627e4d71c702549d277006f790c8abddf47e685128070882950c",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/dns_load_balancer/examples/data-source/",
+      "anchor": "canonical-2103302200311321-3132331213200101-0001232221121130-1203301012232001-3310022231002033-3112211212300321-3022120102202100-3302003033331103",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--dns_load_balancer--examples--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:dns_proxy:fundamentals",
+      "section_id": "xcsh-docs:data-sources:dns_proxy:fundamentals:section:0",
+      "source_sha256": "sha256:9b1e262fae56a58c13848f6500ec4ea38a3ae599ce5f5d9ee9bc451afeeede04",
+      "source_bytes": 205,
+      "canonical_source_sha256": "sha256:b9ec3295bdc05298547d1bc2064c70a9b5333d9ad144549c23ef73fc4d1a72d4",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/dns_proxy/",
+      "anchor": "canonical-1122013202133033-3201201122310010-3303231012021212-2123120003213300-3130001133310203-2011013122222333-0130313333122120-0323311233013112",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/data-sources/dns_proxy.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:dns_proxy:fundamentals",
+      "section_id": "xcsh-docs:data-sources:dns_proxy:fundamentals:section:1",
+      "source_sha256": "sha256:6c9dda0abdc8c39b93dd9d4e2d14fe4202d90147ba6309f00d53dec613761b2f",
+      "source_bytes": 146,
+      "canonical_source_sha256": "sha256:b9ec3295bdc05298547d1bc2064c70a9b5333d9ad144549c23ef73fc4d1a72d4",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/dns_proxy/",
+      "anchor": "canonical-2321330131023102-1003011121012231-2230222233012223-1322230100010112-2010203211112212-0001200103223131-1211322320303103-0203233333203121",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/data-sources/dns_proxy.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:dns_proxy:fundamentals",
+      "section_id": "xcsh-docs:data-sources:dns_proxy:fundamentals:section:2",
+      "source_sha256": "sha256:40c6b2b2531f24f19e2a152cde94a6e295721c013d8b28fd8d9e5f9aa3766846",
+      "source_bytes": 553,
+      "canonical_source_sha256": "sha256:b9ec3295bdc05298547d1bc2064c70a9b5333d9ad144549c23ef73fc4d1a72d4",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/dns_proxy/",
+      "anchor": "canonical-1031122213100303-1233220333333101-0222211320033013-1201002100123223-1021332232132333-1221223332011130-2333102213202210-1303212121230033",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/data-sources/dns_proxy.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:dns_proxy:fundamentals",
+      "section_id": "xcsh-docs:data-sources:dns_proxy:fundamentals:section:3",
+      "source_sha256": "sha256:59cc49c5dab8854b0897435c3c7fc192cdb2f7337c761bc29f52945afee79ee0",
+      "source_bytes": 120,
+      "canonical_source_sha256": "sha256:b9ec3295bdc05298547d1bc2064c70a9b5333d9ad144549c23ef73fc4d1a72d4",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/dns_proxy/",
+      "anchor": "canonical-0100332113310221-2323200211001032-3110110021022222-3310230022212302-3232111020211003-2132101310002121-0212103212212321-1011010232102320",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/data-sources/dns_proxy.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:dns_proxy:fundamentals",
+      "section_id": "xcsh-docs:data-sources:dns_proxy:fundamentals:section:4",
+      "source_sha256": "sha256:b16375c87e1e7c6e871bd51985c9f3c5ac786e87c60cdfc921bc858c75b1a9db",
+      "source_bytes": 246,
+      "canonical_source_sha256": "sha256:b9ec3295bdc05298547d1bc2064c70a9b5333d9ad144549c23ef73fc4d1a72d4",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/dns_proxy/",
+      "anchor": "canonical-2332111231012131-1003000103120022-3113130222321330-3011223330003031-1301022111112020-1221322203320121-1301233013020112-0230112202023303",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/data-sources/dns_proxy.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:dns_proxy:reference",
+      "section_id": "xcsh-docs:data-sources:dns_proxy:reference:section:0",
+      "source_sha256": "sha256:bba7d5545baf7209b3b794d78aa9d258f60486e6c63fe10c40adb1a87bdde11c",
+      "source_bytes": 257,
+      "canonical_source_sha256": "sha256:21294f7d70a977c83cedc0a71515a45204030ba87dc5e02052a6389749dd3da2",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/dns_proxy/properties/",
+      "anchor": "canonical-1133330113022100-3110333211021121-3111232100100000-3311232321023320-3202221331130133-0013122201302330-1103000312200021-1203111112100020",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--dns_proxy--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:dns_proxy:reference",
+      "section_id": "xcsh-docs:data-sources:dns_proxy:reference:section:1",
+      "source_sha256": "sha256:3989d1b35927bfd5a58c6b4b4755bdb96dde64f40885debfbcb467db3f991696",
+      "source_bytes": 2018,
+      "canonical_source_sha256": "sha256:21294f7d70a977c83cedc0a71515a45204030ba87dc5e02052a6389749dd3da2",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/dns_proxy/properties/",
+      "anchor": "canonical-0212301112313200-3222110320321000-1110201202131331-0031113221323210-0332333203003022-3013112033201022-0232333021221112-0210322231303203",
+      "anchor_map": [
+        [
+          "schema-annotations",
+          "canonical-0021233123110303-1100220000120033-1213023003120311-2201011302130022-3220320230202030-0331213230110333-3022303301010000-0113032331212032"
+        ],
+        [
+          "schema-description",
+          "canonical-2030300032212210-3012122021002300-0232211130222320-1322301023120310-1331201311011300-3233220133022001-1013300112322300-1202302212122133"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--dns_proxy--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:dns_proxy:reference",
+      "section_id": "xcsh-docs:data-sources:dns_proxy:reference:section:2",
+      "source_sha256": "sha256:d693e9e3f485d444294b53a373ea378daa54e0aedd13f874408c547bd6c1cb83",
+      "source_bytes": 963,
+      "canonical_source_sha256": "sha256:21294f7d70a977c83cedc0a71515a45204030ba87dc5e02052a6389749dd3da2",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/dns_proxy/properties/",
+      "anchor": "canonical-1332302113212130-3232031200312200-2113112330011231-2330130101102301-1200101121201013-1303112233302030-1321113022223130-2302220100220020",
+      "anchor_map": [
+        [
+          "schema-id",
+          "canonical-2203303302232133-1321201322111312-2120233310331030-1221231320222231-2120221032123330-1310211301031032-0132120111301302-0001123212302130"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--dns_proxy--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:dns_proxy:reference",
+      "section_id": "xcsh-docs:data-sources:dns_proxy:reference:section:3",
+      "source_sha256": "sha256:6e523ab9f2f32138c266820485f40cdffb77fecf4150e128d0654b360eab4140",
+      "source_bytes": 254,
+      "canonical_source_sha256": "sha256:21294f7d70a977c83cedc0a71515a45204030ba87dc5e02052a6389749dd3da2",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/dns_proxy/properties/",
+      "anchor": "canonical-3112132300203003-3101201230033030-0312133301300110-3223321212101331-2220203120131323-2221231133103313-3303020111113321-3323130131132003",
+      "anchor_map": [
+        [
+          "schema-labels",
+          "canonical-1033202112132120-1000201200221111-2002121313311212-2110002011120232-0102201031322022-3123012033101020-0203203201302121-1321033030123110"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--dns_proxy--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:dns_proxy:reference",
+      "section_id": "xcsh-docs:data-sources:dns_proxy:reference:section:4",
+      "source_sha256": "sha256:5fe4defeb41b495d01f9bd699f49f589675ad57a3e3d5f7e3ebc5fcd07452997",
+      "source_bytes": 663,
+      "canonical_source_sha256": "sha256:21294f7d70a977c83cedc0a71515a45204030ba87dc5e02052a6389749dd3da2",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/dns_proxy/properties/",
+      "anchor": "canonical-0131123321213022-3322111110033201-2113210131121230-3122302103132323-2002122300222202-1203321130223210-0233231011022220-3223020021302211",
+      "anchor_map": [
+        [
+          "schema-name",
+          "canonical-0331030223323232-0131121113130002-3011010202233303-0211222100332101-1010311220010101-0112232303322302-3002312212222211-0300121000213330"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--dns_proxy--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:dns_proxy:reference",
+      "section_id": "xcsh-docs:data-sources:dns_proxy:reference:section:5",
+      "source_sha256": "sha256:07d969ae7a51a631e5ca5c4015bf1ba6f0470270ed989bcc8476753bac4b29d0",
+      "source_bytes": 1520,
+      "canonical_source_sha256": "sha256:21294f7d70a977c83cedc0a71515a45204030ba87dc5e02052a6389749dd3da2",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/dns_proxy/properties/",
+      "anchor": "canonical-2323320120102023-3011203103022333-2213031012113301-1002323033312211-3320222112330001-2231323003333321-2203333320101022-3310032321000020",
+      "anchor_map": [
+        [
+          "schema-namespace",
+          "canonical-1220331021231011-1023322332200031-0320023103322213-0111120132201313-2210133013310020-2113232032220100-1323301313012233-2230021323030230"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--dns_proxy--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:dns_proxy:reference",
+      "section_id": "xcsh-docs:data-sources:dns_proxy:reference:section:6",
+      "source_sha256": "sha256:1d5d830d21c22b3381b36bf8713ef255cc97a80f87e84b41d682dac56b0d02e2",
+      "source_bytes": 1767,
+      "canonical_source_sha256": "sha256:21294f7d70a977c83cedc0a71515a45204030ba87dc5e02052a6389749dd3da2",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/dns_proxy/properties/",
+      "anchor": "canonical-3203100133311023-2031212233332220-1210020122311320-0213201201021131-1001023220123003-2133131322030212-3033030321300213-0011100121001120",
+      "anchor_map": [
+        [
+          "schema-transport_type",
+          "canonical-1321320200212302-1122131020300010-0003132323300200-2230221011020133-0113211213013320-0312212000110013-0000213213122003-1103230312232020"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--dns_proxy--reference--group-001.md"
+    },
+    {
       "canonical_id": "xcsh-docs:data-sources:dns_proxy:reference",
       "section_id": "xcsh-docs:data-sources:dns_proxy:reference:section:7",
       "source_sha256": "sha256:38e0641566372e8511c4c1b34514fb89d52a3d05c344e30b46ec8c7f0f242da7",
@@ -7537,248 +7801,6 @@
       "anchor_map": [],
       "mode": "embedded",
       "registry_path": "docs/guides/data-sources--dns_zone--reference--group-003.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:dns_zone:properties:secondary:tsig_key_value",
-      "section_id": "xcsh-docs:data-sources:dns_zone:properties:secondary:tsig_key_value:section:0",
-      "source_sha256": "sha256:e21ba14098def742f008905b584cd85975cc2fe71479cc604066c00d24304844",
-      "source_bytes": 893,
-      "canonical_source_sha256": "sha256:aaa82b8da96c2c45edc309c4ee9cbf2e3bae0816eebe67f0447fbb7fd9975f27",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/dns_zone/properties/secondary/tsig_key_value/",
-      "anchor": "canonical-0200300300112212-2013221101122013-0311222300002000-3123120223132313-1103101120032321-1012100100013213-3111132232013321-0100110220213331",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-3101233323332301-0312030330010020-0112200003233111-3030302033213132-1231033132112202-1221323011331233-3132101020311220-0322033320313121"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--dns_zone--reference--group-003.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:dns_zone:properties:secondary:tsig_key_value",
-      "section_id": "xcsh-docs:data-sources:dns_zone:properties:secondary:tsig_key_value:section:1",
-      "source_sha256": "sha256:dbbc6a6ec66cf8bee120c2fb7b5993ab8159ddd8ecdf735b65c49d716e935780",
-      "source_bytes": 407,
-      "canonical_source_sha256": "sha256:aaa82b8da96c2c45edc309c4ee9cbf2e3bae0816eebe67f0447fbb7fd9975f27",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/dns_zone/properties/secondary/tsig_key_value/",
-      "anchor": "canonical-0122300113320102-0210103231020302-2301330303101212-0212002120201123-0301313010211222-0200331103010110-1203212031011322-0233201233020303",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--dns_zone--reference--group-003.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:dns_zone:properties:secondary:tsig_key_value:blindfold_secret_info",
-      "section_id": "xcsh-docs:data-sources:dns_zone:properties:secondary:tsig_key_value:blindfold_secret_info:section:0",
-      "source_sha256": "sha256:e96732459881bb2893aaf440db35a0d5368b1175b867fb0e208366ff4f94243c",
-      "source_bytes": 1010,
-      "canonical_source_sha256": "sha256:e279b3e511b9a630c4b322ec02e74f253b8b755367c644a85451c380f351eae9",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/dns_zone/properties/secondary/tsig_key_value/blindfold_secret_info/",
-      "anchor": "canonical-1132333021301033-3331233222032213-2213011102012210-1120300021003122-3020030301333202-2313113001320103-1101220211020023-0103200133333003",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-3322021301003221-1011000011013122-3221210313313322-1010211101010230-0021322012320102-3301222202013311-0330313211203121-3310320323300313"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--dns_zone--reference--group-003.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:dns_zone:properties:secondary:tsig_key_value:blindfold_secret_info",
-      "section_id": "xcsh-docs:data-sources:dns_zone:properties:secondary:tsig_key_value:blindfold_secret_info:section:1",
-      "source_sha256": "sha256:2cee156f8e14c6be18d2b71496472e4b2270bce53c151d5fbf446129bc3200a9",
-      "source_bytes": 787,
-      "canonical_source_sha256": "sha256:e279b3e511b9a630c4b322ec02e74f253b8b755367c644a85451c380f351eae9",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/dns_zone/properties/secondary/tsig_key_value/blindfold_secret_info/",
-      "anchor": "canonical-2001210210011020-2133130230033120-0221331023212100-1223031123232031-2331201302011030-2301111231332002-0130301233222103-2330122332123102",
-      "anchor_map": [
-        [
-          "schema-secondary--tsig_key_value--blindfold_secret_info--decryption_provider",
-          "canonical-2210020032131012-1313301020210112-2223100111000300-1320110301123013-0121113322102313-0110122232020112-2301213112313002-3122000002222200"
-        ],
-        [
-          "schema-secondary--tsig_key_value--blindfold_secret_info--location",
-          "canonical-1300313031010331-1211322202132302-0323221133333301-2120210322212120-2320303010232122-3302202122310030-0301313211010021-1100333111010221"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--dns_zone--reference--group-003.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:dns_zone:properties:secondary:tsig_key_value:blindfold_secret_info",
-      "section_id": "xcsh-docs:data-sources:dns_zone:properties:secondary:tsig_key_value:blindfold_secret_info:section:2",
-      "source_sha256": "sha256:62cf96bff12a098bcc41511679146b47cc0a941f6c9bfcbe347fc1963c4ebe39",
-      "source_bytes": 1324,
-      "canonical_source_sha256": "sha256:e279b3e511b9a630c4b322ec02e74f253b8b755367c644a85451c380f351eae9",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/dns_zone/properties/secondary/tsig_key_value/blindfold_secret_info/",
-      "anchor": "canonical-0223303311032112-3221001213310101-0031103302022200-0202230312100213-2101210202203320-0200332311210320-2023222110232020-1303030311001302",
-      "anchor_map": [
-        [
-          "schema-secondary--tsig_key_value--blindfold_secret_info--store_provider",
-          "canonical-1332321201022032-0211212221300332-2022310122013230-2211233030113203-0220013000023200-1133221300112003-2122103012323023-0322031022312012"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--dns_zone--reference--group-003.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:dns_zone:properties:secondary:tsig_key_value:blindfold_secret_info",
-      "section_id": "xcsh-docs:data-sources:dns_zone:properties:secondary:tsig_key_value:blindfold_secret_info:section:3",
-      "source_sha256": "sha256:304060f6f09e7f748f42f6f62a521bb739c5752c69da0c91ac19f4122d2d78d2",
-      "source_bytes": 656,
-      "canonical_source_sha256": "sha256:e279b3e511b9a630c4b322ec02e74f253b8b755367c644a85451c380f351eae9",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/dns_zone/properties/secondary/tsig_key_value/blindfold_secret_info/",
-      "anchor": "canonical-1123301212202101-2222211320200032-2211311020120220-3312001131122313-3020333122331111-1100212220111300-0202121031121112-3123031130122000",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--dns_zone--reference--group-003.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:dns_zone:properties:secondary:tsig_key_value:clear_secret_info",
-      "section_id": "xcsh-docs:data-sources:dns_zone:properties:secondary:tsig_key_value:clear_secret_info:section:0",
-      "source_sha256": "sha256:f4cf35c0d465cffe1e301d3df862ced143e94331b51109ed4f6dc1c700b7760b",
-      "source_bytes": 986,
-      "canonical_source_sha256": "sha256:219abe84ccb862316e98a640bd6024985912d882db198b12a1798a9b782bbf2d",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/dns_zone/properties/secondary/tsig_key_value/clear_secret_info/",
-      "anchor": "canonical-0323113331312310-3323000001233012-3330320133313030-1133231201132300-2233133131302311-2333301023012213-1023201101130113-2221321221301002",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-0002213001331323-1200100121010123-2301120030233222-2203330130212332-1331302213010022-1330213231323202-2010321231203310-0110223012100222"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--dns_zone--reference--group-003.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:dns_zone:properties:secondary:tsig_key_value:clear_secret_info",
-      "section_id": "xcsh-docs:data-sources:dns_zone:properties:secondary:tsig_key_value:clear_secret_info:section:1",
-      "source_sha256": "sha256:6b7980cc189a90cda3a2c087560b3e323ec02b3718e763c4d36c67e7f695ea52",
-      "source_bytes": 413,
-      "canonical_source_sha256": "sha256:219abe84ccb862316e98a640bd6024985912d882db198b12a1798a9b782bbf2d",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/dns_zone/properties/secondary/tsig_key_value/clear_secret_info/",
-      "anchor": "canonical-3301231120200213-2332023121211221-0003213122231212-3033112032213220-3023223220302203-0121301201203310-3002231220303113-2320303213120311",
-      "anchor_map": [
-        [
-          "schema-secondary--tsig_key_value--clear_secret_info--provider_ref",
-          "canonical-3012021300301121-2020233020332311-3000200220320123-2000003303023023-3202331302310133-2231133310330133-3302321211300300-3300030030031111"
-        ],
-        [
-          "schema-secondary--tsig_key_value--clear_secret_info--url",
-          "canonical-1330123220130302-2101200121133331-3010022021113122-3331023211020110-2230132031312100-0101030030100311-3213331132110111-3103103113303113"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--dns_zone--reference--group-003.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:dns_zone:properties:secondary:tsig_key_value:clear_secret_info",
-      "section_id": "xcsh-docs:data-sources:dns_zone:properties:secondary:tsig_key_value:clear_secret_info:section:2",
-      "source_sha256": "sha256:b3b9b364b9be63fa8446e1367206fafc16cfc2d135cf2b3add74099b75b72a6f",
-      "source_bytes": 1407,
-      "canonical_source_sha256": "sha256:219abe84ccb862316e98a640bd6024985912d882db198b12a1798a9b782bbf2d",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/dns_zone/properties/secondary/tsig_key_value/clear_secret_info/",
-      "anchor": "canonical-3221021301023132-1033233313110022-0130112312131310-0322122022100033-2230330112212321-1232221210332110-0201220013310012-2013030120303000",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--dns_zone--reference--group-003.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:dns_zone:examples",
-      "section_id": "xcsh-docs:data-sources:dns_zone:examples:section:0",
-      "source_sha256": "sha256:69cf1df8e449dac391388fa6fc2c17c54db8ade7f42d610cb54c6f5cea489392",
-      "source_bytes": 235,
-      "canonical_source_sha256": "sha256:3ccc86761ebf92466f1be8f9d7226bd37c9163b7fbd80585b6a1bd366a0087f1",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/dns_zone/examples/",
-      "anchor": "canonical-0113332031001202-0203203323031122-1110313201121223-0211122311121012-1002330222223130-0033020333320010-2320222023212020-2311211332221300",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--dns_zone--examples--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:dns_zone:examples",
-      "section_id": "xcsh-docs:data-sources:dns_zone:examples:section:1",
-      "source_sha256": "sha256:78e1dcecc4de8ba3f8ad41b658ee7e8f63a79b4e50bb8b84859ef511c3125003",
-      "source_bytes": 167,
-      "canonical_source_sha256": "sha256:3ccc86761ebf92466f1be8f9d7226bd37c9163b7fbd80585b6a1bd366a0087f1",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/dns_zone/examples/",
-      "anchor": "canonical-1322002332001110-2331103113031021-2120330300302231-2131332301113303-2022011030030013-3330320011033322-1300111110010011-3121211230220003",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--dns_zone--examples--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:dns_zone:example:data-source",
-      "section_id": "xcsh-docs:data-sources:dns_zone:example:data-source:section:0",
-      "source_sha256": "sha256:8a86097308f6d55cc05c4e07183c10cd531e82960b48bd593da6e4b18c6f5091",
-      "source_bytes": 1379,
-      "canonical_source_sha256": "sha256:8a86097308f6d55cc05c4e07183c10cd531e82960b48bd593da6e4b18c6f5091",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/dns_zone/examples/data-source/",
-      "anchor": "canonical-1022231110303301-2111303011121232-1120312000231330-3303002003013002-2303310130300221-1313130113032001-2020202123303123-0122221332001130",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--dns_zone--examples--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:dns_zone_cryptokeys:fundamentals",
-      "section_id": "xcsh-docs:data-sources:dns_zone_cryptokeys:fundamentals:section:0",
-      "source_sha256": "sha256:717fd16bdf12e5281f7a2b4013acc721f81d223302820f0452bf0aad7d6332cc",
-      "source_bytes": 243,
-      "canonical_source_sha256": "sha256:ebee95cda1fd2601e5c1daca3023f77c887ec20632226f07fc73b2f658805983",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/dns_zone_cryptokeys/",
-      "anchor": "canonical-3311023113031202-1010300221212322-1133102011021320-0033123312013310-0302320000020011-0000120213001132-1111132220110232-1220301011030302",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/data-sources/dns_zone_cryptokeys.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:dns_zone_cryptokeys:fundamentals",
-      "section_id": "xcsh-docs:data-sources:dns_zone_cryptokeys:fundamentals:section:1",
-      "source_sha256": "sha256:6c9dda0abdc8c39b93dd9d4e2d14fe4202d90147ba6309f00d53dec613761b2f",
-      "source_bytes": 146,
-      "canonical_source_sha256": "sha256:ebee95cda1fd2601e5c1daca3023f77c887ec20632226f07fc73b2f658805983",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/dns_zone_cryptokeys/",
-      "anchor": "canonical-0332032233211031-1112203133330331-1313301011232233-2331311230121032-0302322332002102-0230302012323203-1232111101230131-0113133031020302",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/data-sources/dns_zone_cryptokeys.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:dns_zone_cryptokeys:fundamentals",
-      "section_id": "xcsh-docs:data-sources:dns_zone_cryptokeys:fundamentals:section:2",
-      "source_sha256": "sha256:de95addce5e48232a331a48efd163e9fdf3b6363ab6b6eab89d566baa1003d2f",
-      "source_bytes": 497,
-      "canonical_source_sha256": "sha256:ebee95cda1fd2601e5c1daca3023f77c887ec20632226f07fc73b2f658805983",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/dns_zone_cryptokeys/",
-      "anchor": "canonical-1033332033220211-3010020310033121-3311123112103320-2322122023022331-3011110303001332-3031100203122033-3111130230212002-0301303132103111",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/data-sources/dns_zone_cryptokeys.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:dns_zone_cryptokeys:fundamentals",
-      "section_id": "xcsh-docs:data-sources:dns_zone_cryptokeys:fundamentals:section:3",
-      "source_sha256": "sha256:7a8483c793d736bd631d5b77356abb16eaaad2c810cb6cd75b06d8ff75cb70c3",
-      "source_bytes": 118,
-      "canonical_source_sha256": "sha256:ebee95cda1fd2601e5c1daca3023f77c887ec20632226f07fc73b2f658805983",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/dns_zone_cryptokeys/",
-      "anchor": "canonical-3101132002022012-0311123001032222-3030333112111222-3302131232233302-3333113211201111-0321123031211232-0132211023001312-2333113111211322",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/data-sources/dns_zone_cryptokeys.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:dns_zone_cryptokeys:fundamentals",
-      "section_id": "xcsh-docs:data-sources:dns_zone_cryptokeys:fundamentals:section:4",
-      "source_sha256": "sha256:d3c9861f222d7c53e32cc10fe491466c472b2e2441a3fabb3360e04394e28a00",
-      "source_bytes": 266,
-      "canonical_source_sha256": "sha256:ebee95cda1fd2601e5c1daca3023f77c887ec20632226f07fc73b2f658805983",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/dns_zone_cryptokeys/",
-      "anchor": "canonical-3102000113032111-1032301323311132-3320010213230100-1323001322220300-1210332111212131-3202123023111310-3331032203303210-2012033230212302",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/data-sources/dns_zone_cryptokeys.md"
     }
   ]
 }

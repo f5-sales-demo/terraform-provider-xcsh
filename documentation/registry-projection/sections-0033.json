@@ -1298,6 +1298,256 @@
       "registry_path": "docs/guides/resources--subnet--lifecycle--group-001.md"
     },
     {
+      "canonical_id": "xcsh-docs:resources:swagger_object:fundamentals",
+      "section_id": "xcsh-docs:resources:swagger_object:fundamentals:section:0",
+      "source_sha256": "sha256:423e91795b58368039e4b2ce5ac3e2876fbda713ed55517eb4e697779f9f2f73",
+      "source_bytes": 394,
+      "canonical_source_sha256": "sha256:89d3999b5828e281bb2b538f82cffca57d9ce65102c91867011804e7c5c9f8c6",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/swagger_object/",
+      "anchor": "canonical-0113122122131303-3312011120012020-2331301002012223-3033302331132230-0311201302013200-2313211231330002-3123103203213300-2123202121003133",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/resources/swagger_object.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:resources:swagger_object:fundamentals",
+      "section_id": "xcsh-docs:resources:swagger_object:fundamentals:section:1",
+      "source_sha256": "sha256:6c9dda0abdc8c39b93dd9d4e2d14fe4202d90147ba6309f00d53dec613761b2f",
+      "source_bytes": 146,
+      "canonical_source_sha256": "sha256:89d3999b5828e281bb2b538f82cffca57d9ce65102c91867011804e7c5c9f8c6",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/swagger_object/",
+      "anchor": "canonical-0022001003321211-0100123123132032-1233230321332313-0020103132121311-3030021030103012-0312233302111333-1001201013000310-3213131321222002",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/resources/swagger_object.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:resources:swagger_object:fundamentals",
+      "section_id": "xcsh-docs:resources:swagger_object:fundamentals:section:2",
+      "source_sha256": "sha256:17ed95357b460386ad66ec2cdaaea9be0af381e2dfd413ba6f3b5c6a512b5dd4",
+      "source_bytes": 592,
+      "canonical_source_sha256": "sha256:89d3999b5828e281bb2b538f82cffca57d9ce65102c91867011804e7c5c9f8c6",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/swagger_object/",
+      "anchor": "canonical-3201102022121021-1001233212200031-3112103303133022-3033302003332322-1213210300101212-1020021220332332-2312013302023233-0020232312311111",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/resources/swagger_object.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:resources:swagger_object:fundamentals",
+      "section_id": "xcsh-docs:resources:swagger_object:fundamentals:section:3",
+      "source_sha256": "sha256:259b437b969762f4b6ac55c96023de028f15bbc46860d69453851c7abb055213",
+      "source_bytes": 144,
+      "canonical_source_sha256": "sha256:89d3999b5828e281bb2b538f82cffca57d9ce65102c91867011804e7c5c9f8c6",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/swagger_object/",
+      "anchor": "canonical-0220010312103212-0131323131332201-1320322203211320-3001333003311100-0302232320231001-2220011112033032-1003332220330323-1213002022301000",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/resources/swagger_object.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:resources:swagger_object:fundamentals",
+      "section_id": "xcsh-docs:resources:swagger_object:fundamentals:section:4",
+      "source_sha256": "sha256:6652790f601d83085821424c93204d4c4bb894b1bbf2788b98d743c78a77a132",
+      "source_bytes": 361,
+      "canonical_source_sha256": "sha256:89d3999b5828e281bb2b538f82cffca57d9ce65102c91867011804e7c5c9f8c6",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/swagger_object/",
+      "anchor": "canonical-1302210201302233-2020012303102310-0212031333011111-2020032003223131-3030020021303303-3233310100323113-3223032132202223-3121300033200211",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/resources/swagger_object.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:resources:swagger_object:reference",
+      "section_id": "xcsh-docs:resources:swagger_object:reference:section:0",
+      "source_sha256": "sha256:c6f80ca8c5235fd2802d39cf94cbed2cc3cc2c96f12a5d7ee543cf3f8dcf41e4",
+      "source_bytes": 264,
+      "canonical_source_sha256": "sha256:57c8c7a90e154a3a4679cd952c56053a4432efcfd6444d1a234591e61bf71d66",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/swagger_object/properties/",
+      "anchor": "canonical-1201120211111103-2221030103330020-2302333103300223-1010321323231300-1333012002311332-0113101012000220-0113100312031013-1131032312102331",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/resources--swagger_object--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:resources:swagger_object:reference",
+      "section_id": "xcsh-docs:resources:swagger_object:reference:section:1",
+      "source_sha256": "sha256:77d835f7eac1df194fddd4febfcb1b1e685623391f11331330bdc988a223ad24",
+      "source_bytes": 223,
+      "canonical_source_sha256": "sha256:57c8c7a90e154a3a4679cd952c56053a4432efcfd6444d1a234591e61bf71d66",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/swagger_object/properties/",
+      "anchor": "canonical-1013311122000023-3022000133321320-1122023023120112-3021311213021201-2002213120030301-1100310100300222-1101313001203311-0211131121030131",
+      "anchor_map": [
+        [
+          "schema-content",
+          "canonical-3011110020011300-0121123032010022-2101220012010203-2001231102212231-1220030330320002-1023100020332232-1101231121003022-0213202032000201"
+        ],
+        [
+          "schema-id",
+          "canonical-0203003320312232-3132030113133033-3212120223212023-2212301302232123-0111101013102203-2303311212110320-2100211132021211-2200012232030200"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/resources--swagger_object--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:resources:swagger_object:reference",
+      "section_id": "xcsh-docs:resources:swagger_object:reference:section:2",
+      "source_sha256": "sha256:4979c743462c28d9f42c0f8894412f596b9cc0765b0969981f3f7c3db4369914",
+      "source_bytes": 114,
+      "canonical_source_sha256": "sha256:57c8c7a90e154a3a4679cd952c56053a4432efcfd6444d1a234591e61bf71d66",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/swagger_object/properties/",
+      "anchor": "canonical-2331131321030131-3111330003203230-0021133331200323-2203323002313001-2230331132320331-1322313033203201-2111102121323103-1232123011201022",
+      "anchor_map": [
+        [
+          "schema-name",
+          "canonical-3222322022203213-0331333110230201-2203111021101211-3321211312323111-1211203011132321-2323022231112122-1033110310102233-1200033320302030"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/resources--swagger_object--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:resources:swagger_object:reference",
+      "section_id": "xcsh-docs:resources:swagger_object:reference:section:3",
+      "source_sha256": "sha256:53ba4c9fc99dd03a2c08dff89c5d4693e400891a8016720ec48a70f0525c21e9",
+      "source_bytes": 98,
+      "canonical_source_sha256": "sha256:57c8c7a90e154a3a4679cd952c56053a4432efcfd6444d1a234591e61bf71d66",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/swagger_object/properties/",
+      "anchor": "canonical-2023321332321020-0210230132213122-1132002130111222-0002232133031221-1123302210113122-2133202001323211-0000320300010321-0022320122030322",
+      "anchor_map": [
+        [
+          "schema-namespace",
+          "canonical-3011320023021200-0132330101103013-0211331330211321-2212123003103210-0022132003133301-3222113013010302-2233321301222123-3332030123030023"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/resources--swagger_object--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:resources:swagger_object:reference",
+      "section_id": "xcsh-docs:resources:swagger_object:reference:section:4",
+      "source_sha256": "sha256:065e02c9f4c94d0d36663c691089b01b661d5cf7a59873b295c5e6b9954779cd",
+      "source_bytes": 108,
+      "canonical_source_sha256": "sha256:57c8c7a90e154a3a4679cd952c56053a4432efcfd6444d1a234591e61bf71d66",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/swagger_object/properties/",
+      "anchor": "canonical-2021300030101112-1121123230122121-1131220030321320-0000332310011101-1002032003102101-1231122023032100-1120030222133223-3301002301101321",
+      "anchor_map": [
+        [
+          "schema-path",
+          "canonical-1110110123323222-3113311003211130-3031203220302321-3223202003000103-0002021000020312-2131220332313323-2302201313003132-3103323133201300"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/resources--swagger_object--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:resources:swagger_object:reference",
+      "section_id": "xcsh-docs:resources:swagger_object:reference:section:5",
+      "source_sha256": "sha256:7d4a5b18f287e8b3a3a0835e6faff6ca3747bc1f0522a74627ed5bbf782417e7",
+      "source_bytes": 140,
+      "canonical_source_sha256": "sha256:57c8c7a90e154a3a4679cd952c56053a4432efcfd6444d1a234591e61bf71d66",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/swagger_object/properties/",
+      "anchor": "canonical-3123202320323213-3200121300030121-1331303232231112-1321231221321033-2201112310303112-2011102003132230-0133300312110020-3333020201101221",
+      "anchor_map": [
+        [
+          "schema-sha256",
+          "canonical-0333332013033120-0213133332133130-3110323030300112-2203322230222230-1313330033033031-3123322100013231-3223223101003100-3330223013313223"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/resources--swagger_object--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:resources:swagger_object:reference",
+      "section_id": "xcsh-docs:resources:swagger_object:reference:section:6",
+      "source_sha256": "sha256:cc33200b0286d9ee33626642743e1da8b3a404e70ea7d44930659ebaa3384c4f",
+      "source_bytes": 125,
+      "canonical_source_sha256": "sha256:57c8c7a90e154a3a4679cd952c56053a4432efcfd6444d1a234591e61bf71d66",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/swagger_object/properties/",
+      "anchor": "canonical-0011320313302001-2110021000231303-2230003000132232-0122122230211103-2202333202023013-3213030003211000-3010202301210212-2231320222232212",
+      "anchor_map": [
+        [
+          "schema-version",
+          "canonical-0313331030223321-0302122211220011-0231122131111111-1201331132033310-1323230023220032-3023111100102112-2110332202223330-3010011301212101"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/resources--swagger_object--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:resources:swagger_object:reference",
+      "section_id": "xcsh-docs:resources:swagger_object:reference:section:7",
+      "source_sha256": "sha256:b35ce18aacd30177ed835f9ac80d67c1715d20f537c192ec99cbb5dbedc70e31",
+      "source_bytes": 91,
+      "canonical_source_sha256": "sha256:57c8c7a90e154a3a4679cd952c56053a4432efcfd6444d1a234591e61bf71d66",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/swagger_object/properties/",
+      "anchor": "canonical-0311332322322323-0201030010102310-1301020122301220-1010113121310101-3010220001133220-1002313310132332-2120023220020203-0202313011322023",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/resources--swagger_object--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:resources:swagger_object:reference",
+      "section_id": "xcsh-docs:resources:swagger_object:reference:section:8",
+      "source_sha256": "sha256:915e40690a44c359a02bb6d5a651413da23bd1bf33abfc23373abad1107133fd",
+      "source_bytes": 1133,
+      "canonical_source_sha256": "sha256:57c8c7a90e154a3a4679cd952c56053a4432efcfd6444d1a234591e61bf71d66",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/swagger_object/properties/",
+      "anchor": "canonical-1210220020001230-2021100212021133-3200220121132101-0123013313213200-0103210312221123-1023302033230213-1020300311003232-0210221000300003",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/resources--swagger_object--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:resources:swagger_object:examples",
+      "section_id": "xcsh-docs:resources:swagger_object:examples:section:0",
+      "source_sha256": "sha256:bbab942fa455ec2701d58f9b11dcfa18ea0a68cf60241ad3c489d999fd4ac342",
+      "source_bytes": 244,
+      "canonical_source_sha256": "sha256:ad25d1e2ec992a0c0cc676d8bed23020acc09895cbaf0a54f5a20d89dc169f17",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/swagger_object/examples/",
+      "anchor": "canonical-0310331101333000-0131302031302323-0231230320030331-0132320333022212-3100123310213201-2103312121102123-2033200122203232-3103210002013122",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/resources--swagger_object--examples--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:resources:swagger_object:examples",
+      "section_id": "xcsh-docs:resources:swagger_object:examples:section:1",
+      "source_sha256": "sha256:e63716470d3312aae20184bf6b07c5cb06c04b8b87ae13d94486c4353f88fe16",
+      "source_bytes": 164,
+      "canonical_source_sha256": "sha256:ad25d1e2ec992a0c0cc676d8bed23020acc09895cbaf0a54f5a20d89dc169f17",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/swagger_object/examples/",
+      "anchor": "canonical-1132021031003331-3001033302303112-0320002201011221-3130223113221232-1330203211212303-0221332321031310-3100020213322101-0110213021202001",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/resources--swagger_object--examples--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:resources:swagger_object:example:resource",
+      "section_id": "xcsh-docs:resources:swagger_object:example:resource:section:0",
+      "source_sha256": "sha256:bf7821c8ccaeaa676031e0cc04fa19e9734d690c276b9e92bddb197eb028dffe",
+      "source_bytes": 1061,
+      "canonical_source_sha256": "sha256:bf7821c8ccaeaa676031e0cc04fa19e9734d690c276b9e92bddb197eb028dffe",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/swagger_object/examples/resource/",
+      "anchor": "canonical-0112212111233001-3021103220033002-3101233330202101-1102101332032210-3312030123003320-2010310212111112-2032111312312230-3313132120222133",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/resources--swagger_object--examples--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:resources:swagger_object:import",
+      "section_id": "xcsh-docs:resources:swagger_object:import:section:0",
+      "source_sha256": "sha256:ccadb5df8adbd125341857b0796faa1ea70d3625e92674911ba8132f34335362",
+      "source_bytes": 378,
+      "canonical_source_sha256": "sha256:ccadb5df8adbd125341857b0796faa1ea70d3625e92674911ba8132f34335362",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/swagger_object/lifecycle/import/",
+      "anchor": "canonical-0230231222233110-1330011230021332-1201331003033002-0023131311331000-2312110030201131-2200010032103120-1031100212120213-2023233312212201",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/resources--swagger_object--lifecycle--group-001.md"
+    },
+    {
       "canonical_id": "xcsh-docs:resources:tcp_loadbalancer:fundamentals",
       "section_id": "xcsh-docs:resources:tcp_loadbalancer:fundamentals:section:0",
       "source_sha256": "sha256:5d4efc58352b73a2be107e54469628af32d288cc4411c268df8ea4dcf8aeb483",
@@ -7964,256 +8214,6 @@
       ],
       "mode": "embedded",
       "registry_path": "docs/guides/resources--tunnel--reference--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:tunnel:properties:timeouts",
-      "section_id": "xcsh-docs:resources:tunnel:properties:timeouts:section:1",
-      "source_sha256": "sha256:212bc83528fa3bb9fc25a56f8d80bb7051735327176096778101293d1825702c",
-      "source_bytes": 370,
-      "canonical_source_sha256": "sha256:bc452d3a9ee8522f27f8653ab984bcad2aa56bc5446d20738952ad73a32ae9b2",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/tunnel/properties/timeouts/",
-      "anchor": "canonical-3123222011321010-0130101020103021-1122330313113122-3332120123331333-3301232100332213-2322000120111210-2133301000121303-0302313101133200",
-      "anchor_map": [
-        [
-          "schema-timeouts--create",
-          "canonical-1111032002331233-3011110202013331-2100302120201323-3322333303332330-0013332110113221-2311222011233100-2332021123001022-3022310010012200"
-        ],
-        [
-          "schema-timeouts--delete",
-          "canonical-3003300231121032-1010333210303020-1300230311103133-1320033333203300-2222310200110222-2021201232110223-2132220131131011-1311323313300213"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--tunnel--reference--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:tunnel:properties:timeouts",
-      "section_id": "xcsh-docs:resources:tunnel:properties:timeouts:section:2",
-      "source_sha256": "sha256:c439dc5bf09a99b580691986e03a32ea90ef303a0e502cd0c132fc45691d02f1",
-      "source_bytes": 437,
-      "canonical_source_sha256": "sha256:bc452d3a9ee8522f27f8653ab984bcad2aa56bc5446d20738952ad73a32ae9b2",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/tunnel/properties/timeouts/",
-      "anchor": "canonical-3320003131301033-2302022332212210-1231033100322030-0221020133020320-3221330331102112-1112333110132110-1230211212212323-0311211230311330",
-      "anchor_map": [
-        [
-          "schema-timeouts--read",
-          "canonical-3122001321021033-3321201131213102-1313303010202332-1032320021110000-1030201021012030-2030222211203031-2201113312201233-1311213103303320"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--tunnel--reference--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:tunnel:properties:timeouts",
-      "section_id": "xcsh-docs:resources:tunnel:properties:timeouts:section:3",
-      "source_sha256": "sha256:b04cc505bd11b39906bce6f7b489c97691881e998ebf10afe094610bb9a88ddd",
-      "source_bytes": 396,
-      "canonical_source_sha256": "sha256:bc452d3a9ee8522f27f8653ab984bcad2aa56bc5446d20738952ad73a32ae9b2",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/tunnel/properties/timeouts/",
-      "anchor": "canonical-1102111322202201-2321322202131223-1030333103021122-0313230021313020-3223210130203011-1231302120102113-3301332221213213-2032021213112020",
-      "anchor_map": [
-        [
-          "schema-timeouts--update",
-          "canonical-1030121211200000-1013330003323000-1101101100330112-2303110112000031-0122013132231223-3313212131313223-0012333212033201-0122321202311103"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--tunnel--reference--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:tunnel:properties:timeouts",
-      "section_id": "xcsh-docs:resources:tunnel:properties:timeouts:section:4",
-      "source_sha256": "sha256:4ae065275a0166edac160b00f1eb2f389e56d725282f1649528e36beb6153e6b",
-      "source_bytes": 271,
-      "canonical_source_sha256": "sha256:bc452d3a9ee8522f27f8653ab984bcad2aa56bc5446d20738952ad73a32ae9b2",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/tunnel/properties/timeouts/",
-      "anchor": "canonical-3031021202011020-0102120200331310-3021301030110101-0101102113211033-2300030200003221-2331212101221013-1222212203313213-0302202212101113",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--tunnel--reference--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:tunnel:examples",
-      "section_id": "xcsh-docs:resources:tunnel:examples:section:0",
-      "source_sha256": "sha256:346d1885954ccfdf714fd72d8eeba0e0ec45f94aed9c64fbc3aabd9cf9649d2d",
-      "source_bytes": 228,
-      "canonical_source_sha256": "sha256:1f75a63ca9bd5814604a1b2650655abe23855c62df3358c2dc697a87914c88c6",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/tunnel/examples/",
-      "anchor": "canonical-2313003312031200-0221021012003310-1331120231133012-0101333030122330-2020203002311013-1011200200333123-1332322203132332-2103103231221131",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--tunnel--examples--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:tunnel:examples",
-      "section_id": "xcsh-docs:resources:tunnel:examples:section:1",
-      "source_sha256": "sha256:3e800196be829dfd33ca52e425f271d48e8a67a7b9ec0ed8537699f12bf67cce",
-      "source_bytes": 156,
-      "canonical_source_sha256": "sha256:1f75a63ca9bd5814604a1b2650655abe23855c62df3358c2dc697a87914c88c6",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/tunnel/examples/",
-      "anchor": "canonical-0012233103223313-2313011312312121-3202312000332120-1033332021011332-1011001202231323-0230220232130212-3121011221000020-2331112332011012",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--tunnel--examples--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:tunnel:example:resource",
-      "section_id": "xcsh-docs:resources:tunnel:example:resource:section:0",
-      "source_sha256": "sha256:8fe5ed0f5b8d836b3173c5169668498165b9e3040908e9566eac8e4db100b3ba",
-      "source_bytes": 945,
-      "canonical_source_sha256": "sha256:8fe5ed0f5b8d836b3173c5169668498165b9e3040908e9566eac8e4db100b3ba",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/tunnel/examples/resource/",
-      "anchor": "canonical-3120322120112022-0023131222020213-3313233331303131-1021012313112101-0200300131221330-0222133001202000-3310231301110112-3323213303332023",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--tunnel--examples--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:tunnel:import",
-      "section_id": "xcsh-docs:resources:tunnel:import:section:0",
-      "source_sha256": "sha256:73e2301b31de8b8f3b4c35a4032d9eb8fad066afe665db54f6a64d98739da0d3",
-      "source_bytes": 343,
-      "canonical_source_sha256": "sha256:73e2301b31de8b8f3b4c35a4032d9eb8fad066afe665db54f6a64d98739da0d3",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/tunnel/lifecycle/import/",
-      "anchor": "canonical-1010131233201320-3203100203112233-3100302112033223-0210030201322003-2330312321130221-1233203330313332-3012322103303101-1330312132300010",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--tunnel--lifecycle--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:tunnel:timeouts",
-      "section_id": "xcsh-docs:resources:tunnel:timeouts:section:0",
-      "source_sha256": "sha256:e7a0ce698b38f35d080d879c64485cb8f439dc085dd1eaf5fdff4e92330cde56",
-      "source_bytes": 431,
-      "canonical_source_sha256": "sha256:e7a0ce698b38f35d080d879c64485cb8f439dc085dd1eaf5fdff4e92330cde56",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/tunnel/lifecycle/timeouts/",
-      "anchor": "canonical-1230003013201103-3320232012332123-0002112120313013-2100112000101101-2332120012312230-1233133320102023-0200313112202101-3301003112311131",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--tunnel--lifecycle--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:udp_loadbalancer:fundamentals",
-      "section_id": "xcsh-docs:resources:udp_loadbalancer:fundamentals:section:0",
-      "source_sha256": "sha256:b86aba8bc170b10312d59fc8dc36c6c6e04886e4938a99135e3b20bfec5c926e",
-      "source_bytes": 277,
-      "canonical_source_sha256": "sha256:3fcf6e6ce2a1c3ada71ceb6805f3a6042271218aa5d15c606c30f9393e3a461b",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/udp_loadbalancer/",
-      "anchor": "canonical-2031002110012331-0223121021210130-3122111031231033-0102213100033031-3300120332233213-0233003311303232-0311110113213220-1211333320223212",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/resources/udp_loadbalancer.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:udp_loadbalancer:fundamentals",
-      "section_id": "xcsh-docs:resources:udp_loadbalancer:fundamentals:section:1",
-      "source_sha256": "sha256:6c9dda0abdc8c39b93dd9d4e2d14fe4202d90147ba6309f00d53dec613761b2f",
-      "source_bytes": 146,
-      "canonical_source_sha256": "sha256:3fcf6e6ce2a1c3ada71ceb6805f3a6042271218aa5d15c606c30f9393e3a461b",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/udp_loadbalancer/",
-      "anchor": "canonical-3233200111221120-2221102103132322-2333130000212202-2121331023313032-2103021010123300-0333232020002120-3112002221131311-0231313111000212",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/resources/udp_loadbalancer.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:udp_loadbalancer:fundamentals",
-      "section_id": "xcsh-docs:resources:udp_loadbalancer:fundamentals:section:2",
-      "source_sha256": "sha256:ec09504f4850655965351db847f0d53ad65d66e7b0ad67d385710147c3dc0036",
-      "source_bytes": 622,
-      "canonical_source_sha256": "sha256:3fcf6e6ce2a1c3ada71ceb6805f3a6042271218aa5d15c606c30f9393e3a461b",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/udp_loadbalancer/",
-      "anchor": "canonical-1210333331201203-1230022322333000-2230021022302231-2302220331322231-3232013121302120-3032311100113132-0223130123133303-1300320030333232",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/resources/udp_loadbalancer.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:udp_loadbalancer:fundamentals",
-      "section_id": "xcsh-docs:resources:udp_loadbalancer:fundamentals:section:3",
-      "source_sha256": "sha256:0f24c496c342ab400f63cdd581bca5de161d4befccfb207a6a87620bb6fe19ab",
-      "source_bytes": 133,
-      "canonical_source_sha256": "sha256:3fcf6e6ce2a1c3ada71ceb6805f3a6042271218aa5d15c606c30f9393e3a461b",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/udp_loadbalancer/",
-      "anchor": "canonical-1022211113110003-3031103121202020-0032323113320020-2112013230130323-2100311232213033-1303003111310232-3112223321031011-1323330231011320",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/resources/udp_loadbalancer.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:udp_loadbalancer:fundamentals",
-      "section_id": "xcsh-docs:resources:udp_loadbalancer:fundamentals:section:4",
-      "source_sha256": "sha256:4bad96a34b610f3528814c9935d25b9e6f8dd297f1f9688fb05171865d38d89c",
-      "source_bytes": 484,
-      "canonical_source_sha256": "sha256:3fcf6e6ce2a1c3ada71ceb6805f3a6042271218aa5d15c606c30f9393e3a461b",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/udp_loadbalancer/",
-      "anchor": "canonical-3322131101321110-3120013221110203-1030321002022203-2301030000201232-2020232130230211-0323310110312202-0001220003232221-2131030100220133",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/resources/udp_loadbalancer.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:udp_loadbalancer:reference",
-      "section_id": "xcsh-docs:resources:udp_loadbalancer:reference:section:0",
-      "source_sha256": "sha256:59e687c5c7e52ef0e173469bfa8335a07f884e5b65159e17a38a15cc2bfc69e3",
-      "source_bytes": 268,
-      "canonical_source_sha256": "sha256:45ceecc8b3d5c520d07ee77117d1408a5be7af303e69c02d302db7ae0240d72d",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/udp_loadbalancer/properties/",
-      "anchor": "canonical-2002023213111000-0212122002033233-3102221313223201-2231030031021232-1300231222302011-1123120120031031-0312210221210100-2012113302110103",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--udp_loadbalancer--reference--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:udp_loadbalancer:reference",
-      "section_id": "xcsh-docs:resources:udp_loadbalancer:reference:section:1",
-      "source_sha256": "sha256:9f8ed42add994d0bdae5f863ddb4caf2cf59c54ace5420afdbb6fd2bfeba5a1e",
-      "source_bytes": 773,
-      "canonical_source_sha256": "sha256:45ceecc8b3d5c520d07ee77117d1408a5be7af303e69c02d302db7ae0240d72d",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/udp_loadbalancer/properties/",
-      "anchor": "canonical-0102011000323030-1231123021231123-1101302021212220-3133203132301222-3012023212201021-0300120322320013-1121211130202000-2323310302130303",
-      "anchor_map": [
-        [
-          "schema-annotations",
-          "canonical-3222130132230203-1330303011120303-1232200123100032-0132132113101002-3132000322223312-2312302123232131-2112321120213203-0032222221211012"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--udp_loadbalancer--reference--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:udp_loadbalancer:reference",
-      "section_id": "xcsh-docs:resources:udp_loadbalancer:reference:section:2",
-      "source_sha256": "sha256:b95a0727ab0fc807bb5fd9a81165a94c43c06088864126f99a6e4e144c9f4c45",
-      "source_bytes": 1582,
-      "canonical_source_sha256": "sha256:45ceecc8b3d5c520d07ee77117d1408a5be7af303e69c02d302db7ae0240d72d",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/udp_loadbalancer/properties/",
-      "anchor": "canonical-0302210303111330-1121023232013102-2023231020132233-1231001022032223-1222313223212211-3322210322233332-0333313220303022-3232231311201210",
-      "anchor_map": [
-        [
-          "schema-description",
-          "canonical-0030130001211030-1031310321030131-1233200002003020-3313010122313311-3202203320102020-1201010112311003-1003012111330021-0030131003120220"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--udp_loadbalancer--reference--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:udp_loadbalancer:reference",
-      "section_id": "xcsh-docs:resources:udp_loadbalancer:reference:section:3",
-      "source_sha256": "sha256:f2bd5ba82f19b773933b7b5ddc5f1b5ec8150c0322404f2f6bf4bdd5914f0bc4",
-      "source_bytes": 908,
-      "canonical_source_sha256": "sha256:45ceecc8b3d5c520d07ee77117d1408a5be7af303e69c02d302db7ae0240d72d",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/udp_loadbalancer/properties/",
-      "anchor": "canonical-0030312303002002-3113001223033213-0301212323330221-3330300001303231-1120220300120303-3012200321220110-3301033303002103-0312303131133020",
-      "anchor_map": [
-        [
-          "schema-disable",
-          "canonical-3220320121201312-2313103212111113-0133023103321002-0311011113012100-0211101210312111-0312333220323122-1313213300232332-0130322012100202"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--udp_loadbalancer--reference--group-001.md"
     }
   ]
 }
