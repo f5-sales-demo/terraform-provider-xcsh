@@ -389,6 +389,42 @@ def publication_body(text: str, page: dict[str, Any]) -> str:
     return "\n\n".join(part.strip() for part in parts if part.strip()) + "\n\n"
 
 
+def normalize_group_headings(text: str) -> str:
+    """Start each grouped document at h2 and keep every heading increment valid."""
+    lines = text.splitlines(keepends=True)
+    headings: list[tuple[int, int]] = []
+    in_frontmatter = bool(lines and lines[0].strip() == "---")
+    fence = None
+    for index, line in enumerate(lines):
+        if in_frontmatter:
+            if index and line.strip() == "---":
+                in_frontmatter = False
+            continue
+        marker = re.match(r"^\s{0,3}(`{3,}|~{3,})", line)
+        if marker:
+            run = marker.group(1)
+            if fence is None:
+                fence = run
+            elif run[0] == fence[0] and len(run) >= len(fence):
+                fence = None
+            continue
+        if fence is not None:
+            continue
+        heading = re.match(r"^(#{2,4}) ", line)
+        if heading:
+            headings.append((index, len(heading.group(1))))
+    if not headings:
+        return text
+    shift = max(0, headings[0][1] - 2)
+    previous = 1
+    for index, level in headings:
+        shift = min(shift, max(0, level - 2))
+        adjusted = min(max(2, level - shift), previous + 1)
+        lines[index] = "#" * adjusted + lines[index][level:]
+        previous = adjusted
+    return "".join(lines)
+
+
 def project(
     pages: list[dict[str, Any]],
     categories: dict[str, str],
@@ -420,7 +456,7 @@ def project(
             return f"[{label}]({relative}#{fragment})"
 
         text = header + "".join(rewrite_prose(item["text"], rewrite) for item in items)
-        text = text.rstrip() + "\n"
+        text = normalize_group_headings(text.rstrip() + "\n")
         if len(text.encode()) > LIMIT:
             raise ValueError("Registry document exceeds 500,000 bytes: " + path)
         outputs[path] = text

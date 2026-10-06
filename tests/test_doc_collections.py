@@ -56,6 +56,11 @@ class CollectionTests(unittest.TestCase):
                 paths.update(CollectionTests.schema_paths(shape, exact))
         return paths
 
+    def test_description_dashes_do_not_create_setext_heading(self):
+        rendered = DOCS.description_markdown("Endpoint labels\n\n------")
+        self.assertIn("&#8203;------", rendered)
+        self.assertNotIn("\n------", rendered)
+
     def test_display_override_requires_exact_source_and_scope(self):
         original = DOCS.DISPLAY_OVERRIDES["resources/http_loadbalancer/@root"][
             "original"

@@ -99,6 +99,27 @@ class ProjectionTests(unittest.TestCase):
         )
         assert projection.sections(body, 1000) == [body]
 
+    def test_group_heading_levels_start_at_two_and_preserve_code(self):
+        body = (
+            "---\npage_title: fixture\n---\n\n# Fixture\n\n"
+            "#### `nested.name` property\n\nDetails.\n\n"
+            "```hcl\n#### code heading\n```\n\n"
+            "#### `nested.other` property\n\nMore details.\n"
+        )
+        normalized = projection.normalize_group_headings(body)
+        assert normalized.count("## `nested.") == 2
+        assert "#### code heading" in normalized
+        assert normalized.startswith("---\npage_title: fixture\n---\n\n# Fixture")
+
+    def test_group_heading_parent_keeps_its_first_child(self):
+        body = (
+            "# Fixture\n\n#### `orphan` property\n\nDetails.\n\n"
+            "### Direct properties\n\n#### `child` property\n\nChild details.\n"
+        )
+        normalized = projection.normalize_group_headings(body)
+        assert "## `orphan` property" in normalized
+        assert "## Direct properties\n\n### `child` property" in normalized
+
     def test_published_group_routes_are_retained(self):
         pages = [
             self.page(str(index), f"# Section {index}\n\nDetails.\n")
