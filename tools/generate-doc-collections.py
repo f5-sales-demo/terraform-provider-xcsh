@@ -112,7 +112,7 @@ def read_json(path):
 
 DISPLAY_OVERRIDES = read_json(Path(__file__).with_name("doc-display-overrides.json"))
 PHRASE_OVERRIDES = read_json(Path(__file__).with_name("doc-phrase-overrides.json"))
-USED_DISPLAY_OVERRIDES = set()
+USED_DISPLAY_OVERRIDES: set[str] = set()
 
 
 def reviewed_phrases(value):

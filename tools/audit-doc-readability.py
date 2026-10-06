@@ -1,4 +1,5 @@
 # ruff: noqa: INP001, EM101, TRY003
+# pylint: disable=invalid-name
 """Audit visible Markdown prose in canonical and Registry documentation.
 
 The scanner does not infer prose quality from heading adjacency alone. A section
@@ -51,6 +52,7 @@ def scan(path: Path, relative: str) -> list[dict]:
 
 def scan_text(source: str, relative: str) -> list[dict]:
     """Classify exact Markdown bytes supplied from a file or immutable Git tree."""
+    # pylint: disable=too-many-locals,too-many-branches,too-many-statements
     lines = source.splitlines()
     start = 0
     if lines and lines[0] == "---":
@@ -206,15 +208,14 @@ def audit_git(root: Path, ref: str) -> tuple[dict, list[dict]]:
         and "specifications" not in Path(name).parts
     ]
     findings = []
-    process = subprocess.Popen(  # noqa: S603
+    with subprocess.Popen(  # noqa: S603
         [git, "cat-file", "--batch"],
         cwd=root,
         stdin=subprocess.PIPE,
         stdout=subprocess.PIPE,
-    )
-    if process.stdin is None or process.stdout is None:
-        raise RuntimeError("Git batch pipes are unavailable")
-    try:
+    ) as process:
+        if process.stdin is None or process.stdout is None:
+            raise RuntimeError("Git batch pipes are unavailable")
         for relative in paths:
             process.stdin.write(f"{ref}:{relative}\n".encode())
             process.stdin.flush()
@@ -226,7 +227,6 @@ def audit_git(root: Path, ref: str) -> tuple[dict, list[dict]]:
             if process.stdout.read(1) != b"\n":
                 raise RuntimeError("invalid Git batch delimiter")
             findings.extend(scan_text(source, relative))
-    finally:
         process.stdin.close()
         if process.wait() != 0:
             raise RuntimeError("Git batch reader failed")

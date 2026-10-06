@@ -223,6 +223,37 @@ def collect_sections(pages: list[dict[str, Any]], site: str) -> tuple[dict, list
     return buckets, records
 
 
+def group_items(items: list[dict], header: str, layout_key: str) -> list[list[dict]]:
+    """Pack sections and retain the published group-route count."""
+    groups: list[list[dict]] = []
+    group: list[dict] = []
+    size = len(header.encode())
+    for item in items:
+        # Bound link expansion conservatively before destinations are known.
+        item_size = len(item["text"].encode()) + 512 * len(LINK.findall(item["text"]))
+        if group and size + item_size > TARGET:
+            groups.append(group)
+            group, size = [], len(header.encode())
+        group.append(item)
+        size += item_size
+    if group:
+        groups.append(group)
+    minimum_groups = ROUTE_LAYOUT.get(layout_key, 1)
+    while len(groups) < minimum_groups:
+        candidates = [
+            (sum(len(item["text"].encode()) for item in group), index)
+            for index, group in enumerate(groups)
+            if len(group) > 1
+        ]
+        if not candidates:
+            raise ValueError("cannot preserve Registry routes for " + layout_key)
+        index = max(candidates)[1]
+        original = groups.pop(index)
+        middle = len(original) // 2
+        groups[index:index] = [original[:middle], original[middle:]]
+    return groups
+
+
 def assign_groups(buckets: dict, categories: dict[str, str]) -> tuple[dict, dict]:
     """Assign deterministic grouped files and every fragment destination."""
     outputs: dict[str, Any] = {}
@@ -233,36 +264,8 @@ def assign_groups(buckets: dict, categories: dict[str, str]) -> tuple[dict, dict
         if family != "landing":
             title += " " + family
         header = wrapper(title, categories[page["collection_id"]])
-        groups: list[list[dict]] = []
-        group: list[dict] = []
-        size = len(header.encode())
-        for item in items:
-            # Bound link expansion conservatively before destinations are known.
-            item_size = len(item["text"].encode()) + 512 * len(
-                LINK.findall(item["text"])
-            )
-            if group and size + item_size > TARGET:
-                groups.append(group)
-                group, size = [], len(header.encode())
-            group.append(item)
-            size += item_size
-        if group:
-            groups.append(group)
         layout_key = "/".join((page["provider_type"], page["provider_name"], family))
-        minimum_groups = ROUTE_LAYOUT.get(layout_key, 1)
-        while len(groups) < minimum_groups:
-            candidates = [index for index, group in enumerate(groups) if len(group) > 1]
-            if not candidates:
-                raise ValueError("cannot preserve Registry routes for " + layout_key)
-            index = max(
-                candidates,
-                key=lambda candidate: sum(
-                    len(item["text"].encode()) for item in groups[candidate]
-                ),
-            )
-            original = groups.pop(index)
-            middle = len(original) // 2
-            groups[index:index] = [original[:middle], original[middle:]]
+        groups = group_items(items, header, layout_key)
         for number, group in enumerate(groups, 1):
             path = (
                 f"docs/{page['provider_type']}/{page['provider_name']}.md"
