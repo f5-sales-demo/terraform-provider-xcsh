@@ -2,7 +2,7 @@
 page_title: "where.virtual_site"
 subcategory: ""
 description: "A reference to virtual_site object."
-xcsh_docs: {"aliases": ["where virtual site"], "body_bytes": 7819, "body_sha256": "sha256:c955204f9f3d9f2a448715769ba2a862ea126b12c33152b85ce0d52cba0c1554", "capabilities": ["networking"], "category": "networking", "child_ids": ["xcsh-docs:data-sources:advertise_policy:properties:where:virtual_site:disable_internet_vip", "xcsh-docs:data-sources:advertise_policy:properties:where:virtual_site:enable_internet_vip", "xcsh-docs:data-sources:advertise_policy:properties:where:virtual_site:ref"], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:data-sources:advertise_policy:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:advertise_policy:properties:where:virtual_site", "parent_id": "xcsh-docs:data-sources:advertise_policy:properties:where", "path": "documentation/data-sources/advertise_policy/properties/where/virtual_site/index.md", "product": "distributed-cloud", "provider_name": "advertise_policy", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "data-sources", "registry_anchor": "canonical-1122300101022033-1023233111033000-3200123020121203-1031111032230031-2102210032312210-0211312202230101-3021312302303020-0330211202113310", "registry_path": "docs/guides/data-sources--advertise_policy--reference--group-001.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["where", "virtual_site"], "schema_version": 1, "sections": [{"aliases": ["where virtual site disable internet vip"], "anchor": "section", "description": "This can be used for messages where no values are needed.", "document_id": "xcsh-docs:data-sources:advertise_policy:properties:where:virtual_site:disable_internet_vip", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["where", "virtual_site", "disable_internet_vip"], "syntax": "attribute", "type": "object"}, {"aliases": ["where virtual site enable internet vip"], "anchor": "section", "description": "This can be used for messages where no values are needed.", "document_id": "xcsh-docs:data-sources:advertise_policy:properties:where:virtual_site:enable_internet_vip", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["where", "virtual_site", "enable_internet_vip"], "syntax": "attribute", "type": "object"}, {"aliases": ["where virtual site network type"], "anchor": "schema-where--virtual_site--network_type", "description": "Different types of virtual networks understood by the system Virtual-network of type VIRTUAL_NETWORK_SITE_LOCAL provides connectivity to public (outside) network. This is an insecure network and is connected to public internet via NAT Gateways/firwalls Virtual-network of this type is local to every site. Two virtual", "document_id": "xcsh-docs:data-sources:advertise_policy:properties:where:virtual_site", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["where", "virtual_site", "network_type"], "syntax": "attribute", "type": "string"}, {"aliases": ["where virtual site ref"], "anchor": "section", "description": "A virtual_site direct reference.", "document_id": "xcsh-docs:data-sources:advertise_policy:properties:where:virtual_site:ref", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": "list", "relationships": [], "schema_path": ["where", "virtual_site", "ref"], "syntax": "attribute", "type": "object"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/advertise_policy/properties/where/virtual_site/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "A reference to virtual_site object.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["advertise_policyCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
+xcsh_docs: {"aliases": ["where virtual site"], "body_bytes": 7004, "body_sha256": "sha256:8f18f885f3e920ce573400016477dec439f0a9c2c9525499bcbfa7dac85f130d", "capabilities": ["networking"], "category": "networking", "child_ids": ["xcsh-docs:data-sources:advertise_policy:properties:where:virtual_site:disable_internet_vip", "xcsh-docs:data-sources:advertise_policy:properties:where:virtual_site:enable_internet_vip", "xcsh-docs:data-sources:advertise_policy:properties:where:virtual_site:ref"], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:data-sources:advertise_policy:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:advertise_policy:properties:where:virtual_site", "parent_id": "xcsh-docs:data-sources:advertise_policy:properties:where", "path": "documentation/data-sources/advertise_policy/properties/where/virtual_site/index.md", "product": "distributed-cloud", "provider_name": "advertise_policy", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "data-sources", "registry_anchor": "canonical-1122300101022033-1023233111033000-3200123020121203-1031111032230031-2102210032312210-0211312202230101-3021312302303020-0330211202113310", "registry_path": "docs/guides/data-sources--advertise_policy--reference--group-001.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["where", "virtual_site"], "schema_version": 1, "sections": [{"aliases": ["where virtual site disable internet vip"], "anchor": "section", "description": "This can be used for messages where no values are needed.", "document_id": "xcsh-docs:data-sources:advertise_policy:properties:where:virtual_site:disable_internet_vip", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["where", "virtual_site", "disable_internet_vip"], "syntax": "attribute", "type": "object"}, {"aliases": ["where virtual site enable internet vip"], "anchor": "section", "description": "This can be used for messages where no values are needed.", "document_id": "xcsh-docs:data-sources:advertise_policy:properties:where:virtual_site:enable_internet_vip", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["where", "virtual_site", "enable_internet_vip"], "syntax": "attribute", "type": "object"}, {"aliases": ["where virtual site network type"], "anchor": "schema-where--virtual_site--network_type", "description": "Different types of virtual networks understood by the system Virtual-network of type VIRTUAL_NETWORK_SITE_LOCAL provides connectivity to public (outside) network. This is an insecure network and is connected to public internet via NAT Gateways/firwalls Virtual-network of this type is local to every site. Two virtual", "document_id": "xcsh-docs:data-sources:advertise_policy:properties:where:virtual_site", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["where", "virtual_site", "network_type"], "syntax": "attribute", "type": "string"}, {"aliases": ["where virtual site ref"], "anchor": "section", "description": "A virtual_site direct reference.", "document_id": "xcsh-docs:data-sources:advertise_policy:properties:where:virtual_site:ref", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": "list", "relationships": [], "schema_path": ["where", "virtual_site", "ref"], "syntax": "attribute", "type": "object"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/advertise_policy/properties/where/virtual_site/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "A reference to virtual_site object.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["advertise_policyCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -23,10 +23,6 @@ Breadcrumbs:
 Type: `"single"`. Computed.
 
 Virtual Site. A reference to virtual\_site object.
-
-Upstream description:
-
-A reference to virtual\_site object.
 
 Receipt-pinned upstream constraints:
 
@@ -68,32 +64,28 @@ is local to.. Possible values are \`VIRTUAL\_NETWORK\_SITE\_LOCAL\`,
 \`VIRTUAL\_NETWORK\_SEGMENT\`, \`VIRTUAL\_NETWORK\_MANAGEMENT\`. Defaults to
 \`VIRTUAL\_NETWORK\_SITE\_LOCAL\`.
 
-Upstream description:
+Additional upstream details:
 
 Different types of virtual networks understood by the system
 
 Virtual-network of type VIRTUAL\_NETWORK\_SITE\_LOCAL provides connectivity to public (outside)
 network. This is an insecure network and is connected to public internet via NAT Gateways/firwalls
 Virtual-network of this type is local to every site. Two virtual networks of this type on different
-sites are neither related nor connected.
-
-Constraints: There can be atmost one virtual network of this type in a given site. This network type
-is supported on CE sites. This network is created automatically and present on all sites
-Virtual-network of type VIRTUAL\_NETWORK\_SITE\_LOCAL\_INSIDE is a private network inside site. It
-is a secure network and is not connected to public network. Virtual-network of this type is local to
-every site. Two virtual networks of this type on different sites are neither related nor connected.
-
-Constraints: There can be atmost one virtual network of this type in a given site. This network type
-is supported on CE sites. This network is created during provisioning of site User defined per-site
-virtual network. Scope of this virtual network is limited to the site. This is not yet supported
-Virtual-network of type VIRTUAL\_NETWORK\_PUBLIC directly connects to the public internet.
+sites are neither related nor connected. Constraints: There can be atmost one virtual network of
+this type in a given site. This network type is supported on CE sites. This network is created
+automatically and present on all sites Virtual-network of type VIRTUAL\_NETWORK\_SITE\_LOCAL\_INSIDE
+is a private network inside site. It is a secure network and is not connected to public network.
 Virtual-network of this type is local to every site. Two virtual networks of this type on different
-sites are neither related nor connected.
-
-Constraints: There can be atmost one virtual network of this type in a given site. This network type
-is supported on RE sites only It is an internally created by the system. They must not be created by
-user Virtual Networks with global scope across different sites in F5XC domain. An example global
-virtual-network called "AIN Network" is created for every tenant. For F5 Distributed Cloud fabric
+sites are neither related nor connected. Constraints: There can be atmost one virtual network of
+this type in a given site. This network type is supported on CE sites. This network is created
+during provisioning of site User defined per-site virtual network. Scope of this virtual network is
+limited to the site. This is not yet supported Virtual-network of type VIRTUAL\_NETWORK\_PUBLIC
+directly connects to the public internet. Virtual-network of this type is local to every site. Two
+virtual networks of this type on different sites are neither related nor connected. Constraints:
+There can be atmost one virtual network of this type in a given site. This network type is supported
+on RE sites only It is an internally created by the system. They must not be created by user Virtual
+Networks with global scope across different sites in F5XC domain. An example global virtual-network
+called "AIN Network" is created for every tenant. For F5 Distributed Cloud fabric
 
 Constraints: It is currently only supported as internally created by the system. VK8s service
 network for a given tenant. Used to advertise a virtual host only to vk8s pods for that tenant
@@ -149,11 +141,3 @@ Receipt-pinned upstream constraints:
 ```
 
 - [ref](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/advertise_policy/properties/where/virtual_site/ref/): complete subsection reference.
-
-## Next pages
-
-- [where.virtual_site.disable_internet_vip](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/advertise_policy/properties/where/virtual_site/disable_internet_vip/)
-- [where.virtual_site.enable_internet_vip](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/advertise_policy/properties/where/virtual_site/enable_internet_vip/)
-- [where.virtual_site.ref](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/advertise_policy/properties/where/virtual_site/ref/)
-- [where](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/advertise_policy/properties/where/)
-- [xcsh_advertise_policy](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/advertise_policy/)

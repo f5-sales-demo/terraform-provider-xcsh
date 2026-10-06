@@ -1,10 +1,10 @@
 ---
-page_title: "xcsh_secret_management_access landing"
+page_title: "xcsh_secret_management_access"
 subcategory: ""
-description: "Complete grouped canonical reference for xcsh_secret_management_access landing."
+description: "Complete grouped canonical reference for xcsh_secret_management_access."
 ---
 
-# xcsh_secret_management_access landing
+# xcsh_secret_management_access
 
 <a id="canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020"></a>
 
@@ -12,9 +12,7 @@ description: "Complete grouped canonical reference for xcsh_secret_management_ac
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2103013333023101-1001333333231231-3312023303122200-1031330001033233-0320121120332302-2333212033033112-0030212122321230-0103233031003031"></a>
-
-## xcsh_secret_management_access — xcsh_secret_management_access / 122033110210 / 2
+## Overview
 
 Breadcrumbs:
 
@@ -23,15 +21,15 @@ Breadcrumbs:
 Manages secret\_management\_access creates a new object in storage backend for metadata.namespace in
 F5 Distributed Cloud.
 
-<a id="canonical-3202302213302220-2132113220333101-1001031131001103-0022211223011110-2320211303202301-1331300131223031-0120010302131331-0223332201121122"></a>
+<a id="canonical-2103013333023101-1001333333231231-3312023303122200-1031330001033233-0320121120332302-2333212033033112-0030212122321230-0103233031003031"></a>
 
-## Prerequisites — xcsh_secret_management_access / 122033110210 / 3
+### Prerequisites for `xcsh_secret_management_access`
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-1321213121233221-1210012212023010-0212202120000011-3203121113013032-1031033312133232-3130023003323210-2210130103223021-0120313101302332"></a>
+<a id="canonical-3202302213302220-2132113220333101-1001031131001103-0022211223011110-2320211303202301-1331300131223031-0120010302131331-0223332201121122"></a>
 
-## Minimal configuration — xcsh_secret_management_access / 122033110210 / 4
+### Minimal configuration for `xcsh_secret_management_access`
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -59,15 +57,15 @@ resource "xcsh_secret_management_access" "example" {
 }
 ```
 
-<a id="canonical-1313023303123002-0231311201221210-2133101202103321-1123210103132202-0212213203033310-0330320221110031-3312321030222210-2202232030223322"></a>
+<a id="canonical-1321213121233221-1210012212023010-0212202120000011-3203121113013032-1031033312133232-3130023003323210-2210130103223021-0120313101302332"></a>
 
-## Root configuration — xcsh_secret_management_access / 122033110210 / 5
+### Root configuration for `xcsh_secret_management_access`
 
 Required root properties: `name`, `namespace`, `provider_name`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-3022003300022321-2321022133301123-1230030232200231-1103112133010323-0331220300201202-0101020123013122-0100032210020132-0331330333202020"></a>
+<a id="canonical-1313023303123002-0231311201221210-2133101202103321-1123210103132202-0212213203033310-0330320221110031-3312321030222210-2202232030223322"></a>
 
-## Next pages — xcsh_secret_management_access / 122033110210 / 6
+### Explore this collection for `xcsh_secret_management_access`
 
 - [Property reference](../guides/resources--secret_management_access--reference--group-001.md#canonical-0032020332001320-3010332010002310-2231312312333102-1213312333213211-2000323020020311-0210022012013130-0030301110003231-0300312031002123)
 - [Examples](../guides/resources--secret_management_access--examples--group-001.md#canonical-2111202301110310-0313132001022331-3123020103123130-2301210312131331-1013011323103223-2100201310303012-1333233323020312-3022111021121303)

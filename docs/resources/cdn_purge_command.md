@@ -1,10 +1,10 @@
 ---
-page_title: "xcsh_cdn_purge_command landing"
+page_title: "xcsh_cdn_purge_command"
 subcategory: ""
-description: "Complete grouped canonical reference for xcsh_cdn_purge_command landing."
+description: "Complete grouped canonical reference for xcsh_cdn_purge_command."
 ---
 
-# xcsh_cdn_purge_command landing
+# xcsh_cdn_purge_command
 
 <a id="canonical-0023022220111331-3102221003101103-0013330220230321-0113210333131330-1333010132202103-2320102103332311-0323220121121123-1132022333100211"></a>
 
@@ -12,9 +12,7 @@ description: "Complete grouped canonical reference for xcsh_cdn_purge_command la
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2101101133032332-3211203010332031-0202330101223113-0012220210311111-0333001321032233-0023302122001021-0212311220033220-2021110301230211"></a>
-
-## xcsh_cdn_purge_command — xcsh_cdn_purge_command / 210032111330 / 2
+## Overview
 
 Breadcrumbs:
 
@@ -23,15 +21,15 @@ Breadcrumbs:
 Manages a CDN Purge Command resource in F5 Distributed Cloud for cdn purge command specification.
 configuration.
 
-<a id="canonical-3013332021111010-2122332013112012-3320030311103220-3221212201010330-1303220011110030-0302200010333021-3032323102033111-1310302231313311"></a>
+<a id="canonical-2101101133032332-3211203010332031-0202330101223113-0012220210311111-0333001321032233-0023302122001021-0212311220033220-2021110301230211"></a>
 
-## Prerequisites — xcsh_cdn_purge_command / 210032111330 / 3
+### Prerequisites for `xcsh_cdn_purge_command`
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-1211021320202302-3011221213103122-2312030321121033-3023231220321232-1003122112013130-1303333232203313-1012103032312013-0101010301033223"></a>
+<a id="canonical-3013332021111010-2122332013112012-3320030311103220-3221212201010330-1303220011110030-0302200010333021-3032323102033111-1310302231313311"></a>
 
-## Minimal configuration — xcsh_cdn_purge_command / 210032111330 / 4
+### Minimal configuration for `xcsh_cdn_purge_command`
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -57,15 +55,15 @@ resource "xcsh_cdn_purge_command" "example" {
 }
 ```
 
-<a id="canonical-2012031213031321-3123210120313223-1303320112302322-0112133330310333-2313303033302102-0033321033311023-0311100123101320-3312231312023323"></a>
+<a id="canonical-1211021320202302-3011221213103122-2312030321121033-3023231220321232-1003122112013130-1303333232203313-1012103032312013-0101010301033223"></a>
 
-## Root configuration — xcsh_cdn_purge_command / 210032111330 / 5
+### Root configuration for `xcsh_cdn_purge_command`
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-1232323312303123-0103300230300122-1212001121002220-1212111231321200-2213230122030322-1133201200010222-3320122103301211-2331301113300112"></a>
+<a id="canonical-2012031213031321-3123210120313223-1303320112302322-0112133330310333-2313303033302102-0033321033311023-0311100123101320-3312231312023323"></a>
 
-## Next pages — xcsh_cdn_purge_command / 210032111330 / 6
+### Explore this collection for `xcsh_cdn_purge_command`
 
 - [Property reference](../guides/resources--cdn_purge_command--reference--group-001.md#canonical-0031133333032031-1202232013003002-3122211020121123-0122133210330011-2311331103310102-1022210232331223-3030132130110223-1122200112310302)
 - [Examples](../guides/resources--cdn_purge_command--examples--group-001.md#canonical-1213321202020020-1110201131212332-3220110122310332-0101202001133221-3021211132222120-3032102012001031-2302002331310030-1110002322303332)

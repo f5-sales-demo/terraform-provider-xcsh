@@ -1,10 +1,10 @@
 ---
-page_title: "xcsh_site_registration landing"
+page_title: "xcsh_site_registration"
 subcategory: ""
-description: "Complete grouped canonical reference for xcsh_site_registration landing."
+description: "Complete grouped canonical reference for xcsh_site_registration."
 ---
 
-# xcsh_site_registration landing
+# xcsh_site_registration
 
 <a id="canonical-0221320201003103-1113221123313022-3012232320202111-1102003100013311-1211333210300221-2033323203332313-2123023330321203-0021132030210102"></a>
 
@@ -12,9 +12,7 @@ description: "Complete grouped canonical reference for xcsh_site_registration la
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0313013313120312-1030322002000021-1320030132111003-3022033231312200-0111311132213002-2200223011101132-1222031130100330-0033222011321011"></a>
-
-## xcsh_site_registration — xcsh_site_registration / 013301332131 / 2
+## Overview
 
 Breadcrumbs:
 
@@ -39,15 +37,15 @@ resource "xcsh\_registration\_approval" "ce" \{ count = data.xcsh\_site\_registr
 \*\*Possible \`state\` values:\*\* \`NOTSET\`, \`NEW\`, \`APPROVED\`, \`ADMITTED\`, \`RETIRED\`,
 \`FAILED\`, \`DONE\`, \`PENDING\`, \`ONLINE\`, \`UPGRADING\`, \`MAINTENANCE\`, \`FAILED\_INACTIVE\`.
 
-<a id="canonical-2020200103202033-0021022011303330-3233133212110232-0030313220132211-1311102103323012-2000131010013303-1210212210133103-0221102012003211"></a>
+<a id="canonical-0313013313120312-1030322002000021-1320030132111003-3022033231312200-0111311132213002-2200223011101132-1222031130100330-0033222011321011"></a>
 
-## Prerequisites — xcsh_site_registration / 013301332131 / 3
+### Prerequisites for `xcsh_site_registration`
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-0231200301011102-2201320113023021-0000201332201332-2001213121110310-0021303112013032-1030331121102022-2103113032112020-1112222322223203"></a>
+<a id="canonical-2020200103202033-0021022011303330-3233133212110232-0030313220132211-1311102103323012-2000131010013303-1210212210133103-0221102012003211"></a>
 
-## Minimal configuration — xcsh_site_registration / 013301332131 / 4
+### Minimal configuration for `xcsh_site_registration`
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -108,15 +106,15 @@ resource "xcsh_registration_approval" "ce" {
 }
 ```
 
-<a id="canonical-2011110112322133-3001022310102312-2103011223021002-3202222132310212-3213313013223332-3312331302232023-1330031213010123-0213001000101333"></a>
+<a id="canonical-0231200301011102-2201320113023021-0000201332201332-2001213121110310-0021303112013032-1030331121102022-2103113032112020-1112222322223203"></a>
 
-## Root configuration — xcsh_site_registration / 013301332131 / 5
+### Root configuration for `xcsh_site_registration`
 
 Required root properties: `site_name`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-1212012233111323-3200212230211002-1203203133122220-2212031202220113-2022011032222332-2003033002100321-3132010103202021-2302312100030213"></a>
+<a id="canonical-2011110112322133-3001022310102312-2103011223021002-3202222132310212-3213313013223332-3312331302232023-1330031213010123-0213001000101333"></a>
 
-## Next pages — xcsh_site_registration / 013301332131 / 6
+### Explore this collection for `xcsh_site_registration`
 
 - [Property reference](../guides/data-sources--site_registration--reference--group-001.md#canonical-2320211032313111-3313013020320031-3112023331221310-0200221133230022-3003012012313303-0233000303323100-2311002300202220-2110132031202120)
 - [Examples](../guides/data-sources--site_registration--examples--group-001.md#canonical-0233333013220313-2223303100001112-2221330231210023-3102200200300210-3032123020221200-0013203103123133-2201222130300113-3122022233323033)

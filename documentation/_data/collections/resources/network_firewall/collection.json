@@ -186,8 +186,8 @@
   "pages": [
     {
       "aliases": ["network firewall"],
-      "body_bytes": 1702,
-      "body_sha256": "sha256:14db7303b5baaa9d22bcfd8dda2c6fc3873609afaa88f47c23b80118e569a3b8",
+      "body_bytes": 1715,
+      "body_sha256": "sha256:05333954478631395a1e72713c2d24bf7056d03b3adb54b4092baaff37f6957e",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -232,8 +232,8 @@
     },
     {
       "aliases": ["network firewall"],
-      "body_bytes": 18163,
-      "body_sha256": "sha256:31271edde4b8c9e115ef0a2e511d08685e6549214316e734f0dd73ded46d7457",
+      "body_bytes": 16730,
+      "body_sha256": "sha256:55186a934270005762fc986bc044c3a2377c1b962a0bc011d55db54b35b76e15",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -528,8 +528,8 @@
     },
     {
       "aliases": ["active enhanced firewall policies"],
-      "body_bytes": 2775,
-      "body_sha256": "sha256:1317608d61289640b4d95f1eb75903808908b8dfbb346f71ac35ec3c4ace337d",
+      "body_bytes": 2102,
+      "body_sha256": "sha256:f8d1f4d7702e5038f58e2513507a2c80fc5d84b241fcf51261666c65afe41387",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -603,8 +603,8 @@
     },
     {
       "aliases": ["active enhanced firewall policies enhanced firewall policies"],
-      "body_bytes": 6753,
-      "body_sha256": "sha256:0d6033d3f2a919d2fafdf0e416989d8cdf4d011f23aeace28744f3f2efa55059",
+      "body_bytes": 5955,
+      "body_sha256": "sha256:aea3e53a5ec34c02bc2602c011320654dbc0d83c537c4596885853e7626b0ce9",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -695,8 +695,8 @@
     },
     {
       "aliases": ["active fast acls"],
-      "body_bytes": 2034,
-      "body_sha256": "sha256:303c13b02362b2be29428b83d0255e43a3d5f86b08701cae2d412591d7507e29",
+      "body_bytes": 1641,
+      "body_sha256": "sha256:2e6bfd1662b568d7a203fb2903f22d14ef698d56e17d474f688f4cd9cd4a1d3a",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": ["xcsh-docs:resources:network_firewall:properties:active_fast_acls:fast_acls"],
@@ -768,8 +768,8 @@
     },
     {
       "aliases": ["active fast acls fast acls"],
-      "body_bytes": 6509,
-      "body_sha256": "sha256:e1c0731c8e43d1110355565bc7260f3c51ab38fe331715f6f9c313f64daffb74",
+      "body_bytes": 5745,
+      "body_sha256": "sha256:6fa73e6f53996b56600a136f2e5075f81e7f61240fe320c4f4f3f7b1e3ad31b5",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -860,8 +860,8 @@
     },
     {
       "aliases": ["active forward proxy policies"],
-      "body_bytes": 2294,
-      "body_sha256": "sha256:e6ed35189c6fa76e53672ac3197e651c7ac66829739d4fc5616aa90ce686e906",
+      "body_bytes": 1771,
+      "body_sha256": "sha256:8241d2413c806d01d9158020f418b41f5b71a1c7d33d240d8437f54656ceb86c",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -935,8 +935,8 @@
     },
     {
       "aliases": ["active forward proxy policies forward proxy policies"],
-      "body_bytes": 6689,
-      "body_sha256": "sha256:5989bb5074ea685972c73749c42b3a9a52d91a23da4359231e3d9ae10b865100",
+      "body_bytes": 5899,
+      "body_sha256": "sha256:4c19909b73df0155ee721aed3aa42b07223b35bbd4bca64a327cc9080f516b53",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -1027,8 +1027,8 @@
     },
     {
       "aliases": ["active network policies"],
-      "body_bytes": 1659,
-      "body_sha256": "sha256:5e74f981920b157cf9afe103ec53b5a5b3bca2375863d5ffce6e1a34a18061ce",
+      "body_bytes": 1238,
+      "body_sha256": "sha256:fe28bac01d8c16e5514ccea73dc1c19a71639c073a8996794e100f4eb818acff",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": ["xcsh-docs:resources:network_firewall:properties:active_network_policies:network_policies"],
@@ -1100,8 +1100,8 @@
     },
     {
       "aliases": ["active network policies network policies"],
-      "body_bytes": 6620,
-      "body_sha256": "sha256:5f7b315aed8f1d863dc5cab3af02aea7e8bf473f8aaffcab7f793d011bd7dc98",
+      "body_bytes": 5842,
+      "body_sha256": "sha256:db4231d28405b5fae72f3efbbbd407b87b17c45edeafeb37ea095a5faf12b9c6",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -1192,8 +1192,8 @@
     },
     {
       "aliases": ["disable fast acl"],
-      "body_bytes": 1214,
-      "body_sha256": "sha256:3da821e31767902d2cd809428d456395d53f2e50c9fc3dc36845bb04c305d0e7",
+      "body_bytes": 953,
+      "body_sha256": "sha256:796730eeed4a9139b01e244fa788ea0c16bff491ff9be479c0348d713d4b1ba2",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -1232,8 +1232,8 @@
     },
     {
       "aliases": ["disable forward proxy policy"],
-      "body_bytes": 1243,
-      "body_sha256": "sha256:a3a8a73ea4590fe4522259482a53f51c954308f38dc271ded8dfa3d86ef3d16a",
+      "body_bytes": 982,
+      "body_sha256": "sha256:69914aea7011327dd66227e16d7af48d7718a06d304a57b22452bab704b0e109",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -1272,8 +1272,8 @@
     },
     {
       "aliases": ["disable network policy"],
-      "body_bytes": 1225,
-      "body_sha256": "sha256:731a89f191d588f5e77aa7f867b54490d37c6e0226f91f1013fb74e53f073703",
+      "body_bytes": 964,
+      "body_sha256": "sha256:063b07b40138601f02f1285a4963b2815c25ca1e50dcb9d616513b0ebeae8bd7",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -1312,8 +1312,8 @@
     },
     {
       "aliases": ["duration", "lifecycle timeout", "operation timeout", "timeouts"],
-      "body_bytes": 2255,
-      "body_sha256": "sha256:f4aa96afc1043f1664b3ebd1b310085345715bbbf8270d4cecc6d9927bec30d0",
+      "body_bytes": 2009,
+      "body_sha256": "sha256:2ff6ee4021bffd27ec475d70d754b2e8b1f2272a89f75997a439cd618e7eb9ff",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -1444,8 +1444,8 @@
     },
     {
       "aliases": ["network firewall"],
-      "body_bytes": 657,
-      "body_sha256": "sha256:a125722c4c96dbec0e40bbfa5948a2983945a4a1b9bce3950374dd9c7a19dc9b",
+      "body_bytes": 414,
+      "body_sha256": "sha256:77551125237e06a4f4a57cc08ed2504b458389193e01e9eecba2f12cd49846af",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": ["xcsh-docs:resources:network_firewall:example:resource"],
@@ -1484,8 +1484,8 @@
     },
     {
       "aliases": ["resource"],
-      "body_bytes": 1341,
-      "body_sha256": "sha256:026f3ac6bee315cc2035696dbc8e95138c6c755e8c32f57a939b766b3ae04d07",
+      "body_bytes": 1107,
+      "body_sha256": "sha256:cd4c8d860bbb4f52f125dbd165d416331e1f6ad8d1bb8dc198a7759b609338c8",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -1531,8 +1531,8 @@
     },
     {
       "aliases": ["network firewall"],
-      "body_bytes": 500,
-      "body_sha256": "sha256:d2cbb7e57da2289a58d7c6854bbccf08a4df61587dd0bbafdb80b98801626048",
+      "body_bytes": 373,
+      "body_sha256": "sha256:0319dbdab92ad8bfba9e76712861ff869149323098d9983065f93b99eaa1ba58",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -1572,8 +1572,8 @@
     },
     {
       "aliases": ["network firewall"],
-      "body_bytes": 588,
-      "body_sha256": "sha256:714771b3dd61f542eeb01082e14202392ade5949c08821a8b9fcfef17ecc144c",
+      "body_bytes": 461,
+      "body_sha256": "sha256:382b7c9beb205b8f61b6789685d05e109ff81bac4213543081f5ce10e67c80ff",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],

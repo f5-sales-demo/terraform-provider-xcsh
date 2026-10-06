@@ -391,8 +391,8 @@
   "pages": [
     {
       "aliases": ["policy based routing"],
-      "body_bytes": 1458,
-      "body_sha256": "sha256:325df147fd56e88437d40aa255c89d7e9958faa18e1a2f8174eb6a8b45149783",
+      "body_bytes": 1403,
+      "body_sha256": "sha256:91ab088d1a78331bbd1dc83b7e080c58d9abf99e1c5227f2b52bb7be47c1080e",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -423,7 +423,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/policy_based_routing/index.txt",
       "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
-      "summary": "Manages a Policy Based Routing resource in F5 Distributed Cloud for network policy based routing create specification. configuration.",
+      "summary": "Reads Policy Based Routing information from F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_policy_based_routing",
       "unresolved_relationships": [],
@@ -435,8 +435,8 @@
     },
     {
       "aliases": ["policy based routing"],
-      "body_bytes": 30008,
-      "body_sha256": "sha256:52ab684225c1965c3ed91b0189d2bd2ad68d8137364e41d0033aa0ca5d7b6f79",
+      "body_bytes": 29480,
+      "body_sha256": "sha256:214cc50eb48bfa9fe00f7d7806492fcd987faf5efefc8802628da47056bd541c",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -606,8 +606,8 @@
     },
     {
       "aliases": ["forward proxy pbr"],
-      "body_bytes": 1860,
-      "body_sha256": "sha256:53a2dec24234c685c71094eca24261b4404fba23baa0900a6e8464fde0e11a26",
+      "body_bytes": 1412,
+      "body_sha256": "sha256:1f1334a340e84a7c4753eddaa5f7fc3f7c5b62dc4bfea92afd88f940738b14be",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": ["xcsh-docs:data-sources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules"],
@@ -661,8 +661,8 @@
     },
     {
       "aliases": ["forward proxy pbr forward proxy pbr rules"],
-      "body_bytes": 5663,
-      "body_sha256": "sha256:5fedc392cdc12acc45d234f2a541fcca6dbe7080b4127340448394100fbd49d5",
+      "body_bytes": 3362,
+      "body_sha256": "sha256:0e1fba9402c1b8fd4821a7bf1d7e5fb013d55fd4e5b9ad085fab233d45fc75ef",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -838,8 +838,8 @@
     },
     {
       "aliases": ["forward proxy pbr forward proxy pbr rules all destinations"],
-      "body_bytes": 1602,
-      "body_sha256": "sha256:1d0455d7e748b76dba494f2848120f34430bd1789d182112b9a4c3698475a222",
+      "body_bytes": 1258,
+      "body_sha256": "sha256:e9503ce9350d8f5a0460dbbe25380444e4d952f8e9c76d94a72c47c22e29592f",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -878,8 +878,8 @@
     },
     {
       "aliases": ["forward proxy pbr forward proxy pbr rules all sources"],
-      "body_bytes": 1587,
-      "body_sha256": "sha256:154826e3478ad52adb35516f1fadbfd9c29349fdca2622b5a126882029b301cc",
+      "body_bytes": 1243,
+      "body_sha256": "sha256:497ab3566978c0c80fdfd9d003a3981da67c8462be4f64a10fa2fc9b8a1bff62",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -918,8 +918,8 @@
     },
     {
       "aliases": ["forward proxy pbr forward proxy pbr rules forwarding class list"],
-      "body_bytes": 6282,
-      "body_sha256": "sha256:0807b2b4eac5f8efbe453f409e31e4a2a601144b455a206dd29acd0e4006d3f7",
+      "body_bytes": 5450,
+      "body_sha256": "sha256:e2e371e1071389f82ab7dd7272fc8e105579e21fc79a925dc2b63b8785291912",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -1001,8 +1001,8 @@
     },
     {
       "aliases": ["forward proxy pbr forward proxy pbr rules http list"],
-      "body_bytes": 1838,
-      "body_sha256": "sha256:ea300422f70e28830a94ded15808447a71b7211dca768cf6d50a14f503407f37",
+      "body_bytes": 1278,
+      "body_sha256": "sha256:f4f61d9eb381d2df175bf3d46df462ed788931c4a9fe89687d6b1ff9a554fef5",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -1058,8 +1058,8 @@
     },
     {
       "aliases": ["forward proxy pbr forward proxy pbr rules http list http list"],
-      "body_bytes": 10264,
-      "body_sha256": "sha256:776362f94eb36bcc1741724f1131796ce7579dd1b4d59f6c42878d954e2a1fe4",
+      "body_bytes": 9171,
+      "body_sha256": "sha256:0b4cc51865685789865d0a37be3d9703018bb04ef23a9c7eb85201a4c7f48687",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -1205,8 +1205,8 @@
     },
     {
       "aliases": ["forward proxy pbr forward proxy pbr rules http list http list any path"],
-      "body_bytes": 2081,
-      "body_sha256": "sha256:8acbc91482fc5c9086e9b2e64d7e95dddc7845bcdd212688a078d7925c1e2435",
+      "body_bytes": 1697,
+      "body_sha256": "sha256:1c68dbb2056d6af2a63fffe131924390e8674c406619f63b2e585b363625ce0b",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -1245,8 +1245,8 @@
     },
     {
       "aliases": ["forward proxy pbr forward proxy pbr rules ip prefix set"],
-      "body_bytes": 5815,
-      "body_sha256": "sha256:685ae7382448691072c854e0defadd7606992429de361ba5f8128135f960bd90",
+      "body_bytes": 4813,
+      "body_sha256": "sha256:e602a4f28d278aa52ad640016f97623fbb7c2c2dcf38853c13ab57a7e4d68d66",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -1328,8 +1328,8 @@
     },
     {
       "aliases": ["forward proxy pbr forward proxy pbr rules label selector"],
-      "body_bytes": 4151,
-      "body_sha256": "sha256:f4d4332f53a2919eab8add7d3a13f6edfa909d615f8f6338ed7bb84bcb8c46ba",
+      "body_bytes": 3529,
+      "body_sha256": "sha256:0e7a5734ecb384602cd9485f104094ba18d31183e6b05366a162a4584d9e5d68",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -1383,8 +1383,8 @@
     },
     {
       "aliases": ["forward proxy pbr forward proxy pbr rules metadata"],
-      "body_bytes": 3918,
-      "body_sha256": "sha256:cf720797f8cbe6a845e6593d182978aac9b89f654cac32a87dfbc81f46a8294a",
+      "body_bytes": 3172,
+      "body_sha256": "sha256:e29ff5a0cf8d1bb0a3cd42ecf9ee28575dc0b7fc173860d40f9d757c4fe50071",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -1452,8 +1452,8 @@
     },
     {
       "aliases": ["forward proxy pbr forward proxy pbr rules prefix list"],
-      "body_bytes": 2532,
-      "body_sha256": "sha256:8eb5964bd64a48e6a09e7dc4b712e7b1303b9c8945fb772f9c5aef0bff06fa3e",
+      "body_bytes": 2203,
+      "body_sha256": "sha256:7faf12b4d1a29285677ace401453e4c58a308c0f624361cad9584c30f245fe26",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -1507,8 +1507,8 @@
     },
     {
       "aliases": ["forward proxy pbr forward proxy pbr rules tls list"],
-      "body_bytes": 1832,
-      "body_sha256": "sha256:2daa8c2df3bbebc2e119356634d6a97383c59f0b37f33d7e6cb9ce72bded5775",
+      "body_bytes": 1276,
+      "body_sha256": "sha256:32e2f9fd465b78f273a5cb02ab9785730a708b790ef5fada00a70bf3c3dc4a1e",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -1564,8 +1564,8 @@
     },
     {
       "aliases": ["forward proxy pbr forward proxy pbr rules tls list tls list"],
-      "body_bytes": 6023,
-      "body_sha256": "sha256:746c2a0053a242e5080b02ca26551773e191d02abbc5ce04aec2f27df0861751",
+      "body_bytes": 5418,
+      "body_sha256": "sha256:594251397e28cbe41827012ff69e8b6ec24187a4352ca5cd6e690e80b7da6657",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -1647,8 +1647,8 @@
     },
     {
       "aliases": ["forwarding class list"],
-      "body_bytes": 5696,
-      "body_sha256": "sha256:1b813ec7956bcf5c87c4f3c6707bf868c43adbeec8cf5581e309446e553da265",
+      "body_bytes": 4929,
+      "body_sha256": "sha256:b381c4a02a856d1c26662c01ede1761853ffdc61e6c7b306f360ee664357134f",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -1730,8 +1730,8 @@
     },
     {
       "aliases": ["network pbr"],
-      "body_bytes": 2417,
-      "body_sha256": "sha256:2146d5b79f746cc918893a830d60f91ad33e4aea86c230f2b7f4df622310947d",
+      "body_bytes": 1538,
+      "body_sha256": "sha256:32619d529e135b9abcdb265e90b82f02facc8aef24efa9d6c3fd16472399454f",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -1832,8 +1832,8 @@
     },
     {
       "aliases": ["network pbr any"],
-      "body_bytes": 1226,
-      "body_sha256": "sha256:0ee382327845f65d7b30d8268bc1b48d33ba5052ac4417f2cfcffed62fc7d9a5",
+      "body_bytes": 942,
+      "body_sha256": "sha256:efed24d4fab834aeedf5e343033358cdb05baf2dd3479d33bc316fe32e121120",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -1872,8 +1872,8 @@
     },
     {
       "aliases": ["network pbr label selector"],
-      "body_bytes": 3797,
-      "body_sha256": "sha256:3bb98e56d9e695f4c12a3534229aaf6fcff64d635026256ef9fbaee1e2c1b7c2",
+      "body_bytes": 3235,
+      "body_sha256": "sha256:d2d6d00dbb58ecc653259e2418e6fea32e57d3c73c857b568a1d089220525f68",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -1927,8 +1927,8 @@
     },
     {
       "aliases": ["network pbr network pbr rules"],
-      "body_bytes": 7024,
-      "body_sha256": "sha256:b0a6946724f5623052332b25657432b4ac1aeda236f5b74aa131990af4791b01",
+      "body_bytes": 4641,
+      "body_sha256": "sha256:4a3f767e2d159ea5283001d8511619e3ac9c27e0db89cdda9c4e02fa88df2096",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -2133,8 +2133,8 @@
     },
     {
       "aliases": ["network pbr network pbr rules all tcp traffic"],
-      "body_bytes": 1515,
-      "body_sha256": "sha256:04732fafe73433955735f12fe51d00873c3fa49983518b00d23271a4c1aa9ecf",
+      "body_bytes": 1195,
+      "body_sha256": "sha256:0b44ccc9f2dac286f058905624d764ea0c037ef52bcbbd73b78d104f4741fdd0",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -2173,8 +2173,8 @@
     },
     {
       "aliases": ["network pbr network pbr rules all traffic"],
-      "body_bytes": 1503,
-      "body_sha256": "sha256:98c9cbbb5c9e59231648cf0742f50e3063f4d22999d20310d873ffcbe20ffc9d",
+      "body_bytes": 1183,
+      "body_sha256": "sha256:9096d40251e431542370150ef398a2bb0da4cb7e03467a38033a89073b66bedf",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -2213,8 +2213,8 @@
     },
     {
       "aliases": ["network pbr network pbr rules all udp traffic"],
-      "body_bytes": 1515,
-      "body_sha256": "sha256:e0b33b1a87777a2c92477d41ebdab29c1f52dbd3fd579df9cc4123aa061a95c2",
+      "body_bytes": 1195,
+      "body_sha256": "sha256:aa93165aa8ec645d39efd7b574723d958ed8604e4367c9800bd69c7727d5fd7e",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -2253,8 +2253,8 @@
     },
     {
       "aliases": ["network pbr network pbr rules any"],
-      "body_bytes": 1465,
-      "body_sha256": "sha256:526f844cb06ba269f6c81bf1e6000e6a948fb4f1b759bfee2b1cd880bfb6e5f6",
+      "body_bytes": 1145,
+      "body_sha256": "sha256:aeefe8fe823247a5554aec25a340e7b000ab6d3da14b9cba075b056853e4b676",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -2293,8 +2293,8 @@
     },
     {
       "aliases": ["network pbr network pbr rules applications"],
-      "body_bytes": 2085,
-      "body_sha256": "sha256:0bd08d9b92d14a104b5e943db0411f11e81cab4a09ebc985c77061164b7ec56c",
+      "body_bytes": 1724,
+      "body_sha256": "sha256:cd9ebef01be374626bb194ceba8ecfc359775d038d4a4a29a6c4a35262abccda",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -2348,8 +2348,8 @@
     },
     {
       "aliases": ["network pbr network pbr rules forwarding class list"],
-      "body_bytes": 6159,
-      "body_sha256": "sha256:8243d29ffb7a9e609ed54480f9d6511cc29523e974c3d3633b7b216bc016cd26",
+      "body_bytes": 5351,
+      "body_sha256": "sha256:f4263f430b1f25e6a9ded0502660819c8f3569ae942bcd1596d1234cc3acd32d",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -2431,8 +2431,8 @@
     },
     {
       "aliases": ["network pbr network pbr rules ip prefix set"],
-      "body_bytes": 1821,
-      "body_sha256": "sha256:364c364170a8dd50ef07cd8cd4b06ec33c3ef85f5365b80368d512837153a3f5",
+      "body_bytes": 1242,
+      "body_sha256": "sha256:acb02ed42af317022fabc36695f6f6935f27aa39a416c410eb8d855c23157aac",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -2488,8 +2488,8 @@
     },
     {
       "aliases": ["network pbr network pbr rules ip prefix set ref"],
-      "body_bytes": 6872,
-      "body_sha256": "sha256:8dd1933a4437ff4afdb4e00fbaa82bff75aac34be04c5ae08a3732d7c70e3e61",
+      "body_bytes": 5778,
+      "body_sha256": "sha256:278c86d098ec7dfd27695e857d73d5f68158d72b749763a3a7cfc59a332d57e3",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -2599,8 +2599,8 @@
     },
     {
       "aliases": ["network pbr network pbr rules metadata"],
-      "body_bytes": 3810,
-      "body_sha256": "sha256:742fed7b76af1fc295b827e8c4004aac3adba15125de1db97342bdc13390bdf9",
+      "body_bytes": 3088,
+      "body_sha256": "sha256:12a56ca0ce1a848d9ba0df0efeab2d2ecca4da8c93d350840da9bf7ad6975c70",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -2668,8 +2668,8 @@
     },
     {
       "aliases": ["network pbr network pbr rules prefix list"],
-      "body_bytes": 2436,
-      "body_sha256": "sha256:7808dc81129ca6a1abe785bf8892623a216b967f1d8e6c4723932d088e75dda8",
+      "body_bytes": 2131,
+      "body_sha256": "sha256:6dd147f7c51f1ba75cd7b24374b5cc699188bdbf6c771f955874b8a950176bae",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -2723,8 +2723,8 @@
     },
     {
       "aliases": ["network pbr network pbr rules protocol port range"],
-      "body_bytes": 3560,
-      "body_sha256": "sha256:fdc3dcb21b935dd291efe4a10dec157d0c80fc534d12a38b76eb88898b7b3ec6",
+      "body_bytes": 3099,
+      "body_sha256": "sha256:d16fb0df85c332a0295fbdaa32a2f0b273165065add5db55b2f250c8a932f3c3",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -2792,8 +2792,8 @@
     },
     {
       "aliases": ["network pbr prefix list"],
-      "body_bytes": 2178,
-      "body_sha256": "sha256:09b469587d1e81f7415675076db7939d1f5990f8763725b4ed272f2316739996",
+      "body_bytes": 1909,
+      "body_sha256": "sha256:3dcd4a0de1362072d224f940d777028738d33f0dfc66259220cca78bda144ffd",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -2847,8 +2847,8 @@
     },
     {
       "aliases": ["policy based routing"],
-      "body_bytes": 705,
-      "body_sha256": "sha256:0e0424be1484627d72a66c4ffb552fb48c024e3cc6cc28bc43400f2508c941d1",
+      "body_bytes": 438,
+      "body_sha256": "sha256:4b40dc46d77c0c804ffd4296eb94735ba744bf09d323507a3f74f72403b58fa5",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": ["xcsh-docs:data-sources:policy_based_routing:example:data-source"],
@@ -2887,8 +2887,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 1381,
-      "body_sha256": "sha256:3e92c439e7a7fa7aeb36bd37955b79b287deb50bb820fac2b2bd5ff285fe8434",
+      "body_bytes": 1129,
+      "body_sha256": "sha256:ffc0e13c9ebca09c05de6fe0ae057d5377e360311e6aa998d4f0be48a07adb64",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],

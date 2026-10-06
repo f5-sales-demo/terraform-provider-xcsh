@@ -6,9 +6,458 @@ description: "Complete grouped canonical reference for xcsh_aws_tgw_site referen
 
 # xcsh_aws_tgw_site reference
 
-<a id="canonical-0313111113202231-2023131100321223-0103131010011001-3331120030201323-3203202123031103-2231311121030313-1210023223031231-1332121021133220"></a>
+<a id="canonical-2120200123021003-0222130113030311-3211020100113121-1002331131210312-1133022212032011-0222132303112331-1021202120213023-1333120022310211"></a>
 
-## tgw_security.no_network_policy — no_network_policy / 030223210311 / 2
+### Direct properties for `tgw_security.active_network_policies`
+
+- [network_policies](resources--aws_tgw_site--reference--group-003.md#canonical-2303210302020230-0330032302331132-3033322230220123-3331232211012013-3201201131301032-3223333130233302-3210330021122201-0013111113323011): complete subsection reference.
+
+<a id="canonical-2303210302020230-0330032302331132-3033322230220123-3331232211012013-3201201131301032-3223333130233302-3210330021122201-0013111113323011"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `tgw_security.active_network_policies.network_policies` properties
+
+Breadcrumbs:
+
+- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
+- [Property reference](resources--aws_tgw_site--reference--group-001.md#canonical-0010030023013322-1222303112030301-3301303233332013-0103300311223300-2202230101213131-0302322120010320-1030223332212332-3103201322012110)
+- [tgw_security](resources--aws_tgw_site--reference--group-002.md#canonical-1133330010300121-0303232012001232-1332311230303120-2211233112111030-1123201320011012-1210113320203131-3032233221100133-3213002021031030)
+- [tgw_security.active_network_policies](resources--aws_tgw_site--reference--group-002.md#canonical-3313010131101201-0330013203223302-3310032201223232-3120232120111023-1323300221122300-1111001213032333-3033303213023132-0113333122021120)
+- tgw_security.active_network_policies.network_policies
+
+<a id="canonical-3322031111021233-2111122223311232-1123330223011130-1113203303012103-0101212220101211-1310231030032023-0030213132100231-3030310320013233"></a>
+
+Type: `"object"`. list nested block, Optional.
+
+Ordered List of Firewall Policies active for this network firewall.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.List{validators.RequiredListObjectAttributes("name")}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxItems": 128,
+  "minItems": 1,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "array",
+    "deterministic": true,
+    "maxItems": 128,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "minItems": 1
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.repeated.max_items": "128",
+    "ves.io.schema.rules.repeated.min_items": "1"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.repeated.max_items": "128",
+    "ves.io.schema.rules.repeated.min_items": "1"
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+network_policies {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-3231321012022330-2121313100102211-0222021210120321-3321203003201210-0101101100121331-0101230023010001-0331212132012201-2231101023313231"></a>
+
+### Direct properties for `tgw_security.active_network_policies.network_policies`
+
+<a id="canonical-2001010001020323-1231020032133321-1022223202113001-1222220202031303-2331032202300020-3032031333202302-3313111013102201-1013301303130000"></a>
+
+#### `tgw_security.active_network_policies.network_policies.name` property
+
+Type: `"string"`. Optional.
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
+referred object's(e.g. Route's) name.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.String{
+  stringvalidator.LengthBetween(1, 128),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 128,
+  "minLength": 1,
+  "x-f5xc-constraints": {
+    "byteLength": {
+      "max": 128,
+      "min": 1
+    },
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "maxLength": 128,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "minLength": 1
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.max_bytes": "128",
+    "ves.io.schema.rules.string.min_bytes": "1"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.max_bytes": "128",
+    "ves.io.schema.rules.string.min_bytes": "1"
+  }
+}
+```
+
+<a id="canonical-3231103000203331-1032023231010333-1221201311023113-0232101103212323-2230311131320313-0121222330212100-0222223220231330-1121203023213010"></a>
+
+<a id="canonical-3223021122232133-3113211110121332-3331303303003212-2302300110021312-2123322130032332-2002323321332311-0302312201222220-3330200312013011"></a>
+
+#### `tgw_security.active_network_policies.network_policies.namespace` property
+
+Type: `"string"`. Optional, Computed.
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
+hold the referred object's(e.g. Route's) namespace.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.String{
+  stringvalidator.LengthBetween(1, 63),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 64,
+  "x-f5xc-constraints": {
+    "byteLength": {
+      "max": 64
+    },
+    "category": "discovery",
+    "characterSet": {
+      "allowed": "[a-z0-9-]",
+      "description": "Lowercase letter start, alphanumeric with hyphens, alphanumeric end",
+      "required": "[a-z0-9]",
+      "restricted": "[^a-z0-9-]"
+    },
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "dns-label",
+    "formatDescription": "DNS-1035 label: must start with a lowercase letter",
+    "maxLength": 63,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "minLength": 1,
+    "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
+    "validation": {
+      "rfc": "RFC 1035",
+      "standard": "DNS-1035 label (alpha-first)"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.max_bytes": "64"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.max_bytes": "64"
+  }
+}
+```
+
+<a id="canonical-0023021330101130-3110202032110331-3321013023003222-3012322110130030-3212033111010211-0032032303213112-3023330021223122-0033030101312023"></a>
+
+<a id="canonical-3001121232122313-2102002221011232-2023120032211231-0213313232322213-1102313031122331-3211230021233202-0113121101002101-3123112231010333"></a>
+
+#### `tgw_security.active_network_policies.network_policies.tenant` property
+
+Type: `"string"`. Computed.
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
+the referred object's(e.g. Route's) tenant.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.String{
+  stringvalidator.LengthAtMost(64),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 64,
+  "x-f5xc-constraints": {
+    "byteLength": {
+      "max": 64
+    },
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "maxLength": 64,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.max_bytes": "64"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.max_bytes": "64"
+  }
+}
+```
+
+<a id="canonical-1212231303220233-2010113303122033-3011320331223131-0321033320220030-1220333031302100-2013330003103020-3132213201030302-3013202322330332"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `tgw_security.east_west_service_policy_allow_all` properties
+
+Breadcrumbs:
+
+- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
+- [Property reference](resources--aws_tgw_site--reference--group-001.md#canonical-0010030023013322-1222303112030301-3301303233332013-0103300311223300-2202230101213131-0302322120010320-1030223332212332-3103201322012110)
+- [tgw_security](resources--aws_tgw_site--reference--group-002.md#canonical-1133330010300121-0303232012001232-1332311230303120-2211233112111030-1123201320011012-1210113320203131-3032233221100133-3213002021031030)
+- tgw_security.east_west_service_policy_allow_all
+
+<a id="canonical-2230001032112130-1221022223012331-1201031222002003-3213100210232013-3121010322112012-2203012101131333-1022333201302303-0001223010310023"></a>
+
+Type: `["object", {}]`. Optional.
+
+Configuration parameter for east west service policy allow all.
+
+Additional upstream details:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+east_west_service_policy_allow_all = {}
+```
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-1201120002231301-0121123222011213-0222322100210132-2331203031331310-1021212323122132-2103312223133222-1200301331133103-3000320022330201"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `tgw_security.forward_proxy_allow_all` properties
+
+Breadcrumbs:
+
+- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
+- [Property reference](resources--aws_tgw_site--reference--group-001.md#canonical-0010030023013322-1222303112030301-3301303233332013-0103300311223300-2202230101213131-0302322120010320-1030223332212332-3103201322012110)
+- [tgw_security](resources--aws_tgw_site--reference--group-002.md#canonical-1133330010300121-0303232012001232-1332311230303120-2211233112111030-1123201320011012-1210113320203131-3032233221100133-3213002021031030)
+- tgw_security.forward_proxy_allow_all
+
+<a id="canonical-2333003131113210-2222122020212330-3010313002130002-0013111320230030-0110201233302222-0313233211302130-1300131313312001-0332311230012302"></a>
+
+Type: `["object", {}]`. Optional.
+
+Configuration parameter for forward proxy allow all.
+
+Additional upstream details:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+forward_proxy_allow_all = {}
+```
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-2023022012132131-2202121200230011-1120311221213111-2232023300131020-3021323023111122-3133100110121313-0221121132110210-2010132230010101"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `tgw_security.no_east_west_policy` properties
+
+Breadcrumbs:
+
+- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
+- [Property reference](resources--aws_tgw_site--reference--group-001.md#canonical-0010030023013322-1222303112030301-3301303233332013-0103300311223300-2202230101213131-0302322120010320-1030223332212332-3103201322012110)
+- [tgw_security](resources--aws_tgw_site--reference--group-002.md#canonical-1133330010300121-0303232012001232-1332311230303120-2211233112111030-1123201320011012-1210113320203131-3032233221100133-3213002021031030)
+- tgw_security.no_east_west_policy
+
+<a id="canonical-0323023213030011-0012122230003031-3012313112310022-0233333100101312-2100201110023311-3003213002211131-3322021222131210-0123102200133322"></a>
+
+Type: `["object", {}]`. Optional.
+
+Policy configuration for this feature.
+
+Additional upstream details:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+no_east_west_policy = {}
+```
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-2321021113032211-1112301111210302-2122022013230311-2310330302301131-1212323230212112-0001210222132001-2222022202023102-3331013003033310"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `tgw_security.no_forward_proxy` properties
+
+Breadcrumbs:
+
+- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
+- [Property reference](resources--aws_tgw_site--reference--group-001.md#canonical-0010030023013322-1222303112030301-3301303233332013-0103300311223300-2202230101213131-0302322120010320-1030223332212332-3103201322012110)
+- [tgw_security](resources--aws_tgw_site--reference--group-002.md#canonical-1133330010300121-0303232012001232-1332311230303120-2211233112111030-1123201320011012-1210113320203131-3032233221100133-3213002021031030)
+- tgw_security.no_forward_proxy
+
+<a id="canonical-1001003212130100-3100301002123233-0301200133020200-3013032223303110-2003331220331303-0221130200210100-0201001200023223-3220230201321302"></a>
+
+Type: `["object", {}]`. Optional.
+
+Configuration parameter for no forward proxy.
+
+Additional upstream details:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+no_forward_proxy = {}
+```
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-1203031221233023-1200122111122211-2020320201211200-1312131320023211-3002302120132300-3203030331100323-3021220313112001-0230023220113030"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `tgw_security.no_network_policy` properties
 
 Breadcrumbs:
 
@@ -23,7 +472,7 @@ Type: `["object", {}]`. Optional.
 
 Policy configuration for this feature.
 
-Upstream description:
+Additional upstream details:
 
 This can be used for messages where no values are needed.
 
@@ -46,18 +495,7 @@ Terraform syntax:
 no_network_policy = {}
 ```
 
-<a id="canonical-0123331330322001-3231332223112302-0103233110311320-1213111002221012-0003003130222321-1001330100303322-0200330231030202-3012111131301313"></a>
-
-## Direct properties — no_network_policy / 030223210311 / 3
-
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-3213011013310102-0121230333333233-1102231331320122-2331032333231213-0322230220300212-3001122302010103-0300122301111112-3233022121103032"></a>
-
-## Next pages — no_network_policy / 030223210311 / 4
-
-- [tgw_security](resources--aws_tgw_site--reference--group-002.md#canonical-1133330010300121-0303232012001232-1332311230303120-2211233112111030-1123201320011012-1210113320203131-3032233221100133-3213002021031030)
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
 
 <a id="canonical-1311110330231022-3020003023311003-2213221230300113-1201311012233213-1111213120311303-1312303200031100-2033333131211220-2303001123013033"></a>
 
@@ -65,9 +503,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0000013211233333-3102222312231121-0030330331312021-1001110001003300-0112321012212332-0103222023010302-2013211131223012-1110000102033011"></a>
-
-## timeouts — timeouts / 112032313303 / 2
+## `timeouts` properties
 
 Breadcrumbs:
 
@@ -87,15 +523,13 @@ timeouts {
 }
 ```
 
-<a id="canonical-2121301232001220-0033232322320331-0220202331212203-1201021303310021-1320031130000121-2300023111211020-1232003221202220-1110030222310123"></a>
+<a id="canonical-0000013211233333-3102222312231121-0030330331312021-1001110001003300-0112321012212332-0103222023010302-2013211131223012-1110000102033011"></a>
 
-## Direct properties — timeouts / 112032313303 / 3
+### Direct properties for `timeouts`
 
 <a id="canonical-2232310220122010-0111003333030323-3210311313211222-1321310321130222-0231112021112232-0330032323223330-3031031220300200-3000122012001020"></a>
 
-<a id="canonical-0012012120333203-3001012320002132-0202302010021210-3231302202123032-2322230310111020-0103320232032220-1203130103122221-1003210032230322"></a>
-
-## create property — timeouts / 112032313303 / 4
+#### `timeouts.create` property
 
 Type: `"string"`. Optional.
 
@@ -105,9 +539,9 @@ of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s"
 
 <a id="canonical-3033132130331010-2221120110131321-1113130133312200-1102122301300031-2111313121210311-2320303230120031-3211231121233212-3011320223123311"></a>
 
-<a id="canonical-1232000110231333-1131001212222211-3232312210332021-3121012020200003-1203130232332102-0222130130022322-2132031121013210-3201110010221120"></a>
+<a id="canonical-2121301232001220-0033232322320331-0220202331212203-1201021303310021-1320031130000121-2300023111211020-1232003221202220-1110030222310123"></a>
 
-## delete property — timeouts / 112032313303 / 5
+#### `timeouts.delete` property
 
 Type: `"string"`. Optional.
 
@@ -118,9 +552,9 @@ saved into state before the destroy operation occurs.
 
 <a id="canonical-0312201010021120-2010013212322031-2232301210030230-2030012131322313-3231312020103020-3133220302120113-0030003301220223-3321110002220020"></a>
 
-<a id="canonical-0202321311223300-3303312133310232-0220323330033313-0302223030302000-0230301310000113-2001022001102010-1033233113013233-3322102222323213"></a>
+<a id="canonical-0012012120333203-3001012320002132-0202302010021210-3231302202123032-2322230310111020-0103320232032220-1203130103122221-1003210032230322"></a>
 
-## read property — timeouts / 112032313303 / 6
+#### `timeouts.read` property
 
 Type: `"string"`. Optional.
 
@@ -131,9 +565,9 @@ is enabled.
 
 <a id="canonical-3211321230201002-1001303133330031-0212203131332103-2312020103030121-1320223003301333-3210312221102220-1111113022111301-3330121012111323"></a>
 
-<a id="canonical-0033030122131202-1023221211120203-3002121312012131-1221000101021100-2001203300100100-0102013332103113-2121121221010112-2222210020110122"></a>
+<a id="canonical-1232000110231333-1131001212222211-3232312210332021-3121012020200003-1203130232332102-0222130130022322-2132031121013210-3201110010221120"></a>
 
-## update property — timeouts / 112032313303 / 7
+#### `timeouts.update` property
 
 Type: `"string"`. Optional.
 
@@ -141,22 +575,13 @@ A string that can be \[parsed as a duration\](https&#58;//pkg.go.dev/time\#Parse
 of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m"
 (minutes), "h" (hours).
 
-<a id="canonical-1013130331323100-2300202321332100-0110323032332030-3123332331321003-0333311330301201-0312032213032313-2323022322303201-1330102322111303"></a>
-
-## Next pages — timeouts / 112032313303 / 8
-
-- [Property reference](resources--aws_tgw_site--reference--group-001.md#canonical-0010030023013322-1222303112030301-3301303233332013-0103300311223300-2202230101213131-0302322120010320-1030223332212332-3103201322012110)
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
-
 <a id="canonical-0101002010113120-1121300322102322-2320133222211303-0011102031313120-3202320223313220-3220002032331202-0331231132033323-1222203320002031"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3310223103213311-1232023030222300-3300311211333110-0210302312020330-0131201213022012-1312223132323202-0200202310320023-2300112322132323"></a>
-
-## vn_config — vn_config / 031131012220 / 2
+## `vn_config` properties
 
 Breadcrumbs:
 
@@ -169,10 +594,6 @@ Breadcrumbs:
 Type: `"object"`. single nested block, Optional.
 
 Virtual Network Configuration. Virtual Network Configuration.
-
-Upstream description:
-
-Virtual Network Configuration.
 
 Provider validators and defaults (from schema source):
 
@@ -219,9 +640,9 @@ vn_config {
 }
 ```
 
-<a id="canonical-0120122202232223-1300301113223223-3330212300201313-0020333122132132-3302000330131222-2121303100003100-1003010103102022-2323330321110231"></a>
+<a id="canonical-3310223103213311-1232023030222300-3300311211333110-0210302312020330-0131201213022012-1312223132323202-0200202310320023-2300112322132323"></a>
 
-## Direct properties — vn_config / 031131012220 / 3
+### Direct properties for `vn_config`
 
 - [allowed_vip_port](resources--aws_tgw_site--reference--group-003.md#canonical-3003102010221332-0101222211103223-2312030111033332-2212001213031132-2301133033032321-2201310021330003-0201123333111201-2300332211300213): complete subsection reference.
 
@@ -235,39 +656,19 @@ vn_config {
 
 - [inside_static_routes](resources--aws_tgw_site--reference--group-003.md#canonical-1220102301021103-2101230331200333-1320112002130223-3322021232321002-2300321222300032-1311322021121333-1300213110111200-0122111222312130): complete subsection reference.
 
-- [no_dc_cluster_group](resources--aws_tgw_site--reference--group-003.md#canonical-2011122312231230-3013232300312312-2202102000033103-3030221030323032-1020222321312033-1302222331002000-1132203010312230-3310010210310332): complete subsection reference.
+- [no_dc_cluster_group](resources--aws_tgw_site--reference--group-004.md#canonical-2011122312231230-3013232300312312-2202102000033103-3030221030323032-1020222321312033-1302222331002000-1132203010312230-3310010210310332): complete subsection reference.
 
-- [no_global_network](resources--aws_tgw_site--reference--group-003.md#canonical-1220211023313210-3121131032130332-1202222301132133-1313020021300200-3101221300210022-2010132200330031-1332002033100321-3002120301331100): complete subsection reference.
+- [no_global_network](resources--aws_tgw_site--reference--group-004.md#canonical-1220211023313210-3121131032130332-1202222301132133-1313020021300200-3101221300210022-2010132200330031-1332002033100321-3002120301331100): complete subsection reference.
 
-- [no_inside_static_routes](resources--aws_tgw_site--reference--group-003.md#canonical-0300132311300213-2213102221212301-1032330303012220-1032121031020202-0231221133312300-0101032232312332-3230133033132033-2301132320222332): complete subsection reference.
+- [no_inside_static_routes](resources--aws_tgw_site--reference--group-004.md#canonical-0300132311300213-2213102221212301-1032330303012220-1032121031020202-0231221133312300-0101032232312332-3230133033132033-2301132320222332): complete subsection reference.
 
-- [no_outside_static_routes](resources--aws_tgw_site--reference--group-003.md#canonical-0121330320232133-2321110122302131-1013232000113230-1212100032312110-2013322033302110-1203131120200211-3202133212002123-0302122002202023): complete subsection reference.
+- [no_outside_static_routes](resources--aws_tgw_site--reference--group-004.md#canonical-0121330320232133-2321110122302131-1013232000113230-1212100032312110-2013322033302110-1203131120200211-3202133212002123-0302122002202023): complete subsection reference.
 
-- [outside_static_routes](resources--aws_tgw_site--reference--group-003.md#canonical-2301113011113011-1112320230210202-0313100212313032-1131333013212023-3211313333212000-2110001321132102-1131010130012311-2101312102132133): complete subsection reference.
+- [outside_static_routes](resources--aws_tgw_site--reference--group-004.md#canonical-2301113011113011-1112320230210202-0313100212313032-1131333013212023-3211313333212000-2110001321132102-1131010130012311-2101312102132133): complete subsection reference.
 
 - [sm_connection_public_ip](resources--aws_tgw_site--reference--group-004.md#canonical-3303020033221031-0121001232113232-0331101030300303-3303101011322302-1303033333020021-2321013112020223-0312203301333130-3001033131210333): complete subsection reference.
 
 - [sm_connection_pvt_ip](resources--aws_tgw_site--reference--group-004.md#canonical-0021012122100010-3002323221023231-2002011020202100-1001130223230002-1100232013102230-1031022221333310-1130233020000232-2303021330003011): complete subsection reference.
-
-<a id="canonical-2121220222213203-3303123020310000-2022303021122321-3003121111203000-3022232001030212-1111111001301013-1231102113321311-0320233023100133"></a>
-
-## Next pages — vn_config / 031131012220 / 4
-
-- [vn_config.allowed_vip_port](resources--aws_tgw_site--reference--group-003.md#canonical-3003102010221332-0101222211103223-2312030111033332-2212001213031132-2301133033032321-2201310021330003-0201123333111201-2300332211300213)
-- [vn_config.allowed_vip_port_sli](resources--aws_tgw_site--reference--group-003.md#canonical-1301303321121123-2321223232201013-3102330121020211-2120201131031303-3021010211110131-2331233133123310-2023212112103320-1313123230030221)
-- [vn_config.dc_cluster_group_inside_vn](resources--aws_tgw_site--reference--group-003.md#canonical-3323120021313013-2101230331010010-2030321121100002-0302200130312330-3300220200133301-1211123132130100-3222211202010113-3231320002022332)
-- [vn_config.dc_cluster_group_outside_vn](resources--aws_tgw_site--reference--group-003.md#canonical-1203200220100202-2301330300100333-1311122103213221-1131012011133010-0002123312102220-1112222133112321-0032111011031301-1201312233203130)
-- [vn_config.global_network_list](resources--aws_tgw_site--reference--group-003.md#canonical-1311000133311331-0133032032130101-2311221330311100-0022033203212131-3312123023132201-3130101000123111-0013130131023303-2323231132300030)
-- [vn_config.inside_static_routes](resources--aws_tgw_site--reference--group-003.md#canonical-1220102301021103-2101230331200333-1320112002130223-3322021232321002-2300321222300032-1311322021121333-1300213110111200-0122111222312130)
-- [vn_config.no_dc_cluster_group](resources--aws_tgw_site--reference--group-003.md#canonical-2011122312231230-3013232300312312-2202102000033103-3030221030323032-1020222321312033-1302222331002000-1132203010312230-3310010210310332)
-- [vn_config.no_global_network](resources--aws_tgw_site--reference--group-003.md#canonical-1220211023313210-3121131032130332-1202222301132133-1313020021300200-3101221300210022-2010132200330031-1332002033100321-3002120301331100)
-- [vn_config.no_inside_static_routes](resources--aws_tgw_site--reference--group-003.md#canonical-0300132311300213-2213102221212301-1032330303012220-1032121031020202-0231221133312300-0101032232312332-3230133033132033-2301132320222332)
-- [vn_config.no_outside_static_routes](resources--aws_tgw_site--reference--group-003.md#canonical-0121330320232133-2321110122302131-1013232000113230-1212100032312110-2013322033302110-1203131120200211-3202133212002123-0302122002202023)
-- [vn_config.outside_static_routes](resources--aws_tgw_site--reference--group-003.md#canonical-2301113011113011-1112320230210202-0313100212313032-1131333013212023-3211313333212000-2110001321132102-1131010130012311-2101312102132133)
-- [vn_config.sm_connection_public_ip](resources--aws_tgw_site--reference--group-004.md#canonical-3303020033221031-0121001232113232-0331101030300303-3303101011322302-1303033333020021-2321013112020223-0312203301333130-3001033131210333)
-- [vn_config.sm_connection_pvt_ip](resources--aws_tgw_site--reference--group-004.md#canonical-0021012122100010-3002323221023231-2002011020202100-1001130223230002-1100232013102230-1031022221333310-1130233020000232-2303021330003011)
-- [Property reference](resources--aws_tgw_site--reference--group-001.md#canonical-0010030023013322-1222303112030301-3301303233332013-0103300311223300-2202230101213131-0302322120010320-1030223332212332-3103201322012110)
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
 
 <a id="canonical-3003102010221332-0101222211103223-2312030111033332-2212001213031132-2301133033032321-2201310021330003-0201123333111201-2300332211300213"></a>
 
@@ -275,9 +676,7 @@ vn_config {
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2202310210012201-2221301231322101-0101332032300120-0222203022020112-1332131232232202-3230123230030032-2102123201111030-1101213023200200"></a>
-
-## vn_config.allowed_vip_port — allowed_vip_port / 231211111032 / 2
+## `vn_config.allowed_vip_port` properties
 
 Breadcrumbs:
 
@@ -289,11 +688,6 @@ Breadcrumbs:
 <a id="canonical-0322123320232130-2232021210332110-2103000301200010-0103232333132211-0211131130313121-3223302030132130-0131213131230001-3321330030210213"></a>
 
 Type: `"object"`. single nested block, Optional.
-
-Defines the TCP port(s) which will be opened on the cloud loadbalancer. Such that the client can use
-the cloud VIP IP and port combination to reach TCP/HTTP LB configured on the F5XC Site.
-
-Upstream description:
 
 This defines the TCP port(s) which will be opened on the cloud loadbalancer. Such that the client
 can use the cloud VIP IP and port combination to reach TCP/HTTP LB configured on the F5XC Site.
@@ -345,9 +739,9 @@ allowed_vip_port {
 }
 ```
 
-<a id="canonical-1313032000110221-2123030201230002-1031213033113012-1001121020123031-2200013333110202-0311033112302312-0100012112112032-1001113011301220"></a>
+<a id="canonical-2202310210012201-2221301231322101-0101332032300120-0222203022020112-1332131232232202-3230123230030032-2102123201111030-1101213023200200"></a>
 
-## Direct properties — allowed_vip_port / 231211111032 / 3
+### Direct properties for `vn_config.allowed_vip_port`
 
 - [custom_ports](resources--aws_tgw_site--reference--group-003.md#canonical-3221131113321332-3102323112131130-3300330122232331-3230201332010100-3102320020231131-1000233201321320-3032230022020103-3112211302031212): complete subsection reference.
 
@@ -359,27 +753,13 @@ allowed_vip_port {
 
 - [use_https_port](resources--aws_tgw_site--reference--group-003.md#canonical-2330231312003021-3322020113120002-2023012313303111-2131321221202322-1101210313302022-0320213003200010-0213031032300030-1121100230120122): complete subsection reference.
 
-<a id="canonical-2223122112032021-0213031011101102-0101121331023233-0213012112200221-2311013103233230-2321232221301101-1300331312202302-2112213013131323"></a>
-
-## Next pages — allowed_vip_port / 231211111032 / 4
-
-- [vn_config.allowed_vip_port.custom_ports](resources--aws_tgw_site--reference--group-003.md#canonical-3221131113321332-3102323112131130-3300330122232331-3230201332010100-3102320020231131-1000233201321320-3032230022020103-3112211302031212)
-- [vn_config.allowed_vip_port.disable_allowed_vip_port](resources--aws_tgw_site--reference--group-003.md#canonical-1323131123122310-3300232331110300-1313101312331110-0020023223022322-3022000032300232-1030001222121010-3332311210031001-1100311200313332)
-- [vn_config.allowed_vip_port.use_http_https_port](resources--aws_tgw_site--reference--group-003.md#canonical-2301122231102012-1203132101231033-3210202223021133-1210331312102300-2111113220330011-2300010123321020-3000211010113130-0301112203203231)
-- [vn_config.allowed_vip_port.use_http_port](resources--aws_tgw_site--reference--group-003.md#canonical-3133311202220330-0233223323100310-2111323013002320-2102213311200200-3002231323100230-3011023133013131-3212302031330030-1330033223123200)
-- [vn_config.allowed_vip_port.use_https_port](resources--aws_tgw_site--reference--group-003.md#canonical-2330231312003021-3322020113120002-2023012313303111-2131321221202322-1101210313302022-0320213003200010-0213031032300030-1121100230120122)
-- [vn_config](resources--aws_tgw_site--reference--group-003.md#canonical-0101002010113120-1121300322102322-2320133222211303-0011102031313120-3202320223313220-3220002032331202-0331231132033323-1222203320002031)
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
-
 <a id="canonical-3221131113321332-3102323112131130-3300330122232331-3230201332010100-3102320020231131-1000233201321320-3032230022020103-3112211302031212"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3330102001203311-3203303121003031-0310331020130233-2300021302311223-0301121212322130-0020312310010333-1303323311311311-3113332110333003"></a>
-
-## vn_config.allowed_vip_port.custom_ports — custom_ports / 212220022230 / 2
+## `vn_config.allowed_vip_port.custom_ports` properties
 
 Breadcrumbs:
 
@@ -394,10 +774,6 @@ Breadcrumbs:
 Type: `"object"`. single nested block, Optional.
 
 Custom Ports. List of Custom port.
-
-Upstream description:
-
-List of Custom port.
 
 Provider validators and defaults (from schema source):
 
@@ -426,23 +802,17 @@ custom_ports {
 }
 ```
 
-<a id="canonical-1103132112231130-0310310013031222-2011200111020020-2221331130023323-3001310310122212-3022232300022233-2322013320311210-2200310002102302"></a>
+<a id="canonical-3330102001203311-3203303121003031-0310331020130233-2300021302311223-0301121212322130-0020312310010333-1303323311311311-3113332110333003"></a>
 
-## Direct properties — custom_ports / 212220022230 / 3
+### Direct properties for `vn_config.allowed_vip_port.custom_ports`
 
 <a id="canonical-0022311211011332-1101201323233122-3001203011212301-3023121231033102-1003012223301011-3310330233300331-0103122321330100-1110020323320022"></a>
 
-<a id="canonical-3021023021133232-1100103321011312-2111223002012210-1113301220102332-0230000312010002-0320113210133102-0133103202011203-2000311331000022"></a>
-
-## port_ranges property — custom_ports / 212220022230 / 4
+#### `vn_config.allowed_vip_port.custom_ports.port_ranges` property
 
 Type: `"string"`. Optional.
 
 Port Ranges. Port Ranges.
-
-Upstream description:
-
-Port Ranges.
 
 Provider validators and defaults (from schema source):
 
@@ -491,22 +861,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-0221323203030130-1222211011112001-2333231030101233-1321333102012132-2001032023111101-0121113201021130-2111133013003323-3013030210221332"></a>
-
-## Next pages — custom_ports / 212220022230 / 5
-
-- [vn_config.allowed_vip_port](resources--aws_tgw_site--reference--group-003.md#canonical-3003102010221332-0101222211103223-2312030111033332-2212001213031132-2301133033032321-2201310021330003-0201123333111201-2300332211300213)
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
-
 <a id="canonical-1323131123122310-3300232331110300-1313101312331110-0020023223022322-3022000032300232-1030001222121010-3332311210031001-1100311200313332"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2012202022203001-2003133302233121-3231302312213220-0131330130330313-3310311221231200-0331231313101030-0221213113311303-3232031210201221"></a>
-
-## vn_config.allowed_vip_port.disable_allowed_vip_port — disable_allowed_vip_port / 230320000000 / 2
+## `vn_config.allowed_vip_port.disable_allowed_vip_port` properties
 
 Breadcrumbs:
 
@@ -522,7 +883,7 @@ Type: `["object", {}]`. Optional.
 
 Enable this option
 
-Upstream description:
+Additional upstream details:
 
 This can be used for messages where no values are needed.
 
@@ -545,18 +906,7 @@ Terraform syntax:
 disable_allowed_vip_port = {}
 ```
 
-<a id="canonical-2000200120223130-0103221310103102-2220030220202113-3112020231201201-3101002100123123-1122333231221011-1102223131031012-1222220012102220"></a>
-
-## Direct properties — disable_allowed_vip_port / 230320000000 / 3
-
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-3320331002203203-2033112210210112-2002021211100233-1202020013202012-1222202032100200-0003332213210210-1123012323222332-3103312300011222"></a>
-
-## Next pages — disable_allowed_vip_port / 230320000000 / 4
-
-- [vn_config.allowed_vip_port](resources--aws_tgw_site--reference--group-003.md#canonical-3003102010221332-0101222211103223-2312030111033332-2212001213031132-2301133033032321-2201310021330003-0201123333111201-2300332211300213)
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
 
 <a id="canonical-2301122231102012-1203132101231033-3210202223021133-1210331312102300-2111113220330011-2300010123321020-3000211010113130-0301112203203231"></a>
 
@@ -564,9 +914,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3331013021333132-1330030010001312-0001132133222312-1021313311333212-1030221100200200-3203333332302210-0020131330321121-0321310200210332"></a>
-
-## vn_config.allowed_vip_port.use_http_https_port — use_http_https_port / 121100003221 / 2
+## `vn_config.allowed_vip_port.use_http_https_port` properties
 
 Breadcrumbs:
 
@@ -582,7 +930,7 @@ Type: `["object", {}]`. Optional.
 
 Enable this option
 
-Upstream description:
+Additional upstream details:
 
 This can be used for messages where no values are needed.
 
@@ -605,18 +953,7 @@ Terraform syntax:
 use_http_https_port = {}
 ```
 
-<a id="canonical-3220313001111323-2311001211321220-1320300311303130-0313102320112011-1301303003000130-2013231002311231-1130213332202322-0130322110131003"></a>
-
-## Direct properties — use_http_https_port / 121100003221 / 3
-
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-1303133131132113-1211300001000033-0133233022032220-2331200023331222-2200111203133231-3132300123232301-3103103213031320-0212101031131303"></a>
-
-## Next pages — use_http_https_port / 121100003221 / 4
-
-- [vn_config.allowed_vip_port](resources--aws_tgw_site--reference--group-003.md#canonical-3003102010221332-0101222211103223-2312030111033332-2212001213031132-2301133033032321-2201310021330003-0201123333111201-2300332211300213)
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
 
 <a id="canonical-3133311202220330-0233223323100310-2111323013002320-2102213311200200-3002231323100230-3011023133013131-3212302031330030-1330033223123200"></a>
 
@@ -624,9 +961,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3112303012102230-3302302212221031-1201203012220003-3203212133211001-3103113033211211-3202111211320301-3113300111300001-2331321021120322"></a>
-
-## vn_config.allowed_vip_port.use_http_port — use_http_port / 020331303001 / 2
+## `vn_config.allowed_vip_port.use_http_port` properties
 
 Breadcrumbs:
 
@@ -642,7 +977,7 @@ Type: `["object", {}]`. Optional.
 
 Enable this option
 
-Upstream description:
+Additional upstream details:
 
 This can be used for messages where no values are needed.
 
@@ -665,18 +1000,7 @@ Terraform syntax:
 use_http_port = {}
 ```
 
-<a id="canonical-1120210031022201-0000322320210202-2323121120320230-0301001300220123-2233011123102322-0121132102032102-2102323310000110-1202003011320100"></a>
-
-## Direct properties — use_http_port / 020331303001 / 3
-
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-2121203201311002-0032123203131212-2300213310312232-2312313232322202-2221230020021130-1202300331003222-1230131100310021-3022032113212310"></a>
-
-## Next pages — use_http_port / 020331303001 / 4
-
-- [vn_config.allowed_vip_port](resources--aws_tgw_site--reference--group-003.md#canonical-3003102010221332-0101222211103223-2312030111033332-2212001213031132-2301133033032321-2201310021330003-0201123333111201-2300332211300213)
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
 
 <a id="canonical-2330231312003021-3322020113120002-2023012313303111-2131321221202322-1101210313302022-0320213003200010-0213031032300030-1121100230120122"></a>
 
@@ -684,9 +1008,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3010011100022111-0213130221330011-1020312200010031-0200010211322021-3331330022303100-2033021030321212-2033301212211002-3002023322013210"></a>
-
-## vn_config.allowed_vip_port.use_https_port — use_https_port / 123121120003 / 2
+## `vn_config.allowed_vip_port.use_https_port` properties
 
 Breadcrumbs:
 
@@ -702,7 +1024,7 @@ Type: `["object", {}]`. Optional.
 
 Enable this option
 
-Upstream description:
+Additional upstream details:
 
 This can be used for messages where no values are needed.
 
@@ -725,18 +1047,7 @@ Terraform syntax:
 use_https_port = {}
 ```
 
-<a id="canonical-1012211011222033-3113033013220232-1020120011230323-1003110112102232-3301102203130313-2302013033133011-0200001211122201-1230111123222320"></a>
-
-## Direct properties — use_https_port / 123121120003 / 3
-
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-1213113302003220-0121220332213011-0200222033112003-3302022210312133-0100302213233320-0002000100030110-3210003003122322-2221331032313313"></a>
-
-## Next pages — use_https_port / 123121120003 / 4
-
-- [vn_config.allowed_vip_port](resources--aws_tgw_site--reference--group-003.md#canonical-3003102010221332-0101222211103223-2312030111033332-2212001213031132-2301133033032321-2201310021330003-0201123333111201-2300332211300213)
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
 
 <a id="canonical-1301303321121123-2321223232201013-3102330121020211-2120201131031303-3021010211110131-2331233133123310-2023212112103320-1313123230030221"></a>
 
@@ -744,9 +1055,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0231023323002311-0021013033323313-3102102320031113-2323101133223133-1320133001100230-3230130212312102-3310221110332332-2202032102231320"></a>
-
-## vn_config.allowed_vip_port_sli — allowed_vip_port_sli / 101202202121 / 2
+## `vn_config.allowed_vip_port_sli` properties
 
 Breadcrumbs:
 
@@ -758,11 +1067,6 @@ Breadcrumbs:
 <a id="canonical-2231110102000131-3330313330010311-1320020303321130-3132133101103312-0003300210222323-1321131220303331-3302200102221003-0102302010212310"></a>
 
 Type: `"object"`. single nested block, Optional.
-
-Defines the TCP port(s) which will be opened on the cloud loadbalancer. Such that the client can use
-the cloud VIP IP and port combination to reach TCP/HTTP LB configured on the F5XC Site.
-
-Upstream description:
 
 This defines the TCP port(s) which will be opened on the cloud loadbalancer. Such that the client
 can use the cloud VIP IP and port combination to reach TCP/HTTP LB configured on the F5XC Site.
@@ -814,9 +1118,9 @@ allowed_vip_port_sli {
 }
 ```
 
-<a id="canonical-3302330100211102-2213122321303031-1023211302321023-1130233213112322-2013330333032202-1222221333323102-0233110200100102-0033023032210210"></a>
+<a id="canonical-0231023323002311-0021013033323313-3102102320031113-2323101133223133-1320133001100230-3230130212312102-3310221110332332-2202032102231320"></a>
 
-## Direct properties — allowed_vip_port_sli / 101202202121 / 3
+### Direct properties for `vn_config.allowed_vip_port_sli`
 
 - [custom_ports](resources--aws_tgw_site--reference--group-003.md#canonical-3321310231011111-1012213322010001-2302023112230311-3201122333313213-0311112312230121-1121310022231133-0332012002322201-1131002032331331): complete subsection reference.
 
@@ -828,27 +1132,13 @@ allowed_vip_port_sli {
 
 - [use_https_port](resources--aws_tgw_site--reference--group-003.md#canonical-3312102310012322-0310013233121303-1201313311313332-1231133013303133-0212213221310010-3222220203112312-1300303200312303-2322120211132121): complete subsection reference.
 
-<a id="canonical-0111031213121102-2013200023101031-0102311011303123-0302130222112213-0313222203202003-2013232210133100-2211221322002321-2102203111130102"></a>
-
-## Next pages — allowed_vip_port_sli / 101202202121 / 4
-
-- [vn_config.allowed_vip_port_sli.custom_ports](resources--aws_tgw_site--reference--group-003.md#canonical-3321310231011111-1012213322010001-2302023112230311-3201122333313213-0311112312230121-1121310022231133-0332012002322201-1131002032331331)
-- [vn_config.allowed_vip_port_sli.disable_allowed_vip_port](resources--aws_tgw_site--reference--group-003.md#canonical-0011323313332101-2210232100033200-0101311313123131-0233320130323320-0123323010021302-1033323303232122-2031000300132123-0303233312131002)
-- [vn_config.allowed_vip_port_sli.use_http_https_port](resources--aws_tgw_site--reference--group-003.md#canonical-2132023231131031-0223102322132030-0031131211032120-1231020100130002-1200300220130303-3301233303201201-3032320230123032-2311001302312101)
-- [vn_config.allowed_vip_port_sli.use_http_port](resources--aws_tgw_site--reference--group-003.md#canonical-1031103201331203-3233032210211133-1011210320212121-1220003211033312-2033332323122023-1330112311010220-1212011013332203-1312322133302123)
-- [vn_config.allowed_vip_port_sli.use_https_port](resources--aws_tgw_site--reference--group-003.md#canonical-3312102310012322-0310013233121303-1201313311313332-1231133013303133-0212213221310010-3222220203112312-1300303200312303-2322120211132121)
-- [vn_config](resources--aws_tgw_site--reference--group-003.md#canonical-0101002010113120-1121300322102322-2320133222211303-0011102031313120-3202320223313220-3220002032331202-0331231132033323-1222203320002031)
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
-
 <a id="canonical-3321310231011111-1012213322010001-2302023112230311-3201122333313213-0311112312230121-1121310022231133-0332012002322201-1131002032331331"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3122102121030202-3310312020301222-3330000123233030-1213133230231010-3202310221300311-2121330222213332-3212203012022102-0211133003221033"></a>
-
-## vn_config.allowed_vip_port_sli.custom_ports — custom_ports / 110332233311 / 2
+## `vn_config.allowed_vip_port_sli.custom_ports` properties
 
 Breadcrumbs:
 
@@ -863,10 +1153,6 @@ Breadcrumbs:
 Type: `"object"`. single nested block, Optional.
 
 Custom Ports. List of Custom port.
-
-Upstream description:
-
-List of Custom port.
 
 Provider validators and defaults (from schema source):
 
@@ -895,23 +1181,17 @@ custom_ports {
 }
 ```
 
-<a id="canonical-2113102002020002-2101202021330102-2310212223103021-3130121002022202-1300023123211223-0133133103300300-2203203303103030-2333113102220333"></a>
+<a id="canonical-3122102121030202-3310312020301222-3330000123233030-1213133230231010-3202310221300311-2121330222213332-3212203012022102-0211133003221033"></a>
 
-## Direct properties — custom_ports / 110332233311 / 3
+### Direct properties for `vn_config.allowed_vip_port_sli.custom_ports`
 
 <a id="canonical-0031310213331010-2320003023310333-0001303110022113-2021202113310321-0301201320031203-3220202220233102-2302011132322032-2112210002203021"></a>
 
-<a id="canonical-3012233220303213-0321220101333202-3023123330030233-0020110320303331-3321113332201121-2030033132112222-2011101022112212-1233232311301120"></a>
-
-## port_ranges property — custom_ports / 110332233311 / 4
+#### `vn_config.allowed_vip_port_sli.custom_ports.port_ranges` property
 
 Type: `"string"`. Optional.
 
 Port Ranges. Port Ranges.
-
-Upstream description:
-
-Port Ranges.
 
 Provider validators and defaults (from schema source):
 
@@ -960,22 +1240,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-2023020211210223-2221100022110112-2123020103211131-2021033030131303-1301220120233013-0013120223321220-3003003132100032-2222303123002333"></a>
-
-## Next pages — custom_ports / 110332233311 / 5
-
-- [vn_config.allowed_vip_port_sli](resources--aws_tgw_site--reference--group-003.md#canonical-1301303321121123-2321223232201013-3102330121020211-2120201131031303-3021010211110131-2331233133123310-2023212112103320-1313123230030221)
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
-
 <a id="canonical-0011323313332101-2210232100033200-0101311313123131-0233320130323320-0123323010021302-1033323303232122-2031000300132123-0303233312131002"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2022323020120012-0111121113112233-1123121201233200-1010033232021330-2111030111332321-3020111101033133-1333001031303002-3133321122331202"></a>
-
-## vn_config.allowed_vip_port_sli.disable_allowed_vip_port — disable_allowed_vip_port / 212323101003 / 2
+## `vn_config.allowed_vip_port_sli.disable_allowed_vip_port` properties
 
 Breadcrumbs:
 
@@ -991,7 +1262,7 @@ Type: `["object", {}]`. Optional.
 
 Enable this option
 
-Upstream description:
+Additional upstream details:
 
 This can be used for messages where no values are needed.
 
@@ -1014,18 +1285,7 @@ Terraform syntax:
 disable_allowed_vip_port = {}
 ```
 
-<a id="canonical-0102322032213002-1303332021230031-3322221230301330-1202302330202011-3113300113031021-0132101111033201-1111232221001313-0300300121013020"></a>
-
-## Direct properties — disable_allowed_vip_port / 212323101003 / 3
-
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-2122201320330122-0020210322020301-2230110322022213-0232123103303320-2100010101311323-3102223033111010-1200232123011321-0233231300021311"></a>
-
-## Next pages — disable_allowed_vip_port / 212323101003 / 4
-
-- [vn_config.allowed_vip_port_sli](resources--aws_tgw_site--reference--group-003.md#canonical-1301303321121123-2321223232201013-3102330121020211-2120201131031303-3021010211110131-2331233133123310-2023212112103320-1313123230030221)
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
 
 <a id="canonical-2132023231131031-0223102322132030-0031131211032120-1231020100130002-1200300220130303-3301233303201201-3032320230123032-2311001302312101"></a>
 
@@ -1033,9 +1293,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3132010112201123-1232123312201121-0021233303012231-2030011103310322-2212032223000323-3212200312233202-2131220103231210-3331201231022021"></a>
-
-## vn_config.allowed_vip_port_sli.use_http_https_port — use_http_https_port / 222100303003 / 2
+## `vn_config.allowed_vip_port_sli.use_http_https_port` properties
 
 Breadcrumbs:
 
@@ -1051,7 +1309,7 @@ Type: `["object", {}]`. Optional.
 
 Enable this option
 
-Upstream description:
+Additional upstream details:
 
 This can be used for messages where no values are needed.
 
@@ -1074,18 +1332,7 @@ Terraform syntax:
 use_http_https_port = {}
 ```
 
-<a id="canonical-1111202211012131-3130032003222333-2011300301312131-0202122330322330-0212232012330100-0223132003311212-2031303111303103-3230123323003231"></a>
-
-## Direct properties — use_http_https_port / 222100303003 / 3
-
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-3122130313200101-3303131232331211-1303203112303032-0223232331212001-2011133210233010-1002312133013020-3131210321020121-0022231320331212"></a>
-
-## Next pages — use_http_https_port / 222100303003 / 4
-
-- [vn_config.allowed_vip_port_sli](resources--aws_tgw_site--reference--group-003.md#canonical-1301303321121123-2321223232201013-3102330121020211-2120201131031303-3021010211110131-2331233133123310-2023212112103320-1313123230030221)
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
 
 <a id="canonical-1031103201331203-3233032210211133-1011210320212121-1220003211033312-2033332323122023-1330112311010220-1212011013332203-1312322133302123"></a>
 
@@ -1093,9 +1340,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0122322011232120-2230201021013113-3313133233132323-2023002110211000-0130202013321300-0321233020121101-1300300212030112-1231203210132001"></a>
-
-## vn_config.allowed_vip_port_sli.use_http_port — use_http_port / 200101131030 / 2
+## `vn_config.allowed_vip_port_sli.use_http_port` properties
 
 Breadcrumbs:
 
@@ -1111,7 +1356,7 @@ Type: `["object", {}]`. Optional.
 
 Enable this option
 
-Upstream description:
+Additional upstream details:
 
 This can be used for messages where no values are needed.
 
@@ -1134,18 +1379,7 @@ Terraform syntax:
 use_http_port = {}
 ```
 
-<a id="canonical-3221202120031013-2112030310103210-0100202002320323-1200133322023311-0120333102232202-1321202020310233-2023023320033101-2123332332120122"></a>
-
-## Direct properties — use_http_port / 200101131030 / 3
-
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-2132220220202223-1020302110201213-2111222133022101-0012333112133210-2212203002032130-0323002013131201-2200033333313001-0333020123301130"></a>
-
-## Next pages — use_http_port / 200101131030 / 4
-
-- [vn_config.allowed_vip_port_sli](resources--aws_tgw_site--reference--group-003.md#canonical-1301303321121123-2321223232201013-3102330121020211-2120201131031303-3021010211110131-2331233133123310-2023212112103320-1313123230030221)
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
 
 <a id="canonical-3312102310012322-0310013233121303-1201313311313332-1231133013303133-0212213221310010-3222220203112312-1300303200312303-2322120211132121"></a>
 
@@ -1153,9 +1387,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3323113002011200-0023021120203231-0221123323212030-0320331232031231-0323313121122113-2112230020200330-0303110100012130-0220011201032220"></a>
-
-## vn_config.allowed_vip_port_sli.use_https_port — use_https_port / 100222212332 / 2
+## `vn_config.allowed_vip_port_sli.use_https_port` properties
 
 Breadcrumbs:
 
@@ -1171,7 +1403,7 @@ Type: `["object", {}]`. Optional.
 
 Enable this option
 
-Upstream description:
+Additional upstream details:
 
 This can be used for messages where no values are needed.
 
@@ -1194,18 +1426,7 @@ Terraform syntax:
 use_https_port = {}
 ```
 
-<a id="canonical-1003200122232133-2011100023023120-3123220131003223-3320321312313122-0021122201130203-1322202321032330-3210023131101011-3123031221221302"></a>
-
-## Direct properties — use_https_port / 100222212332 / 3
-
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-0010133332231010-0221032122222103-2100022313302210-3302022310020102-1121130030210100-3013023321023311-3220031013330133-0323230101020210"></a>
-
-## Next pages — use_https_port / 100222212332 / 4
-
-- [vn_config.allowed_vip_port_sli](resources--aws_tgw_site--reference--group-003.md#canonical-1301303321121123-2321223232201013-3102330121020211-2120201131031303-3021010211110131-2331233133123310-2023212112103320-1313123230030221)
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
 
 <a id="canonical-3323120021313013-2101230331010010-2030321121100002-0302200130312330-3300220200133301-1211123132130100-3222211202010113-3231320002022332"></a>
 
@@ -1213,9 +1434,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1313013012020033-2332122320313211-1222321300012332-2331123132110313-1001322201333002-1332322203320111-2302331020100103-3311112033123012"></a>
-
-## vn_config.dc_cluster_group_inside_vn — dc_cluster_group_inside_vn / 013130102000 / 2
+## `vn_config.dc_cluster_group_inside_vn` properties
 
 Breadcrumbs:
 
@@ -1227,11 +1446,6 @@ Breadcrumbs:
 <a id="canonical-0302231131110100-3022103113313103-1000221313201011-0233001012322322-3201101310121333-0132223223110233-3020231002021101-2232103313211103"></a>
 
 Type: `"object"`. single nested block, Optional.
-
-Type establishes a direct reference from one object(the referrer) to another(the referred). Such a
-reference is in form of tenant/namespace/name.
-
-Upstream description:
 
 This type establishes a direct reference from one object(the referrer) to another(the referred).
 Such a reference is in form of tenant/namespace/name.
@@ -1263,22 +1477,15 @@ dc_cluster_group_inside_vn {
 }
 ```
 
-<a id="canonical-3010033032030331-0032113103113233-2133101212320132-2131122123030221-1101010231331332-3012103313101102-3200010130123221-2221203021333220"></a>
+<a id="canonical-1313013012020033-2332122320313211-1222321300012332-2331123132110313-1001322201333002-1332322203320111-2302331020100103-3311112033123012"></a>
 
-## Direct properties — dc_cluster_group_inside_vn / 013130102000 / 3
+### Direct properties for `vn_config.dc_cluster_group_inside_vn`
 
 <a id="canonical-0303221312332333-0323020113123133-3320201111221322-2332011100033031-0302223320021032-0231111003310132-2201101311232033-2130212021031233"></a>
 
-<a id="canonical-0312121230123321-2212330233120120-1001102201311333-1132011231111120-1121033011300132-0000222231202131-1311212332133213-2131033202231213"></a>
-
-## name property — dc_cluster_group_inside_vn / 013130102000 / 4
+#### `vn_config.dc_cluster_group_inside_vn.name` property
 
 Type: `"string"`. Optional.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
-referred object's(e.g. Route's) name.
-
-Upstream description:
 
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
 referred object's(e.g. Route's) name.
@@ -1334,16 +1541,11 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-1122322202131232-3011131231101100-3230010311023232-0003210321102030-2301303312002211-1312211233333321-3133300021221311-3010030123121222"></a>
 
-<a id="canonical-0100333221012203-0201100332130111-3013022332333000-3112000000321021-2321001312013310-3302220332333220-1012232023232230-2211111110222021"></a>
+<a id="canonical-3010033032030331-0032113103113233-2133101212320132-2131122123030221-1101010231331332-3012103313101102-3200010130123221-2221203021333220"></a>
 
-## namespace property — dc_cluster_group_inside_vn / 013130102000 / 5
+#### `vn_config.dc_cluster_group_inside_vn.namespace` property
 
 Type: `"string"`. Optional, Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
-hold the referred object's(e.g. Route's) namespace.
-
-Upstream description:
 
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
 hold the referred object's(e.g. Route's) namespace.
@@ -1406,16 +1608,11 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-0023130323012222-2323331220221033-0011230002310123-2222132120001132-3232122220232310-3210020303303010-1012231120012023-1122211021033301"></a>
 
-<a id="canonical-0123300203312112-3100132310312022-1113300022213100-0021101213003102-1202310301213301-2222300102212132-2122230010132003-1232331030010310"></a>
+<a id="canonical-0312121230123321-2212330233120120-1001102201311333-1132011231111120-1121033011300132-0000222231202131-1311212332133213-2131033202231213"></a>
 
-## tenant property — dc_cluster_group_inside_vn / 013130102000 / 6
+#### `vn_config.dc_cluster_group_inside_vn.tenant` property
 
 Type: `"string"`. Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
-the referred object's(e.g. Route's) tenant.
-
-Upstream description:
 
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
 the referred object's(e.g. Route's) tenant.
@@ -1462,22 +1659,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-2020322202112213-0332013020212133-0111332020200020-3201213230030313-1030313032200021-1231221323211020-0300323133101232-3112030020300030"></a>
-
-## Next pages — dc_cluster_group_inside_vn / 013130102000 / 7
-
-- [vn_config](resources--aws_tgw_site--reference--group-003.md#canonical-0101002010113120-1121300322102322-2320133222211303-0011102031313120-3202320223313220-3220002032331202-0331231132033323-1222203320002031)
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
-
 <a id="canonical-1203200220100202-2301330300100333-1311122103213221-1131012011133010-0002123312102220-1112222133112321-0032111011031301-1201312233203130"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1202020230223201-1320110012033303-1130033031132101-3202113220112232-2131330021302110-1003103002202031-3120223201120211-0212102021303110"></a>
-
-## vn_config.dc_cluster_group_outside_vn — dc_cluster_group_outside_vn / 113211012210 / 2
+## `vn_config.dc_cluster_group_outside_vn` properties
 
 Breadcrumbs:
 
@@ -1489,11 +1677,6 @@ Breadcrumbs:
 <a id="canonical-0023211323100002-3332202102013120-0303203322221301-2130212010220330-0320321012323323-3101123001321320-1212023202000310-0033121230221100"></a>
 
 Type: `"object"`. single nested block, Optional.
-
-Type establishes a direct reference from one object(the referrer) to another(the referred). Such a
-reference is in form of tenant/namespace/name.
-
-Upstream description:
 
 This type establishes a direct reference from one object(the referrer) to another(the referred).
 Such a reference is in form of tenant/namespace/name.
@@ -1525,22 +1708,15 @@ dc_cluster_group_outside_vn {
 }
 ```
 
-<a id="canonical-3110103111023331-2003332210301231-2023233212032020-2133232300221021-2331232302320020-0113032311120203-2010301332213202-2012202333200123"></a>
+<a id="canonical-1202020230223201-1320110012033303-1130033031132101-3202113220112232-2131330021302110-1003103002202031-3120223201120211-0212102021303110"></a>
 
-## Direct properties — dc_cluster_group_outside_vn / 113211012210 / 3
+### Direct properties for `vn_config.dc_cluster_group_outside_vn`
 
 <a id="canonical-1203012212120023-2112013000220013-3002212012123012-1001222232313212-0223131121111323-1330133032330320-1102110230221030-3220013202120303"></a>
 
-<a id="canonical-3003311310103211-1131033001001301-3013033031331131-2103223130022321-2333021330022212-2231132131001211-2101332332013020-0122323323010321"></a>
-
-## name property — dc_cluster_group_outside_vn / 113211012210 / 4
+#### `vn_config.dc_cluster_group_outside_vn.name` property
 
 Type: `"string"`. Optional.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
-referred object's(e.g. Route's) name.
-
-Upstream description:
 
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
 referred object's(e.g. Route's) name.
@@ -1596,16 +1772,11 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-0200200103332022-2230330011313300-2001322301231020-3311201012012132-3021200020021231-3101112313012211-2303030100213202-2000021131213030"></a>
 
-<a id="canonical-3110332223103220-0311323303231000-2203010023110201-3330020330113102-0023011103001233-0123130000113311-1111002102302012-0010100322031012"></a>
+<a id="canonical-3110103111023331-2003332210301231-2023233212032020-2133232300221021-2331232302320020-0113032311120203-2010301332213202-2012202333200123"></a>
 
-## namespace property — dc_cluster_group_outside_vn / 113211012210 / 5
+#### `vn_config.dc_cluster_group_outside_vn.namespace` property
 
 Type: `"string"`. Optional, Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
-hold the referred object's(e.g. Route's) namespace.
-
-Upstream description:
 
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
 hold the referred object's(e.g. Route's) namespace.
@@ -1668,16 +1839,11 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-3122323220210220-1022320132213100-2031003120021131-2332133013111010-2110103111330313-1110102000000133-3011000023333301-0330230303001232"></a>
 
-<a id="canonical-1321032231203331-1102013212123323-2203303313301010-2320032331101020-0002202031031130-2000202301022110-3030323130202112-2301310322011211"></a>
+<a id="canonical-3003311310103211-1131033001001301-3013033031331131-2103223130022321-2333021330022212-2231132131001211-2101332332013020-0122323323010321"></a>
 
-## tenant property — dc_cluster_group_outside_vn / 113211012210 / 6
+#### `vn_config.dc_cluster_group_outside_vn.tenant` property
 
 Type: `"string"`. Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
-the referred object's(e.g. Route's) tenant.
-
-Upstream description:
 
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
 the referred object's(e.g. Route's) tenant.
@@ -1724,22 +1890,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-3320310000113103-3022031323023213-1033201211113110-0130321300312310-1111322230313023-2101331122212112-2013330120223012-3120132033031031"></a>
-
-## Next pages — dc_cluster_group_outside_vn / 113211012210 / 7
-
-- [vn_config](resources--aws_tgw_site--reference--group-003.md#canonical-0101002010113120-1121300322102322-2320133222211303-0011102031313120-3202320223313220-3220002032331202-0331231132033323-1222203320002031)
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
-
 <a id="canonical-1311000133311331-0133032032130101-2311221330311100-0022033203212131-3312123023132201-3130101000123111-0013130131023303-2323231132300030"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2311033201331031-3211313311011021-2113130020001003-3020202100230212-2312202132013202-3213013130301102-1302211220013220-2333222333222231"></a>
-
-## vn_config.global_network_list — global_network_list / 200300232301 / 2
+## `vn_config.global_network_list` properties
 
 Breadcrumbs:
 
@@ -1753,10 +1910,6 @@ Breadcrumbs:
 Type: `"object"`. single nested block, Optional.
 
 Global Network Connection List. List of global network connections.
-
-Upstream description:
-
-List of global network connections.
 
 Provider validators and defaults (from schema source):
 
@@ -1785,19 +1938,11 @@ global_network_list {
 }
 ```
 
-<a id="canonical-3023223230131123-2211223301120010-3200323323200310-2101200032302212-0110331322311312-0220213213202112-0102231301003033-1223131301122020"></a>
+<a id="canonical-2311033201331031-3211313311011021-2113130020001003-3020202100230212-2312202132013202-3213013130301102-1302211220013220-2333222333222231"></a>
 
-## Direct properties — global_network_list / 200300232301 / 3
+### Direct properties for `vn_config.global_network_list`
 
 - [global_network_connections](resources--aws_tgw_site--reference--group-003.md#canonical-3020111000002321-0233001200031331-3203100211320223-1010113310201221-3113233011301211-1321112232003100-2320003022121100-2021100212310232): complete subsection reference.
-
-<a id="canonical-0303030332010212-3321200221332302-2012003333222203-2311121211201020-0030121030200010-1310012311302002-0230001122233231-3310330313213102"></a>
-
-## Next pages — global_network_list / 200300232301 / 4
-
-- [vn_config.global_network_list.global_network_connections](resources--aws_tgw_site--reference--group-003.md#canonical-3020111000002321-0233001200031331-3203100211320223-1010113310201221-3113233011301211-1321112232003100-2320003022121100-2021100212310232)
-- [vn_config](resources--aws_tgw_site--reference--group-003.md#canonical-0101002010113120-1121300322102322-2320133222211303-0011102031313120-3202320223313220-3220002032331202-0331231132033323-1222203320002031)
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
 
 <a id="canonical-3020111000002321-0233001200031331-3203100211320223-1010113310201221-3113233011301211-1321112232003100-2320003022121100-2021100212310232"></a>
 
@@ -1805,9 +1950,7 @@ global_network_list {
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2221323113010312-2032112233321020-2312231233230132-2032331012210223-1333020320211232-0331130000333210-0202122330130012-1133322333021231"></a>
-
-## vn_config.global_network_list.global_network_connections — global_network_connections / 122321223123 / 2
+## `vn_config.global_network_list.global_network_connections` properties
 
 Breadcrumbs:
 
@@ -1822,10 +1965,6 @@ Breadcrumbs:
 Type: `"object"`. list nested block, Optional.
 
 Global Network Connections. Global network connections.
-
-Upstream description:
-
-Global network connections.
 
 Provider validators and defaults (from schema source):
 
@@ -1879,22 +2018,13 @@ global_network_connections {
 }
 ```
 
-<a id="canonical-3020100212200220-1011333123302013-0201112231022311-3322310212112331-3320123302321213-3112201233311220-1103233121003133-1333320232120010"></a>
+<a id="canonical-2221323113010312-2032112233321020-2312231233230132-2032331012210223-1333020320211232-0331130000333210-0202122330130012-1133322333021231"></a>
 
-## Direct properties — global_network_connections / 122321223123 / 3
+### Direct properties for `vn_config.global_network_list.global_network_connections`
 
 - [sli_to_global_dr](resources--aws_tgw_site--reference--group-003.md#canonical-1323030132301113-1001220033133222-0222213000121020-1102103131200123-0013200000333010-1310021020300320-3032100002321120-2030322100201310): complete subsection reference.
 
 - [slo_to_global_dr](resources--aws_tgw_site--reference--group-003.md#canonical-0323020221200102-1102230310311102-0303102120310010-3322203302013233-2000023012211003-1300222222332302-1313301000003201-2020211013222303): complete subsection reference.
-
-<a id="canonical-3220313333202330-3212333223133102-0110202331320131-0202303200102000-2113210230323300-0321302321211023-0132221302201131-0112213210033103"></a>
-
-## Next pages — global_network_connections / 122321223123 / 4
-
-- [vn_config.global_network_list.global_network_connections.sli_to_global_dr](resources--aws_tgw_site--reference--group-003.md#canonical-1323030132301113-1001220033133222-0222213000121020-1102103131200123-0013200000333010-1310021020300320-3032100002321120-2030322100201310)
-- [vn_config.global_network_list.global_network_connections.slo_to_global_dr](resources--aws_tgw_site--reference--group-003.md#canonical-0323020221200102-1102230310311102-0303102120310010-3322203302013233-2000023012211003-1300222222332302-1313301000003201-2020211013222303)
-- [vn_config.global_network_list](resources--aws_tgw_site--reference--group-003.md#canonical-1311000133311331-0133032032130101-2311221330311100-0022033203212131-3312123023132201-3130101000123111-0013130131023303-2323231132300030)
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
 
 <a id="canonical-1323030132301113-1001220033133222-0222213000121020-1102103131200123-0013200000333010-1310021020300320-3032100002321120-2030322100201310"></a>
 
@@ -1902,9 +2032,7 @@ global_network_connections {
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0132201301003300-1010130012102010-1212122111301011-3100103301010030-3121312031030321-2101031022313030-3033300121002122-1010013130310231"></a>
-
-## vn_config.global_network_list.global_network_connections.sli_to_global_dr — sli_to_global_dr / 003010003322 / 2
+## `vn_config.global_network_list.global_network_connections.sli_to_global_dr` properties
 
 Breadcrumbs:
 
@@ -1942,19 +2070,11 @@ sli_to_global_dr {
 }
 ```
 
-<a id="canonical-2130221220333121-1312202021230220-2301011222113102-1212321230323000-0120323022221212-3033010333033101-0333000300131013-1131100001133003"></a>
+<a id="canonical-0132201301003300-1010130012102010-1212122111301011-3100103301010030-3121312031030321-2101031022313030-3033300121002122-1010013130310231"></a>
 
-## Direct properties — sli_to_global_dr / 003010003322 / 3
+### Direct properties for `vn_config.global_network_list.global_network_connections.sli_to_global_dr`
 
 - [global_vn](resources--aws_tgw_site--reference--group-003.md#canonical-2201300321012221-0320302313302323-2031111122012203-2111230320020133-1002313301013301-2013233130313212-3002301032000002-3223110233103213): complete subsection reference.
-
-<a id="canonical-2112130302103110-2312000203121231-0321300132011223-3203000300223201-1323301233013302-3212311312123320-2222023013312112-1002310323321120"></a>
-
-## Next pages — sli_to_global_dr / 003010003322 / 4
-
-- [vn_config.global_network_list.global_network_connections.sli_to_global_dr.global_vn](resources--aws_tgw_site--reference--group-003.md#canonical-2201300321012221-0320302313302323-2031111122012203-2111230320020133-1002313301013301-2013233130313212-3002301032000002-3223110233103213)
-- [vn_config.global_network_list.global_network_connections](resources--aws_tgw_site--reference--group-003.md#canonical-3020111000002321-0233001200031331-3203100211320223-1010113310201221-3113233011301211-1321112232003100-2320003022121100-2021100212310232)
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
 
 <a id="canonical-2201300321012221-0320302313302323-2031111122012203-2111230320020133-1002313301013301-2013233130313212-3002301032000002-3223110233103213"></a>
 
@@ -1962,9 +2082,7 @@ sli_to_global_dr {
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3301211121322110-0303130111010132-0103302101011033-1212313002213230-2000311111320321-0020031301033333-2233111133000200-3222320010120033"></a>
-
-## vn_config.global_network_list.global_network_connections.sli_to_global_dr.global_vn — global_vn / 213120312022 / 2
+## `vn_config.global_network_list.global_network_connections.sli_to_global_dr.global_vn` properties
 
 Breadcrumbs:
 
@@ -1979,11 +2097,6 @@ Breadcrumbs:
 <a id="canonical-3211023022032301-1020022312131313-0211001301330310-1211001111013333-2230002030312200-2230332100032000-3123132230313003-3300222301023100"></a>
 
 Type: `"object"`. single nested block, Optional.
-
-Type establishes a direct reference from one object(the referrer) to another(the referred). Such a
-reference is in form of tenant/namespace/name.
-
-Upstream description:
 
 This type establishes a direct reference from one object(the referrer) to another(the referred).
 Such a reference is in form of tenant/namespace/name.
@@ -2015,22 +2128,15 @@ global_vn {
 }
 ```
 
-<a id="canonical-3311312222033133-0020310131220301-3312301020201122-3212210333301321-0121303302102200-2112203310203313-0310211231321323-1323310322020111"></a>
+<a id="canonical-3301211121322110-0303130111010132-0103302101011033-1212313002213230-2000311111320321-0020031301033333-2233111133000200-3222320010120033"></a>
 
-## Direct properties — global_vn / 213120312022 / 3
+### Direct properties for `vn_config.global_network_list.global_network_connections.sli_to_global_dr.global_vn`
 
 <a id="canonical-0203003332332300-3222233201333110-3113231210003211-3222211110221222-0133031211300222-0130121223301203-2102313002312330-2033223310112103"></a>
 
-<a id="canonical-2333331232001022-2203000210131330-1033012000030131-0001210130222002-2123312213010012-0002221103233211-3122030132100233-0332312323023023"></a>
-
-## name property — global_vn / 213120312022 / 4
+#### `vn_config.global_network_list.global_network_connections.sli_to_global_dr.global_vn.name` property
 
 Type: `"string"`. Optional.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
-referred object's(e.g. Route's) name.
-
-Upstream description:
 
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
 referred object's(e.g. Route's) name.
@@ -2086,16 +2192,11 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-2201332000210120-2330130010120311-0313013222311230-1303122313003002-0100012012111322-2003133003003032-0111321013213300-0222201133120032"></a>
 
-<a id="canonical-2212213103221323-2131311003301013-0212022321331221-1031312121022233-2223121033212321-0313322013213122-1021231333300302-1102123311300332"></a>
+<a id="canonical-3311312222033133-0020310131220301-3312301020201122-3212210333301321-0121303302102200-2112203310203313-0310211231321323-1323310322020111"></a>
 
-## namespace property — global_vn / 213120312022 / 5
+#### `vn_config.global_network_list.global_network_connections.sli_to_global_dr.global_vn.namespace` property
 
 Type: `"string"`. Optional, Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
-hold the referred object's(e.g. Route's) namespace.
-
-Upstream description:
 
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
 hold the referred object's(e.g. Route's) namespace.
@@ -2158,16 +2259,11 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-1212120011110023-0110110002300133-0120231320010312-3232011230113013-2310302003012023-3123302102122020-2131101023303223-0001211123022002"></a>
 
-<a id="canonical-1033111003003213-3010122122132111-1032020020131013-3131323213032311-3032112101332201-1332001300101231-0310000010313032-1101310121223200"></a>
+<a id="canonical-2333331232001022-2203000210131330-1033012000030131-0001210130222002-2123312213010012-0002221103233211-3122030132100233-0332312323023023"></a>
 
-## tenant property — global_vn / 213120312022 / 6
+#### `vn_config.global_network_list.global_network_connections.sli_to_global_dr.global_vn.tenant` property
 
 Type: `"string"`. Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
-the referred object's(e.g. Route's) tenant.
-
-Upstream description:
 
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
 the referred object's(e.g. Route's) tenant.
@@ -2214,22 +2310,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-1032322001031230-2133102200230301-2100312113123110-0300033000200311-1303011211320213-1122123013132331-3023021132202211-3303021331311111"></a>
-
-## Next pages — global_vn / 213120312022 / 7
-
-- [vn_config.global_network_list.global_network_connections.sli_to_global_dr](resources--aws_tgw_site--reference--group-003.md#canonical-1323030132301113-1001220033133222-0222213000121020-1102103131200123-0013200000333010-1310021020300320-3032100002321120-2030322100201310)
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
-
 <a id="canonical-0323020221200102-1102230310311102-0303102120310010-3322203302013233-2000023012211003-1300222222332302-1313301000003201-2020211013222303"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2032111030033132-0121013210112030-0023202220100002-3001300020033111-2102203120011201-0203312032313113-1333120012001312-1221322010212100"></a>
-
-## vn_config.global_network_list.global_network_connections.slo_to_global_dr — slo_to_global_dr / 333033323102 / 2
+## `vn_config.global_network_list.global_network_connections.slo_to_global_dr` properties
 
 Breadcrumbs:
 
@@ -2267,19 +2354,11 @@ slo_to_global_dr {
 }
 ```
 
-<a id="canonical-0130130131331310-1132201222332112-0021313332232132-2030333330130220-2112312311101230-0023133031131323-1221213123322333-3212303322021301"></a>
+<a id="canonical-2032111030033132-0121013210112030-0023202220100002-3001300020033111-2102203120011201-0203312032313113-1333120012001312-1221322010212100"></a>
 
-## Direct properties — slo_to_global_dr / 333033323102 / 3
+### Direct properties for `vn_config.global_network_list.global_network_connections.slo_to_global_dr`
 
 - [global_vn](resources--aws_tgw_site--reference--group-003.md#canonical-0012021201101102-1112102133231121-2100103023110030-0032013130110022-0313103222321121-1100112213323203-2000022233320113-3230111123032002): complete subsection reference.
-
-<a id="canonical-0202201111110203-3101210200303123-2321022331310120-3230333230002233-3322200323333222-3231122210110222-2113132103303322-0103023322011132"></a>
-
-## Next pages — slo_to_global_dr / 333033323102 / 4
-
-- [vn_config.global_network_list.global_network_connections.slo_to_global_dr.global_vn](resources--aws_tgw_site--reference--group-003.md#canonical-0012021201101102-1112102133231121-2100103023110030-0032013130110022-0313103222321121-1100112213323203-2000022233320113-3230111123032002)
-- [vn_config.global_network_list.global_network_connections](resources--aws_tgw_site--reference--group-003.md#canonical-3020111000002321-0233001200031331-3203100211320223-1010113310201221-3113233011301211-1321112232003100-2320003022121100-2021100212310232)
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
 
 <a id="canonical-0012021201101102-1112102133231121-2100103023110030-0032013130110022-0313103222321121-1100112213323203-2000022233320113-3230111123032002"></a>
 
@@ -2287,9 +2366,7 @@ slo_to_global_dr {
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-0011310113210122-1001102030301102-2303032121302003-0110223103232311-3311321312310212-2323012310201332-2022323120210022-0111132132333201"></a>
-
-## vn_config.global_network_list.global_network_connections.slo_to_global_dr.global_vn — global_vn / 323030110132 / 2
+## `vn_config.global_network_list.global_network_connections.slo_to_global_dr.global_vn` properties
 
 Breadcrumbs:
 
@@ -2304,11 +2381,6 @@ Breadcrumbs:
 <a id="canonical-0031233112311030-3010022211030331-1012202101332102-1123230312212320-3201001131012213-2333210020013020-0020033130123330-2121311330103102"></a>
 
 Type: `"object"`. single nested block, Optional.
-
-Type establishes a direct reference from one object(the referrer) to another(the referred). Such a
-reference is in form of tenant/namespace/name.
-
-Upstream description:
 
 This type establishes a direct reference from one object(the referrer) to another(the referred).
 Such a reference is in form of tenant/namespace/name.
@@ -2340,22 +2412,15 @@ global_vn {
 }
 ```
 
-<a id="canonical-1022101031123210-2020011121111130-1103211312001212-1110033112012010-3300121122303301-1021111330201323-0201130331021220-0031322322323112"></a>
+<a id="canonical-0011310113210122-1001102030301102-2303032121302003-0110223103232311-3311321312310212-2323012310201332-2022323120210022-0111132132333201"></a>
 
-## Direct properties — global_vn / 323030110132 / 3
+### Direct properties for `vn_config.global_network_list.global_network_connections.slo_to_global_dr.global_vn`
 
 <a id="canonical-0331003101300130-2132001111132313-0022012011123213-1210232000133200-3023010030020302-2112333113103333-3230000233303012-2011111002232021"></a>
 
-<a id="canonical-3032112332012102-3200103032303112-1113123022201122-3220000322001221-1332222033223200-2122110101013300-1200112212131212-1333133110200113"></a>
-
-## name property — global_vn / 323030110132 / 4
+#### `vn_config.global_network_list.global_network_connections.slo_to_global_dr.global_vn.name` property
 
 Type: `"string"`. Optional.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
-referred object's(e.g. Route's) name.
-
-Upstream description:
 
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
 referred object's(e.g. Route's) name.
@@ -2411,16 +2476,11 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-3213031111202030-1023031333113110-1000301020303003-1100103010120212-1113011232123301-0302333333133301-3000221301001002-3330031213311121"></a>
 
-<a id="canonical-1213100211102132-3213203201213333-3223002122320332-2233202131131033-0323010102133021-0011221130223100-1331030201210102-0220130012003303"></a>
+<a id="canonical-1022101031123210-2020011121111130-1103211312001212-1110033112012010-3300121122303301-1021111330201323-0201130331021220-0031322322323112"></a>
 
-## namespace property — global_vn / 323030110132 / 5
+#### `vn_config.global_network_list.global_network_connections.slo_to_global_dr.global_vn.namespace` property
 
 Type: `"string"`. Optional, Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
-hold the referred object's(e.g. Route's) namespace.
-
-Upstream description:
 
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
 hold the referred object's(e.g. Route's) namespace.
@@ -2483,16 +2543,11 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-0310121213312121-0030301312211122-1331111123232013-2100213121300311-1030233013022131-1110013232302202-1023333102221323-2000130113210023"></a>
 
-<a id="canonical-1313333133133310-2102132223130033-3011112111113023-2222011111302112-2120203110033302-3011321323133330-0131100231020010-1020303300023121"></a>
+<a id="canonical-3032112332012102-3200103032303112-1113123022201122-3220000322001221-1332222033223200-2122110101013300-1200112212131212-1333133110200113"></a>
 
-## tenant property — global_vn / 323030110132 / 6
+#### `vn_config.global_network_list.global_network_connections.slo_to_global_dr.global_vn.tenant` property
 
 Type: `"string"`. Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
-the referred object's(e.g. Route's) tenant.
-
-Upstream description:
 
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
 the referred object's(e.g. Route's) tenant.
@@ -2539,22 +2594,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-1001233021213113-0013333000121022-2332031110302023-0331302200221102-0213121302200113-0131003213120031-3100301301210102-1331211001033101"></a>
-
-## Next pages — global_vn / 323030110132 / 7
-
-- [vn_config.global_network_list.global_network_connections.slo_to_global_dr](resources--aws_tgw_site--reference--group-003.md#canonical-0323020221200102-1102230310311102-0303102120310010-3322203302013233-2000023012211003-1300222222332302-1313301000003201-2020211013222303)
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
-
 <a id="canonical-1220102301021103-2101230331200333-1320112002130223-3322021232321002-2300321222300032-1311322021121333-1300213110111200-0122111222312130"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2112110323200000-3031322232333303-1100113211200331-2132031231203313-2231101233021232-1020130130212113-2222023302210302-0310120012112223"></a>
-
-## vn_config.inside_static_routes — inside_static_routes / 032222123030 / 2
+## `vn_config.inside_static_routes` properties
 
 Breadcrumbs:
 
@@ -2569,7 +2615,7 @@ Type: `"object"`. single nested block, Optional.
 
 Configuration parameter for inside static routes.
 
-Upstream description:
+Additional upstream details:
 
 List of static routes.
 
@@ -2600,19 +2646,11 @@ inside_static_routes {
 }
 ```
 
-<a id="canonical-0100012201100322-3100232112213332-0320312133022122-0221100211003030-0121122330302010-2332133103003013-0100031012121213-0120010022022201"></a>
+<a id="canonical-2112110323200000-3031322232333303-1100113211200331-2132031231203313-2231101233021232-1020130130212113-2222023302210302-0310120012112223"></a>
 
-## Direct properties — inside_static_routes / 032222123030 / 3
+### Direct properties for `vn_config.inside_static_routes`
 
 - [static_route_list](resources--aws_tgw_site--reference--group-003.md#canonical-1111202311002203-0100300223012331-1003213022321123-2132201001333033-2233011311203120-1011300330231230-1132313222230312-2233033213203231): complete subsection reference.
-
-<a id="canonical-3213323021030110-2322323233211131-1223112010221102-3001221211223233-0231020003321301-0000131333001101-2311020300210000-1200301302123222"></a>
-
-## Next pages — inside_static_routes / 032222123030 / 4
-
-- [vn_config.inside_static_routes.static_route_list](resources--aws_tgw_site--reference--group-003.md#canonical-1111202311002203-0100300223012331-1003213022321123-2132201001333033-2233011311203120-1011300330231230-1132313222230312-2233033213203231)
-- [vn_config](resources--aws_tgw_site--reference--group-003.md#canonical-0101002010113120-1121300322102322-2320133222211303-0011102031313120-3202320223313220-3220002032331202-0331231132033323-1222203320002031)
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
 
 <a id="canonical-1111202311002203-0100300223012331-1003213022321123-2132201001333033-2233011311203120-1011300330231230-1132313222230312-2233033213203231"></a>
 
@@ -2620,9 +2658,7 @@ inside_static_routes {
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3231110032330322-3030032202023222-3001031032000032-3312000000323031-0120002221013102-1302122220231311-1031002012023132-3030011112202200"></a>
-
-## vn_config.inside_static_routes.static_route_list — static_route_list / 333211100223 / 2
+## `vn_config.inside_static_routes.static_route_list` properties
 
 Breadcrumbs:
 
@@ -2637,10 +2673,6 @@ Breadcrumbs:
 Type: `"object"`. list nested block, Optional.
 
 List of Static Routes. List of Static routes.
-
-Upstream description:
-
-List of Static routes.
 
 Provider validators and defaults (from schema source):
 
@@ -2694,24 +2726,19 @@ static_route_list {
 }
 ```
 
-<a id="canonical-1330121031130131-1030100032220022-3020231330212310-2310011330200102-1203312300131132-2213020131203020-2023003031013311-0130201120311023"></a>
+<a id="canonical-3231110032330322-3030032202023222-3001031032000032-3312000000323031-0120002221013102-1302122220231311-1031002012023132-3030011112202200"></a>
 
-## Direct properties — static_route_list / 333211100223 / 3
+### Direct properties for `vn_config.inside_static_routes.static_route_list`
 
 - [custom_static_route](resources--aws_tgw_site--reference--group-003.md#canonical-2032200001011311-1330020102322220-2303133102113110-3011112022233012-3103222000122001-1001203031110230-0100311121203211-3330333223013220): complete subsection reference.
 
 <a id="canonical-3321302013300302-0033030333200030-1101012320303102-2113301131010021-0032022331220031-1211121001203202-3213310232333132-3130111112321233"></a>
 
-<a id="canonical-3203220012013013-2312310301103220-0023203321313122-3320021211032133-0213020030200301-0212133201330221-2311221311131013-1123233201032123"></a>
+<a id="canonical-1330121031130131-1030100032220022-3020231330212310-2310011330200102-1203312300131132-2213020131203020-2023003031013311-0130201120311023"></a>
 
-## simple_static_route property — static_route_list / 333211100223 / 4
+#### `vn_config.inside_static_routes.static_route_list.simple_static_route` property
 
 Type: `"string"`. Optional.
-
-Exclusive with \[custom\_static\_route\] Use simple static route for prefix pointing to single
-interface in the network.
-
-Upstream description:
 
 Exclusive with \[custom\_static\_route\] Use simple static route for prefix pointing to single
 interface in the network.
@@ -2745,23 +2772,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-0233233330020100-3222213103320123-1331321200222013-1201221323220221-3122012133031002-0230001301021003-1202001113311313-3011132311113211"></a>
-
-## Next pages — static_route_list / 333211100223 / 5
-
-- [vn_config.inside_static_routes.static_route_list.custom_static_route](resources--aws_tgw_site--reference--group-003.md#canonical-2032200001011311-1330020102322220-2303133102113110-3011112022233012-3103222000122001-1001203031110230-0100311121203211-3330333223013220)
-- [vn_config.inside_static_routes](resources--aws_tgw_site--reference--group-003.md#canonical-1220102301021103-2101230331200333-1320112002130223-3322021232321002-2300321222300032-1311322021121333-1300213110111200-0122111222312130)
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
-
 <a id="canonical-2032200001011311-1330020102322220-2303133102113110-3011112022233012-3103222000122001-1001203031110230-0100311121203211-3330333223013220"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3103300221121003-2230122301220211-3130012233032101-2111100112203033-2233311222222011-1110232012121231-1321302131001102-1222031231000111"></a>
-
-## vn_config.inside_static_routes.static_route_list.custom_static_route — custom_static_route / 023110310201 / 2
+## `vn_config.inside_static_routes.static_route_list.custom_static_route` properties
 
 Breadcrumbs:
 
@@ -2805,15 +2822,13 @@ custom_static_route {
 }
 ```
 
-<a id="canonical-0330011210010121-3121221012033010-1031010201003132-3122101121001121-3021202103233032-2101210110002331-2201223231321323-2312131300021121"></a>
+<a id="canonical-3103300221121003-2230122301220211-3130012233032101-2111100112203033-2233311222222011-1110232012121231-1321302131001102-1222031231000111"></a>
 
-## Direct properties — custom_static_route / 023110310201 / 3
+### Direct properties for `vn_config.inside_static_routes.static_route_list.custom_static_route`
 
 <a id="canonical-1113022302212132-2230120030303030-0210201103303131-0323122021022220-2322022211011130-2333123201211210-2310132201210132-2311323030313200"></a>
 
-<a id="canonical-3223123031320320-1100333221330211-1111320332213023-1200222031102102-0131112223111200-3320133223302131-3103233133300133-2331333133033112"></a>
-
-## attrs property — custom_static_route / 023110310201 / 4
+#### `vn_config.inside_static_routes.static_route_list.custom_static_route.attrs` property
 
 Type: `["list", "string"]`. Optional.
 
@@ -2823,10 +2838,6 @@ List of route attributes associated with the static route. Possible values are
 \`ROUTE\_ATTR\_NO\_OP\`, \`ROUTE\_ATTR\_ADVERTISE\`, \`ROUTE\_ATTR\_INSTALL\_HOST\`,
 \`ROUTE\_ATTR\_INSTALL\_FORWARDING\`, \`ROUTE\_ATTR\_MERGE\_ONLY\`. Defaults to
 \`ROUTE\_ATTR\_NO\_OP\`.
-
-Upstream description:
-
-List of route attributes associated with the static route.
 
 Provider validators and defaults (from schema source):
 
@@ -2871,17 +2882,7 @@ Receipt-pinned upstream constraints:
 
 - [nexthop](resources--aws_tgw_site--reference--group-003.md#canonical-1030323103122102-2110303300011113-3112123030312202-0023322132323301-0313231010200312-2121232001212230-2223322131302001-0131030112133200): complete subsection reference.
 
-- [subnets](resources--aws_tgw_site--reference--group-003.md#canonical-2312102122133200-0120302223320132-0133013231100200-0201333332120223-3022330101331300-0311113223000130-0123020123002012-1012331331330010): complete subsection reference.
-
-<a id="canonical-1122001032002222-1011112203022211-1012111020012100-0100232311301312-1323321223033302-2110100031213032-3311001122230331-0001201013020001"></a>
-
-## Next pages — custom_static_route / 023110310201 / 5
-
-- [vn_config.inside_static_routes.static_route_list.custom_static_route.labels](resources--aws_tgw_site--reference--group-003.md#canonical-0303223121101303-1111122111002301-3120322232223212-0303320111130120-2213003211100111-3110033103331313-2031022032313003-2003220232010022)
-- [vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop](resources--aws_tgw_site--reference--group-003.md#canonical-1030323103122102-2110303300011113-3112123030312202-0023322132323301-0313231010200312-2121232001212230-2223322131302001-0131030112133200)
-- [vn_config.inside_static_routes.static_route_list.custom_static_route.subnets](resources--aws_tgw_site--reference--group-003.md#canonical-2312102122133200-0120302223320132-0133013231100200-0201333332120223-3022330101331300-0311113223000130-0123020123002012-1012331331330010)
-- [vn_config.inside_static_routes.static_route_list](resources--aws_tgw_site--reference--group-003.md#canonical-1111202311002203-0100300223012331-1003213022321123-2132201001333033-2233011311203120-1011300330231230-1132313222230312-2233033213203231)
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
+- [subnets](resources--aws_tgw_site--reference--group-004.md#canonical-2312102122133200-0120302223320132-0133013231100200-0201333332120223-3022330101331300-0311113223000130-0123020123002012-1012331331330010): complete subsection reference.
 
 <a id="canonical-0303223121101303-1111122111002301-3120322232223212-0303320111130120-2213003211100111-3110033103331313-2031022032313003-2003220232010022"></a>
 
@@ -2889,9 +2890,7 @@ Receipt-pinned upstream constraints:
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1322223233202302-3332223003332203-3032330013010200-3001113013210122-3221122310121312-1132302120212311-2100002300231102-3003223201110102"></a>
-
-## vn_config.inside_static_routes.static_route_list.custom_static_route.labels — labels / 111100310111 / 2
+## `vn_config.inside_static_routes.static_route_list.custom_static_route.labels` properties
 
 Breadcrumbs:
 
@@ -2928,18 +2927,7 @@ Terraform syntax:
 labels {}
 ```
 
-<a id="canonical-0321022103323322-3312010122133000-0213031303321221-2020133102221323-3131002302020331-2110000201110133-1201320003311323-0120210100000230"></a>
-
-## Direct properties — labels / 111100310111 / 3
-
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-3201202122200223-3030133312202022-3213230333132300-0012321203102121-0323313221121232-2121032023002213-1101302322033323-2022201311312122"></a>
-
-## Next pages — labels / 111100310111 / 4
-
-- [vn_config.inside_static_routes.static_route_list.custom_static_route](resources--aws_tgw_site--reference--group-003.md#canonical-2032200001011311-1330020102322220-2303133102113110-3011112022233012-3103222000122001-1001203031110230-0100311121203211-3330333223013220)
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
 
 <a id="canonical-1030323103122102-2110303300011113-3112123030312202-0023322132323301-0313231010200312-2121232001212230-2223322131302001-0131030112133200"></a>
 
@@ -2947,9 +2935,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3300121313222033-1021002133332112-3221120332220333-1022312212023132-2102220010302020-2021222301210200-2013131200223002-3312103321121032"></a>
-
-## vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop — nexthop / 102301222212 / 2
+## `vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop` properties
 
 Breadcrumbs:
 
@@ -2966,10 +2952,6 @@ Breadcrumbs:
 Type: `"object"`. single nested block, Optional.
 
 Nexthop. Identifies the next-hop for a route.
-
-Upstream description:
-
-Identifies the next-hop for a route.
 
 Receipt-pinned upstream constraints:
 
@@ -2992,9 +2974,9 @@ nexthop {
 }
 ```
 
-<a id="canonical-3112012030112321-0002332122232012-3130212111132002-1233331230301231-2332202311010321-1213213201120133-0100313231331223-0021223113001130"></a>
+<a id="canonical-3300121313222033-1021002133332112-3221120332220333-1022312212023132-2102220010302020-2021222301210200-2013131200223002-3312103321121032"></a>
 
-## Direct properties — nexthop / 102301222212 / 3
+### Direct properties for `vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop`
 
 - [interface](resources--aws_tgw_site--reference--group-003.md#canonical-0232113203110221-0131020122132313-1113223131023030-3020111133223123-1233133220132223-2203333032333320-1133031130202222-1031000330303112): complete subsection reference.
 
@@ -3002,9 +2984,9 @@ nexthop {
 
 <a id="canonical-1121332020110101-3001211000302033-2213211133203212-0200033203120133-2122010301121310-2020330021123123-3113022333120102-1010330222113103"></a>
 
-<a id="canonical-3233332222211232-1313131303022010-2102310003233031-0131032011113203-3200331023000021-3021213320311332-2221312322300102-1130230332300312"></a>
+<a id="canonical-3112012030112321-0002332122232012-3130212111132002-1233331230301231-2332202311010321-1213213201120133-0100313231331223-0021223113001130"></a>
 
-## type property — nexthop / 102301222212 / 4
+#### `vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop.type` property
 
 Type: `"string"`. Optional.
 
@@ -3015,13 +2997,13 @@ the network interface as nexthop Discard nexthop, used when attr type is Adverti
 Possible values are \`NEXT\_HOP\_DEFAULT\_GATEWAY\`, \`NEXT\_HOP\_USE\_CONFIGURED\`,
 \`NEXT\_HOP\_NETWORK\_INTERFACE\`. Defaults to \`NEXT\_HOP\_DEFAULT\_GATEWAY\`.
 
-Upstream description:
+Additional upstream details:
 
 Defines types of next-hop
 
-Use default gateway on the local interface as gateway for route. Assumes there is only one local
-interface on the virtual network. Use the specified address as nexthop Use the network interface as
-nexthop Discard nexthop, used when attr type is Advertise Used in VoltADN private virtual network.
+Use default gateway on the local interface as gateway for route. Use the specified address as
+nexthop Use the network interface as nexthop Discard nexthop, used when attr type is Advertise Used
+in VoltADN private virtual network.
 
 Provider validators and defaults (from schema source):
 
@@ -3052,24 +3034,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-0303300232130312-2000312132202130-3232131332022331-2131301310213332-2001031300000002-3013103013020023-3033320302332310-1300312320100300"></a>
-
-## Next pages — nexthop / 102301222212 / 5
-
-- [vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop.interface](resources--aws_tgw_site--reference--group-003.md#canonical-0232113203110221-0131020122132313-1113223131023030-3020111133223123-1233133220132223-2203333032333320-1133031130202222-1031000330303112)
-- [vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address](resources--aws_tgw_site--reference--group-003.md#canonical-0331313103011311-0321301101021012-2132310111131201-1300130021202012-1002323132031021-3011110300030222-2113123321201131-1222120203213301)
-- [vn_config.inside_static_routes.static_route_list.custom_static_route](resources--aws_tgw_site--reference--group-003.md#canonical-2032200001011311-1330020102322220-2303133102113110-3011112022233012-3103222000122001-1001203031110230-0100311121203211-3330333223013220)
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
-
 <a id="canonical-0232113203110221-0131020122132313-1113223131023030-3020111133223123-1233133220132223-2203333032333320-1133031130202222-1031000330303112"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3302302023002010-3122222311332030-1223101332301301-0103121131012313-1223222200303201-3233112203222021-2233323033130330-0033203132033333"></a>
-
-## vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop.interface — interface / 110101232333 / 2
+## `vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop.interface` properties
 
 Breadcrumbs:
 
@@ -3088,7 +3059,7 @@ Type: `"object"`. list nested block, Optional.
 
 Nexthop is network interface when type is 'Network-Interface'.
 
-Upstream description:
+Additional upstream details:
 
 Nexthop is network interface when type is "Network-Interface"
 
@@ -3131,25 +3102,23 @@ interface {
 }
 ```
 
-<a id="canonical-3031122210002133-1301030000110023-0331332120013201-1120321221233120-1010312321021121-3332133033013002-1330200213312111-0012120003233300"></a>
+<a id="canonical-3302302023002010-3122222311332030-1223101332301301-0103121131012313-1223222200303201-3233112203222021-2233323033130330-0033203132033333"></a>
 
-## Direct properties — interface / 110101232333 / 3
+### Direct properties for `vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop.interface`
 
 <a id="canonical-3030000113003331-3222000213101101-0200103021212133-1211101021031212-2222122221130200-3303033000320123-2313211323132203-2130113203332102"></a>
 
-<a id="canonical-3101003120323113-2221133003220213-2120012031302032-1213330323311010-2322201312023330-0022033122310021-2121212120202112-0323130100001011"></a>
-
-## kind property — interface / 110101232333 / 4
+#### `vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop.interface.kind` property
 
 Type: `"string"`. Computed.
 
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then kind will hold the
 referred object's kind (e.g. 'route').
 
-Upstream description:
+Additional upstream details:
 
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then kind will hold the
-referred object's kind (e.g. "route")
+Virtual\_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g.
+"route")
 
 Receipt-pinned upstream constraints:
 
@@ -3176,16 +3145,11 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-1000213032310221-3202221331002231-1130032200332033-0012003333310311-0310320232220310-2103113133331321-2313002223123230-2021132001223121"></a>
 
-<a id="canonical-3233110102332333-1200010032032112-3103030313000231-3230030030231211-3023211002132331-2130100210313302-3322333132203120-2120333220322321"></a>
+<a id="canonical-3031122210002133-1301030000110023-0331332120013201-1120321221233120-1010312321021121-3332133033013002-1330200213312111-0012120003233300"></a>
 
-## name property — interface / 110101232333 / 5
+#### `vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop.interface.name` property
 
 Type: `"string"`. Optional.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
-referred object's(e.g. Route's) name.
-
-Upstream description:
 
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
 referred object's(e.g. Route's) name.
@@ -3215,16 +3179,11 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-0200022330112330-2223321001212030-3230203122312211-3201031103201021-1231200203310203-3320033130201313-2130220000221013-1113130210232213"></a>
 
-<a id="canonical-3121131330201330-2332022322121131-1231100033333121-3230031001220210-3232332201323012-0313301122223022-1023103310333210-0231022211231012"></a>
+<a id="canonical-3101003120323113-2221133003220213-2120012031302032-1213330323311010-2322201312023330-0022033122310021-2121212120202112-0323130100001011"></a>
 
-## namespace property — interface / 110101232333 / 6
+#### `vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop.interface.namespace` property
 
 Type: `"string"`. Optional, Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
-hold the referred object's(e.g. Route's) namespace.
-
-Upstream description:
 
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
 hold the referred object's(e.g. Route's) namespace.
@@ -3279,16 +3238,11 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-3031102320111211-2330322010113103-3322302302113000-2011322333031323-1131101023030212-2300012322102301-0332100131020133-2312311303003301"></a>
 
-<a id="canonical-0013113333012020-3112220202022213-0103033333322330-0210313233321200-3030021112133332-0131123302110103-1022022320011000-3303122232120211"></a>
+<a id="canonical-3233110102332333-1200010032032112-3103030313000231-3230030030231211-3023211002132331-2130100210313302-3322333132203120-2120333220322321"></a>
 
-## tenant property — interface / 110101232333 / 7
+#### `vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop.interface.tenant` property
 
 Type: `"string"`. Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
-the referred object's(e.g. Route's) tenant.
-
-Upstream description:
 
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
 the referred object's(e.g. Route's) tenant.
@@ -3318,16 +3272,11 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-3221011100310021-2203333030011200-0312303303222022-1232101311203002-1011012100031020-2220313011212003-1302232003212301-1230230213002032"></a>
 
-<a id="canonical-2100212201023201-2023120023310230-3021201133101210-0320000132210232-0322021022012323-0312210331320300-2323133230321333-3130100000300301"></a>
+<a id="canonical-3121131330201330-2332022322121131-1231100033333121-3230031001220210-3232332201323012-0313301122223022-1023103310333210-0231022211231012"></a>
 
-## uid property — interface / 110101232333 / 8
+#### `vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop.interface.uid` property
 
 Type: `"string"`. Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then uid will hold the
-referred object's(e.g. Route's) uid.
-
-Upstream description:
 
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then uid will hold the
 referred object's(e.g. Route's) uid.
@@ -3355,22 +3304,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-1012312323101223-2003030200103310-1103022003112211-0111210300023022-2321121302010013-3320331322203233-3110320012111001-3121131012123203"></a>
-
-## Next pages — interface / 110101232333 / 9
-
-- [vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop](resources--aws_tgw_site--reference--group-003.md#canonical-1030323103122102-2110303300011113-3112123030312202-0023322132323301-0313231010200312-2121232001212230-2223322131302001-0131030112133200)
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
-
 <a id="canonical-0331313103011311-0321301101021012-2132310111131201-1300130021202012-1002323132031021-3011110300030222-2113123321201131-1222120203213301"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1310230111320010-3213032320220001-2022010212302103-3122012132031001-0023012233020120-1000001110302030-0031112302131011-1133010220313012"></a>
-
-## vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address — nexthop_address / 011103123211 / 2
+## `vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address` properties
 
 Breadcrumbs:
 
@@ -3422,25 +3362,15 @@ nexthop_address {
 }
 ```
 
-<a id="canonical-1032221332101330-2322100101113200-1232311211123001-2210223220111023-3221322022121210-3031020022001313-1202023321222323-3121032300033210"></a>
+<a id="canonical-1310230111320010-3213032320220001-2022010212302103-3122012132031001-0023012233020120-1000001110302030-0031112302131011-1133010220313012"></a>
 
-## Direct properties — nexthop_address / 011103123211 / 3
+### Direct properties for `vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address`
 
 - [dual_stack](resources--aws_tgw_site--reference--group-003.md#canonical-2300033023220010-2013031003211302-2300123003311122-0230203310332020-0021221020023131-1103221232133030-3120222130332310-0201110332021132): complete subsection reference.
 
-- [IPv4](resources--aws_tgw_site--reference--group-003.md#canonical-0333133020303332-1323011201230012-2311303101010232-3211213101223311-2201123212232313-3233030020211010-1233332002232021-1030310120101212): complete subsection reference.
+- [IPv4](resources--aws_tgw_site--reference--group-004.md#canonical-0333133020303332-1323011201230012-2311303101010232-3211213101223311-2201123212232313-3233030020211010-1233332002232021-1030310120101212): complete subsection reference.
 
-- [IPv6](resources--aws_tgw_site--reference--group-003.md#canonical-1310330231031000-2130012120001210-1123023320201133-2223030113212011-1030333232311221-1102112023213320-3222211112103002-1323032211012122): complete subsection reference.
-
-<a id="canonical-1031212032110302-1020331322000103-2211202331201131-3021310320223032-3312212303322313-0203000002001002-1122102321230112-2230312220130331"></a>
-
-## Next pages — nexthop_address / 011103123211 / 4
-
-- [vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack](resources--aws_tgw_site--reference--group-003.md#canonical-2300033023220010-2013031003211302-2300123003311122-0230203310332020-0021221020023131-1103221232133030-3120222130332310-0201110332021132)
-- [vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv4](resources--aws_tgw_site--reference--group-003.md#canonical-0333133020303332-1323011201230012-2311303101010232-3211213101223311-2201123212232313-3233030020211010-1233332002232021-1030310120101212)
-- [vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.ipv6](resources--aws_tgw_site--reference--group-003.md#canonical-1310330231031000-2130012120001210-1123023320201133-2223030113212011-1030333232311221-1102112023213320-3222211112103002-1323032211012122)
-- [vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop](resources--aws_tgw_site--reference--group-003.md#canonical-1030323103122102-2110303300011113-3112123030312202-0023322132323301-0313231010200312-2121232001212230-2223322131302001-0131030112133200)
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
+- [IPv6](resources--aws_tgw_site--reference--group-004.md#canonical-1310330231031000-2130012120001210-1123023320201133-2223030113212011-1030333232311221-1102112023213320-3222211112103002-1323032211012122): complete subsection reference.
 
 <a id="canonical-2300033023220010-2013031003211302-2300123003311122-0230203310332020-0021221020023131-1103221232133030-3120222130332310-0201110332021132"></a>
 
@@ -3448,9 +3378,7 @@ nexthop_address {
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2121102210220101-3031012010332202-3330201200331330-1103120033301330-0232321300023103-0033220321201311-0102100000201120-3330311001330013"></a>
-
-## vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack — dual_stack / 030231030002 / 2
+## `vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack` properties
 
 Breadcrumbs:
 
@@ -3491,22 +3419,13 @@ dual_stack {
 }
 ```
 
-<a id="canonical-0010111303130313-3313111020021312-3220223232113201-1012233113030223-2201012003211210-0213232231013132-1123220103200011-3101122202223031"></a>
+<a id="canonical-2121102210220101-3031012010332202-3330201200331330-1103120033301330-0232321300023103-0033220321201311-0102100000201120-3330311001330013"></a>
 
-## Direct properties — dual_stack / 030231030002 / 3
+### Direct properties for `vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack`
 
 - [IPv4](resources--aws_tgw_site--reference--group-003.md#canonical-2123032203221322-2330122200130232-1201213000121321-3233021133230122-3030021011223322-1201202311113310-0012322231330231-2223302010310320): complete subsection reference.
 
 - [IPv6](resources--aws_tgw_site--reference--group-003.md#canonical-0022301031001102-2210102010213333-2020221110302200-3130022322013323-0300122022013330-1322130223200001-0100021121203223-3223001133210002): complete subsection reference.
-
-<a id="canonical-2002323212330021-3331331013032123-1003120130203002-1331101233310001-2230123311000023-2332012330103232-3311023212030212-1003301001120101"></a>
-
-## Next pages — dual_stack / 030231030002 / 4
-
-- [vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv4](resources--aws_tgw_site--reference--group-003.md#canonical-2123032203221322-2330122200130232-1201213000121321-3233021133230122-3030021011223322-1201202311113310-0012322231330231-2223302010310320)
-- [vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv6](resources--aws_tgw_site--reference--group-003.md#canonical-0022301031001102-2210102010213333-2020221110302200-3130022322013323-0300122022013330-1322130223200001-0100021121203223-3223001133210002)
-- [vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address](resources--aws_tgw_site--reference--group-003.md#canonical-0331313103011311-0321301101021012-2132310111131201-1300130021202012-1002323132031021-3011110300030222-2113123321201131-1222120203213301)
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
 
 <a id="canonical-2123032203221322-2330122200130232-1201213000121321-3233021133230122-3030021011223322-1201202311113310-0012322231330231-2223302010310320"></a>
 
@@ -3514,9 +3433,7 @@ dual_stack {
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2023110322320010-2310001101113313-3101121313100223-1200323310331311-3331103312102232-2103210300122030-2233221313130201-3323320002121202"></a>
-
-## vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.IPv4 — IPv4 / 033001111210 / 2
+## `vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv4` properties
 
 Breadcrumbs:
 
@@ -3537,7 +3454,7 @@ Type: `"object"`. single nested block, Optional.
 
 IPv4 address in dotted decimal notation (e.g., 192.0.2.1).
 
-Upstream description:
+Additional upstream details:
 
 IPv4 Address in dot-decimal notation.
 
@@ -3562,15 +3479,13 @@ ipv4 {
 }
 ```
 
-<a id="canonical-1032323131010031-1331102210111121-0220301330311131-0113211010110211-2112023031300132-0023310130221113-0010022202120312-1001221213230222"></a>
+<a id="canonical-2023110322320010-2310001101113313-3101121313100223-1200323310331311-3331103312102232-2103210300122030-2233221313130201-3323320002121202"></a>
 
-## Direct properties — IPv4 / 033001111210 / 3
+### Direct properties for `vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv4`
 
 <a id="canonical-2111002213230113-1020003211321131-2221221222303322-3330032322322121-1312211311223023-2123033301330323-1020322210123211-1210010222331331"></a>
 
-<a id="canonical-0320030001220100-0000113232333012-0222021120102221-0133011001131013-3310322312333022-2333000210320103-1313202002033211-1300000123023112"></a>
-
-## addr property — IPv4 / 033001111210 / 4
+#### `vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv4.addr` property
 
 Type: `"string"`. Optional.
 
@@ -3616,22 +3531,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-0133011031220133-1210100300111032-3201000033203313-0012320130013211-0302333230321323-2300002003133232-3321322112001032-2311322122211311"></a>
-
-## Next pages — IPv4 / 033001111210 / 5
-
-- [vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack](resources--aws_tgw_site--reference--group-003.md#canonical-2300033023220010-2013031003211302-2300123003311122-0230203310332020-0021221020023131-1103221232133030-3120222130332310-0201110332021132)
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
-
 <a id="canonical-0022301031001102-2210102010213333-2020221110302200-3130022322013323-0300122022013330-1322130223200001-0100021121203223-3223001133210002"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3133011232000010-3002210231313101-1021202331100100-1003100011100123-2013302220231021-2200231200003101-1003320020122212-3212000331121113"></a>
-
-## vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.IPv6 — IPv6 / 233210020210 / 2
+## `vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv6` properties
 
 Breadcrumbs:
 
@@ -3652,10 +3558,6 @@ Type: `"object"`. single nested block, Optional.
 
 IPv6 Address specified as hexadecimal numbers separated by ':'.
 
-Upstream description:
-
-IPv6 Address specified as hexadecimal numbers separated by ':'
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -3677,15 +3579,13 @@ ipv6 {
 }
 ```
 
-<a id="canonical-1030123210230330-1003012231131232-3231332212100302-0131111213223330-2002321111221303-2003101313220320-0011000331220021-1233332113211120"></a>
+<a id="canonical-3133011232000010-3002210231313101-1021202331100100-1003100011100123-2013302220231021-2200231200003101-1003320020122212-3212000331121113"></a>
 
-## Direct properties — IPv6 / 233210020210 / 3
+### Direct properties for `vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv6`
 
 <a id="canonical-0203101322303211-1003112120331221-0000120110012032-0301011030221211-1222233102200311-2232330131100110-0110212032110312-3331320011111111"></a>
 
-<a id="canonical-1033033101212311-0233133012220113-0022000020213101-2030303312133203-1220002221302013-1313003202131011-0133303102002122-1123222201320212"></a>
-
-## addr property — IPv6 / 233210020210 / 4
+#### `vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack.ipv6.addr` property
 
 Type: `"string"`. Optional.
 
@@ -3693,12 +3593,6 @@ IPv6 Address in form of string. IPv6 address must be specified as hexadecimal nu
 ':' The address can be compacted by suppressing zeros e.g. '2001:db8:0:0:0:0:2:1' becomes
 '2001:db8::2:1' or '2001:db8:0:0:0:2:0:0' becomes '2001:db8::2::'.
 
-Upstream description:
-
-IPv6 Address in form of string. IPv6 address must be specified as hexadecimal numbers separated by
-':' The address can be compacted by suppressing zeros e.g. '2001:db8:0:0:0:0:2:1' becomes
-'2001:db8::2:1' or '2001:db8:0:0:0:2:0:0' becomes '2001:db8::2::'
-
 Provider validators and defaults (from schema source):
 
 ```go
@@ -3736,1777 +3630,5 @@ Receipt-pinned upstream constraints:
   "x-ves-validation-rules": {
     "ves.io.schema.rules.string.ipv6": "true"
   }
-}
-```
-
-<a id="canonical-1232311132133121-0231032003021330-1110123030210323-0222021300000200-1113112102311110-1030012301332101-2313020231122131-3232122021111323"></a>
-
-## Next pages — IPv6 / 233210020210 / 5
-
-- [vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.dual_stack](resources--aws_tgw_site--reference--group-003.md#canonical-2300033023220010-2013031003211302-2300123003311122-0230203310332020-0021221020023131-1103221232133030-3120222130332310-0201110332021132)
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
-
-<a id="canonical-0333133020303332-1323011201230012-2311303101010232-3211213101223311-2201123212232313-3233030020211010-1233332002232021-1030310120101212"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-2313232102200321-2230213320101001-1220102231021303-3100122302303321-3201301301231020-3322030103000323-2101131303100000-1113100132201333"></a>
-
-## vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.IPv4 — IPv4 / 311213222100 / 2
-
-Breadcrumbs:
-
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
-- [Property reference](resources--aws_tgw_site--reference--group-001.md#canonical-0010030023013322-1222303112030301-3301303233332013-0103300311223300-2202230101213131-0302322120010320-1030223332212332-3103201322012110)
-- [vn_config](resources--aws_tgw_site--reference--group-003.md#canonical-0101002010113120-1121300322102322-2320133222211303-0011102031313120-3202320223313220-3220002032331202-0331231132033323-1222203320002031)
-- [vn_config.inside_static_routes](resources--aws_tgw_site--reference--group-003.md#canonical-1220102301021103-2101230331200333-1320112002130223-3322021232321002-2300321222300032-1311322021121333-1300213110111200-0122111222312130)
-- [vn_config.inside_static_routes.static_route_list](resources--aws_tgw_site--reference--group-003.md#canonical-1111202311002203-0100300223012331-1003213022321123-2132201001333033-2233011311203120-1011300330231230-1132313222230312-2233033213203231)
-- [vn_config.inside_static_routes.static_route_list.custom_static_route](resources--aws_tgw_site--reference--group-003.md#canonical-2032200001011311-1330020102322220-2303133102113110-3011112022233012-3103222000122001-1001203031110230-0100311121203211-3330333223013220)
-- [vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop](resources--aws_tgw_site--reference--group-003.md#canonical-1030323103122102-2110303300011113-3112123030312202-0023322132323301-0313231010200312-2121232001212230-2223322131302001-0131030112133200)
-- [vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address](resources--aws_tgw_site--reference--group-003.md#canonical-0331313103011311-0321301101021012-2132310111131201-1300130021202012-1002323132031021-3011110300030222-2113123321201131-1222120203213301)
-- vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.IPv4
-
-<a id="canonical-1023223131320110-3212102023100121-0122222113001321-0213311110012111-0101011000033303-2300310133222303-0011321011233213-0302113212031103"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-IPv4 address in dotted decimal notation (e.g., 192.0.2.1).
-
-Upstream description:
-
-IPv4 Address in dot-decimal notation.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-ipv4 {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-0113020013120301-3010323011221023-1010202212033122-2133113232200313-1211032130111321-1312210213103020-0203322323103200-3300003011210113"></a>
-
-## Direct properties — IPv4 / 311213222100 / 3
-
-<a id="canonical-3022002020030030-3223123333233231-0211003221310213-1320310113012102-1230020100132023-3110222000223300-0222301223230320-2220300132202021"></a>
-
-<a id="canonical-1001011113123211-1311230032231123-2232133113301321-1003010003022132-1202020200332232-1302332323131021-0100203003032323-0300121301332120"></a>
-
-## addr property — IPv4 / 311213222100 / 4
-
-Type: `"string"`. Optional.
-
-IPv4 Address in string form with dot-decimal notation.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.String{
-  stringvalidator.LengthAtMost(1024),
-  validators.IPv4Validator(),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "format": "ipv4",
-    "maxLength": 1024,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.string.ipv4": "true"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.string.ipv4": "true"
-  }
-}
-```
-
-<a id="canonical-1221021312000202-0101300300313103-0303200110120310-2002120211011213-2320311010312031-2230232103311230-3322022331202103-3210112333310230"></a>
-
-## Next pages — IPv4 / 311213222100 / 5
-
-- [vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address](resources--aws_tgw_site--reference--group-003.md#canonical-0331313103011311-0321301101021012-2132310111131201-1300130021202012-1002323132031021-3011110300030222-2113123321201131-1222120203213301)
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
-
-<a id="canonical-1310330231031000-2130012120001210-1123023320201133-2223030113212011-1030333232311221-1102112023213320-3222211112103002-1323032211012122"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-1230313231031023-2022230122120020-3200310322222201-3001202310001102-2033123102110123-2013032231030202-2111123203130332-0212332232020220"></a>
-
-## vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.IPv6 — IPv6 / 203120312200 / 2
-
-Breadcrumbs:
-
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
-- [Property reference](resources--aws_tgw_site--reference--group-001.md#canonical-0010030023013322-1222303112030301-3301303233332013-0103300311223300-2202230101213131-0302322120010320-1030223332212332-3103201322012110)
-- [vn_config](resources--aws_tgw_site--reference--group-003.md#canonical-0101002010113120-1121300322102322-2320133222211303-0011102031313120-3202320223313220-3220002032331202-0331231132033323-1222203320002031)
-- [vn_config.inside_static_routes](resources--aws_tgw_site--reference--group-003.md#canonical-1220102301021103-2101230331200333-1320112002130223-3322021232321002-2300321222300032-1311322021121333-1300213110111200-0122111222312130)
-- [vn_config.inside_static_routes.static_route_list](resources--aws_tgw_site--reference--group-003.md#canonical-1111202311002203-0100300223012331-1003213022321123-2132201001333033-2233011311203120-1011300330231230-1132313222230312-2233033213203231)
-- [vn_config.inside_static_routes.static_route_list.custom_static_route](resources--aws_tgw_site--reference--group-003.md#canonical-2032200001011311-1330020102322220-2303133102113110-3011112022233012-3103222000122001-1001203031110230-0100311121203211-3330333223013220)
-- [vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop](resources--aws_tgw_site--reference--group-003.md#canonical-1030323103122102-2110303300011113-3112123030312202-0023322132323301-0313231010200312-2121232001212230-2223322131302001-0131030112133200)
-- [vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address](resources--aws_tgw_site--reference--group-003.md#canonical-0331313103011311-0321301101021012-2132310111131201-1300130021202012-1002323132031021-3011110300030222-2113123321201131-1222120203213301)
-- vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address.IPv6
-
-<a id="canonical-1012312122322110-3131320000323011-0310211130210030-0233303323323212-1313122333231303-2200021000011202-1320201132211202-0302300130101022"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-IPv6 Address specified as hexadecimal numbers separated by ':'.
-
-Upstream description:
-
-IPv6 Address specified as hexadecimal numbers separated by ':'
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-ipv6 {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-0213210132211130-2131010102323213-1111331000233232-2321213103322132-0312003123022102-2031013231132311-2312122301103202-1112213233132311"></a>
-
-## Direct properties — IPv6 / 203120312200 / 3
-
-<a id="canonical-2231132120223200-2231102322020202-2022121320201212-2301302333012123-2121213022233211-2232033222200330-0101131233110022-3333200001122130"></a>
-
-<a id="canonical-1331133130202033-3321030013133112-0303313330330220-3010012323023220-1321232010022332-2213220313131223-2213010300303131-0010013203123120"></a>
-
-## addr property — IPv6 / 203120312200 / 4
-
-Type: `"string"`. Optional.
-
-IPv6 Address in form of string. IPv6 address must be specified as hexadecimal numbers separated by
-':' The address can be compacted by suppressing zeros e.g. '2001:db8:0:0:0:0:2:1' becomes
-'2001:db8::2:1' or '2001:db8:0:0:0:2:0:0' becomes '2001:db8::2::'.
-
-Upstream description:
-
-IPv6 Address in form of string. IPv6 address must be specified as hexadecimal numbers separated by
-':' The address can be compacted by suppressing zeros e.g. '2001:db8:0:0:0:0:2:1' becomes
-'2001:db8::2:1' or '2001:db8:0:0:0:2:0:0' becomes '2001:db8::2::'
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.String{
-  stringvalidator.LengthAtMost(1024),
-  validators.IPv6Validator(),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "format": "ipv6",
-    "maxLength": 1024,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.string.ipv6": "true"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.string.ipv6": "true"
-  }
-}
-```
-
-<a id="canonical-0202201010130103-3130110120331103-0123320031223300-3120323133220310-1313101020100100-1212133310332301-1310233331320031-3103013023001313"></a>
-
-## Next pages — IPv6 / 203120312200 / 5
-
-- [vn_config.inside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address](resources--aws_tgw_site--reference--group-003.md#canonical-0331313103011311-0321301101021012-2132310111131201-1300130021202012-1002323132031021-3011110300030222-2113123321201131-1222120203213301)
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
-
-<a id="canonical-2312102122133200-0120302223320132-0133013231100200-0201333332120223-3022330101331300-0311113223000130-0123020123002012-1012331331330010"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-0000003013021311-2201312102022121-3200011231110110-0313223311011011-2323212000000321-3021010023021120-2312132210111113-2020213111223303"></a>
-
-## vn_config.inside_static_routes.static_route_list.custom_static_route.subnets — subnets / 101022122101 / 2
-
-Breadcrumbs:
-
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
-- [Property reference](resources--aws_tgw_site--reference--group-001.md#canonical-0010030023013322-1222303112030301-3301303233332013-0103300311223300-2202230101213131-0302322120010320-1030223332212332-3103201322012110)
-- [vn_config](resources--aws_tgw_site--reference--group-003.md#canonical-0101002010113120-1121300322102322-2320133222211303-0011102031313120-3202320223313220-3220002032331202-0331231132033323-1222203320002031)
-- [vn_config.inside_static_routes](resources--aws_tgw_site--reference--group-003.md#canonical-1220102301021103-2101230331200333-1320112002130223-3322021232321002-2300321222300032-1311322021121333-1300213110111200-0122111222312130)
-- [vn_config.inside_static_routes.static_route_list](resources--aws_tgw_site--reference--group-003.md#canonical-1111202311002203-0100300223012331-1003213022321123-2132201001333033-2233011311203120-1011300330231230-1132313222230312-2233033213203231)
-- [vn_config.inside_static_routes.static_route_list.custom_static_route](resources--aws_tgw_site--reference--group-003.md#canonical-2032200001011311-1330020102322220-2303133102113110-3011112022233012-3103222000122001-1001203031110230-0100311121203211-3330333223013220)
-- vn_config.inside_static_routes.static_route_list.custom_static_route.subnets
-
-<a id="canonical-3303000132001100-3220230222001113-3131003032113202-2032120200312223-2103031100133223-0320203032011222-0023212102301010-2211202123031011"></a>
-
-Type: `"object"`. list nested block, Optional.
-
-Subnets. List of route prefixes.
-
-Upstream description:
-
-List of route prefixes.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.List{validators.ConflictingListObjectAttributes("ipv4",
-    "ipv6")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxItems": 256,
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "array",
-    "deterministic": true,
-    "maxItems": 256,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": true,
-    "minimum_config": true,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.repeated.max_items": "256"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.repeated.max_items": "256"
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-subnets {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-0322221202231312-1121023112121331-3303021110000111-1212120131322120-0211022220313231-1013322223322013-1113302311131130-0022100111130003"></a>
-
-## Direct properties — subnets / 101022122101 / 3
-
-- [IPv4](resources--aws_tgw_site--reference--group-003.md#canonical-2232020032130012-2331121230102331-0330122310203233-3221321201111230-0232120112200210-2231332303103313-3032213100132332-3203023100000023): complete subsection reference.
-
-- [IPv6](resources--aws_tgw_site--reference--group-003.md#canonical-3231311301112302-0100331021113132-0200202202131020-1033322331012222-1132103203013001-1222003232023001-2112013133003001-1211333133330100): complete subsection reference.
-
-<a id="canonical-0321000102130320-0220203331103213-0013302202313020-2033233220012013-3211200121103110-1222032113310113-3233030302230210-0121330232121312"></a>
-
-## Next pages — subnets / 101022122101 / 4
-
-- [vn_config.inside_static_routes.static_route_list.custom_static_route.subnets.ipv4](resources--aws_tgw_site--reference--group-003.md#canonical-2232020032130012-2331121230102331-0330122310203233-3221321201111230-0232120112200210-2231332303103313-3032213100132332-3203023100000023)
-- [vn_config.inside_static_routes.static_route_list.custom_static_route.subnets.ipv6](resources--aws_tgw_site--reference--group-003.md#canonical-3231311301112302-0100331021113132-0200202202131020-1033322331012222-1132103203013001-1222003232023001-2112013133003001-1211333133330100)
-- [vn_config.inside_static_routes.static_route_list.custom_static_route](resources--aws_tgw_site--reference--group-003.md#canonical-2032200001011311-1330020102322220-2303133102113110-3011112022233012-3103222000122001-1001203031110230-0100311121203211-3330333223013220)
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
-
-<a id="canonical-2232020032130012-2331121230102331-0330122310203233-3221321201111230-0232120112200210-2231332303103313-3032213100132332-3203023100000023"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-2032210033111020-1201201222203022-2102121333312330-3233233213011023-3000201020022113-2012312033333003-0213131022023112-1033033013313231"></a>
-
-## vn_config.inside_static_routes.static_route_list.custom_static_route.subnets.IPv4 — IPv4 / 202002222230 / 2
-
-Breadcrumbs:
-
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
-- [Property reference](resources--aws_tgw_site--reference--group-001.md#canonical-0010030023013322-1222303112030301-3301303233332013-0103300311223300-2202230101213131-0302322120010320-1030223332212332-3103201322012110)
-- [vn_config](resources--aws_tgw_site--reference--group-003.md#canonical-0101002010113120-1121300322102322-2320133222211303-0011102031313120-3202320223313220-3220002032331202-0331231132033323-1222203320002031)
-- [vn_config.inside_static_routes](resources--aws_tgw_site--reference--group-003.md#canonical-1220102301021103-2101230331200333-1320112002130223-3322021232321002-2300321222300032-1311322021121333-1300213110111200-0122111222312130)
-- [vn_config.inside_static_routes.static_route_list](resources--aws_tgw_site--reference--group-003.md#canonical-1111202311002203-0100300223012331-1003213022321123-2132201001333033-2233011311203120-1011300330231230-1132313222230312-2233033213203231)
-- [vn_config.inside_static_routes.static_route_list.custom_static_route](resources--aws_tgw_site--reference--group-003.md#canonical-2032200001011311-1330020102322220-2303133102113110-3011112022233012-3103222000122001-1001203031110230-0100311121203211-3330333223013220)
-- [vn_config.inside_static_routes.static_route_list.custom_static_route.subnets](resources--aws_tgw_site--reference--group-003.md#canonical-2312102122133200-0120302223320132-0133013231100200-0201333332120223-3022330101331300-0311113223000130-0123020123002012-1012331331330010)
-- vn_config.inside_static_routes.static_route_list.custom_static_route.subnets.IPv4
-
-<a id="canonical-0230122321233130-3113323101122330-1300201300113231-2221103020302302-1311320033131020-1022220033113303-2033201310321010-2121320033002131"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-IPv4 subnets specified as prefix and prefix-length. Prefix length must be &lt;= 32.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-ipv4 {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-2332231122013223-1110111001003112-0202231230331211-2110020331321021-2303000000212122-1323221213323233-1331001323031230-2310102013230030"></a>
-
-## Direct properties — IPv4 / 202002222230 / 3
-
-<a id="canonical-3322121301321211-3112333220233323-2303333033333120-1032322211112311-1210220300301222-0030120223213222-1323203320301301-0010323011022321"></a>
-
-<a id="canonical-3201123021200101-0112011001101232-3200102223233010-1110202202231021-2320223301223101-3232322313313013-2021212302210310-1132100300210231"></a>
-
-## plen property — IPv4 / 202002222230 / 4
-
-Type: `"number"`. Optional.
-
-Prefix-length of the IPv4 subnet. Must be &lt;= 32.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.Int64{
-  int64validator.AtMost(32),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "number",
-    "deterministic": true,
-    "maximum": 32,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "api-probed",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.uint32.lte": "32"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.uint32.lte": "32"
-  }
-}
-```
-
-<a id="canonical-1330331223311222-0110100210213332-0132321013203101-0132002211333031-0202201021201023-2020121321223130-3011110232210132-2232123231033330"></a>
-
-<a id="canonical-3130221130002022-1023002300203222-2230212131110032-0001311010003202-1113222113000100-3110103002032213-2303332322301030-1133223000110200"></a>
-
-## prefix property — IPv4 / 202002222230 / 5
-
-Type: `"string"`. Optional.
-
-Prefix part of the IPv4 subnet in string form with dot-decimal notation.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.String{
-  stringvalidator.LengthAtMost(1024),
-  validators.IPv4Validator(),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "format": "ipv4",
-    "maxLength": 1024,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.string.ipv4": "true"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.string.ipv4": "true"
-  }
-}
-```
-
-<a id="canonical-0030111210220232-3313033323031030-0311113031001323-3102232110220313-2300203001102013-0230313101213220-1203300301133001-1032323013130020"></a>
-
-## Next pages — IPv4 / 202002222230 / 6
-
-- [vn_config.inside_static_routes.static_route_list.custom_static_route.subnets](resources--aws_tgw_site--reference--group-003.md#canonical-2312102122133200-0120302223320132-0133013231100200-0201333332120223-3022330101331300-0311113223000130-0123020123002012-1012331331330010)
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
-
-<a id="canonical-3231311301112302-0100331021113132-0200202202131020-1033322331012222-1132103203013001-1222003232023001-2112013133003001-1211333133330100"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-1320323321113320-2311303010222200-2130032133112002-2222112031310022-2022022211122322-2320221010200011-1331123003223013-2030001210310203"></a>
-
-## vn_config.inside_static_routes.static_route_list.custom_static_route.subnets.IPv6 — IPv6 / 010123230102 / 2
-
-Breadcrumbs:
-
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
-- [Property reference](resources--aws_tgw_site--reference--group-001.md#canonical-0010030023013322-1222303112030301-3301303233332013-0103300311223300-2202230101213131-0302322120010320-1030223332212332-3103201322012110)
-- [vn_config](resources--aws_tgw_site--reference--group-003.md#canonical-0101002010113120-1121300322102322-2320133222211303-0011102031313120-3202320223313220-3220002032331202-0331231132033323-1222203320002031)
-- [vn_config.inside_static_routes](resources--aws_tgw_site--reference--group-003.md#canonical-1220102301021103-2101230331200333-1320112002130223-3322021232321002-2300321222300032-1311322021121333-1300213110111200-0122111222312130)
-- [vn_config.inside_static_routes.static_route_list](resources--aws_tgw_site--reference--group-003.md#canonical-1111202311002203-0100300223012331-1003213022321123-2132201001333033-2233011311203120-1011300330231230-1132313222230312-2233033213203231)
-- [vn_config.inside_static_routes.static_route_list.custom_static_route](resources--aws_tgw_site--reference--group-003.md#canonical-2032200001011311-1330020102322220-2303133102113110-3011112022233012-3103222000122001-1001203031110230-0100311121203211-3330333223013220)
-- [vn_config.inside_static_routes.static_route_list.custom_static_route.subnets](resources--aws_tgw_site--reference--group-003.md#canonical-2312102122133200-0120302223320132-0133013231100200-0201333332120223-3022330101331300-0311113223000130-0123020123002012-1012331331330010)
-- vn_config.inside_static_routes.static_route_list.custom_static_route.subnets.IPv6
-
-<a id="canonical-3120301021120021-0031000220112232-3130132120311122-2032222031220200-3133100232201231-3231322322331111-1023130212111221-0021223101001003"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-IPv6 subnets specified as prefix and prefix-length. Prefix-legnth must be &lt;= 128.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-ipv6 {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-2313332312203221-3103111112313230-3002300330132201-1022132310122020-0132220113010210-1200303200021312-1020202121221203-0332001003330313"></a>
-
-## Direct properties — IPv6 / 010123230102 / 3
-
-<a id="canonical-3110021210020211-2003030310021312-1211213011312133-0202220030323210-2132200122100001-3000211233111012-3010231130321321-2120223220022301"></a>
-
-<a id="canonical-3313032321011313-0333213303001130-0102112312321320-1001000021030102-1133032210332302-0132200012123232-2121203130020332-3321012211323120"></a>
-
-## plen property — IPv6 / 010123230102 / 4
-
-Type: `"number"`. Optional.
-
-Prefix length of the IPv6 subnet. Must be &lt;= 128.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.Int64{
-  int64validator.AtMost(128),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "number",
-    "deterministic": true,
-    "maximum": 128,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "api-probed",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.uint32.lte": "128"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.uint32.lte": "128"
-  }
-}
-```
-
-<a id="canonical-1333013233113210-0101211333300001-2033031213212002-0131311230302331-0300312122302122-2223222112020110-2032103022022012-1011000333210310"></a>
-
-<a id="canonical-0011133331211030-0333330113031010-0220212311032122-3132130001013323-3220123021210332-2300310230313002-1120001130202112-0201220200110223"></a>
-
-## prefix property — IPv6 / 010123230102 / 5
-
-Type: `"string"`. Optional.
-
-Prefix part of the IPv6 subnet given in form of string. IPv6 address must be specified as
-hexadecimal numbers separated by ':' e.g. '2001:db8:0:0:0:2:0:0' The address can be compacted by
-suppressing zeros e.g. '2001:db8::2::'.
-
-Upstream description:
-
-Prefix part of the IPv6 subnet given in form of string. IPv6 address must be specified as
-hexadecimal numbers separated by ':' e.g. "2001:db8:0:0:0:2:0:0" The address can be compacted by
-suppressing zeros e.g. "2001:db8::2::"
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.String{
-  stringvalidator.LengthAtMost(1024),
-  validators.IPv6Validator(),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "format": "ipv6",
-    "maxLength": 1024,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.string.ipv6": "true"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.string.ipv6": "true"
-  }
-}
-```
-
-<a id="canonical-1300121323303030-1102331023132000-1021121301033220-0130030330332001-1333211330222310-3230122122130111-1011212032331122-3203111221200133"></a>
-
-## Next pages — IPv6 / 010123230102 / 6
-
-- [vn_config.inside_static_routes.static_route_list.custom_static_route.subnets](resources--aws_tgw_site--reference--group-003.md#canonical-2312102122133200-0120302223320132-0133013231100200-0201333332120223-3022330101331300-0311113223000130-0123020123002012-1012331331330010)
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
-
-<a id="canonical-2011122312231230-3013232300312312-2202102000033103-3030221030323032-1020222321312033-1302222331002000-1132203010312230-3310010210310332"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-0300231302330120-0021231012330200-2332301101033013-2111123131220123-1300300333133103-0133131232122221-0200301022232230-0022310013331233"></a>
-
-## vn_config.no_dc_cluster_group — no_dc_cluster_group / 031131332232 / 2
-
-Breadcrumbs:
-
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
-- [Property reference](resources--aws_tgw_site--reference--group-001.md#canonical-0010030023013322-1222303112030301-3301303233332013-0103300311223300-2202230101213131-0302322120010320-1030223332212332-3103201322012110)
-- [vn_config](resources--aws_tgw_site--reference--group-003.md#canonical-0101002010113120-1121300322102322-2320133222211303-0011102031313120-3202320223313220-3220002032331202-0331231132033323-1222203320002031)
-- vn_config.no_dc_cluster_group
-
-<a id="canonical-2113010033121112-2303223233130301-3313211123220002-0002111010030112-3121030222220210-0021003120111210-1133030210223123-3000320312113202"></a>
-
-Type: `["object", {}]`. Optional.
-
-Enable this option
-
-Upstream description:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-no_dc_cluster_group = {}
-```
-
-<a id="canonical-1220121232303323-0001313131211130-0223231103313303-1121101303322120-1032021312023231-2112001200320121-1020030023322001-2211133033332002"></a>
-
-## Direct properties — no_dc_cluster_group / 031131332232 / 3
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-0301201013102200-3112230320300031-1200233213203001-2131121101312122-0013021110323230-0331213121031023-1311232323001203-3031123012201201"></a>
-
-## Next pages — no_dc_cluster_group / 031131332232 / 4
-
-- [vn_config](resources--aws_tgw_site--reference--group-003.md#canonical-0101002010113120-1121300322102322-2320133222211303-0011102031313120-3202320223313220-3220002032331202-0331231132033323-1222203320002031)
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
-
-<a id="canonical-1220211023313210-3121131032130332-1202222301132133-1313020021300200-3101221300210022-2010132200330031-1332002033100321-3002120301331100"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-3203002103000220-1223211211333032-1301233212310103-2021223013330222-1033302012212333-1030230310130230-1130221313231310-2310233302130201"></a>
-
-## vn_config.no_global_network — no_global_network / 013213110310 / 2
-
-Breadcrumbs:
-
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
-- [Property reference](resources--aws_tgw_site--reference--group-001.md#canonical-0010030023013322-1222303112030301-3301303233332013-0103300311223300-2202230101213131-0302322120010320-1030223332212332-3103201322012110)
-- [vn_config](resources--aws_tgw_site--reference--group-003.md#canonical-0101002010113120-1121300322102322-2320133222211303-0011102031313120-3202320223313220-3220002032331202-0331231132033323-1222203320002031)
-- vn_config.no_global_network
-
-<a id="canonical-2221201312100210-0212332020333032-0301021012030333-1112120112312021-1332121002322313-1301312030213202-0321232322310130-0023132332110303"></a>
-
-Type: `["object", {}]`. Optional.
-
-Configuration parameter for no global network.
-
-Upstream description:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-no_global_network = {}
-```
-
-<a id="canonical-3100322203312320-2312012031010000-2322322230302202-2102213011002033-3013013310230110-0123121310321323-1120313130320301-3020302222012323"></a>
-
-## Direct properties — no_global_network / 013213110310 / 3
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-0033113123000330-3032013203103200-2132101203312112-1002002311331230-0320313230310310-2322211120333001-1323120120022303-3121220331120202"></a>
-
-## Next pages — no_global_network / 013213110310 / 4
-
-- [vn_config](resources--aws_tgw_site--reference--group-003.md#canonical-0101002010113120-1121300322102322-2320133222211303-0011102031313120-3202320223313220-3220002032331202-0331231132033323-1222203320002031)
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
-
-<a id="canonical-0300132311300213-2213102221212301-1032330303012220-1032121031020202-0231221133312300-0101032232312332-3230133033132033-2301132320222332"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-0131332310100000-2313330023323312-0211102003112000-3331120130133001-3120023222213213-1222312313302233-2212102030301220-0323213003012300"></a>
-
-## vn_config.no_inside_static_routes — no_inside_static_routes / 202231301002 / 2
-
-Breadcrumbs:
-
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
-- [Property reference](resources--aws_tgw_site--reference--group-001.md#canonical-0010030023013322-1222303112030301-3301303233332013-0103300311223300-2202230101213131-0302322120010320-1030223332212332-3103201322012110)
-- [vn_config](resources--aws_tgw_site--reference--group-003.md#canonical-0101002010113120-1121300322102322-2320133222211303-0011102031313120-3202320223313220-3220002032331202-0331231132033323-1222203320002031)
-- vn_config.no_inside_static_routes
-
-<a id="canonical-3203131130312231-2202032330220011-0212221102102311-0031200311002233-2032211232210211-1321133312003003-1331112322132223-2111211310002331"></a>
-
-Type: `["object", {}]`. Optional.
-
-Configuration parameter for no inside static routes.
-
-Upstream description:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-no_inside_static_routes = {}
-```
-
-<a id="canonical-2212020112220101-0203122313222132-0033112032321033-1103111013223103-3032332223012310-1200100031002132-2032032002223312-3231013223313023"></a>
-
-## Direct properties — no_inside_static_routes / 202231301002 / 3
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-2221033230113030-1322103200102111-3113113032303312-3303211331033013-3330211303002133-3332001012331121-1031331213100131-1031321311322221"></a>
-
-## Next pages — no_inside_static_routes / 202231301002 / 4
-
-- [vn_config](resources--aws_tgw_site--reference--group-003.md#canonical-0101002010113120-1121300322102322-2320133222211303-0011102031313120-3202320223313220-3220002032331202-0331231132033323-1222203320002031)
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
-
-<a id="canonical-0121330320232133-2321110122302131-1013232000113230-1212100032312110-2013322033302110-1203131120200211-3202133212002123-0302122002202023"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-3033113020130122-3001332000122111-1331132021233100-2112231220303203-0301330020332333-3232002000100122-1303302203233310-1010020201310331"></a>
-
-## vn_config.no_outside_static_routes — no_outside_static_routes / 032333302010 / 2
-
-Breadcrumbs:
-
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
-- [Property reference](resources--aws_tgw_site--reference--group-001.md#canonical-0010030023013322-1222303112030301-3301303233332013-0103300311223300-2202230101213131-0302322120010320-1030223332212332-3103201322012110)
-- [vn_config](resources--aws_tgw_site--reference--group-003.md#canonical-0101002010113120-1121300322102322-2320133222211303-0011102031313120-3202320223313220-3220002032331202-0331231132033323-1222203320002031)
-- vn_config.no_outside_static_routes
-
-<a id="canonical-3002313302203313-0222330331130322-1322211332322222-0003010030200020-3232312220101331-0021113203201123-3021200203112210-3111221033321222"></a>
-
-Type: `["object", {}]`. Optional.
-
-Configuration parameter for no outside static routes.
-
-Upstream description:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-no_outside_static_routes = {}
-```
-
-<a id="canonical-0310332313231113-2132231102203223-0312110220231133-1122113002010211-1312322313222333-1302010101203330-2023110122012130-0203321120301013"></a>
-
-## Direct properties — no_outside_static_routes / 032333302010 / 3
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-3303030103302300-0010103330212203-0001000322301031-3031313121132311-3131013102003013-2320212130202023-0302321221023100-1003101223002011"></a>
-
-## Next pages — no_outside_static_routes / 032333302010 / 4
-
-- [vn_config](resources--aws_tgw_site--reference--group-003.md#canonical-0101002010113120-1121300322102322-2320133222211303-0011102031313120-3202320223313220-3220002032331202-0331231132033323-1222203320002031)
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
-
-<a id="canonical-2301113011113011-1112320230210202-0313100212313032-1131333013212023-3211313333212000-2110001321132102-1131010130012311-2101312102132133"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-1021001210200011-1100320011231123-3121333000101203-0213322112233002-2331103223130032-3010202313013023-3012130313030211-3030023112133012"></a>
-
-## vn_config.outside_static_routes — outside_static_routes / 220011120101 / 2
-
-Breadcrumbs:
-
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
-- [Property reference](resources--aws_tgw_site--reference--group-001.md#canonical-0010030023013322-1222303112030301-3301303233332013-0103300311223300-2202230101213131-0302322120010320-1030223332212332-3103201322012110)
-- [vn_config](resources--aws_tgw_site--reference--group-003.md#canonical-0101002010113120-1121300322102322-2320133222211303-0011102031313120-3202320223313220-3220002032331202-0331231132033323-1222203320002031)
-- vn_config.outside_static_routes
-
-<a id="canonical-2232131130132012-1110233200102200-1023231320300232-0102211112120011-2203120022123122-0100112130222200-2013320312201221-1302013232132330"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-Configuration parameter for outside static routes.
-
-Upstream description:
-
-List of static routes.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.Object{validators.RequiredObjectAttributes("static_route_list")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-outside_static_routes {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-2332101112333001-3003332111233223-0321031031320221-1223211013110201-0021121112320023-2302133303213031-0223302122220212-0212010230211011"></a>
-
-## Direct properties — outside_static_routes / 220011120101 / 3
-
-- [static_route_list](resources--aws_tgw_site--reference--group-003.md#canonical-0012330200333200-1003330212132300-0033033221012201-3330110232112210-0013230010001331-0003332013203201-0013211233213031-0201233331322323): complete subsection reference.
-
-<a id="canonical-1003121333210112-2323221103320120-1100302323322122-3223322120102313-0100233020131331-1212013333003110-0121113201232231-0123210121333213"></a>
-
-## Next pages — outside_static_routes / 220011120101 / 4
-
-- [vn_config.outside_static_routes.static_route_list](resources--aws_tgw_site--reference--group-003.md#canonical-0012330200333200-1003330212132300-0033033221012201-3330110232112210-0013230010001331-0003332013203201-0013211233213031-0201233331322323)
-- [vn_config](resources--aws_tgw_site--reference--group-003.md#canonical-0101002010113120-1121300322102322-2320133222211303-0011102031313120-3202320223313220-3220002032331202-0331231132033323-1222203320002031)
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
-
-<a id="canonical-0012330200333200-1003330212132300-0033033221012201-3330110232112210-0013230010001331-0003332013203201-0013211233213031-0201233331322323"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-1130302232102332-0102213332233300-1200330220031120-3320332222111232-1130123021202112-0221210102302223-2322320330320330-0031303202322033"></a>
-
-## vn_config.outside_static_routes.static_route_list — static_route_list / 031230231030 / 2
-
-Breadcrumbs:
-
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
-- [Property reference](resources--aws_tgw_site--reference--group-001.md#canonical-0010030023013322-1222303112030301-3301303233332013-0103300311223300-2202230101213131-0302322120010320-1030223332212332-3103201322012110)
-- [vn_config](resources--aws_tgw_site--reference--group-003.md#canonical-0101002010113120-1121300322102322-2320133222211303-0011102031313120-3202320223313220-3220002032331202-0331231132033323-1222203320002031)
-- [vn_config.outside_static_routes](resources--aws_tgw_site--reference--group-003.md#canonical-2301113011113011-1112320230210202-0313100212313032-1131333013212023-3211313333212000-2110001321132102-1131010130012311-2101312102132133)
-- vn_config.outside_static_routes.static_route_list
-
-<a id="canonical-0211131030323112-0203000102023232-3021021030112021-1301323311222102-2232032113032012-1222001211303303-1131202022123103-3011103131213023"></a>
-
-Type: `"object"`. list nested block, Optional.
-
-List of Static Routes. List of Static routes.
-
-Upstream description:
-
-List of Static routes.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.List{validators.ConflictingListObjectAttributes("custom_static_route",
-    "simple_static_route")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxItems": 64,
-  "minItems": 1,
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "array",
-    "deterministic": true,
-    "maxItems": 64,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
-    },
-    "minItems": 1
-  },
-  "x-f5xc-required-for": {
-    "create": true,
-    "minimum_config": true,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.repeated.max_items": "64",
-    "ves.io.schema.rules.repeated.min_items": "1"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.repeated.max_items": "64",
-    "ves.io.schema.rules.repeated.min_items": "1"
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-static_route_list {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-3232013212222023-1331312331001202-2020332132200331-0120112310222223-2120201202020110-0010133032302223-0202013003301323-2333333221233221"></a>
-
-## Direct properties — static_route_list / 031230231030 / 3
-
-- [custom_static_route](resources--aws_tgw_site--reference--group-003.md#canonical-3112202231210201-1221331101020010-2311032322110333-3203310310200232-2230321032201221-3313011300211333-0131031220003312-2233310210310310): complete subsection reference.
-
-<a id="canonical-3220220133332031-3332312230201232-1022333330022231-0022233011233103-0123030111003201-1120322231111012-2332113123233033-0200231110322021"></a>
-
-<a id="canonical-1331033313022233-2211201203210323-2301011221212122-3223212332331010-2010132300011212-2201223101233313-3032132330101200-0332101111222132"></a>
-
-## simple_static_route property — static_route_list / 031230231030 / 4
-
-Type: `"string"`. Optional.
-
-Exclusive with \[custom\_static\_route\] Use simple static route for prefix pointing to single
-interface in the network.
-
-Upstream description:
-
-Exclusive with \[custom\_static\_route\] Use simple static route for prefix pointing to single
-interface in the network.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "string",
-    "maxLength": 1024,
-    "metadata": {
-      "confidence": 0.85,
-      "source": "inferred",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.string.ipv4_prefix": "true"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.string.ipv4_prefix": "true"
-  }
-}
-```
-
-<a id="canonical-0022201223131113-1030210001111210-2211120330210323-0212101030000102-2132333220030202-3213210013220210-1212123201010100-0213200111313122"></a>
-
-## Next pages — static_route_list / 031230231030 / 5
-
-- [vn_config.outside_static_routes.static_route_list.custom_static_route](resources--aws_tgw_site--reference--group-003.md#canonical-3112202231210201-1221331101020010-2311032322110333-3203310310200232-2230321032201221-3313011300211333-0131031220003312-2233310210310310)
-- [vn_config.outside_static_routes](resources--aws_tgw_site--reference--group-003.md#canonical-2301113011113011-1112320230210202-0313100212313032-1131333013212023-3211313333212000-2110001321132102-1131010130012311-2101312102132133)
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
-
-<a id="canonical-3112202231210201-1221331101020010-2311032322110333-3203310310200232-2230321032201221-3313011300211333-0131031220003312-2233310210310310"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-1210020300220023-3023320233333113-3101210011333313-3311111231002221-0120221310003010-3300331300103223-0123013200233333-1013223101033102"></a>
-
-## vn_config.outside_static_routes.static_route_list.custom_static_route — custom_static_route / 001211102131 / 2
-
-Breadcrumbs:
-
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
-- [Property reference](resources--aws_tgw_site--reference--group-001.md#canonical-0010030023013322-1222303112030301-3301303233332013-0103300311223300-2202230101213131-0302322120010320-1030223332212332-3103201322012110)
-- [vn_config](resources--aws_tgw_site--reference--group-003.md#canonical-0101002010113120-1121300322102322-2320133222211303-0011102031313120-3202320223313220-3220002032331202-0331231132033323-1222203320002031)
-- [vn_config.outside_static_routes](resources--aws_tgw_site--reference--group-003.md#canonical-2301113011113011-1112320230210202-0313100212313032-1131333013212023-3211313333212000-2110001321132102-1131010130012311-2101312102132133)
-- [vn_config.outside_static_routes.static_route_list](resources--aws_tgw_site--reference--group-003.md#canonical-0012330200333200-1003330212132300-0033033221012201-3330110232112210-0013230010001331-0003332013203201-0013211233213031-0201233331322323)
-- vn_config.outside_static_routes.static_route_list.custom_static_route
-
-<a id="canonical-3021211111133303-2232303013132321-1033221111103233-3300000111212030-3232002222011003-0121100300201210-1303330122212330-2302010303331010"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-Defines a static route, configuring a list of prefixes and a next-hop to be used for them.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.Object{validators.RequiredObjectAttributes("subnets")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-custom_static_route {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-0002123002132303-1202223011233332-3332230213012031-0330321311002333-3203200132321031-1131103113120133-0012122200230103-2100301231103302"></a>
-
-## Direct properties — custom_static_route / 001211102131 / 3
-
-<a id="canonical-0003111212031130-3012322110322011-0022100122001201-0333331231032330-1332322223333021-3202213331001030-1213103031202031-1010322221233313"></a>
-
-<a id="canonical-1110102112323012-3322101130220002-2032020111012232-0311202033031300-2230000310330032-3322132310002132-2320310302311111-2011313010101133"></a>
-
-## attrs property — custom_static_route / 001211102131 / 4
-
-Type: `["list", "string"]`. Optional.
-
-\[Enum:
-ROUTE\_ATTR\_NO\_OP|ROUTE\_ATTR\_ADVERTISE|ROUTE\_ATTR\_INSTALL\_HOST|ROUTE\_ATTR\_INSTALL\_FORWARDING|ROUTE\_ATTR\_MERGE\_ONLY\]
-List of route attributes associated with the static route. Possible values are
-\`ROUTE\_ATTR\_NO\_OP\`, \`ROUTE\_ATTR\_ADVERTISE\`, \`ROUTE\_ATTR\_INSTALL\_HOST\`,
-\`ROUTE\_ATTR\_INSTALL\_FORWARDING\`, \`ROUTE\_ATTR\_MERGE\_ONLY\`. Defaults to
-\`ROUTE\_ATTR\_NO\_OP\`.
-
-Upstream description:
-
-List of route attributes associated with the static route.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.List{
-  listvalidator.SizeAtMost(4),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxItems": 4,
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "array",
-    "deterministic": true,
-    "maxItems": 4,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.repeated.max_items": "4"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.repeated.max_items": "4"
-  }
-}
-```
-
-- [labels](resources--aws_tgw_site--reference--group-003.md#canonical-0232323103201002-3021320032123221-3323211230201312-0100012302023310-1113210210101213-0113122013210000-0023222300300010-0010310300201201): complete subsection reference.
-
-- [nexthop](resources--aws_tgw_site--reference--group-003.md#canonical-0003030130021111-3312333313002332-2112222111320300-1102302011333013-1321333031231001-0002003300230301-1030331331223202-0121210011003030): complete subsection reference.
-
-- [subnets](resources--aws_tgw_site--reference--group-004.md#canonical-2003220033322023-1112302212322313-3102223321203121-3022310110102112-1302132203022131-3321131111012001-0221030023311130-3232233232102321): complete subsection reference.
-
-<a id="canonical-0113103230033212-1302100212223023-1101210123132302-3222102030010013-0333230313221003-2203301211010013-1031301322011100-3000330321012002"></a>
-
-## Next pages — custom_static_route / 001211102131 / 5
-
-- [vn_config.outside_static_routes.static_route_list.custom_static_route.labels](resources--aws_tgw_site--reference--group-003.md#canonical-0232323103201002-3021320032123221-3323211230201312-0100012302023310-1113210210101213-0113122013210000-0023222300300010-0010310300201201)
-- [vn_config.outside_static_routes.static_route_list.custom_static_route.nexthop](resources--aws_tgw_site--reference--group-003.md#canonical-0003030130021111-3312333313002332-2112222111320300-1102302011333013-1321333031231001-0002003300230301-1030331331223202-0121210011003030)
-- [vn_config.outside_static_routes.static_route_list.custom_static_route.subnets](resources--aws_tgw_site--reference--group-004.md#canonical-2003220033322023-1112302212322313-3102223321203121-3022310110102112-1302132203022131-3321131111012001-0221030023311130-3232233232102321)
-- [vn_config.outside_static_routes.static_route_list](resources--aws_tgw_site--reference--group-003.md#canonical-0012330200333200-1003330212132300-0033033221012201-3330110232112210-0013230010001331-0003332013203201-0013211233213031-0201233331322323)
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
-
-<a id="canonical-0232323103201002-3021320032123221-3323211230201312-0100012302023310-1113210210101213-0113122013210000-0023222300300010-0010310300201201"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-3322020323320233-1003022113311011-3120313122202303-1310301032012230-0313000002203121-1100033012333320-0022002020300223-0210020031022001"></a>
-
-## vn_config.outside_static_routes.static_route_list.custom_static_route.labels — labels / 213000310331 / 2
-
-Breadcrumbs:
-
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
-- [Property reference](resources--aws_tgw_site--reference--group-001.md#canonical-0010030023013322-1222303112030301-3301303233332013-0103300311223300-2202230101213131-0302322120010320-1030223332212332-3103201322012110)
-- [vn_config](resources--aws_tgw_site--reference--group-003.md#canonical-0101002010113120-1121300322102322-2320133222211303-0011102031313120-3202320223313220-3220002032331202-0331231132033323-1222203320002031)
-- [vn_config.outside_static_routes](resources--aws_tgw_site--reference--group-003.md#canonical-2301113011113011-1112320230210202-0313100212313032-1131333013212023-3211313333212000-2110001321132102-1131010130012311-2101312102132133)
-- [vn_config.outside_static_routes.static_route_list](resources--aws_tgw_site--reference--group-003.md#canonical-0012330200333200-1003330212132300-0033033221012201-3330110232112210-0013230010001331-0003332013203201-0013211233213031-0201233331322323)
-- [vn_config.outside_static_routes.static_route_list.custom_static_route](resources--aws_tgw_site--reference--group-003.md#canonical-3112202231210201-1221331101020010-2311032322110333-3203310310200232-2230321032201221-3313011300211333-0131031220003312-2233310210310310)
-- vn_config.outside_static_routes.static_route_list.custom_static_route.labels
-
-<a id="canonical-1332222301001012-3002002103331232-2022023010200300-3332311000301121-2000211010102231-3223322022211312-2020000311131021-3300100301222210"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-Add Labels for this Static Route, these labels can be used in network policy.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-labels {}
-```
-
-<a id="canonical-3122330223321120-3103202113023332-1212113133113203-0123200320003110-0300032322213232-3301100122211123-1121111333331113-1113133013123211"></a>
-
-## Direct properties — labels / 213000310331 / 3
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-2131132003220312-1010030210213301-3320023012010222-2130113321123203-1222132111332321-3120232120132223-2132103012132110-1222132030013030"></a>
-
-## Next pages — labels / 213000310331 / 4
-
-- [vn_config.outside_static_routes.static_route_list.custom_static_route](resources--aws_tgw_site--reference--group-003.md#canonical-3112202231210201-1221331101020010-2311032322110333-3203310310200232-2230321032201221-3313011300211333-0131031220003312-2233310210310310)
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
-
-<a id="canonical-0003030130021111-3312333313002332-2112222111320300-1102302011333013-1321333031231001-0002003300230301-1030331331223202-0121210011003030"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-3101003223021122-2020220030332003-0220021111301313-3102300222330011-2221111320030020-1123330031013220-1123203102023313-0313011110003132"></a>
-
-## vn_config.outside_static_routes.static_route_list.custom_static_route.nexthop — nexthop / 113002202232 / 2
-
-Breadcrumbs:
-
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
-- [Property reference](resources--aws_tgw_site--reference--group-001.md#canonical-0010030023013322-1222303112030301-3301303233332013-0103300311223300-2202230101213131-0302322120010320-1030223332212332-3103201322012110)
-- [vn_config](resources--aws_tgw_site--reference--group-003.md#canonical-0101002010113120-1121300322102322-2320133222211303-0011102031313120-3202320223313220-3220002032331202-0331231132033323-1222203320002031)
-- [vn_config.outside_static_routes](resources--aws_tgw_site--reference--group-003.md#canonical-2301113011113011-1112320230210202-0313100212313032-1131333013212023-3211313333212000-2110001321132102-1131010130012311-2101312102132133)
-- [vn_config.outside_static_routes.static_route_list](resources--aws_tgw_site--reference--group-003.md#canonical-0012330200333200-1003330212132300-0033033221012201-3330110232112210-0013230010001331-0003332013203201-0013211233213031-0201233331322323)
-- [vn_config.outside_static_routes.static_route_list.custom_static_route](resources--aws_tgw_site--reference--group-003.md#canonical-3112202231210201-1221331101020010-2311032322110333-3203310310200232-2230321032201221-3313011300211333-0131031220003312-2233310210310310)
-- vn_config.outside_static_routes.static_route_list.custom_static_route.nexthop
-
-<a id="canonical-3321022100210320-1212022111321120-0230301231312311-0321200032023332-2322200100232033-0003233003212131-3000221212301130-2333322010112131"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-Nexthop. Identifies the next-hop for a route.
-
-Upstream description:
-
-Identifies the next-hop for a route.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-nexthop {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-3122201333012300-3113220210311220-0332020002130022-1132220132310103-3302032213201322-1012100320323110-3111211103201121-3033201132201321"></a>
-
-## Direct properties — nexthop / 113002202232 / 3
-
-- [interface](resources--aws_tgw_site--reference--group-003.md#canonical-2023012210202202-2022212003110122-1001120330030311-1120311120221320-3110200110001203-3310210332003212-2213112020121223-3323102031323000): complete subsection reference.
-
-- [nexthop_address](resources--aws_tgw_site--reference--group-003.md#canonical-2022301320110121-3133021101100200-1312331200213023-0120233323001100-3023323112033212-3001021103301221-2120102230133113-3221030222230301): complete subsection reference.
-
-<a id="canonical-1122023323030231-0202321033332110-0233110120110231-3300111310130000-0312312010130310-0203123120222111-0323303021121100-2113212203322203"></a>
-
-<a id="canonical-2230332312200122-1012212311231222-0103022110023313-2133010212021003-1113131223321231-1122302213021303-2322013110201331-2213032132102333"></a>
-
-## type property — nexthop / 113002202232 / 4
-
-Type: `"string"`. Optional.
-
-\[Enum: NEXT\_HOP\_DEFAULT\_GATEWAY|NEXT\_HOP\_USE\_CONFIGURED|NEXT\_HOP\_NETWORK\_INTERFACE\]
-Defines types of next-hop Use default gateway on the local interface as gateway for route. Assumes
-there is only one local interface on the virtual network. Use the specified address as nexthop Use
-the network interface as nexthop Discard nexthop, used when attr type is Advertise Used in VoltADN..
-Possible values are \`NEXT\_HOP\_DEFAULT\_GATEWAY\`, \`NEXT\_HOP\_USE\_CONFIGURED\`,
-\`NEXT\_HOP\_NETWORK\_INTERFACE\`. Defaults to \`NEXT\_HOP\_DEFAULT\_GATEWAY\`.
-
-Upstream description:
-
-Defines types of next-hop
-
-Use default gateway on the local interface as gateway for route. Assumes there is only one local
-interface on the virtual network. Use the specified address as nexthop Use the network interface as
-nexthop Discard nexthop, used when attr type is Advertise Used in VoltADN private virtual network.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.String{
-  stringvalidator.OneOf("NEXT_HOP_DEFAULT_GATEWAY",
-    "NEXT_HOP_USE_CONFIGURED",
-    "NEXT_HOP_NETWORK_INTERFACE"),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "default": "NEXT_HOP_DEFAULT_GATEWAY",
-  "enum": [
-    "NEXT_HOP_DEFAULT_GATEWAY",
-    "NEXT_HOP_USE_CONFIGURED",
-    "NEXT_HOP_NETWORK_INTERFACE"
-  ],
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-0033302200230101-3303120213103202-0231220231022131-2001131321001120-2200311000230133-0023232303202011-3332021310100201-1231101032213012"></a>
-
-## Next pages — nexthop / 113002202232 / 5
-
-- [vn_config.outside_static_routes.static_route_list.custom_static_route.nexthop.interface](resources--aws_tgw_site--reference--group-003.md#canonical-2023012210202202-2022212003110122-1001120330030311-1120311120221320-3110200110001203-3310210332003212-2213112020121223-3323102031323000)
-- [vn_config.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address](resources--aws_tgw_site--reference--group-003.md#canonical-2022301320110121-3133021101100200-1312331200213023-0120233323001100-3023323112033212-3001021103301221-2120102230133113-3221030222230301)
-- [vn_config.outside_static_routes.static_route_list.custom_static_route](resources--aws_tgw_site--reference--group-003.md#canonical-3112202231210201-1221331101020010-2311032322110333-3203310310200232-2230321032201221-3313011300211333-0131031220003312-2233310210310310)
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
-
-<a id="canonical-2023012210202202-2022212003110122-1001120330030311-1120311120221320-3110200110001203-3310210332003212-2213112020121223-3323102031323000"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-0111032012003320-2122200220311123-0120230030021011-0211030101020010-2121313123002312-3330132110012333-2302320130021232-0331230103012101"></a>
-
-## vn_config.outside_static_routes.static_route_list.custom_static_route.nexthop.interface — interface / 222231112133 / 2
-
-Breadcrumbs:
-
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
-- [Property reference](resources--aws_tgw_site--reference--group-001.md#canonical-0010030023013322-1222303112030301-3301303233332013-0103300311223300-2202230101213131-0302322120010320-1030223332212332-3103201322012110)
-- [vn_config](resources--aws_tgw_site--reference--group-003.md#canonical-0101002010113120-1121300322102322-2320133222211303-0011102031313120-3202320223313220-3220002032331202-0331231132033323-1222203320002031)
-- [vn_config.outside_static_routes](resources--aws_tgw_site--reference--group-003.md#canonical-2301113011113011-1112320230210202-0313100212313032-1131333013212023-3211313333212000-2110001321132102-1131010130012311-2101312102132133)
-- [vn_config.outside_static_routes.static_route_list](resources--aws_tgw_site--reference--group-003.md#canonical-0012330200333200-1003330212132300-0033033221012201-3330110232112210-0013230010001331-0003332013203201-0013211233213031-0201233331322323)
-- [vn_config.outside_static_routes.static_route_list.custom_static_route](resources--aws_tgw_site--reference--group-003.md#canonical-3112202231210201-1221331101020010-2311032322110333-3203310310200232-2230321032201221-3313011300211333-0131031220003312-2233310210310310)
-- [vn_config.outside_static_routes.static_route_list.custom_static_route.nexthop](resources--aws_tgw_site--reference--group-003.md#canonical-0003030130021111-3312333313002332-2112222111320300-1102302011333013-1321333031231001-0002003300230301-1030331331223202-0121210011003030)
-- vn_config.outside_static_routes.static_route_list.custom_static_route.nexthop.interface
-
-<a id="canonical-0121332302020121-2331131002030011-1303021001222310-0003221212303213-3211032122100200-2212003230000111-2212200030012310-0020120021130111"></a>
-
-Type: `"object"`. list nested block, Optional.
-
-Nexthop is network interface when type is 'Network-Interface'.
-
-Upstream description:
-
-Nexthop is network interface when type is "Network-Interface"
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxItems": 1,
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "array",
-    "deterministic": true,
-    "maxItems": 1,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.repeated.max_items": "1"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.repeated.max_items": "1"
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-interface {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-2312303300231100-3223301012123021-3111031131333231-0010130230322332-0310333110111033-2212112032103231-2000321021012010-2331133032031223"></a>
-
-## Direct properties — interface / 222231112133 / 3
-
-<a id="canonical-3221002323313332-0123332021033331-1031030121231132-3212013301031102-2022100020231333-2332033001000201-3023023000030312-2100220031212033"></a>
-
-<a id="canonical-3323233211233323-3000012213230232-3230130200021113-3333102023103233-0123202031003122-2123132102132001-2302122001133312-3311322130300311"></a>
-
-## kind property — interface / 222231112133 / 4
-
-Type: `"string"`. Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then kind will hold the
-referred object's kind (e.g. 'route').
-
-Upstream description:
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then kind will hold the
-referred object's kind (e.g. "route")
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "string",
-    "maxLength": 1024,
-    "metadata": {
-      "confidence": 0.85,
-      "source": "inferred",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-0030013322112311-2312010033031031-3033023303011122-0201001101332133-2213310312011132-3201210031020222-1212300310300211-0233010220110132"></a>
-
-<a id="canonical-3103331213033231-3323022213010322-2220032231123103-0012333013210020-1022103120321101-2100310212003001-3223213120113230-3011320312213111"></a>
-
-## name property — interface / 222231112133 / 5
-
-Type: `"string"`. Optional.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
-referred object's(e.g. Route's) name.
-
-Upstream description:
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
-referred object's(e.g. Route's) name.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "string",
-    "maxLength": 1024,
-    "metadata": {
-      "confidence": 0.85,
-      "source": "inferred",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-0330022121012303-1030113301212300-0310322132332030-3313201123000222-0220000310011233-3010211221011333-2121033302032333-3230021133223032"></a>
-
-<a id="canonical-0020302120310102-2313013313123321-2313332333101223-0202202333203023-2210222202100112-0013111330132230-3130030323301212-1100103310312113"></a>
-
-## namespace property — interface / 222231112133 / 6
-
-Type: `"string"`. Optional, Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
-hold the referred object's(e.g. Route's) namespace.
-
-Upstream description:
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
-hold the referred object's(e.g. Route's) namespace.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 63),
-  stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`),
-    ""),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "naming",
-    "characterSet": {
-      "allowed": "[a-z0-9-]",
-      "description": "Lowercase letter start, alphanumeric with hyphens, alphanumeric end",
-      "required": "[a-z0-9]",
-      "restricted": "[^a-z0-9-]"
-    },
-    "constraintType": "string",
-    "deterministic": true,
-    "format": "dns-label",
-    "formatDescription": "DNS-1035 label: must start with a lowercase letter",
-    "maxLength": 63,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "inferred",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
-    },
-    "minLength": 1,
-    "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
-    "validation": {
-      "rfc": "RFC 1035",
-      "standard": "DNS-1035 label (alpha-first)"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-1002201013231301-1130112132333120-1032203321003211-0123320211111111-0003311010212020-0030103102220223-0031233301330332-1233013323103101"></a>
-
-<a id="canonical-0100300210110211-3333031221310320-2211000012311300-2211201221031333-1330102201331233-0210110112232001-2232032003002132-0031300211301323"></a>
-
-## tenant property — interface / 222231112133 / 7
-
-Type: `"string"`. Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
-the referred object's(e.g. Route's) tenant.
-
-Upstream description:
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
-the referred object's(e.g. Route's) tenant.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "string",
-    "maxLength": 1024,
-    "metadata": {
-      "confidence": 0.85,
-      "source": "inferred",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-0323201233133020-3310131130331131-2131113223113303-0111121121312302-2200232301220112-1101131320133330-0013312033113321-2023111023033232"></a>
-
-<a id="canonical-2122302211022201-2331220211320031-2002302032113230-1132133312201322-1331113031210012-1000111311333221-0213110011012311-3203220322002331"></a>
-
-## uid property — interface / 222231112133 / 8
-
-Type: `"string"`. Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then uid will hold the
-referred object's(e.g. Route's) uid.
-
-Upstream description:
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then uid will hold the
-referred object's(e.g. Route's) uid.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "string",
-    "maxLength": 1024,
-    "metadata": {
-      "confidence": 0.85,
-      "source": "inferred",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-3331222302111302-1100102230000311-0211112131311130-1201032012033203-0101223222201132-3312211311303223-2213300032031302-0332221120032111"></a>
-
-## Next pages — interface / 222231112133 / 9
-
-- [vn_config.outside_static_routes.static_route_list.custom_static_route.nexthop](resources--aws_tgw_site--reference--group-003.md#canonical-0003030130021111-3312333313002332-2112222111320300-1102302011333013-1321333031231001-0002003300230301-1030331331223202-0121210011003030)
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
-
-<a id="canonical-2022301320110121-3133021101100200-1312331200213023-0120233323001100-3023323112033212-3001021103301221-2120102230133113-3221030222230301"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-1022302033130123-0031311121222213-3023330000333111-2023320112322230-0120320011331133-3211100023112210-2033102001011302-1122230223220101"></a>
-
-## vn_config.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address — nexthop_address / 103001310311 / 2
-
-Breadcrumbs:
-
-- [xcsh_aws_tgw_site](../resources/aws_tgw_site.md#canonical-2230112000323023-1232003130310011-1300013003021130-0212200032323001-1231220220333120-0203201112201213-0311321123312113-1121110002010112)
-- [Property reference](resources--aws_tgw_site--reference--group-001.md#canonical-0010030023013322-1222303112030301-3301303233332013-0103300311223300-2202230101213131-0302322120010320-1030223332212332-3103201322012110)
-- [vn_config](resources--aws_tgw_site--reference--group-003.md#canonical-0101002010113120-1121300322102322-2320133222211303-0011102031313120-3202320223313220-3220002032331202-0331231132033323-1222203320002031)
-- [vn_config.outside_static_routes](resources--aws_tgw_site--reference--group-003.md#canonical-2301113011113011-1112320230210202-0313100212313032-1131333013212023-3211313333212000-2110001321132102-1131010130012311-2101312102132133)
-- [vn_config.outside_static_routes.static_route_list](resources--aws_tgw_site--reference--group-003.md#canonical-0012330200333200-1003330212132300-0033033221012201-3330110232112210-0013230010001331-0003332013203201-0013211233213031-0201233331322323)
-- [vn_config.outside_static_routes.static_route_list.custom_static_route](resources--aws_tgw_site--reference--group-003.md#canonical-3112202231210201-1221331101020010-2311032322110333-3203310310200232-2230321032201221-3313011300211333-0131031220003312-2233310210310310)
-- [vn_config.outside_static_routes.static_route_list.custom_static_route.nexthop](resources--aws_tgw_site--reference--group-003.md#canonical-0003030130021111-3312333313002332-2112222111320300-1102302011333013-1321333031231001-0002003300230301-1030331331223202-0121210011003030)
-- vn_config.outside_static_routes.static_route_list.custom_static_route.nexthop.nexthop_address
-
-<a id="canonical-3211232202201232-1031300221322332-3332100103100122-2313323303000230-3321130303320310-0121203121030022-1301200213222033-0120003101331032"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-IP Address used to specify an IPv4 or IPv6 address.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.Object{validators.ConflictingObjectAttributes("dual_stack",
-    "ipv4"),
-  validators.ConflictingObjectAttributes("dual_stack",
-    "ipv6"),
-  validators.ConflictingObjectAttributes("ipv4",
-    "ipv6")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-ves-oneof-field-ver": "[\"dual_stack\",\"ipv4\",\"ipv6\"]"
-}
-```
-
-Terraform syntax:
-
-```terraform
-nexthop_address {
-  # Configure direct properties listed below.
 }
 ```

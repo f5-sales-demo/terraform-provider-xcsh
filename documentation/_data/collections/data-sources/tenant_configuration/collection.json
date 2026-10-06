@@ -161,8 +161,8 @@
   "pages": [
     {
       "aliases": ["tenant configuration"],
-      "body_bytes": 1445,
-      "body_sha256": "sha256:bfc75710209249fa5bf77d55fbe15b0a35cb01671c5c9ba77ed9f7f99bd0e7df",
+      "body_bytes": 1405,
+      "body_sha256": "sha256:571b9e63e921115da2bc199829d3af874f79e799a0241fa151e3912ba23533e1",
       "capabilities": ["administration"],
       "category": "administration",
       "child_ids": [
@@ -193,7 +193,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/tenant_configuration/index.txt",
       "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
-      "summary": "Manages a Tenant Configuration resource in F5 Distributed Cloud for tenant configuration specification. configuration.",
+      "summary": "Reads Tenant Configuration information from F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_tenant_configuration",
       "unresolved_relationships": [],
@@ -205,8 +205,8 @@
     },
     {
       "aliases": ["tenant configuration"],
-      "body_bytes": 9473,
-      "body_sha256": "sha256:d82ddd2e6a9960e5d85999e6bc5ae2f209998f814a131f8cd6fa958cc2e77326",
+      "body_bytes": 8753,
+      "body_sha256": "sha256:8075bde026085c8f2de9b67c7447dfc7276cd2e6b9b44487765d837d4d0acf77",
       "capabilities": ["administration"],
       "category": "administration",
       "child_ids": [
@@ -391,8 +391,8 @@
     },
     {
       "aliases": ["brute force detection"],
-      "body_bytes": 2004,
-      "body_sha256": "sha256:7ad92a8e77885f1096c5dc4ebe00b5d78502f78c51e7f5a1b7d281d02b250951",
+      "body_bytes": 1573,
+      "body_sha256": "sha256:a8cffb999f458cd05486f80a0ca40d4de1eb82dbc5698d6d2553889572aef84e",
       "capabilities": ["administration"],
       "category": "administration",
       "child_ids": [],
@@ -446,8 +446,8 @@
     },
     {
       "aliases": ["password policy"],
-      "body_bytes": 6992,
-      "body_sha256": "sha256:f7cda9b43753e9ae71d1c5379a7a841bbf53cdad2f8c461f78bb36bf5db5998a",
+      "body_bytes": 6328,
+      "body_sha256": "sha256:d0ed293979904dc1e934f9d13aa34e33ace4a9926d44ce022889219620933b33",
       "capabilities": ["administration"],
       "category": "administration",
       "child_ids": [],
@@ -599,8 +599,8 @@
     },
     {
       "aliases": ["tenant details"],
-      "body_bytes": 2110,
-      "body_sha256": "sha256:628cbffc63e3824d5299a3bfd8eaac5a79e0df53cd01dda1b1a7ad79772c507e",
+      "body_bytes": 1846,
+      "body_sha256": "sha256:9a1b144d9ef683dc54652cd8b8ebcd60e37953a72e36d80ba9b0252251032cf3",
       "capabilities": ["administration"],
       "category": "administration",
       "child_ids": [],
@@ -654,8 +654,8 @@
     },
     {
       "aliases": ["duration", "user session expiration"],
-      "body_bytes": 2539,
-      "body_sha256": "sha256:af60097d214d6815eb4d081ff4082fa9f813124b9cd8b00aa4fd954c1eb0dddc",
+      "body_bytes": 1586,
+      "body_sha256": "sha256:3f413f32b2e2f8ca3e84b96ad0f6ae1c14537f4687090dbdb40dae61ecf5642a",
       "capabilities": ["administration"],
       "category": "administration",
       "child_ids": [
@@ -726,8 +726,8 @@
     },
     {
       "aliases": ["duration", "user session expiration absolute timeout"],
-      "body_bytes": 2048,
-      "body_sha256": "sha256:f50e6c25eafce6e0eda05661d34c3a54cf7c35f291b0b7c46af805131f8ffda6",
+      "body_bytes": 1349,
+      "body_sha256": "sha256:4b1d5aa8ac74e44b6132b3ee9c7f124a9947b990e9da3732ab096a3c3a38b19b",
       "capabilities": ["administration"],
       "category": "administration",
       "child_ids": [
@@ -798,8 +798,8 @@
     },
     {
       "aliases": ["duration", "user session expiration absolute timeout hours"],
-      "body_bytes": 2466,
-      "body_sha256": "sha256:0e660921f806273c36ff2ec9ecfc1b095c205267ab208462a92dc4cdf1bd0289",
+      "body_bytes": 2078,
+      "body_sha256": "sha256:e399d08fe7563806a5d069a5ea91f96f34516a60fe71bf8af6fedb7f992012bf",
       "capabilities": ["administration"],
       "category": "administration",
       "child_ids": [],
@@ -853,8 +853,8 @@
     },
     {
       "aliases": ["duration", "user session expiration absolute timeout minutes"],
-      "body_bytes": 2480,
-      "body_sha256": "sha256:592365d1900b6151521a782395b48f1af79b2dc7565bdeb75a382d874681a19e",
+      "body_bytes": 2092,
+      "body_sha256": "sha256:9cc893f0abe24e0f2e3660828cd78979055648b049fe8355dba626fd69c2a9ee",
       "capabilities": ["administration"],
       "category": "administration",
       "child_ids": [],
@@ -908,8 +908,8 @@
     },
     {
       "aliases": ["duration", "user session expiration idle timeout"],
-      "body_bytes": 2015,
-      "body_sha256": "sha256:4200adeffb4bab8b3252bf39c92298f3de60e2a73e699be323da2daf212ac3dc",
+      "body_bytes": 1332,
+      "body_sha256": "sha256:e735a289dac319de792c848c4cea569a10c353bf405850291076260f00e50835",
       "capabilities": ["administration"],
       "category": "administration",
       "child_ids": [
@@ -980,8 +980,8 @@
     },
     {
       "aliases": ["duration", "user session expiration idle timeout hours"],
-      "body_bytes": 2437,
-      "body_sha256": "sha256:d1feeda144779871bd1c14e941ab5650523bbefccba68e54f44d2281fe821b3d",
+      "body_bytes": 2057,
+      "body_sha256": "sha256:e6e99af8965a6af434bc4d3b44165b9ae66cd3f88b90bfee8f458c76fce9db68",
       "capabilities": ["administration"],
       "category": "administration",
       "child_ids": [],
@@ -1035,8 +1035,8 @@
     },
     {
       "aliases": ["duration", "user session expiration idle timeout minutes"],
-      "body_bytes": 2451,
-      "body_sha256": "sha256:b1c2d0f38cbbcc8c7e93a6b9d3815bf8081109ce39ab66097119272dc218cfd6",
+      "body_bytes": 2071,
+      "body_sha256": "sha256:61b8dd57edc965c96d082412970cffd2a393fb22b2038ff2c652ff4b15573104",
       "capabilities": ["administration"],
       "category": "administration",
       "child_ids": [],
@@ -1090,8 +1090,8 @@
     },
     {
       "aliases": ["tenant configuration"],
-      "body_bytes": 705,
-      "body_sha256": "sha256:a7b5ebbed91c479c0de5d497ecd8dce56d7d2ea7cbdd7766e8713a5aef70e64c",
+      "body_bytes": 438,
+      "body_sha256": "sha256:7f2c1f9566b5109522214429c932874b2670851b526e2c8109354847e004127c",
       "capabilities": ["administration"],
       "category": "administration",
       "child_ids": ["xcsh-docs:data-sources:tenant_configuration:example:data-source"],
@@ -1130,8 +1130,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 1383,
-      "body_sha256": "sha256:c44ce0e0480827879b3d469359128eb3b990660e29e2cabf8f298bcea235ec32",
+      "body_bytes": 1131,
+      "body_sha256": "sha256:fbbf73cbbd1a7b387cbd77076167af9357adc6a1ab6fb6eb82aed2ad831930ae",
       "capabilities": ["administration"],
       "category": "administration",
       "child_ids": [],

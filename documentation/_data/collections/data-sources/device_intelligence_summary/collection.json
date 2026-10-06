@@ -101,8 +101,8 @@
   "pages": [
     {
       "aliases": ["device intelligence summary"],
-      "body_bytes": 1314,
-      "body_sha256": "sha256:b1aed962dfd0fa266c108abb75a9388fff282f03f6d8b4ce9d6d3dead3641da5",
+      "body_bytes": 1371,
+      "body_sha256": "sha256:650a8f538a3b412d6adf83472eda099296ae7ad5ba19f72bb9d9d1068bafbba9",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -133,7 +133,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/device_intelligence_summary/index.txt",
       "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
-      "summary": "Resource creation operation.",
+      "summary": "Reads Device Intelligence Summary information from F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_device_intelligence_summary",
       "unresolved_relationships": [],
@@ -145,8 +145,8 @@
     },
     {
       "aliases": ["device intelligence summary"],
-      "body_bytes": 7023,
-      "body_sha256": "sha256:22dad2da375fd557a978d4cbd2aad279945375dac4208f3e08208cb4f2577eda",
+      "body_bytes": 6741,
+      "body_sha256": "sha256:b8145b40407f6dc71e00a9514c52ecbffe6dc9e7fd32c7c48fdaf3c749f4d84b",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:device_intelligence_summary:properties:filters"],
@@ -368,8 +368,8 @@
     },
     {
       "aliases": ["filters"],
-      "body_bytes": 1652,
-      "body_sha256": "sha256:f09a6d6a949e17491726516f38b53f984af9e011e0622c2f9ec59ec777bb7d1e",
+      "body_bytes": 1207,
+      "body_sha256": "sha256:b4070a478a93759c28f61c950cbb68c9d19dd7edb4d15f2162d77623117a50db",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:device_intelligence_summary:properties:filters:global_filters"],
@@ -437,8 +437,8 @@
     },
     {
       "aliases": ["filters global filters"],
-      "body_bytes": 5424,
-      "body_sha256": "sha256:016ba35957c49086e93f576b3d9ba8b062fe92075a83800de0b00032c5901550",
+      "body_bytes": 5142,
+      "body_sha256": "sha256:670b46131dd026d7dafde2ac9e4283df560ea50283c9126fdaa1161cd8df37cf",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -520,8 +520,8 @@
     },
     {
       "aliases": ["device intelligence summary"],
-      "body_bytes": 747,
-      "body_sha256": "sha256:557ea084bcadbceb5d1ff9d4ae34f08b3a35f97c0557ef8f1b6ff76fb408c9e9",
+      "body_bytes": 459,
+      "body_sha256": "sha256:e03f616d332ecbb8c3f37252778ff36a6af630f92ecfd2ef69057a77a38c91d2",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:device_intelligence_summary:example:data-source"],
@@ -560,8 +560,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 1371,
-      "body_sha256": "sha256:eef77a40265907fbdc39a98b4ceb29a74a8ca7dbc3a7e8a3cadbc0472fab3cfd",
+      "body_bytes": 1098,
+      "body_sha256": "sha256:098043487222c07e9ae8bbc849314185b2818929bea4a52bf249e261487266e7",
       "capabilities": [],
       "category": null,
       "child_ids": [],

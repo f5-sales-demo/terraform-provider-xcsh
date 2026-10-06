@@ -106,8 +106,8 @@
   "pages": [
     {
       "aliases": ["app type"],
-      "body_bytes": 1551,
-      "body_sha256": "sha256:a856611fabf91907e4f65cffc4b5c13c00273fa2229e2644b9bacf7e29a09e74",
+      "body_bytes": 1564,
+      "body_sha256": "sha256:c4f1ce2071e71c3704a7582a92c1cb28545ec2074d660a9c2635f31eef0d1131",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -152,8 +152,8 @@
     },
     {
       "aliases": ["app type"],
-      "body_bytes": 11590,
-      "body_sha256": "sha256:a796c83eaf6d9136cf00aef889f3298321fb913c50dd71a9d7ea569dfdb8c322",
+      "body_bytes": 10967,
+      "body_sha256": "sha256:9b0530e82c6307a45b4e738582d4dea0424adc64ede8353b1d06a5ed95f3bb6c",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -354,8 +354,8 @@
     },
     {
       "aliases": ["business logic markup setting"],
-      "body_bytes": 2394,
-      "body_sha256": "sha256:93fdb990c408eeb9f1be598f589b7443588b6cb21820d031b63a07ba07794095",
+      "body_bytes": 1628,
+      "body_sha256": "sha256:7e94398dcc049c0ce92346b241f3a74182ad00817232a6e11963da689d3b7fd4",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -467,8 +467,8 @@
     },
     {
       "aliases": ["business logic markup setting disable spec"],
-      "body_bytes": 1051,
-      "body_sha256": "sha256:24a10b91fe0090b613e5da50a7eb1b5aeb38cf48ccf3865ab31bdb523d4c5de9",
+      "body_bytes": 766,
+      "body_sha256": "sha256:7a31b4ee1b4b02fcf9fb7d7fdf700ee32338fc02f6a02f768e8a415a28e2b344",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -507,8 +507,8 @@
     },
     {
       "aliases": ["business logic markup setting discovered api settings"],
-      "body_bytes": 2630,
-      "body_sha256": "sha256:b83bd02611ff27e91347cec5c224be29868a6931869c09787b17f3960a13cad2",
+      "body_bytes": 2308,
+      "body_sha256": "sha256:655efd4d77ffaf1c96b1443ebd5b5c5d34f9e21d47d47533974a060513f7b457",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -577,8 +577,8 @@
     },
     {
       "aliases": ["business logic markup setting enable"],
-      "body_bytes": 1290,
-      "body_sha256": "sha256:a3924e41251d27de6dce596efe11dffa0409f2646ca4ef16b0802f23e0dac99f",
+      "body_bytes": 1012,
+      "body_sha256": "sha256:62e2b1fc12beea6b46fe95087ac04fc9bb3b2ea08d10e34b22a556b713b8c3ec",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -617,8 +617,8 @@
     },
     {
       "aliases": ["features"],
-      "body_bytes": 3141,
-      "body_sha256": "sha256:00d44d2b452c66a7fdbfc0021b6aa006218cb1996345a320221cfb200bd2cd06",
+      "body_bytes": 2784,
+      "body_sha256": "sha256:2619bd47e4ee85d4c2d3082dae71503b9e5b703253de804519cd6636e5676def",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -672,8 +672,8 @@
     },
     {
       "aliases": ["duration", "lifecycle timeout", "operation timeout", "timeouts"],
-      "body_bytes": 2207,
-      "body_sha256": "sha256:10912a131b67acd56f5b9a82f1bc82888c76e28567db7e2574fd6d4bdd0a0924",
+      "body_bytes": 1985,
+      "body_sha256": "sha256:e031d8adafc350296120c1910c69e32336bfb7c217722eecaf57e7e2ad300f5f",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -804,8 +804,8 @@
     },
     {
       "aliases": ["app type"],
-      "body_bytes": 609,
-      "body_sha256": "sha256:4c6eed2258b681a12996a7ed247f4d69fca4ab01c1c981cb50f38fb916386c7b",
+      "body_bytes": 390,
+      "body_sha256": "sha256:3df27215e1058df1af34c0ea8126d79e8dbe5840ff2bcee9063e4a5679583436",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:resources:app_type:example:resource"],
@@ -844,8 +844,8 @@
     },
     {
       "aliases": ["resource"],
-      "body_bytes": 1236,
-      "body_sha256": "sha256:84419f9e693791cd79ab905d6579b58ee428ef7cb971cacb1a7cf628e926eb81",
+      "body_bytes": 1026,
+      "body_sha256": "sha256:1cd3c44916eabc892150eeb260fbb330c2e5d4419216153ea943b54ef18adeb4",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -891,8 +891,8 @@
     },
     {
       "aliases": ["app type"],
-      "body_bytes": 460,
-      "body_sha256": "sha256:6a02cc4ffd9cb1eb67f1f928ada1a89706983e1931e5664cbb9ac5d54f5bd588",
+      "body_bytes": 349,
+      "body_sha256": "sha256:7c1c3a19a7b70507889e85a905a0ed63a197df9eb31de64dfb8041d616779ba4",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -932,8 +932,8 @@
     },
     {
       "aliases": ["app type"],
-      "body_bytes": 548,
-      "body_sha256": "sha256:094676d7c02288625b4decc92163626ca80e4041dd33317600441550b7915762",
+      "body_bytes": 437,
+      "body_sha256": "sha256:8267a69ac75983f678e8daa82331796df8e259d48ae0960b3c561b2f84abb7f9",
       "capabilities": [],
       "category": null,
       "child_ids": [],

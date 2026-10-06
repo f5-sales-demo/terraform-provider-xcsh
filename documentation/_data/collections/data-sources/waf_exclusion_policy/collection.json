@@ -231,8 +231,8 @@
   "pages": [
     {
       "aliases": ["waf exclusion policy"],
-      "body_bytes": 1378,
-      "body_sha256": "sha256:ba068929b07debe196711eb23b3f06fe1a48c130f6bdec7e664916e40a4b60af",
+      "body_bytes": 1403,
+      "body_sha256": "sha256:b6c0e86a4d812a7a1ffb4dbe416315cd3339bce977d97f50c24eecbe91af114f",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -263,7 +263,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/waf_exclusion_policy/index.txt",
       "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
-      "summary": "Manages WAF exclusion policy in F5 Distributed Cloud.",
+      "summary": "Reads WAF Exclusion Policy information from F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_waf_exclusion_policy",
       "unresolved_relationships": [],
@@ -275,8 +275,8 @@
     },
     {
       "aliases": ["waf exclusion policy"],
-      "body_bytes": 17323,
-      "body_sha256": "sha256:47a62eb659e82574a52b19a6c5eb939732f79f8cfef7cd792cd1b79a95acfeda",
+      "body_bytes": 17073,
+      "body_sha256": "sha256:e740a6fb9c0702c1d9bc0b764db2bad5aef43401c6bda2a8c555b44fe90f5449",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": ["xcsh-docs:data-sources:waf_exclusion_policy:properties:waf_exclusion_rules"],
@@ -414,8 +414,8 @@
     },
     {
       "aliases": ["waf exclusion rules"],
-      "body_bytes": 10513,
-      "body_sha256": "sha256:a6f1ca7f082d426f86d3fbd36c467956fb7ee4d3f5829dbadb141a2f231bf03a",
+      "body_bytes": 8825,
+      "body_sha256": "sha256:62e4dd1f2edb450c2f5f15225b20b56194ff5dc09926635c91f57171efb6b79a",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -615,8 +615,8 @@
     },
     {
       "aliases": ["waf exclusion rules any domain"],
-      "body_bytes": 1288,
-      "body_sha256": "sha256:306c33ebb97b76dea3b87034fad992e98c444be5b60f7eaecb50a5d2272055dc",
+      "body_bytes": 988,
+      "body_sha256": "sha256:1616fa45a47619d0d55409f9794b2cd475eadc573152c2c162d2715ff08ea5bd",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -655,8 +655,8 @@
     },
     {
       "aliases": ["waf exclusion rules any path"],
-      "body_bytes": 1284,
-      "body_sha256": "sha256:0628e73cbb892f5c85929e756b88c408b54684b88c83bd86523cadb5fcdfc198",
+      "body_bytes": 984,
+      "body_sha256": "sha256:57b97bdca0e8d0c459dc611ef12b259ffa09f86494aa5e003bbceb036a58cb26",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -695,8 +695,8 @@
     },
     {
       "aliases": ["waf exclusion rules app firewall detection control"],
-      "body_bytes": 3329,
-      "body_sha256": "sha256:e41eb2d1adcfca3ad0860cc595848a1147247ba57aab8c9f35940670bbe121cd",
+      "body_bytes": 1990,
+      "body_sha256": "sha256:b3d1ff1f1de17e4b176a0c47d657f0709899a9372705be2a623075b317fa0524",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -797,8 +797,8 @@
     },
     {
       "aliases": ["waf exclusion rules app firewall detection control exclude attack type contexts"],
-      "body_bytes": 8571,
-      "body_sha256": "sha256:9e227d23c7417dc0437e17e8153fd75d76b3a2cff27196188a3cae0d93622f51",
+      "body_bytes": 8238,
+      "body_sha256": "sha256:8363b2adc165d6e66c7bd1ac41f7cb6dd4fb0df65cbfe70402eeb97b5cc0a932",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -897,8 +897,8 @@
     },
     {
       "aliases": ["waf exclusion rules app firewall detection control exclude bot name contexts"],
-      "body_bytes": 2958,
-      "body_sha256": "sha256:aeba3df17bcc4f3d3349331f36830dfa54b643a47c90d52539ba624afe80c680",
+      "body_bytes": 2550,
+      "body_sha256": "sha256:6fa56071c04bae1da2ec4462b8d886bc2c246a6e314da10b7349a3d28832fa46",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -957,8 +957,8 @@
     },
     {
       "aliases": ["waf exclusion rules app firewall detection control exclude signature contexts"],
-      "body_bytes": 7145,
-      "body_sha256": "sha256:88563eff1a1f928e82d9941d72f6562ed9d821a4ac920bd2de7c15c05ad2a298",
+      "body_bytes": 6376,
+      "body_sha256": "sha256:44a62c874771c29c376a68cec6a30a9d098c8498f60ccaa9d547febc3439880e",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -1055,8 +1055,8 @@
     },
     {
       "aliases": ["waf exclusion rules app firewall detection control exclude violation contexts"],
-      "body_bytes": 11865,
-      "body_sha256": "sha256:4f2fe2bddddc1e0e0e58d6dd0eca4289a4675ea5871c795feacaaadef0486887",
+      "body_bytes": 11284,
+      "body_sha256": "sha256:9bbe6a6e24eb0cc0aeff57a67107f55cd0d5856d8359cb4b0a00a76bc27925bc",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -1155,8 +1155,8 @@
     },
     {
       "aliases": ["waf exclusion rules metadata"],
-      "body_bytes": 3597,
-      "body_sha256": "sha256:87d17de5f2c18eca5879dfaf922d41bface8929053241837b28fd857f00208ad",
+      "body_bytes": 2895,
+      "body_sha256": "sha256:bc172d39920a9c95ac0adbfc954709d147bc2f1c92191ff47d5ed331d16670be",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -1224,8 +1224,8 @@
     },
     {
       "aliases": ["waf exclusion rules waf skip processing"],
-      "body_bytes": 1306,
-      "body_sha256": "sha256:a2159d9702095e3fd07a7d5a44fee58178cb3af8bd63e798a5e00ffaa0ed7607",
+      "body_bytes": 1006,
+      "body_sha256": "sha256:acf06cc0faf060fbf578a100c89b6d10cbc7165156e91d7cbba432d8989777f2",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -1264,8 +1264,8 @@
     },
     {
       "aliases": ["waf exclusion policy"],
-      "body_bytes": 705,
-      "body_sha256": "sha256:738756d5930d3fe70c828d7b4df9e45aab7242d7124ed16e71fffd6918fcb433",
+      "body_bytes": 438,
+      "body_sha256": "sha256:37320a2b9812182896f3fc40108000847f5155d49bc25442cb20044fb243303b",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": ["xcsh-docs:data-sources:waf_exclusion_policy:example:data-source"],
@@ -1304,8 +1304,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 1381,
-      "body_sha256": "sha256:c06d47d34b16ebe2e3f59603c2b11e0c063e8fbfaac9a772bb85cf02f459b5d7",
+      "body_bytes": 1129,
+      "body_sha256": "sha256:90c623158c68ef6ee81292374a3e5c844cb18011e1a3a8dcbb1fccb0e6e79887",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],

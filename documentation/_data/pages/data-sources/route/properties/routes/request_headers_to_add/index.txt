@@ -2,7 +2,7 @@
 page_title: "routes.request_headers_to_add"
 subcategory: ""
 description: "Headers are key-value pairs to be added to HTTP requests being sent towards upstream. Headers specified at this level are applied before headers from the enclosing VirtualHost object level."
-xcsh_docs: {"aliases": ["routes request headers to add"], "body_bytes": 5057, "body_sha256": "sha256:467f084237ef1d285e9e1dcc81c268c5ede70977e584bc0d232c384f6097fa19", "capabilities": ["networking"], "category": "networking", "child_ids": ["xcsh-docs:data-sources:route:properties:routes:request_headers_to_add:secret_value"], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:data-sources:route:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:route:properties:routes:request_headers_to_add", "parent_id": "xcsh-docs:data-sources:route:properties:routes", "path": "documentation/data-sources/route/properties/routes/request_headers_to_add/index.md", "product": "distributed-cloud", "provider_name": "route", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "data-sources", "registry_anchor": "canonical-0020121133012230-3021000322312112-2000301212110101-0232120123123121-1233000233203221-2213312130233232-3120100112111032-1021020312231033", "registry_path": "docs/guides/data-sources--route--reference--group-001.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["routes", "request_headers_to_add"], "schema_version": 1, "sections": [{"aliases": ["routes request headers to add append"], "anchor": "schema-routes--request_headers_to_add--append", "description": "Should the value be appended? If true, the value is appended to existing values. Default value is do not append.", "document_id": "xcsh-docs:data-sources:route:properties:routes:request_headers_to_add", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["routes", "request_headers_to_add", "append"], "syntax": "attribute", "type": "bool"}, {"aliases": ["routes request headers to add name"], "anchor": "schema-routes--request_headers_to_add--name", "description": "Name of the HTTP header.", "document_id": "xcsh-docs:data-sources:route:properties:routes:request_headers_to_add", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["routes", "request_headers_to_add", "name"], "syntax": "attribute", "type": "string"}, {"aliases": ["routes request headers to add secret value"], "anchor": "section", "description": "SecretType is used in an object to indicate a sensitive/confidential field.", "document_id": "xcsh-docs:data-sources:route:properties:routes:request_headers_to_add:secret_value", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": "single", "relationships": [], "schema_path": ["routes", "request_headers_to_add", "secret_value"], "syntax": "attribute", "type": "object"}, {"aliases": ["routes request headers to add value"], "anchor": "schema-routes--request_headers_to_add--value", "description": "Exclusive with Value of the HTTP header.", "document_id": "xcsh-docs:data-sources:route:properties:routes:request_headers_to_add", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["routes", "request_headers_to_add", "value"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/request_headers_to_add/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Headers are key-value pairs to be added to HTTP requests being sent towards upstream. Headers specified at this level are applied before headers from the enclosing VirtualHost object level.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["routeCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
+xcsh_docs: {"aliases": ["routes request headers to add"], "body_bytes": 4296, "body_sha256": "sha256:469b2be5ff444370069c023d1de370c6e92bd4440ec3976fb844c7cad423550e", "capabilities": ["networking"], "category": "networking", "child_ids": ["xcsh-docs:data-sources:route:properties:routes:request_headers_to_add:secret_value"], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:data-sources:route:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:route:properties:routes:request_headers_to_add", "parent_id": "xcsh-docs:data-sources:route:properties:routes", "path": "documentation/data-sources/route/properties/routes/request_headers_to_add/index.md", "product": "distributed-cloud", "provider_name": "route", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "data-sources", "registry_anchor": "canonical-0020121133012230-3021000322312112-2000301212110101-0232120123123121-1233000233203221-2213312130233232-3120100112111032-1021020312231033", "registry_path": "docs/guides/data-sources--route--reference--group-002.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["routes", "request_headers_to_add"], "schema_version": 1, "sections": [{"aliases": ["routes request headers to add append"], "anchor": "schema-routes--request_headers_to_add--append", "description": "Should the value be appended? If true, the value is appended to existing values. Default value is do not append.", "document_id": "xcsh-docs:data-sources:route:properties:routes:request_headers_to_add", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["routes", "request_headers_to_add", "append"], "syntax": "attribute", "type": "bool"}, {"aliases": ["routes request headers to add name"], "anchor": "schema-routes--request_headers_to_add--name", "description": "Name of the HTTP header.", "document_id": "xcsh-docs:data-sources:route:properties:routes:request_headers_to_add", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["routes", "request_headers_to_add", "name"], "syntax": "attribute", "type": "string"}, {"aliases": ["routes request headers to add secret value"], "anchor": "section", "description": "SecretType is used in an object to indicate a sensitive/confidential field.", "document_id": "xcsh-docs:data-sources:route:properties:routes:request_headers_to_add:secret_value", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": "single", "relationships": [], "schema_path": ["routes", "request_headers_to_add", "secret_value"], "syntax": "attribute", "type": "object"}, {"aliases": ["routes request headers to add value"], "anchor": "schema-routes--request_headers_to_add--value", "description": "Exclusive with Value of the HTTP header.", "document_id": "xcsh-docs:data-sources:route:properties:routes:request_headers_to_add", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["routes", "request_headers_to_add", "value"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/request_headers_to_add/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Headers are key-value pairs to be added to HTTP requests being sent towards upstream. Headers specified at this level are applied before headers from the enclosing VirtualHost object level.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["routeCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -21,11 +21,6 @@ Breadcrumbs:
 <a id="section"></a>
 
 Type: `"list"`. Computed.
-
-Headers are key-value pairs to be added to HTTP requests being sent towards upstream. Headers
-specified at this level are applied before headers from the enclosing VirtualHost object level.
-
-Upstream description:
 
 Headers are key-value pairs to be added to HTTP requests being sent towards upstream. Headers
 specified at this level are applied before headers from the enclosing VirtualHost object level.
@@ -72,10 +67,9 @@ Type: `"bool"`. Computed.
 Should the value be appended? If true, the value is appended to existing values. not append.
 Defaults to \`do\`.
 
-Upstream description:
+Additional upstream details:
 
-Should the value be appended? If true, the value is appended to existing values. Default value is do
-not append.
+If true, the value is appended to existing values. Default value is do not append.
 
 Receipt-pinned upstream constraints:
 
@@ -97,10 +91,6 @@ Receipt-pinned upstream constraints:
 Type: `"string"`. Computed.
 
 Name. Name of the HTTP header.
-
-Upstream description:
-
-Name of the HTTP header.
 
 Receipt-pinned upstream constraints:
 
@@ -159,10 +149,6 @@ Type: `"string"`. Computed.
 
 Exclusive with \[secret\_value\] Value of the HTTP header.
 
-Upstream description:
-
-Exclusive with \[secret\_value\] Value of the HTTP header.
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -193,9 +179,3 @@ Receipt-pinned upstream constraints:
   }
 }
 ```
-
-## Next pages
-
-- [routes.request_headers_to_add.secret_value](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/route/properties/routes/request_headers_to_add/secret_value/)
-- [routes](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/route/properties/routes/)
-- [xcsh_route](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/route/)

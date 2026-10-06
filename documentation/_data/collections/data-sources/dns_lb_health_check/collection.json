@@ -201,8 +201,8 @@
   "pages": [
     {
       "aliases": ["dns lb health check"],
-      "body_bytes": 1426,
-      "body_sha256": "sha256:43e203f4140fe90b247e37d2a3a230e797a769af92f370f53ca8f1f18dd63c26",
+      "body_bytes": 1378,
+      "body_sha256": "sha256:e13831e3580b037a85b9ce416b953cb8d58ef73e469a7590181e99ca3cd93166",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [
@@ -233,7 +233,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_lb_health_check/index.txt",
       "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
-      "summary": "Manages DNS Load Balancer Health Check in a given namespace. If one already exist it will give a error in F5 Distributed Cloud.",
+      "summary": "Reads an existing DNS Load Balancer health check in its namespace.",
       "tasks": ["configuration"],
       "title": "xcsh_dns_lb_health_check",
       "unresolved_relationships": [],
@@ -245,8 +245,8 @@
     },
     {
       "aliases": ["dns lb health check"],
-      "body_bytes": 16696,
-      "body_sha256": "sha256:0f5be650cbb615e0f4367882a00b033589d47cb11cd57ff078ceef1ea8ee7080",
+      "body_bytes": 15739,
+      "body_sha256": "sha256:3b444ee3c24701af9405b47b5ac6eb5c28db0fb41a90debc71b9daaeb8e5adb4",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [
@@ -461,8 +461,8 @@
     },
     {
       "aliases": ["http health check"],
-      "body_bytes": 7998,
-      "body_sha256": "sha256:85458b69235093c5a083181717df1676208fde69fcfe99c95348ee3c25e6dd97",
+      "body_bytes": 7097,
+      "body_sha256": "sha256:3dbbfdd12bdb748b30a363b17f838b07365a5a4aebe5e4141c94d4a9d2533b3a",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [
@@ -603,8 +603,8 @@
     },
     {
       "aliases": ["http health check disable virtual host"],
-      "body_bytes": 1289,
-      "body_sha256": "sha256:83e1152a87564534710999feb75188517267eff4b05ce46b1cded90bd8e5df1c",
+      "body_bytes": 996,
+      "body_sha256": "sha256:57d3520ba0c3a1df59482ac97324e313d18dc8c2ef0e392efcbf6d73ac08608d",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -643,8 +643,8 @@
     },
     {
       "aliases": ["http health check inherit load balancer fqdn"],
-      "body_bytes": 1338,
-      "body_sha256": "sha256:e0f0df6113ae0bac674b54feff7984227c75f1425290b804f4c6260d81a60f66",
+      "body_bytes": 1045,
+      "body_sha256": "sha256:d5a8c3108adca60c29feee63f1b597b209659209295cfc106b4631ae7b03aadc",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -683,8 +683,8 @@
     },
     {
       "aliases": ["https health check"],
-      "body_bytes": 6863,
-      "body_sha256": "sha256:1850880e4c161329d514eacbb4e2d795170cdb7fc432474de64fc8b83bbce455",
+      "body_bytes": 5958,
+      "body_sha256": "sha256:51de9765222360222c156e375e4a43177fbc9043ad8ce6ec6053201577267555",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [
@@ -825,8 +825,8 @@
     },
     {
       "aliases": ["https health check disable virtual host"],
-      "body_bytes": 1295,
-      "body_sha256": "sha256:e339ec4d785acc22660a0d5161ac4b122d4218b78ab4b96402e4c046ea6f4023",
+      "body_bytes": 1000,
+      "body_sha256": "sha256:b4d05cf35478cfdcbad3e578286b702324c3e182ff07b4b14bd5c7b14421dd05",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -865,8 +865,8 @@
     },
     {
       "aliases": ["https health check inherit load balancer fqdn"],
-      "body_bytes": 1344,
-      "body_sha256": "sha256:57fc4db7745d348196ab306f5656ce91f80990318b35f528bc0dab4a59f88fcd",
+      "body_bytes": 1049,
+      "body_sha256": "sha256:b50e5c3245d78af5b0c4ebe63a9fa26a60b70afc2eb861e6b197277dc29bf273",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -905,8 +905,8 @@
     },
     {
       "aliases": ["icmp health check"],
-      "body_bytes": 1116,
-      "body_sha256": "sha256:23be4e662f47092366a6e9955efe9250420b575596793496ed62bc5602ebecc5",
+      "body_bytes": 840,
+      "body_sha256": "sha256:1f22a7dba9978c216161601738c5dd56348293f12cc18f61050964e256af7aa6",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -945,8 +945,8 @@
     },
     {
       "aliases": ["tcp health check"],
-      "body_bytes": 4936,
-      "body_sha256": "sha256:308f382074b4faf8ba1324550662383e48b0a6486d1d9fa7ee6a2ac675aafb71",
+      "body_bytes": 4482,
+      "body_sha256": "sha256:fc9ca2fd3cd1e91502970b6f763afede41e3f13f362a33814e0285ecfeb48e56",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -1042,8 +1042,8 @@
     },
     {
       "aliases": ["tcp hex health check"],
-      "body_bytes": 4814,
-      "body_sha256": "sha256:94a758fbcd523919ddcc5785d88d26c98b5b55e4b1713ba1e83999c4705d6143",
+      "body_bytes": 4490,
+      "body_sha256": "sha256:4d916a4b50b79692b1aade6dabdc37f635d47722defdacf132efa70d549aeaf4",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -1139,8 +1139,8 @@
     },
     {
       "aliases": ["udp health check"],
-      "body_bytes": 5093,
-      "body_sha256": "sha256:8b4b194437855813032b5a4b299d0787fe738711a5287045361f1dfd8a65ae2a",
+      "body_bytes": 4732,
+      "body_sha256": "sha256:af8b6fe7792d3e4d21d6214e627a8d4d0683f4fc5b17312bd007009e82f034ee",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -1236,8 +1236,8 @@
     },
     {
       "aliases": ["dns lb health check"],
-      "body_bytes": 699,
-      "body_sha256": "sha256:db921e6d4dfe974417b70203dd4402d60be90bee2770f5223eed8f97c6cbf16a",
+      "body_bytes": 435,
+      "body_sha256": "sha256:6bb2ae0f1537a3c3d20e590ca8eb37572890b3f96885b2fe458395d673a5f54c",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": ["xcsh-docs:data-sources:dns_lb_health_check:example:data-source"],
@@ -1276,8 +1276,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 1365,
-      "body_sha256": "sha256:10482a08a3f51856dd5888a3e85a1a47c6812dabfe84d7c20b838018fadb0228",
+      "body_bytes": 1116,
+      "body_sha256": "sha256:709325633824d15346109aff40edab6076ffc6a95c9981d215300d9e4920a05a",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],

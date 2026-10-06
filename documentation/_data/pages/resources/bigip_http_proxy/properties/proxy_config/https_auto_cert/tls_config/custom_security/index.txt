@@ -2,7 +2,7 @@
 page_title: "proxy_config.https_auto_cert.tls_config.custom_security"
 subcategory: ""
 description: "This defines TLS protocol config including min/max versions and allowed ciphers."
-xcsh_docs: {"aliases": ["proxy config https auto cert tls config custom security"], "body_bytes": 6556, "body_sha256": "sha256:e5dc3c0de40f63155fef5c7af66e871a8e2b9dd9082bddbb38d8b800488ac188", "capabilities": ["load-balancing"], "category": "load-balancing", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:resources:bigip_http_proxy:collection", "completeness": "complete", "id": "xcsh-docs:resources:bigip_http_proxy:properties:proxy_config:https_auto_cert:tls_config:custom_security", "parent_id": "xcsh-docs:resources:bigip_http_proxy:properties:proxy_config:https_auto_cert:tls_config", "path": "documentation/resources/bigip_http_proxy/properties/proxy_config/https_auto_cert/tls_config/custom_security/index.md", "product": "distributed-cloud", "provider_name": "bigip_http_proxy", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-2121323333013302-3300320220203030-1100300210011003-0302122330311232-3212203231303303-3233111201002231-2303101220112202-3231032112113032", "registry_path": "docs/guides/resources--bigip_http_proxy--reference--group-004.md", "relationships": [{"anchor": "schema-proxy_config--https_auto_cert--tls_config--custom_security--cipher_suites", "enforcement": "provider-schema", "group": "proxy_config.https_auto_cert.tls_config.custom_security:RequiredObjectAttributes:cipher_suites", "source": "ast-validator:RequiredObjectAttributes", "target_id": "xcsh-docs:resources:bigip_http_proxy:properties:proxy_config:https_auto_cert:tls_config:custom_security", "type": "requires"}], "retrieval_version": 1, "role": "properties", "schema_path": ["proxy_config", "https_auto_cert", "tls_config", "custom_security"], "schema_version": 1, "sections": [{"aliases": ["proxy config https auto cert tls config custom security cipher suites"], "anchor": "schema-proxy_config--https_auto_cert--tls_config--custom_security--cipher_suites", "description": "The TLS listener will only support the specified cipher list.", "document_id": "xcsh-docs:resources:bigip_http_proxy:properties:proxy_config:https_auto_cert:tls_config:custom_security", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["proxy_config", "https_auto_cert", "tls_config", "custom_security", "cipher_suites"], "syntax": "attribute", "type": "list"}, {"aliases": ["proxy config https auto cert tls config custom security max version"], "anchor": "schema-proxy_config--https_auto_cert--tls_config--custom_security--max_version", "description": "TlsProtocol is enumeration of supported TLS versions F5 Distributed Cloud will choose the optimal TLS version.", "document_id": "xcsh-docs:resources:bigip_http_proxy:properties:proxy_config:https_auto_cert:tls_config:custom_security", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["proxy_config", "https_auto_cert", "tls_config", "custom_security", "max_version"], "syntax": "attribute", "type": "string"}, {"aliases": ["proxy config https auto cert tls config custom security min version"], "anchor": "schema-proxy_config--https_auto_cert--tls_config--custom_security--min_version", "description": "TlsProtocol is enumeration of supported TLS versions F5 Distributed Cloud will choose the optimal TLS version.", "document_id": "xcsh-docs:resources:bigip_http_proxy:properties:proxy_config:https_auto_cert:tls_config:custom_security", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["proxy_config", "https_auto_cert", "tls_config", "custom_security", "min_version"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_config/https_auto_cert/tls_config/custom_security/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "This defines TLS protocol config including min/max versions and allowed ciphers.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["bigip_http_proxyCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
+xcsh_docs: {"aliases": ["proxy config https auto cert tls config custom security"], "body_bytes": 5877, "body_sha256": "sha256:dbbe7a993f43cfe94aef41fc56f8c3289c637e125b4c2c859732b27210011201", "capabilities": ["load-balancing"], "category": "load-balancing", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:resources:bigip_http_proxy:collection", "completeness": "complete", "id": "xcsh-docs:resources:bigip_http_proxy:properties:proxy_config:https_auto_cert:tls_config:custom_security", "parent_id": "xcsh-docs:resources:bigip_http_proxy:properties:proxy_config:https_auto_cert:tls_config", "path": "documentation/resources/bigip_http_proxy/properties/proxy_config/https_auto_cert/tls_config/custom_security/index.md", "product": "distributed-cloud", "provider_name": "bigip_http_proxy", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-2121323333013302-3300320220203030-1100300210011003-0302122330311232-3212203231303303-3233111201002231-2303101220112202-3231032112113032", "registry_path": "docs/guides/resources--bigip_http_proxy--reference--group-004.md", "relationships": [{"anchor": "schema-proxy_config--https_auto_cert--tls_config--custom_security--cipher_suites", "enforcement": "provider-schema", "group": "proxy_config.https_auto_cert.tls_config.custom_security:RequiredObjectAttributes:cipher_suites", "source": "ast-validator:RequiredObjectAttributes", "target_id": "xcsh-docs:resources:bigip_http_proxy:properties:proxy_config:https_auto_cert:tls_config:custom_security", "type": "requires"}], "retrieval_version": 1, "role": "properties", "schema_path": ["proxy_config", "https_auto_cert", "tls_config", "custom_security"], "schema_version": 1, "sections": [{"aliases": ["proxy config https auto cert tls config custom security cipher suites"], "anchor": "schema-proxy_config--https_auto_cert--tls_config--custom_security--cipher_suites", "description": "The TLS listener will only support the specified cipher list.", "document_id": "xcsh-docs:resources:bigip_http_proxy:properties:proxy_config:https_auto_cert:tls_config:custom_security", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["proxy_config", "https_auto_cert", "tls_config", "custom_security", "cipher_suites"], "syntax": "attribute", "type": "list"}, {"aliases": ["proxy config https auto cert tls config custom security max version"], "anchor": "schema-proxy_config--https_auto_cert--tls_config--custom_security--max_version", "description": "TlsProtocol is enumeration of supported TLS versions F5 Distributed Cloud will choose the optimal TLS version.", "document_id": "xcsh-docs:resources:bigip_http_proxy:properties:proxy_config:https_auto_cert:tls_config:custom_security", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["proxy_config", "https_auto_cert", "tls_config", "custom_security", "max_version"], "syntax": "attribute", "type": "string"}, {"aliases": ["proxy config https auto cert tls config custom security min version"], "anchor": "schema-proxy_config--https_auto_cert--tls_config--custom_security--min_version", "description": "TlsProtocol is enumeration of supported TLS versions F5 Distributed Cloud will choose the optimal TLS version.", "document_id": "xcsh-docs:resources:bigip_http_proxy:properties:proxy_config:https_auto_cert:tls_config:custom_security", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["proxy_config", "https_auto_cert", "tls_config", "custom_security", "min_version"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_config/https_auto_cert/tls_config/custom_security/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "This defines TLS protocol config including min/max versions and allowed ciphers.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["bigip_http_proxyCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -23,10 +23,6 @@ Breadcrumbs:
 <a id="section"></a>
 
 Type: `"object"`. single nested block, Optional.
-
-Defines TLS protocol config including min/max versions and allowed ciphers.
-
-Upstream description:
 
 This defines TLS protocol config including min/max versions and allowed ciphers.
 
@@ -111,12 +107,6 @@ Type: `"string"`. Optional.
 versions F5 Distributed Cloud will choose the optimal TLS version. Possible values are
 \`TLS\_AUTO\`, \`TLSv1\_0\`, \`TLSv1\_1\`, \`TLSv1\_2\`, \`TLSv1\_3\`. Defaults to \`TLS\_AUTO\`.
 
-Upstream description:
-
-TlsProtocol is enumeration of supported TLS versions
-
-F5 Distributed Cloud will choose the optimal TLS version.
-
 Provider validators and defaults (from schema source):
 
 ```go
@@ -160,12 +150,6 @@ Type: `"string"`. Optional.
 versions F5 Distributed Cloud will choose the optimal TLS version. Possible values are
 \`TLS\_AUTO\`, \`TLSv1\_0\`, \`TLSv1\_1\`, \`TLSv1\_2\`, \`TLSv1\_3\`. Defaults to \`TLS\_AUTO\`.
 
-Upstream description:
-
-TlsProtocol is enumeration of supported TLS versions
-
-F5 Distributed Cloud will choose the optimal TLS version.
-
 Provider validators and defaults (from schema source):
 
 ```go
@@ -198,8 +182,3 @@ Receipt-pinned upstream constraints:
   }
 }
 ```
-
-## Next pages
-
-- [proxy_config.https_auto_cert.tls_config](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/bigip_http_proxy/properties/proxy_config/https_auto_cert/tls_config/)
-- [xcsh_bigip_http_proxy](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/bigip_http_proxy/)

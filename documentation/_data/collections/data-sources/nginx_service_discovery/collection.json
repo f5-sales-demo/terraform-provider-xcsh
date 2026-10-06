@@ -131,8 +131,8 @@
   "pages": [
     {
       "aliases": ["nginx service discovery"],
-      "body_bytes": 1533,
-      "body_sha256": "sha256:71a22b6dbdc1ead7fc5e3c5e5914414e36e6edc9521cc203a99fb2d96d3869aa",
+      "body_bytes": 1463,
+      "body_sha256": "sha256:32a98d02089278c6f1e038e33b1e88fcf92458d73fe0cd2c9def7e982158677e",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -163,7 +163,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/nginx_service_discovery/index.txt",
       "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
-      "summary": "Manages a Nginx Service Discovery resource in F5 Distributed Cloud for api to create nginx service discovery object for a site or virtual site in system namespace. configuration.",
+      "summary": "Reads NGINX service discovery configuration for a site or virtual site in the system namespace.",
       "tasks": ["configuration"],
       "title": "xcsh_nginx_service_discovery",
       "unresolved_relationships": [],
@@ -175,8 +175,8 @@
     },
     {
       "aliases": ["nginx service discovery"],
-      "body_bytes": 13516,
-      "body_sha256": "sha256:79e5452f35ada76a3edb20a794fffc5b8247bfcf594d92f580e7985bf46e1eaa",
+      "body_bytes": 13111,
+      "body_sha256": "sha256:f9969f59d2587df29fa01b89544f47f200282d9e40a16b98d20f9c5efc8c736d",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -331,8 +331,8 @@
     },
     {
       "aliases": ["discovery target"],
-      "body_bytes": 1793,
-      "body_sha256": "sha256:a5b9c0e15561ceac755f77ba28757300eda80bf5a38d22e5b5b8ac92b1af644d",
+      "body_bytes": 1166,
+      "body_sha256": "sha256:b1222a5425b241af038bc7df28c61721814fef9a3db0f6cf8d0780bb618825b8",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -403,8 +403,8 @@
     },
     {
       "aliases": ["discovery target config sync group"],
-      "body_bytes": 1655,
-      "body_sha256": "sha256:69eea4578deef1f32aca3bcc134b0f2565f48235f089b3a525bf126ceca17cf6",
+      "body_bytes": 1158,
+      "body_sha256": "sha256:d0e55c68d238ef58d2160e1b84f4133697436633b59c8f212209721bc0e2d33a",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -460,8 +460,8 @@
     },
     {
       "aliases": ["discovery target config sync group config sync group"],
-      "body_bytes": 6806,
-      "body_sha256": "sha256:f360f462a2982c3b35962391b854b9a227ad653e6c115a19408d6bfcd201a5ed",
+      "body_bytes": 5740,
+      "body_sha256": "sha256:8c3dcdd6e12d9c032218660a845ae299c50a9885204dd5958f19b3d1f8f0920e",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -571,8 +571,8 @@
     },
     {
       "aliases": ["discovery target nginx instance"],
-      "body_bytes": 1632,
-      "body_sha256": "sha256:397e51d8628229444b7016bb807e31b56863fac1ac2e6fa42bfe6c3a4e40e989",
+      "body_bytes": 1089,
+      "body_sha256": "sha256:0fc68bc52ef05bec038c92ce981685058da31c89eab652e19eac1cd0e8e2710e",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -628,8 +628,8 @@
     },
     {
       "aliases": ["discovery target nginx instance nginx instance"],
-      "body_bytes": 6750,
-      "body_sha256": "sha256:f3bfb3ddc7ea2479559ba57284a7dba2ce2e5351512bca14696a17e14745f00c",
+      "body_bytes": 5691,
+      "body_sha256": "sha256:263c94974f95a4cd2b98d682b37350c58774db8565097e622c51bf0b71e17ccd",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -739,8 +739,8 @@
     },
     {
       "aliases": ["server block filters"],
-      "body_bytes": 4307,
-      "body_sha256": "sha256:283dd063175160de7c24353c1d4d139437a9ce218a7590b1ff382677000a2ca4",
+      "body_bytes": 3765,
+      "body_sha256": "sha256:8810e524a18d94789b35dcf3ace4be39b8e12b8c2234b0117bd5310222de2cf8",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -808,8 +808,8 @@
     },
     {
       "aliases": ["nginx service discovery"],
-      "body_bytes": 723,
-      "body_sha256": "sha256:d35a042d0ddc47f3a38b5932b61628c35a23831dcb8897b3e4b46f0b37736c31",
+      "body_bytes": 447,
+      "body_sha256": "sha256:8e8ea5a56ea31cfa981d606df9bfb059736c9e3cfcf4b7223b6b053d84bc4e6a",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:nginx_service_discovery:example:data-source"],
@@ -848,8 +848,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 1420,
-      "body_sha256": "sha256:79fb22be44d37158b2715bd07b0999ef241d3b7a69442b6c60830c2d51cec200",
+      "body_bytes": 1159,
+      "body_sha256": "sha256:ed7680b241bf1b10b0a5619579c615b8cacc5a3d6ed7fa69efb1cbba6bde0493",
       "capabilities": [],
       "category": null,
       "child_ids": [],

@@ -1490,8 +1490,8 @@
   "pages": [
     {
       "aliases": ["dns zone"],
-      "body_bytes": 1668,
-      "body_sha256": "sha256:63269bc9531b510033b1d6ce0be42023189224cf4c6e5c11fd189e1596408fc6",
+      "body_bytes": 1681,
+      "body_sha256": "sha256:de1eb1f0fedca0a08b594ca783513a3791e930d166ea46a37497b22eb044e37c",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [
@@ -1544,8 +1544,8 @@
     },
     {
       "aliases": ["dns zone"],
-      "body_bytes": 90311,
-      "body_sha256": "sha256:c3dc7323e19dc04a53e3bf81c40f217042fe975dbdca92c5ba0ff0eee47b3361",
+      "body_bytes": 89730,
+      "body_sha256": "sha256:1586ef093717c8a7d75aee3640e79df8f5409a5ea544a678f5cfe310bc985ed2",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [
@@ -1755,8 +1755,8 @@
     },
     {
       "aliases": ["primary"],
-      "body_bytes": 3599,
-      "body_sha256": "sha256:f6c793c12c104432d2702662d4fdb8aba197504e06f7cde1892a7b3d9bc6eee0",
+      "body_bytes": 2669,
+      "body_sha256": "sha256:e02062315be7094031e5b0078427379be1fc4380783baf4d1ccae80141f5834c",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [
@@ -5306,8 +5306,8 @@
     },
     {
       "aliases": ["primary default rr set group"],
-      "body_bytes": 26956,
-      "body_sha256": "sha256:1748c9fab39cbde1cf4055f0140ca8e607993be295550037302a3828d92702b3",
+      "body_bytes": 23046,
+      "body_sha256": "sha256:0c0232d08b78568cdfa04bb6c378bb190086f7c2ad0bdd55b213bfc927bc2d92",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [
@@ -9230,8 +9230,8 @@
     },
     {
       "aliases": ["primary default rr set group a record"],
-      "body_bytes": 4799,
-      "body_sha256": "sha256:659b1e9e2237da6191078c6de93a1b6c6b7bb31952a6cbbf0f11aa00af2fe88d",
+      "body_bytes": 4312,
+      "body_sha256": "sha256:075a76510db4a44fad3403fca1a1b41623cee85da181893479cfff02b7a027a9",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -9308,8 +9308,8 @@
     },
     {
       "aliases": ["primary default rr set group aaaa record"],
-      "body_bytes": 4782,
-      "body_sha256": "sha256:47b30b72cad45f824e98e31e28fa23b3ba9cb94caca15e65f926c5c3f7af3a27",
+      "body_bytes": 4428,
+      "body_sha256": "sha256:e39f311a04f70b013a121df9b1011d05f614c55202e73e77b6d31d737ee595cb",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -9386,8 +9386,8 @@
     },
     {
       "aliases": ["primary default rr set group afsdb record"],
-      "body_bytes": 3560,
-      "body_sha256": "sha256:1643b961b950e520b2f2122bb525bf84cf0dc618616d831ceb0e6ad26778443d",
+      "body_bytes": 3116,
+      "body_sha256": "sha256:ae54945ae8e78888ec95533b04de21d4fa943443c707b915be66d47f170d5795",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": ["xcsh-docs:resources:dns_zone:properties:primary:default_rr_set_group:afsdb_record:values"],
@@ -9473,8 +9473,8 @@
     },
     {
       "aliases": ["primary default rr set group afsdb record values"],
-      "body_bytes": 4880,
-      "body_sha256": "sha256:fd3ddcb1c2c5485c4a98171b74513b4bd607bd98915725ef1b0044f3856d3501",
+      "body_bytes": 4308,
+      "body_sha256": "sha256:8b04f00d3e5d5051fc38990f64b00739d1bf9618cf6764a4811c899e78c1f0c0",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -9551,8 +9551,8 @@
     },
     {
       "aliases": ["primary default rr set group alias record"],
-      "body_bytes": 2479,
-      "body_sha256": "sha256:70e658fc86c462e6df983dd5c1e1fae27ee3c74e89cba8d669ab168e7f46f1c8",
+      "body_bytes": 2147,
+      "body_sha256": "sha256:1d5a702fa527a488d6cbe2d5d5ab8ff340162a7f5dec5142cb996836a4e761fe",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -9606,8 +9606,8 @@
     },
     {
       "aliases": ["primary default rr set group caa record"],
-      "body_bytes": 3343,
-      "body_sha256": "sha256:470a9ce73cfd2cacde6e59fc54c82f0c5226b1b89d20b26f2017c001b5c9cfac",
+      "body_bytes": 2896,
+      "body_sha256": "sha256:0727f6dd0536cc65959034a115f9d71a327e608f0888e89a8aedb9b166a67fbe",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": ["xcsh-docs:resources:dns_zone:properties:primary:default_rr_set_group:caa_record:values"],
@@ -9675,8 +9675,8 @@
     },
     {
       "aliases": ["primary default rr set group caa record values"],
-      "body_bytes": 5475,
-      "body_sha256": "sha256:735ede665337561aab1e4dd1cefc43425d5fe4974d8bd9172fcc737b445b2be0",
+      "body_bytes": 4945,
+      "body_sha256": "sha256:eb9d08f7a68bb6216e63f5a714f5bf111abf1145bab7c613916c906adefa0605",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -9758,8 +9758,8 @@
     },
     {
       "aliases": ["primary default rr set group cds record"],
-      "body_bytes": 3532,
-      "body_sha256": "sha256:25588f3c64bd4598c679f4d46df4c01381da9945bbeb791af0890965d7c29edf",
+      "body_bytes": 3045,
+      "body_sha256": "sha256:c311bcf9455028361029444e744ae5f3725f3ba779a58485933fdffd8bbb8218",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": ["xcsh-docs:resources:dns_zone:properties:primary:default_rr_set_group:cds_record:values"],
@@ -9893,8 +9893,8 @@
     },
     {
       "aliases": ["primary default rr set group cds record values"],
-      "body_bytes": 6986,
-      "body_sha256": "sha256:49f3a0b3a94318422906ef143e0fd0f1256bc2c90a25c0f2267b4df62957f299",
+      "body_bytes": 5506,
+      "body_sha256": "sha256:a9677a518711cb815f0d66eb8762b1d3a8db79a43ec1cec5716668284c6e0b9c",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [
@@ -10092,8 +10092,8 @@
     },
     {
       "aliases": ["primary default rr set group cds record values sha1 digest"],
-      "body_bytes": 3124,
-      "body_sha256": "sha256:74758fce089d8d3df1b1d221afece5b2b98fa56bffd8284bd09b7d6d996b025d",
+      "body_bytes": 2827,
+      "body_sha256": "sha256:fd756137b4ba051883c2cc53332ccbc59a4a9bec6533aa61b607889a451d2d97",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -10156,8 +10156,8 @@
     },
     {
       "aliases": ["primary default rr set group cds record values sha256 digest"],
-      "body_bytes": 3134,
-      "body_sha256": "sha256:050189e341118b4b40759828f940813db14e62876e184b0ad23fd8103376f2bb",
+      "body_bytes": 2837,
+      "body_sha256": "sha256:1462eaeee15d6fd40d4bd34bad7957a6201bc5adba6a8175b151f3c7258cc0ca",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -10220,8 +10220,8 @@
     },
     {
       "aliases": ["primary default rr set group cds record values sha384 digest"],
-      "body_bytes": 3134,
-      "body_sha256": "sha256:06e642f5a030a403b34c352adbeb58b16c29332409e231694f13d10e996d08fd",
+      "body_bytes": 2837,
+      "body_sha256": "sha256:26141cc833592aae4b217cd5fdb8fae59549b1bcefa346279052d648227f662c",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -10284,8 +10284,8 @@
     },
     {
       "aliases": ["primary default rr set group cert record"],
-      "body_bytes": 3550,
-      "body_sha256": "sha256:b199efa1ae88af295657958d973bcb7655753a8aed98f31ff20e379446c56470",
+      "body_bytes": 3108,
+      "body_sha256": "sha256:0851fe5cd8fece2a726c6948cd957b2bc6de5db7cecb9eafd76da4359aaca1a4",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": ["xcsh-docs:resources:dns_zone:properties:primary:default_rr_set_group:cert_record:values"],
@@ -10379,8 +10379,8 @@
     },
     {
       "aliases": ["primary default rr set group cert record values"],
-      "body_bytes": 8527,
-      "body_sha256": "sha256:6a050f44c6423f09c1aa6e7b689c14a9b384b0858a5deadab1ceabc48415b561",
+      "body_bytes": 7356,
+      "body_sha256": "sha256:8235b8f1f98eb7bd8fb2bcde295d705933dd035a8047df190114a15a7f77aca2",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -10493,8 +10493,8 @@
     },
     {
       "aliases": ["primary default rr set group cname record"],
-      "body_bytes": 4340,
-      "body_sha256": "sha256:d4e7d64167d6952611c598c1a1439c9c06f6b3ae784e2f827edc099ec31a0a52",
+      "body_bytes": 4021,
+      "body_sha256": "sha256:47715d93c12363f8b1d5df008fc7dcf3fb9f6a5e0b6ad744aa307af83f288039",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -10514,7 +10514,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2032330000021121-3311023021112132-1120113313102232-3121212313333300-1010212230003122-0321211321302330-0320223133020322-2302030220001130",
-      "registry_path": "docs/guides/resources--dns_zone--reference--group-002.md",
+      "registry_path": "docs/guides/resources--dns_zone--reference--group-001.md",
       "relationships": [
         {
           "anchor": "schema-primary--default_rr_set_group--cname_record--name",
@@ -10571,8 +10571,8 @@
     },
     {
       "aliases": ["primary default rr set group ds record"],
-      "body_bytes": 3521,
-      "body_sha256": "sha256:0b21125485ab422ffbb55569c11e290087f26f414e4ca8783228551e1e004282",
+      "body_bytes": 3037,
+      "body_sha256": "sha256:dfbb5030e88db710cc1ece870ca5966cab19067eeea0bcbdbc8f7ec15f98c0a6",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": ["xcsh-docs:resources:dns_zone:properties:primary:default_rr_set_group:ds_record:values"],
@@ -10592,7 +10592,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2221112200013312-2222002032211003-3222010212133221-2312211212122130-3033033011333033-1322303331020103-1003331022130023-3312202311121303",
-      "registry_path": "docs/guides/resources--dns_zone--reference--group-002.md",
+      "registry_path": "docs/guides/resources--dns_zone--reference--group-001.md",
       "relationships": [
         {
           "anchor": "section",
@@ -10706,8 +10706,8 @@
     },
     {
       "aliases": ["primary default rr set group ds record values"],
-      "body_bytes": 6969,
-      "body_sha256": "sha256:31dbe3e3b252a1e66f4c106f022fd09483611d9a64aa0b380d7e470c59599ed2",
+      "body_bytes": 5497,
+      "body_sha256": "sha256:044d66fdb7734abbfc1674f812cc00a400d987db443bfcfdfba165aec05b59cc",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [
@@ -10731,7 +10731,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1223012310302301-2011203300111022-3113021233330001-0021213101120212-0310110111121311-3033313130130321-2202130213001221-2313221003232312",
-      "registry_path": "docs/guides/resources--dns_zone--reference--group-002.md",
+      "registry_path": "docs/guides/resources--dns_zone--reference--group-001.md",
       "relationships": [
         {
           "anchor": "section",
@@ -10905,8 +10905,8 @@
     },
     {
       "aliases": ["primary default rr set group ds record values sha1 digest"],
-      "body_bytes": 3115,
-      "body_sha256": "sha256:78372a393fa9df102ecc9c81d280348c93c2afcb2ffd76bd48dd211a0e2bcf9c",
+      "body_bytes": 2820,
+      "body_sha256": "sha256:379fa320119cce307df9046ce3f0f11e543e79f91b667fd4cf3a9ab9de17bed5",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -10926,7 +10926,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3330103022123210-1130322031123213-3231302220122211-3201121100311001-2130012321201132-1022313330023003-1203222322231021-3323212301010001",
-      "registry_path": "docs/guides/resources--dns_zone--reference--group-002.md",
+      "registry_path": "docs/guides/resources--dns_zone--reference--group-001.md",
       "relationships": [
         {
           "anchor": "schema-primary--default_rr_set_group--ds_record--values--sha1_digest--digest",
@@ -10969,8 +10969,8 @@
     },
     {
       "aliases": ["primary default rr set group ds record values sha256 digest"],
-      "body_bytes": 3125,
-      "body_sha256": "sha256:29a5b65634014f9ccf7ae39f0488be6e93ff933e69c38fde251624f3ce568227",
+      "body_bytes": 2830,
+      "body_sha256": "sha256:12ec0f50a8d668b7ed21489e4f8f971a0229411227bd1313a27ff29b05e727ba",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -10990,7 +10990,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3213221210303123-0123212131003113-1122132010223003-1313212133221102-2002211213210333-0012022112211310-2333311233332200-1301322122122122",
-      "registry_path": "docs/guides/resources--dns_zone--reference--group-002.md",
+      "registry_path": "docs/guides/resources--dns_zone--reference--group-001.md",
       "relationships": [
         {
           "anchor": "schema-primary--default_rr_set_group--ds_record--values--sha256_digest--digest",
@@ -11033,8 +11033,8 @@
     },
     {
       "aliases": ["primary default rr set group ds record values sha384 digest"],
-      "body_bytes": 3125,
-      "body_sha256": "sha256:1be284ea035a0e0616afd88e935a1ec0302fe8c6bf4b52feb2cc533ad41e324b",
+      "body_bytes": 2830,
+      "body_sha256": "sha256:989f586f241438ce52d29e766a3171c3f4ffab03d674db8f101efeaa9f8627d7",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -11054,7 +11054,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2210121320301100-3213010231111311-0223132131103032-1030023212322202-1222200221131333-3100002232003002-3210211231131031-3123013311020031",
-      "registry_path": "docs/guides/resources--dns_zone--reference--group-002.md",
+      "registry_path": "docs/guides/resources--dns_zone--reference--group-001.md",
       "relationships": [
         {
           "anchor": "schema-primary--default_rr_set_group--ds_record--values--sha384_digest--digest",
@@ -11097,8 +11097,8 @@
     },
     {
       "aliases": ["primary default rr set group eui48 record"],
-      "body_bytes": 4695,
-      "body_sha256": "sha256:5a57a916d5b75bcbfba201580977a175d9904a2a3eec17f894b6558bb806ff44",
+      "body_bytes": 4359,
+      "body_sha256": "sha256:270469af94c24906ac4d429c960de5ec31520088f160b7c168a382650afb8c10",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -11118,7 +11118,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3100001201120203-0312033322023013-2332030222311021-2122332202011202-1210221203131033-3222103132311001-0030203223010032-3022320213132211",
-      "registry_path": "docs/guides/resources--dns_zone--reference--group-002.md",
+      "registry_path": "docs/guides/resources--dns_zone--reference--group-001.md",
       "relationships": [
         {
           "anchor": "schema-primary--default_rr_set_group--eui48_record--value",
@@ -11175,8 +11175,8 @@
     },
     {
       "aliases": ["primary default rr set group eui64 record"],
-      "body_bytes": 4707,
-      "body_sha256": "sha256:4c345fd93e6264131237d505a393e42ba1fd040ce9f13d9840df896f79d95696",
+      "body_bytes": 4365,
+      "body_sha256": "sha256:b2777b47c3a7452ed91fc6a356bc7b2d6f66a8a99c7d9e99a0bd9c4ea4f6fd73",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -11196,7 +11196,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0310232010230002-2032333311200131-2210000030122303-1120200331023020-3101110012303221-2302222310112000-2232130122311323-0203010122113311",
-      "registry_path": "docs/guides/resources--dns_zone--reference--group-002.md",
+      "registry_path": "docs/guides/resources--dns_zone--reference--group-001.md",
       "relationships": [
         {
           "anchor": "schema-primary--default_rr_set_group--eui64_record--value",
@@ -11253,8 +11253,8 @@
     },
     {
       "aliases": ["primary default rr set group lb record"],
-      "body_bytes": 3332,
-      "body_sha256": "sha256:fd7d803376f9de5f1cd7e75328b672469bbbcb9cfb997fdbd0243b806f88d6e0",
+      "body_bytes": 2839,
+      "body_sha256": "sha256:d9d3ccf615a6dc80158d61e92f5e1632f1d96bdd501a2c28a57e44943ebc5c51",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": ["xcsh-docs:resources:dns_zone:properties:primary:default_rr_set_group:lb_record:value"],
@@ -11331,8 +11331,8 @@
     },
     {
       "aliases": ["primary default rr set group lb record value"],
-      "body_bytes": 6454,
-      "body_sha256": "sha256:c95ce559f68a6f79f28511f46fb2d2ccd3b7495180bacef8f198a00c2203f43f",
+      "body_bytes": 5500,
+      "body_sha256": "sha256:f26a8a13617b1cf45cdb537fafa39bae4e05695bfea9e3fa26dfd57a8798d445",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -11423,8 +11423,8 @@
     },
     {
       "aliases": ["primary default rr set group loc record"],
-      "body_bytes": 3532,
-      "body_sha256": "sha256:ca07e3ca5ff083301163f4f698f337475666763a4921e1b678d97776e67f0924",
+      "body_bytes": 3045,
+      "body_sha256": "sha256:540e5ee3f02c4b1204c729b1129fd6d61a7e2850f5947edf1276400667bc8fac",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": ["xcsh-docs:resources:dns_zone:properties:primary:default_rr_set_group:loc_record:values"],
@@ -11526,8 +11526,8 @@
     },
     {
       "aliases": ["primary default rr set group loc record values"],
-      "body_bytes": 12541,
-      "body_sha256": "sha256:a103aa974347dab5e27f0fc78ff419a8f16946911e381f9edfab3302bc75d3c5",
+      "body_bytes": 11798,
+      "body_sha256": "sha256:39e547fcf659d0a1f9883b9e2101c115a25accd0314f9a15190ca0bbd9615ed5",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -11760,8 +11760,8 @@
     },
     {
       "aliases": ["primary default rr set group mx record"],
-      "body_bytes": 3479,
-      "body_sha256": "sha256:c2cb9f43763aea3049ebb345414836cd3c0c5561751f0d3b30c5fb466bbede34",
+      "body_bytes": 3034,
+      "body_sha256": "sha256:ac393fe37e26de5f5b2383e166f7896cca44c489d76c1476f98328f0f5ba489e",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": ["xcsh-docs:resources:dns_zone:properties:primary:default_rr_set_group:mx_record:values"],
@@ -11838,8 +11838,8 @@
     },
     {
       "aliases": ["primary default rr set group mx record values"],
-      "body_bytes": 4336,
-      "body_sha256": "sha256:5856413b4bcad3d34189b147cc47b6570045dde90ee4a92cd7ec1be806e71817",
+      "body_bytes": 3851,
+      "body_sha256": "sha256:c4e6bea8cee5500ad56fb1a57bc98de562dbb645c6f0feba6435fdf8e608f7fc",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -11907,8 +11907,8 @@
     },
     {
       "aliases": ["primary default rr set group naptr record"],
-      "body_bytes": 3560,
-      "body_sha256": "sha256:1c17e0a3b2784ab331069766da8f8307e9a2826cdcceea7da1748c109bba738f",
+      "body_bytes": 3116,
+      "body_sha256": "sha256:9e0d3fb65b89330e0f818d2f8fb3745f013f19c077d79b64d47d7b22ed880be9",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": ["xcsh-docs:resources:dns_zone:properties:primary:default_rr_set_group:naptr_record:values"],
@@ -12010,8 +12010,8 @@
     },
     {
       "aliases": ["primary default rr set group naptr record values"],
-      "body_bytes": 9020,
-      "body_sha256": "sha256:de747b586c4d60be4faaa078a8e2f8bb9b34df689abe0ed17ea3b314bcd7d771",
+      "body_bytes": 8674,
+      "body_sha256": "sha256:7c3be07e9f35363557325ffec57ed49be45af70ce242e205d8929bffc3f103d1",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -12160,8 +12160,8 @@
     },
     {
       "aliases": ["primary default rr set group ns record"],
-      "body_bytes": 4622,
-      "body_sha256": "sha256:a86733b19448bd870352e9b6ceecafb510ce7a5ff47bef87c3d731e3fceb7e17",
+      "body_bytes": 4302,
+      "body_sha256": "sha256:e2d637bbd1f730c7c4fe3b06d2f4fea99064868705ce510f8f1a43e549d20651",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -12238,8 +12238,8 @@
     },
     {
       "aliases": ["primary default rr set group ptr record"],
-      "body_bytes": 4628,
-      "body_sha256": "sha256:a1951410e92a718042092e03988be84c492536716eb804ba3756b0b36a86cebe",
+      "body_bytes": 4308,
+      "body_sha256": "sha256:7be964e45ca9a0e318b4c91c402c2ad1ba3ecf8a8c8f75a598fdfcecf5a8d388",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -12316,8 +12316,8 @@
     },
     {
       "aliases": ["primary default rr set group srv record"],
-      "body_bytes": 3587,
-      "body_sha256": "sha256:7269e73aab7c8e69ceb420a68247ad1afab7a710d7e734eac18655d6957d5222",
+      "body_bytes": 3140,
+      "body_sha256": "sha256:6a9a1482e2990c1d611f6e4069e3648cf5b5a077fc0deded6772e62a6a1840f5",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": ["xcsh-docs:resources:dns_zone:properties:primary:default_rr_set_group:srv_record:values"],
@@ -12402,8 +12402,8 @@
     },
     {
       "aliases": ["primary default rr set group srv record values"],
-      "body_bytes": 6842,
-      "body_sha256": "sha256:36e09e0eb2154e8d6b6ecb6aedbae7cbd3e68e2c5d238820be2c0591599acf97",
+      "body_bytes": 6436,
+      "body_sha256": "sha256:b49e070aafbddc0554dca430c05b34500e323aeab9ebe1665d923486f1e18534",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -12499,8 +12499,8 @@
     },
     {
       "aliases": ["primary default rr set group sshfp record"],
-      "body_bytes": 3560,
-      "body_sha256": "sha256:76743332004c3c4108857e6c64566ad26847986e31bfb843e790906786189374",
+      "body_bytes": 3116,
+      "body_sha256": "sha256:9207659dc167c59723441d59859a80837865625438c82020c2fe9c10f91dd621",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": ["xcsh-docs:resources:dns_zone:properties:primary:default_rr_set_group:sshfp_record:values"],
@@ -12594,8 +12594,8 @@
     },
     {
       "aliases": ["primary default rr set group sshfp record values"],
-      "body_bytes": 4680,
-      "body_sha256": "sha256:b6f8c1338d27fe57bdd7f1239c3d1ab61e2e186b80c55a3bb85888f3187e7edf",
+      "body_bytes": 3622,
+      "body_sha256": "sha256:1717336f592fc6e864afb02d15295795e8819bbbbb064034d89fed33393c4203",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [
@@ -12715,8 +12715,8 @@
     },
     {
       "aliases": ["primary default rr set group sshfp record values sha1 fingerprint"],
-      "body_bytes": 3353,
-      "body_sha256": "sha256:8f89ec6811fa6872f9b7f66c48841947751e2d47c42d61ebf2aa6d6b2dbac51f",
+      "body_bytes": 3052,
+      "body_sha256": "sha256:d90d4ffad4ca056d50d17f85bbc85b0467193d589b4dfd93c88d746236045bb9",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -12786,8 +12786,8 @@
     },
     {
       "aliases": ["primary default rr set group sshfp record values sha256 fingerprint"],
-      "body_bytes": 3363,
-      "body_sha256": "sha256:d0c33539d968f154c574691415a97f2b38657db37211519a1d79618f62f05c34",
+      "body_bytes": 3062,
+      "body_sha256": "sha256:a9ffcab8a9271600c5e0c457e9f5511b0c255edd7963f5b13d054a45d44a7ba8",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -12857,8 +12857,8 @@
     },
     {
       "aliases": ["primary default rr set group tlsa record"],
-      "body_bytes": 3550,
-      "body_sha256": "sha256:a619986ff5a19752fe8c78b3a2727db525feb7bf78c757fa89a1f33424d5e124",
+      "body_bytes": 3108,
+      "body_sha256": "sha256:c579b56a9a1ad6a3ec8c96cc75517ee1203f87c9d609b2d3680d26b586b658a7",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": ["xcsh-docs:resources:dns_zone:properties:primary:default_rr_set_group:tlsa_record:values"],
@@ -12944,8 +12944,8 @@
     },
     {
       "aliases": ["primary default rr set group tlsa record values"],
-      "body_bytes": 7209,
-      "body_sha256": "sha256:8932631cc143a8e47cb44aee1e3383373de31013b0367fca0fd57023ae872f69",
+      "body_bytes": 6355,
+      "body_sha256": "sha256:4fae70cdfa7a84e37e36effe3d3bab89d2f30ecc0f166de39b0bd8acc2acd63d",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -13050,8 +13050,8 @@
     },
     {
       "aliases": ["primary default rr set group txt record"],
-      "body_bytes": 4619,
-      "body_sha256": "sha256:478431739718ca00b3d14423b1530ed11dc8d3c9a6386b72f3c76764b9f60ae6",
+      "body_bytes": 4299,
+      "body_sha256": "sha256:c78a6ac4a2f5e404d5d0aebd69e28e187fe08d2c4bbcbe8d11221901e969803d",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -13128,8 +13128,8 @@
     },
     {
       "aliases": ["primary default soa parameters"],
-      "body_bytes": 1239,
-      "body_sha256": "sha256:a4f29787068f452cd27d4f021db730db96b601053b0e513e745b1d24d9224775",
+      "body_bytes": 1005,
+      "body_sha256": "sha256:a74007449086b6390d3eccf68bdc5026ffea714ed41a2d68fcc6dd31bb63fda9",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -13168,8 +13168,8 @@
     },
     {
       "aliases": ["primary dnssec mode"],
-      "body_bytes": 1931,
-      "body_sha256": "sha256:c748093294daab54b97d94bb5354f1d7056d013b92644cf475396eb7c0db3a48",
+      "body_bytes": 1408,
+      "body_sha256": "sha256:59972d5ca9afc1b3e8a89d9168e9a05a2e71d6af8a4c55d774f0b67cce35b690",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [
@@ -13257,8 +13257,8 @@
     },
     {
       "aliases": ["primary dnssec mode disable spec"],
-      "body_bytes": 1099,
-      "body_sha256": "sha256:a0a763427a1b8a1b2dbe4bb67ef4bd7578b3cb94274392af7fa06d3e94f4307e",
+      "body_bytes": 834,
+      "body_sha256": "sha256:e2a1a949f7246636ce768c088c7e508b86429ca45b539c187e559f3c423187fd",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -13297,8 +13297,8 @@
     },
     {
       "aliases": ["primary dnssec mode enable"],
-      "body_bytes": 1299,
-      "body_sha256": "sha256:46a26e7c1bac2c5217eba1e8da5bdd078af3024fc011c646195a4e82489de05e",
+      "body_bytes": 995,
+      "body_sha256": "sha256:214ac4dbd9269387250927b3396117ae087c9c79af32ef5786650f1adb2e4131",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -13337,8 +13337,8 @@
     },
     {
       "aliases": ["primary rr set group"],
-      "body_bytes": 2375,
-      "body_sha256": "sha256:d311625b97118f5f2da42277c3fb6c48a343ab8a68909bfa6f45cc6210c929f8",
+      "body_bytes": 1856,
+      "body_sha256": "sha256:f214cbf89b95d7c300f7b9de2ca2ddaeaf3564b24b747b0b296ff74fd39ad137",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [
@@ -16787,8 +16787,8 @@
     },
     {
       "aliases": ["primary rr set group metadata"],
-      "body_bytes": 4155,
-      "body_sha256": "sha256:9393abca677ba69d0c7a56475e9b0190806aae16082a03f08fa1b88a1be5c818",
+      "body_bytes": 3493,
+      "body_sha256": "sha256:c43ea45fa49228966e9ab82a6d0c4b24e8af7df18ba21a66e00544cd8cb2ca95",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -16865,8 +16865,8 @@
     },
     {
       "aliases": ["primary rr set group rr set"],
-      "body_bytes": 27096,
-      "body_sha256": "sha256:783b030f4db8ef22207099955c169cc13d42fbe5106d6b7e07edae9008bb9119",
+      "body_bytes": 23138,
+      "body_sha256": "sha256:50c8d1573b59d618e2678c4d7285e9401c1f7cdbee65cdd46879d36b9046922c",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [
@@ -20789,8 +20789,8 @@
     },
     {
       "aliases": ["primary rr set group rr set a record"],
-      "body_bytes": 4927,
-      "body_sha256": "sha256:eb4480f710a31d184f442a78becec88264d227d1aa65cc4c2996f8478f31b3d7",
+      "body_bytes": 4442,
+      "body_sha256": "sha256:961a0a3da1f45876ccd88d31b2e8e88a6f34d28af5ee03e5a19a215e6771b60c",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -20867,8 +20867,8 @@
     },
     {
       "aliases": ["primary rr set group rr set aaaa record"],
-      "body_bytes": 4910,
-      "body_sha256": "sha256:2b41892b82e6800ca9276eaa2b4a8cf8b05571802945da4ca5efa674cae7aed9",
+      "body_bytes": 4558,
+      "body_sha256": "sha256:1fb3d999cedcad10e8ec388e4ff4d14f163c7aa3143f6fc3d6e067bdab800369",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -20945,8 +20945,8 @@
     },
     {
       "aliases": ["primary rr set group rr set afsdb record"],
-      "body_bytes": 3685,
-      "body_sha256": "sha256:be394c11b69618561baf1fd59d93d776c5498820453b16254b7c127591117518",
+      "body_bytes": 3245,
+      "body_sha256": "sha256:ccb5f10a1931681ea6e8f07db64bea22662c182e476ca7e53f001091f9ad0e57",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": ["xcsh-docs:resources:dns_zone:properties:primary:rr_set_group:rr_set:afsdb_record:values"],
@@ -21032,8 +21032,8 @@
     },
     {
       "aliases": ["primary rr set group rr set afsdb record values"],
-      "body_bytes": 5006,
-      "body_sha256": "sha256:812be3bae5f8ddb015b4478270d82b4a7b25d82ef46a4c4f67a38f2bad8d747b",
+      "body_bytes": 4436,
+      "body_sha256": "sha256:b5c59123185aadc81615fee9048227999735419a3907f5c23e10efdf0b129d89",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -21110,8 +21110,8 @@
     },
     {
       "aliases": ["primary rr set group rr set alias record"],
-      "body_bytes": 2607,
-      "body_sha256": "sha256:0b3dc61d2508954e6871f25eab339f26aded069d92beb15d6372be75e9009a36",
+      "body_bytes": 2277,
+      "body_sha256": "sha256:dc60bbabeac77e3d6c59520cb775c600e7eba284dba434090f67548146ae3c0d",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -21165,8 +21165,8 @@
     },
     {
       "aliases": ["primary rr set group rr set caa record"],
-      "body_bytes": 3468,
-      "body_sha256": "sha256:ce9680c57a75406a0b7395860c3de5deba02e6b215b82b71087823632d5bd6aa",
+      "body_bytes": 3025,
+      "body_sha256": "sha256:23ad7d7abdf32e1d7f2ebeeee7d8470811a4db81124175f1302403b6510f53c0",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": ["xcsh-docs:resources:dns_zone:properties:primary:rr_set_group:rr_set:caa_record:values"],
@@ -21234,8 +21234,8 @@
     },
     {
       "aliases": ["primary rr set group rr set caa record values"],
-      "body_bytes": 5601,
-      "body_sha256": "sha256:c8d7bf607628faa47b0ca63a2cb2e52af3cb84997db4cb500c86f3ef4ce72e75",
+      "body_bytes": 5073,
+      "body_sha256": "sha256:fd378c274609ea50854b0467b90521bdc9a1aacc322a5048f5b1e1070424eaf2",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -21317,8 +21317,8 @@
     },
     {
       "aliases": ["primary rr set group rr set cds record"],
-      "body_bytes": 3657,
-      "body_sha256": "sha256:e3ed569ba548598325fbdb0291fcdb6e2f51e1990d72103e9caa941321b09fa0",
+      "body_bytes": 3174,
+      "body_sha256": "sha256:56cd994401d423689306b0ac18d6a6e269ebf0c5f631e61d22bf09c05c551a9f",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": ["xcsh-docs:resources:dns_zone:properties:primary:rr_set_group:rr_set:cds_record:values"],
@@ -21452,8 +21452,8 @@
     },
     {
       "aliases": ["primary rr set group rr set cds record values"],
-      "body_bytes": 7103,
-      "body_sha256": "sha256:d0654bec5211a9961f62490855018bd2faefd953c4a7e71a5cfd2fe81ea65316",
+      "body_bytes": 5631,
+      "body_sha256": "sha256:9340774c43e013aa668b87df72937dfdb6b4eef0c994337c89147d756134b695",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [
@@ -21651,8 +21651,8 @@
     },
     {
       "aliases": ["primary rr set group rr set cds record values sha1 digest"],
-      "body_bytes": 3248,
-      "body_sha256": "sha256:3dd9f3c000c050847db8d189b8bd23bcb07652df8e82c512ffc2099d29275865",
+      "body_bytes": 2953,
+      "body_sha256": "sha256:2aeba02d9b9ffda3c9b78ccb79a779af52ea5bd8825907ccfe971aded94352ab",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -21672,7 +21672,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3100120201012212-2003022220310300-3201231103212000-2113003003200130-0200023032301110-3232330220223333-2033203112000101-0103201010021303",
-      "registry_path": "docs/guides/resources--dns_zone--reference--group-003.md",
+      "registry_path": "docs/guides/resources--dns_zone--reference--group-002.md",
       "relationships": [
         {
           "anchor": "schema-primary--rr_set_group--rr_set--cds_record--values--sha1_digest--digest",
@@ -21715,8 +21715,8 @@
     },
     {
       "aliases": ["primary rr set group rr set cds record values sha256 digest"],
-      "body_bytes": 3258,
-      "body_sha256": "sha256:45f87a5e9ca686065305a2652b4e4c98db3b30f1bb6171a2d5af73b00a463c7e",
+      "body_bytes": 2963,
+      "body_sha256": "sha256:039daa16f54540854439c7d85866cb9dfdfde9fcddd2ff1ee50f93fa57daaccd",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -21736,7 +21736,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2302310320330210-0313333002331000-2112300301232232-3322031231010011-2101010213322220-3111320011201223-3300032310020120-3321323123001031",
-      "registry_path": "docs/guides/resources--dns_zone--reference--group-003.md",
+      "registry_path": "docs/guides/resources--dns_zone--reference--group-002.md",
       "relationships": [
         {
           "anchor": "schema-primary--rr_set_group--rr_set--cds_record--values--sha256_digest--digest",
@@ -21779,8 +21779,8 @@
     },
     {
       "aliases": ["primary rr set group rr set cds record values sha384 digest"],
-      "body_bytes": 3258,
-      "body_sha256": "sha256:c7bb268b0c57e27f5370fc0111ef20b4025c219a165e204f7e07ce723415de32",
+      "body_bytes": 2963,
+      "body_sha256": "sha256:a54db0818e3d3a540fdf0fa2d150f25f0e2e24acec83134730d661e9611ed694",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -21800,7 +21800,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2032220222001301-1021003012000102-0101002330300323-0312203302002020-0003200112112211-3021032200112002-2003312333133200-3113331200110221",
-      "registry_path": "docs/guides/resources--dns_zone--reference--group-003.md",
+      "registry_path": "docs/guides/resources--dns_zone--reference--group-002.md",
       "relationships": [
         {
           "anchor": "schema-primary--rr_set_group--rr_set--cds_record--values--sha384_digest--digest",
@@ -21843,8 +21843,8 @@
     },
     {
       "aliases": ["primary rr set group rr set cert record"],
-      "body_bytes": 3675,
-      "body_sha256": "sha256:649d6685f7c5b3b7ff61d9fd5184092dd4f205a76bab35931bf3784da25b41e8",
+      "body_bytes": 3237,
+      "body_sha256": "sha256:1c609e8c81ae41210d5bd375a98d7234888077372310acd6d764411b8481d9b9",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": ["xcsh-docs:resources:dns_zone:properties:primary:rr_set_group:rr_set:cert_record:values"],
@@ -21864,7 +21864,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2122132002202221-2302210131231003-3030120300120123-2133331322231013-1130023111130312-3031311111321320-2202301111312003-0301302003020101",
-      "registry_path": "docs/guides/resources--dns_zone--reference--group-003.md",
+      "registry_path": "docs/guides/resources--dns_zone--reference--group-002.md",
       "relationships": [
         {
           "anchor": "section",
@@ -21938,8 +21938,8 @@
     },
     {
       "aliases": ["primary rr set group rr set cert record values"],
-      "body_bytes": 8653,
-      "body_sha256": "sha256:1cbe4677fd8550b26a0473d60bb045a236dd1c4844341da094ffe312c64f0895",
+      "body_bytes": 7484,
+      "body_sha256": "sha256:89e3932c5b92fe3741ccc8ce5f04d296a596eef4a381930c0fb420f956f1f959",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -21959,7 +21959,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1110212302332301-1330131123332013-1122230122101023-3000000013013121-2213021011231101-1100133232033221-1123322331330012-3012232330233330",
-      "registry_path": "docs/guides/resources--dns_zone--reference--group-003.md",
+      "registry_path": "docs/guides/resources--dns_zone--reference--group-002.md",
       "relationships": [
         {
           "anchor": "schema-primary--rr_set_group--rr_set--cert_record--values--cert_key_tag",
@@ -22052,8 +22052,8 @@
     },
     {
       "aliases": ["primary rr set group rr set cname record"],
-      "body_bytes": 4468,
-      "body_sha256": "sha256:de909eb5c03ebcd53c86b583331a7bf34bcc205c24c9730ea747221dfdeef36a",
+      "body_bytes": 4151,
+      "body_sha256": "sha256:8eb277f5528541cc4d9e2d100dab8237a80890ccf3c499e9911a53ac79d04d12",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -22073,7 +22073,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1103130121131032-2002012232031213-3122130221012010-2331212231230031-3110031301310331-0321330030021320-3212001113023221-1011201311323322",
-      "registry_path": "docs/guides/resources--dns_zone--reference--group-003.md",
+      "registry_path": "docs/guides/resources--dns_zone--reference--group-002.md",
       "relationships": [
         {
           "anchor": "schema-primary--rr_set_group--rr_set--cname_record--name",
@@ -22130,8 +22130,8 @@
     },
     {
       "aliases": ["primary rr set group rr set ds record"],
-      "body_bytes": 3646,
-      "body_sha256": "sha256:bdef2a8715e9cbbcb9595b65073e70eca9f81ce523d3ddce94cb4876b3a8dd7c",
+      "body_bytes": 3166,
+      "body_sha256": "sha256:1f404d5721e8031e32848ef00cc132898a762449d6a8c48dc357140b90bc2a67",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": ["xcsh-docs:resources:dns_zone:properties:primary:rr_set_group:rr_set:ds_record:values"],
@@ -22151,7 +22151,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0133111032113033-3001031330210022-3133010321131111-3030032331330223-1030103230301101-1222213021103231-1113333233030203-1300220320123223",
-      "registry_path": "docs/guides/resources--dns_zone--reference--group-003.md",
+      "registry_path": "docs/guides/resources--dns_zone--reference--group-002.md",
       "relationships": [
         {
           "anchor": "section",
@@ -22265,8 +22265,8 @@
     },
     {
       "aliases": ["primary rr set group rr set ds record values"],
-      "body_bytes": 7086,
-      "body_sha256": "sha256:283701e112816b8ecb67780dadbbe63eb1d8b83c07c335f8294e8d8bee49b8ed",
+      "body_bytes": 5622,
+      "body_sha256": "sha256:721fe1d8728aa7e8b7b65884165bd75629422e3f2e89b75aa8561bf2045121fe",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [
@@ -22290,7 +22290,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3002100320102213-3300132232333231-3121011221223032-1102300223033120-0011311221003330-3021330103033101-0000320030230013-0310012032010331",
-      "registry_path": "docs/guides/resources--dns_zone--reference--group-003.md",
+      "registry_path": "docs/guides/resources--dns_zone--reference--group-002.md",
       "relationships": [
         {
           "anchor": "section",
@@ -22464,8 +22464,8 @@
     },
     {
       "aliases": ["primary rr set group rr set ds record values sha1 digest"],
-      "body_bytes": 3239,
-      "body_sha256": "sha256:e470b5872e09964f27698844a373c3524f4eef3e6f7dcef5801a9d21ee281d76",
+      "body_bytes": 2946,
+      "body_sha256": "sha256:93a5c5c8eff6c099dd06d1ea00ca810927d50316b670dce38df40fe6d600ce6a",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -22485,7 +22485,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1221213211021330-1020231010121110-1213003033310222-2002101033112223-2321201230033323-0103212031133023-0030002331221301-0111033300002012",
-      "registry_path": "docs/guides/resources--dns_zone--reference--group-003.md",
+      "registry_path": "docs/guides/resources--dns_zone--reference--group-002.md",
       "relationships": [
         {
           "anchor": "schema-primary--rr_set_group--rr_set--ds_record--values--sha1_digest--digest",
@@ -22528,8 +22528,8 @@
     },
     {
       "aliases": ["primary rr set group rr set ds record values sha256 digest"],
-      "body_bytes": 3249,
-      "body_sha256": "sha256:ef4ed7bbf0dacee42bf1d367fe774abf48515c732dd7cbf0585d3fe3a17ee360",
+      "body_bytes": 2956,
+      "body_sha256": "sha256:952c559f6c88f9e6e52981a2f252631bcb061049a7e61269a50a60ae7b134ebe",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -22549,7 +22549,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1102203212111212-0030020311132130-0021222332121310-3011012022233211-0322312122333202-2332120213121001-0010201033302330-1100120312132210",
-      "registry_path": "docs/guides/resources--dns_zone--reference--group-003.md",
+      "registry_path": "docs/guides/resources--dns_zone--reference--group-002.md",
       "relationships": [
         {
           "anchor": "schema-primary--rr_set_group--rr_set--ds_record--values--sha256_digest--digest",
@@ -22592,8 +22592,8 @@
     },
     {
       "aliases": ["primary rr set group rr set ds record values sha384 digest"],
-      "body_bytes": 3249,
-      "body_sha256": "sha256:1b3aca434c3f7398dfafda48ad622f236c946ef8c2a5e913ff50fb4feb311267",
+      "body_bytes": 2956,
+      "body_sha256": "sha256:94f1f172174024100a64e184004f5f4210b2b69157d5a2d050289fed952eb826",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -22613,7 +22613,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1311123030010222-0013302212333220-2102221011302212-0333230023003222-3000320213321330-3113123310312010-3331130023103201-2223231323312320",
-      "registry_path": "docs/guides/resources--dns_zone--reference--group-003.md",
+      "registry_path": "docs/guides/resources--dns_zone--reference--group-002.md",
       "relationships": [
         {
           "anchor": "schema-primary--rr_set_group--rr_set--ds_record--values--sha384_digest--digest",
@@ -22656,8 +22656,8 @@
     },
     {
       "aliases": ["primary rr set group rr set eui48 record"],
-      "body_bytes": 4823,
-      "body_sha256": "sha256:0c07af722a0fdfb99806c4b3a3ed9865a7e82e0b37c81a9e99f0fe676b1fc93c",
+      "body_bytes": 4489,
+      "body_sha256": "sha256:737773a7a8681c0fd8e46eb700d27bb9f197ca2c653461030662d200d0ba960c",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -22677,7 +22677,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3030020123311102-0330002300121201-0201032021303132-0331310302301121-2002232330201131-3201010010133002-1121220200310131-0121101001003201",
-      "registry_path": "docs/guides/resources--dns_zone--reference--group-003.md",
+      "registry_path": "docs/guides/resources--dns_zone--reference--group-002.md",
       "relationships": [
         {
           "anchor": "schema-primary--rr_set_group--rr_set--eui48_record--value",
@@ -22734,8 +22734,8 @@
     },
     {
       "aliases": ["primary rr set group rr set eui64 record"],
-      "body_bytes": 4835,
-      "body_sha256": "sha256:be324d644a0af9fb19ef31880a49e995751ce7b579b30daf7fe5789e19f03c3d",
+      "body_bytes": 4495,
+      "body_sha256": "sha256:14016962852f373cd4126c5de35646fc56aaf5574466942af7988088a2a3d834",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -22755,7 +22755,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1123232112333312-0301023300332122-0100233233030001-1023002032221030-0013031220223001-2301310111033331-0120133033311203-0112320013203033",
-      "registry_path": "docs/guides/resources--dns_zone--reference--group-003.md",
+      "registry_path": "docs/guides/resources--dns_zone--reference--group-002.md",
       "relationships": [
         {
           "anchor": "schema-primary--rr_set_group--rr_set--eui64_record--value",
@@ -22812,8 +22812,8 @@
     },
     {
       "aliases": ["primary rr set group rr set lb record"],
-      "body_bytes": 3457,
-      "body_sha256": "sha256:3d3f1cf38a21835f5e365d78785600ec4bcf6a0eb2801e63e693bb405998d14a",
+      "body_bytes": 2968,
+      "body_sha256": "sha256:b9f765494e71e689b3dc5a152bf75e47eb9d367a4f76361cf6361a5a18a5cbcd",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": ["xcsh-docs:resources:dns_zone:properties:primary:rr_set_group:rr_set:lb_record:value"],
@@ -22833,7 +22833,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2011000133312033-0111302203233320-2010201212131212-2202122323010311-1322123301132002-1213120331011210-3311300321113201-3203231313323203",
-      "registry_path": "docs/guides/resources--dns_zone--reference--group-003.md",
+      "registry_path": "docs/guides/resources--dns_zone--reference--group-002.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -22890,8 +22890,8 @@
     },
     {
       "aliases": ["primary rr set group rr set lb record value"],
-      "body_bytes": 6580,
-      "body_sha256": "sha256:98c9efce9e96566708e6f9d0e21e1fe8bdc856effe9173d122388251a257b419",
+      "body_bytes": 5628,
+      "body_sha256": "sha256:a5474efb98415382b116cba219cad1f342ebaf85576a73a3c2da33e073c6ecd7",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -22911,7 +22911,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2223311132322230-3320322312300132-0302230100002202-3110210102103332-0101321332303223-1231303031322303-3020002233313333-0103313232301202",
-      "registry_path": "docs/guides/resources--dns_zone--reference--group-003.md",
+      "registry_path": "docs/guides/resources--dns_zone--reference--group-002.md",
       "relationships": [
         {
           "anchor": "schema-primary--rr_set_group--rr_set--lb_record--value--name",
@@ -22982,8 +22982,8 @@
     },
     {
       "aliases": ["primary rr set group rr set loc record"],
-      "body_bytes": 3657,
-      "body_sha256": "sha256:11c2bca8358546913e84e60cd4ac2834e2bc6ae41cfa10759296fc62922fa47a",
+      "body_bytes": 3174,
+      "body_sha256": "sha256:4d04ae19e1c1006b7b37389ef2ba1b7e7f89f1275cc113b184f3b2096ecae9c4",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": ["xcsh-docs:resources:dns_zone:properties:primary:rr_set_group:rr_set:loc_record:values"],
@@ -23003,7 +23003,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3003222202202221-1033200330333101-1301030003310233-1331212131201210-3302032301321211-0112023010221213-1200003133200302-0012102223210202",
-      "registry_path": "docs/guides/resources--dns_zone--reference--group-003.md",
+      "registry_path": "docs/guides/resources--dns_zone--reference--group-002.md",
       "relationships": [
         {
           "anchor": "section",
@@ -23085,8 +23085,8 @@
     },
     {
       "aliases": ["primary rr set group rr set loc record values"],
-      "body_bytes": 12667,
-      "body_sha256": "sha256:ab728e3967fabc9a57b7e013e1c0c0a70545e49300fb5fc4d8494328c44a2ed8",
+      "body_bytes": 11926,
+      "body_sha256": "sha256:3cc4e0ec20969351234c13d50e61f5406a0d1b101c72620e988489abe4fd545f",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -23106,7 +23106,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1323013302112203-3032212023103013-1011322030210112-1133333031121233-3020121122120021-2303321121202030-3222123211002022-1012320101111312",
-      "registry_path": "docs/guides/resources--dns_zone--reference--group-003.md",
+      "registry_path": "docs/guides/resources--dns_zone--reference--group-002.md",
       "relationships": [
         {
           "anchor": "schema-primary--rr_set_group--rr_set--loc_record--values--altitude",
@@ -23319,8 +23319,8 @@
     },
     {
       "aliases": ["primary rr set group rr set mx record"],
-      "body_bytes": 3604,
-      "body_sha256": "sha256:0cd8f5df81a535ed91d39f399af5084797b154907a1c5a0cc4893baa7720662e",
+      "body_bytes": 3163,
+      "body_sha256": "sha256:b6697d56d98d7dc9b775f086bb40787abe98e45f6617558faaa8c4619991bc30",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": ["xcsh-docs:resources:dns_zone:properties:primary:rr_set_group:rr_set:mx_record:values"],
@@ -23340,7 +23340,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2003001322011302-1301231333320300-1203302312221330-2033303022131132-3121320130110031-2332100310010333-2130011113103032-1022320310102202",
-      "registry_path": "docs/guides/resources--dns_zone--reference--group-003.md",
+      "registry_path": "docs/guides/resources--dns_zone--reference--group-002.md",
       "relationships": [
         {
           "anchor": "section",
@@ -23397,8 +23397,8 @@
     },
     {
       "aliases": ["primary rr set group rr set mx record values"],
-      "body_bytes": 4462,
-      "body_sha256": "sha256:5a285db327b785f8c37b21b8953e52ef2462bb6dac89ce245326fc1aa484f19b",
+      "body_bytes": 3979,
+      "body_sha256": "sha256:f88b1186830c98f933372d4679d1f6c6b3d63ee3eb447a29b8f009cce743e7ce",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -23466,8 +23466,8 @@
     },
     {
       "aliases": ["primary rr set group rr set naptr record"],
-      "body_bytes": 3685,
-      "body_sha256": "sha256:986f7ce3101be1a772a6e27aeff9100bce7d1bbcdcbb4940204762dd3ba27cd5",
+      "body_bytes": 3245,
+      "body_sha256": "sha256:bee89598915bb98002ba1db9e067ee90899494eab63ea3853a3b451e5eaea060",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": ["xcsh-docs:resources:dns_zone:properties:primary:rr_set_group:rr_set:naptr_record:values"],
@@ -23569,8 +23569,8 @@
     },
     {
       "aliases": ["primary rr set group rr set naptr record values"],
-      "body_bytes": 9146,
-      "body_sha256": "sha256:f57b0ce77ad726c6af6a3eab29a6ec098a0814318f3a894cc55fe5ba53914f45",
+      "body_bytes": 8802,
+      "body_sha256": "sha256:efb5c7f56795bdd84495dceba5bc95a14a42c8d0f6011301d1584e6983f10caa",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -23719,8 +23719,8 @@
     },
     {
       "aliases": ["primary rr set group rr set ns record"],
-      "body_bytes": 4750,
-      "body_sha256": "sha256:5c63dc18af9e2a13dadf6930b56901e9b19604dbc55979bc642094767a025a89",
+      "body_bytes": 4432,
+      "body_sha256": "sha256:07facfc293c44412e250eda753452fd75846e73d1fcd65ac8e6e66bba288dfd1",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -23797,8 +23797,8 @@
     },
     {
       "aliases": ["primary rr set group rr set ptr record"],
-      "body_bytes": 4756,
-      "body_sha256": "sha256:ed47dc49eecd8aefcb7c70bee21e2a76a28fb4f4ec53dc259a96255e043f80f3",
+      "body_bytes": 4438,
+      "body_sha256": "sha256:2b86cd254dca258927117c8778673b50e0d136b05de3b31cae8330426771cf65",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -23875,8 +23875,8 @@
     },
     {
       "aliases": ["primary rr set group rr set srv record"],
-      "body_bytes": 3712,
-      "body_sha256": "sha256:d1d133be9a26ba8f30bce56059c6e9ca86359f05f9c165360fa7567c8441d265",
+      "body_bytes": 3269,
+      "body_sha256": "sha256:87521b5ba29d7249cc90d585a78ba54e33146e901fd3874b4146814300fb8940",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": ["xcsh-docs:resources:dns_zone:properties:primary:rr_set_group:rr_set:srv_record:values"],
@@ -23961,8 +23961,8 @@
     },
     {
       "aliases": ["primary rr set group rr set srv record values"],
-      "body_bytes": 6968,
-      "body_sha256": "sha256:6472f19cd028b869f4c4a0e2713505a2ed17a9abf9dd5bdef2ee3cb9702170b5",
+      "body_bytes": 6564,
+      "body_sha256": "sha256:19833aa8c8da7a7147fc3585b387730e3225dc50d213c0616ab68af5cd8f7281",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -24058,8 +24058,8 @@
     },
     {
       "aliases": ["primary rr set group rr set sshfp record"],
-      "body_bytes": 3685,
-      "body_sha256": "sha256:47b39320ca4074091014d1a2392fac23bd6c612e505629560ca38e9ab7cff425",
+      "body_bytes": 3245,
+      "body_sha256": "sha256:ec2904cab0aa52eee54f06bf07dad9be9cb51ddadd4f5748bf4a10a71b5d578f",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": ["xcsh-docs:resources:dns_zone:properties:primary:rr_set_group:rr_set:sshfp_record:values"],
@@ -24153,8 +24153,8 @@
     },
     {
       "aliases": ["primary rr set group rr set sshfp record values"],
-      "body_bytes": 4800,
-      "body_sha256": "sha256:0d8028e02133e6b416000b32fe0b4bb492a8fd520cc799df15886e45fc9c49d3",
+      "body_bytes": 3748,
+      "body_sha256": "sha256:770212fe34e826e0608b666af85a655269891e55bb82cc20e9512c4ed71f6cae",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [
@@ -24274,8 +24274,8 @@
     },
     {
       "aliases": ["primary rr set group rr set sshfp record values sha1 fingerprint"],
-      "body_bytes": 3477,
-      "body_sha256": "sha256:dedd1d0006824174cf32972df900abf4dbbd898b214230c1f822d9ccdf187264",
+      "body_bytes": 3178,
+      "body_sha256": "sha256:f36715f1c6d2e0f9e2f08ef015e28ed1fde88ec0008bb2b2c53c969e563d406e",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -24346,8 +24346,8 @@
     },
     {
       "aliases": ["primary rr set group rr set sshfp record values sha256 fingerprint"],
-      "body_bytes": 3487,
-      "body_sha256": "sha256:90854001b312c1a13f3d744d218276d4543f63a703da15d7422795e0b946c810",
+      "body_bytes": 3188,
+      "body_sha256": "sha256:2f4f35b794650310d69677a8c025a4b5f3c48c9b27ab144d7bd0380764f305ee",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -24418,8 +24418,8 @@
     },
     {
       "aliases": ["primary rr set group rr set tlsa record"],
-      "body_bytes": 3675,
-      "body_sha256": "sha256:da4a05ed745dd9e4ee733fdcab6ad7407cacdff875fe4fb9b9651e40bd3ac47a",
+      "body_bytes": 3237,
+      "body_sha256": "sha256:2cda7a34ceec4c2494cae45788a76af552f0cbf7dca511faf662d609b91384bb",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": ["xcsh-docs:resources:dns_zone:properties:primary:rr_set_group:rr_set:tlsa_record:values"],
@@ -24505,8 +24505,8 @@
     },
     {
       "aliases": ["primary rr set group rr set tlsa record values"],
-      "body_bytes": 7335,
-      "body_sha256": "sha256:8ade89c45153b360ea71c421719a062e38bcf04cc0d7fe197aeca4085de73018",
+      "body_bytes": 6483,
+      "body_sha256": "sha256:e77bc2964d1e14f29ea8d4fcdd6459c4b7a25f84bbc400ec5fa7cdbeb4313773",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -24611,8 +24611,8 @@
     },
     {
       "aliases": ["primary rr set group rr set txt record"],
-      "body_bytes": 4747,
-      "body_sha256": "sha256:5be8488209719690babb96f5e58327d069dba2cc7f097f9000bf9f857a750b13",
+      "body_bytes": 4429,
+      "body_sha256": "sha256:f59836693f7354deb1f01e0eb6e67fc26f70d5d944242d0f90e072f022ad31c4",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -24689,8 +24689,8 @@
     },
     {
       "aliases": ["primary soa parameters"],
-      "body_bytes": 6669,
-      "body_sha256": "sha256:e829031673d84f282c03a0ec7d1145322a598e0d67c8bb7aea8938b2d1a62540",
+      "body_bytes": 6389,
+      "body_sha256": "sha256:3172a95cd8f3bf98279a2d82a25c3833c0b1bc4845439e191dcce606a2461b86",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -24817,8 +24817,8 @@
     },
     {
       "aliases": ["secondary"],
-      "body_bytes": 5381,
-      "body_sha256": "sha256:a0db68b0e8f18dc3c74aff336258aeab81a63f9afa07208ffbbff8633a84675d",
+      "body_bytes": 4618,
+      "body_sha256": "sha256:2e563465a3f86bff49b0a2a4bfcd5369fbedbd42979624dc7c2d8f4f3a73e02f",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": ["xcsh-docs:resources:dns_zone:properties:secondary:tsig_key_value"],
@@ -24940,8 +24940,8 @@
     },
     {
       "aliases": ["secondary tsig key value"],
-      "body_bytes": 2183,
-      "body_sha256": "sha256:08461f0a664cfc899a28846ef729780d7164a52252ec385c69d9643bed1fba9f",
+      "body_bytes": 1596,
+      "body_sha256": "sha256:b85feef3c190ed8f7e81492f334ad6eae0e948e14c82ce0a50948d194fd6208c",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [
@@ -25047,8 +25047,8 @@
     },
     {
       "aliases": ["secondary tsig key value blindfold secret info"],
-      "body_bytes": 4809,
-      "body_sha256": "sha256:6c241fd3f23a7ca1996d789a703d736f2a533ccb4b23604a6480fdaa28df0ff8",
+      "body_bytes": 4187,
+      "body_sha256": "sha256:352e8d889d3fd16b95e73e8824ad6f823c96450ad5993c77416af578a1456a4b",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -25139,8 +25139,8 @@
     },
     {
       "aliases": ["secondary tsig key value clear secret info"],
-      "body_bytes": 3695,
-      "body_sha256": "sha256:4ad9843681450ba3428441ecda9da86e6e51255b90d20a24e521eb0a228471de",
+      "body_bytes": 3207,
+      "body_sha256": "sha256:22d2c063c307b4afb517b69d65ab193b1d9152d135615782a7b5ddbc5323e27e",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -25217,8 +25217,8 @@
     },
     {
       "aliases": ["duration", "lifecycle timeout", "operation timeout", "timeouts"],
-      "body_bytes": 2207,
-      "body_sha256": "sha256:2571605459147e5b37c30ec0c9649a2200f06a211c2c914b8683c03b0d85b372",
+      "body_bytes": 1985,
+      "body_sha256": "sha256:5c8b67f2824c8a00da4190bbfca0e5ab9adcddec37125d07563dc6b50f35be6c",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -25349,8 +25349,8 @@
     },
     {
       "aliases": ["dns zone"],
-      "body_bytes": 609,
-      "body_sha256": "sha256:76b099d560b5434d4331245b72220d8dd4829efafd6a567e2d210ed29b00be81",
+      "body_bytes": 390,
+      "body_sha256": "sha256:b5dfaa8bc5b036c48b7d84a98749bcda9d70036a92c9bd94cf9be2857fdba85b",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": ["xcsh-docs:resources:dns_zone:example:resource"],
@@ -25389,8 +25389,8 @@
     },
     {
       "aliases": ["resource"],
-      "body_bytes": 1228,
-      "body_sha256": "sha256:2fe3db32e6bc7a763f292b94b2990b7b5389469d1cdabf5e7c9ef013919a4124",
+      "body_bytes": 1018,
+      "body_sha256": "sha256:846fd722d18826ab8a5b3ae800bb4c0cdca60d24e05c2077a983cf3a26e28063",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -25436,8 +25436,8 @@
     },
     {
       "aliases": ["dns zone"],
-      "body_bytes": 460,
-      "body_sha256": "sha256:f6d02104d38a00be931aab4bda0d8ea2142935dae34e10e9ef98c8cb710c70d9",
+      "body_bytes": 349,
+      "body_sha256": "sha256:7580d3c047cd84f0dfd2f8b25bf34f5e0be72779e31f2330d1b6f2caf21c1bc2",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -25477,8 +25477,8 @@
     },
     {
       "aliases": ["dns zone"],
-      "body_bytes": 548,
-      "body_sha256": "sha256:958868477702216d9762a2abbdd994e5f0c309bbe0212807a507255330e1292e",
+      "body_bytes": 437,
+      "body_sha256": "sha256:1de3b1ef63191f9499b7f89767ea08543937b8143d24dbb7271578a49e405b65",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],

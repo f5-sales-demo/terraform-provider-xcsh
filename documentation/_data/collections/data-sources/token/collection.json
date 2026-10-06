@@ -53,8 +53,8 @@
   "pages": [
     {
       "aliases": ["token"],
-      "body_bytes": 1387,
-      "body_sha256": "sha256:345afe43eb20dad1449af766a3c31246c94e70ecfef36acf7b2be77ee48fd6a4",
+      "body_bytes": 1283,
+      "body_sha256": "sha256:bf10245749894e401f1c2c5651fd74c32f6adb2fdec600511646921b1e6c957b",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": ["xcsh-docs:data-sources:token:reference", "xcsh-docs:data-sources:token:examples"],
@@ -82,7 +82,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/token/index.txt",
       "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
-      "summary": "Manages new token. Token object is used to manage site admission. User must generate token before provisioning and pass this token to site during it's registration in F5 Distributed Cloud.",
+      "summary": "Reads a site admission token used during registration and provisioning.",
       "tasks": ["configuration"],
       "title": "xcsh_token",
       "unresolved_relationships": [],
@@ -94,8 +94,8 @@
     },
     {
       "aliases": ["token"],
-      "body_bytes": 8854,
-      "body_sha256": "sha256:64b87d34fe3618cd5fa7e021117b9576205518959f1ae47d754bce4c4968ddeb",
+      "body_bytes": 8713,
+      "body_sha256": "sha256:07ffa55abd50de62a8e3bab9353769cf241ea5ed854c36a43e719f0c4abaf724",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],
@@ -275,8 +275,8 @@
     },
     {
       "aliases": ["token"],
-      "body_bytes": 615,
-      "body_sha256": "sha256:2caaf03443b95bcf3fd7ba8d5de11f6d85b98f5b8e51645ca6827cb3e97cab32",
+      "body_bytes": 393,
+      "body_sha256": "sha256:6607a9f9dcd4ec8da1f53af4782141aeda39cd74e667db061305894db544a2f9",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": ["xcsh-docs:data-sources:token:example:data-source"],
@@ -315,8 +315,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 1189,
-      "body_sha256": "sha256:fb15736b3648a787218770d43042c1f57046470d03dfb1963079d2008b3ab59b",
+      "body_bytes": 982,
+      "body_sha256": "sha256:282c4093a1b35ccb4c04d92a58329a28d385f3482b46dd5dde301faff13f105d",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],

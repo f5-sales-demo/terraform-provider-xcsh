@@ -80,8 +80,8 @@
   "pages": [
     {
       "aliases": ["app type"],
-      "body_bytes": 1310,
-      "body_sha256": "sha256:d256fad9cde768e8acff56c9d3ba72e82fe0e7f8b923016b452a98f8a9aa7c49",
+      "body_bytes": 1273,
+      "body_sha256": "sha256:88ef351a57e7fc0cc6633d2c8006189ecde56deb222dc52a18f003cb1f8288f1",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:app_type:reference", "xcsh-docs:data-sources:app_type:examples"],
@@ -109,7 +109,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/app_type/index.txt",
       "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
-      "summary": "Manages App type will create the configuration in namespace metadata.namespace in F5 Distributed Cloud.",
+      "summary": "Reads App Type information from F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_app_type",
       "unresolved_relationships": [],
@@ -121,8 +121,8 @@
     },
     {
       "aliases": ["app type"],
-      "body_bytes": 9660,
-      "body_sha256": "sha256:720a8380659574e1a3c58c7588d8869b0468ba9677d4906263c85b1b74270901",
+      "body_bytes": 9313,
+      "body_sha256": "sha256:f658a229d1381ce55d03426f2cb40d487ffaa7a4f32836edd70ad3b14d326a5f",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -277,8 +277,8 @@
     },
     {
       "aliases": ["business logic markup setting"],
-      "body_bytes": 2118,
-      "body_sha256": "sha256:52b02ba84c597d94f838899e3dfeb28d427c7fb9257f16a480bce39aed9d892b",
+      "body_bytes": 1337,
+      "body_sha256": "sha256:c4a5e36a213abe1045d96b81c8dc6109c81e7f2bd33834151fa61b10c514265d",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -364,8 +364,8 @@
     },
     {
       "aliases": ["business logic markup setting disable spec"],
-      "body_bytes": 1011,
-      "body_sha256": "sha256:25f53f5366972631b95ad42335e72b5b46d6387456fc2b49bedbbc6bbf38a992",
+      "body_bytes": 720,
+      "body_sha256": "sha256:77dc4b1366e1d0289cc23185a791eabee5158b39aa6f30e89ab3295ac380aa82",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -404,8 +404,8 @@
     },
     {
       "aliases": ["business logic markup setting discovered api settings"],
-      "body_bytes": 2199,
-      "body_sha256": "sha256:64c2320ac6282589326ad04634fd6433e45e9a11b9d9ff7f1c82cc3766cf899a",
+      "body_bytes": 1871,
+      "body_sha256": "sha256:be0dfad7f670454b81826653288309db4895ee67e982c0c9ebf1831475a30a44",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -465,8 +465,8 @@
     },
     {
       "aliases": ["business logic markup setting enable"],
-      "body_bytes": 1256,
-      "body_sha256": "sha256:29d4b697c5593fb4d35a330e8c3fc2cc236d44ff55ea1b990f3bf3b8c5ad131a",
+      "body_bytes": 972,
+      "body_sha256": "sha256:1be852ca2feaae6442cb8ff17eb159e6f58c0d522a4a5302cd345c51fb850026",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -505,8 +505,8 @@
     },
     {
       "aliases": ["features"],
-      "body_bytes": 2786,
-      "body_sha256": "sha256:61c0843de9d6b39f7e7b2bb98efdb8f2d460f8af64c51f819f4bfb89271da2ae",
+      "body_bytes": 2423,
+      "body_sha256": "sha256:b5efb947511ba43b532d76dfef2575b130a2d9432815f39a196526b2126db725",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -560,8 +560,8 @@
     },
     {
       "aliases": ["app type"],
-      "body_bytes": 633,
-      "body_sha256": "sha256:1766e68bc367572427b9e763aa3a94055cf8beca53eb6899942771b07439a7ff",
+      "body_bytes": 402,
+      "body_sha256": "sha256:0e3148b6434800b0cb7e91d3031c9cfffede912fa1a2e04db24700aa8cdcc792",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:app_type:example:data-source"],
@@ -600,8 +600,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 1227,
-      "body_sha256": "sha256:5f266ee60e1edb80174125d85b31d31577c7d4913f28f813e58cfa0897372f26",
+      "body_bytes": 1011,
+      "body_sha256": "sha256:d1c06d679963e4935416bff986d3478ca5536903a93febc8bdc7869ca7e9a297",
       "capabilities": [],
       "category": null,
       "child_ids": [],

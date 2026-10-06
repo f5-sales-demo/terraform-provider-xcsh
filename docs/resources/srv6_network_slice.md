@@ -1,10 +1,10 @@
 ---
-page_title: "xcsh_srv6_network_slice landing"
+page_title: "xcsh_srv6_network_slice"
 subcategory: ""
-description: "Complete grouped canonical reference for xcsh_srv6_network_slice landing."
+description: "Complete grouped canonical reference for xcsh_srv6_network_slice."
 ---
 
-# xcsh_srv6_network_slice landing
+# xcsh_srv6_network_slice
 
 <a id="canonical-1003011003113030-2133000032112000-2110300131312112-0323202222213032-3010021101322220-3130233303030103-2300101230220121-0201100002310332"></a>
 
@@ -12,9 +12,7 @@ description: "Complete grouped canonical reference for xcsh_srv6_network_slice l
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1132111011232303-1322311313132001-0013223123223333-3303330202213110-1212231320313021-2102300030310212-3203211000113233-1213123221110031"></a>
-
-## xcsh_srv6_network_slice — xcsh_srv6_network_slice / 003320231120 / 2
+## Overview
 
 Breadcrumbs:
 
@@ -23,15 +21,15 @@ Breadcrumbs:
 Manages srv6\_network\_slice creates a new object in the storage backend for metadata.namespace in
 F5 Distributed Cloud.
 
-<a id="canonical-1110202103233102-3032120321220001-0302223132012322-0331222122131110-1321300102323012-2333221132011332-2302200021133211-2302002023313110"></a>
+<a id="canonical-1132111011232303-1322311313132001-0013223123223333-3303330202213110-1212231320313021-2102300030310212-3203211000113233-1213123221110031"></a>
 
-## Prerequisites — xcsh_srv6_network_slice / 003320231120 / 3
+### Prerequisites for `xcsh_srv6_network_slice`
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-1013322322300213-2230213200030102-1200203300330213-3003333231101112-3011011210330112-3220013230213133-0332331003312331-1313300021201320"></a>
+<a id="canonical-1110202103233102-3032120321220001-0302223132012322-0331222122131110-1321300102323012-2333221132011332-2302200021133211-2302002023313110"></a>
 
-## Minimal configuration — xcsh_srv6_network_slice / 003320231120 / 4
+### Minimal configuration for `xcsh_srv6_network_slice`
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -59,15 +57,15 @@ resource "xcsh_srv6_network_slice" "example" {
 }
 ```
 
-<a id="canonical-0022011210113233-2133202122321131-3301323002330313-0033031111023110-3210320311011033-0121023330312323-2013313023103312-3211010121110230"></a>
+<a id="canonical-1013322322300213-2230213200030102-1200203300330213-3003333231101112-3011011210330112-3220013230213133-0332331003312331-1313300021201320"></a>
 
-## Root configuration — xcsh_srv6_network_slice / 003320231120 / 5
+### Root configuration for `xcsh_srv6_network_slice`
 
 Required root properties: `name`, `sid_prefixes`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-0112212301010321-2133111121211310-2021330033333232-0301130130101102-0030121333132111-0011211001122212-0323020032300303-1113233331200321"></a>
+<a id="canonical-0022011210113233-2133202122321131-3301323002330313-0033031111023110-3210320311011033-0121023330312323-2013313023103312-3211010121110230"></a>
 
-## Next pages — xcsh_srv6_network_slice / 003320231120 / 6
+### Explore this collection for `xcsh_srv6_network_slice`
 
 - [Property reference](../guides/resources--srv6_network_slice--reference--group-001.md#canonical-2221210201331300-0011233131200112-1301201030112212-2211123330221021-3333331233302122-0320123310310202-3200030231001021-3012033330201300)
 - [Examples](../guides/resources--srv6_network_slice--examples--group-001.md#canonical-0202203011323022-1213210303303201-2130020311033333-2223212322220201-3001213012200323-2112301210033031-0033020330120230-0321223030213201)

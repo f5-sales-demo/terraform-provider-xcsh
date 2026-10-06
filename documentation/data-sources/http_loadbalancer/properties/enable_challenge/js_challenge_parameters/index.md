@@ -2,7 +2,7 @@
 page_title: "enable_challenge.js_challenge_parameters"
 subcategory: "Load Balancing"
 description: "Enables loadbalancer to perform client browser compatibility test by redirecting to a page with Javascript. With this feature enabled, only clients that are capable of executing Javascript(mostly browsers) will be allowed to complete the HTTP request. When loadbalancer is configured to do Javascript Challenge, it will"
-xcsh_docs: {"aliases": ["enable challenge js challenge parameters"], "body_bytes": 6472, "body_sha256": "sha256:249516bc8ff293f3b9125fe14d32a16b52e2793d442adab624ed67bec34da2c4", "capabilities": ["load-balancing"], "category": "load-balancing", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:data-sources:http_loadbalancer:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:http_loadbalancer:properties:enable_challenge:js_challenge_parameters", "parent_id": "xcsh-docs:data-sources:http_loadbalancer:properties:enable_challenge", "path": "documentation/data-sources/http_loadbalancer/properties/enable_challenge/js_challenge_parameters/index.md", "product": "distributed-cloud", "provider_name": "http_loadbalancer", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "data-sources", "registry_anchor": "canonical-2102131322013321-3103000102211223-2203223000013002-0030321001003323-3123330210130223-1111302200033320-2030022100133123-0333011120000212", "registry_path": "docs/guides/data-sources--http_loadbalancer--reference--group-018.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["enable_challenge", "js_challenge_parameters"], "schema_version": 1, "sections": [{"aliases": ["enable challenge js challenge parameters cookie expiry"], "anchor": "schema-enable_challenge--js_challenge_parameters--cookie_expiry", "description": "Cookie expiration period, in seconds. An expired cookie causes the loadbalancer to issue a new challenge.", "document_id": "xcsh-docs:data-sources:http_loadbalancer:properties:enable_challenge:js_challenge_parameters", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["enable_challenge", "js_challenge_parameters", "cookie_expiry"], "syntax": "attribute", "type": "number"}, {"aliases": ["enable challenge js challenge parameters custom page"], "anchor": "schema-enable_challenge--js_challenge_parameters--custom_page", "description": "Custom message is of type uri_ref. Currently supported URL schemes is string:///. For string:/// scheme, message needs to be encoded in Base64 format. You can specify this message as base64 encoded plain text message e.g. \"Please Wait..\" or it can be HTML paragraph or a body string encoded as base64 string E.g. \"<p>", "document_id": "xcsh-docs:data-sources:http_loadbalancer:properties:enable_challenge:js_challenge_parameters", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["enable_challenge", "js_challenge_parameters", "custom_page"], "syntax": "attribute", "type": "string"}, {"aliases": ["enable challenge js challenge parameters js script delay"], "anchor": "schema-enable_challenge--js_challenge_parameters--js_script_delay", "description": "Delay introduced by Javascript, in milliseconds.", "document_id": "xcsh-docs:data-sources:http_loadbalancer:properties:enable_challenge:js_challenge_parameters", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["enable_challenge", "js_challenge_parameters", "js_script_delay"], "syntax": "attribute", "type": "number"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/http_loadbalancer/properties/enable_challenge/js_challenge_parameters/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Enables loadbalancer to perform client browser compatibility test by redirecting to a page with Javascript. With this feature enabled, only clients that are capable of executing Javascript(mostly browsers) will be allowed to complete the HTTP request. When loadbalancer is configured to do Javascript Challenge, it will", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["http_loadbalancerCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
+xcsh_docs: {"aliases": ["enable challenge js challenge parameters"], "body_bytes": 5580, "body_sha256": "sha256:eae80fc84d21453ff300fa926caedaab04f81ae1d360b4762ffa8dcab790ded6", "capabilities": ["load-balancing"], "category": "load-balancing", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:data-sources:http_loadbalancer:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:http_loadbalancer:properties:enable_challenge:js_challenge_parameters", "parent_id": "xcsh-docs:data-sources:http_loadbalancer:properties:enable_challenge", "path": "documentation/data-sources/http_loadbalancer/properties/enable_challenge/js_challenge_parameters/index.md", "product": "distributed-cloud", "provider_name": "http_loadbalancer", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "data-sources", "registry_anchor": "canonical-2102131322013321-3103000102211223-2203223000013002-0030321001003323-3123330210130223-1111302200033320-2030022100133123-0333011120000212", "registry_path": "docs/guides/data-sources--http_loadbalancer--reference--group-018.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["enable_challenge", "js_challenge_parameters"], "schema_version": 1, "sections": [{"aliases": ["enable challenge js challenge parameters cookie expiry"], "anchor": "schema-enable_challenge--js_challenge_parameters--cookie_expiry", "description": "Cookie expiration period, in seconds. An expired cookie causes the loadbalancer to issue a new challenge.", "document_id": "xcsh-docs:data-sources:http_loadbalancer:properties:enable_challenge:js_challenge_parameters", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["enable_challenge", "js_challenge_parameters", "cookie_expiry"], "syntax": "attribute", "type": "number"}, {"aliases": ["enable challenge js challenge parameters custom page"], "anchor": "schema-enable_challenge--js_challenge_parameters--custom_page", "description": "Custom message is of type uri_ref. Currently supported URL schemes is string:///. For string:/// scheme, message needs to be encoded in Base64 format. You can specify this message as base64 encoded plain text message e.g. \"Please Wait..\" or it can be HTML paragraph or a body string encoded as base64 string E.g. \"<p>", "document_id": "xcsh-docs:data-sources:http_loadbalancer:properties:enable_challenge:js_challenge_parameters", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["enable_challenge", "js_challenge_parameters", "custom_page"], "syntax": "attribute", "type": "string"}, {"aliases": ["enable challenge js challenge parameters js script delay"], "anchor": "schema-enable_challenge--js_challenge_parameters--js_script_delay", "description": "Delay introduced by Javascript, in milliseconds.", "document_id": "xcsh-docs:data-sources:http_loadbalancer:properties:enable_challenge:js_challenge_parameters", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["enable_challenge", "js_challenge_parameters", "js_script_delay"], "syntax": "attribute", "type": "number"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/http_loadbalancer/properties/enable_challenge/js_challenge_parameters/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Enables loadbalancer to perform client browser compatibility test by redirecting to a page with Javascript. With this feature enabled, only clients that are capable of executing Javascript(mostly browsers) will be allowed to complete the HTTP request. When loadbalancer is configured to do Javascript Challenge, it will", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["http_loadbalancerCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -21,12 +21,6 @@ Breadcrumbs:
 <a id="section"></a>
 
 Type: `"single"`. Computed.
-
-Enables loadbalancer to perform client browser compatibility test by redirecting to a page with
-Javascript. With this feature enabled, only clients that are capable of executing Javascript(mostly
-browsers) will be allowed to complete the HTTP request. When loadbalancer is configured to do..
-
-Upstream description:
 
 Enables loadbalancer to perform client browser compatibility test by redirecting to a page with
 Javascript.
@@ -76,11 +70,6 @@ Type: `"number"`. Computed.
 Cookie expiration period, in seconds. An expired cookie causes the loadbalancer to issue a new
 challenge.
 
-Upstream description:
-
-Cookie expiration period, in seconds. An expired cookie causes the loadbalancer to issue a new
-challenge.
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -119,11 +108,6 @@ Receipt-pinned upstream constraints:
 ### custom_page property
 
 Type: `"string"`. Computed.
-
-Custom message is of type uri\_ref. Currently supported URL schemes is string:///. For string:///
-scheme, message needs to be encoded in Base64 format.
-
-Upstream description:
 
 Custom message is of type uri\_ref. Currently supported URL schemes is string:///. For string:///
 scheme, message needs to be encoded in Base64 format. You can specify this message as base64 encoded
@@ -205,8 +189,3 @@ Receipt-pinned upstream constraints:
   }
 }
 ```
-
-## Next pages
-
-- [enable_challenge](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/http_loadbalancer/properties/enable_challenge/)
-- [xcsh_http_loadbalancer](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/http_loadbalancer/)

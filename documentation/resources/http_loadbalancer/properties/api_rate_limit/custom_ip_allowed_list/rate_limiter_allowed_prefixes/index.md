@@ -2,7 +2,7 @@
 page_title: "api_rate_limit.custom_ip_allowed_list.rate_limiter_allowed_prefixes"
 subcategory: "Load Balancing"
 description: "References to ip_prefix_set objects. Requests from source IP addresses that are covered by one of the allowed IP Prefixes are not subjected to rate limiting."
-xcsh_docs: {"aliases": ["api rate limit custom ip allowed list rate limiter allowed prefixes"], "body_bytes": 7233, "body_sha256": "sha256:072a1708ea61e1212877f44f14a8db0d05f5530ec10196e248ff3ad56a3ffed5", "capabilities": ["load-balancing", "security.rate-limiting"], "category": "load-balancing", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:resources:http_loadbalancer:collection", "completeness": "complete", "id": "xcsh-docs:resources:http_loadbalancer:properties:api_rate_limit:custom_ip_allowed_list:rate_limiter_allowed_prefixes", "parent_id": "xcsh-docs:resources:http_loadbalancer:properties:api_rate_limit:custom_ip_allowed_list", "path": "documentation/resources/http_loadbalancer/properties/api_rate_limit/custom_ip_allowed_list/rate_limiter_allowed_prefixes/index.md", "product": "distributed-cloud", "provider_name": "http_loadbalancer", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-1010211010113121-0331310121113033-2030031032022330-1021322001300232-3231010303030310-2212033322222311-3023322011123320-0021202201302200", "registry_path": "docs/guides/resources--http_loadbalancer--reference--group-008.md", "relationships": [{"anchor": "schema-api_rate_limit--custom_ip_allowed_list--rate_limiter_allowed_prefixes--name", "enforcement": "provider-schema", "group": "api_rate_limit.custom_ip_allowed_list.rate_limiter_allowed_prefixes:RequiredListObjectAttributes:name", "source": "ast-validator:RequiredListObjectAttributes", "target_id": "xcsh-docs:resources:http_loadbalancer:properties:api_rate_limit:custom_ip_allowed_list:rate_limiter_allowed_prefixes", "type": "requires"}], "retrieval_version": 1, "role": "properties", "schema_path": ["api_rate_limit", "custom_ip_allowed_list", "rate_limiter_allowed_prefixes"], "schema_version": 1, "sections": [{"aliases": ["api rate limit custom ip allowed list rate limiter allowed prefixes name"], "anchor": "schema-api_rate_limit--custom_ip_allowed_list--rate_limiter_allowed_prefixes--name", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.", "document_id": "xcsh-docs:resources:http_loadbalancer:properties:api_rate_limit:custom_ip_allowed_list:rate_limiter_allowed_prefixes", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["api_rate_limit", "custom_ip_allowed_list", "rate_limiter_allowed_prefixes", "name"], "syntax": "attribute", "type": "string"}, {"aliases": ["api rate limit custom ip allowed list rate limiter allowed prefixes namespace"], "anchor": "schema-api_rate_limit--custom_ip_allowed_list--rate_limiter_allowed_prefixes--namespace", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.", "document_id": "xcsh-docs:resources:http_loadbalancer:properties:api_rate_limit:custom_ip_allowed_list:rate_limiter_allowed_prefixes", "flags": ["optional", "computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["api_rate_limit", "custom_ip_allowed_list", "rate_limiter_allowed_prefixes", "namespace"], "syntax": "attribute", "type": "string"}, {"aliases": ["api rate limit custom ip allowed list rate limiter allowed prefixes tenant"], "anchor": "schema-api_rate_limit--custom_ip_allowed_list--rate_limiter_allowed_prefixes--tenant", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.", "document_id": "xcsh-docs:resources:http_loadbalancer:properties:api_rate_limit:custom_ip_allowed_list:rate_limiter_allowed_prefixes", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["api_rate_limit", "custom_ip_allowed_list", "rate_limiter_allowed_prefixes", "tenant"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/http_loadbalancer/properties/api_rate_limit/custom_ip_allowed_list/rate_limiter_allowed_prefixes/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "References to ip_prefix_set objects. Requests from source IP addresses that are covered by one of the allowed IP Prefixes are not subjected to rate limiting.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["http_loadbalancerCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
+xcsh_docs: {"aliases": ["api rate limit custom ip allowed list rate limiter allowed prefixes"], "body_bytes": 6240, "body_sha256": "sha256:242600057d0f6b6ba9047a0f4caaa10e0d56e4d0157160a38bc2cff365ed232c", "capabilities": ["load-balancing", "security.rate-limiting"], "category": "load-balancing", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:resources:http_loadbalancer:collection", "completeness": "complete", "id": "xcsh-docs:resources:http_loadbalancer:properties:api_rate_limit:custom_ip_allowed_list:rate_limiter_allowed_prefixes", "parent_id": "xcsh-docs:resources:http_loadbalancer:properties:api_rate_limit:custom_ip_allowed_list", "path": "documentation/resources/http_loadbalancer/properties/api_rate_limit/custom_ip_allowed_list/rate_limiter_allowed_prefixes/index.md", "product": "distributed-cloud", "provider_name": "http_loadbalancer", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-1010211010113121-0331310121113033-2030031032022330-1021322001300232-3231010303030310-2212033322222311-3023322011123320-0021202201302200", "registry_path": "docs/guides/resources--http_loadbalancer--reference--group-008.md", "relationships": [{"anchor": "schema-api_rate_limit--custom_ip_allowed_list--rate_limiter_allowed_prefixes--name", "enforcement": "provider-schema", "group": "api_rate_limit.custom_ip_allowed_list.rate_limiter_allowed_prefixes:RequiredListObjectAttributes:name", "source": "ast-validator:RequiredListObjectAttributes", "target_id": "xcsh-docs:resources:http_loadbalancer:properties:api_rate_limit:custom_ip_allowed_list:rate_limiter_allowed_prefixes", "type": "requires"}], "retrieval_version": 1, "role": "properties", "schema_path": ["api_rate_limit", "custom_ip_allowed_list", "rate_limiter_allowed_prefixes"], "schema_version": 1, "sections": [{"aliases": ["api rate limit custom ip allowed list rate limiter allowed prefixes name"], "anchor": "schema-api_rate_limit--custom_ip_allowed_list--rate_limiter_allowed_prefixes--name", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.", "document_id": "xcsh-docs:resources:http_loadbalancer:properties:api_rate_limit:custom_ip_allowed_list:rate_limiter_allowed_prefixes", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["api_rate_limit", "custom_ip_allowed_list", "rate_limiter_allowed_prefixes", "name"], "syntax": "attribute", "type": "string"}, {"aliases": ["api rate limit custom ip allowed list rate limiter allowed prefixes namespace"], "anchor": "schema-api_rate_limit--custom_ip_allowed_list--rate_limiter_allowed_prefixes--namespace", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.", "document_id": "xcsh-docs:resources:http_loadbalancer:properties:api_rate_limit:custom_ip_allowed_list:rate_limiter_allowed_prefixes", "flags": ["optional", "computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["api_rate_limit", "custom_ip_allowed_list", "rate_limiter_allowed_prefixes", "namespace"], "syntax": "attribute", "type": "string"}, {"aliases": ["api rate limit custom ip allowed list rate limiter allowed prefixes tenant"], "anchor": "schema-api_rate_limit--custom_ip_allowed_list--rate_limiter_allowed_prefixes--tenant", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.", "document_id": "xcsh-docs:resources:http_loadbalancer:properties:api_rate_limit:custom_ip_allowed_list:rate_limiter_allowed_prefixes", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["api_rate_limit", "custom_ip_allowed_list", "rate_limiter_allowed_prefixes", "tenant"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/http_loadbalancer/properties/api_rate_limit/custom_ip_allowed_list/rate_limiter_allowed_prefixes/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "References to ip_prefix_set objects. Requests from source IP addresses that are covered by one of the allowed IP Prefixes are not subjected to rate limiting.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["http_loadbalancerCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -22,11 +22,6 @@ Breadcrumbs:
 <a id="section"></a>
 
 Type: `"object"`. list nested block, Optional.
-
-References to ip\_prefix\_set objects. Requests from source IP addresses that are covered by one of
-the allowed IP Prefixes are not subjected to rate limiting.
-
-Upstream description:
 
 References to ip\_prefix\_set objects. Requests from source IP addresses that are covered by one of
 the allowed IP Prefixes are not subjected to rate limiting.
@@ -93,11 +88,6 @@ Type: `"string"`. Optional.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
 referred object's(e.g. Route's) name.
 
-Upstream description:
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
-referred object's(e.g. Route's) name.
-
 Provider validators and defaults (from schema source):
 
 ```go
@@ -152,11 +142,6 @@ Receipt-pinned upstream constraints:
 ### namespace property
 
 Type: `"string"`. Optional, Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
-hold the referred object's(e.g. Route's) namespace.
-
-Upstream description:
 
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
 hold the referred object's(e.g. Route's) namespace.
@@ -226,11 +211,6 @@ Type: `"string"`. Computed.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
 the referred object's(e.g. Route's) tenant.
 
-Upstream description:
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
-the referred object's(e.g. Route's) tenant.
-
 Provider validators and defaults (from schema source):
 
 ```go
@@ -272,8 +252,3 @@ Receipt-pinned upstream constraints:
   }
 }
 ```
-
-## Next pages
-
-- [api_rate_limit.custom_ip_allowed_list](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/http_loadbalancer/properties/api_rate_limit/custom_ip_allowed_list/)
-- [xcsh_http_loadbalancer](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/http_loadbalancer/)

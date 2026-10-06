@@ -12,9 +12,7 @@ description: "Complete grouped canonical reference for xcsh_registration_approva
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-1313313030210113-2010200032131131-0302213012131122-3220301230012012-0100031220002231-2112230311322210-0211111322200221-1011201032321212"></a>
-
-## Import — Import / 323212321301 / 2
+## Import
 
 Breadcrumbs:
 
@@ -26,9 +24,3 @@ Import using the `namespace/name` identifier format.
 ```shell
 terraform import xcsh_registration_approval.example system/example
 ```
-
-<a id="canonical-1102313233320301-3320233113233032-3033012021001000-2112120032131101-3320310030222110-1303012332121133-1102330333132222-3213213311332222"></a>
-
-## Next pages — Import / 323212321301 / 3
-
-- [xcsh_registration_approval](../resources/registration_approval.md#canonical-1331103323121310-0002130210000313-2020131122020200-0233121113323131-3323011213331230-0033000123022130-3131333113210323-3013000301112322)

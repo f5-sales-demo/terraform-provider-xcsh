@@ -2,7 +2,7 @@
 page_title: "https.tls_parameters.tls_config.custom_security"
 subcategory: "Load Balancing"
 description: "This defines TLS protocol config including min/max versions and allowed ciphers."
-xcsh_docs: {"aliases": ["https tls parameters tls config custom security"], "body_bytes": 6463, "body_sha256": "sha256:206bbfbd552f5e7c00638433bd80aef7f4a7ea7754a868dcbf3f37a5b0035f70", "capabilities": ["load-balancing", "load-balancing.tls"], "category": "load-balancing", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:resources:http_loadbalancer:collection", "completeness": "complete", "id": "xcsh-docs:resources:http_loadbalancer:properties:https:tls_parameters:tls_config:custom_security", "parent_id": "xcsh-docs:resources:http_loadbalancer:properties:https:tls_parameters:tls_config", "path": "documentation/resources/http_loadbalancer/properties/https/tls_parameters/tls_config/custom_security/index.md", "product": "distributed-cloud", "provider_name": "http_loadbalancer", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-2231332332000212-1131230233023220-0003301313231321-0020100131230112-3312121012300032-2131021102332211-0300110333110231-3202232032002221", "registry_path": "docs/guides/resources--http_loadbalancer--reference--group-019.md", "relationships": [{"anchor": "schema-https--tls_parameters--tls_config--custom_security--cipher_suites", "enforcement": "provider-schema", "group": "https.tls_parameters.tls_config.custom_security:RequiredObjectAttributes:cipher_suites", "source": "ast-validator:RequiredObjectAttributes", "target_id": "xcsh-docs:resources:http_loadbalancer:properties:https:tls_parameters:tls_config:custom_security", "type": "requires"}], "retrieval_version": 1, "role": "properties", "schema_path": ["https", "tls_parameters", "tls_config", "custom_security"], "schema_version": 1, "sections": [{"aliases": ["https tls parameters tls config custom security cipher suites"], "anchor": "schema-https--tls_parameters--tls_config--custom_security--cipher_suites", "description": "The TLS listener will only support the specified cipher list.", "document_id": "xcsh-docs:resources:http_loadbalancer:properties:https:tls_parameters:tls_config:custom_security", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["https", "tls_parameters", "tls_config", "custom_security", "cipher_suites"], "syntax": "attribute", "type": "list"}, {"aliases": ["https tls parameters tls config custom security max version"], "anchor": "schema-https--tls_parameters--tls_config--custom_security--max_version", "description": "TlsProtocol is enumeration of supported TLS versions F5 Distributed Cloud will choose the optimal TLS version.", "document_id": "xcsh-docs:resources:http_loadbalancer:properties:https:tls_parameters:tls_config:custom_security", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["https", "tls_parameters", "tls_config", "custom_security", "max_version"], "syntax": "attribute", "type": "string"}, {"aliases": ["https tls parameters tls config custom security min version"], "anchor": "schema-https--tls_parameters--tls_config--custom_security--min_version", "description": "TlsProtocol is enumeration of supported TLS versions F5 Distributed Cloud will choose the optimal TLS version.", "document_id": "xcsh-docs:resources:http_loadbalancer:properties:https:tls_parameters:tls_config:custom_security", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["https", "tls_parameters", "tls_config", "custom_security", "min_version"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/http_loadbalancer/properties/https/tls_parameters/tls_config/custom_security/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "This defines TLS protocol config including min/max versions and allowed ciphers.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["http_loadbalancerCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
+xcsh_docs: {"aliases": ["https tls parameters tls config custom security"], "body_bytes": 5797, "body_sha256": "sha256:1128fed207f9d75782e0192961d2187ce5fd5811abd5eebad609a819c011786a", "capabilities": ["load-balancing", "load-balancing.tls"], "category": "load-balancing", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:resources:http_loadbalancer:collection", "completeness": "complete", "id": "xcsh-docs:resources:http_loadbalancer:properties:https:tls_parameters:tls_config:custom_security", "parent_id": "xcsh-docs:resources:http_loadbalancer:properties:https:tls_parameters:tls_config", "path": "documentation/resources/http_loadbalancer/properties/https/tls_parameters/tls_config/custom_security/index.md", "product": "distributed-cloud", "provider_name": "http_loadbalancer", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-2231332332000212-1131230233023220-0003301313231321-0020100131230112-3312121012300032-2131021102332211-0300110333110231-3202232032002221", "registry_path": "docs/guides/resources--http_loadbalancer--reference--group-019.md", "relationships": [{"anchor": "schema-https--tls_parameters--tls_config--custom_security--cipher_suites", "enforcement": "provider-schema", "group": "https.tls_parameters.tls_config.custom_security:RequiredObjectAttributes:cipher_suites", "source": "ast-validator:RequiredObjectAttributes", "target_id": "xcsh-docs:resources:http_loadbalancer:properties:https:tls_parameters:tls_config:custom_security", "type": "requires"}], "retrieval_version": 1, "role": "properties", "schema_path": ["https", "tls_parameters", "tls_config", "custom_security"], "schema_version": 1, "sections": [{"aliases": ["https tls parameters tls config custom security cipher suites"], "anchor": "schema-https--tls_parameters--tls_config--custom_security--cipher_suites", "description": "The TLS listener will only support the specified cipher list.", "document_id": "xcsh-docs:resources:http_loadbalancer:properties:https:tls_parameters:tls_config:custom_security", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["https", "tls_parameters", "tls_config", "custom_security", "cipher_suites"], "syntax": "attribute", "type": "list"}, {"aliases": ["https tls parameters tls config custom security max version"], "anchor": "schema-https--tls_parameters--tls_config--custom_security--max_version", "description": "TlsProtocol is enumeration of supported TLS versions F5 Distributed Cloud will choose the optimal TLS version.", "document_id": "xcsh-docs:resources:http_loadbalancer:properties:https:tls_parameters:tls_config:custom_security", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["https", "tls_parameters", "tls_config", "custom_security", "max_version"], "syntax": "attribute", "type": "string"}, {"aliases": ["https tls parameters tls config custom security min version"], "anchor": "schema-https--tls_parameters--tls_config--custom_security--min_version", "description": "TlsProtocol is enumeration of supported TLS versions F5 Distributed Cloud will choose the optimal TLS version.", "document_id": "xcsh-docs:resources:http_loadbalancer:properties:https:tls_parameters:tls_config:custom_security", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["https", "tls_parameters", "tls_config", "custom_security", "min_version"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/http_loadbalancer/properties/https/tls_parameters/tls_config/custom_security/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "This defines TLS protocol config including min/max versions and allowed ciphers.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["http_loadbalancerCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -23,10 +23,6 @@ Breadcrumbs:
 <a id="section"></a>
 
 Type: `"object"`. single nested block, Optional.
-
-Defines TLS protocol config including min/max versions and allowed ciphers.
-
-Upstream description:
 
 This defines TLS protocol config including min/max versions and allowed ciphers.
 
@@ -111,12 +107,6 @@ Type: `"string"`. Optional.
 versions F5 Distributed Cloud will choose the optimal TLS version. Possible values are
 \`TLS\_AUTO\`, \`TLSv1\_0\`, \`TLSv1\_1\`, \`TLSv1\_2\`, \`TLSv1\_3\`. Defaults to \`TLS\_AUTO\`.
 
-Upstream description:
-
-TlsProtocol is enumeration of supported TLS versions
-
-F5 Distributed Cloud will choose the optimal TLS version.
-
 Provider validators and defaults (from schema source):
 
 ```go
@@ -160,12 +150,6 @@ Type: `"string"`. Optional.
 versions F5 Distributed Cloud will choose the optimal TLS version. Possible values are
 \`TLS\_AUTO\`, \`TLSv1\_0\`, \`TLSv1\_1\`, \`TLSv1\_2\`, \`TLSv1\_3\`. Defaults to \`TLS\_AUTO\`.
 
-Upstream description:
-
-TlsProtocol is enumeration of supported TLS versions
-
-F5 Distributed Cloud will choose the optimal TLS version.
-
 Provider validators and defaults (from schema source):
 
 ```go
@@ -198,8 +182,3 @@ Receipt-pinned upstream constraints:
   }
 }
 ```
-
-## Next pages
-
-- [https.tls_parameters.tls_config](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/http_loadbalancer/properties/https/tls_parameters/tls_config/)
-- [xcsh_http_loadbalancer](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/http_loadbalancer/)

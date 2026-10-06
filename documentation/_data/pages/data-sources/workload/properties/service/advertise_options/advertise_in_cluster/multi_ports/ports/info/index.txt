@@ -2,7 +2,7 @@
 page_title: "service.advertise_options.advertise_in_cluster.multi_ports.ports.info"
 subcategory: "Container"
 description: "Port information."
-xcsh_docs: {"aliases": ["service advertise options advertise in cluster multi ports ports info"], "body_bytes": 5873, "body_sha256": "sha256:cc2118f702f9a61993d54aa0ad90efb11425af960bc0bd872790ec332882dd7e", "capabilities": ["container"], "category": "container", "child_ids": ["xcsh-docs:data-sources:workload:properties:service:advertise_options:advertise_in_cluster:multi_ports:ports:info:same_as_port"], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:data-sources:workload:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:workload:properties:service:advertise_options:advertise_in_cluster:multi_ports:ports:info", "parent_id": "xcsh-docs:data-sources:workload:properties:service:advertise_options:advertise_in_cluster:multi_ports:ports", "path": "documentation/data-sources/workload/properties/service/advertise_options/advertise_in_cluster/multi_ports/ports/info/index.md", "product": "distributed-cloud", "provider_name": "workload", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "data-sources", "registry_anchor": "canonical-1311013020110322-3332312222230230-2111331120112121-1302023321211110-3121210102132002-3331300220020203-0032132323002103-2013103230232311", "registry_path": "docs/guides/data-sources--workload--reference--group-008.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["service", "advertise_options", "advertise_in_cluster", "multi_ports", "ports", "info"], "schema_version": 1, "sections": [{"aliases": ["service advertise options advertise in cluster multi ports ports info port"], "anchor": "schema-service--advertise_options--advertise_in_cluster--multi_ports--ports--info--port", "description": "Port the workload can be reached on.", "document_id": "xcsh-docs:data-sources:workload:properties:service:advertise_options:advertise_in_cluster:multi_ports:ports:info", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["service", "advertise_options", "advertise_in_cluster", "multi_ports", "ports", "info", "port"], "syntax": "attribute", "type": "number"}, {"aliases": ["service advertise options advertise in cluster multi ports ports info protocol"], "anchor": "schema-service--advertise_options--advertise_in_cluster--multi_ports--ports--info--protocol", "description": "Type of protocol - PROTOCOL_TCP: TCP TCP - PROTOCOL_HTTP: HTTP HTTP - PROTOCOL_HTTP2: HTTP2 HTTP2 - PROTOCOL_TLS_WITH_SNI: TLS with SNI TLS with SNI - PROTOCOL_UDP: UDP UDP.", "document_id": "xcsh-docs:data-sources:workload:properties:service:advertise_options:advertise_in_cluster:multi_ports:ports:info", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["service", "advertise_options", "advertise_in_cluster", "multi_ports", "ports", "info", "protocol"], "syntax": "attribute", "type": "string"}, {"aliases": ["service advertise options advertise in cluster multi ports ports info same as port"], "anchor": "section", "description": "This can be used for messages where no values are needed.", "document_id": "xcsh-docs:data-sources:workload:properties:service:advertise_options:advertise_in_cluster:multi_ports:ports:info:same_as_port", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["service", "advertise_options", "advertise_in_cluster", "multi_ports", "ports", "info", "same_as_port"], "syntax": "attribute", "type": "object"}, {"aliases": ["service advertise options advertise in cluster multi ports ports info target port"], "anchor": "schema-service--advertise_options--advertise_in_cluster--multi_ports--ports--info--target_port", "description": "Exclusive with Port the workload is listening on.", "document_id": "xcsh-docs:data-sources:workload:properties:service:advertise_options:advertise_in_cluster:multi_ports:ports:info", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["service", "advertise_options", "advertise_in_cluster", "multi_ports", "ports", "info", "target_port"], "syntax": "attribute", "type": "number"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/workload/properties/service/advertise_options/advertise_in_cluster/multi_ports/ports/info/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Port information.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["workloadCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
+xcsh_docs: {"aliases": ["service advertise options advertise in cluster multi ports ports info"], "body_bytes": 4831, "body_sha256": "sha256:c4662ecede40fa304bbecc2c966851cbc363896905a515e6c5a909dc8c696a0a", "capabilities": ["container"], "category": "container", "child_ids": ["xcsh-docs:data-sources:workload:properties:service:advertise_options:advertise_in_cluster:multi_ports:ports:info:same_as_port"], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:data-sources:workload:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:workload:properties:service:advertise_options:advertise_in_cluster:multi_ports:ports:info", "parent_id": "xcsh-docs:data-sources:workload:properties:service:advertise_options:advertise_in_cluster:multi_ports:ports", "path": "documentation/data-sources/workload/properties/service/advertise_options/advertise_in_cluster/multi_ports/ports/info/index.md", "product": "distributed-cloud", "provider_name": "workload", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "data-sources", "registry_anchor": "canonical-1311013020110322-3332312222230230-2111331120112121-1302023321211110-3121210102132002-3331300220020203-0032132323002103-2013103230232311", "registry_path": "docs/guides/data-sources--workload--reference--group-008.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["service", "advertise_options", "advertise_in_cluster", "multi_ports", "ports", "info"], "schema_version": 1, "sections": [{"aliases": ["service advertise options advertise in cluster multi ports ports info port"], "anchor": "schema-service--advertise_options--advertise_in_cluster--multi_ports--ports--info--port", "description": "Port the workload can be reached on.", "document_id": "xcsh-docs:data-sources:workload:properties:service:advertise_options:advertise_in_cluster:multi_ports:ports:info", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["service", "advertise_options", "advertise_in_cluster", "multi_ports", "ports", "info", "port"], "syntax": "attribute", "type": "number"}, {"aliases": ["service advertise options advertise in cluster multi ports ports info protocol"], "anchor": "schema-service--advertise_options--advertise_in_cluster--multi_ports--ports--info--protocol", "description": "Type of protocol - PROTOCOL_TCP: TCP TCP - PROTOCOL_HTTP: HTTP HTTP - PROTOCOL_HTTP2: HTTP2 HTTP2 - PROTOCOL_TLS_WITH_SNI: TLS with SNI TLS with SNI - PROTOCOL_UDP: UDP UDP.", "document_id": "xcsh-docs:data-sources:workload:properties:service:advertise_options:advertise_in_cluster:multi_ports:ports:info", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["service", "advertise_options", "advertise_in_cluster", "multi_ports", "ports", "info", "protocol"], "syntax": "attribute", "type": "string"}, {"aliases": ["service advertise options advertise in cluster multi ports ports info same as port"], "anchor": "section", "description": "This can be used for messages where no values are needed.", "document_id": "xcsh-docs:data-sources:workload:properties:service:advertise_options:advertise_in_cluster:multi_ports:ports:info:same_as_port", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["service", "advertise_options", "advertise_in_cluster", "multi_ports", "ports", "info", "same_as_port"], "syntax": "attribute", "type": "object"}, {"aliases": ["service advertise options advertise in cluster multi ports ports info target port"], "anchor": "schema-service--advertise_options--advertise_in_cluster--multi_ports--ports--info--target_port", "description": "Exclusive with Port the workload is listening on.", "document_id": "xcsh-docs:data-sources:workload:properties:service:advertise_options:advertise_in_cluster:multi_ports:ports:info", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["service", "advertise_options", "advertise_in_cluster", "multi_ports", "ports", "info", "target_port"], "syntax": "attribute", "type": "number"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/workload/properties/service/advertise_options/advertise_in_cluster/multi_ports/ports/info/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Port information.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["workloadCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -28,10 +28,6 @@ Type: `"single"`. Computed.
 
 Port Information. Port information.
 
-Upstream description:
-
-Port information.
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -55,10 +51,6 @@ Receipt-pinned upstream constraints:
 Type: `"number"`. Computed.
 
 Port. Port the workload can be reached on.
-
-Upstream description:
-
-Port the workload can be reached on.
 
 Receipt-pinned upstream constraints:
 
@@ -108,22 +100,6 @@ PROTOCOL\_TLS\_WITH\_SNI: TLS with SNI TLS with SNI - PROTOCOL\_UDP: UDP UDP. Po
 \`PROTOCOL\_TCP\`, \`PROTOCOL\_HTTP\`, \`PROTOCOL\_HTTP2\`, \`PROTOCOL\_TLS\_WITH\_SNI\`,
 \`PROTOCOL\_UDP\`. Defaults to \`PROTOCOL\_TCP\`.
 
-Upstream description:
-
-Type of protocol
-
-&#8203;- PROTOCOL\_TCP: TCP
-
-TCP &#8203;- PROTOCOL\_HTTP: HTTP
-
-HTTP &#8203;- PROTOCOL\_HTTP2: HTTP2
-
-HTTP2 &#8203;- PROTOCOL\_TLS\_WITH\_SNI: TLS with SNI
-
-TLS with SNI &#8203;- PROTOCOL\_UDP: UDP
-
-UDP.
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -152,10 +128,6 @@ Receipt-pinned upstream constraints:
 ### target_port property
 
 Type: `"number"`. Computed.
-
-Exclusive with \[same\_as\_port\] Port the workload is listening on.
-
-Upstream description:
 
 Exclusive with \[same\_as\_port\] Port the workload is listening on.
 
@@ -191,9 +163,3 @@ Receipt-pinned upstream constraints:
   }
 }
 ```
-
-## Next pages
-
-- [service.advertise_options.advertise_in_cluster.multi_ports.ports.info.same_as_port](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/workload/properties/service/advertise_options/advertise_in_cluster/multi_ports/ports/info/same_as_port/)
-- [service.advertise_options.advertise_in_cluster.multi_ports.ports](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/workload/properties/service/advertise_options/advertise_in_cluster/multi_ports/ports/)
-- [xcsh_workload](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/workload/)

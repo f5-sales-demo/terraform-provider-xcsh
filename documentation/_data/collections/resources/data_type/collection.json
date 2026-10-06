@@ -192,8 +192,8 @@
   "pages": [
     {
       "aliases": ["data type"],
-      "body_bytes": 1574,
-      "body_sha256": "sha256:08a23b0b68c2b372c3158642fdef7c84873cf27a3bb30983f4d5fdf10ccee342",
+      "body_bytes": 1587,
+      "body_sha256": "sha256:05bdf547baa5dbf4a20ef76af32f0d830198ad908e65716fb0aa1bef5163ee19",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -238,8 +238,8 @@
     },
     {
       "aliases": ["data type"],
-      "body_bytes": 18340,
-      "body_sha256": "sha256:56503584b7d756cc8ab7bbab162a9898ee3465a3a086afc99e5416555847aaf6",
+      "body_bytes": 17525,
+      "body_sha256": "sha256:186994bb2318200207a009e9f5ea52db75586e904cc2d6d4a50db3fbe3173065",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -499,8 +499,8 @@
     },
     {
       "aliases": ["rules"],
-      "body_bytes": 3113,
-      "body_sha256": "sha256:b77e8868ac8bc514a180fedc35ecb58d800fc7eac64dc85dcb63bc85442fd229",
+      "body_bytes": 2485,
+      "body_sha256": "sha256:6da83a67be8b195d87f3e2e79de527d314da34ed8102d7df6cb3d0905b0d7419",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -733,8 +733,8 @@
     },
     {
       "aliases": ["rules key pattern"],
-      "body_bytes": 4273,
-      "body_sha256": "sha256:89b17f9cae0451e714a362a937303fcce40cdc29d1382cbf4cea86986918b497",
+      "body_bytes": 3664,
+      "body_sha256": "sha256:95d39829009614930ab73a1cb0c8cf1cd7470e47b3fef646f565dfcc25f9188c",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:resources:data_type:properties:rules:key_pattern:exact_values"],
@@ -874,8 +874,8 @@
     },
     {
       "aliases": ["rules key pattern exact values"],
-      "body_bytes": 2566,
-      "body_sha256": "sha256:c1c21f61642954bc417672b1b95ba45da82603e0c5fb705961e85b0e1f73e264",
+      "body_bytes": 2276,
+      "body_sha256": "sha256:8214990d575d3ece0160bd3072e5bae2c3413ffcbe324c45cae84d7096021795",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -938,8 +938,8 @@
     },
     {
       "aliases": ["rules key value pattern"],
-      "body_bytes": 1831,
-      "body_sha256": "sha256:0a702a48088785cbcbe4218b344fb3e74128efb0109978fa758a084ed8d572b4",
+      "body_bytes": 1279,
+      "body_sha256": "sha256:86d55d06e687ba114a00ec29bcfce9f364f769ff05c8bd5d2b36b6136c8c67bd",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -1108,8 +1108,8 @@
     },
     {
       "aliases": ["rules key value pattern key pattern"],
-      "body_bytes": 4578,
-      "body_sha256": "sha256:47a4e1acb700716ca5477e1c52bf3dac07abc2d863aa949710c1bc0e84e30f7c",
+      "body_bytes": 3897,
+      "body_sha256": "sha256:34cbd41cc74aa745deb577045fece86d116735f71942e7f4fe967060d98e4f6c",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:resources:data_type:properties:rules:key_value_pattern:key_pattern:exact_values"],
@@ -1249,8 +1249,8 @@
     },
     {
       "aliases": ["rules key value pattern key pattern exact values"],
-      "body_bytes": 2834,
-      "body_sha256": "sha256:40dc76f929c0ff07b7d9d35f179a200503bcc07b22ee8c80d3eaba1c50a5b384",
+      "body_bytes": 2508,
+      "body_sha256": "sha256:937296b9a0428d37f05568d6670551fcda8c1287ff95cb16708c1ed393bd83b0",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -1313,8 +1313,8 @@
     },
     {
       "aliases": ["rules key value pattern value pattern"],
-      "body_bytes": 4596,
-      "body_sha256": "sha256:7d37f41af3fbce50eee8dc44fde447bca616985ed38d9b9d637dd2104c316ad7",
+      "body_bytes": 3911,
+      "body_sha256": "sha256:4f9c70598f991e2002d419c038af758111320b48cc19bd20082e2d87fa6fefa8",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:resources:data_type:properties:rules:key_value_pattern:value_pattern:exact_values"],
@@ -1454,8 +1454,8 @@
     },
     {
       "aliases": ["rules key value pattern value pattern exact values"],
-      "body_bytes": 2848,
-      "body_sha256": "sha256:cc7eaed7d6daf925cb803584bc631af72a306e1a29851b3cc8d1e224fb5b02f9",
+      "body_bytes": 2518,
+      "body_sha256": "sha256:81261839e0946476eeb5e39b19b287b3280cc45e49f0b7d25db41c7d86f952b6",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -1518,8 +1518,8 @@
     },
     {
       "aliases": ["rules value pattern"],
-      "body_bytes": 4291,
-      "body_sha256": "sha256:47ae2ec43f84120b6ed61fccd7fdfe9f3529f3c204de3809c216b325694e7046",
+      "body_bytes": 3678,
+      "body_sha256": "sha256:97dcf6c5c5ec36cc9b6f5f5dcf937304745778303bfc63553a5b7ffb8811b5db",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:resources:data_type:properties:rules:value_pattern:exact_values"],
@@ -1659,8 +1659,8 @@
     },
     {
       "aliases": ["rules value pattern exact values"],
-      "body_bytes": 2580,
-      "body_sha256": "sha256:b581c5a3b13a0edab401d3aa4d40632593d505401e7ac55b69ca4cc1eba3cf5e",
+      "body_bytes": 2286,
+      "body_sha256": "sha256:22628d1ccb8ea1d1c12e1eae0b796ee52c226760f4201e4b7731aa8e1eb69d09",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -1723,8 +1723,8 @@
     },
     {
       "aliases": ["duration", "lifecycle timeout", "operation timeout", "timeouts"],
-      "body_bytes": 2213,
-      "body_sha256": "sha256:2f10b5172c1f370544157d24cc9676536c079b84269466fcb9e04113df7be262",
+      "body_bytes": 1988,
+      "body_sha256": "sha256:9d3117dbfc6130365ec10be78fbf5796606e60f54e92300516b790be24cbe99c",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -1855,8 +1855,8 @@
     },
     {
       "aliases": ["data type"],
-      "body_bytes": 615,
-      "body_sha256": "sha256:7c882f02ce68dbf1be9103330fb7bb6e308273ced62ab5eb849bab9f4b3ace66",
+      "body_bytes": 393,
+      "body_sha256": "sha256:83339b299c8882c7901fd08046b3710d7d3d7b51c78827b75e64f808b22315a9",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:resources:data_type:example:resource"],
@@ -1895,8 +1895,8 @@
     },
     {
       "aliases": ["resource"],
-      "body_bytes": 1253,
-      "body_sha256": "sha256:fe49316b20d23b941b5d25be29ca51efd27b7f1d2c9c4da28b25e897c461bbc9",
+      "body_bytes": 1040,
+      "body_sha256": "sha256:64cda08206c6122365bc515e52d6c60bdb446b018626247f389f417db671e4df",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -1942,8 +1942,8 @@
     },
     {
       "aliases": ["data type"],
-      "body_bytes": 465,
-      "body_sha256": "sha256:713ca47d53a976cc7398211187a8b13c54402af4edd889c6fce5de0329362b8d",
+      "body_bytes": 352,
+      "body_sha256": "sha256:a8d08bd97ec35b62126f60fb084c51101459e2ec9879dc056d87d3ab29e06a53",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -1983,8 +1983,8 @@
     },
     {
       "aliases": ["data type"],
-      "body_bytes": 553,
-      "body_sha256": "sha256:1c16f8f10e3ddfd0944459435608b7c43fb8dbc31d05987bab48fe97406cb22e",
+      "body_bytes": 440,
+      "body_sha256": "sha256:88cb95eb4d064e0d4e728f20ffe509b99fffa5fe2ab07b73d1c8c87944153c00",
       "capabilities": [],
       "category": null,
       "child_ids": [],

@@ -101,8 +101,8 @@
   "pages": [
     {
       "aliases": ["api definition"],
-      "body_bytes": 1435,
-      "body_sha256": "sha256:41a655571cf0cc48b78900997dd63132636bca2c1cf912b1ef6ee252925bd8f6",
+      "body_bytes": 1460,
+      "body_sha256": "sha256:5539a4ac559ab7278a76fc25b2a1f73351edf9d0e059ac3f84d3b90a2cc85980",
       "capabilities": ["api-management"],
       "category": "api-management",
       "child_ids": [
@@ -133,7 +133,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/api_definition/index.txt",
       "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
-      "summary": "Manages API Definition in F5 Distributed Cloud.",
+      "summary": "Reads API Definition information from F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_api_definition",
       "unresolved_relationships": [{ "name": "api_endpoint", "source": "receipt-pinned-dependency:optional" }],
@@ -145,8 +145,8 @@
     },
     {
       "aliases": ["api definition"],
-      "body_bytes": 13151,
-      "body_sha256": "sha256:60db1e7287482254746f4b92d2c1476402d6dad7444b58d89bae68c320932d2c",
+      "body_bytes": 12049,
+      "body_sha256": "sha256:86653376e8884086e5dd5f0c2ec2c51345d6686a9cae191a0ccb5d108931e864",
       "capabilities": ["api-management"],
       "category": "api-management",
       "child_ids": [
@@ -360,8 +360,8 @@
     },
     {
       "aliases": ["api inventory exclusion list"],
-      "body_bytes": 4077,
-      "body_sha256": "sha256:5788db77a162ec1e7890966d0ef3ac620dcf485717999ffb74f1ceb96092864d",
+      "body_bytes": 3474,
+      "body_sha256": "sha256:f17de5569c637b2e5bb10ebcf419d7b13fde2f83d7b08b966129610f06644f8f",
       "capabilities": ["api-management"],
       "category": "api-management",
       "child_ids": [],
@@ -429,8 +429,8 @@
     },
     {
       "aliases": ["api inventory inclusion list"],
-      "body_bytes": 4241,
-      "body_sha256": "sha256:7e1d3666cc786d022d5a156eb1e1e254580a56a89a4fa49f9333f0bebf5d7d1d",
+      "body_bytes": 3556,
+      "body_sha256": "sha256:9de83f1e9ea2f698f0c6b7d8bcf08f51687e0484249ada7e305835b0d2917f1e",
       "capabilities": ["api-management"],
       "category": "api-management",
       "child_ids": [],
@@ -498,8 +498,8 @@
     },
     {
       "aliases": ["backend servers", "mixed schema origin", "origin servers", "upstream servers"],
-      "body_bytes": 1555,
-      "body_sha256": "sha256:44b4567fc2770835dfbfd4599e9d7ff8331fdb02e72f06395535336df50100fb",
+      "body_bytes": 1294,
+      "body_sha256": "sha256:0ae0a302296b0beba99feaf0dc47751793c040a206161c31971ee91463d2e0c6",
       "capabilities": ["api-management"],
       "category": "api-management",
       "child_ids": [],
@@ -538,8 +538,8 @@
     },
     {
       "aliases": ["non api endpoints"],
-      "body_bytes": 4007,
-      "body_sha256": "sha256:71b640df777c42789af002dc8bdb5cdaaaf2a48e2d55f866d8cefb042c0c773e",
+      "body_bytes": 3432,
+      "body_sha256": "sha256:df7a46a4d892304efbb055199e2164ccde1789558dbfcadbc294cfc9bf8f712b",
       "capabilities": ["api-management"],
       "category": "api-management",
       "child_ids": [],
@@ -607,8 +607,8 @@
     },
     {
       "aliases": ["backend servers", "origin servers", "strict schema origin", "upstream servers"],
-      "body_bytes": 1157,
-      "body_sha256": "sha256:cf5a393eba025d831bfc40c21c72245400f30bb009a69b2f046eb595ab14c050",
+      "body_bytes": 896,
+      "body_sha256": "sha256:2dfa3da24616d3a25ed99b42fd362c60af173600aa9c3c66b21763a1899d89e0",
       "capabilities": ["api-management"],
       "category": "api-management",
       "child_ids": [],
@@ -647,8 +647,8 @@
     },
     {
       "aliases": ["api definition"],
-      "body_bytes": 669,
-      "body_sha256": "sha256:1ce5844e296605baa955a85d9bc35dc7a2c454cb41a5b4a22283523510126c41",
+      "body_bytes": 420,
+      "body_sha256": "sha256:c39fb8781361682478cfdda8a0d25437a66c205f0c44af041a67a955f491a114",
       "capabilities": ["api-management"],
       "category": "api-management",
       "child_ids": ["xcsh-docs:data-sources:api_definition:example:data-source"],
@@ -687,8 +687,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 1305,
-      "body_sha256": "sha256:a8f4e5d4f905b5489279e46b28138979e9d0bdcb101adee35a06f7ab266643fe",
+      "body_bytes": 1071,
+      "body_sha256": "sha256:c6da081e6f27da7c45996856167b82c35f2267c3c2b1c2012ef1c3ded3069608",
       "capabilities": ["api-management"],
       "category": "api-management",
       "child_ids": [],

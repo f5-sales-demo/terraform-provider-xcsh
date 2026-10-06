@@ -106,8 +106,8 @@
   "pages": [
     {
       "aliases": ["k8s cluster role"],
-      "body_bytes": 1435,
-      "body_sha256": "sha256:70a0e9f674a2c0a4b340a6bcc273c5bdf58f5d67bdd0c7fb562466306ce1cafb",
+      "body_bytes": 1386,
+      "body_sha256": "sha256:5cd1e6c78da588e75a3a64477cef3885d5f28d93a67815eb6b3303de8348d5f3",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [
@@ -138,7 +138,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/k8s_cluster_role/index.txt",
       "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
-      "summary": "Manages k8s_cluster_role will create the object in the storage backend for namespace metadata.namespace in F5 Distributed Cloud.",
+      "summary": "Reads Kubernetes cluster role information from F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_k8s_cluster_role",
       "unresolved_relationships": [],
@@ -150,8 +150,8 @@
     },
     {
       "aliases": ["k8s cluster role"],
-      "body_bytes": 12777,
-      "body_sha256": "sha256:d9f3c22f3a7e6dfed068209faff26847be33244d730db8dec4a5bc1ac04ed122",
+      "body_bytes": 12273,
+      "body_sha256": "sha256:33798356a04c333509776842c15fdc451c449ea672a41ca8d623f448c27a0468",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [
@@ -320,8 +320,8 @@
     },
     {
       "aliases": ["k8s cluster role selector"],
-      "body_bytes": 4233,
-      "body_sha256": "sha256:556620e884ca7c08bba07bb2f0351e36c98b0d99f14dd97b4bf00f4634c6f576",
+      "body_bytes": 3884,
+      "body_sha256": "sha256:148519a2195a6775838bcd5a6ebe125537ef4938a6f1eafba2c59b6092a4497b",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],
@@ -375,8 +375,8 @@
     },
     {
       "aliases": ["policy rule list"],
-      "body_bytes": 1341,
-      "body_sha256": "sha256:12342173a37b7113def5a1b1ba985c4ec3b0abfbc14ef533ed08da381527b168",
+      "body_bytes": 868,
+      "body_sha256": "sha256:5e07e9612ffcfa23c08594613c90e5fa85d335e97451f9d3a13f66932f28197f",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": ["xcsh-docs:data-sources:k8s_cluster_role:properties:policy_rule_list:policy_rule"],
@@ -430,8 +430,8 @@
     },
     {
       "aliases": ["policy rule list policy rule"],
-      "body_bytes": 2788,
-      "body_sha256": "sha256:d3d97ebaaaebd6b774fb8864e9aa09362d6fe44e09c5ec90d127bab204575cdc",
+      "body_bytes": 2067,
+      "body_sha256": "sha256:8d677647cccaa287bca4fb3def61a4f2a648327601b903dcb081b6cd968839a2",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [
@@ -502,8 +502,8 @@
     },
     {
       "aliases": ["policy rule list policy rule non resource url list"],
-      "body_bytes": 4048,
-      "body_sha256": "sha256:83545d487105530eb0a1cddf68e01fcf929e9ce0e464ed07d4353931ca965554",
+      "body_bytes": 3757,
+      "body_sha256": "sha256:885f52d63f22dcad06e2859927e62fb0914fb48880f1bb704c30ba0dc53b6bf6",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],
@@ -571,8 +571,8 @@
     },
     {
       "aliases": ["policy rule list policy rule resource list"],
-      "body_bytes": 6500,
-      "body_sha256": "sha256:fdd957b638394f38314f078ebe40222d018f4312e535f4a8bfe526e8272c5f6a",
+      "body_bytes": 6209,
+      "body_sha256": "sha256:190dff09861a639a86f88edc9b79db367694054e9a7d35e05a0870610a9194a3",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],
@@ -668,8 +668,8 @@
     },
     {
       "aliases": ["k8s cluster role"],
-      "body_bytes": 681,
-      "body_sha256": "sha256:d3f0514af26405b20d79c5d15a0149ff80723567817c719e6f98ae3d47579996",
+      "body_bytes": 426,
+      "body_sha256": "sha256:ae5f4d66f40350e6f71cd53e6888f7659f128a35bb249f87705d726ba7311ac2",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": ["xcsh-docs:data-sources:k8s_cluster_role:example:data-source"],
@@ -708,8 +708,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 1328,
-      "body_sha256": "sha256:b97f4d4d013abeb414b847b9b434bee8ac80bf711f3040ecd7a39ad5ee19154b",
+      "body_bytes": 1088,
+      "body_sha256": "sha256:f463cd326b554d8a833de44c7c8316b15e965914bb93c8499cd8c416a1c0a6ab",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],

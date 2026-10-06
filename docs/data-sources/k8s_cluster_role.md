@@ -1,10 +1,10 @@
 ---
-page_title: "xcsh_k8s_cluster_role landing"
+page_title: "xcsh_k8s_cluster_role"
 subcategory: "Container"
-description: "Complete grouped canonical reference for xcsh_k8s_cluster_role landing."
+description: "Complete grouped canonical reference for xcsh_k8s_cluster_role."
 ---
 
-# xcsh_k8s_cluster_role landing
+# xcsh_k8s_cluster_role
 
 <a id="canonical-2232121312000210-3132130123201003-2131123201312211-2021232000312101-1032012313201322-3103300020131231-0202213330300122-0302302323323122"></a>
 
@@ -12,28 +12,25 @@ description: "Complete grouped canonical reference for xcsh_k8s_cluster_role lan
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3332030130310213-0022032201323322-3023032202113022-1021333201300213-1322211031111003-3232333221130230-1222101320331132-0110123332032031"></a>
-
-## xcsh_k8s_cluster_role — xcsh_k8s_cluster_role / 333330020112 / 2
+## Overview
 
 Breadcrumbs:
 
 - xcsh_k8s_cluster_role
 
-Manages k8s\_cluster\_role will create the object in the storage backend for namespace
-metadata.namespace in F5 Distributed Cloud.
+Reads Kubernetes cluster role information from F5 Distributed Cloud.
 
-<a id="canonical-3230020332323312-1020132230103132-2130110330320333-2230132103122012-3121122000311122-2032011231010003-0231312021320311-3021003221103233"></a>
+<a id="canonical-3332030130310213-0022032201323322-3023032202113022-1021333201300213-1322211031111003-3232333221130230-1222101320331132-0110123332032031"></a>
 
-## Prerequisites — xcsh_k8s_cluster_role / 333330020112 / 3
+### Prerequisites for `xcsh_k8s_cluster_role`
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
 Required service tier: Advanced.
 
-<a id="canonical-2333011023210213-3103221231301011-3002213001103031-0012001223023112-0001220321101330-0233002121210301-1211322213312331-3020220211101230"></a>
+<a id="canonical-3230020332323312-1020132230103132-2130110330320333-2230132103122012-3121122000311122-2032011231010003-0231312021320311-3021003221103233"></a>
 
-## Minimal configuration — xcsh_k8s_cluster_role / 333330020112 / 4
+### Minimal configuration for `xcsh_k8s_cluster_role`
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -62,15 +59,15 @@ output "k8s_cluster_role_id" {
 }
 ```
 
-<a id="canonical-1213121030021323-3211323230032002-0013022231133033-3213021210033101-0001130213113122-3002230320302311-1101333001322122-0320113230221032"></a>
+<a id="canonical-2333011023210213-3103221231301011-3002213001103031-0012001223023112-0001220321101330-0233002121210301-1211322213312331-3020220211101230"></a>
 
-## Root configuration — xcsh_k8s_cluster_role / 333330020112 / 5
+### Root configuration for `xcsh_k8s_cluster_role`
 
 Required root properties: `name`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-2130313232003310-0222322211203213-1330211130231003-2212201230310033-3013312300010310-2112022223112220-3203032110033220-0032301133103032"></a>
+<a id="canonical-1213121030021323-3211323230032002-0013022231133033-3213021210033101-0001130213113122-3002230320302311-1101333001322122-0320113230221032"></a>
 
-## Next pages — xcsh_k8s_cluster_role / 333330020112 / 6
+### Explore this collection for `xcsh_k8s_cluster_role`
 
 - [Property reference](../guides/data-sources--k8s_cluster_role--reference--group-001.md#canonical-2001310313031232-3003303113031320-0000111202132223-2030000001211031-3123033320222313-3312102121311301-3321002322000112-3233122202001100)
 - [Examples](../guides/data-sources--k8s_cluster_role--examples--group-001.md#canonical-2020200223133133-1213011132112100-3201302032210003-2331332220121210-0033322213031201-3101003002030200-1103001321300103-2312010013201210)

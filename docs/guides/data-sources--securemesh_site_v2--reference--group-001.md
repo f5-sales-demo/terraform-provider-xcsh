@@ -12,18 +12,16 @@ description: "Complete grouped canonical reference for xcsh_securemesh_site_v2 r
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3203102203000211-2331101011103122-1023321310030232-1100002312332300-2313012300111222-1121232301232213-3203023301021022-1332120023231110"></a>
-
-## Property reference — Property reference / 133011231003 / 2
+## Property reference
 
 Breadcrumbs:
 
 - [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
 - Property reference
 
-<a id="canonical-1233120033313233-0301123012300303-2102330211100012-3320012131232012-0101311302220031-2303201120132332-1223311103113103-1322002132131133"></a>
+<a id="canonical-3203102203000211-2331101011103122-1023321310030232-1100002312332300-2313012300111222-1121232301232213-3203023301021022-1332120023231110"></a>
 
-## Direct properties — Property reference / 133011231003 / 3
+### Direct properties for `xcsh_securemesh_site_v2`
 
 - [active_enhanced_firewall_policies](data-sources--securemesh_site_v2--reference--group-003.md#canonical-1331221220031203-3301303103233220-1020321103300210-0212001010311133-3121031113032022-0002002212321231-3023122233121033-1133313030332020): complete subsection reference.
 
@@ -33,15 +31,15 @@ Breadcrumbs:
 
 <a id="canonical-2310123220020203-3123200011023110-3002130330131333-3130302133310012-0311221021130120-2331232333321010-1003202210131131-2222101202011213"></a>
 
-<a id="canonical-0021203130322301-2101032223232230-2012332020303011-1112201310101030-1331310033011330-2123133312000200-2000020031020032-1012013222200303"></a>
+<a id="canonical-1233120033313233-0301123012300303-2102330211100012-3320012131232012-0101311302220031-2303201120132332-1223311103113103-1322002132131133"></a>
 
-## annotations property — Property reference / 133011231003 / 4
+#### `annotations` property
 
 Type: `["map", "string"]`. Computed.
 
 Annotations applied to this resource.
 
-Upstream description:
+Additional upstream details:
 
 Annotations is an unstructured key-value map stored with a resource that may be set by external
 tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when
@@ -113,15 +111,15 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-1212333313222231-2203013012320001-2220111020302012-0021321132233232-2012330212002113-0013201030102102-1103200311322211-1113310213121020"></a>
 
-<a id="canonical-3333100120101211-3021023001031201-0301333201201013-1230000122022300-3012212000210221-2111013312000311-0230232221302313-2023213110230001"></a>
+<a id="canonical-0021203130322301-2101032223232230-2012332020303011-1112201310101030-1331310033011330-2123133312000200-2000020031020032-1012013222200303"></a>
 
-## description property — Property reference / 133011231003 / 5
+#### `description` property
 
 Type: `"string"`. Computed.
 
 Description of the SecuremeshSiteV2.
 
-Upstream description:
+Additional upstream details:
 
 Human readable description for the object.
 
@@ -163,7 +161,7 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [disable_advanced_delivery](data-sources--securemesh_site_v2--reference--group-007.md#canonical-1213023230210130-1032003120132101-2201122000211032-0322111123031323-3030102122310010-0013322302230131-1332131200210210-3120002013301322): complete subsection reference.
+- [disable_advanced_delivery](data-sources--securemesh_site_v2--reference--group-006.md#canonical-1213023230210130-1032003120132101-2201122000211032-0322111123031323-3030102122310010-0013322302230131-1332131200210210-3120002013301322): complete subsection reference.
 
 - [disable_ha](data-sources--securemesh_site_v2--reference--group-007.md#canonical-2013213202032232-1201030110001201-3020211321332212-2120302120002312-3223301330322102-1111020201033332-1202321012210330-1330223033112022): complete subsection reference.
 
@@ -195,9 +193,9 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-1323000022032003-3312322310010203-2203211200220123-3112032101023232-2321012111031003-3230210012011123-3213220000210211-2002001030332230"></a>
 
-<a id="canonical-1221202213321212-3300132223232102-2102131101131132-2211023133300300-0233113311213233-2020201001001032-0220111233122132-0202232313332233"></a>
+<a id="canonical-3333100120101211-3021023001031201-0301333201201013-1230000122022300-3012212000210221-2111013312000311-0230232221302313-2023213110230001"></a>
 
-## ID property — Property reference / 133011231003 / 6
+#### `id` property
 
 Type: `"string"`. Computed.
 
@@ -207,15 +205,15 @@ Unique identifier for the resource.
 
 <a id="canonical-0210110002003023-0231121030202000-3100030303232110-3313202320111302-3321221013020021-0000113302030012-3112131210133100-3312200321023003"></a>
 
-<a id="canonical-0222233333312023-0230130212132020-2101110033131001-1103312331022222-1033222011112012-2013300211212221-1031331313102110-3011012111201320"></a>
+<a id="canonical-1221202213321212-3300132223232102-2102131101131132-2211023133300300-0233113311213233-2020201001001032-0220111233122132-0202232313332233"></a>
 
-## labels property — Property reference / 133011231003 / 7
+#### `labels` property
 
 Type: `["map", "string"]`. Computed.
 
 Labels applied to this resource.
 
-Upstream description:
+Additional upstream details:
 
 Map of string keys and values that can be used to organize and categorize (scope and select) objects
 as chosen by the user. Values specified here will be used by selector expression.
@@ -243,15 +241,15 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-3003313000332032-3001100103103022-1132313320112202-3213010210100010-1023222231220002-1022101302133210-1313032113010333-2133133320010222"></a>
 
-<a id="canonical-2102012100323311-1211231021033333-3013021033111022-3331021320300221-0032132301001102-1233213100311221-1123312332233302-2030112002102330"></a>
+<a id="canonical-0222233333312023-0230130212132020-2101110033131001-1103312331022222-1033222011112012-2013300211212221-1031331313102110-3011012111201320"></a>
 
-## name property — Property reference / 133011231003 / 8
+#### `name` property
 
 Type: `"string"`. Required.
 
 Name of the SecuremeshSiteV2.
 
-Upstream description:
+Additional upstream details:
 
 This is the name of configuration object. It has to be unique within the namespace. It can only be
 specified during create API and cannot be changed during replace API. The value of name has to
@@ -303,15 +301,15 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-2312021203333220-0211133302110132-1002330223310110-1222303001032001-3223212111220101-0011320031003312-2331002112200001-1033200112000220"></a>
 
-<a id="canonical-0230100303011032-1213222020120200-1203002321222201-0102233102211200-3133103202000200-2123113311230033-1221213123101111-1000310330003001"></a>
+<a id="canonical-2102012100323311-1211231021033333-3013021033111022-3331021320300221-0032132301001102-1233213100311221-1123312332233302-2030112002102330"></a>
 
-## namespace property — Property reference / 133011231003 / 9
+#### `namespace` property
 
 Type: `"string"`. Optional, Computed.
 
 Namespace where the SecuremeshSiteV2 exists.
 
-Upstream description:
+Additional upstream details:
 
 This defines the workspace within which each the configuration object is to be created. Must be a
 DNS\_LABEL format. For a namespace object itself, namespace value will be ""
@@ -386,16 +384,11 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-3310110230011202-2321011230331001-2110002301303232-0030021133112210-1232200003130020-3120030010021003-2211200112023321-2022112221110231"></a>
 
-<a id="canonical-3001310200331130-0013111133022200-1012212121132001-0221322223003130-3220122002020011-1101030330223332-1323331101131332-3312321211030020"></a>
+<a id="canonical-0230100303011032-1213222020120200-1203002321222201-0102233102211200-3133103202000200-2123113311230033-1221213123101111-1000310330003001"></a>
 
-## tunnel_dead_timeout property — Property reference / 133011231003 / 10
+#### `tunnel_dead_timeout` property
 
 Type: `"number"`. Computed.
-
-Time interval, in millisec, within which any IPsec / SSL connection from the site going down is
-detected. When not set (== 0), a default value of 10000 msec will be used.
-
-Upstream description:
 
 Time interval, in millisec, within which any IPsec / SSL connection from the site going down is
 detected. When not set (== 0), a default value of 10000 msec will be used.
@@ -435,9 +428,9 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-1132201212132022-1022323021030032-1100321023311233-2012312232113122-1120013001130111-3122113032031002-1303033111022230-2332301003031223"></a>
 
-<a id="canonical-0030002201020323-3100011333110323-0330123320022112-3100131002002202-2220111121212212-3332313302020221-3030303100223031-3021102010320010"></a>
+<a id="canonical-3001310200331130-0013111133022200-1012212121132001-0221322223003130-3220122002020011-1101030330223332-1323331101131332-3312321211030020"></a>
 
-## tunnel_type property — Property reference / 133011231003 / 11
+#### `tunnel_type` property
 
 Type: `"string"`. Computed.
 
@@ -447,13 +440,6 @@ Tunnel encapsulation to be used between sites Tunnel can operate in both IPsec a
 being preferred over SSL. Tunnel is of type IPsec Tunnel is of type SSL. Possible values are
 \`SITE\_TO\_SITE\_TUNNEL\_IPSEC\_OR\_SSL\`, \`SITE\_TO\_SITE\_TUNNEL\_IPSEC\`,
 \`SITE\_TO\_SITE\_TUNNEL\_SSL\`. Defaults to \`SITE\_TO\_SITE\_TUNNEL\_IPSEC\_OR\_SSL\`.
-
-Upstream description:
-
-Tunnel encapsulation to be used between sites
-
-Tunnel can operate in both IPsec and SSL, with IPsec being preferred over SSL. Tunnel is of type
-IPsec Tunnel is of type SSL.
 
 Receipt-pinned upstream constraints:
 

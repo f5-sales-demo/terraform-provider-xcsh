@@ -161,8 +161,8 @@
   "pages": [
     {
       "aliases": ["app api group"],
-      "body_bytes": 1621,
-      "body_sha256": "sha256:02eea4f2c35f9cffaff88a1c77c593cdaa45eb7dff592d117719de3d03017d8e",
+      "body_bytes": 1634,
+      "body_sha256": "sha256:92bdb63b2067e38e2ddbe43e863c21eac54c3d755eaa77fdb489b11382279481",
       "capabilities": ["api-management"],
       "category": "api-management",
       "child_ids": [
@@ -207,8 +207,8 @@
     },
     {
       "aliases": ["app api group"],
-      "body_bytes": 14816,
-      "body_sha256": "sha256:0bc1383e9f05f44903f98562b38f37106fef36e5bd4750300e68a42a88f1461a",
+      "body_bytes": 13922,
+      "body_sha256": "sha256:84609b6e9ba9efc27148abf94215c4bf338bbd8270755f70581b3165b5106227",
       "capabilities": ["api-management"],
       "category": "api-management",
       "child_ids": [
@@ -439,8 +439,8 @@
     },
     {
       "aliases": ["bigip virtual server"],
-      "body_bytes": 2136,
-      "body_sha256": "sha256:de94d9a0343f3c68fe15508f75329d9a0067691b3478df4b2b219a117d332248",
+      "body_bytes": 1626,
+      "body_sha256": "sha256:332cb05720e90547a154555ca0b9831f66de3fc6e5a002dffeb6d60e83da6e28",
       "capabilities": ["api-management"],
       "category": "api-management",
       "child_ids": ["xcsh-docs:resources:app_api_group:properties:bigip_virtual_server:bigip_virtual_server"],
@@ -503,8 +503,8 @@
     },
     {
       "aliases": ["bigip virtual server bigip virtual server"],
-      "body_bytes": 6153,
-      "body_sha256": "sha256:7befdcf236a29964212862f2d1e46be75c003af11ba8593e16fe20e494108ddb",
+      "body_bytes": 5220,
+      "body_sha256": "sha256:b155e81c9c3172b6a95fd5ebc16cd5b676b154352b769fc20f3bc17bdf2be81f",
       "capabilities": ["api-management"],
       "category": "api-management",
       "child_ids": [],
@@ -595,8 +595,8 @@
     },
     {
       "aliases": ["cdn loadbalancer"],
-      "body_bytes": 1393,
-      "body_sha256": "sha256:51fd84b0c561443fbf861801a1d455579cc62d5c3c57813e5a0e96ee2ad79329",
+      "body_bytes": 991,
+      "body_sha256": "sha256:2ed1a86331726757d90b7c28e9ed772d27f46e0b6a19976cd1b738ced0b5b2f4",
       "capabilities": ["api-management"],
       "category": "api-management",
       "child_ids": ["xcsh-docs:resources:app_api_group:properties:cdn_loadbalancer:cdn_loadbalancer"],
@@ -659,8 +659,8 @@
     },
     {
       "aliases": ["cdn loadbalancer cdn loadbalancer"],
-      "body_bytes": 6093,
-      "body_sha256": "sha256:2f79626714d008217a7832f01a695532af5320c2df54c99bda771633da0f23e4",
+      "body_bytes": 5168,
+      "body_sha256": "sha256:aef4d042a18945b27812f33b8061653b8dc7582c7191237b095c322b2b789374",
       "capabilities": ["api-management"],
       "category": "api-management",
       "child_ids": [],
@@ -751,8 +751,8 @@
     },
     {
       "aliases": ["elements"],
-      "body_bytes": 5342,
-      "body_sha256": "sha256:269e615d1016827eefc729c9ed329b9af7b45c150d7f64498056dc84ad0429cc",
+      "body_bytes": 4733,
+      "body_sha256": "sha256:6693dc92ed59b31bd3508e74e8b3f3156e93b943ba66162b5fb3c52c34d28ebf",
       "capabilities": ["api-management"],
       "category": "api-management",
       "child_ids": [],
@@ -837,8 +837,8 @@
     },
     {
       "aliases": ["http loadbalancer"],
-      "body_bytes": 1404,
-      "body_sha256": "sha256:7aef2996cdac8fbbafd3306b584a24a2af420bacec5e43d7331950e3277aedec",
+      "body_bytes": 998,
+      "body_sha256": "sha256:c3eb877a566fdd8afed88ae8a5e83770fd257b5a73488fb906e05929adfea4f5",
       "capabilities": ["api-management"],
       "category": "api-management",
       "child_ids": ["xcsh-docs:resources:app_api_group:properties:http_loadbalancer:http_loadbalancer"],
@@ -901,8 +901,8 @@
     },
     {
       "aliases": ["http loadbalancer http loadbalancer"],
-      "body_bytes": 6108,
-      "body_sha256": "sha256:04a461a70f6625a3b479074c6986ffc8f4b6fbe0ceecc20d6aae8e4136dbf630",
+      "body_bytes": 5181,
+      "body_sha256": "sha256:de2fac668eb22b7f0665da231368296e7131cb2839ab7f75f0d091126b0fb8bc",
       "capabilities": ["api-management"],
       "category": "api-management",
       "child_ids": [],
@@ -993,8 +993,8 @@
     },
     {
       "aliases": ["duration", "lifecycle timeout", "operation timeout", "timeouts"],
-      "body_bytes": 2237,
-      "body_sha256": "sha256:5d40e3f3f1b90211241b1ed2e64744702784d91997f48414237cd6c76ecdf8ed",
+      "body_bytes": 2000,
+      "body_sha256": "sha256:9f57d54d4cda51c22af660ca59301c8733bd9a855f4bde73c58a7a4abb60fed7",
       "capabilities": ["api-management"],
       "category": "api-management",
       "child_ids": [],
@@ -1125,8 +1125,8 @@
     },
     {
       "aliases": ["app api group"],
-      "body_bytes": 639,
-      "body_sha256": "sha256:cee91eb601e437083baa6f6c8cceec2773b9ba5e0d96bb4d011aa4ea62d77042",
+      "body_bytes": 405,
+      "body_sha256": "sha256:778a40c0b7441a71c1dab668cc6fa9baa897e9cde6df8b0ecac8c4607c0d661c",
       "capabilities": ["api-management"],
       "category": "api-management",
       "child_ids": ["xcsh-docs:resources:app_api_group:example:resource"],
@@ -1165,8 +1165,8 @@
     },
     {
       "aliases": ["resource"],
-      "body_bytes": 1299,
-      "body_sha256": "sha256:230476ba7de896d1887c94207f46f56e4e63ca13024e596712d4e442a1e63f89",
+      "body_bytes": 1074,
+      "body_sha256": "sha256:dd59c4f7c02290aed2f89754c87a0e0771112dd5abdaff6bdf3a34d079b0f42b",
       "capabilities": ["api-management"],
       "category": "api-management",
       "child_ids": [],
@@ -1212,8 +1212,8 @@
     },
     {
       "aliases": ["app api group"],
-      "body_bytes": 485,
-      "body_sha256": "sha256:1607b63aa9f4311ab85ad6163c438687c29414955da3c5ed8a05c00d2a9be24b",
+      "body_bytes": 364,
+      "body_sha256": "sha256:e62b61fdfecb0539870ced54fa75016835fa43a35f5af22fca2fbfdef0b836ce",
       "capabilities": ["api-management"],
       "category": "api-management",
       "child_ids": [],
@@ -1253,8 +1253,8 @@
     },
     {
       "aliases": ["app api group"],
-      "body_bytes": 573,
-      "body_sha256": "sha256:04719985d152e3211d79af8c0fd2a314e1b56409b84920d4fbb9c195f7cf3a17",
+      "body_bytes": 452,
+      "body_sha256": "sha256:0d5e18c43e32991570f48ff1cef73f3507e1075d8d63849e27cbba515f36fd94",
       "capabilities": ["api-management"],
       "category": "api-management",
       "child_ids": [],

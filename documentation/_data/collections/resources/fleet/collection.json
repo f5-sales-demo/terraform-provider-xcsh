@@ -3520,8 +3520,8 @@
   "pages": [
     {
       "aliases": ["fleet"],
-      "body_bytes": 1563,
-      "body_sha256": "sha256:c965999b28e0addfc58d0b0813df98d1364982525c223d7d47c8023411bdceae",
+      "body_bytes": 1576,
+      "body_sha256": "sha256:a0188f2002564fa03add09828f26a8368fb4bef58b2573c21e647c38df1e552d",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -3566,8 +3566,8 @@
     },
     {
       "aliases": ["fleet"],
-      "body_bytes": 176008,
-      "body_sha256": "sha256:e93d44882d4b631134503b9fffcef306d0628baf809c7371e16e07a7309a1260",
+      "body_bytes": 170558,
+      "body_sha256": "sha256:e0586333a1eb318420bed3f36ca5fc5b62ff42878a7ba9816ce9c3bc60febcd9",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -4496,8 +4496,8 @@
     },
     {
       "aliases": ["allow all usb"],
-      "body_bytes": 1593,
-      "body_sha256": "sha256:64ed472df92318137ecf2b55e950d02d74faaef289c830b650d3b24d9a1ac5e3",
+      "body_bytes": 1365,
+      "body_sha256": "sha256:5e41d25508af05108f049699bd5b5ea5d3280bf8f69c5212a65323ac02679375",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -4536,8 +4536,8 @@
     },
     {
       "aliases": ["blocked services"],
-      "body_bytes": 8794,
-      "body_sha256": "sha256:60c991ddea91f4fd7e962e237ab79dbbeeada57097889483c68a97c47ec1b394",
+      "body_bytes": 8162,
+      "body_sha256": "sha256:a3dcc1a3ec4513f0f807510d7cda7b817d2c49cb4cd4e329cf3a726a46374e9d",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -4686,8 +4686,8 @@
     },
     {
       "aliases": ["blocked services dns"],
-      "body_bytes": 1182,
-      "body_sha256": "sha256:462ad6d86bf2943566fb9a06ba0433d2ed8c17f0403ab0c866de724edf5ec7d8",
+      "body_bytes": 939,
+      "body_sha256": "sha256:d0e6c2b080039afaf2384b8bc20e7e8715a25b820c4c5e57ad2f8e9e7b608c69",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -4707,7 +4707,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3221332113111220-3010302110013032-3213220312323020-1000113322202101-2022231333313222-1303323113231210-0322133011123230-2012313233132100",
-      "registry_path": "docs/guides/resources--fleet--reference--group-002.md",
+      "registry_path": "docs/guides/resources--fleet--reference--group-001.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -4726,8 +4726,8 @@
     },
     {
       "aliases": ["blocked services ssh"],
-      "body_bytes": 1182,
-      "body_sha256": "sha256:cae7978336e479b9dcd58fdb4ac33e0c9af49b458521375594bc1ed9ae2ebb49",
+      "body_bytes": 939,
+      "body_sha256": "sha256:a69149f2eeb5dd98dd5501c4fbf353896c67485ca50695e55b160c79a1ce5d95",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -4747,7 +4747,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1312203301110103-3130012113230101-2222302103001111-1223002010202130-2211020022130220-0002131113022003-3323311022010330-1232222133330110",
-      "registry_path": "docs/guides/resources--fleet--reference--group-002.md",
+      "registry_path": "docs/guides/resources--fleet--reference--group-001.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -4766,8 +4766,8 @@
     },
     {
       "aliases": ["blocked services web user interface"],
-      "body_bytes": 1227,
-      "body_sha256": "sha256:c329affa3138815d64d134516aeb152733d47a2810af29e9bb160353589d9c5a",
+      "body_bytes": 984,
+      "body_sha256": "sha256:1344c46dfd0ffb07cbc3aa548c0080c2da33dfd4acab46a8da76cf79a2075c68",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -4787,7 +4787,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2330030223021022-3303111302020012-1322230100321132-3313012120100100-2301301031112131-2333010110020231-2330221010013220-1231001021220120",
-      "registry_path": "docs/guides/resources--fleet--reference--group-002.md",
+      "registry_path": "docs/guides/resources--fleet--reference--group-001.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -4806,8 +4806,8 @@
     },
     {
       "aliases": ["bond device list"],
-      "body_bytes": 1961,
-      "body_sha256": "sha256:2b88fe5ced612d7a39112d50477740ee0c44ad23a01acb707e2cb1101e9311e5",
+      "body_bytes": 1538,
+      "body_sha256": "sha256:cd5c7d9e1b1dd6d88b5c38afb5e22da38d993582533d5a82bb467bdda29d68e0",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:resources:fleet:properties:bond_device_list:bond_devices"],
@@ -4827,7 +4827,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1101302100313120-2212133323013032-0201223201313230-1122203333102023-2010323123100003-2332211203232322-2313210102331313-0120210021230331",
-      "registry_path": "docs/guides/resources--fleet--reference--group-002.md",
+      "registry_path": "docs/guides/resources--fleet--reference--group-001.md",
       "relationships": [
         {
           "anchor": "section",
@@ -4919,8 +4919,8 @@
     },
     {
       "aliases": ["bond device list bond devices"],
-      "body_bytes": 8338,
-      "body_sha256": "sha256:5c1bfa8c2ca21e5b5a4c59f27d0a1b7dafb61b8b896b25f5893b51c9a43658a0",
+      "body_bytes": 7611,
+      "body_sha256": "sha256:bec025c8527949617beb4f5afe09f7ffb9b031d575cdb4cd96a8febe3beacb93",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -4943,7 +4943,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3020331033311102-0020213233201230-3031313012333131-1001102032213002-1323132210300221-2003023230101330-3011302033002012-1221333213130113",
-      "registry_path": "docs/guides/resources--fleet--reference--group-002.md",
+      "registry_path": "docs/guides/resources--fleet--reference--group-001.md",
       "relationships": [
         {
           "anchor": "section",
@@ -5105,8 +5105,8 @@
     },
     {
       "aliases": ["bond device list bond devices active backup"],
-      "body_bytes": 1437,
-      "body_sha256": "sha256:376750eb4d12a6e99c56bf42020c4631b8a5a3ac4b2b66c58243a5c837346e3d",
+      "body_bytes": 1168,
+      "body_sha256": "sha256:d3179b37458919be6a5480b855b7d3fc1daae5fcb27e18f4ffdbb0c060410a06",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -5145,8 +5145,8 @@
     },
     {
       "aliases": ["bond device list bond devices lacp"],
-      "body_bytes": 2519,
-      "body_sha256": "sha256:3bb3e52a65eba73e8e2c8fc692ff32a616f173b61b004379971a9e05e21f10c1",
+      "body_bytes": 2204,
+      "body_sha256": "sha256:1ea4ec283d27d69fe84b8be1ba0eb2a03745c158225346f539afe6a50f9c3c77",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -5209,8 +5209,8 @@
     },
     {
       "aliases": ["dc cluster group"],
-      "body_bytes": 6445,
-      "body_sha256": "sha256:f55faebcaca2c52806b165517e73d647139402e084e4d6b0cc32761e1f8432d7",
+      "body_bytes": 5682,
+      "body_sha256": "sha256:c3fd0d67fa4fecac3f16edb9fb547b163ff265898c05cb1f8b842ed11d3460f7",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -5301,8 +5301,8 @@
     },
     {
       "aliases": ["dc cluster group inside"],
-      "body_bytes": 5853,
-      "body_sha256": "sha256:64b11ccfe9f190b5bd97c36e43061cc652e260a7c5f420a2123f5a04d630d69b",
+      "body_bytes": 4967,
+      "body_sha256": "sha256:a761526a128770877b15172ca9b6d96d8c71505793a643f99124ae7c73d84f16",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -5393,8 +5393,8 @@
     },
     {
       "aliases": ["default config"],
-      "body_bytes": 1608,
-      "body_sha256": "sha256:13b26f41aa76479221a244aacb4f748530d3d0235527f0e743582548c9ef6a4e",
+      "body_bytes": 1380,
+      "body_sha256": "sha256:e7207ad2415ad0dc0d76b18fadb0089817f19eec459cf7723e34e492cb8eb057",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -5433,8 +5433,8 @@
     },
     {
       "aliases": ["default sriov interface"],
-      "body_bytes": 1578,
-      "body_sha256": "sha256:37feeb71d0cdc5c2fcb33d0c62ac9f71e0d39b0962e0db115fb413affffa656e",
+      "body_bytes": 1350,
+      "body_sha256": "sha256:7781b60056ba674d3ad60cb46f76fcd373a8639da2819504f791da5a0ed597e3",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -5473,8 +5473,8 @@
     },
     {
       "aliases": ["default storage class"],
-      "body_bytes": 1569,
-      "body_sha256": "sha256:b0acebf15e5c314e294e03b12bff2a98137b6e830e08da78a9d69f0744851fb5",
+      "body_bytes": 1341,
+      "body_sha256": "sha256:5c1a9d6c64f61f408df4f7e1d1b885a1d8fd571fded47cd23eaa588c3d604bd8",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -5513,8 +5513,8 @@
     },
     {
       "aliases": ["deny all usb"],
-      "body_bytes": 1060,
-      "body_sha256": "sha256:a9887e2d7c2d8c1fbdfb1fe15e798ab70f53c6bdd77705900a161b1dcecfb6b3",
+      "body_bytes": 832,
+      "body_sha256": "sha256:74d6b13b9f9d11f44adcf91a9dd38863b7a336f064faf1c7660b8dd06fb55b49",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -5553,8 +5553,8 @@
     },
     {
       "aliases": ["device list"],
-      "body_bytes": 1255,
-      "body_sha256": "sha256:f34457ad3c4db4a5a56aa4ebbd61f177c95a1ddd9d69531bb8f02469ec476d26",
+      "body_bytes": 913,
+      "body_sha256": "sha256:f80d5fab6d9989de8df079cdb979569462652aba5e7382deda5796aad4e7a611",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:resources:fleet:properties:device_list:devices"],
@@ -5608,8 +5608,8 @@
     },
     {
       "aliases": ["device list devices"],
-      "body_bytes": 5568,
-      "body_sha256": "sha256:e9866632cdb284afd55dd4667529ecbac4ccdf5749bbede6d7a38a3f7ea971f4",
+      "body_bytes": 4800,
+      "body_sha256": "sha256:ca4bc35db5b0ceaa0a267ec9cf9a0d8c90b87aa0a5ba7682eab6cee35ab95dc9",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:resources:fleet:properties:device_list:devices:network_device"],
@@ -5700,8 +5700,8 @@
     },
     {
       "aliases": ["device list devices network device"],
-      "body_bytes": 4073,
-      "body_sha256": "sha256:d08154948f6c7833942c668595e52ede86f63e40856918b9f5c17da9ebb56cb7",
+      "body_bytes": 3455,
+      "body_sha256": "sha256:c6a0e5201ba4b2c3c2a8add99937f57efb8dc1f97be1b392f4dd465c9fc37a53",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:resources:fleet:properties:device_list:devices:network_device:interface"],
@@ -5778,8 +5778,8 @@
     },
     {
       "aliases": ["device list devices network device interface"],
-      "body_bytes": 8003,
-      "body_sha256": "sha256:f40cdaa1c9400463a51c50f609e95539237774c31e56854a841d9ebfabd51420",
+      "body_bytes": 6733,
+      "body_sha256": "sha256:fee0a872979e2b72cda853862d79f139d8ced546a4eae70258289ab95379477b",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -5889,8 +5889,8 @@
     },
     {
       "aliases": ["disable gpu"],
-      "body_bytes": 1597,
-      "body_sha256": "sha256:fe1286fde395054db20db9d301dc996c18d897e06c6a6f6d0ab303bf72f20622",
+      "body_bytes": 1369,
+      "body_sha256": "sha256:d8414aa4747bcbebb69e62429b65ed49a66a72ce35efc65c64ea8589855292e8",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -5929,8 +5929,8 @@
     },
     {
       "aliases": ["disable log anonymization"],
-      "body_bytes": 1619,
-      "body_sha256": "sha256:de9a29294b6a86ec2343d20824f7d797d5fd2f5c305142069f146dd1e0296a32",
+      "body_bytes": 1391,
+      "body_sha256": "sha256:c5ee8f96deefe4c78e69e1bef5e49e1495c14c2103da0935e52bf7043730bc40",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -5969,8 +5969,8 @@
     },
     {
       "aliases": ["disable vm"],
-      "body_bytes": 1430,
-      "body_sha256": "sha256:a4484c0d0a0162f87056e59544bef91c9635c723fcd9bb939829fa1353c03340",
+      "body_bytes": 1202,
+      "body_sha256": "sha256:6704b1248383eca5931db2ebf20d086c189097e77ab62b890f6716fd17d50a25",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -6009,8 +6009,8 @@
     },
     {
       "aliases": ["enable gpu"],
-      "body_bytes": 1031,
-      "body_sha256": "sha256:7f5109de3829deaf8216425a5602892fae5947d98413fdf21dba5173603f6f11",
+      "body_bytes": 803,
+      "body_sha256": "sha256:d7939a97ffd3f757f9a8d2838ce2ec129a42e5812d1eec7a2cc71396a8ea5ede",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -6049,8 +6049,8 @@
     },
     {
       "aliases": ["enable log anonymization"],
-      "body_bytes": 1108,
-      "body_sha256": "sha256:e0c2fc01e5dab48ac27609c8071d2c2933ce9a3169b078f69641e177e5a11e38",
+      "body_bytes": 880,
+      "body_sha256": "sha256:a7172fe9921f61ae4800752097cc48f9cfa1b50c9945e3fc92547efc697baa4c",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -6089,8 +6089,8 @@
     },
     {
       "aliases": ["enable vgpu"],
-      "body_bytes": 3999,
-      "body_sha256": "sha256:2bf729a11882516289ba4d7c6fa93873de79abb153d8eba002377e898cb85a6c",
+      "body_bytes": 3491,
+      "body_sha256": "sha256:9b21fffec4375d96efd790fedd0404948592adf835bfa1257bb13f83be89a922",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -6181,8 +6181,8 @@
     },
     {
       "aliases": ["enable vm"],
-      "body_bytes": 1023,
-      "body_sha256": "sha256:3f456747a10b8e8a9cd2f8cc420080188f6dd0697caa4ca33ea3155b2c0326d9",
+      "body_bytes": 737,
+      "body_sha256": "sha256:cc56c977d79c1138529a7d85d443761fec054151f74c144fd12b88b8540f144e",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -6221,8 +6221,8 @@
     },
     {
       "aliases": ["inside virtual network"],
-      "body_bytes": 6331,
-      "body_sha256": "sha256:cce841091690cd00a03d956507eadaefab72a303ce329f1ecb1a9c43361aebfc",
+      "body_bytes": 5428,
+      "body_sha256": "sha256:9e65d505d0713f6c22675dd1d9793aecb79a2a70694db6b48d583f4b88fc816b",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -6332,8 +6332,8 @@
     },
     {
       "aliases": ["interface list"],
-      "body_bytes": 1423,
-      "body_sha256": "sha256:fd4f5c9cff9176525914256bababdc4e689f1f3749b24330bb97d682bcad51b9",
+      "body_bytes": 1069,
+      "body_sha256": "sha256:3d64a4bf71472c4fac62b0d30475855fa60b01834616f13734fe6d4f9b32abd0",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:resources:fleet:properties:interface_list:interfaces"],
@@ -6405,8 +6405,8 @@
     },
     {
       "aliases": ["interface list interfaces"],
-      "body_bytes": 6529,
-      "body_sha256": "sha256:35ff3310ab618f95afcbf1b0e83e754a30db002041af7a77f64764ea916fc2c1",
+      "body_bytes": 5802,
+      "body_sha256": "sha256:db3173ee8be728b41da43496e4871de24eaa511b1c6e897d4426f3cdf745923b",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -6497,8 +6497,8 @@
     },
     {
       "aliases": ["kubernetes upgrade drain"],
-      "body_bytes": 2070,
-      "body_sha256": "sha256:4b86b871f82a87d550f64d1fd93268d81af4c097ae52a2cee3d6f70018a24061",
+      "body_bytes": 1493,
+      "body_sha256": "sha256:2c63ee91cfbf413a6c8d8ddace958a3f6729144869256ea1d9ceb3a1d51a0feb",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -6627,8 +6627,8 @@
     },
     {
       "aliases": ["kubernetes upgrade drain disable upgrade drain"],
-      "body_bytes": 1316,
-      "body_sha256": "sha256:76314194da744a54e55ee32fcac7363b6cdf3008ca5b32f073bcf0ebed9072e4",
+      "body_bytes": 1057,
+      "body_sha256": "sha256:2e4135eff2a2ddb903632439bb480ea237c3fc93b638ac15731c84d13c26506c",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -6667,8 +6667,8 @@
     },
     {
       "aliases": ["kubernetes upgrade drain enable upgrade drain"],
-      "body_bytes": 5870,
-      "body_sha256": "sha256:fd934ed7122b6496efc2625c81ad25261f74fdd1bab63f0ea76a21e1b010093e",
+      "body_bytes": 4799,
+      "body_sha256": "sha256:49b99787acef6831416e725657da757100628625f9a5f13939c1e2bce166d6e7",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -6822,8 +6822,8 @@
     },
     {
       "aliases": ["kubernetes upgrade drain enable upgrade drain disable vega upgrade mode"],
-      "body_bytes": 1597,
-      "body_sha256": "sha256:509e7ed2177f5b1839e295abb78c0796e2094d988a60afc9679b098d10b6f288",
+      "body_bytes": 1296,
+      "body_sha256": "sha256:c010a73b8b9196bba7f731cd37a95b034a9a5333cf672a2908f0d86464008758",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -6862,8 +6862,8 @@
     },
     {
       "aliases": ["kubernetes upgrade drain enable upgrade drain enable vega upgrade mode"],
-      "body_bytes": 1593,
-      "body_sha256": "sha256:4cf2be77405ffdce393f4fa110f6ff98512babdb7aafcde1fd21c5c4cd35b898",
+      "body_bytes": 1292,
+      "body_sha256": "sha256:8b39c9fc62137bd5dfbf54d6255c51c242d094007eb193102c8ef34dc799f2be",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -6902,8 +6902,8 @@
     },
     {
       "aliases": ["log receiver"],
-      "body_bytes": 6213,
-      "body_sha256": "sha256:ecef6e66b630d3a2a8f5b4ee88a5f518a85fcdd16b19d5f1d511d1d1df2303f2",
+      "body_bytes": 5450,
+      "body_sha256": "sha256:7492e0e75ad6f60e6cd6831dff28457dd490bb3e96e48754739633e201951570",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -6994,8 +6994,8 @@
     },
     {
       "aliases": ["logs streaming disabled"],
-      "body_bytes": 1070,
-      "body_sha256": "sha256:80075adacd67297ae8c0a7e361204a7df8de30b9be19ce0f04b6c03d211301b2",
+      "body_bytes": 842,
+      "body_sha256": "sha256:69eace51bf8fa7724e7ebf834e543c8d02918b72c62a8a1e78d11b6da42063af",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -7034,8 +7034,8 @@
     },
     {
       "aliases": ["network connectors"],
-      "body_bytes": 6714,
-      "body_sha256": "sha256:c65c74176c1951a198c04793e1ed8b4cd7fa8b19c8fb1642b49f69097bd21f81",
+      "body_bytes": 5562,
+      "body_sha256": "sha256:17714d451b949e524726b6110933c475dc0e1da3fe0c1f78a6d531a216eaa07a",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -7145,8 +7145,8 @@
     },
     {
       "aliases": ["network firewall"],
-      "body_bytes": 6845,
-      "body_sha256": "sha256:bfcdcc829a6b87c2186b401d83b3499948948c251df6b058b241ab5a52947caa",
+      "body_bytes": 5619,
+      "body_sha256": "sha256:6857d8a9347f0cac5d4eb94353a870451ca2e2720401d98cfcc9d897ca075bbb",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -7256,8 +7256,8 @@
     },
     {
       "aliases": ["no bond devices"],
-      "body_bytes": 1072,
-      "body_sha256": "sha256:379306b8df91a1f29750b28e1f0b9c41c5bad2e73b6a70b0a7680158b206b91a",
+      "body_bytes": 844,
+      "body_sha256": "sha256:b171da14d557b4d69a6014f5819ed8646ce22328f0f12871c497368686f0733f",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -7296,8 +7296,8 @@
     },
     {
       "aliases": ["no dc cluster group"],
-      "body_bytes": 1058,
-      "body_sha256": "sha256:c76d9db55f762c7d7dc1d6d1770463b902aedcf1044e7487069b092feccef0da",
+      "body_bytes": 830,
+      "body_sha256": "sha256:0223a49938b676c120afcc5827ebb60f4773037b21b3aa6b55dc8ab3aa4ea923",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -7336,8 +7336,8 @@
     },
     {
       "aliases": ["no storage device"],
-      "body_bytes": 1540,
-      "body_sha256": "sha256:c6082d3d4c55f7b279cbeb3c2d55706dd29f5b3d3e691825698074fd566acb87",
+      "body_bytes": 1312,
+      "body_sha256": "sha256:60a6209265933511f7a30cb65c099a1a744f2547d4b57661f44cc01137a687c8",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -7376,8 +7376,8 @@
     },
     {
       "aliases": ["no storage interfaces"],
-      "body_bytes": 1581,
-      "body_sha256": "sha256:66284e602c798ef79c13d8ffb3dc3a3de81f08ce3719a0576ed0e38c0e73276a",
+      "body_bytes": 1353,
+      "body_sha256": "sha256:9f01c709dec1aae6d62ee80f4e0f234563c7bea54c695dea30221a609a0127c1",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -7416,8 +7416,8 @@
     },
     {
       "aliases": ["no storage static routes"],
-      "body_bytes": 1604,
-      "body_sha256": "sha256:d9daceb658f2f6790d776563deefa4b8c69d1bb4074a2a3f4da3ca061404c558",
+      "body_bytes": 1376,
+      "body_sha256": "sha256:6590dbf20a7818bca92889a6aecb241facd547fec8e81c4a071873594f66af0c",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -7456,8 +7456,8 @@
     },
     {
       "aliases": ["outside virtual network"],
-      "body_bytes": 6340,
-      "body_sha256": "sha256:c6b3a8a519a5733a2a8e915568af68efc9de0f91fdc367fb846d36a6c6f17862",
+      "body_bytes": 5437,
+      "body_sha256": "sha256:d853cdaf0f7f7f6c154e642a496e957a9c73f11f89400da2a171d3ad2d022389",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -7567,8 +7567,8 @@
     },
     {
       "aliases": ["performance enhancement mode"],
-      "body_bytes": 2113,
-      "body_sha256": "sha256:947eee4d5837e422b81caf21019eb3a2e6512b57e5a2e4fe69d0c0887e4abf70",
+      "body_bytes": 1518,
+      "body_sha256": "sha256:41cd7d55ab7f4a92bb4f85ce157681cf86cb16e0171b5fed7e2d86fb8fb9e70b",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -7690,8 +7690,8 @@
     },
     {
       "aliases": ["performance enhancement mode perf mode l3 enhanced"],
-      "body_bytes": 2327,
-      "body_sha256": "sha256:939d23b98cea4cd453f1cfed4cad6512dc56ff4be1dd7d8d9342864b4dceaae2",
+      "body_bytes": 1670,
+      "body_sha256": "sha256:60db934cd2bf0ebee5e2eed2ce150e1e6208236a979c17597e13a88ecc5fa451",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -7779,8 +7779,8 @@
     },
     {
       "aliases": ["performance enhancement mode perf mode l3 enhanced jumbo"],
-      "body_bytes": 1539,
-      "body_sha256": "sha256:e2bc7ff60b8cfdf442dd3b87ca9bece63f2ae4a423b85fe9b2b86b84f0a213ee",
+      "body_bytes": 1228,
+      "body_sha256": "sha256:6df6938dcb82da6ab2572b342eab551f5125468e3596f42466135b05af4a5759",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -7819,8 +7819,8 @@
     },
     {
       "aliases": ["performance enhancement mode perf mode l3 enhanced no jumbo"],
-      "body_bytes": 1548,
-      "body_sha256": "sha256:66bb3feb638cc50fedb9c33c770152d1ad1c2dcf73df16a04aa81d578f83ef10",
+      "body_bytes": 1237,
+      "body_sha256": "sha256:93331dc62f843ed426f749f09cd10fd6bd513a6d791a19e31c47daa44a2c210f",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -7859,8 +7859,8 @@
     },
     {
       "aliases": ["performance enhancement mode perf mode l7 enhanced"],
-      "body_bytes": 2411,
-      "body_sha256": "sha256:b6c98b061248caad4d83b9deb54d35ffa01a51c953c4db4c5bfaad7da022fa7c",
+      "body_bytes": 1726,
+      "body_sha256": "sha256:d7734f3585fd1f900a3fde022b1457fdaea7729ea5c20dd10d6762f099027758",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -7948,8 +7948,8 @@
     },
     {
       "aliases": ["performance enhancement mode perf mode l7 enhanced jumbo disabled"],
-      "body_bytes": 1566,
-      "body_sha256": "sha256:6fe1acc1e8a51a81861b7d766cc0984786e9e5daabd11acd68666ac391f7c671",
+      "body_bytes": 1255,
+      "body_sha256": "sha256:0a7de37e885f3326330cfd5fe6a7b64d89f6141c77bcf0730f0bc11e032c9d80",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -7988,8 +7988,8 @@
     },
     {
       "aliases": ["performance enhancement mode perf mode l7 enhanced jumbo enabled"],
-      "body_bytes": 1563,
-      "body_sha256": "sha256:b04822c5504333aa0d5791ff89a6cd3b1d48cd3efd704531fa983feecd6351df",
+      "body_bytes": 1252,
+      "body_sha256": "sha256:209871de48f2b54f5e8f35b3bbb7b0e12068342b59920defa10a410970fcde63",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -8028,8 +8028,8 @@
     },
     {
       "aliases": ["sriov interfaces"],
-      "body_bytes": 1314,
-      "body_sha256": "sha256:5bad5277513ef34b5d1409a051afc815c896d536d2005d23787f3bda85aa9eac",
+      "body_bytes": 946,
+      "body_sha256": "sha256:7ddd17d65ddb54775f0d4fb7ce2a866918dd5e8e9a5fcdd2eaa3f1571eaed650",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:resources:fleet:properties:sriov_interfaces:sriov_interface"],
@@ -8100,8 +8100,8 @@
     },
     {
       "aliases": ["sriov interfaces sriov interface"],
-      "body_bytes": 3571,
-      "body_sha256": "sha256:ac7b01234faca98fa26370a0dd3629e18922e2851277372c9511663526f1793d",
+      "body_bytes": 3225,
+      "body_sha256": "sha256:9dfa216a4bb0542b1262c60bb203a34a7dce2322966110f49d1c5eb5aaee7edb",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -8200,8 +8200,8 @@
     },
     {
       "aliases": ["storage class list"],
-      "body_bytes": 1342,
-      "body_sha256": "sha256:48bbd3e9ff420c9b706cc8791dbfb971f83865cfd78f57311d3bf09909dec802",
+      "body_bytes": 970,
+      "body_sha256": "sha256:68f058a696ac471d285cc1f89b446283fc43430bb3b250989217b9a96154e048",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:resources:fleet:properties:storage_class_list:storage_classes"],
@@ -8368,8 +8368,8 @@
     },
     {
       "aliases": ["storage class list storage classes"],
-      "body_bytes": 11012,
-      "body_sha256": "sha256:85a7dc4bce61e38a7a5f47b5c6ccc8a7a75ff5bab2b55ef8e895bfcbb631d02d",
+      "body_bytes": 9847,
+      "body_sha256": "sha256:3557d435b14809ba5718098b247a3e8fe63cf7111c9e9db3d1d5fe8c5aa324b0",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -8681,8 +8681,8 @@
     },
     {
       "aliases": ["storage class list storage classes custom storage"],
-      "body_bytes": 2706,
-      "body_sha256": "sha256:990f0212d440e04f0ec80b10a32efa9fb48a869a1f33329222b3c2751b4f674d",
+      "body_bytes": 2391,
+      "body_sha256": "sha256:d2eead6e4f44ec7f87f94ca42d316b3be6b6fcc9664f05db80b4174f41f0c60b",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -8736,8 +8736,8 @@
     },
     {
       "aliases": ["storage class list storage classes hpe storage"],
-      "body_bytes": 12968,
-      "body_sha256": "sha256:2e3f78f8ae9d0f351109834b0210cedb0e82261026e73ad9d271970efffb4fd3",
+      "body_bytes": 12540,
+      "body_sha256": "sha256:4f0d608c05e97aa54fafa5c3d00f96393c42a918801cfebd1f6d3480890f7ee5",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -9001,8 +9001,8 @@
     },
     {
       "aliases": ["storage class list storage classes netapp trident"],
-      "body_bytes": 2808,
-      "body_sha256": "sha256:b7a3764975ad671367b9174c5a5fd542488f156a594ec658167797f3a8b7cccb",
+      "body_bytes": 2337,
+      "body_sha256": "sha256:906e2f57dd60a87b4743cf964d1d00318b2a17ad4f0a423b91e7c69856f5226b",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:resources:fleet:properties:storage_class_list:storage_classes:netapp_trident:selector"],
@@ -9070,8 +9070,8 @@
     },
     {
       "aliases": ["storage class list storage classes netapp trident selector"],
-      "body_bytes": 1967,
-      "body_sha256": "sha256:476da94182b38bd4f79518e8d01d31daf7dc2efbfc686e0deab9239904712f12",
+      "body_bytes": 1452,
+      "body_sha256": "sha256:d695902a407db594c76c34dd792850d281846a29787adf5baab64a2cc97f32aa",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -9110,8 +9110,8 @@
     },
     {
       "aliases": ["storage class list storage classes pure service orchestrator"],
-      "body_bytes": 5222,
-      "body_sha256": "sha256:5ee9a869c172ef89e3fed79def9b705ae21212b9334157a638a863088f477188",
+      "body_bytes": 4579,
+      "body_sha256": "sha256:485a74e18c24734eb07ed855b8c36a7e3543d196b15b6832ca368b50a5efa173",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -9198,8 +9198,8 @@
     },
     {
       "aliases": ["storage device list"],
-      "body_bytes": 1348,
-      "body_sha256": "sha256:20427725b642497deac87018b311f194daf3eb27a30f7cb4e8a72f315c2eb876",
+      "body_bytes": 974,
+      "body_sha256": "sha256:200489f5e630944f6fe0da68d6c3e76e455e9a82544f9c7db4ed525ca46aa215",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:resources:fleet:properties:storage_device_list:storage_devices"],
@@ -9219,7 +9219,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2120213230221113-1333030012101112-2301222000203003-0123012120201213-1323232311211033-3022303032122220-1133001002321021-1101312223021101",
-      "registry_path": "docs/guides/resources--fleet--reference--group-003.md",
+      "registry_path": "docs/guides/resources--fleet--reference--group-002.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -9358,8 +9358,8 @@
     },
     {
       "aliases": ["storage device list storage devices"],
-      "body_bytes": 7584,
-      "body_sha256": "sha256:0ad284d80c9b7e4298338f3fa6e7e4267416c4ef0cf0550def38c4e038da9fbb",
+      "body_bytes": 6394,
+      "body_sha256": "sha256:a4390e45ce1e7e08ea6e901ec80131d9dc1602bf916d5c91beef6338162844b1",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -9384,7 +9384,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1121310030023210-2313133122303233-3230332100212103-3010021230232322-3223210233032123-3200023200220121-3112220232033121-3020030131031221",
-      "registry_path": "docs/guides/resources--fleet--reference--group-003.md",
+      "registry_path": "docs/guides/resources--fleet--reference--group-002.md",
       "relationships": [
         {
           "anchor": "section",
@@ -9636,8 +9636,8 @@
     },
     {
       "aliases": ["storage device list storage devices custom storage"],
-      "body_bytes": 1483,
-      "body_sha256": "sha256:03b3e6feb50a115fa3abc41d44a22a705cb77a3d2e9abd6f1b806219d43ae788",
+      "body_bytes": 1202,
+      "body_sha256": "sha256:da8134f2486dcefd62d5dfc9b1248c4c9a5d67cb3534a97d2d5f1f371964674a",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -9657,7 +9657,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1201010313101013-1022332222103330-0131311131312023-1221012021200303-3022303010333232-3021021003111313-2030220111213022-0221030232013033",
-      "registry_path": "docs/guides/resources--fleet--reference--group-003.md",
+      "registry_path": "docs/guides/resources--fleet--reference--group-002.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -9676,8 +9676,8 @@
     },
     {
       "aliases": ["storage device list storage devices hpe storage"],
-      "body_bytes": 7948,
-      "body_sha256": "sha256:444b2b750335c7ccb2878486993585d62c50f3976414fb03c39770c12a05b121",
+      "body_bytes": 7102,
+      "body_sha256": "sha256:a0329c61ef4c7df69156050d71a3a9e913d4de9af49bf12101a5d5e0bd8058dd",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -9700,7 +9700,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0331020220211030-1311313113332322-3022303221300221-1112213221132313-3213332132202230-0111213113301310-3031100032111013-1121203331210313",
-      "registry_path": "docs/guides/resources--fleet--reference--group-003.md",
+      "registry_path": "docs/guides/resources--fleet--reference--group-002.md",
       "relationships": [
         {
           "anchor": "schema-storage_device_list--storage_devices--hpe_storage--api_server_port",
@@ -9869,8 +9869,8 @@
     },
     {
       "aliases": ["storage device list storage devices hpe storage iscsi chap password"],
-      "body_bytes": 2941,
-      "body_sha256": "sha256:1980c1756f13fa1737cec3ca51b9b9af5f0827dde2264579ccfe7beb01c60bf1",
+      "body_bytes": 2121,
+      "body_sha256": "sha256:8dab1c3d27e8b81dc237e3589078b4398f8504505b9f865a1a9fa47659555fba",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -9893,7 +9893,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0220213210310012-3110112220202121-0102302122303013-3211121021300211-2332032122311201-0303302300223213-2311000121321111-3230211321012132",
-      "registry_path": "docs/guides/resources--fleet--reference--group-003.md",
+      "registry_path": "docs/guides/resources--fleet--reference--group-002.md",
       "relationships": [
         {
           "anchor": "section",
@@ -9988,8 +9988,8 @@
     },
     {
       "aliases": ["storage device list storage devices hpe storage iscsi chap password blindfold secret info"],
-      "body_bytes": 5544,
-      "body_sha256": "sha256:69b8cd2d5fe934c21b63a8100531ad3378fb3062c0df281139bd21ef5454ae38",
+      "body_bytes": 4845,
+      "body_sha256": "sha256:4e4b998d01c0276f611cfc6b2897f3c00ff17f5e2d0cec6468caa8588e04575e",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -10009,7 +10009,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2110222221121130-3323000022312202-1222221312330331-2220310022003331-2023131232330003-0302030033031223-2332203030132000-0330011232232203",
-      "registry_path": "docs/guides/resources--fleet--reference--group-003.md",
+      "registry_path": "docs/guides/resources--fleet--reference--group-002.md",
       "relationships": [
         {
           "anchor": "schema-storage_device_list--storage_devices--hpe_storage--iscsi_chap_password--blindfold_secret_info--location",
@@ -10113,8 +10113,8 @@
     },
     {
       "aliases": ["storage device list storage devices hpe storage iscsi chap password clear secret info"],
-      "body_bytes": 4385,
-      "body_sha256": "sha256:fb9e926a95e6497e85275afd4748b4992c52b72662a8f784f5ac41b256a61e0a",
+      "body_bytes": 3820,
+      "body_sha256": "sha256:903efb9fc1715280ea7fdbc1b8955ebc15604aead8736f6b265084e663a258cf",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -10134,7 +10134,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1321102021232213-1301130012100310-0102103120131110-2203033023233011-0120110210130302-2103133301000030-1210101310333003-3120322303012013",
-      "registry_path": "docs/guides/resources--fleet--reference--group-003.md",
+      "registry_path": "docs/guides/resources--fleet--reference--group-002.md",
       "relationships": [
         {
           "anchor": "schema-storage_device_list--storage_devices--hpe_storage--iscsi_chap_password--clear_secret_info--url",
@@ -10213,8 +10213,8 @@
     },
     {
       "aliases": ["storage device list storage devices hpe storage password"],
-      "body_bytes": 2842,
-      "body_sha256": "sha256:8168b932616d847ddef8191451f4f96013d69ab8790fabb2d6a1cc8f414f68c1",
+      "body_bytes": 2066,
+      "body_sha256": "sha256:2b9f4e4b6060f27fb5fcfda4d5fae25da89f59ba48b25980bdbc50c25aa6b81f",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -10237,7 +10237,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1212101202211001-2200100120130110-1332213110330321-2213301011202321-1111330332131000-2222221012033230-1010112133212033-3012203021132102",
-      "registry_path": "docs/guides/resources--fleet--reference--group-003.md",
+      "registry_path": "docs/guides/resources--fleet--reference--group-002.md",
       "relationships": [
         {
           "anchor": "section",
@@ -10320,8 +10320,8 @@
     },
     {
       "aliases": ["storage device list storage devices hpe storage password blindfold secret info"],
-      "body_bytes": 5445,
-      "body_sha256": "sha256:f8f32592d244862b0c5040e553afe629c177dc56fda9dd06d43a4c93cdaf1a98",
+      "body_bytes": 4768,
+      "body_sha256": "sha256:face59e620ee10fa0fb641226780f4aff4d5880fd7fa189fa39fe307b265e8bf",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -10341,7 +10341,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0010013002333102-3332313022212223-1012222103020322-1300001011331221-2103322322102322-0130010331210030-3102131110222030-1313111002102211",
-      "registry_path": "docs/guides/resources--fleet--reference--group-003.md",
+      "registry_path": "docs/guides/resources--fleet--reference--group-002.md",
       "relationships": [
         {
           "anchor": "schema-storage_device_list--storage_devices--hpe_storage--password--blindfold_secret_info--location",
@@ -10435,8 +10435,8 @@
     },
     {
       "aliases": ["storage device list storage devices hpe storage password clear secret info"],
-      "body_bytes": 4297,
-      "body_sha256": "sha256:e1655d90440b590f04122478374fc0837d785194c2af7a9d886151a36e073464",
+      "body_bytes": 3754,
+      "body_sha256": "sha256:50c3167191dda9597f1385192511e6eea8bca853add1d448b208e4a837efb0fd",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -10456,7 +10456,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1133000301131223-1230300011311221-0101232113102020-0200321001220323-0203213311200330-3102102112332231-2222313113210133-3102322100230123",
-      "registry_path": "docs/guides/resources--fleet--reference--group-003.md",
+      "registry_path": "docs/guides/resources--fleet--reference--group-002.md",
       "relationships": [
         {
           "anchor": "schema-storage_device_list--storage_devices--hpe_storage--password--clear_secret_info--url",
@@ -10527,8 +10527,8 @@
     },
     {
       "aliases": ["storage device list storage devices netapp trident"],
-      "body_bytes": 2621,
-      "body_sha256": "sha256:9353fd67e9ddf190f73113d3a614b01fae04c8e30f02188f7c01fae6fefed092",
+      "body_bytes": 1873,
+      "body_sha256": "sha256:2b571a69a8243dda94c8b5b01a079ecd6ae3a2220f4a205c7840f28703d6c324",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -10551,7 +10551,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2221120100320330-2103110113123100-1120330002302000-1201000323033013-3233130203103031-0231013330113102-1203110130230313-0232230300113023",
-      "registry_path": "docs/guides/resources--fleet--reference--group-003.md",
+      "registry_path": "docs/guides/resources--fleet--reference--group-002.md",
       "relationships": [
         {
           "anchor": "section",
@@ -10745,8 +10745,8 @@
         "storage device list storage devices netapp trident netapp backend ontap nas",
         "upstream servers"
       ],
-      "body_bytes": 23782,
-      "body_sha256": "sha256:ca980fd5fcf192fc08fb7a15e77cc9a087b566fc6062e181b120526cd489e307",
+      "body_bytes": 21165,
+      "body_sha256": "sha256:1adeabbdb91bb9954cd2c257210bd6547beefeb4a73333ab10756eae50f3e924",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -10772,7 +10772,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0212303102231111-0123213211300022-2033323003020332-1102233001310032-3231013001133100-1303333132211323-0201123013213012-0223113021221131",
-      "registry_path": "docs/guides/resources--fleet--reference--group-003.md",
+      "registry_path": "docs/guides/resources--fleet--reference--group-002.md",
       "relationships": [
         {
           "anchor": "schema-storage_device_list--storage_devices--netapp_trident--netapp_backend_ontap_nas--data_lif_dns_name",
@@ -11377,8 +11377,8 @@
     },
     {
       "aliases": ["storage device list storage devices netapp trident netapp backend ontap nas auto export cidrs"],
-      "body_bytes": 3266,
-      "body_sha256": "sha256:03b319d206b78b85843c95b8cb1f0f04c65354e38d48f928f225266c6392feff",
+      "body_bytes": 2920,
+      "body_sha256": "sha256:64b199cf599208b9a59f7079f4cc992b1401acfeae0762ce05c5975f0694b68e",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -11398,7 +11398,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0011311003202231-1223000031133112-0130132012021312-2120200332320230-3122232220212010-0122313230210323-1103223303212302-0100333200330320",
-      "registry_path": "docs/guides/resources--fleet--reference--group-003.md",
+      "registry_path": "docs/guides/resources--fleet--reference--group-002.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -11447,8 +11447,8 @@
     },
     {
       "aliases": ["storage device list storage devices netapp trident netapp backend ontap nas client private key"],
-      "body_bytes": 3459,
-      "body_sha256": "sha256:edd0ae82bed0cec8bedc864477279e77af68287d37402e0c42e1503ce7e953a6",
+      "body_bytes": 2475,
+      "body_sha256": "sha256:838bb00bb8334f64fc7303c82b2a863ba95aa0621bb65255f94790e32c99d33a",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -11471,7 +11471,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2021123321033031-2131220302333132-2013232223201100-1211122103213311-1123311311323332-1333300211323100-3332210130000322-1110303130220221",
-      "registry_path": "docs/guides/resources--fleet--reference--group-003.md",
+      "registry_path": "docs/guides/resources--fleet--reference--group-002.md",
       "relationships": [
         {
           "anchor": "section",
@@ -11580,8 +11580,8 @@
       "aliases": [
         "storage device list storage devices netapp trident netapp backend ontap nas client private key blindfold secret info"
       ],
-      "body_bytes": 6037,
-      "body_sha256": "sha256:3c34f871da70690a21ea1d8b6367b6693b75b06c868b1da97c0909a6cedb64bc",
+      "body_bytes": 5284,
+      "body_sha256": "sha256:9c5644cc16f8d410440b4d5b0a067df1f865fb2c04ee37233d1a202a6f2592b5",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -11601,7 +11601,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0331023132232112-0331320023011112-0333332032213010-0300022123213023-1213202320223202-3303002001220113-0003321131232310-3000320032023032",
-      "registry_path": "docs/guides/resources--fleet--reference--group-003.md",
+      "registry_path": "docs/guides/resources--fleet--reference--group-002.md",
       "relationships": [
         {
           "anchor": "schema-storage_device_list--storage_devices--netapp_trident--netapp_backend_ontap_nas--client_private_key--blindfold_secret_info--location",
@@ -11711,8 +11711,8 @@
       "aliases": [
         "storage device list storage devices netapp trident netapp backend ontap nas client private key clear secret info"
       ],
-      "body_bytes": 4850,
-      "body_sha256": "sha256:2570347b54f3e1f65f16c2e8b222de8cdb9616f2233d4fbf2f1ab968b513920b",
+      "body_bytes": 4231,
+      "body_sha256": "sha256:3b40ec9c18d64f3319f49637b9e19fe3659047dab6dff8b20a60640db8ccf2ef",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -11732,7 +11732,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1321101120300120-2212323121331132-3201213113030033-2101133022330202-0110030321310301-1333313310331212-2011120330113131-2030020001022003",
-      "registry_path": "docs/guides/resources--fleet--reference--group-003.md",
+      "registry_path": "docs/guides/resources--fleet--reference--group-002.md",
       "relationships": [
         {
           "anchor": "schema-storage_device_list--storage_devices--netapp_trident--netapp_backend_ontap_nas--client_private_key--clear_secret_info--url",
@@ -11816,8 +11816,8 @@
     },
     {
       "aliases": ["storage device list storage devices netapp trident netapp backend ontap nas password"],
-      "body_bytes": 3369,
-      "body_sha256": "sha256:47d965efe6c64894e623be13d3a2e7d60e29feb46d53bef1c56d4c0dd798945d",
+      "body_bytes": 2425,
+      "body_sha256": "sha256:52a987e2aeb383d33961efc8cb8edc4ef60797a803739d5c59ebee34b8bb92ec",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -11840,7 +11840,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1300320120013220-1111311020033332-2110201300332223-1330230012212101-3132130210000210-0310202102232330-2230320110022220-0211021223113033",
-      "registry_path": "docs/guides/resources--fleet--reference--group-003.md",
+      "registry_path": "docs/guides/resources--fleet--reference--group-002.md",
       "relationships": [
         {
           "anchor": "section",
@@ -11949,8 +11949,8 @@
       "aliases": [
         "storage device list storage devices netapp trident netapp backend ontap nas password blindfold secret info"
       ],
-      "body_bytes": 5947,
-      "body_sha256": "sha256:182f471b0ea4a9f9f3df5a1ec4f6f9b0ae6b3be7a6309930e53e74b46ecec897",
+      "body_bytes": 5214,
+      "body_sha256": "sha256:3ba0dd5ede5ec146155b904a7bdc05a414ecb39c42aed9ae80a1df544fc1c11e",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -12080,8 +12080,8 @@
       "aliases": [
         "storage device list storage devices netapp trident netapp backend ontap nas password clear secret info"
       ],
-      "body_bytes": 4770,
-      "body_sha256": "sha256:3394180c2b599e5f3181410eda9b17a71d58d274507c1e17ef065aeaffae98db",
+      "body_bytes": 4171,
+      "body_sha256": "sha256:da52c7e4a49c49d6ee7b8a2eb6f8166a38df90dcae554fb674efcf1de576c861",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -12185,8 +12185,8 @@
     },
     {
       "aliases": ["storage device list storage devices netapp trident netapp backend ontap nas storage"],
-      "body_bytes": 6243,
-      "body_sha256": "sha256:ed611d6aa466e81e7c76551acc2ed602d5f5204522c0bc082a2e3a49579d8793",
+      "body_bytes": 5546,
+      "body_sha256": "sha256:74c0a5e9cc18ae5be2e6d1ceea104d43f15b13d9df6a72d6bc272cd761feb5e5",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -12350,8 +12350,8 @@
       "aliases": [
         "storage device list storage devices netapp trident netapp backend ontap nas storage volume defaults"
       ],
-      "body_bytes": 12492,
-      "body_sha256": "sha256:f5b04d786ddaea63446fd161398af986afbe756cb85299485bdebdc3277aa5e4",
+      "body_bytes": 11607,
+      "body_sha256": "sha256:b6bcb8bceba065a5c34f9dc6cac1d7edabb3d4d771ff279f29a9d1a9c1e5c94b",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -12763,8 +12763,8 @@
       "aliases": [
         "storage device list storage devices netapp trident netapp backend ontap nas storage volume defaults no qos"
       ],
-      "body_bytes": 2668,
-      "body_sha256": "sha256:42cede715cdb498422e43e26fe4c7e88dbdce5f3652a81fb3f1b7302adb2004b",
+      "body_bytes": 2259,
+      "body_sha256": "sha256:fc55907fece926b6ddc0ca86c5f8a91a95a6a47286e4a8d3f85f9ede5d56f8de",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -12811,8 +12811,8 @@
     },
     {
       "aliases": ["storage device list storage devices netapp trident netapp backend ontap nas volume defaults"],
-      "body_bytes": 12071,
-      "body_sha256": "sha256:394a72c913d89e8c27a8c94a33402da595faa83fbb7a2cc6fc9782f48cc18816",
+      "body_bytes": 11218,
+      "body_sha256": "sha256:d5839682a784cb369533ef71e2b8779ed0882d1f767e8affba93f840e152db16",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -13208,8 +13208,8 @@
     },
     {
       "aliases": ["storage device list storage devices netapp trident netapp backend ontap nas volume defaults no qos"],
-      "body_bytes": 2363,
-      "body_sha256": "sha256:585121484a4f18ec7024b245b077eac1bf65ff61ff8bdca1c10f04bd1ce7e6a3",
+      "body_bytes": 1970,
+      "body_sha256": "sha256:33c9f7646f9db182555cf824742127a1f16aa557dbd240d2766aaf1777f3cea4",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -13260,8 +13260,8 @@
         "storage device list storage devices netapp trident netapp backend ontap san",
         "upstream servers"
       ],
-      "body_bytes": 23775,
-      "body_sha256": "sha256:1488f9d0132a4a1923d3ed3d54a48bcaa2b30c94867267d320425e894d622127",
+      "body_bytes": 20936,
+      "body_sha256": "sha256:42120668621929afd40f88350e2ced116a9dd500535180a01b6ebd6b9f087811",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -13884,8 +13884,8 @@
     },
     {
       "aliases": ["storage device list storage devices netapp trident netapp backend ontap san client private key"],
-      "body_bytes": 3459,
-      "body_sha256": "sha256:43ba286ed5dbe196f2887584c3718809f94837fdf4ce49e259034cb275031637",
+      "body_bytes": 2475,
+      "body_sha256": "sha256:ccaf11b00d8bc91273e8df60915748083b88c9a46de307f779f2fb2b0e8ca402",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -14017,8 +14017,8 @@
       "aliases": [
         "storage device list storage devices netapp trident netapp backend ontap san client private key blindfold secret info"
       ],
-      "body_bytes": 6037,
-      "body_sha256": "sha256:a9b5f5d510cc690bfbabc423e9d849045b20a8171c2df14b2bc390b5afa209a0",
+      "body_bytes": 5284,
+      "body_sha256": "sha256:4ed28a6e48465b65730c7e449564465117ffc436acdf7f8c3fbff4e2c4711b5a",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -14148,8 +14148,8 @@
       "aliases": [
         "storage device list storage devices netapp trident netapp backend ontap san client private key clear secret info"
       ],
-      "body_bytes": 4850,
-      "body_sha256": "sha256:241a81f63ac36cf487889b31056b0444b134397b81dcc8228aee949125c5eda0",
+      "body_bytes": 4231,
+      "body_sha256": "sha256:0b3ef9f29583fbd0eafcef1de7f1f87523b04e3fdb8187d44e37fb8ddf7d3dd7",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -14253,8 +14253,8 @@
     },
     {
       "aliases": ["storage device list storage devices netapp trident netapp backend ontap san no chap"],
-      "body_bytes": 2029,
-      "body_sha256": "sha256:558c2f2528e8aba680fd794f72215bffd046a33406478afde291e697863e54c6",
+      "body_bytes": 1668,
+      "body_sha256": "sha256:7b7e1b5676913fac047e24d7ee289fc3b368ebc3ca167e3d2003c0f0173ae02c",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -14299,8 +14299,8 @@
     },
     {
       "aliases": ["storage device list storage devices netapp trident netapp backend ontap san password"],
-      "body_bytes": 3369,
-      "body_sha256": "sha256:7e0e4854c5e13193f3d519e278248d70034438284ce8ef28dc4749b694aa6b7b",
+      "body_bytes": 2425,
+      "body_sha256": "sha256:aab59ce0c08b4a17fe5be589ddbb08452a8657138a7e7a31b8f52d5400e9e8c7",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -14432,8 +14432,8 @@
       "aliases": [
         "storage device list storage devices netapp trident netapp backend ontap san password blindfold secret info"
       ],
-      "body_bytes": 5947,
-      "body_sha256": "sha256:56e8dd61e8ae0fab9730038bf94e00d0677ca0414f3832e414552a5a5b0efb76",
+      "body_bytes": 5214,
+      "body_sha256": "sha256:fa7e55c70bb4f0e7a1bf2e5817a6f74351c8dcc92c5643ce93dea2d1c8cb0291",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -14563,8 +14563,8 @@
       "aliases": [
         "storage device list storage devices netapp trident netapp backend ontap san password clear secret info"
       ],
-      "body_bytes": 4770,
-      "body_sha256": "sha256:a5f1d5694df7d2add2e4208facaf8b3be7372ef41e6249a728646995a7d37689",
+      "body_bytes": 4171,
+      "body_sha256": "sha256:654a723594d73b8369c392696340bc558a3521813d915406176faa8369a3460e",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -14668,8 +14668,8 @@
     },
     {
       "aliases": ["storage device list storage devices netapp trident netapp backend ontap san storage"],
-      "body_bytes": 6243,
-      "body_sha256": "sha256:6a585ac98a6ae54bdf3472b7c9c7b3acf986d36f15576dbe0a3a7b8b105787d3",
+      "body_bytes": 5546,
+      "body_sha256": "sha256:f46564bd711ead57cba23b310e646b019bba53b1567e05724fc4ad07620ff5f3",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -14833,8 +14833,8 @@
       "aliases": [
         "storage device list storage devices netapp trident netapp backend ontap san storage volume defaults"
       ],
-      "body_bytes": 12492,
-      "body_sha256": "sha256:b77849283788b37d38e891e0df7f79d1ec7def7412d979fa9214a0f1ab6e25b7",
+      "body_bytes": 11607,
+      "body_sha256": "sha256:65a5926aae5896676910d7ab11f0b906607f45ca247d2ced06dd185888cadf70",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -15246,8 +15246,8 @@
       "aliases": [
         "storage device list storage devices netapp trident netapp backend ontap san storage volume defaults no qos"
       ],
-      "body_bytes": 2668,
-      "body_sha256": "sha256:5dbac5829591d0b9fe52aff4b27ea9913c162eb1d820a17358f24ef95c0a7268",
+      "body_bytes": 2259,
+      "body_sha256": "sha256:01a057d14cc7fd40f8726bd2337f1e53667649831e29ff20df53d1edab224ad9",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -15267,7 +15267,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0230132003233011-1302200101120032-3302332032133012-3132303201232302-1223221123003013-2101021331312201-1332131002010030-2012322020112120",
-      "registry_path": "docs/guides/resources--fleet--reference--group-004.md",
+      "registry_path": "docs/guides/resources--fleet--reference--group-003.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -15294,8 +15294,8 @@
     },
     {
       "aliases": ["storage device list storage devices netapp trident netapp backend ontap san use chap"],
-      "body_bytes": 5399,
-      "body_sha256": "sha256:9e5fc459c0197991c9db1fe07ea7988188c5ac54c1ec3da32742a479b1c53c7d",
+      "body_bytes": 4433,
+      "body_sha256": "sha256:377470895f3ae4da9bce09ee71efa9be17100df900d55f8bfada4339c3c79f67",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -15318,7 +15318,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0210223030221013-1133322303123113-0112201303102112-2213010000130321-2133111120133330-2233132011002112-3313333201032133-3311001320131013",
-      "registry_path": "docs/guides/resources--fleet--reference--group-004.md",
+      "registry_path": "docs/guides/resources--fleet--reference--group-003.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -15472,8 +15472,8 @@
       "aliases": [
         "storage device list storage devices netapp trident netapp backend ontap san use chap chap initiator secret"
       ],
-      "body_bytes": 3835,
-      "body_sha256": "sha256:c14ba61c871cb60909f6162cce963f64de148efe3e61618dbd69305ecf85cb2a",
+      "body_bytes": 2785,
+      "body_sha256": "sha256:a02dd52879ae65e3e2765d7fb988790a3ec5463b67bf1f214fea25c297464041",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -15496,7 +15496,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0033032203023221-3230223303120013-3120220030200030-0022302213110221-0011310133330111-1221021010221230-0021101120100321-0002031102332020",
-      "registry_path": "docs/guides/resources--fleet--reference--group-004.md",
+      "registry_path": "docs/guides/resources--fleet--reference--group-003.md",
       "relationships": [
         {
           "anchor": "section",
@@ -15608,8 +15608,8 @@
       "aliases": [
         "storage device list storage devices netapp trident netapp backend ontap san use chap chap initiator secret blindfold secret info"
       ],
-      "body_bytes": 6407,
-      "body_sha256": "sha256:e97f52a230b46f7d90d624c75ffb3b5a394b3241be23a44395d45e5c689e0f30",
+      "body_bytes": 5630,
+      "body_sha256": "sha256:039949b38b0bfe7e822a8693406d22f995e8d010ce33bdd556536d4f96edac9e",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -15629,7 +15629,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1311022310213221-0333131231320002-0000033220210132-2103102300130033-3011330200113211-1133033231030033-3013210121001132-1201200310011320",
-      "registry_path": "docs/guides/resources--fleet--reference--group-004.md",
+      "registry_path": "docs/guides/resources--fleet--reference--group-003.md",
       "relationships": [
         {
           "anchor": "schema-storage_device_list--storage_devices--netapp_trident--netapp_backend_ontap_san--use_chap--chap_initiator_secret--blindfold_secret_info--location",
@@ -15743,8 +15743,8 @@
       "aliases": [
         "storage device list storage devices netapp trident netapp backend ontap san use chap chap initiator secret clear secret info"
       ],
-      "body_bytes": 5207,
-      "body_sha256": "sha256:789179a8520f513fe83c1c15c0d75f8eca4a61810b508382bc61a62b90add855",
+      "body_bytes": 4564,
+      "body_sha256": "sha256:e42ddbb3227a3feb9e5c954f6440c72272e37f6015421a1c199dcf4763d9a214",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -15764,7 +15764,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1302003100223322-2113010313033312-0113123102230222-2222212203323032-3101311023013330-0213232223130200-1032311121000011-2102230310113110",
-      "registry_path": "docs/guides/resources--fleet--reference--group-004.md",
+      "registry_path": "docs/guides/resources--fleet--reference--group-003.md",
       "relationships": [
         {
           "anchor": "schema-storage_device_list--storage_devices--netapp_trident--netapp_backend_ontap_san--use_chap--chap_initiator_secret--clear_secret_info--url",
@@ -15853,8 +15853,8 @@
       "aliases": [
         "storage device list storage devices netapp trident netapp backend ontap san use chap chap target initiator secret"
       ],
-      "body_bytes": 3898,
-      "body_sha256": "sha256:5c97dc17e8efb5695eaff7e344fc9d38f1a0d5dc8f6cd9902abe59b517306067",
+      "body_bytes": 2820,
+      "body_sha256": "sha256:3917f11dfa38703a01a53813acc85636dcd8465256f45c4ec2d01518ae7879c6",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -15877,7 +15877,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0302303232000211-2330001303022213-1220001222213313-0212232010021002-1331020111110122-2031200222303321-2311031120312300-1223011001120331",
-      "registry_path": "docs/guides/resources--fleet--reference--group-004.md",
+      "registry_path": "docs/guides/resources--fleet--reference--group-003.md",
       "relationships": [
         {
           "anchor": "section",
@@ -15989,8 +15989,8 @@
       "aliases": [
         "storage device list storage devices netapp trident netapp backend ontap san use chap chap target initiator secret blindfold secret info"
       ],
-      "body_bytes": 6470,
-      "body_sha256": "sha256:d0fb3c7832e0866b35b4cc61892f4ddcad04bbc9c229359a99a1cba9bb94994b",
+      "body_bytes": 5679,
+      "body_sha256": "sha256:dee3e6ff0c7d7b2d83b29ce0ffcc50390b132f4c02f89702242149547eb55f85",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -16010,7 +16010,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0121302132030023-1013101303330133-2103323131013021-3211211231201332-2332022000230332-2010100122322313-2210110003033232-1333102111221121",
-      "registry_path": "docs/guides/resources--fleet--reference--group-004.md",
+      "registry_path": "docs/guides/resources--fleet--reference--group-003.md",
       "relationships": [
         {
           "anchor": "schema-storage_device_list--storage_devices--netapp_trident--netapp_backend_ontap_san--use_chap--chap_target_initiator_secret--blindfold_secret_info--location",
@@ -16124,8 +16124,8 @@
       "aliases": [
         "storage device list storage devices netapp trident netapp backend ontap san use chap chap target initiator secret clear secret info"
       ],
-      "body_bytes": 5263,
-      "body_sha256": "sha256:c6941e707a87b266f4347972e063a1535239136e5994b97ac185d7801171b8fc",
+      "body_bytes": 4606,
+      "body_sha256": "sha256:5826132b4f4694bfd298c1a88cbd7bd466e6b5f743acb9478cbbff182a34bf32",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -16145,7 +16145,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1013220111023223-2002000311000303-0211210300200223-0012101221233121-2033110300233211-2100101033130202-3320222231332312-3132301132022211",
-      "registry_path": "docs/guides/resources--fleet--reference--group-004.md",
+      "registry_path": "docs/guides/resources--fleet--reference--group-003.md",
       "relationships": [
         {
           "anchor": "schema-storage_device_list--storage_devices--netapp_trident--netapp_backend_ontap_san--use_chap--chap_target_initiator_secret--clear_secret_info--url",
@@ -16232,8 +16232,8 @@
     },
     {
       "aliases": ["storage device list storage devices netapp trident netapp backend ontap san volume defaults"],
-      "body_bytes": 12071,
-      "body_sha256": "sha256:2d22d4875344098f4e0bd7a5b869f2e8f9d53e51d7b6a3e5a38cca2355a11284",
+      "body_bytes": 11218,
+      "body_sha256": "sha256:1073829e692ded44ccef1ac969734ad6a50418dd70de5d28de25cb6d6e3eb368",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -16255,7 +16255,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1023300110000030-3322320012222203-3312211121033330-0233123000012211-0313012003121021-3303103100101231-0022013323332110-0101320001330221",
-      "registry_path": "docs/guides/resources--fleet--reference--group-004.md",
+      "registry_path": "docs/guides/resources--fleet--reference--group-003.md",
       "relationships": [
         {
           "anchor": "schema-storage_device_list--storage_devices--netapp_trident--netapp_backend_ontap_san--volume_defaults--adaptive_qos_policy",
@@ -16629,8 +16629,8 @@
     },
     {
       "aliases": ["storage device list storage devices netapp trident netapp backend ontap san volume defaults no qos"],
-      "body_bytes": 2363,
-      "body_sha256": "sha256:6aea6bd72a7d4b48615fd89c5f8b66cd7bf193ce31ef5268408ae2b8cf33e785",
+      "body_bytes": 1970,
+      "body_sha256": "sha256:86e7153507631dcaae0b5d0008098ddd488f3e022588347ce79041cf700ddca8",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -16650,7 +16650,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0010013200030223-3310333100232211-2233333121120233-0323111122200013-0213032020121213-1313323313010311-3031303002020332-3001033202332322",
-      "registry_path": "docs/guides/resources--fleet--reference--group-004.md",
+      "registry_path": "docs/guides/resources--fleet--reference--group-003.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -16676,8 +16676,8 @@
     },
     {
       "aliases": ["storage device list storage devices pure service orchestrator"],
-      "body_bytes": 4924,
-      "body_sha256": "sha256:928084c88a6b11536f4e7470dcd8432b6b3a8070fc827d33e023103ad9afd7bd",
+      "body_bytes": 3967,
+      "body_sha256": "sha256:f91794a16c27288a4e1295e73635edca779dd167dff900a7885367629927f374",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -16699,7 +16699,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0002230120203323-3100203133101203-1033110303010030-1013320110112131-2330233023330013-1213113110311020-3003031003233122-3102232221001010",
-      "registry_path": "docs/guides/resources--fleet--reference--group-004.md",
+      "registry_path": "docs/guides/resources--fleet--reference--group-003.md",
       "relationships": [
         {
           "anchor": "schema-storage_device_list--storage_devices--pure_service_orchestrator--cluster_id",
@@ -16794,8 +16794,8 @@
     },
     {
       "aliases": ["storage device list storage devices pure service orchestrator arrays"],
-      "body_bytes": 2690,
-      "body_sha256": "sha256:a942b3fb1f67a8ebb2bfa2010afc5dfc0540d422cbc3d5af6818732091423b2c",
+      "body_bytes": 1809,
+      "body_sha256": "sha256:0688bd655d60143cd8c385b6da4fd5359d6d296e82d31153939ae37d1ac7cdde",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -16818,7 +16818,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1111203111312030-1320103010112000-2022221321200323-0223011123121012-3121030110021223-2133102323103132-2023030013223201-3320023100132023",
-      "registry_path": "docs/guides/resources--fleet--reference--group-004.md",
+      "registry_path": "docs/guides/resources--fleet--reference--group-003.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -16920,8 +16920,8 @@
     },
     {
       "aliases": ["storage device list storage devices pure service orchestrator arrays flash array"],
-      "body_bytes": 9232,
-      "body_sha256": "sha256:e6cf2ec07863e9112a0cd994948cbda1157250b084e9af7e7210470af494bd2a",
+      "body_bytes": 8398,
+      "body_sha256": "sha256:ed08a73b91b2b60dc77a5c92dba2b6a32ab743a8ddd3c87729f8eeea6cf300a6",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -16943,7 +16943,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3310212110120233-0203102010300103-0010123120220030-2230322323333131-1220032330101310-0310031202323012-0303210003020210-2012233111320021",
-      "registry_path": "docs/guides/resources--fleet--reference--group-004.md",
+      "registry_path": "docs/guides/resources--fleet--reference--group-003.md",
       "relationships": [
         {
           "anchor": "schema-storage_device_list--storage_devices--pure_service_orchestrator--arrays--flash_array--default_fs_type",
@@ -17174,8 +17174,8 @@
     },
     {
       "aliases": ["storage device list storage devices pure service orchestrator arrays flash array flash arrays"],
-      "body_bytes": 9028,
-      "body_sha256": "sha256:bf7e916c2ef95ed2cb1f684612ab458e83998c3a200ee80d36ac716c7af8a535",
+      "body_bytes": 8094,
+      "body_sha256": "sha256:40f7edec990dc6f27fbb7bbd38939d1bfb0b121f0a28b3a8e4f5c9b00f834fd5",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -17197,7 +17197,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3122132333220122-1300031212021013-0110322313232102-0002113131220310-0223220110220000-1200021213121031-3203202320330330-1121332311122133",
-      "registry_path": "docs/guides/resources--fleet--reference--group-004.md",
+      "registry_path": "docs/guides/resources--fleet--reference--group-003.md",
       "relationships": [
         {
           "anchor": "schema-storage_device_list--storage_devices--pure_service_orchestrator--arrays--flash_array--flash_arrays--mgmt_dns_name",
@@ -17362,8 +17362,8 @@
         "credentials",
         "storage device list storage devices pure service orchestrator arrays flash array flash arrays api token"
       ],
-      "body_bytes": 4094,
-      "body_sha256": "sha256:373863aff0f8a3625ce68b1fa04cbc6b327e809986582f1191108a112651b2f3",
+      "body_bytes": 3038,
+      "body_sha256": "sha256:e86939b5977da59b760c7a171eef2b1ae2396fa27e4773ecf35673347135ccb0",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -17386,7 +17386,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0210002132032322-3322330030230331-3102011013110000-1233123000022301-3003003333130031-3321311033333321-1021230330211331-0020013012210203",
-      "registry_path": "docs/guides/resources--fleet--reference--group-004.md",
+      "registry_path": "docs/guides/resources--fleet--reference--group-003.md",
       "relationships": [
         {
           "anchor": "section",
@@ -17501,8 +17501,8 @@
       "aliases": [
         "storage device list storage devices pure service orchestrator arrays flash array flash arrays api token blindfold secret info"
       ],
-      "body_bytes": 6660,
-      "body_sha256": "sha256:13f0b7cc286e80c092256b2dd3b68b9ef6a218ae94ba91f9a07cf76439708a63",
+      "body_bytes": 5889,
+      "body_sha256": "sha256:3e55d945a982a639898770e888ee363571572170fef1f16d7d579bd637e9ce12",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -17522,7 +17522,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3322310000203022-3222000303221130-3312130212322301-2010232221331200-0123032312123002-1201201201101120-1302101123332032-0222332301231223",
-      "registry_path": "docs/guides/resources--fleet--reference--group-004.md",
+      "registry_path": "docs/guides/resources--fleet--reference--group-003.md",
       "relationships": [
         {
           "anchor": "schema-storage_device_list--storage_devices--pure_service_orchestrator--arrays--flash_array--flash_arrays--api_token--blindfold_secret_info--location",
@@ -17640,8 +17640,8 @@
       "aliases": [
         "storage device list storage devices pure service orchestrator arrays flash array flash arrays api token clear secret info"
       ],
-      "body_bytes": 5462,
-      "body_sha256": "sha256:1989a09093310868ca91c05a95ed2d433f435bfda0d4f66b59a1e02e56537d27",
+      "body_bytes": 4825,
+      "body_sha256": "sha256:31bd3f42bdc9e7a3e5a9a879ffaf643b368e0ad0d486e21f8bff239e5f99ee11",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -17661,7 +17661,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0222101001121303-1010300003111121-1223113103201010-1232323311132110-2121213330013321-2332020331213101-2110032333121110-0000310300321323",
-      "registry_path": "docs/guides/resources--fleet--reference--group-004.md",
+      "registry_path": "docs/guides/resources--fleet--reference--group-003.md",
       "relationships": [
         {
           "anchor": "schema-storage_device_list--storage_devices--pure_service_orchestrator--arrays--flash_array--flash_arrays--api_token--clear_secret_info--url",
@@ -17751,8 +17751,8 @@
     },
     {
       "aliases": ["storage device list storage devices pure service orchestrator arrays flash blade"],
-      "body_bytes": 4285,
-      "body_sha256": "sha256:5416676becddff976ecdb370faed29bf20a74fca97db669b493b1b2f02262b34",
+      "body_bytes": 3573,
+      "body_sha256": "sha256:17c36f5dfc657e120c6a39fc1f7d67ac139e17223f95a1015310dfccf4ed460d",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -17774,7 +17774,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0310302300113020-1101003202302211-3132311023131201-1202333212121221-2103200023032132-0302011312131112-3231020221301103-1202323212022301",
-      "registry_path": "docs/guides/resources--fleet--reference--group-004.md",
+      "registry_path": "docs/guides/resources--fleet--reference--group-003.md",
       "relationships": [
         {
           "anchor": "section",
@@ -17901,8 +17901,8 @@
     },
     {
       "aliases": ["storage device list storage devices pure service orchestrator arrays flash blade flash blades"],
-      "body_bytes": 11771,
-      "body_sha256": "sha256:01c1052110b18ef22ea551d05c23a8395b6c746ed452443c7c88338e0676174c",
+      "body_bytes": 10546,
+      "body_sha256": "sha256:db8e042200944b3e2d71ce30db8cf96e7c711158891e4cb79f031f9fdf2177c9",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -17924,7 +17924,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2223232302311022-1021012202203331-2003121103333303-2102321103222121-1101000130232101-3232123232311220-0233312220020222-0221302333033323",
-      "registry_path": "docs/guides/resources--fleet--reference--group-004.md",
+      "registry_path": "docs/guides/resources--fleet--reference--group-003.md",
       "relationships": [
         {
           "anchor": "schema-storage_device_list--storage_devices--pure_service_orchestrator--arrays--flash_blade--flash_blades--mgmt_dns_name",
@@ -18153,8 +18153,8 @@
         "credentials",
         "storage device list storage devices pure service orchestrator arrays flash blade flash blades api token"
       ],
-      "body_bytes": 4094,
-      "body_sha256": "sha256:e5b8816ae4478758bca2a41b3715b0d693d83b02fc205e4fe3b5c6aa636cd48a",
+      "body_bytes": 3038,
+      "body_sha256": "sha256:4e6a26b6506ca7cc08a6029df49a5bd0cf90d4fbeae075645f627364251ee295",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -18177,7 +18177,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3003301101020100-0233130231113013-2213021211303012-0220010031202032-3021210300123032-3310332022203131-1210033032123322-2210032321320100",
-      "registry_path": "docs/guides/resources--fleet--reference--group-004.md",
+      "registry_path": "docs/guides/resources--fleet--reference--group-003.md",
       "relationships": [
         {
           "anchor": "section",
@@ -18292,8 +18292,8 @@
       "aliases": [
         "storage device list storage devices pure service orchestrator arrays flash blade flash blades api token blindfold secret info"
       ],
-      "body_bytes": 6660,
-      "body_sha256": "sha256:2dba0db550975ad49475b0dbb00be7f751f84f831f5146d980442b337f84bf30",
+      "body_bytes": 5889,
+      "body_sha256": "sha256:833b13b69c6df165970bb192e2d505afc9c1f7f335f61678588c4cb2c43372e7",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -18313,7 +18313,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2302333121320233-3000130020023011-2300113131201320-1322231231001331-3011022301032010-0012332233203013-1030320121002130-1101002203003303",
-      "registry_path": "docs/guides/resources--fleet--reference--group-004.md",
+      "registry_path": "docs/guides/resources--fleet--reference--group-003.md",
       "relationships": [
         {
           "anchor": "schema-storage_device_list--storage_devices--pure_service_orchestrator--arrays--flash_blade--flash_blades--api_token--blindfold_secret_info--location",
@@ -18431,8 +18431,8 @@
       "aliases": [
         "storage device list storage devices pure service orchestrator arrays flash blade flash blades api token clear secret info"
       ],
-      "body_bytes": 5462,
-      "body_sha256": "sha256:ad601bdc0272e2f4c7b2b911d4b875640a319d363f04b046ab6b7206babced7e",
+      "body_bytes": 4825,
+      "body_sha256": "sha256:15e9146de29024630c78e251c7558fa9b887663c54ed40a27212042fc78c3ec0",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -18452,7 +18452,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2010011112000302-1232221132002002-3312110330233223-3121331203120003-3011332101312002-0102013302132223-3011003000111313-3112033221012023",
-      "registry_path": "docs/guides/resources--fleet--reference--group-004.md",
+      "registry_path": "docs/guides/resources--fleet--reference--group-003.md",
       "relationships": [
         {
           "anchor": "schema-storage_device_list--storage_devices--pure_service_orchestrator--arrays--flash_blade--flash_blades--api_token--clear_secret_info--url",
@@ -18542,8 +18542,8 @@
     },
     {
       "aliases": ["storage interface list"],
-      "body_bytes": 1471,
-      "body_sha256": "sha256:36b98ef45c5b4887c8b1f1470707398b060b3383f52da4c3cb88ab1f55920a27",
+      "body_bytes": 1101,
+      "body_sha256": "sha256:7619dc3ca0af45f8ee8920c7b9668520cf2826a0aa8ba613d00ed24ee3f92ba5",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:resources:fleet:properties:storage_interface_list:interfaces"],
@@ -18563,7 +18563,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2200223121321313-3202113301130230-3113322333033203-2122021133112132-3302320001211330-3311111102111033-2201322232210330-0102122100010132",
-      "registry_path": "docs/guides/resources--fleet--reference--group-004.md",
+      "registry_path": "docs/guides/resources--fleet--reference--group-003.md",
       "relationships": [
         {
           "anchor": "section",
@@ -18615,8 +18615,8 @@
     },
     {
       "aliases": ["storage interface list interfaces"],
-      "body_bytes": 6601,
-      "body_sha256": "sha256:c988a954890d16af109261c857b94940b0f3b0a464fd0a12354c0ca12b1a25db",
+      "body_bytes": 5858,
+      "body_sha256": "sha256:8239f7573eafd4af17c3d67e640f73a9574b9425fa56f0c49187d3f53b29718d",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -18636,7 +18636,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0210310131121313-1301013332313200-0102312022133012-3211101302122202-1132201232000013-2200303202131312-1233103030001133-0212033313312133",
-      "registry_path": "docs/guides/resources--fleet--reference--group-004.md",
+      "registry_path": "docs/guides/resources--fleet--reference--group-003.md",
       "relationships": [
         {
           "anchor": "schema-storage_interface_list--interfaces--name",
@@ -18707,8 +18707,8 @@
     },
     {
       "aliases": ["storage static routes"],
-      "body_bytes": 1547,
-      "body_sha256": "sha256:3c7d6b5a77ad141e7a997cc15c85836b813ec54b2f43d4e7dd53742cea782210",
+      "body_bytes": 1178,
+      "body_sha256": "sha256:8b78bc22d18b0980fac5918a31169a1783453a2bbdc4ac23eed164dd68c34961",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:resources:fleet:properties:storage_static_routes:storage_routes"],
@@ -18728,7 +18728,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3310103001011013-0133232333013322-2230330101201311-3021013203230121-1032321030203020-3003121131331312-2101312003321212-2012211010032330",
-      "registry_path": "docs/guides/resources--fleet--reference--group-004.md",
+      "registry_path": "docs/guides/resources--fleet--reference--group-003.md",
       "relationships": [
         {
           "anchor": "section",
@@ -18780,8 +18780,8 @@
     },
     {
       "aliases": ["storage static routes storage routes"],
-      "body_bytes": 4629,
-      "body_sha256": "sha256:5197c4df7d487ac5f47d1aaa991aa1a604b4dd680f864ecb6e398ac141280fe3",
+      "body_bytes": 3718,
+      "body_sha256": "sha256:e89c11f96d41185a18567d6bffbc421cea23b47e8d84bda60e174a1113e88fbd",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -18805,7 +18805,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2103110110001123-1000122230223022-2202332021231220-0033011003313113-1322332012002001-0120330220321111-3021132100100332-2230130122031231",
-      "registry_path": "docs/guides/resources--fleet--reference--group-004.md",
+      "registry_path": "docs/guides/resources--fleet--reference--group-003.md",
       "relationships": [
         {
           "anchor": "section",
@@ -18907,8 +18907,8 @@
     },
     {
       "aliases": ["storage static routes storage routes labels"],
-      "body_bytes": 1434,
-      "body_sha256": "sha256:7bf064bfe86581ed9c0e85a39ae6ee58bac82ba1f172e47ce827ad7fa32851eb",
+      "body_bytes": 1144,
+      "body_sha256": "sha256:a9efff568480558944176af581e11c87bf01ad148b01c056e623b4fb181562de",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -18947,8 +18947,8 @@
     },
     {
       "aliases": ["storage static routes storage routes nexthop"],
-      "body_bytes": 3814,
-      "body_sha256": "sha256:e64a561f6a1e30e985428e007dc8e0dd5d057f7279b11c7753bc614369637c73",
+      "body_bytes": 3016,
+      "body_sha256": "sha256:4487b6c954fc6a9d75b75c8409af9c0b53fe95dd6c7f025262c2fa1c6c5746b7",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -19082,8 +19082,8 @@
     },
     {
       "aliases": ["storage static routes storage routes nexthop interface"],
-      "body_bytes": 7193,
-      "body_sha256": "sha256:6f7cc9a24d9a7da335e3737a7f4699ddba3f7581b2b07e87c1671b2ee9306ce3",
+      "body_bytes": 6226,
+      "body_sha256": "sha256:8614c26b034a9962bd6fcd3792cef725eccfaf0864e07684e3331fc760f82521",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -19193,8 +19193,8 @@
     },
     {
       "aliases": ["storage static routes storage routes nexthop nexthop address"],
-      "body_bytes": 3246,
-      "body_sha256": "sha256:e63c92df9f4c1594e286c187846b328984c5ccd9dc1a1024b1a52890c3e99ff1",
+      "body_bytes": 2287,
+      "body_sha256": "sha256:8d2e51e620527de000171359ff390b5848aa0c98ea757b0142b11a108332425a",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -19329,8 +19329,8 @@
     },
     {
       "aliases": ["storage static routes storage routes nexthop nexthop address dual stack"],
-      "body_bytes": 2784,
-      "body_sha256": "sha256:f85bb5304d5516bc58f15bca17816456b1e8f51baa3aa436f35bce454b86b61f",
+      "body_bytes": 1982,
+      "body_sha256": "sha256:0b5571fb5248415ee43f103360255278ccb32e1ee5c4e86eac2b21035b1ba97f",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -19415,8 +19415,8 @@
     },
     {
       "aliases": ["storage static routes storage routes nexthop nexthop address dual stack ipv4"],
-      "body_bytes": 3216,
-      "body_sha256": "sha256:e2d9b2387a3750a08c3de3abbdef24b7361b51b87dc4768aa48296727ad98760",
+      "body_bytes": 2885,
+      "body_sha256": "sha256:ec24a08a1aa32a3c8648b9822400af1d71ef57291d0f186a04686d44826328d2",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -19478,8 +19478,8 @@
     },
     {
       "aliases": ["storage static routes storage routes nexthop nexthop address dual stack ipv6"],
-      "body_bytes": 3726,
-      "body_sha256": "sha256:6ed9e196ecf0a224ef3b0f6fb079e94508ac79a9d0a3be367629d04d9eeac7e0",
+      "body_bytes": 3022,
+      "body_sha256": "sha256:3263f4107fb960604ec19c35242cf251800c90c31293fcb8fdc84661bdfd1236",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -19541,8 +19541,8 @@
     },
     {
       "aliases": ["storage static routes storage routes nexthop nexthop address ipv4"],
-      "body_bytes": 2927,
-      "body_sha256": "sha256:9c25a0d051829ff0f18712590398e7f42c859228c96b021dfe924b8228e0c413",
+      "body_bytes": 2618,
+      "body_sha256": "sha256:0368fb4cef02aa760f6fa820307e8494e2090806ec7c1af8c0cea03553282163",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -19596,8 +19596,8 @@
     },
     {
       "aliases": ["storage static routes storage routes nexthop nexthop address ipv6"],
-      "body_bytes": 3437,
-      "body_sha256": "sha256:a2b472b4b14f440ec42b28e530a6504754379622cafc258b7020a430b3c8fb70",
+      "body_bytes": 2755,
+      "body_sha256": "sha256:8b96b44b4dd13ac1101469c752f5ec17ea3df89319ca19e40bc7849944acea09",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -19651,8 +19651,8 @@
     },
     {
       "aliases": ["storage static routes storage routes subnets"],
-      "body_bytes": 2863,
-      "body_sha256": "sha256:62aeb0e2e935c7c4bdba270a596b4c0e05983f87c7b2260d1b548cb1f7664cc4",
+      "body_bytes": 2169,
+      "body_sha256": "sha256:7639d79ad37b3b703fb690c262445878ec6de53eb412550a2909f617ab49bf4b",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -19740,8 +19740,8 @@
     },
     {
       "aliases": ["storage static routes storage routes subnets ipv4"],
-      "body_bytes": 3524,
-      "body_sha256": "sha256:a2ee851a6b84c6770489f95f7c6f7711fe2d0c5ad78d72a7150283aa2d852008",
+      "body_bytes": 3240,
+      "body_sha256": "sha256:839584597ac8a20f4ab3879329aa96eb2de9bc8036bff414701d8be6b1e09571",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -19809,8 +19809,8 @@
     },
     {
       "aliases": ["storage static routes storage routes subnets ipv6"],
-      "body_bytes": 3934,
-      "body_sha256": "sha256:7fcce0b3f0b8db359940ab9ff64967ccdf3aa1a71705335213ca2a5fa2d3862e",
+      "body_bytes": 3601,
+      "body_sha256": "sha256:fda8f8da9ab93ef4ba307693e4b20e358aca3ff132483983cd8697596c63c931",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -19878,8 +19878,8 @@
     },
     {
       "aliases": ["duration", "lifecycle timeout", "operation timeout", "timeouts"],
-      "body_bytes": 2189,
-      "body_sha256": "sha256:839c3880b2add90d9aac5aaa59ec7be458835c692890c914b197ef8c8dca6602",
+      "body_bytes": 1976,
+      "body_sha256": "sha256:1c201972d75f89e5abae5fdf7575293bf0bb5acb07fc6ddf47d4238acb29db24",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -20010,8 +20010,8 @@
     },
     {
       "aliases": ["usb policy"],
-      "body_bytes": 5775,
-      "body_sha256": "sha256:ef9ac1d0a4c01bc2ae3c14c18204f7aa13a23c7ef7e232659386b6adcf0b2c09",
+      "body_bytes": 4889,
+      "body_sha256": "sha256:fd46840d89929d1de39607479f270733d8c26216c8c915131f8676469223cc79",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -20102,8 +20102,8 @@
     },
     {
       "aliases": ["fleet"],
-      "body_bytes": 591,
-      "body_sha256": "sha256:c6c60c16acf1dd6f92f03fd2e026d903115bb8271615e55e78ae22916e145dcf",
+      "body_bytes": 381,
+      "body_sha256": "sha256:9c91a239f640686c0328e961e5622a4aa0af24c8293246a356c0d93001e94bab",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:resources:fleet:example:resource"],
@@ -20142,8 +20142,8 @@
     },
     {
       "aliases": ["resource"],
-      "body_bytes": 1234,
-      "body_sha256": "sha256:82b2fbb1f01c402606e9b49a1bc20ac025e65911b35387674d294471eff47c8c",
+      "body_bytes": 1033,
+      "body_sha256": "sha256:147b34902200358bddfa30cd040d5e89481d034dd868fe2f7dd7cf50e3e3c92c",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -20189,8 +20189,8 @@
     },
     {
       "aliases": ["fleet"],
-      "body_bytes": 445,
-      "body_sha256": "sha256:7c5ef59f789359511ea8b7ae4b0a618035dcf591d35610d0f9781a94f813721e",
+      "body_bytes": 340,
+      "body_sha256": "sha256:ab139d2e1c01db425c4bb7a213bfc3a3513291acc4cf9da72090ff982cb47ff2",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -20230,8 +20230,8 @@
     },
     {
       "aliases": ["fleet"],
-      "body_bytes": 533,
-      "body_sha256": "sha256:c1f981044603aa9bff1db2ba11f6437a2f52a0850c3a970b2357210b7eefe325",
+      "body_bytes": 428,
+      "body_sha256": "sha256:b490000762e124b2b405f7fd792639b21661726a9e7586bb67a96eed9681b629",
       "capabilities": [],
       "category": null,
       "child_ids": [],

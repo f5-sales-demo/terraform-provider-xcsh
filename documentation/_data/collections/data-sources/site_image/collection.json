@@ -31,8 +31,8 @@
   "pages": [
     {
       "aliases": ["site image", "succeeded", "success", "successful"],
-      "body_bytes": 1398,
-      "body_sha256": "sha256:1b207e85df2e6c0df3f366a20436a0fff462b3fd447330fc9712bb1aa4ba22a8",
+      "body_bytes": 1411,
+      "body_sha256": "sha256:a967cc064080cfd5b8d7f734a5e5f46ae2ca99899f4c76d38497e6e45531b711",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": ["xcsh-docs:data-sources:site_image:reference", "xcsh-docs:data-sources:site_image:examples"],
@@ -72,8 +72,8 @@
     },
     {
       "aliases": ["site image"],
-      "body_bytes": 1912,
-      "body_sha256": "sha256:a36ccf2bc427ee5f9bab7a16ba207f70cd8c62e46d533f0c4c1a441038bf1e05",
+      "body_bytes": 1794,
+      "body_sha256": "sha256:6ba4835322996bf51aafc05e9b769ef3263e822efa2f4fbaf5ab5627b2cde97a",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -169,8 +169,8 @@
     },
     {
       "aliases": ["site image"],
-      "body_bytes": 645,
-      "body_sha256": "sha256:87d4922551a6ffe5452513636742309a3a91611ee5b087b963ffe5c21c361e2c",
+      "body_bytes": 408,
+      "body_sha256": "sha256:48ef1a7b6a9c0f0e2345d5abe4775c8b2f6675d4df1d68b08a3e86cae6fbbb8f",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": ["xcsh-docs:data-sources:site_image:example:data-source"],
@@ -209,8 +209,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 1208,
-      "body_sha256": "sha256:ce80a887ff6a46405979849d6b9b0cd4bdc30649d22be74ca64c1a66cc6f9913",
+      "body_bytes": 986,
+      "body_sha256": "sha256:edcd3a22a1af1c3901382cb66218d99911e9f2533948ed306b695b2bdaa81efc",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],

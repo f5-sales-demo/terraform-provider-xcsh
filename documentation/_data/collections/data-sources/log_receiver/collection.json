@@ -183,8 +183,8 @@
   "pages": [
     {
       "aliases": ["log receiver"],
-      "body_bytes": 1337,
-      "body_sha256": "sha256:f75444c2fd2f058e26bc2cffe5a7585041ca32ef11cc6e37f65af63f975759c6",
+      "body_bytes": 1351,
+      "body_sha256": "sha256:aec600006fc7e644d39da7cacbe9b2df65971ec716064b23308374249eb27e04",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": ["xcsh-docs:data-sources:log_receiver:reference", "xcsh-docs:data-sources:log_receiver:examples"],
@@ -212,7 +212,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/log_receiver/index.txt",
       "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
-      "summary": "Manages new Log Receiver object in F5 Distributed Cloud.",
+      "summary": "Reads Log Receiver information from F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_log_receiver",
       "unresolved_relationships": [],
@@ -224,8 +224,8 @@
     },
     {
       "aliases": ["log receiver"],
-      "body_bytes": 14515,
-      "body_sha256": "sha256:525ed82e6aec3cd93d76d4dd8effd915312ed50a3575dc068c6ef0dd9b9895e8",
+      "body_bytes": 14194,
+      "body_sha256": "sha256:7071a734d490e2f6709de1a2164bfe7f752775fd515cc0274afa2936b09fcf72",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [
@@ -380,8 +380,8 @@
     },
     {
       "aliases": ["site local"],
-      "body_bytes": 1026,
-      "body_sha256": "sha256:b86395583e81427327b64c4243ad16337728d5c29f872d1a81c60434f38167de",
+      "body_bytes": 771,
+      "body_sha256": "sha256:e026f683103b6286e564cf5c8433ee7756d4b6e71ab41ed7829ce48b43f46656",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -420,8 +420,8 @@
     },
     {
       "aliases": ["syslog"],
-      "body_bytes": 3004,
-      "body_sha256": "sha256:a35479da52f19e68f5806d1951276d2308c181c884ac358f5347ec38919b5a25",
+      "body_bytes": 2201,
+      "body_sha256": "sha256:630456f00981a39e77f9a743be93cbcce89ad68f15e5e5c690f9a80997812154",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [
@@ -521,8 +521,8 @@
     },
     {
       "aliases": ["syslog tcp server"],
-      "body_bytes": 3167,
-      "body_sha256": "sha256:9ddbf61121710139c3ed386f42d4e4002fe8b2ddf57295439cb0410a6fc0ad79",
+      "body_bytes": 2809,
+      "body_sha256": "sha256:4e2056fe45b2906bb27fb3786d6061375969a63550892451a7d4408045c7b112",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -590,8 +590,8 @@
     },
     {
       "aliases": ["syslog tls server"],
-      "body_bytes": 6550,
-      "body_sha256": "sha256:c7688fe01d3c7e028a25ba92ac041208c24759e8a24aadd46f6c587019fb6ea9",
+      "body_bytes": 5031,
+      "body_sha256": "sha256:8af9e96989ce0cf8ac81e01651c196d1404caf94d384fb5968b3bbcce49f287d",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [
@@ -749,8 +749,8 @@
     },
     {
       "aliases": ["syslog tls server default https port"],
-      "body_bytes": 1349,
-      "body_sha256": "sha256:5cd4d6ed63737a3a69f992554524781c18e237e474bafc0de5e8cea73628e6be",
+      "body_bytes": 1077,
+      "body_sha256": "sha256:2b8d12bb34d3ee77834cebea140edb686314371ed1b0568969a07c943ca6242d",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -789,8 +789,8 @@
     },
     {
       "aliases": ["syslog tls server default syslog tls port"],
-      "body_bytes": 1359,
-      "body_sha256": "sha256:248b63476fb7c0b08dd4247b57b2aab0829efb3d9e60e131055596e033846f4e",
+      "body_bytes": 1087,
+      "body_sha256": "sha256:0c58b04084d09555e09336599f8b1508a3dff13d022e48807bb4b3341516e0d2",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -829,8 +829,8 @@
     },
     {
       "aliases": ["syslog tls server mtls disabled"],
-      "body_bytes": 1339,
-      "body_sha256": "sha256:922e2053073a6ed1b4fa1bd39ce64d3c3d8845f59d6f3ecc14cd82333c20de12",
+      "body_bytes": 1067,
+      "body_sha256": "sha256:3baeb7549f595b58df870258d25ce483c2dd18a8a85d3d678b880473e946738c",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -869,8 +869,8 @@
     },
     {
       "aliases": ["syslog tls server mtls enable"],
-      "body_bytes": 2818,
-      "body_sha256": "sha256:51d2558bb0bb5957f0512ee72d05c145fc55065314dcc2186668bb6f7297c506",
+      "body_bytes": 2393,
+      "body_sha256": "sha256:d97886bde9a5a49a971f1f1877a45cbb62f85261f88d08e02c7448f30b384439",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": ["xcsh-docs:data-sources:log_receiver:properties:syslog:tls_server:mtls_enable:key_url"],
@@ -938,8 +938,8 @@
     },
     {
       "aliases": ["syslog tls server mtls enable key url"],
-      "body_bytes": 2375,
-      "body_sha256": "sha256:a7214c7714b526c2c48238cb9654b8f59ae74c4a287d8a2fd18708d4eda5789f",
+      "body_bytes": 1664,
+      "body_sha256": "sha256:c2e349efb5c3157d35f639ca8a78cecc3bc00f117db6058e59b10eca6dccc515",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [
@@ -1010,8 +1010,8 @@
     },
     {
       "aliases": ["syslog tls server mtls enable key url blindfold secret info"],
-      "body_bytes": 4848,
-      "body_sha256": "sha256:7d1204f0c003b19abc66988fe3180afaa32e190a4daf93561bab87ddf31c389b",
+      "body_bytes": 4182,
+      "body_sha256": "sha256:a1907d80ac4ffeb9a87bbcdfae4cda1eb7e9ca041d99078e0841c47364367ae3",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -1100,8 +1100,8 @@
     },
     {
       "aliases": ["syslog tls server mtls enable key url clear secret info"],
-      "body_bytes": 3728,
-      "body_sha256": "sha256:51868b8dc4081e94f287ebf0e3e40989ad417f46c7905d6806ad1bad6c9335fc",
+      "body_bytes": 3196,
+      "body_sha256": "sha256:c9cd0218cb95f651e8ea927eb6854225f4be8bc39d737d424bb4a1cd9d0c06bb",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -1169,8 +1169,8 @@
     },
     {
       "aliases": ["syslog tls server volterra ca"],
-      "body_bytes": 1357,
-      "body_sha256": "sha256:4d1264614b4a03272dd70de602126922146cfe32cae5e71cb732a0b4c208712f",
+      "body_bytes": 1085,
+      "body_sha256": "sha256:ea74132761d6797ce207fb685935309dfc9f63553ebd3fc1968b776bde025c35",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -1209,8 +1209,8 @@
     },
     {
       "aliases": ["syslog udp server"],
-      "body_bytes": 3167,
-      "body_sha256": "sha256:1aafd4bc100fd19b0405cd6855ea07ce0c227d76910f327eba246994b45986e2",
+      "body_bytes": 2809,
+      "body_sha256": "sha256:9c2272ff234d7ed727f3920fccbd1a9af2fb215df631688c004738bacee4c9f3",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -1278,8 +1278,8 @@
     },
     {
       "aliases": ["log receiver"],
-      "body_bytes": 657,
-      "body_sha256": "sha256:ee62106c48009ff51f2ddadbb10313ee5e89f6a9240faef24c349bd711f83e70",
+      "body_bytes": 414,
+      "body_sha256": "sha256:c5834721184af61e522328dc2913e0d858c94230070fecc709b1d3561647527b",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": ["xcsh-docs:data-sources:log_receiver:example:data-source"],
@@ -1318,8 +1318,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 1279,
-      "body_sha256": "sha256:29bffb5ae7a40cca2abec417ca7eacf821d35e100c585e238ae7b47de7ad4d9c",
+      "body_bytes": 1051,
+      "body_sha256": "sha256:41b61bd3077a7d6988c609a3177d9c08faf9add46f61aa6edc24ec866f9b23a1",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],

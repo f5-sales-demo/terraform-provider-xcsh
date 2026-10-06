@@ -2,7 +2,7 @@
 page_title: "virtual_server.http3.server_ssl_profile"
 subcategory: ""
 description: "Configuration parameter for server ssl profile"
-xcsh_docs: {"aliases": ["virtual server http3 server ssl profile"], "body_bytes": 6688, "body_sha256": "sha256:c11534a2f81696f8b9976453a0f74f3b5964daf11844452dfc2b190a2d939f12", "capabilities": [], "category": null, "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": [], "status": "unresolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:data-sources:application_profiles:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:application_profiles:properties:virtual_server:http3:server_ssl_profile", "parent_id": "xcsh-docs:data-sources:application_profiles:properties:virtual_server:http3", "path": "documentation/data-sources/application_profiles/properties/virtual_server/http3/server_ssl_profile/index.md", "product": "distributed-cloud", "provider_name": "application_profiles", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "data-sources", "registry_anchor": "canonical-0033200333002111-3332200110001031-0202212132212132-2013332121113223-0031132032002310-3123011022020321-2122311103211212-3130200323302122", "registry_path": "docs/guides/data-sources--application_profiles--reference--group-002.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["virtual_server", "http3", "server_ssl_profile"], "schema_version": 1, "sections": [{"aliases": ["virtual server http3 server ssl profile kind"], "anchor": "schema-virtual_server--http3--server_ssl_profile--kind", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. \"route\")", "document_id": "xcsh-docs:data-sources:application_profiles:properties:virtual_server:http3:server_ssl_profile", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["virtual_server", "http3", "server_ssl_profile", "kind"], "syntax": "attribute", "type": "string"}, {"aliases": ["virtual server http3 server ssl profile name"], "anchor": "schema-virtual_server--http3--server_ssl_profile--name", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.", "document_id": "xcsh-docs:data-sources:application_profiles:properties:virtual_server:http3:server_ssl_profile", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["virtual_server", "http3", "server_ssl_profile", "name"], "syntax": "attribute", "type": "string"}, {"aliases": ["virtual server http3 server ssl profile namespace"], "anchor": "schema-virtual_server--http3--server_ssl_profile--namespace", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.", "document_id": "xcsh-docs:data-sources:application_profiles:properties:virtual_server:http3:server_ssl_profile", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["virtual_server", "http3", "server_ssl_profile", "namespace"], "syntax": "attribute", "type": "string"}, {"aliases": ["virtual server http3 server ssl profile tenant"], "anchor": "schema-virtual_server--http3--server_ssl_profile--tenant", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.", "document_id": "xcsh-docs:data-sources:application_profiles:properties:virtual_server:http3:server_ssl_profile", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["virtual_server", "http3", "server_ssl_profile", "tenant"], "syntax": "attribute", "type": "string"}, {"aliases": ["virtual server http3 server ssl profile uid"], "anchor": "schema-virtual_server--http3--server_ssl_profile--uid", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.", "document_id": "xcsh-docs:data-sources:application_profiles:properties:virtual_server:http3:server_ssl_profile", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["virtual_server", "http3", "server_ssl_profile", "uid"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/application_profiles/properties/virtual_server/http3/server_ssl_profile/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Configuration parameter for server ssl profile", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["application_profilesCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
+xcsh_docs: {"aliases": ["virtual server http3 server ssl profile"], "body_bytes": 5640, "body_sha256": "sha256:204f91622b2b6fcac6482df606cfc7d6df8dfb146c0b00999f5028a5a1c387ea", "capabilities": [], "category": null, "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": [], "status": "unresolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:data-sources:application_profiles:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:application_profiles:properties:virtual_server:http3:server_ssl_profile", "parent_id": "xcsh-docs:data-sources:application_profiles:properties:virtual_server:http3", "path": "documentation/data-sources/application_profiles/properties/virtual_server/http3/server_ssl_profile/index.md", "product": "distributed-cloud", "provider_name": "application_profiles", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "data-sources", "registry_anchor": "canonical-0033200333002111-3332200110001031-0202212132212132-2013332121113223-0031132032002310-3123011022020321-2122311103211212-3130200323302122", "registry_path": "docs/guides/data-sources--application_profiles--reference--group-003.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["virtual_server", "http3", "server_ssl_profile"], "schema_version": 1, "sections": [{"aliases": ["virtual server http3 server ssl profile kind"], "anchor": "schema-virtual_server--http3--server_ssl_profile--kind", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. \"route\")", "document_id": "xcsh-docs:data-sources:application_profiles:properties:virtual_server:http3:server_ssl_profile", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["virtual_server", "http3", "server_ssl_profile", "kind"], "syntax": "attribute", "type": "string"}, {"aliases": ["virtual server http3 server ssl profile name"], "anchor": "schema-virtual_server--http3--server_ssl_profile--name", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.", "document_id": "xcsh-docs:data-sources:application_profiles:properties:virtual_server:http3:server_ssl_profile", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["virtual_server", "http3", "server_ssl_profile", "name"], "syntax": "attribute", "type": "string"}, {"aliases": ["virtual server http3 server ssl profile namespace"], "anchor": "schema-virtual_server--http3--server_ssl_profile--namespace", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.", "document_id": "xcsh-docs:data-sources:application_profiles:properties:virtual_server:http3:server_ssl_profile", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["virtual_server", "http3", "server_ssl_profile", "namespace"], "syntax": "attribute", "type": "string"}, {"aliases": ["virtual server http3 server ssl profile tenant"], "anchor": "schema-virtual_server--http3--server_ssl_profile--tenant", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.", "document_id": "xcsh-docs:data-sources:application_profiles:properties:virtual_server:http3:server_ssl_profile", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["virtual_server", "http3", "server_ssl_profile", "tenant"], "syntax": "attribute", "type": "string"}, {"aliases": ["virtual server http3 server ssl profile uid"], "anchor": "schema-virtual_server--http3--server_ssl_profile--uid", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.", "document_id": "xcsh-docs:data-sources:application_profiles:properties:virtual_server:http3:server_ssl_profile", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["virtual_server", "http3", "server_ssl_profile", "uid"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/application_profiles/properties/virtual_server/http3/server_ssl_profile/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Configuration parameter for server ssl profile", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["application_profilesCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -24,10 +24,6 @@ Breadcrumbs:
 Type: `"list"`. Computed.
 
 Configuration parameter for server ssl profile.
-
-Upstream description:
-
-Configuration parameter for server ssl profile
 
 Receipt-pinned upstream constraints:
 
@@ -74,10 +70,10 @@ Type: `"string"`. Computed.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then kind will hold the
 referred object's kind (e.g. 'route').
 
-Upstream description:
+Additional upstream details:
 
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then kind will hold the
-referred object's kind (e.g. "route")
+Virtual\_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g.
+"route")
 
 Receipt-pinned upstream constraints:
 
@@ -111,11 +107,6 @@ Type: `"string"`. Computed.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
 referred object's(e.g. Route's) name.
 
-Upstream description:
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
-referred object's(e.g. Route's) name.
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -144,11 +135,6 @@ Receipt-pinned upstream constraints:
 ### namespace property
 
 Type: `"string"`. Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
-hold the referred object's(e.g. Route's) namespace.
-
-Upstream description:
 
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
 hold the referred object's(e.g. Route's) namespace.
@@ -200,11 +186,6 @@ Type: `"string"`. Computed.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
 the referred object's(e.g. Route's) tenant.
 
-Upstream description:
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
-the referred object's(e.g. Route's) tenant.
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -237,11 +218,6 @@ Type: `"string"`. Computed.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then uid will hold the
 referred object's(e.g. Route's) uid.
 
-Upstream description:
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then uid will hold the
-referred object's(e.g. Route's) uid.
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -264,8 +240,3 @@ Receipt-pinned upstream constraints:
   }
 }
 ```
-
-## Next pages
-
-- [virtual_server.http3](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/application_profiles/properties/virtual_server/http3/)
-- [xcsh_application_profiles](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/application_profiles/)

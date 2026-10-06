@@ -56,8 +56,8 @@
   "pages": [
     {
       "aliases": ["network data intelligence"],
-      "body_bytes": 1511,
-      "body_sha256": "sha256:52e665c391f568c2d50f1c30acceba0425727a204be49b2ff8e9ec39c04209cc",
+      "body_bytes": 1524,
+      "body_sha256": "sha256:65240675a33486f4ffc662f4f833e67b68f62263403d3bfc898f153eb30fe648",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -100,8 +100,8 @@
     },
     {
       "aliases": ["network data intelligence"],
-      "body_bytes": 3744,
-      "body_sha256": "sha256:f03aa32c540b0c04a8439ac3625d2f413a284afa7cef2947b8ed900f3bd901d6",
+      "body_bytes": 3596,
+      "body_sha256": "sha256:dc01844427a8a22c70a2f8d1f3c5d5ecf0302c10bf8f614509ca1dc36272c495",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -267,8 +267,8 @@
     },
     {
       "aliases": ["network data intelligence"],
-      "body_bytes": 735,
-      "body_sha256": "sha256:bb03ae8273608648b6aef7c08e1629439a73974cd5bc39279b7b1e16c3115920",
+      "body_bytes": 453,
+      "body_sha256": "sha256:b48294603482568a314a42a6fbac4d1b7bfdc6adfef5fbc2339820b433314817",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:network_data_intelligence:example:data-source"],
@@ -307,8 +307,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 1393,
-      "body_sha256": "sha256:24e8020091bc4f9206b60fcc55bb7255d93a4e15e7d661948069c317d4da739a",
+      "body_bytes": 1126,
+      "body_sha256": "sha256:2e75113647eee5a5543a2c32ca0ea2d54f2fab54e757f4a02d3efb70b1eed00a",
       "capabilities": [],
       "category": null,
       "child_ids": [],

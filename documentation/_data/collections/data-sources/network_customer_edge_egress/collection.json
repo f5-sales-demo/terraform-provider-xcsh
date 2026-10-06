@@ -46,8 +46,8 @@
   "pages": [
     {
       "aliases": ["network customer edge egress"],
-      "body_bytes": 1851,
-      "body_sha256": "sha256:3000d89eb70ea6a47e5b9ea88e46d1ebd002b6d9c776b97e071745d130329ab4",
+      "body_bytes": 1864,
+      "body_sha256": "sha256:d2efde6d984b8648a0fb852e2c2beeea5a0ce2ce7129dcba1d2c3b7ba7d2a129",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -90,8 +90,8 @@
     },
     {
       "aliases": ["network customer edge egress"],
-      "body_bytes": 3048,
-      "body_sha256": "sha256:5b9234542ef988285763b5f9d16eeedeebb9ec7e1734668ebeb94885de62c6f6",
+      "body_bytes": 2894,
+      "body_sha256": "sha256:5c8b0a141719453887942567c2ec89d33a782a75bd15eb38f80082a903098681",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -229,8 +229,8 @@
     },
     {
       "aliases": ["network customer edge egress"],
-      "body_bytes": 753,
-      "body_sha256": "sha256:cc6c05d33566e7cc6c6e1df4c95776788b0eab13cf76fac3128c94517552c150",
+      "body_bytes": 462,
+      "body_sha256": "sha256:e84890186383164520c6e8012baff210c2856f84b4defb02ddcfd622710cf8ea",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:network_customer_edge_egress:example:data-source"],
@@ -269,8 +269,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 1669,
-      "body_sha256": "sha256:ea7d14265fe20dc5da651ece2d6746c37650a086718acbd5452245df423e2701",
+      "body_bytes": 1393,
+      "body_sha256": "sha256:83adc2b0d1ef5223da9cfbae3bffd1f66bfae0f42e75044eb84bf6333568e9c8",
       "capabilities": [],
       "category": null,
       "child_ids": [],

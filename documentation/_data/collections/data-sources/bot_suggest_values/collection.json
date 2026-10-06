@@ -86,8 +86,8 @@
   "pages": [
     {
       "aliases": ["bot suggest values"],
-      "body_bytes": 1242,
-      "body_sha256": "sha256:48a38512c7e07876ad1666352dc972f1e4d3035f15d2f0811310f7686d4c91b3",
+      "body_bytes": 1290,
+      "body_sha256": "sha256:73267dfc17546d5b566b240adb34789d989040109e5217bd2fb7889d1fd7abe9",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -118,7 +118,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bot_suggest_values/index.txt",
       "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
-      "summary": "Resource creation operation.",
+      "summary": "Reads Bot Suggest Values information from F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_bot_suggest_values",
       "unresolved_relationships": [],
@@ -130,8 +130,8 @@
     },
     {
       "aliases": ["bot suggest values"],
-      "body_bytes": 4595,
-      "body_sha256": "sha256:96b40f2d531f19788f761a6c18858de90861f7f48b5e7f16533c20a5072fdd19",
+      "body_bytes": 4213,
+      "body_sha256": "sha256:689f8d8f2637891f3ec142f82ac7538266bff73ab564e88c5120987585cddcf6",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -244,8 +244,8 @@
     },
     {
       "aliases": ["items"],
-      "body_bytes": 1757,
-      "body_sha256": "sha256:a0ccb6849152f99888690f8e709a29ceb866e99ba499bf41fe569d09ccb9363f",
+      "body_bytes": 1362,
+      "body_sha256": "sha256:e330d117625213b792f8bfcea9a2d766bfa489cd93eb692d51099450cbfd56df",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:bot_suggest_values:properties:items:ref_value"],
@@ -355,8 +355,8 @@
     },
     {
       "aliases": ["items ref value"],
-      "body_bytes": 2124,
-      "body_sha256": "sha256:cef7af0cff47a18cd174b213788d13acfe3a6ba20764b8ab7c27fd657f58c57e",
+      "body_bytes": 1873,
+      "body_sha256": "sha256:8b141fda4c8294fe37f135be8be3a5de9815de37e808766edf9dfc1dea604cfd",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -438,8 +438,8 @@
     },
     {
       "aliases": ["request body"],
-      "body_bytes": 1519,
-      "body_sha256": "sha256:28283857617375ae20a5249cdecb88cda72a0d635e539afd1aa60e203b82b520",
+      "body_bytes": 1261,
+      "body_sha256": "sha256:595b90261074a49f02bd683c200585651c06b313f85c93bab2b79bb786ab3501",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -507,8 +507,8 @@
     },
     {
       "aliases": ["bot suggest values"],
-      "body_bytes": 693,
-      "body_sha256": "sha256:5f42c0e55df7b164de50ed6da5fbce52d5e244f65e6577d43cd62c2ee75523c4",
+      "body_bytes": 432,
+      "body_sha256": "sha256:8d5399782e7d6327a8c0fc14d3ffc2df58cbc9fb242dd4a09abeb82c897bd16e",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:bot_suggest_values:example:data-source"],
@@ -547,8 +547,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 1272,
-      "body_sha256": "sha256:c36e89540e0ff79e31ab93de790e9aeccc37b09ac4baac0d2d9bab0b0832ebd0",
+      "body_bytes": 1026,
+      "body_sha256": "sha256:555daf7b409f5cda6a82c944a6a408901a3cf93c31c066847eb8a522588bee83",
       "capabilities": [],
       "category": null,
       "child_ids": [],

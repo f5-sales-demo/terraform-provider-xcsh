@@ -2,7 +2,7 @@
 page_title: "rule_list.rules.spec.client_name_matcher"
 subcategory: "Security"
 description: "A matcher specifies multiple criteria for matching an input string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of exact values and a list of regular expressions."
-xcsh_docs: {"aliases": ["rule list rules spec client name matcher", "succeeded", "success", "successful"], "body_bytes": 6492, "body_sha256": "sha256:a77bafa8d955c5f4816f1f368492b8cddb55f76c14c53f4af3a0730bf21fd898", "capabilities": ["security"], "category": "security", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:resources:service_policy:collection", "completeness": "complete", "id": "xcsh-docs:resources:service_policy:properties:rule_list:rules:spec:client_name_matcher", "parent_id": "xcsh-docs:resources:service_policy:properties:rule_list:rules:spec", "path": "documentation/resources/service_policy/properties/rule_list/rules/spec/client_name_matcher/index.md", "product": "distributed-cloud", "provider_name": "service_policy", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-1013211000212013-2212232120132201-3311130211322132-3320030201030231-3310233022020230-1023302200222133-1112120002313123-1031200213012010", "registry_path": "docs/guides/resources--service_policy--reference--group-002.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["rule_list", "rules", "spec", "client_name_matcher"], "schema_version": 1, "sections": [{"aliases": ["rule list rules spec client name matcher exact values"], "anchor": "schema-rule_list--rules--spec--client_name_matcher--exact_values", "description": "A list of exact values to match the input against.", "document_id": "xcsh-docs:resources:service_policy:properties:rule_list:rules:spec:client_name_matcher", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["rule_list", "rules", "spec", "client_name_matcher", "exact_values"], "syntax": "attribute", "type": "list"}, {"aliases": ["rule list rules spec client name matcher regex values"], "anchor": "schema-rule_list--rules--spec--client_name_matcher--regex_values", "description": "A list of regular expressions to match the input against.", "document_id": "xcsh-docs:resources:service_policy:properties:rule_list:rules:spec:client_name_matcher", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["rule_list", "rules", "spec", "client_name_matcher", "regex_values"], "syntax": "attribute", "type": "list"}, {"aliases": ["rule list rules spec client name matcher transformers"], "anchor": "schema-rule_list--rules--spec--client_name_matcher--transformers", "description": "An ordered list of transformers (starting from index 0) to be applied to the path before matching.", "document_id": "xcsh-docs:resources:service_policy:properties:rule_list:rules:spec:client_name_matcher", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["rule_list", "rules", "spec", "client_name_matcher", "transformers"], "syntax": "attribute", "type": "list"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/service_policy/properties/rule_list/rules/spec/client_name_matcher/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "A matcher specifies multiple criteria for matching an input string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of exact values and a list of regular expressions.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["service_policyCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
+xcsh_docs: {"aliases": ["rule list rules spec client name matcher", "succeeded", "success", "successful"], "body_bytes": 5817, "body_sha256": "sha256:3703593d655b8870558e9dbb5bd290eaa7e334a912747eb7a576c8bd3dadbb36", "capabilities": ["security"], "category": "security", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:resources:service_policy:collection", "completeness": "complete", "id": "xcsh-docs:resources:service_policy:properties:rule_list:rules:spec:client_name_matcher", "parent_id": "xcsh-docs:resources:service_policy:properties:rule_list:rules:spec", "path": "documentation/resources/service_policy/properties/rule_list/rules/spec/client_name_matcher/index.md", "product": "distributed-cloud", "provider_name": "service_policy", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-1013211000212013-2212232120132201-3311130211322132-3320030201030231-3310233022020230-1023302200222133-1112120002313123-1031200213012010", "registry_path": "docs/guides/resources--service_policy--reference--group-002.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["rule_list", "rules", "spec", "client_name_matcher"], "schema_version": 1, "sections": [{"aliases": ["rule list rules spec client name matcher exact values"], "anchor": "schema-rule_list--rules--spec--client_name_matcher--exact_values", "description": "A list of exact values to match the input against.", "document_id": "xcsh-docs:resources:service_policy:properties:rule_list:rules:spec:client_name_matcher", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["rule_list", "rules", "spec", "client_name_matcher", "exact_values"], "syntax": "attribute", "type": "list"}, {"aliases": ["rule list rules spec client name matcher regex values"], "anchor": "schema-rule_list--rules--spec--client_name_matcher--regex_values", "description": "A list of regular expressions to match the input against.", "document_id": "xcsh-docs:resources:service_policy:properties:rule_list:rules:spec:client_name_matcher", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["rule_list", "rules", "spec", "client_name_matcher", "regex_values"], "syntax": "attribute", "type": "list"}, {"aliases": ["rule list rules spec client name matcher transformers"], "anchor": "schema-rule_list--rules--spec--client_name_matcher--transformers", "description": "An ordered list of transformers (starting from index 0) to be applied to the path before matching.", "document_id": "xcsh-docs:resources:service_policy:properties:rule_list:rules:spec:client_name_matcher", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["rule_list", "rules", "spec", "client_name_matcher", "transformers"], "syntax": "attribute", "type": "list"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/service_policy/properties/rule_list/rules/spec/client_name_matcher/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "A matcher specifies multiple criteria for matching an input string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of exact values and a list of regular expressions.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["service_policyCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -23,12 +23,6 @@ Breadcrumbs:
 <a id="section"></a>
 
 Type: `"object"`. single nested block, Optional.
-
-Matcher specifies multiple criteria for matching an input string. The match is considered successful
-if any of the criteria are satisfied. The set of supported match criteria includes a list of exact
-values and a list of regular expressions.
-
-Upstream description:
 
 A matcher specifies multiple criteria for matching an input string. The match is considered
 successful if any of the criteria are satisfied. The set of supported match criteria includes a list
@@ -62,10 +56,6 @@ client_name_matcher {
 ### exact_values property
 
 Type: `["list", "string"]`. Optional.
-
-List of exact values to match the input against.
-
-Upstream description:
 
 A list of exact values to match the input against.
 
@@ -120,10 +110,6 @@ Receipt-pinned upstream constraints:
 ### regex_values property
 
 Type: `["list", "string"]`. Optional.
-
-List of regular expressions to match the input against.
-
-Upstream description:
 
 A list of regular expressions to match the input against.
 
@@ -187,7 +173,7 @@ Ordered list of transformers (starting from index 0) to be applied to the path b
 Possible values are \`LOWER\_CASE\`, \`UPPER\_CASE\`, \`BASE64\_DECODE\`, \`NORMALIZE\_PATH\`,
 \`REMOVE\_WHITESPACE\`, \`URL\_DECODE\`, \`TRIM\_LEFT\`, \`TRIM\_RIGHT\`, \`TRIM\`.
 
-Upstream description:
+Additional upstream details:
 
 An ordered list of transformers (starting from index 0) to be applied to the path before matching.
 
@@ -232,8 +218,3 @@ Receipt-pinned upstream constraints:
   }
 }
 ```
-
-## Next pages
-
-- [rule_list.rules.spec](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/service_policy/properties/rule_list/rules/spec/)
-- [xcsh_service_policy](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/service_policy/)

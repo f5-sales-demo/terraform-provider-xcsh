@@ -1,10 +1,10 @@
 ---
-page_title: "xcsh_waf_exclusion_policy landing"
+page_title: "xcsh_waf_exclusion_policy"
 subcategory: ""
-description: "Complete grouped canonical reference for xcsh_waf_exclusion_policy landing."
+description: "Complete grouped canonical reference for xcsh_waf_exclusion_policy."
 ---
 
-# xcsh_waf_exclusion_policy landing
+# xcsh_waf_exclusion_policy
 
 <a id="canonical-3330030113020300-2333011200112232-2103211201021223-3323101232201322-0333023102000133-0023211202130100-1022130022032200-1213203320332021"></a>
 
@@ -12,9 +12,7 @@ description: "Complete grouped canonical reference for xcsh_waf_exclusion_policy
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-2032003030002133-2302113220103201-0320333301312203-1330032011222012-2100233101211121-3122233320233113-0232303312320110-0202223220021332"></a>
-
-## xcsh_waf_exclusion_policy — xcsh_waf_exclusion_policy / 123000112330 / 2
+## Overview
 
 Breadcrumbs:
 
@@ -22,15 +20,15 @@ Breadcrumbs:
 
 Manages WAF exclusion policy in F5 Distributed Cloud.
 
-<a id="canonical-3331302031130011-0122311132210133-3022120020023333-2232031011003120-1133001222100230-0232023212023023-1331210112300222-1100301220030133"></a>
+<a id="canonical-2032003030002133-2302113220103201-0320333301312203-1330032011222012-2100233101211121-3122233320233113-0232303312320110-0202223220021332"></a>
 
-## Prerequisites — xcsh_waf_exclusion_policy / 123000112330 / 3
+### Prerequisites for `xcsh_waf_exclusion_policy`
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-1310123232113213-3333313221320123-3032330232311310-2203322003122130-2322211122333302-3230212111323233-3000021231301330-2101310211123111"></a>
+<a id="canonical-3331302031130011-0122311132210133-3022120020023333-2232031011003120-1133001222100230-0232023212023023-1331210112300222-1100301220030133"></a>
 
-## Minimal configuration — xcsh_waf_exclusion_policy / 123000112330 / 4
+### Minimal configuration for `xcsh_waf_exclusion_policy`
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -56,15 +54,15 @@ resource "xcsh_waf_exclusion_policy" "example" {
 }
 ```
 
-<a id="canonical-3231301133100001-0331132202112320-2032030321133310-1112312113131131-2001133111220332-1311210333011133-0121310200101313-2301122000313031"></a>
+<a id="canonical-1310123232113213-3333313221320123-3032330232311310-2203322003122130-2322211122333302-3230212111323233-3000021231301330-2101310211123111"></a>
 
-## Root configuration — xcsh_waf_exclusion_policy / 123000112330 / 5
+### Root configuration for `xcsh_waf_exclusion_policy`
 
 Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-2012223120231122-0012021110211032-0013233303312101-1021101301303222-3330102301131113-3332333021333201-2032322100312230-1222001102022230"></a>
+<a id="canonical-3231301133100001-0331132202112320-2032030321133310-1112312113131131-2001133111220332-1311210333011133-0121310200101313-2301122000313031"></a>
 
-## Next pages — xcsh_waf_exclusion_policy / 123000112330 / 6
+### Explore this collection for `xcsh_waf_exclusion_policy`
 
 - [Property reference](../guides/resources--waf_exclusion_policy--reference--group-001.md#canonical-3201012220022020-0302300332132202-1210300000101133-0132320021112000-0303020230312320-2033302130202231-1302212000313220-0123110313003311)
 - [Examples](../guides/resources--waf_exclusion_policy--examples--group-001.md#canonical-0110122321102222-3111203320123211-3222003212013303-2333230331313031-2003120230233113-3123231103322202-1020122311021101-3011330131323000)

@@ -2,7 +2,7 @@
 page_title: "psp_spec.supplemental_groups.id_ranges"
 subcategory: ""
 description: "List of range of ID(s)"
-xcsh_docs: {"aliases": ["psp spec supplemental groups id ranges"], "body_bytes": 4458, "body_sha256": "sha256:3ce23c4025400deb66e7aeee9ffa006a8cb8c2c071e8fb1570162f43a92caec1", "capabilities": ["container"], "category": "container", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:resources:k8s_pod_security_policy:collection", "completeness": "complete", "id": "xcsh-docs:resources:k8s_pod_security_policy:properties:psp_spec:supplemental_groups:id_ranges", "parent_id": "xcsh-docs:resources:k8s_pod_security_policy:properties:psp_spec:supplemental_groups", "path": "documentation/resources/k8s_pod_security_policy/properties/psp_spec/supplemental_groups/id_ranges/index.md", "product": "distributed-cloud", "provider_name": "k8s_pod_security_policy", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-3201111331020301-0321203222222222-3030211031010121-0131023303302002-1003333330320321-1131220111023023-2321122030120121-0033230301231332", "registry_path": "docs/guides/resources--k8s_pod_security_policy--reference--group-001.md", "relationships": [{"anchor": "schema-psp_spec--supplemental_groups--id_ranges--max_id", "enforcement": "provider-schema", "group": "psp_spec.supplemental_groups.id_ranges:RequiredListObjectAttributes:max_id,min_id", "source": "ast-validator:RequiredListObjectAttributes", "target_id": "xcsh-docs:resources:k8s_pod_security_policy:properties:psp_spec:supplemental_groups:id_ranges", "type": "requires"}, {"anchor": "schema-psp_spec--supplemental_groups--id_ranges--min_id", "enforcement": "provider-schema", "group": "psp_spec.supplemental_groups.id_ranges:RequiredListObjectAttributes:max_id,min_id", "source": "ast-validator:RequiredListObjectAttributes", "target_id": "xcsh-docs:resources:k8s_pod_security_policy:properties:psp_spec:supplemental_groups:id_ranges", "type": "requires"}], "retrieval_version": 1, "role": "properties", "schema_path": ["psp_spec", "supplemental_groups", "id_ranges"], "schema_version": 1, "sections": [{"aliases": ["psp spec supplemental groups id ranges max id"], "anchor": "schema-psp_spec--supplemental_groups--id_ranges--max_id", "description": "Ending(maximum) ID for for ID range.", "document_id": "xcsh-docs:resources:k8s_pod_security_policy:properties:psp_spec:supplemental_groups:id_ranges", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["psp_spec", "supplemental_groups", "id_ranges", "max_id"], "syntax": "attribute", "type": "number"}, {"aliases": ["psp spec supplemental groups id ranges min id"], "anchor": "schema-psp_spec--supplemental_groups--id_ranges--min_id", "description": "Starting(minimum) ID for for ID range.", "document_id": "xcsh-docs:resources:k8s_pod_security_policy:properties:psp_spec:supplemental_groups:id_ranges", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["psp_spec", "supplemental_groups", "id_ranges", "min_id"], "syntax": "attribute", "type": "number"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/k8s_pod_security_policy/properties/psp_spec/supplemental_groups/id_ranges/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "List of range of ID(s)", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["k8s_pod_security_policyCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
+xcsh_docs: {"aliases": ["psp spec supplemental groups id ranges"], "body_bytes": 3981, "body_sha256": "sha256:b51cd7646f7594f4cb82ea2cbb6fc2683064ff82123cb7a3f9c87b9e778afe41", "capabilities": ["container"], "category": "container", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:resources:k8s_pod_security_policy:collection", "completeness": "complete", "id": "xcsh-docs:resources:k8s_pod_security_policy:properties:psp_spec:supplemental_groups:id_ranges", "parent_id": "xcsh-docs:resources:k8s_pod_security_policy:properties:psp_spec:supplemental_groups", "path": "documentation/resources/k8s_pod_security_policy/properties/psp_spec/supplemental_groups/id_ranges/index.md", "product": "distributed-cloud", "provider_name": "k8s_pod_security_policy", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-3201111331020301-0321203222222222-3030211031010121-0131023303302002-1003333330320321-1131220111023023-2321122030120121-0033230301231332", "registry_path": "docs/guides/resources--k8s_pod_security_policy--reference--group-001.md", "relationships": [{"anchor": "schema-psp_spec--supplemental_groups--id_ranges--max_id", "enforcement": "provider-schema", "group": "psp_spec.supplemental_groups.id_ranges:RequiredListObjectAttributes:max_id,min_id", "source": "ast-validator:RequiredListObjectAttributes", "target_id": "xcsh-docs:resources:k8s_pod_security_policy:properties:psp_spec:supplemental_groups:id_ranges", "type": "requires"}, {"anchor": "schema-psp_spec--supplemental_groups--id_ranges--min_id", "enforcement": "provider-schema", "group": "psp_spec.supplemental_groups.id_ranges:RequiredListObjectAttributes:max_id,min_id", "source": "ast-validator:RequiredListObjectAttributes", "target_id": "xcsh-docs:resources:k8s_pod_security_policy:properties:psp_spec:supplemental_groups:id_ranges", "type": "requires"}], "retrieval_version": 1, "role": "properties", "schema_path": ["psp_spec", "supplemental_groups", "id_ranges"], "schema_version": 1, "sections": [{"aliases": ["psp spec supplemental groups id ranges max id"], "anchor": "schema-psp_spec--supplemental_groups--id_ranges--max_id", "description": "Ending(maximum) ID for for ID range.", "document_id": "xcsh-docs:resources:k8s_pod_security_policy:properties:psp_spec:supplemental_groups:id_ranges", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["psp_spec", "supplemental_groups", "id_ranges", "max_id"], "syntax": "attribute", "type": "number"}, {"aliases": ["psp spec supplemental groups id ranges min id"], "anchor": "schema-psp_spec--supplemental_groups--id_ranges--min_id", "description": "Starting(minimum) ID for for ID range.", "document_id": "xcsh-docs:resources:k8s_pod_security_policy:properties:psp_spec:supplemental_groups:id_ranges", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["psp_spec", "supplemental_groups", "id_ranges", "min_id"], "syntax": "attribute", "type": "number"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/k8s_pod_security_policy/properties/psp_spec/supplemental_groups/id_ranges/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "List of range of ID(s)", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["k8s_pod_security_policyCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -24,10 +24,6 @@ Breadcrumbs:
 Type: `"object"`. list nested block, Optional.
 
 ID Ranges. List of range of ID(s)
-
-Upstream description:
-
-List of range of ID(s)
 
 Provider validators and defaults (from schema source):
 
@@ -85,10 +81,6 @@ Type: `"number"`. Optional.
 
 Ending ID. Ending(maximum) ID for for ID range.
 
-Upstream description:
-
-Ending(maximum) ID for for ID range.
-
 Provider validators and defaults (from schema source):
 
 ```go
@@ -140,10 +132,6 @@ Type: `"number"`. Optional.
 
 Starting ID. Starting(minimum) ID for for ID range.
 
-Upstream description:
-
-Starting(minimum) ID for for ID range.
-
 Provider validators and defaults (from schema source):
 
 ```go
@@ -186,8 +174,3 @@ Receipt-pinned upstream constraints:
   }
 }
 ```
-
-## Next pages
-
-- [psp_spec.supplemental_groups](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/k8s_pod_security_policy/properties/psp_spec/supplemental_groups/)
-- [xcsh_k8s_pod_security_policy](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/k8s_pod_security_policy/)

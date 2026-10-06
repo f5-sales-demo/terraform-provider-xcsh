@@ -67,8 +67,8 @@
   "pages": [
     {
       "aliases": ["namespace"],
-      "body_bytes": 1485,
-      "body_sha256": "sha256:099de36bbfe09bd6b9f96ad5d2ef829a169c968aeeadad9573458c8f9e66b877",
+      "body_bytes": 1498,
+      "body_sha256": "sha256:3b8126ad2ff2f33fc078e138c03fd3a4311fa86d846d1f94d4628cc1a4954e34",
       "capabilities": ["administration"],
       "category": "administration",
       "child_ids": [
@@ -113,8 +113,8 @@
     },
     {
       "aliases": ["namespace"],
-      "body_bytes": 9418,
-      "body_sha256": "sha256:29aa599f1de2af8f630b7055351414942315d0338164f63b0856d3b54d3d1771",
+      "body_bytes": 9054,
+      "body_sha256": "sha256:55512fc5522049820fbb3d228e1d3a4ca5a9c509c2d05d2a73697cf7239a31b6",
       "capabilities": ["administration"],
       "category": "administration",
       "child_ids": ["xcsh-docs:resources:namespace:properties:timeouts"],
@@ -266,8 +266,8 @@
     },
     {
       "aliases": ["duration", "lifecycle timeout", "operation timeout", "timeouts"],
-      "body_bytes": 2213,
-      "body_sha256": "sha256:3e1595bf350a993005b510d388c7ac675aa47b7c1232dcbe6c3e174a76a6d1a1",
+      "body_bytes": 1988,
+      "body_sha256": "sha256:1e6f6e54670d5fb67dbf9ed3e3e5095a921605af5fa6e69210516079073df86c",
       "capabilities": ["administration"],
       "category": "administration",
       "child_ids": [],
@@ -398,8 +398,8 @@
     },
     {
       "aliases": ["namespace"],
-      "body_bytes": 615,
-      "body_sha256": "sha256:29d3f9fe3c3e711eb53bf2efc2ad0c3f3f7504d2c5c3b8d9aea729a275488439",
+      "body_bytes": 393,
+      "body_sha256": "sha256:6f6c9a132eab1325ff4fe355eb3c9b2918ea3f29a3e967923945e06b8e56419b",
       "capabilities": ["administration"],
       "category": "administration",
       "child_ids": ["xcsh-docs:resources:namespace:example:resource"],
@@ -438,8 +438,8 @@
     },
     {
       "aliases": ["resource"],
-      "body_bytes": 1195,
-      "body_sha256": "sha256:556c0cc1aebac49e96abfb00d739864b7f0df6dfa6f362f9031f0624905099c6",
+      "body_bytes": 982,
+      "body_sha256": "sha256:7f29c16821f5f2b19330c70662ee2443715221b78cba174f8d626d118860d6b3",
       "capabilities": ["administration"],
       "category": "administration",
       "child_ids": [],
@@ -485,8 +485,8 @@
     },
     {
       "aliases": ["namespace"],
-      "body_bytes": 496,
-      "body_sha256": "sha256:3e0cf00b11124254dc47d92ca05ba18893cfafe4f058e7b7b25e66d324bd34f9",
+      "body_bytes": 383,
+      "body_sha256": "sha256:cc77fab036d29a5660214b2f2d6b321192401dc52466f64e1fc7bd7c2bf41115",
       "capabilities": ["administration"],
       "category": "administration",
       "child_ids": [],
@@ -526,8 +526,8 @@
     },
     {
       "aliases": ["namespace"],
-      "body_bytes": 553,
-      "body_sha256": "sha256:222b3a7ca9cc625e871cc12656c6895ae84ed03b67716b71670e4e56b2274965",
+      "body_bytes": 440,
+      "body_sha256": "sha256:04a060f30310140018e1cf244198952f89727a1119b0f388b7a6d5b75747c37f",
       "capabilities": ["administration"],
       "category": "administration",
       "child_ids": [],

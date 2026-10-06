@@ -1,10 +1,10 @@
 ---
-page_title: "xcsh_cloud_elastic_ip landing"
+page_title: "xcsh_cloud_elastic_ip"
 subcategory: ""
-description: "Complete grouped canonical reference for xcsh_cloud_elastic_ip landing."
+description: "Complete grouped canonical reference for xcsh_cloud_elastic_ip."
 ---
 
-# xcsh_cloud_elastic_ip landing
+# xcsh_cloud_elastic_ip
 
 <a id="canonical-1012233313021212-0003222033112111-1303213323303313-1020020302213310-1211110033020313-2122312122003031-2320202301023301-3102202323122130"></a>
 
@@ -12,9 +12,7 @@ description: "Complete grouped canonical reference for xcsh_cloud_elastic_ip lan
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3222011013031322-3111321033032113-2023233221213002-3110023120300233-1221112012220202-1200323112332003-0303022120022011-3320312202201301"></a>
-
-## xcsh_cloud_elastic_ip — xcsh_cloud_elastic_ip / 020013110333 / 2
+## Overview
 
 Breadcrumbs:
 
@@ -23,15 +21,15 @@ Breadcrumbs:
 Manages Cloud Elastic IP creates Cloud Elastic IP object Object is attached to a site in F5
 Distributed Cloud.
 
-<a id="canonical-2031200032231101-3331222223020333-0132310210232112-3320112301331330-3330020102300012-0321200121331230-2200302033002011-0301312330232221"></a>
+<a id="canonical-3222011013031322-3111321033032113-2023233221213002-3110023120300233-1221112012220202-1200323112332003-0303022120022011-3320312202201301"></a>
 
-## Prerequisites — xcsh_cloud_elastic_ip / 020013110333 / 3
+### Prerequisites for `xcsh_cloud_elastic_ip`
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-3100213133133022-2110110103103232-3333331231101303-1331010310111233-1101321202300230-2301020220202010-2202203112332312-1123331133033321"></a>
+<a id="canonical-2031200032231101-3331222223020333-0132310210232112-3320112301331330-3330020102300012-0321200121331230-2200302033002011-0301312330232221"></a>
 
-## Minimal configuration — xcsh_cloud_elastic_ip / 020013110333 / 4
+### Minimal configuration for `xcsh_cloud_elastic_ip`
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -59,15 +57,15 @@ resource "xcsh_cloud_elastic_ip" "example" {
 }
 ```
 
-<a id="canonical-2101123130001331-0301331221011031-1322013012110113-0300330332210223-2123301201022120-2101111331110301-2023203303211303-0130331030133211"></a>
+<a id="canonical-3100213133133022-2110110103103232-3333331231101303-1331010310111233-1101321202300230-2301020220202010-2202203112332312-1123331133033321"></a>
 
-## Root configuration — xcsh_cloud_elastic_ip / 020013110333 / 5
+### Root configuration for `xcsh_cloud_elastic_ip`
 
 Required root properties: `item_count`, `name`, `namespace`. Full root flags and choices appear in the property reference.
 
-<a id="canonical-3001201321211010-0122023303310302-3010130233022023-0323012132323222-3010020202010300-0013130100312120-1103122203020201-1103332111233100"></a>
+<a id="canonical-2101123130001331-0301331221011031-1322013012110113-0300330332210223-2123301201022120-2101111331110301-2023203303211303-0130331030133211"></a>
 
-## Next pages — xcsh_cloud_elastic_ip / 020013110333 / 6
+### Explore this collection for `xcsh_cloud_elastic_ip`
 
 - [Property reference](../guides/resources--cloud_elastic_ip--reference--group-001.md#canonical-3000332101332101-3033231112032333-3203132203302322-1221122003220232-1112221212310323-1330110330201000-0101323211230023-3313311003132210)
 - [Examples](../guides/resources--cloud_elastic_ip--examples--group-001.md#canonical-0131101220123332-1213332212210201-1213012320222330-1201113223023221-2313030213232111-1003202233132311-1231101021130003-2221323011023332)

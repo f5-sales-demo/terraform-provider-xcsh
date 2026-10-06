@@ -56,8 +56,8 @@
   "pages": [
     {
       "aliases": ["dc cluster group"],
-      "body_bytes": 1339,
-      "body_sha256": "sha256:b46882aae390de93417326ae80dd9b2113d2620ea0c40cd8999febbe5232a1c4",
+      "body_bytes": 1345,
+      "body_sha256": "sha256:edb17fb3f74da79392cf1a6464163e8eb4dc9f39c92fb002f6422ecb7f0f9165",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -88,7 +88,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dc_cluster_group/index.txt",
       "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
-      "summary": "Manages DC Cluster group in given namespace in F5 Distributed Cloud.",
+      "summary": "Reads Dc Cluster Group information from F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_dc_cluster_group",
       "unresolved_relationships": [],
@@ -100,8 +100,8 @@
     },
     {
       "aliases": ["dc cluster group"],
-      "body_bytes": 8274,
-      "body_sha256": "sha256:f5a8eed06a667b637c768f893608b854b3ca08a642ec7bb1203ca22db68f03b2",
+      "body_bytes": 8066,
+      "body_sha256": "sha256:d490a8a79f97f2797759ecc1e6d1aaa0feeb5a3fdcdea4f3c312255b39aacd0a",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:dc_cluster_group:properties:type"],
@@ -239,8 +239,8 @@
     },
     {
       "aliases": ["type"],
-      "body_bytes": 1788,
-      "body_sha256": "sha256:4792e4913d7f908540d2c55bb4dc21e2642a8641fed84837d83671642661bfe4",
+      "body_bytes": 1159,
+      "body_sha256": "sha256:9b175f6c598264c7d6f7bcb3bd8e01ec564bc89d0ae32ff4ca135448585dc42c",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -311,8 +311,8 @@
     },
     {
       "aliases": ["type control and data plane mesh"],
-      "body_bytes": 1204,
-      "body_sha256": "sha256:5001e205376451bb08343012c62a869e067c1098f536f477344de0e460d49c3e",
+      "body_bytes": 946,
+      "body_sha256": "sha256:3a8613e710cbf901170c4d21969de6c3341aebd101ee0cb1af405c51a5132212",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -351,8 +351,8 @@
     },
     {
       "aliases": ["type data plane mesh"],
-      "body_bytes": 1180,
-      "body_sha256": "sha256:426c49c12762c9024dcaacc4a5c4a28eb6100d855014cf8197cca493f05ed282",
+      "body_bytes": 922,
+      "body_sha256": "sha256:fb51ec73bb73c1a50bb17733b9486a1bfdf2d4f52003c1c6c1e37de47ba116be",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -391,8 +391,8 @@
     },
     {
       "aliases": ["dc cluster group"],
-      "body_bytes": 681,
-      "body_sha256": "sha256:f80222efaad59ec7a2f1bb84e11ea153c828bbf35e545a4898573e108a5069c4",
+      "body_bytes": 426,
+      "body_sha256": "sha256:d9f96a3e6665c8492c53f0a90f76aae5081f8ff7b9a38a9b59cd50b310f48788",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:dc_cluster_group:example:data-source"],
@@ -431,8 +431,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 1328,
-      "body_sha256": "sha256:7ed63c8aa5c54a8265e35ce63fc8b604529d5b2a1532cd823ceec6d3c95f80f5",
+      "body_bytes": 1088,
+      "body_sha256": "sha256:5d58b31f419a482f2c5e05ed6ef8986b6275962fae072af1c9dce66dd34e2062",
       "capabilities": [],
       "category": null,
       "child_ids": [],

@@ -122,8 +122,8 @@
   "pages": [
     {
       "aliases": ["subnet"],
-      "body_bytes": 1367,
-      "body_sha256": "sha256:bd2cbe19e9fde15954868961001bfbed52dc6c8bf4c9100c5762de7a56667d58",
+      "body_bytes": 1285,
+      "body_sha256": "sha256:44d8726c305c36c202d3b983f0a42d4263a8856661c468309239157b19a34d80",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": ["xcsh-docs:data-sources:subnet:reference", "xcsh-docs:data-sources:subnet:examples"],
@@ -151,7 +151,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/subnet/index.txt",
       "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
-      "summary": "Manages a Subnet resource in F5 Distributed Cloud for subnet object contains configuration for an interface of a vm/pod. it is created in user or shared namespace. configuration.",
+      "summary": "Reads subnet configuration for a VM or pod interface in a user or shared namespace.",
       "tasks": ["configuration"],
       "title": "xcsh_subnet",
       "unresolved_relationships": [],
@@ -163,8 +163,8 @@
     },
     {
       "aliases": ["subnet"],
-      "body_bytes": 12258,
-      "body_sha256": "sha256:51b583f462dd3a453416053cbade04bfa89837bcf105124da5c3dba5fe61ce30",
+      "body_bytes": 11683,
+      "body_sha256": "sha256:4712ee9ecd1a41e58ec34f30138fc247314aef8dbff49c151885172f9d6b6dce",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -349,8 +349,8 @@
     },
     {
       "aliases": ["connect to layer2"],
-      "body_bytes": 1777,
-      "body_sha256": "sha256:d4739eb2c2bea058c11a54c0c5fcaf8fd307d519f68ad183c42772f907fd3a8f",
+      "body_bytes": 1394,
+      "body_sha256": "sha256:40112b9c71d6a3d6375d715fab95683bd37299fafd23902ba96f8a8fe887ffca",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": ["xcsh-docs:data-sources:subnet:properties:connect_to_layer2:layer2_intf_ref"],
@@ -404,8 +404,8 @@
     },
     {
       "aliases": ["connect to layer2 layer2 intf ref"],
-      "body_bytes": 5365,
-      "body_sha256": "sha256:49a0e6d0f14572c8feb8297b89c993cc9d3baae71f4c0fa8b1570feff5f5dee1",
+      "body_bytes": 4453,
+      "body_sha256": "sha256:8dec13ea1709fa0915b7daaf944e6dcc3cc3063c4ab50bc4a89ad7d5934609fc",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -487,8 +487,8 @@
     },
     {
       "aliases": ["connect to slo"],
-      "body_bytes": 1029,
-      "body_sha256": "sha256:bbcc4ae564248c5e45d37ccae351921be6562ea68bb365ca8ddd60cf74f9b02a",
+      "body_bytes": 792,
+      "body_sha256": "sha256:20b154f78978b84f8648a085d7789fbb4f91b6575b8499d9004e1f4e27d8d58d",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -527,8 +527,8 @@
     },
     {
       "aliases": ["isolated nw"],
-      "body_bytes": 1020,
-      "body_sha256": "sha256:48e76eab845ed67e633dda1776d52efe5d0975a94467997cbd84b6b103b86f82",
+      "body_bytes": 783,
+      "body_sha256": "sha256:c5f47892514e3a75056f5fdf879e96217614bbd6ead86b64d4959f1fd0d3f952",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -567,8 +567,8 @@
     },
     {
       "aliases": ["site subnet params"],
-      "body_bytes": 2931,
-      "body_sha256": "sha256:781834899cba34e80815489057293f4726bc333085a99bec306428f9355d71ee",
+      "body_bytes": 2031,
+      "body_sha256": "sha256:e251e7984386c376c137c9edbbb52608068558c7fafe49ef981c4db0f4cfee8d",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -669,8 +669,8 @@
     },
     {
       "aliases": ["site subnet params dhcp"],
-      "body_bytes": 1172,
-      "body_sha256": "sha256:b5b6bf5acfbd56a737ac0f46dd463149547be5f169a3e5872f535c3ea03a1961",
+      "body_bytes": 916,
+      "body_sha256": "sha256:bfe2945daceee2ce13528d41556ab0e9ff39fd510b4141e639bec49d0111c318",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -709,8 +709,8 @@
     },
     {
       "aliases": ["site subnet params site"],
-      "body_bytes": 5319,
-      "body_sha256": "sha256:fc87db32e789a1cd4aaa14fa7fada99b91fdbdd34d881e73b817170b6a5a3bf5",
+      "body_bytes": 4405,
+      "body_sha256": "sha256:27e7482c3bd5b219441d95638442a878e41e39a7ae784e7236cc71a26cd5e455",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -792,8 +792,8 @@
     },
     {
       "aliases": ["site subnet params static ip"],
-      "body_bytes": 1182,
-      "body_sha256": "sha256:a58e0d1c6d6263276d94087b6e75990980de2b1d730d1a2c121e8b27f73f611a",
+      "body_bytes": 926,
+      "body_sha256": "sha256:93dd9b9a03a981c33f040fa8b5dfde6fbf48d679a81139cd9d10958bbe0b4576",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -832,8 +832,8 @@
     },
     {
       "aliases": ["site subnet params subnet dhcp server params"],
-      "body_bytes": 1837,
-      "body_sha256": "sha256:7d1f72a494894bdb34bea7c10345f227420f5e8b970acf1c77741fcf1f9120a9",
+      "body_bytes": 1177,
+      "body_sha256": "sha256:8c1248c491c90c2d0f5ae82cf21aeee84c9a5ba2c66eef51baa8995597af7cb3",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -889,8 +889,8 @@
     },
     {
       "aliases": ["site subnet params subnet dhcp server params dhcp networks"],
-      "body_bytes": 2800,
-      "body_sha256": "sha256:7049b93e5df56907f47637837382e7f98b9b7465146880dfe344bd6df08ac238",
+      "body_bytes": 2436,
+      "body_sha256": "sha256:456bdca6967e8789eaadf01323877f9aa69e7b2cf58de4bfc032b02c0613d5e3",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -944,8 +944,8 @@
     },
     {
       "aliases": ["subnet"],
-      "body_bytes": 621,
-      "body_sha256": "sha256:72fc06a0556c828ced0eafadadc3054047ccbeafa30c0a1666138b515ddf39b2",
+      "body_bytes": 396,
+      "body_sha256": "sha256:27e8da637d94973cad39e63b4a65c40f43e85ae1819a40413553d0ffcb8a2ebe",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": ["xcsh-docs:data-sources:subnet:example:data-source"],
@@ -984,8 +984,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 1203,
-      "body_sha256": "sha256:e491b23659078c5cc9e6e42ef8414b0affa8e786997efeab000e51f80f1dced5",
+      "body_bytes": 993,
+      "body_sha256": "sha256:e994c87e68af99e6aef0fbd32459cd4dd30b0bf6e42acda1eef9cf01770d1344",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],

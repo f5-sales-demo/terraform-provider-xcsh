@@ -71,8 +71,8 @@
   "pages": [
     {
       "aliases": ["site registration"],
-      "body_bytes": 3644,
-      "body_sha256": "sha256:0693ca56dfb6fbec3f4bd9b9e6b094e5ecca1ed1023b5466cb3aeb41af630ca3",
+      "body_bytes": 3657,
+      "body_sha256": "sha256:70cd741990ff947ec32973892eeb18e265687fc267ce8bb149a3014a4c16d213",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -115,8 +115,8 @@
     },
     {
       "aliases": ["site registration"],
-      "body_bytes": 4969,
-      "body_sha256": "sha256:9f7c84a9d2b8ac643486288eee749036e771c7b54f9a2df8fcb1c3270b18f83a",
+      "body_bytes": 4837,
+      "body_sha256": "sha256:47070c1a245de54cad3d71fe3cfdcb1efed8be6b6f4728557ed4bc57e1336c94",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -324,8 +324,8 @@
     },
     {
       "aliases": ["site registration"],
-      "body_bytes": 687,
-      "body_sha256": "sha256:bd11dec49ca745814feb7979e37d45256646e327f4f92f2aff529266b13c0a3d",
+      "body_bytes": 429,
+      "body_sha256": "sha256:ad1dda5fe7417a0da8d31698c4980c19f5fa17b1579ebc556eaa441cf1d01d93",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:site_registration:example:data-source"],
@@ -364,8 +364,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 2601,
-      "body_sha256": "sha256:ca2e075a957f4167d42c8ad67b5c27ca35a5bbe69824ef72ea649f5e59e86293",
+      "body_bytes": 2358,
+      "body_sha256": "sha256:d1b4b03fbadc217be1c819792473fe014d1bcfccd0fd714057280319b0f6b9e0",
       "capabilities": [],
       "category": null,
       "child_ids": [],

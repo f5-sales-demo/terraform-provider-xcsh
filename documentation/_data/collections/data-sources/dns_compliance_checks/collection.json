@@ -56,8 +56,8 @@
   "pages": [
     {
       "aliases": ["dns compliance checks"],
-      "body_bytes": 1469,
-      "body_sha256": "sha256:b0b9af7c81472edb726e9aedd72bee3eaa19784a00cc0b8eaff0eb56fb81e428",
+      "body_bytes": 1414,
+      "body_sha256": "sha256:14db4875c7b2ce80db7041c169e55ebec54cae2e4570273dc3b89647aa061b63",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [
@@ -88,7 +88,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_compliance_checks/index.txt",
       "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
-      "summary": "Manages DNS Compliance Checks Specification in a given namespace. If one already exists it will give an error in F5 Distributed Cloud.",
+      "summary": "Reads DNS Compliance Checks information from F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_dns_compliance_checks",
       "unresolved_relationships": [],
@@ -100,8 +100,8 @@
     },
     {
       "aliases": ["dns compliance checks"],
-      "body_bytes": 12752,
-      "body_sha256": "sha256:1dc148568b8f78c3d0e3c6bd5ac4735b56a897b79012393b113c49acd13ac57d",
+      "body_bytes": 12531,
+      "body_sha256": "sha256:69344af1ffb71655c2144cc121d2d9d033c09dcc4f4b50542b61a6f086fcfaf7",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -267,8 +267,8 @@
     },
     {
       "aliases": ["dns compliance checks"],
-      "body_bytes": 711,
-      "body_sha256": "sha256:25c78feba08fd83099b478600e5e990ee0f7fcb5e2374decd1212037befee23e",
+      "body_bytes": 441,
+      "body_sha256": "sha256:9a2ac5f93fa556b347d7f8bb2874cc2f1624e9cecfe8ccc6489221a8a2bb778b",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": ["xcsh-docs:data-sources:dns_compliance_checks:example:data-source"],
@@ -307,8 +307,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 1394,
-      "body_sha256": "sha256:7f4f832cd5f9b1bcaa111c330d093434a108d2f9e67018dd6de65b56cef2e0b2",
+      "body_bytes": 1139,
+      "body_sha256": "sha256:ccf07f047d6ae958a4527e4204631bd950e977c81139a6c1d541e95a85cc81c8",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],

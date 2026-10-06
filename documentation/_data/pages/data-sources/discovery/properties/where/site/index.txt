@@ -2,7 +2,7 @@
 page_title: "where.site"
 subcategory: ""
 description: "This specifies a direct reference to a site configuration object."
-xcsh_docs: {"aliases": ["where site"], "body_bytes": 7671, "body_sha256": "sha256:17c665d9eacec5cd781928bb7118a1757cc26a0176210505e9960e5ca1456549", "capabilities": [], "category": null, "child_ids": ["xcsh-docs:data-sources:discovery:properties:where:site:disable_internet_vip", "xcsh-docs:data-sources:discovery:properties:where:site:enable_internet_vip", "xcsh-docs:data-sources:discovery:properties:where:site:ref"], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": [], "status": "unresolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:data-sources:discovery:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:discovery:properties:where:site", "parent_id": "xcsh-docs:data-sources:discovery:properties:where", "path": "documentation/data-sources/discovery/properties/where/site/index.md", "product": "distributed-cloud", "provider_name": "discovery", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "data-sources", "registry_anchor": "canonical-1131111212212130-2300200213120302-1010130223111031-2031223120011323-3032013013110101-2231203231031223-1132131231333231-3003122031021212", "registry_path": "docs/guides/data-sources--discovery--reference--group-001.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["where", "site"], "schema_version": 1, "sections": [{"aliases": ["where site disable internet vip"], "anchor": "section", "description": "This can be used for messages where no values are needed.", "document_id": "xcsh-docs:data-sources:discovery:properties:where:site:disable_internet_vip", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["where", "site", "disable_internet_vip"], "syntax": "attribute", "type": "object"}, {"aliases": ["where site enable internet vip"], "anchor": "section", "description": "This can be used for messages where no values are needed.", "document_id": "xcsh-docs:data-sources:discovery:properties:where:site:enable_internet_vip", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["where", "site", "enable_internet_vip"], "syntax": "attribute", "type": "object"}, {"aliases": ["where site network type"], "anchor": "schema-where--site--network_type", "description": "Different types of virtual networks understood by the system Virtual-network of type VIRTUAL_NETWORK_SITE_LOCAL provides connectivity to public (outside) network. This is an insecure network and is connected to public internet via NAT Gateways/firwalls Virtual-network of this type is local to every site. Two virtual", "document_id": "xcsh-docs:data-sources:discovery:properties:where:site", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["where", "site", "network_type"], "syntax": "attribute", "type": "string"}, {"aliases": ["where site ref"], "anchor": "section", "description": "A site direct reference.", "document_id": "xcsh-docs:data-sources:discovery:properties:where:site:ref", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": "list", "relationships": [], "schema_path": ["where", "site", "ref"], "syntax": "attribute", "type": "object"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/where/site/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "This specifies a direct reference to a site configuration object.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["discoveryCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
+xcsh_docs: {"aliases": ["where site"], "body_bytes": 6922, "body_sha256": "sha256:7a55635c34ec8aa23e8a61cbfef952e296c2a2abb8f4994da9af18ab113be271", "capabilities": [], "category": null, "child_ids": ["xcsh-docs:data-sources:discovery:properties:where:site:disable_internet_vip", "xcsh-docs:data-sources:discovery:properties:where:site:enable_internet_vip", "xcsh-docs:data-sources:discovery:properties:where:site:ref"], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": [], "status": "unresolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:data-sources:discovery:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:discovery:properties:where:site", "parent_id": "xcsh-docs:data-sources:discovery:properties:where", "path": "documentation/data-sources/discovery/properties/where/site/index.md", "product": "distributed-cloud", "provider_name": "discovery", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "data-sources", "registry_anchor": "canonical-1131111212212130-2300200213120302-1010130223111031-2031223120011323-3032013013110101-2231203231031223-1132131231333231-3003122031021212", "registry_path": "docs/guides/data-sources--discovery--reference--group-002.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["where", "site"], "schema_version": 1, "sections": [{"aliases": ["where site disable internet vip"], "anchor": "section", "description": "This can be used for messages where no values are needed.", "document_id": "xcsh-docs:data-sources:discovery:properties:where:site:disable_internet_vip", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["where", "site", "disable_internet_vip"], "syntax": "attribute", "type": "object"}, {"aliases": ["where site enable internet vip"], "anchor": "section", "description": "This can be used for messages where no values are needed.", "document_id": "xcsh-docs:data-sources:discovery:properties:where:site:enable_internet_vip", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["where", "site", "enable_internet_vip"], "syntax": "attribute", "type": "object"}, {"aliases": ["where site network type"], "anchor": "schema-where--site--network_type", "description": "Different types of virtual networks understood by the system Virtual-network of type VIRTUAL_NETWORK_SITE_LOCAL provides connectivity to public (outside) network. This is an insecure network and is connected to public internet via NAT Gateways/firwalls Virtual-network of this type is local to every site. Two virtual", "document_id": "xcsh-docs:data-sources:discovery:properties:where:site", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["where", "site", "network_type"], "syntax": "attribute", "type": "string"}, {"aliases": ["where site ref"], "anchor": "section", "description": "A site direct reference.", "document_id": "xcsh-docs:data-sources:discovery:properties:where:site:ref", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": "list", "relationships": [], "schema_path": ["where", "site", "ref"], "syntax": "attribute", "type": "object"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/where/site/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "This specifies a direct reference to a site configuration object.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["discoveryCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -21,10 +21,6 @@ Breadcrumbs:
 <a id="section"></a>
 
 Type: `"single"`. Computed.
-
-Specifies a direct reference to a site configuration object.
-
-Upstream description:
 
 This specifies a direct reference to a site configuration object.
 
@@ -68,32 +64,28 @@ is local to.. Possible values are \`VIRTUAL\_NETWORK\_SITE\_LOCAL\`,
 \`VIRTUAL\_NETWORK\_SEGMENT\`, \`VIRTUAL\_NETWORK\_MANAGEMENT\`. Defaults to
 \`VIRTUAL\_NETWORK\_SITE\_LOCAL\`.
 
-Upstream description:
+Additional upstream details:
 
 Different types of virtual networks understood by the system
 
 Virtual-network of type VIRTUAL\_NETWORK\_SITE\_LOCAL provides connectivity to public (outside)
 network. This is an insecure network and is connected to public internet via NAT Gateways/firwalls
 Virtual-network of this type is local to every site. Two virtual networks of this type on different
-sites are neither related nor connected.
-
-Constraints: There can be atmost one virtual network of this type in a given site. This network type
-is supported on CE sites. This network is created automatically and present on all sites
-Virtual-network of type VIRTUAL\_NETWORK\_SITE\_LOCAL\_INSIDE is a private network inside site. It
-is a secure network and is not connected to public network. Virtual-network of this type is local to
-every site. Two virtual networks of this type on different sites are neither related nor connected.
-
-Constraints: There can be atmost one virtual network of this type in a given site. This network type
-is supported on CE sites. This network is created during provisioning of site User defined per-site
-virtual network. Scope of this virtual network is limited to the site. This is not yet supported
-Virtual-network of type VIRTUAL\_NETWORK\_PUBLIC directly connects to the public internet.
+sites are neither related nor connected. Constraints: There can be atmost one virtual network of
+this type in a given site. This network type is supported on CE sites. This network is created
+automatically and present on all sites Virtual-network of type VIRTUAL\_NETWORK\_SITE\_LOCAL\_INSIDE
+is a private network inside site. It is a secure network and is not connected to public network.
 Virtual-network of this type is local to every site. Two virtual networks of this type on different
-sites are neither related nor connected.
-
-Constraints: There can be atmost one virtual network of this type in a given site. This network type
-is supported on RE sites only It is an internally created by the system. They must not be created by
-user Virtual Networks with global scope across different sites in F5XC domain. An example global
-virtual-network called "AIN Network" is created for every tenant. For F5 Distributed Cloud fabric
+sites are neither related nor connected. Constraints: There can be atmost one virtual network of
+this type in a given site. This network type is supported on CE sites. This network is created
+during provisioning of site User defined per-site virtual network. Scope of this virtual network is
+limited to the site. This is not yet supported Virtual-network of type VIRTUAL\_NETWORK\_PUBLIC
+directly connects to the public internet. Virtual-network of this type is local to every site. Two
+virtual networks of this type on different sites are neither related nor connected. Constraints:
+There can be atmost one virtual network of this type in a given site. This network type is supported
+on RE sites only It is an internally created by the system. They must not be created by user Virtual
+Networks with global scope across different sites in F5XC domain. An example global virtual-network
+called "AIN Network" is created for every tenant. For F5 Distributed Cloud fabric
 
 Constraints: It is currently only supported as internally created by the system. VK8s service
 network for a given tenant. Used to advertise a virtual host only to vk8s pods for that tenant
@@ -149,11 +141,3 @@ Receipt-pinned upstream constraints:
 ```
 
 - [ref](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/discovery/properties/where/site/ref/): complete subsection reference.
-
-## Next pages
-
-- [where.site.disable_internet_vip](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/discovery/properties/where/site/disable_internet_vip/)
-- [where.site.enable_internet_vip](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/discovery/properties/where/site/enable_internet_vip/)
-- [where.site.ref](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/discovery/properties/where/site/ref/)
-- [where](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/discovery/properties/where/)
-- [xcsh_discovery](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/discovery/)

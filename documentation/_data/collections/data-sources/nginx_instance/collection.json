@@ -116,8 +116,8 @@
   "pages": [
     {
       "aliases": ["nginx instance"],
-      "body_bytes": 1401,
-      "body_sha256": "sha256:760b49181d76be5dc83ef33663b9e61fa2acedc746ec2cd7bb431dcdf4b66838",
+      "body_bytes": 1318,
+      "body_sha256": "sha256:5dcfd72220917b2cdc7009c0ed882b0f5b9099227e4f1a1ab54bec5814c8618c",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -148,7 +148,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/nginx_instance/index.txt",
       "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
-      "summary": "Manages a Nginx Instance resource in F5 Distributed Cloud for get nginx instance configuration. configuration. (read-only data source)",
+      "summary": "Reads an NGINX instance configuration.",
       "tasks": ["configuration"],
       "title": "xcsh_nginx_instance",
       "unresolved_relationships": [],
@@ -160,8 +160,8 @@
     },
     {
       "aliases": ["nginx instance"],
-      "body_bytes": 5816,
-      "body_sha256": "sha256:e0a068e33006a16b2a466a1b30f11cc09526f8dd0217d7f8590ca26d4022922b",
+      "body_bytes": 5432,
+      "body_sha256": "sha256:7ca7c49613108bca3c2011c202a9bd04e93f4f7d4abf02d914364b7426c30646",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -344,8 +344,8 @@
     },
     {
       "aliases": ["api discovery spec"],
-      "body_bytes": 1398,
-      "body_sha256": "sha256:aa48a1540f8ab586eaccb2464923d5d06584e94e73db316b8c1cb7e1a8297f56",
+      "body_bytes": 840,
+      "body_sha256": "sha256:4bb0e57575dcf0027c28a1b3cd9a1441e4762369406266c5f807af5053da07a9",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -416,8 +416,8 @@
     },
     {
       "aliases": ["api discovery spec disabled"],
-      "body_bytes": 979,
-      "body_sha256": "sha256:087e43ff3380459abd1d532d528424769591de597c4d14b3d3a286a079aa8127",
+      "body_bytes": 692,
+      "body_sha256": "sha256:675cbfa61eec7f8a363b90dcc36d6b12a6387224fa0c7d356d1e8ad3028ec217",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -456,8 +456,8 @@
     },
     {
       "aliases": ["api discovery spec enabled"],
-      "body_bytes": 977,
-      "body_sha256": "sha256:01da1f530924f608b9313211d1514fed715b98024f9bafa85ed8977b2f542dc0",
+      "body_bytes": 690,
+      "body_sha256": "sha256:799a5c0e48c8ed6dcff92bac472d57793e54459bccfbaa1c79c8d2023a7ff45c",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -496,8 +496,8 @@
     },
     {
       "aliases": ["waf spec"],
-      "body_bytes": 3124,
-      "body_sha256": "sha256:35f2ea9cf95a103acffbd77d555294efa12d85bf41180f2065359a1dc857e759",
+      "body_bytes": 2059,
+      "body_sha256": "sha256:1a04d21390756a25b5bc3feda4d3521404304dc4d3b86b56b1c9318ad7ab5fbe",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -669,8 +669,8 @@
     },
     {
       "aliases": ["waf spec blocking waf mode"],
-      "body_bytes": 937,
-      "body_sha256": "sha256:aac668b8a4a99aa925252700473aea0d8eab90547456f465d3c1967458e2c2fe",
+      "body_bytes": 670,
+      "body_sha256": "sha256:8038f838ebf2574660021e53c5aecb03a80c0fcfafaa91bd581ee9208d3de62d",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -709,8 +709,8 @@
     },
     {
       "aliases": ["waf spec distributed cloud policy management"],
-      "body_bytes": 1019,
-      "body_sha256": "sha256:217a0a2c708a64595696c98b568f522c713c291332cf08bfde1ce80b9cce41ca",
+      "body_bytes": 752,
+      "body_sha256": "sha256:ed2c1ef08f185751b90caec77962829cc2dcc93a6a795a38ae9928d8eb291063",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -749,8 +749,8 @@
     },
     {
       "aliases": ["waf spec monitoring waf mode"],
-      "body_bytes": 971,
-      "body_sha256": "sha256:182396a68a48ea553c097087fcad9d80975a561ca5d0c91b366710710da86aa6",
+      "body_bytes": 704,
+      "body_sha256": "sha256:ee621c1250f57ed161ca8336f81a91855233ff24a1260a6bad7a396f41f0f7b8",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -789,8 +789,8 @@
     },
     {
       "aliases": ["waf spec nginx policy management"],
-      "body_bytes": 983,
-      "body_sha256": "sha256:b84d589b7963a67f812135c5b5b8b27724c92e2bc2409d1d3bdf547cb11fd322",
+      "body_bytes": 716,
+      "body_sha256": "sha256:803abac2b87cc4b114d4b35b5b862c7d88d827244c49ef8d8925cb9641b09e38",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -829,8 +829,8 @@
     },
     {
       "aliases": ["waf spec none waf mode"],
-      "body_bytes": 953,
-      "body_sha256": "sha256:f4a11870fa61b8b2bb4c7bc85401f92b4dff8afbc7fc7ca028b08f9c4144dfba",
+      "body_bytes": 686,
+      "body_sha256": "sha256:55455eb3c734c07c3ad3c30ef4e42e923dca7abb44f7bf2d61fdea778fb0e85a",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -869,8 +869,8 @@
     },
     {
       "aliases": ["nginx instance"],
-      "body_bytes": 669,
-      "body_sha256": "sha256:8110d2583d0641dddceea6f08c1cbe59b5d4f554f468ebeb1ac5fba339a44a65",
+      "body_bytes": 420,
+      "body_sha256": "sha256:acd7fa76fe5d7c09295750eed33b185da612b20e842d1639a8f73ef4313cd1a8",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:nginx_instance:example:data-source"],
@@ -909,8 +909,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 1305,
-      "body_sha256": "sha256:b97c1a43051f886b029456501711576e9929d7ce406c853bda9b0025c0477f63",
+      "body_bytes": 1071,
+      "body_sha256": "sha256:ccb247a0c32b70b572c6b8b537c4382033a47dbd2649157ac5753e9ec972f8e1",
       "capabilities": [],
       "category": null,
       "child_ids": [],

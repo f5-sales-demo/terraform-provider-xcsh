@@ -1,10 +1,10 @@
 ---
-page_title: "xcsh_dns_zone_add_cryptokey landing"
+page_title: "xcsh_dns_zone_add_cryptokey"
 subcategory: ""
-description: "Complete grouped canonical reference for xcsh_dns_zone_add_cryptokey landing."
+description: "Complete grouped canonical reference for xcsh_dns_zone_add_cryptokey."
 ---
 
-# xcsh_dns_zone_add_cryptokey landing
+# xcsh_dns_zone_add_cryptokey
 
 <a id="canonical-2011333313231130-3200122021220331-0010211322333131-1302203232313332-2231111130321232-3311022020312311-2322131130200322-0032011221212010"></a>
 
@@ -12,25 +12,23 @@ description: "Complete grouped canonical reference for xcsh_dns_zone_add_cryptok
 
 <!-- textlint-disable terminology -->
 
-<a id="canonical-3122221131201302-1322033233201032-3030302323303102-2102032203311223-0033320201100132-2220003212110222-3220201132200000-3213300103303200"></a>
-
-## xcsh_dns_zone_add_cryptokey — xcsh_dns_zone_add_cryptokey / 312323112312 / 2
+## Overview
 
 Breadcrumbs:
 
 - xcsh_dns_zone_add_cryptokey
 
-Resource creation operation.
+Adds a cryptographic key to a DNS zone.
 
-<a id="canonical-0212310212130302-3321102212200220-0300303323033223-1022010112120120-1033211102131301-3202002003300321-3111113100033300-1231200221112032"></a>
+<a id="canonical-3122221131201302-1322033233201032-3030302323303102-2102032203311223-0033320201100132-2220003212110222-3220201132200000-3213300103303200"></a>
 
-## Prerequisites — xcsh_dns_zone_add_cryptokey / 312323112312 / 3
+### Prerequisites for `xcsh_dns_zone_add_cryptokey`
 
 Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
 
-<a id="canonical-1031123120130322-1311011202133312-1101303301332001-1121012003312031-0132303320332331-2220130003122032-2300312232122101-0230222022131300"></a>
+<a id="canonical-0212310212130302-3321102212200220-0300303323033223-1022010112120120-1033211102131301-3202002003300321-3111113100033300-1231200221112032"></a>
 
-## Minimal configuration — xcsh_dns_zone_add_cryptokey / 312323112312 / 4
+### Minimal configuration for `xcsh_dns_zone_add_cryptokey`
 
 Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
 
@@ -54,15 +52,15 @@ action "xcsh_dns_zone_add_cryptokey" "example" {
 }
 ```
 
-<a id="canonical-3010220330121333-1332012022202213-1311000021231001-2233331211220111-2200023122200032-2302231021123013-0300030032202212-0133133301300021"></a>
+<a id="canonical-1031123120130322-1311011202133312-1101303301332001-1121012003312031-0132303320332331-2220130003122032-2300312232122101-0230222022131300"></a>
 
-## Root configuration — xcsh_dns_zone_add_cryptokey / 312323112312 / 5
+### Root configuration for `xcsh_dns_zone_add_cryptokey`
 
 Required root properties: none. Full root flags and choices appear in the property reference.
 
-<a id="canonical-3032103113330212-3323112203200321-0311333312013301-3122233133301330-0220201012101030-3032010102110320-0330033332222033-0301312200113233"></a>
+<a id="canonical-3010220330121333-1332012022202213-1311000021231001-2233331211220111-2200023122200032-2302231021123013-0300030032202212-0133133301300021"></a>
 
-## Next pages — xcsh_dns_zone_add_cryptokey / 312323112312 / 6
+### Explore this collection for `xcsh_dns_zone_add_cryptokey`
 
 - [Property reference](../guides/actions--dns_zone_add_cryptokey--reference--group-001.md#canonical-2202001110020203-3223112113000233-1313211203213231-2223323120211302-3330033130010113-0033001001000202-0033100323201130-3330123210330012)
 - [Examples](../guides/actions--dns_zone_add_cryptokey--examples--group-001.md#canonical-3333230033331101-1020132231121332-1311232012321312-3122211311211132-0021303011320210-3002031101120303-1302112000321320-2321202101122100)

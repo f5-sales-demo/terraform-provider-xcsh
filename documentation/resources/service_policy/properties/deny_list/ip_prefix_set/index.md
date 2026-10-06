@@ -2,7 +2,7 @@
 page_title: "deny_list.ip_prefix_set"
 subcategory: "Security"
 description: "Addresses that are covered by the prefixes in the given ip_prefix_set."
-xcsh_docs: {"aliases": ["deny list ip prefix set"], "body_bytes": 6346, "body_sha256": "sha256:8213b5725457212ccb2acd2bc671e61e65869cf6bf57a5b57e648eb4e19f6292", "capabilities": ["security"], "category": "security", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:resources:service_policy:collection", "completeness": "complete", "id": "xcsh-docs:resources:service_policy:properties:deny_list:ip_prefix_set", "parent_id": "xcsh-docs:resources:service_policy:properties:deny_list", "path": "documentation/resources/service_policy/properties/deny_list/ip_prefix_set/index.md", "product": "distributed-cloud", "provider_name": "service_policy", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-2123102323031321-1312023110203003-1210220201001320-2201031300123220-1130110123112013-2331210321231023-2302032202132013-3322322322311133", "registry_path": "docs/guides/resources--service_policy--reference--group-001.md", "relationships": [{"anchor": "schema-deny_list--ip_prefix_set--name", "enforcement": "provider-schema", "group": "deny_list.ip_prefix_set:RequiredListObjectAttributes:name", "source": "ast-validator:RequiredListObjectAttributes", "target_id": "xcsh-docs:resources:service_policy:properties:deny_list:ip_prefix_set", "type": "requires"}], "retrieval_version": 1, "role": "properties", "schema_path": ["deny_list", "ip_prefix_set"], "schema_version": 1, "sections": [{"aliases": ["deny list ip prefix set name"], "anchor": "schema-deny_list--ip_prefix_set--name", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.", "document_id": "xcsh-docs:resources:service_policy:properties:deny_list:ip_prefix_set", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["deny_list", "ip_prefix_set", "name"], "syntax": "attribute", "type": "string"}, {"aliases": ["deny list ip prefix set namespace"], "anchor": "schema-deny_list--ip_prefix_set--namespace", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.", "document_id": "xcsh-docs:resources:service_policy:properties:deny_list:ip_prefix_set", "flags": ["optional", "computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["deny_list", "ip_prefix_set", "namespace"], "syntax": "attribute", "type": "string"}, {"aliases": ["deny list ip prefix set tenant"], "anchor": "schema-deny_list--ip_prefix_set--tenant", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.", "document_id": "xcsh-docs:resources:service_policy:properties:deny_list:ip_prefix_set", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["deny_list", "ip_prefix_set", "tenant"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/service_policy/properties/deny_list/ip_prefix_set/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Addresses that are covered by the prefixes in the given ip_prefix_set.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["service_policyCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
+xcsh_docs: {"aliases": ["deny list ip prefix set"], "body_bytes": 5602, "body_sha256": "sha256:e0daad8cc14db0a3677e5784cb0e09a73ddea753b7f50706e8a6bbc3207fda2c", "capabilities": ["security"], "category": "security", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:resources:service_policy:collection", "completeness": "complete", "id": "xcsh-docs:resources:service_policy:properties:deny_list:ip_prefix_set", "parent_id": "xcsh-docs:resources:service_policy:properties:deny_list", "path": "documentation/resources/service_policy/properties/deny_list/ip_prefix_set/index.md", "product": "distributed-cloud", "provider_name": "service_policy", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-2123102323031321-1312023110203003-1210220201001320-2201031300123220-1130110123112013-2331210321231023-2302032202132013-3322322322311133", "registry_path": "docs/guides/resources--service_policy--reference--group-001.md", "relationships": [{"anchor": "schema-deny_list--ip_prefix_set--name", "enforcement": "provider-schema", "group": "deny_list.ip_prefix_set:RequiredListObjectAttributes:name", "source": "ast-validator:RequiredListObjectAttributes", "target_id": "xcsh-docs:resources:service_policy:properties:deny_list:ip_prefix_set", "type": "requires"}], "retrieval_version": 1, "role": "properties", "schema_path": ["deny_list", "ip_prefix_set"], "schema_version": 1, "sections": [{"aliases": ["deny list ip prefix set name"], "anchor": "schema-deny_list--ip_prefix_set--name", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.", "document_id": "xcsh-docs:resources:service_policy:properties:deny_list:ip_prefix_set", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["deny_list", "ip_prefix_set", "name"], "syntax": "attribute", "type": "string"}, {"aliases": ["deny list ip prefix set namespace"], "anchor": "schema-deny_list--ip_prefix_set--namespace", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.", "document_id": "xcsh-docs:resources:service_policy:properties:deny_list:ip_prefix_set", "flags": ["optional", "computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["deny_list", "ip_prefix_set", "namespace"], "syntax": "attribute", "type": "string"}, {"aliases": ["deny list ip prefix set tenant"], "anchor": "schema-deny_list--ip_prefix_set--tenant", "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.", "document_id": "xcsh-docs:resources:service_policy:properties:deny_list:ip_prefix_set", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["deny_list", "ip_prefix_set", "tenant"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/service_policy/properties/deny_list/ip_prefix_set/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Addresses that are covered by the prefixes in the given ip_prefix_set.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["service_policyCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -83,11 +83,6 @@ Type: `"string"`. Optional.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
 referred object's(e.g. Route's) name.
 
-Upstream description:
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
-referred object's(e.g. Route's) name.
-
 Provider validators and defaults (from schema source):
 
 ```go
@@ -142,11 +137,6 @@ Receipt-pinned upstream constraints:
 ### namespace property
 
 Type: `"string"`. Optional, Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
-hold the referred object's(e.g. Route's) namespace.
-
-Upstream description:
 
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
 hold the referred object's(e.g. Route's) namespace.
@@ -216,11 +206,6 @@ Type: `"string"`. Computed.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
 the referred object's(e.g. Route's) tenant.
 
-Upstream description:
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
-the referred object's(e.g. Route's) tenant.
-
 Provider validators and defaults (from schema source):
 
 ```go
@@ -262,8 +247,3 @@ Receipt-pinned upstream constraints:
   }
 }
 ```
-
-## Next pages
-
-- [deny_list](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/service_policy/properties/deny_list/)
-- [xcsh_service_policy](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/service_policy/)

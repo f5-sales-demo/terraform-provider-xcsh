@@ -256,8 +256,8 @@
   "pages": [
     {
       "aliases": ["certified hardware"],
-      "body_bytes": 1442,
-      "body_sha256": "sha256:645067ab19d547dc046221e2768431ab40e6cc7ee345d84ff77db0f01998a6c6",
+      "body_bytes": 1383,
+      "body_sha256": "sha256:fc483897e6b0951dda555acf22c5e4ad783aa66aa6e6f60c8841ef913013e495",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -288,7 +288,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/certified_hardware/index.txt",
       "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
-      "summary": "Manages a Certified Hardware resource in F5 Distributed Cloud for get certified hardware object. configuration. (read-only data source)",
+      "summary": "Reads Certified Hardware information from F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_certified_hardware",
       "unresolved_relationships": [],
@@ -300,8 +300,8 @@
     },
     {
       "aliases": ["certified hardware"],
-      "body_bytes": 13802,
-      "body_sha256": "sha256:a7c54201f63bb5dfd009afd582524ce05c0e30d93309574b0ef45c2820d78180",
+      "body_bytes": 13001,
+      "body_sha256": "sha256:34639fdb7509d078d25e0bd0e02730c8195bf8ad4114fbff6aa03e3f7fb9dc91",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -557,8 +557,8 @@
     },
     {
       "aliases": ["devices"],
-      "body_bytes": 3688,
-      "body_sha256": "sha256:e5ff2fc3243296932ad44be532082e014434e5d51f7b0ca4424dd850f7911e38",
+      "body_bytes": 3430,
+      "body_sha256": "sha256:bc66efbabcad8251e36801bd2b1885b59889b07e777173840733647c9a4461e8",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -682,8 +682,8 @@
     },
     {
       "aliases": ["image list"],
-      "body_bytes": 1996,
-      "body_sha256": "sha256:94891713edd271ffcabfbf083d42d76c2d05ef6db311af9cfda5315590f6a4b8",
+      "body_bytes": 1329,
+      "body_sha256": "sha256:be61831a4e1b43e70533416c762703ad8211a05578335cff69549f53418c206b",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -797,8 +797,8 @@
     },
     {
       "aliases": ["image list aws"],
-      "body_bytes": 1207,
-      "body_sha256": "sha256:5fb932ace5dcb12d90a3baed4e41e7a3f96ca1d3535c009212b7044184a8793a",
+      "body_bytes": 793,
+      "body_sha256": "sha256:38c95fb1e84ab7050968bee64d4822791e1ac17be4ee0c878bd26e5d9db44bf3",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:certified_hardware:properties:image_list:aws:image_id"],
@@ -852,8 +852,8 @@
     },
     {
       "aliases": ["image list aws image id"],
-      "body_bytes": 1337,
-      "body_sha256": "sha256:fcf5545b8493eab27b5c7ca23bbe5814a2083d088ed7211b514f76a4c8a3caac",
+      "body_bytes": 1068,
+      "body_sha256": "sha256:8b35b68234401b30493bd765d90911476f6a8817a1cb81af94cd8fa3f6e36f85",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -921,8 +921,8 @@
     },
     {
       "aliases": ["image list azure"],
-      "body_bytes": 1563,
-      "body_sha256": "sha256:cb8eb937e18fff7a3bd47cb2cce26208432553e53836ee8256dcbd531c4e507d",
+      "body_bytes": 982,
+      "body_sha256": "sha256:0732c7751e7640f657603c1ada08c162eb064f22d347316dc0c99d94abe76ac3",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -993,8 +993,8 @@
     },
     {
       "aliases": ["image list azure image id"],
-      "body_bytes": 1203,
-      "body_sha256": "sha256:f219a16bd4b2f46681f7174acac332be5c53c7e09acf1768d72ab01e515325e5",
+      "body_bytes": 930,
+      "body_sha256": "sha256:711660e36c8ced567ebf45dc57c4448e373b1a79d601281d1336492d725b5c41",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -1048,8 +1048,8 @@
     },
     {
       "aliases": ["image list azure marketplace"],
-      "body_bytes": 1879,
-      "body_sha256": "sha256:3eb7f3166ca370243bc1155ac43743bf2c7fe4459237d6c5b37fa7c8690609a2",
+      "body_bytes": 1606,
+      "body_sha256": "sha256:9d65274e5916b595cddd17045e0889170845af768cdb4aae3d88057a4d8429c2",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -1159,8 +1159,8 @@
     },
     {
       "aliases": ["image list gcp"],
-      "body_bytes": 1207,
-      "body_sha256": "sha256:e31248d9ce40b3e0b50112163dd162bf0794382115244770cdd7f0b7031f28b9",
+      "body_bytes": 793,
+      "body_sha256": "sha256:b85b7f11c8f6166c86ed38ac17d290312bb384acdba2111e4de6643e655bbee1",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:certified_hardware:properties:image_list:gcp:image_id"],
@@ -1214,8 +1214,8 @@
     },
     {
       "aliases": ["image list gcp image id"],
-      "body_bytes": 1178,
-      "body_sha256": "sha256:7179c369c6aa6a2868b29264852dc22da21c3a3d252f17c809ef581fd2938de3",
+      "body_bytes": 909,
+      "body_sha256": "sha256:4996fb95b3cdfc4718363cffc726fe2cbb86a3bff3b41bbfd43c442fe7478f00",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -1269,8 +1269,8 @@
     },
     {
       "aliases": ["internal usb device rule"],
-      "body_bytes": 1769,
-      "body_sha256": "sha256:a091993a3916c0ebc6c4d61077606be53b69ef2d2428eca711c5647b3ace9f45",
+      "body_bytes": 1511,
+      "body_sha256": "sha256:b0c36f7b3f4f7366b329cce15526e904a2dc61c999414be1605f51a4d72ee8bb",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -1394,8 +1394,8 @@
     },
     {
       "aliases": ["numa mem"],
-      "body_bytes": 1150,
-      "body_sha256": "sha256:aff39fdfc64356fef5b03999c8bc9bce2018a95d193e618d78951e03fe463aad",
+      "body_bytes": 892,
+      "body_sha256": "sha256:72a5b314304589c0c145e68d91d176c1480d49fab4890cae00413a02c3430a6c",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -1463,8 +1463,8 @@
     },
     {
       "aliases": ["vendor model list"],
-      "body_bytes": 1159,
-      "body_sha256": "sha256:1a48e1d8203ccd2e553e263f4519f055f171356228a14fca9fc074314068deeb",
+      "body_bytes": 901,
+      "body_sha256": "sha256:4c2c3878b7962f904b366cb7dec7b5f127b637702eae553bf030c6f8dfa3009a",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -1532,8 +1532,8 @@
     },
     {
       "aliases": ["certified hardware"],
-      "body_bytes": 693,
-      "body_sha256": "sha256:985050493c53bc8a18b337d11b211b7a638997d0f449bba08c647948baa9cb30",
+      "body_bytes": 432,
+      "body_sha256": "sha256:e490d7635b607a9e8e9b076471b5da007596fc9291d7af9b1183b7ec3b07b23d",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:certified_hardware:example:data-source"],
@@ -1572,8 +1572,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 1357,
-      "body_sha256": "sha256:b91985fdaf4d778d416188c7c2813ce84e241404ecdb3761bfe056af2c33ba22",
+      "body_bytes": 1111,
+      "body_sha256": "sha256:aea982dc628b558965886f22913d69f17a069227c31d84d1ab07f0c340909916",
       "capabilities": [],
       "category": null,
       "child_ids": [],

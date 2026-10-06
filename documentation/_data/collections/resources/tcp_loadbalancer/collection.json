@@ -1075,8 +1075,8 @@
   "pages": [
     {
       "aliases": ["tcp loadbalancer"],
-      "body_bytes": 1858,
-      "body_sha256": "sha256:7398486b847a41c597771207f93b1f48463b28d0784a616e9a04f64e62cda4e7",
+      "body_bytes": 1871,
+      "body_sha256": "sha256:729bedefc14feee95591c221c487b74222b41a7c8bc91a25ead11c7379d57db3",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [
@@ -1136,8 +1136,8 @@
     },
     {
       "aliases": ["tcp loadbalancer"],
-      "body_bytes": 77481,
-      "body_sha256": "sha256:30bf03f22ab38653020f023b6d6da21d4e7eb18464f3eee54ba4e37e67c2655a",
+      "body_bytes": 73592,
+      "body_sha256": "sha256:625cee9b7047001311ff4ac6aa7e267aa70e659ec27aa0b6b712ad1f40c77e49",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [
@@ -1730,8 +1730,8 @@
     },
     {
       "aliases": ["active service policies"],
-      "body_bytes": 2324,
-      "body_sha256": "sha256:cb88ba0974c970daa5f3132b95f3c7e08e6bce6a5c49de9f1a9976dc9b08ed17",
+      "body_bytes": 1919,
+      "body_sha256": "sha256:fda528308773c552c46cc44aa21c596d72c0e093bebd0c3a2c1652984a0d27df",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": ["xcsh-docs:resources:tcp_loadbalancer:properties:active_service_policies:policies"],
@@ -1803,8 +1803,8 @@
     },
     {
       "aliases": ["active service policies policies"],
-      "body_bytes": 7569,
-      "body_sha256": "sha256:9a4579592da981fa5ff67f346cbbf72b25822aa84f08d9a3a351263fbe1ff3d4",
+      "body_bytes": 6478,
+      "body_sha256": "sha256:6e3cf891cd4f257290fe56a68dc2941bfdef5e113fdb1629a958f44160705ca6",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -1895,8 +1895,8 @@
     },
     {
       "aliases": ["advertise custom"],
-      "body_bytes": 2502,
-      "body_sha256": "sha256:de475814a5e3e41789b249da90dfc0ca67abf23d5b6a86a2ff6e3ee8ab5750b0",
+      "body_bytes": 2097,
+      "body_sha256": "sha256:af5a9f657ee8e3ac3e49054f55c55e0c766940ec77c18b385f75b565fb48d5bd",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": ["xcsh-docs:resources:tcp_loadbalancer:properties:advertise_custom:advertise_where"],
@@ -2456,8 +2456,8 @@
     },
     {
       "aliases": ["advertise custom advertise where"],
-      "body_bytes": 11321,
-      "body_sha256": "sha256:c3e9a928a203bb34dfa61ce1f9de22d09fe3add9061955007e323c86405e57dd",
+      "body_bytes": 9062,
+      "body_sha256": "sha256:87d55029e2e444b50f80a641a44372469605e34ce71a68077a5663674409c4a8",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [
@@ -3208,8 +3208,8 @@
     },
     {
       "aliases": ["advertise custom advertise where advertise dualstack on public"],
-      "body_bytes": 2275,
-      "body_sha256": "sha256:bed550aba37e40180bb423079e20acda7b6cb6f5de28ccd95e187894c21094c0",
+      "body_bytes": 1547,
+      "body_sha256": "sha256:d65eb6b596679b364ecbb18599ee04ead102e969f2fa26039e7e3a071e28e49f",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [
@@ -3274,8 +3274,8 @@
     },
     {
       "aliases": ["advertise custom advertise where advertise dualstack on public public ip"],
-      "body_bytes": 6792,
-      "body_sha256": "sha256:58587069e42a27f7d9dcad90fb1481907f164d30bf8316f54792d1d1af8fe8dc",
+      "body_bytes": 5766,
+      "body_sha256": "sha256:398d774817df9db7fcdb3c2c4f247ce264a3a649cd6c2d335dae4dc33b721c5a",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -3378,8 +3378,8 @@
     },
     {
       "aliases": ["advertise custom advertise where advertise on public"],
-      "body_bytes": 2215,
-      "body_sha256": "sha256:40b07ceab050b5c0e410b170c8ec7a2c15607470fcb25bf5b2243418be19d06f",
+      "body_bytes": 1507,
+      "body_sha256": "sha256:2cfc80da08ae3ca98627ea8c7c102e76840f088ffd8aec549865b9a291874f1f",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [
@@ -3444,8 +3444,8 @@
     },
     {
       "aliases": ["advertise custom advertise where advertise on public public ip"],
-      "body_bytes": 6702,
-      "body_sha256": "sha256:a5a66b026a182570d081599b5896a7f415f73223abed2ae77ea1f6c2fd432114",
+      "body_bytes": 5696,
+      "body_sha256": "sha256:eb5986a36591f8f11da6bb6fbc0308b132f0eb454e35b48dbb4ed75388fc3990",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -3536,8 +3536,8 @@
     },
     {
       "aliases": ["advertise custom advertise where advertise v6 on public"],
-      "body_bytes": 2233,
-      "body_sha256": "sha256:1f00b670aac35151a1092a7db32ebd9df97a8ce7d925c6facd845880513f59e9",
+      "body_bytes": 1519,
+      "body_sha256": "sha256:22453c887ae6da995c2e0ac7c161b728a2de1548d415e0dcccd5271a7d7e5fab",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [
@@ -3602,8 +3602,8 @@
     },
     {
       "aliases": ["advertise custom advertise where advertise v6 on public public ip"],
-      "body_bytes": 6729,
-      "body_sha256": "sha256:f552dd490fbd77c6970133dc44c7e0bedc0a5d8b41181f33a7bcb9096103a6f9",
+      "body_bytes": 5717,
+      "body_sha256": "sha256:7e56157547d36b69b40c9c0c4ad7540a5302cf27e62ec2f1e288f9f24eda2ece",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -3694,8 +3694,8 @@
     },
     {
       "aliases": ["advertise custom advertise where site"],
-      "body_bytes": 5186,
-      "body_sha256": "sha256:3bd2899997517dda6c65bcd4bbdaff3bfca1bcaab8eb37cb5b31c0388f269288",
+      "body_bytes": 4483,
+      "body_sha256": "sha256:4282a6715692081b598df1eb4419e5eb27b9af88ed40022cef7e7f5ef30bd274",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": ["xcsh-docs:resources:tcp_loadbalancer:properties:advertise_custom:advertise_where:site:site"],
@@ -3786,8 +3786,8 @@
     },
     {
       "aliases": ["advertise custom advertise where site site"],
-      "body_bytes": 6537,
-      "body_sha256": "sha256:3d77bf475efe77285de96d178336bf22c4e70c3057a79d0ec8ad6a34759d6472",
+      "body_bytes": 5561,
+      "body_sha256": "sha256:1db32ac9732bdcb7b6aa9057dc0dce74b48a2a79eb8b799bfa73552aed22ebc8",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -3878,8 +3878,8 @@
     },
     {
       "aliases": ["advertise custom advertise where use default port"],
-      "body_bytes": 1528,
-      "body_sha256": "sha256:76ba4508712219f1d6b40d0f82339a0bee4b074f9a44c41eaf5b869009a1bf16",
+      "body_bytes": 1220,
+      "body_sha256": "sha256:afd7960976aa97675abca8b37fe13f9a332b978eef8a78cd09b90d919ddabfa3",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -3918,8 +3918,8 @@
     },
     {
       "aliases": ["advertise custom advertise where virtual network"],
-      "body_bytes": 5449,
-      "body_sha256": "sha256:182ea09a227665c2c96196f8500798642c16237e1e85685cf52adcd4a7f3506b",
+      "body_bytes": 4260,
+      "body_sha256": "sha256:d10b8d59e5e9e868368188a76ffb82cbbb5200ee927b16e9dd4795feeb20440d",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [
@@ -4075,8 +4075,8 @@
     },
     {
       "aliases": ["advertise custom advertise where virtual network default v6 vip"],
-      "body_bytes": 1784,
-      "body_sha256": "sha256:e1fdd60f5dd2c5bf09db9bdd4bf42b471801c54dfb024ce2c3d5272fb2c12f79",
+      "body_bytes": 1444,
+      "body_sha256": "sha256:45358ed6f4e71b4247e1ffda4b7959bc015d4971ca7b83e4d41984f9a85b8943",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -4096,7 +4096,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3022220111330023-2033301113121011-0103101011332303-2132012011023202-2013032210001032-3030011120200301-1033300322022213-2033331112303313",
-      "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-001.md",
+      "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -4115,8 +4115,8 @@
     },
     {
       "aliases": ["advertise custom advertise where virtual network default vip"],
-      "body_bytes": 1775,
-      "body_sha256": "sha256:6d0bda96a641417e4f4318e08988180d140ad7fa003998930eba907b629e6128",
+      "body_bytes": 1435,
+      "body_sha256": "sha256:7daea5026e45d094d72aa8943656cebf1c7dfdb68f9fdbb1546a1ff09b34a17c",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -4136,7 +4136,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2032130230213230-3303113002020202-3030213303311100-1301120021221311-2201300123303031-2332211032000302-1000323111133012-2212221120012222",
-      "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-001.md",
+      "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -4155,8 +4155,8 @@
     },
     {
       "aliases": ["advertise custom advertise where virtual network virtual network"],
-      "body_bytes": 6702,
-      "body_sha256": "sha256:440d25bb81aad0136fcbfc20ec8503edcc22224f1e09abd5fec546a7f1861f8d",
+      "body_bytes": 5704,
+      "body_sha256": "sha256:784b42c864a7aee2bb3295a657de7229fc26c142e8f63cc70523f6e925fe8d9d",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -4176,7 +4176,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0320000010022301-3300003102221232-3203200210312200-0013230101012112-0012033102333001-2000100301113312-3220103030121213-2102232111101311",
-      "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-001.md",
+      "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
       "relationships": [
         {
           "anchor": "schema-advertise_custom--advertise_where--virtual_network--virtual_network--name",
@@ -4247,8 +4247,8 @@
     },
     {
       "aliases": ["advertise custom advertise where virtual site"],
-      "body_bytes": 4311,
-      "body_sha256": "sha256:19d5e981360e9a8fb44cb12a0ff406dba0faafb1a6b73e6f6ff54c40f6b17b13",
+      "body_bytes": 3584,
+      "body_sha256": "sha256:b68d049376b8c11aa3d199d68bf1c7bac37cf7cb52132c05c0ea50ece4b9ec4a",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [
@@ -4270,7 +4270,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1122231030213111-1302221130230031-0331311330131011-0113323220002101-1200331300203123-1110330313212100-3233313332101212-2310321002101013",
-      "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-001.md",
+      "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -4327,8 +4327,8 @@
     },
     {
       "aliases": ["advertise custom advertise where virtual site virtual site"],
-      "body_bytes": 6657,
-      "body_sha256": "sha256:b2370090130629d4005232c110f6b41db0bb80670950b8fd179fcf4fcb6b4770",
+      "body_bytes": 5665,
+      "body_sha256": "sha256:2120bcb5c529fe000a4f6c5bd6672e7b9e70ad05ebc03a1f87b6b70eaa15bfac",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -4348,7 +4348,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0023122310132301-1032230311102222-0133211121311212-1302103110110131-0202200031103103-1312221201211012-0012101231330202-1301002220111023",
-      "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-001.md",
+      "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
       "relationships": [
         {
           "anchor": "schema-advertise_custom--advertise_where--virtual_site--virtual_site--name",
@@ -4419,8 +4419,8 @@
     },
     {
       "aliases": ["advertise custom advertise where virtual site with vip"],
-      "body_bytes": 4296,
-      "body_sha256": "sha256:a44137bd7a695439c0ca5c297c9e51ee8777c842506261901457c03680f486ad",
+      "body_bytes": 3603,
+      "body_sha256": "sha256:dfa5b6f832b5fba79c337110c7878081ea8ee1f75f0adf43cc89ce182d3c359d",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [
@@ -4442,7 +4442,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1121201333003001-3211103001030232-1120020013233002-1201212112111322-2313032201232300-2313132333210321-3020122003000202-2203220100301301",
-      "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-001.md",
+      "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -4513,8 +4513,8 @@
     },
     {
       "aliases": ["advertise custom advertise where virtual site with vip virtual site"],
-      "body_bytes": 6738,
-      "body_sha256": "sha256:3dd8bdfb3e6ae6e44fda926cfa90672428b3cc7684a9e1f714316d9c2d6c8ef5",
+      "body_bytes": 5728,
+      "body_sha256": "sha256:2bed6dbbf61fccb20868823cf26531a9103f91e8a8ccdecc80e2abc0e6fbd5a3",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -4534,7 +4534,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2011102020302121-2213133103233212-3030222111013333-1023313331013001-1123031331021123-0203213100310001-2101011002203333-2033111322013123",
-      "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-001.md",
+      "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
       "relationships": [
         {
           "anchor": "schema-advertise_custom--advertise_where--virtual_site_with_vip--virtual_site--name",
@@ -4605,8 +4605,8 @@
     },
     {
       "aliases": ["advertise custom advertise where vk8s service"],
-      "body_bytes": 2713,
-      "body_sha256": "sha256:440ce25a4e8df8f58c72cb5699a7e8a13d0531a7c98aa1479f1d8129b23a8beb",
+      "body_bytes": 1856,
+      "body_sha256": "sha256:a2e94605c0616e3053c1e09b38a017fc4af0667bf41910bba84eeaa78c882c4b",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [
@@ -4629,7 +4629,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2310032102311332-1320010320220300-3000131113132003-3031300330001303-3011312212131020-2233012333120212-1031220012331120-3102210330032022",
-      "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-001.md",
+      "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
       "relationships": [
         {
           "anchor": "section",
@@ -4712,8 +4712,8 @@
     },
     {
       "aliases": ["advertise custom advertise where vk8s service site"],
-      "body_bytes": 6609,
-      "body_sha256": "sha256:10a31fb315e5e39d8672651b73f23d47d91c4abb5f3bc16efd8b184c18b17973",
+      "body_bytes": 5617,
+      "body_sha256": "sha256:b3a247d0d3201ca58fbec09bcb8c7e46b9a0dcbe4f053e301106a44e0a2f6d09",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -4733,7 +4733,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0011122310030103-3322230232311222-2232133023303210-2301302032000120-3001000330230130-0232311010133030-1021101232130312-2031310113021012",
-      "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-001.md",
+      "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
       "relationships": [
         {
           "anchor": "schema-advertise_custom--advertise_where--vk8s_service--site--name",
@@ -4804,8 +4804,8 @@
     },
     {
       "aliases": ["advertise custom advertise where vk8s service virtual site"],
-      "body_bytes": 6657,
-      "body_sha256": "sha256:b938875f63e4fc283acd9f79997e3eef9ff4a0476f3d6b2d7711b21e38efc09f",
+      "body_bytes": 5665,
+      "body_sha256": "sha256:20672d0a8057952a74ccf7b41c6fec0884ce2c427b98bede612b0b9e11f2b627",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -4896,8 +4896,8 @@
     },
     {
       "aliases": ["advertise on public"],
-      "body_bytes": 1703,
-      "body_sha256": "sha256:e9949554738885f41dea9e120756b280180f84be6a6c5489165e96bcce2f78ab",
+      "body_bytes": 1108,
+      "body_sha256": "sha256:340287897fab86d4f7463a208465984ee94841a9e44927de4b9f722d2ee7d8a7",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": ["xcsh-docs:resources:tcp_loadbalancer:properties:advertise_on_public:public_ip"],
@@ -4960,8 +4960,8 @@
     },
     {
       "aliases": ["advertise on public public ip"],
-      "body_bytes": 6099,
-      "body_sha256": "sha256:f21f3f5d54ee71d1d8df930a5281871a0ecbdbb20f9a17f2946c34e69d32174f",
+      "body_bytes": 5159,
+      "body_sha256": "sha256:f2d405ec6f75cd1691f2f50ee1298c440492d4f4d8443e5206be0ce73ba8d2d6",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -5052,8 +5052,8 @@
     },
     {
       "aliases": ["advertise on public default vip"],
-      "body_bytes": 1160,
-      "body_sha256": "sha256:77017e610551d60af8cac4f83d32f1b1a7e2f0614401e6cef5698d8e53808d09",
+      "body_bytes": 899,
+      "body_sha256": "sha256:e7b08ac8ce5c67b43c31478e40836a120ea932766d8da36497f58a34ee1bee5f",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -5092,8 +5092,8 @@
     },
     {
       "aliases": ["default lb with sni"],
-      "body_bytes": 1727,
-      "body_sha256": "sha256:43d5773c8494087a259b6ede13b7f79e8c82c5bf920e377ce6731a17554fa365",
+      "body_bytes": 1466,
+      "body_sha256": "sha256:f736448bfd89933caa8ac0d63cae6dbab16ed317d00f9dd73935e8fd0be04e0b",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -5132,8 +5132,8 @@
     },
     {
       "aliases": ["do not advertise"],
-      "body_bytes": 1142,
-      "body_sha256": "sha256:f30b03db8084251734b4cf843f7cc6536104438e299f7f08d349c8487a2946fe",
+      "body_bytes": 881,
+      "body_sha256": "sha256:e13b65361b04552d8056b7a8e8faa2c0e68ab6523424c3fe49c4d0f664eda1d6",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -5172,8 +5172,8 @@
     },
     {
       "aliases": ["do not retract cluster"],
-      "body_bytes": 1588,
-      "body_sha256": "sha256:17e8e704a2ae779d4b155ad33e5073f660c78d588c32fd0474f1aaeb67cc2646",
+      "body_bytes": 1327,
+      "body_sha256": "sha256:c46686f06df79758da0a3147c5c2012e4aef9725d95cac67ec96cb84bb475b4b",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -5212,8 +5212,8 @@
     },
     {
       "aliases": ["hash policy choice least active"],
-      "body_bytes": 2115,
-      "body_sha256": "sha256:5f0c415a1cb1a1604d162f90f15c711f945067a0b6e805415419708e54d01d89",
+      "body_bytes": 1854,
+      "body_sha256": "sha256:6ad62a705423ae535b1b0406d935ba3f00694d00bee0970ada17519f9e2c1a9f",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -5252,8 +5252,8 @@
     },
     {
       "aliases": ["hash policy choice random"],
-      "body_bytes": 1178,
-      "body_sha256": "sha256:b5b794e7b6bdb9792f70a3ef4892c49fb98279f8fbc58fb111d14ec7ee7d86ad",
+      "body_bytes": 917,
+      "body_sha256": "sha256:ec9dc259c41688b4278455aa376872dceaeda52b984c8a6f76726bd4c9c823c0",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -5292,8 +5292,8 @@
     },
     {
       "aliases": ["hash policy choice round robin"],
-      "body_bytes": 1270,
-      "body_sha256": "sha256:332d24bbae0a7f9cce2712830a91b3398f792ec09b104ec2f9ecf0e081693e49",
+      "body_bytes": 1009,
+      "body_sha256": "sha256:9b7458d662b9b0b2521c7c55d60e45a71334c257443a442f42dd33c49e3c98aa",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -5332,8 +5332,8 @@
     },
     {
       "aliases": ["hash policy choice source ip stickiness"],
-      "body_bytes": 1184,
-      "body_sha256": "sha256:cfe48a221946c03a2390bdb220b9bd47c17ea219bdf77037f7f2a7e61fa3217d",
+      "body_bytes": 923,
+      "body_sha256": "sha256:11678b2c2b24e64bcb95446e7b5b551207dfb307774f861fe08841cba1af5c5f",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -5372,8 +5372,8 @@
     },
     {
       "aliases": ["no service policies"],
-      "body_bytes": 1154,
-      "body_sha256": "sha256:a78632b2b5a072d0f70dd6858bc3d0ff838ac13210f04efc5150a1a6486c178f",
+      "body_bytes": 893,
+      "body_sha256": "sha256:2b9133acf39e76a86cfb27507cc1e44ffe937b9b44bde044b8ebdf4e75feaed5",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -5412,8 +5412,8 @@
     },
     {
       "aliases": ["no sni"],
-      "body_bytes": 1158,
-      "body_sha256": "sha256:c2e5df8006ca57c254cbee835ad25952b450a92bc14fbf63138cdad627a1d065",
+      "body_bytes": 897,
+      "body_sha256": "sha256:1a23d3d86e8a24d69557d6c400f9e4aa63e356a6f3b359a48850b9670645e2e8",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -5452,8 +5452,8 @@
     },
     {
       "aliases": ["backend servers", "origin pools weights", "origin servers", "upstream servers"],
-      "body_bytes": 4972,
-      "body_sha256": "sha256:15e5bf1bcf4c3033bfffcaa0d18b110a184d595b477bca2e49b63b83e08a3ba7",
+      "body_bytes": 3924,
+      "body_sha256": "sha256:1f68a5b17d6c906f677afcd12666867b578f948a5d2bcfa55f69a3dad3ddfbb0",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [
@@ -5602,8 +5602,8 @@
     },
     {
       "aliases": ["origin pools weights cluster"],
-      "body_bytes": 6096,
-      "body_sha256": "sha256:686953bfb486637b9f231f1efd0e14cf20db4178c8006bcd9adfe2eb49b13d05",
+      "body_bytes": 5154,
+      "body_sha256": "sha256:a32d7e177106f99e7cab9f4545a20a738729f7b6dc6bcd8cdf058cd03990eaad",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -5694,8 +5694,8 @@
     },
     {
       "aliases": ["origin pools weights endpoint subsets"],
-      "body_bytes": 2696,
-      "body_sha256": "sha256:7e876d82aef3ac519c22e0d7e9a64f2b63981bd0ac41b275880371dbfd18a8db",
+      "body_bytes": 2082,
+      "body_sha256": "sha256:3ac242ba6df6f34eaa26d98efeae330759e7f0c48e691efbb47f2b25281a40f3",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -5734,8 +5734,8 @@
     },
     {
       "aliases": ["origin pools weights pool"],
-      "body_bytes": 6078,
-      "body_sha256": "sha256:f7407a0b0561243da66bb042966eb0be2889677aa9150c0f52091df7913ccd68",
+      "body_bytes": 5136,
+      "body_sha256": "sha256:2915c90077bef6a2ee70c60ccf12499399a2a3ae3e4bcca6664cce33758ce57b",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -5755,7 +5755,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0101012032110312-0012103013221021-2000123112202033-2211320112310201-0213110000103010-1321023222113211-3031331212323121-2320012220221031",
-      "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
+      "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md",
       "relationships": [
         {
           "anchor": "schema-origin_pools_weights--pool--name",
@@ -5826,8 +5826,8 @@
     },
     {
       "aliases": ["retract cluster"],
-      "body_bytes": 1185,
-      "body_sha256": "sha256:6f0ee2b7a223fe755057ff77173aef4b2c38a1a0d32a15ab1bc9ecc1833b98d7",
+      "body_bytes": 924,
+      "body_sha256": "sha256:3c04193c42d5e0002d105211829680e16b2c9813759ce0675d1c518127538cbb",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -5847,7 +5847,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2203330232231221-0231100222101101-2032200123103102-3022031012302100-0322123221223231-2330022031223301-3202022122302011-3102020113332333",
-      "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
+      "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -5866,8 +5866,8 @@
     },
     {
       "aliases": ["service policies from namespace"],
-      "body_bytes": 1233,
-      "body_sha256": "sha256:4c7cf036481045281eb686a284fb1d89fae128609db25965f06f363c97785d23",
+      "body_bytes": 972,
+      "body_sha256": "sha256:53d54cf917d820f892b5b4cb840a25bc3c4623cd5fb2104652f11867365f01b5",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -5887,7 +5887,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1302000233122001-0330320220303103-0201012112213303-1133102211110130-2333133012210201-3013203312103310-2212130213030102-1122113100303223",
-      "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
+      "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -5906,8 +5906,8 @@
     },
     {
       "aliases": ["sni"],
-      "body_bytes": 1076,
-      "body_sha256": "sha256:6d9dab177d0685dbc221b7e785a187e3a4512b3cbf4b561ae55e4d68e8919222",
+      "body_bytes": 815,
+      "body_sha256": "sha256:19dedac6e245d7aadd41dc40f356fce68bf3793e256221ee15f7b1e984347be9",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -5927,7 +5927,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1211312003133330-1223211300322220-2113300203322232-3010131033013022-2332011121303131-3303223200010132-3300002312210210-2000310102320322",
-      "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
+      "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -5946,8 +5946,8 @@
     },
     {
       "aliases": ["tcp"],
-      "body_bytes": 1686,
-      "body_sha256": "sha256:f7f2aea9779f7e4e7dcd7463a5af87eeed7bd59b79a8d2b933bad754b8cf8d66",
+      "body_bytes": 1425,
+      "body_sha256": "sha256:f447f5619a43f68aa017111cc196239d6037c06a114ae7669a7403a90095e169",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -5967,7 +5967,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2220232031020123-0333221323000013-0330311311100200-2313132103001132-1300312202210020-1103313303133002-0011300213213202-1132012101023211",
-      "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
+      "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -5986,8 +5986,8 @@
     },
     {
       "aliases": ["duration", "lifecycle timeout", "operation timeout", "timeouts"],
-      "body_bytes": 2255,
-      "body_sha256": "sha256:c4233f3245ee7ccb747537bb5760962dc7e55287403cf4ae7b21934a77fab550",
+      "body_bytes": 2009,
+      "body_sha256": "sha256:7c737c8481e4bc01febcf2ec99c9354bf6b11723b233ddd20a8b472b7568ce28",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -6007,7 +6007,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1223011333230122-2303021022201212-1030021321212322-1311000300020110-1130221333112233-3223223303001030-2231022021122211-0113200021221011",
-      "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
+      "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -6118,8 +6118,8 @@
     },
     {
       "aliases": ["tls tcp"],
-      "body_bytes": 1957,
-      "body_sha256": "sha256:ae8b7e0738d13037bd57aedcf2efac7d903e007eab979a0176b1f60d3563778a",
+      "body_bytes": 1417,
+      "body_sha256": "sha256:bb8f018913fd1153c9429570386dd04e7882a1d9a098b5c22a141597af1c88e0",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [
@@ -6142,7 +6142,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3202033002211233-1301122221120120-1033012321102210-2321013132013033-0311312210012210-2023111231301233-1132102221100102-1112232122033120",
-      "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
+      "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md",
       "relationships": [
         {
           "anchor": "section",
@@ -6257,8 +6257,8 @@
     },
     {
       "aliases": ["tls tcp tls cert params"],
-      "body_bytes": 2906,
-      "body_sha256": "sha256:8490ae81c2904a0c75ce50740bc5ef760f4ae550be485a38ea3774647e341915",
+      "body_bytes": 1996,
+      "body_sha256": "sha256:5782c0790c1b68a72c2b70e050ac11812cb5606cc1b970c66be9ef57c13605e3",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [
@@ -6283,7 +6283,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2102302012003330-3112123130012120-2323212311013211-2232213133230020-2101330212110310-0123002001102200-3023210032122023-2030132220321301",
-      "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
+      "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md",
       "relationships": [
         {
           "anchor": "section",
@@ -6551,8 +6551,8 @@
         "tls certificates",
         "tls tcp tls cert params certificates"
       ],
-      "body_bytes": 6687,
-      "body_sha256": "sha256:f96359ea0ff3a5e6be9cdc0006efd24eca736100aed8e846cd452e40e81da32f",
+      "body_bytes": 5909,
+      "body_sha256": "sha256:adc30a7518ba0f3075a263b75189f2ece3d234a4245748d4e3396d45f931b176",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -6572,7 +6572,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3213110003102033-1303112111202003-2023331320110320-3133112022030112-2203320300332012-0231011200113210-0123111101030111-0201203323200003",
-      "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
+      "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md",
       "relationships": [
         {
           "anchor": "schema-tls_tcp--tls_cert_params--certificates--name",
@@ -6643,8 +6643,8 @@
     },
     {
       "aliases": ["tls tcp tls cert params no mtls"],
-      "body_bytes": 1429,
-      "body_sha256": "sha256:bfba6c98f43e35e28b23bab9e62b73faaf6a283ba2b2458060bfbe14a343b627",
+      "body_bytes": 1139,
+      "body_sha256": "sha256:ad3c9878b8284022e469ee090219475cffa31a6ba7cfe71df91dc90572a29c2e",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -6664,7 +6664,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0011323331201223-2233033222323031-0123021332131023-2101130020120033-1322010103013022-0000022023200202-2333212121323232-1031132032111203",
-      "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
+      "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -6683,8 +6683,8 @@
     },
     {
       "aliases": ["tls tcp tls cert params tls config"],
-      "body_bytes": 3795,
-      "body_sha256": "sha256:33652dc3207d5953a1555e07bc5f99cc9ff708b09f8dc3d6c52f17f5d2faca67",
+      "body_bytes": 2625,
+      "body_sha256": "sha256:4522f409cdac449c79c0e924ebc51a9e89d52932b8d2af13c01f76dd87b0ab36",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [
@@ -6709,7 +6709,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0322111112121223-3032310231220110-0301012010113032-3030001001013032-3222020211121322-0310302230223200-2310031131231120-2022130022302130",
-      "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
+      "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md",
       "relationships": [
         {
           "anchor": "section",
@@ -6891,8 +6891,8 @@
     },
     {
       "aliases": ["tls tcp tls cert params tls config custom security"],
-      "body_bytes": 6491,
-      "body_sha256": "sha256:ced6a8411ff0179f56a08f63f26e58c1ee800722791bc6e3406a0f2cfa6467a6",
+      "body_bytes": 5822,
+      "body_sha256": "sha256:c068508ce44fdb68f729dae0068c9808a52fb00922b3e4785ac4e3f2ad01897e",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -6912,7 +6912,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3320220203210203-3010313213202302-0013120331113012-3331210220313000-0303222000322212-3000121230313001-2332320121112310-3112221030310331",
-      "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
+      "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md",
       "relationships": [
         {
           "anchor": "schema-tls_tcp--tls_cert_params--tls_config--custom_security--cipher_suites",
@@ -6983,8 +6983,8 @@
     },
     {
       "aliases": ["tls tcp tls cert params tls config default security"],
-      "body_bytes": 1670,
-      "body_sha256": "sha256:6f613bbe47266be04c715e6f118b85b9a948e3b2b7e69d5a71f0f02f4736a9c1",
+      "body_bytes": 1358,
+      "body_sha256": "sha256:11655a4bed484eef670b8ec924c8a81151b8533dd76a051cbdc0046472c7ea23",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -7004,7 +7004,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2211123331233312-2131002001130330-1033033000202002-1113120302302011-2303321232232213-0030213231213022-0021123310020203-0212203202100301",
-      "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
+      "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -7023,8 +7023,8 @@
     },
     {
       "aliases": ["tls tcp tls cert params tls config low security"],
-      "body_bytes": 1658,
-      "body_sha256": "sha256:d6a5bf21032333c5489d5f20a578e2449cb960ede9fb57f88eb3741a7bd9c8c2",
+      "body_bytes": 1346,
+      "body_sha256": "sha256:5633d8468bfb982c4c4b568d33959a9a26f1e719d39fc19e1da526d016baf49b",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -7044,7 +7044,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3211203330313011-1301102230023230-1221213021020013-2103100111020231-1231100223233220-3102232113203303-0222110120112032-2133031112020113",
-      "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
+      "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -7063,8 +7063,8 @@
     },
     {
       "aliases": ["tls tcp tls cert params tls config medium security"],
-      "body_bytes": 1667,
-      "body_sha256": "sha256:320db8ba84d19b9d00ea347a5c48724010384503fa9365f31bb261142a60689d",
+      "body_bytes": 1355,
+      "body_sha256": "sha256:14c000d0b12d506f50c2e73bf39541160d2ffbf4d65b5d7978dbb840e0f83500",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -7084,7 +7084,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3331020220302000-0002023130121130-3302231310301101-0330001232103201-2220022300103220-2221032222003310-3222021022322002-2312232130120111",
-      "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
+      "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -7103,8 +7103,8 @@
     },
     {
       "aliases": ["tls tcp tls cert params use mtls"],
-      "body_bytes": 6004,
-      "body_sha256": "sha256:f492756e85a0bb96ce3c6761fb6ad203ca9461cd208d4abd19ab153514496cc0",
+      "body_bytes": 4476,
+      "body_sha256": "sha256:e10f8e4b161f6bcc756bb77e8f2a9600827305602277058e884a608404db440f",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [
@@ -7130,7 +7130,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2003301203003021-0233021122121211-2233213111211112-2233232003100000-0310023133013131-0000031312323032-1332232311131110-1021031210223313",
-      "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
+      "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md",
       "relationships": [
         {
           "anchor": "schema-tls_tcp--tls_cert_params--use_mtls--trusted_ca_url",
@@ -7324,8 +7324,8 @@
     },
     {
       "aliases": ["tls tcp tls cert params use mtls crl"],
-      "body_bytes": 6450,
-      "body_sha256": "sha256:53ed78c9b194dbebad83be369a96de42be017452a9516c5c353a5c0fc4fe0bd8",
+      "body_bytes": 5484,
+      "body_sha256": "sha256:08552b9ed6212fd0e346b0d2f412eec61fc1bbf083983ae77d265a1ab87210b2",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -7345,7 +7345,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0013203232221122-3131111332200030-1203322032032201-3020301221113322-2031221333332022-1223321321032033-1230301223121200-3020112202333022",
-      "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
+      "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md",
       "relationships": [
         {
           "anchor": "schema-tls_tcp--tls_cert_params--use_mtls--crl--name",
@@ -7416,8 +7416,8 @@
     },
     {
       "aliases": ["tls tcp tls cert params use mtls no crl"],
-      "body_bytes": 1628,
-      "body_sha256": "sha256:fbf7afe026f7d76fca3f5176c879c70463e450115f9cc39b5522e49898c320b2",
+      "body_bytes": 1320,
+      "body_sha256": "sha256:43412666b681bdf07bb7ba60323a4ef0bb2949fa23375ee1b346f08f629ee441",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -7437,7 +7437,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3112230111023311-3101102123323312-0012002232001030-2310033001231110-3230312221301102-2001013123020332-1113120033111310-0200211220101232",
-      "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
+      "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -7456,8 +7456,8 @@
     },
     {
       "aliases": ["tls tcp tls cert params use mtls trusted ca"],
-      "body_bytes": 6492,
-      "body_sha256": "sha256:fa99c2c2680c273f7e722094c079a3e48e51ce1234efbc49a7fa1c681159faeb",
+      "body_bytes": 5526,
+      "body_sha256": "sha256:5c5fb71252e53475db4587c14ddc95f42a7385cda7fdf529e50a51e40e0ecde1",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -7477,7 +7477,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0200003100030200-2110123332302230-3021233032202021-2113003301313222-1010010331203122-1331032301012223-3233003001322033-3201021231230232",
-      "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
+      "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md",
       "relationships": [
         {
           "anchor": "schema-tls_tcp--tls_cert_params--use_mtls--trusted_ca--name",
@@ -7548,8 +7548,8 @@
     },
     {
       "aliases": ["tls tcp tls cert params use mtls xfcc disabled"],
-      "body_bytes": 1649,
-      "body_sha256": "sha256:76b280ee8eb6b61ca2201437851fe9f466358422125089c666c95900077cdbf2",
+      "body_bytes": 1341,
+      "body_sha256": "sha256:72163ca58d9a6375f1b82d908dc3596f389def68ffdceb5db7b7bd62d08a873d",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -7569,7 +7569,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0232003220003202-2001302003310012-3101300112231123-2000131303013013-0230313130011112-2201230112233231-2311110123132210-0221213112031311",
-      "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
+      "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -7588,8 +7588,8 @@
     },
     {
       "aliases": ["tls tcp tls cert params use mtls xfcc options"],
-      "body_bytes": 2901,
-      "body_sha256": "sha256:21b3b6adb58c02d18b6d533da86126b0e8016837ea485850e7ab6244cefb7009",
+      "body_bytes": 2519,
+      "body_sha256": "sha256:6cd7ee41010998ef9b0e41df66e9d4ac2236c3a9c367e71a036bbe396a0aafbb",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -7609,7 +7609,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2211233203111001-0112213331212320-2030100120211101-1123203223220031-0213311102100010-1322132321202230-1210010301011010-3231020331123320",
-      "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
+      "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md",
       "relationships": [
         {
           "anchor": "schema-tls_tcp--tls_cert_params--use_mtls--xfcc_options--xfcc_header_elements",
@@ -7652,8 +7652,8 @@
     },
     {
       "aliases": ["tls tcp tls parameters"],
-      "body_bytes": 2893,
-      "body_sha256": "sha256:5a77c2ba7b0437774462c62e3326b091cde5089588513481eb8794f5c1f0dc61",
+      "body_bytes": 1983,
+      "body_sha256": "sha256:ec8cdb289d73b5c011af2627084329778ba933a917b814a77ea60127afb5e10e",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [
@@ -7678,7 +7678,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0121111300120302-2230031133133130-2123131213221130-1002012101111221-2123331230122003-0131120123223023-3320211032330010-1110023113101132",
-      "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
+      "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md",
       "relationships": [
         {
           "anchor": "section",
@@ -7988,8 +7988,8 @@
     },
     {
       "aliases": ["tls tcp tls parameters no mtls"],
-      "body_bytes": 1423,
-      "body_sha256": "sha256:18c4f5f6759cffbc00b51f35504fc7a6ef066843c4e06da910931aaf33f843e0",
+      "body_bytes": 1135,
+      "body_sha256": "sha256:4a88693bdb770f04a12f3e2f36350fb963cbfc5d0b247fe6534ec9649eac65b4",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -8009,7 +8009,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3312032102310132-3313333033231033-2033013201212031-0312003323222322-1333102130012332-3313300133122000-1013213111230231-1333131222103221",
-      "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
+      "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -8034,8 +8034,8 @@
         "tls certificates",
         "tls tcp tls parameters tls certificates"
       ],
-      "body_bytes": 6281,
-      "body_sha256": "sha256:de280ebf9b37034bffd888248846341b5b22cef55267317ad551b3f0935df947",
+      "body_bytes": 4836,
+      "body_sha256": "sha256:3a03c4fcb9b4b314cd9cd93508ecffc2896ae9d75d9d9c5f9e77d51bc62c5fba",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [
@@ -8060,7 +8060,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0002320022201130-0310033133223112-1210131011131021-0233000132012002-0030201320130223-3020131322232320-1330011330112100-0231301213311120",
-      "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
+      "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md",
       "relationships": [
         {
           "anchor": "section",
@@ -8253,8 +8253,8 @@
     },
     {
       "aliases": ["tls tcp tls parameters tls certificates custom hash algorithms"],
-      "body_bytes": 3370,
-      "body_sha256": "sha256:b17f6f6605e6ce17a5d0f24fdf00749e088c12663d30dc2a76246e22a9f13484",
+      "body_bytes": 2995,
+      "body_sha256": "sha256:47ff5b05e7afd7ebd05f9bd5ae4a9461804edaa2d14e3325ca2cf5bdfdb1db9d",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -8274,7 +8274,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3301303122202032-0100230000013222-3021011212311010-0230130121121012-1321031020230022-2221312323210312-2333010103101231-0313112121312113",
-      "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
+      "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md",
       "relationships": [
         {
           "anchor": "schema-tls_tcp--tls_parameters--tls_certificates--custom_hash_algorithms--hash_algorithms",
@@ -8317,8 +8317,8 @@
     },
     {
       "aliases": ["tls tcp tls parameters tls certificates disable ocsp stapling"],
-      "body_bytes": 1745,
-      "body_sha256": "sha256:6aeb661930bfd6779faee259111c291be48094c47d260bac1b5bee3225cd775a",
+      "body_bytes": 1423,
+      "body_sha256": "sha256:a4b74956b2e2f9344db0cd7460f91f7a5fccf6d2e94410897954fcce03917f4e",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -8338,7 +8338,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-1130133232111030-1313232203303110-3131200030333223-0333033223000000-0222210123323020-0202130300123102-1122110121333233-1003022103200212",
-      "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
+      "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -8357,8 +8357,8 @@
     },
     {
       "aliases": ["tls tcp tls parameters tls certificates private key"],
-      "body_bytes": 2866,
-      "body_sha256": "sha256:8e2b4ba4a76e4d489c7055235f7bc92de0a4513ee61572248c9ec1142a944a3e",
+      "body_bytes": 2071,
+      "body_sha256": "sha256:bd64ba53fd4b72cff2e7ad6c5de19469fc00a654a78d5173250d8d8ac6e50b8c",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [
@@ -8381,7 +8381,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0100333102101300-3220200132001223-0030120230300122-3331201232232302-1232301113321120-0330221011030203-2110332331210010-2021112323003013",
-      "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
+      "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md",
       "relationships": [
         {
           "anchor": "section",
@@ -8464,8 +8464,8 @@
     },
     {
       "aliases": ["tls tcp tls parameters tls certificates private key blindfold secret info"],
-      "body_bytes": 5444,
-      "body_sha256": "sha256:401bb9317d0be266561ad916d170dae397d8b3b48778a036b9113ec9eaa8aabe",
+      "body_bytes": 4744,
+      "body_sha256": "sha256:5f96ea453af4fc43ee5e212ebfea8dafbe8b63723d7f3ae75e5ac29ea2f7ace8",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -8485,7 +8485,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0320313320210230-1002123322100231-1303211120310011-1001023000201010-0110021301010220-1120210310223301-3320002323332001-0323323232130210",
-      "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
+      "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md",
       "relationships": [
         {
           "anchor": "schema-tls_tcp--tls_parameters--tls_certificates--private_key--blindfold_secret_info--location",
@@ -8577,8 +8577,8 @@
     },
     {
       "aliases": ["tls tcp tls parameters tls certificates private key clear secret info"],
-      "body_bytes": 4301,
-      "body_sha256": "sha256:c22a88ae17693414739cf53c870e3a395ef8883e8d1af59211cc1cda2319e736",
+      "body_bytes": 3735,
+      "body_sha256": "sha256:f14186a9cc70144b05fef676f95efac91fd49e08d2d8ef3d0a515f0e6526b5a1",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -8598,7 +8598,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0203120320001120-1303310322101331-1333232131022333-1101032230333221-2201100331122131-0311223122332330-0203003300131013-2010200203233322",
-      "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
+      "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md",
       "relationships": [
         {
           "anchor": "schema-tls_tcp--tls_parameters--tls_certificates--private_key--clear_secret_info--url",
@@ -8662,8 +8662,8 @@
     },
     {
       "aliases": ["tls tcp tls parameters tls certificates use system defaults"],
-      "body_bytes": 1737,
-      "body_sha256": "sha256:59832b49283c4d1835cb3b31a253125aff5361581aa0c28f95d5f93dd0df4323",
+      "body_bytes": 1415,
+      "body_sha256": "sha256:7eb18116486e4591d02c806c0e11e26af26dd1d18e77c455cd4dcbfddc4cac68",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -8683,7 +8683,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0102010120213331-3223223023110201-0122232110302212-0323110331103310-3031012201011103-1013011002200011-3202010123303321-1231222302131132",
-      "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
+      "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -8702,8 +8702,8 @@
     },
     {
       "aliases": ["tls tcp tls parameters tls config"],
-      "body_bytes": 3777,
-      "body_sha256": "sha256:40c2dbd8891d1e924fabf80762b241a26b2acaa1db00c3fb1ed6147eec8e3d39",
+      "body_bytes": 2617,
+      "body_sha256": "sha256:37c462f463edb86e8390ae54f9f3ac7b22b7cf95ee6cab84bf9e489fa477df50",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [
@@ -8728,7 +8728,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3312211030133232-3210300013231003-3101021322121230-0131120002223323-1231030021010300-2313111331303031-1312020033300201-1030323332322003",
-      "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
+      "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md",
       "relationships": [
         {
           "anchor": "section",
@@ -8910,8 +8910,8 @@
     },
     {
       "aliases": ["tls tcp tls parameters tls config custom security"],
-      "body_bytes": 6480,
-      "body_sha256": "sha256:ccb4b8a1d6865e803eaa75ee8fb489a12d4b097fcb247a856a67b63b38e83587",
+      "body_bytes": 5813,
+      "body_sha256": "sha256:3cd16f429e2ffe0355425f43b2f01f0e4ab7b208d8d59158841fb7e0c2ec1115",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -8931,7 +8931,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0130120303200203-2030112320030203-0133122321202013-1233130133222211-2322200122103223-0120023212110033-0231012031200131-1233012301231213",
-      "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
+      "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md",
       "relationships": [
         {
           "anchor": "schema-tls_tcp--tls_parameters--tls_config--custom_security--cipher_suites",
@@ -9002,8 +9002,8 @@
     },
     {
       "aliases": ["tls tcp tls parameters tls config default security"],
-      "body_bytes": 1662,
-      "body_sha256": "sha256:a0e260f1ddb6a12c3599b8bc66fbb453504542ad744a2e4a2c43f7df5678058f",
+      "body_bytes": 1352,
+      "body_sha256": "sha256:3c87931045a19302172ba965ed39a1ba5614ecdce788bc8a9404918b3ae45932",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -9023,7 +9023,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3011313102103121-3231233210201221-0022213002310313-1032322300233321-0200302013232133-3300313101210033-2330210102022303-2303013013130210",
-      "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
+      "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -9042,8 +9042,8 @@
     },
     {
       "aliases": ["tls tcp tls parameters tls config low security"],
-      "body_bytes": 1650,
-      "body_sha256": "sha256:249dec90a5eefae0650dd4f2196b0d023e436491734417b3773bc5400b0bee2f",
+      "body_bytes": 1340,
+      "body_sha256": "sha256:273514c00ae2d22966e8b0d1daceb1a4c13eda48c29ab3898fab5338da3e806a",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -9063,7 +9063,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2300003002320102-2022222323333210-2301101111110221-0202120131321310-1011003021132121-1012223013100001-0302333020233012-0111332122032303",
-      "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
+      "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -9082,8 +9082,8 @@
     },
     {
       "aliases": ["tls tcp tls parameters tls config medium security"],
-      "body_bytes": 1659,
-      "body_sha256": "sha256:fa570c00d6b81bdf70b558fb040189291c52ce372d2ef38a06d957a69cb9b501",
+      "body_bytes": 1349,
+      "body_sha256": "sha256:17d02b1bbc744bf7e2ecd2122dedb68f1f541e2cd121b07cf8eab9db09ead007",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -9103,7 +9103,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0122101212100122-0123222332303022-3031313101311112-3132323113331202-1021023112312302-0003111030202031-1320222133300130-2222121221213212",
-      "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
+      "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -9122,8 +9122,8 @@
     },
     {
       "aliases": ["tls tcp tls parameters use mtls"],
-      "body_bytes": 5981,
-      "body_sha256": "sha256:38ca62ed19936929216d370b363da8246452c68e42181698efe26c5577a98191",
+      "body_bytes": 4465,
+      "body_sha256": "sha256:d040747c18358710f870df6cbd3c73370a62bc9ce1caa84ec099deb5ffdc0411",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [
@@ -9149,7 +9149,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-3212302133121022-3003310220033333-2103011321231131-1323011000210123-1202121231231222-3333333012323210-1130103201331103-3103101011323000",
-      "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
+      "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md",
       "relationships": [
         {
           "anchor": "schema-tls_tcp--tls_parameters--use_mtls--trusted_ca_url",
@@ -9343,8 +9343,8 @@
     },
     {
       "aliases": ["tls tcp tls parameters use mtls crl"],
-      "body_bytes": 6439,
-      "body_sha256": "sha256:dce27b1da7952ac72136e2583245ff6df5da6150a0cd34943cc71e8d6377d22f",
+      "body_bytes": 5475,
+      "body_sha256": "sha256:740c5010fc91fb6b75f49d38102bbc61609ee7302b15c80ba579a119f358da96",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -9364,7 +9364,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0221011232132102-3013223103032110-1212203323321123-1200223110001020-2321033103122302-2120320330031323-2303023100221123-2200033122213033",
-      "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
+      "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md",
       "relationships": [
         {
           "anchor": "schema-tls_tcp--tls_parameters--use_mtls--crl--name",
@@ -9435,8 +9435,8 @@
     },
     {
       "aliases": ["tls tcp tls parameters use mtls no crl"],
-      "body_bytes": 1620,
-      "body_sha256": "sha256:171f8e30cee7b9b59f3631a24a6bd7d8b16aaf5a988cd194bf64eaeeaa7c01ab",
+      "body_bytes": 1314,
+      "body_sha256": "sha256:0e43a5795f8f40a42bd43fe67ed3ddb3804d5a2b575ae1083c779de0197cd8fa",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -9456,7 +9456,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-0123330020221011-0130332120131212-0123313133232112-3111230010033011-2221002101021100-0200001231202201-1212210333330011-0011131110130111",
-      "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
+      "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -9475,8 +9475,8 @@
     },
     {
       "aliases": ["tls tcp tls parameters use mtls trusted ca"],
-      "body_bytes": 6481,
-      "body_sha256": "sha256:4e7e0f99188a0de5f7ea4db665c2b86fb1e060281e99bd3519ffa5d72bc5a402",
+      "body_bytes": 5517,
+      "body_sha256": "sha256:591b5d5460dbcd823c7446b31ec291948255f0397689ce425720be2514eebc7a",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -9496,7 +9496,7 @@
       "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd",
       "provider_type": "resources",
       "registry_anchor": "canonical-2011233303322103-3011101331001312-3210102103312000-2200300102303003-0101022230330103-1013222332313000-2002201113122021-1203021300001330",
-      "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
+      "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md",
       "relationships": [
         {
           "anchor": "schema-tls_tcp--tls_parameters--use_mtls--trusted_ca--name",
@@ -9567,8 +9567,8 @@
     },
     {
       "aliases": ["tls tcp tls parameters use mtls xfcc disabled"],
-      "body_bytes": 1641,
-      "body_sha256": "sha256:41bc75dd75f0a23fa9ec9bd6d250097cd97ce1f5847ce25572b85a09c7d5b349",
+      "body_bytes": 1335,
+      "body_sha256": "sha256:15d80a83c4ac634204fe9c99811449177cd8460fcc1389cda2351b9a4d6e6d5d",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -9607,8 +9607,8 @@
     },
     {
       "aliases": ["tls tcp tls parameters use mtls xfcc options"],
-      "body_bytes": 2892,
-      "body_sha256": "sha256:e04ba3be4e1fc0412b6e7063124e1ea9663521ab95894341870485de4e9062bb",
+      "body_bytes": 2512,
+      "body_sha256": "sha256:0d414948d856fccf434dad901bc41fe3d35abed61b43e773341d991dbdd206eb",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -9671,8 +9671,8 @@
     },
     {
       "aliases": ["tls tcp auto cert"],
-      "body_bytes": 2277,
-      "body_sha256": "sha256:c7aa7d2376d1ec17f1cb5dad078e60aa44c1e15979c548fc12ab3182f4c8278f",
+      "body_bytes": 1567,
+      "body_sha256": "sha256:ba3738f5f1b5e303f107749346ef2500b0a2e8d972a9f51f0f2ee8f77008604e",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [
@@ -9921,8 +9921,8 @@
     },
     {
       "aliases": ["tls tcp auto cert no mtls"],
-      "body_bytes": 1277,
-      "body_sha256": "sha256:4234f3b0be5f4d9f795aa94462a7ecd242e2a9e6a89b35963047b0253a73ca3d",
+      "body_bytes": 999,
+      "body_sha256": "sha256:fe1a4aca7244fe5cbe5b086954fa13fa942ea150c32ffbfdc1f0afb9d6530a4e",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -9961,8 +9961,8 @@
     },
     {
       "aliases": ["tls tcp auto cert tls config"],
-      "body_bytes": 3571,
-      "body_sha256": "sha256:e5eb3a24675fcfdbfcc6bc37d7f9cd5b59f84357a646776f9477bbfe4e01ff06",
+      "body_bytes": 2461,
+      "body_sha256": "sha256:20ad1060b0919bb0785cce46711221ae953c9578961b947a9421dc45f8306ac7",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [
@@ -10169,8 +10169,8 @@
     },
     {
       "aliases": ["tls tcp auto cert tls config custom security"],
-      "body_bytes": 6306,
-      "body_sha256": "sha256:af4d6c15d79f73695924800dcc484dcd69795ee97b5b84804e8b75594dddcf65",
+      "body_bytes": 5649,
+      "body_sha256": "sha256:66512c3bb84de52c6e4d1dfbb8ef9b9ccf239c78ac0057481866157e2737e793",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -10261,8 +10261,8 @@
     },
     {
       "aliases": ["tls tcp auto cert tls config default security"],
-      "body_bytes": 1506,
-      "body_sha256": "sha256:e19bd6c567bca4122cad623c61afd2d6d0a7b502c2ed36d4f349b9ce28996f6c",
+      "body_bytes": 1206,
+      "body_sha256": "sha256:9159bbd548300dbc8aa2147f54c95b243324863eceefd9563a8d4fee76dd4173",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -10301,8 +10301,8 @@
     },
     {
       "aliases": ["tls tcp auto cert tls config low security"],
-      "body_bytes": 1494,
-      "body_sha256": "sha256:48df9ee369c36b9f00e0e648cd5e0a08fca75913a79cfd82391e3dc95f4f9356",
+      "body_bytes": 1194,
+      "body_sha256": "sha256:19ff0475d7b0c260b6b3bf4c393ac437e1ae3d74c31916be175221a5a229b911",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -10341,8 +10341,8 @@
     },
     {
       "aliases": ["tls tcp auto cert tls config medium security"],
-      "body_bytes": 1503,
-      "body_sha256": "sha256:07d538948254aa7be284ab2ba631a53f33c747d876b54724aab94f0b070d5506",
+      "body_bytes": 1203,
+      "body_sha256": "sha256:a95bf57764662b34ca30eb094833b3a42793837d363cd3bb89b2d6ecd9e32aa2",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -10381,8 +10381,8 @@
     },
     {
       "aliases": ["tls tcp auto cert use mtls"],
-      "body_bytes": 5748,
-      "body_sha256": "sha256:7fec979e10c47086bb40b044e2064101feb8cbfdb2b4bc4c60b8bec906a1dbfa",
+      "body_bytes": 4292,
+      "body_sha256": "sha256:cfa50f0d66b3ce6b1081955219382642aca09709370eef8e8b7aad95360b4d6a",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [
@@ -10602,8 +10602,8 @@
     },
     {
       "aliases": ["tls tcp auto cert use mtls crl"],
-      "body_bytes": 6265,
-      "body_sha256": "sha256:58eb66e07c683a4c1776adef246c40f13d6ebddb39f46c3867989c8ba9246626",
+      "body_bytes": 5311,
+      "body_sha256": "sha256:29aeeb1af020199da4c37127ed93d1da1b285a67ec1a447e152adf9ce864593b",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -10694,8 +10694,8 @@
     },
     {
       "aliases": ["tls tcp auto cert use mtls no crl"],
-      "body_bytes": 1464,
-      "body_sha256": "sha256:c806c295cc6c610d2dacc92714a313a7d1bb4ffd91b9c62718096dc8de9a5f04",
+      "body_bytes": 1168,
+      "body_sha256": "sha256:e989897e2d06596679b02b1df2c87858153998524cce93ce11014e45833d9728",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -10734,8 +10734,8 @@
     },
     {
       "aliases": ["tls tcp auto cert use mtls trusted ca"],
-      "body_bytes": 6307,
-      "body_sha256": "sha256:d37c34677afae468243f9df8268fa463127ed457ac3313e8b41e248f72acf9e2",
+      "body_bytes": 5353,
+      "body_sha256": "sha256:565b059cb80ea6334086fce6c1714919b334786a671e28283b99aa5813c99b5c",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -10826,8 +10826,8 @@
     },
     {
       "aliases": ["tls tcp auto cert use mtls xfcc disabled"],
-      "body_bytes": 1485,
-      "body_sha256": "sha256:40d52d97be16ddc65dd258a1e17f3b77247938e3609487262a1f95ffa1c564fb",
+      "body_bytes": 1189,
+      "body_sha256": "sha256:19478f30274fb2acb3f30384420732e35a6687f9535f33f75abcfdd7fe60de9f",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -10866,8 +10866,8 @@
     },
     {
       "aliases": ["tls tcp auto cert use mtls xfcc options"],
-      "body_bytes": 2730,
-      "body_sha256": "sha256:04112329b5913b62d874237110c8726fbbd9d206a5178f27cab1cade2913144c",
+      "body_bytes": 2360,
+      "body_sha256": "sha256:67b525926792c8119c4e4e51dfd6b0419dad01ff6868a3bc76c1633674af6ecb",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -10930,8 +10930,8 @@
     },
     {
       "aliases": ["tcp loadbalancer"],
-      "body_bytes": 2351,
-      "body_sha256": "sha256:8643d65dac81ac5b9245088d0f88ff331bb4290d4503c6c6d11180bc37481ee8",
+      "body_bytes": 1330,
+      "body_sha256": "sha256:402d4108a3b68ed491968ac275119c82c358bbcf9734ad07ba73a42e4d2c730e",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [
@@ -10978,8 +10978,8 @@
     },
     {
       "aliases": ["all-attributes"],
-      "body_bytes": 2012,
-      "body_sha256": "sha256:9a9f2a22d27254398544a67a3c347982e6402cad278dbd6c52efedceeee649c7",
+      "body_bytes": 1778,
+      "body_sha256": "sha256:b2e6a2d2dad183bf2d25b090ba6ac69b0b10c46372564e43b8c91c1f9b050e13",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -11025,8 +11025,8 @@
     },
     {
       "aliases": ["resource"],
-      "body_bytes": 1333,
-      "body_sha256": "sha256:7edfae53b7ecd071303995a9995e56748ca6afd9a80fd7fc895d489fa5f4f669",
+      "body_bytes": 1099,
+      "body_sha256": "sha256:1d5dce80a4f3503bb8f58cb17d6cee336861d796ad9aa4529db46e378825a47f",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -11072,8 +11072,8 @@
     },
     {
       "aliases": ["with-annotations"],
-      "body_bytes": 1919,
-      "body_sha256": "sha256:4a8543f63aed0befafef045fccb06bf0c7a6a6704312076aff630c2208eaaa99",
+      "body_bytes": 1685,
+      "body_sha256": "sha256:238da0dca1920edd77a5d0d45e9e4c4ce60abf56eaa917bdafa95e475114a25c",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -11119,8 +11119,8 @@
     },
     {
       "aliases": ["with-description"],
-      "body_bytes": 1901,
-      "body_sha256": "sha256:4f1540e2fab4809c6dceb1cdb71e855637210c50587b39d433234a20cca2574d",
+      "body_bytes": 1667,
+      "body_sha256": "sha256:81b65b7f47f57db14d7602cb348ad95d54e301752109beaf61712d7f5045c8c5",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -11166,8 +11166,8 @@
     },
     {
       "aliases": ["with-healthcheck"],
-      "body_bytes": 2084,
-      "body_sha256": "sha256:a6b1f8480475771e98fd67d6af96f3556fe092bc5e02d090f462d83597847d02",
+      "body_bytes": 1850,
+      "body_sha256": "sha256:a82c618f3279ea7c34421d67e0fed5694e0111e526c38f3d9a0272903f5bc0f4",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -11213,8 +11213,8 @@
     },
     {
       "aliases": ["with-labels"],
-      "body_bytes": 1848,
-      "body_sha256": "sha256:c0b1e929609bb930fb2a84499e3da6d424a2d0d1db3a3effbee02fc21c65a49a",
+      "body_bytes": 1614,
+      "body_sha256": "sha256:ffa1f51009e1504aa7d0d3f5694418387dad0c4d4a457d63fb3e429a441a5083",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -11260,8 +11260,8 @@
     },
     {
       "aliases": ["with-listen-port"],
-      "body_bytes": 1849,
-      "body_sha256": "sha256:ca2886246fc5872491d3dade0e259fddfe521a39674578ef06d9317633171d6a",
+      "body_bytes": 1615,
+      "body_sha256": "sha256:d7e8467814ab15710b332b44c6dda65c111e5348eb98553f0e38a6e7e5100780",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -11307,8 +11307,8 @@
     },
     {
       "aliases": ["tcp loadbalancer"],
-      "body_bytes": 500,
-      "body_sha256": "sha256:e3768ffdda627dea648de8e6052733056194203d5797f529ed9fc57cfae125ce",
+      "body_bytes": 373,
+      "body_sha256": "sha256:1cd41d0cffa92c36743100ae2ba15bc71410bdbddfc6d79f5c6facbce466dd82",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -11348,8 +11348,8 @@
     },
     {
       "aliases": ["tcp loadbalancer"],
-      "body_bytes": 588,
-      "body_sha256": "sha256:33b466e16c144b0ebda70aef721881d2c5ca3c34ea65c39d44570dff72ae7fd5",
+      "body_bytes": 461,
+      "body_sha256": "sha256:00c6c8d2c5d24e966d468187374ebcb84f8ec8b1a1773c3f405329e8553b30bd",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],

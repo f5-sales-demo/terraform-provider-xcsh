@@ -46,8 +46,8 @@
   "pages": [
     {
       "aliases": ["cert", "certificate", "certificate chain", "existing certificates", "tls certificates"],
-      "body_bytes": 1436,
-      "body_sha256": "sha256:ef41534ccb7635de979f6150c0ca9b5e6af1368257d127a0c7a80e8d5ee49aae",
+      "body_bytes": 1406,
+      "body_sha256": "sha256:3c08fb12a911d0a265dc6db0fbea87bf073dd9b77b9e6c42a31ee1b27864006c",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -78,7 +78,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/certificate_chain/index.txt",
       "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
-      "summary": "Manages a Certificate Chain resource in F5 Distributed Cloud for certificate chain configuration for TLS.",
+      "summary": "Reads Certificate Chain information from F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_certificate_chain",
       "unresolved_relationships": [],
@@ -90,8 +90,8 @@
     },
     {
       "aliases": ["cert", "certificate", "certificate chain", "existing certificates", "tls certificates"],
-      "body_bytes": 8952,
-      "body_sha256": "sha256:172babe6b7e3ccc515e5980fb91b4c58c01f48a9db8ad3b4efa4e375cc907b67",
+      "body_bytes": 8855,
+      "body_sha256": "sha256:78dea102f171bb63127569309d812bfec4b0c0f1cd34b2897972bbd6ddaa4e8c",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -229,8 +229,8 @@
     },
     {
       "aliases": ["cert", "certificate", "certificate chain", "existing certificates", "tls certificates"],
-      "body_bytes": 687,
-      "body_sha256": "sha256:5fd7c40648385455a56f88092a8968749e264651539db9256bdfde1fe116b78c",
+      "body_bytes": 429,
+      "body_sha256": "sha256:6c2b3f91d6e797bc19b0d1ef93a8cf26c509f2eb67460d7ed90442a5ccb14778",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": ["xcsh-docs:data-sources:certificate_chain:example:data-source"],
@@ -269,8 +269,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 1344,
-      "body_sha256": "sha256:1e8f375dd3f7e2ec991d0d9ba91e9a88d8d7cb2b8aa172c674660fbe818da014",
+      "body_bytes": 1101,
+      "body_sha256": "sha256:71497dac2edbd0114b5458956220984d4d4e119fa269bff52cbb2a7fda72976c",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],

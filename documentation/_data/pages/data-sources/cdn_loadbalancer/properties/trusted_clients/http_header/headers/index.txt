@@ -2,7 +2,7 @@
 page_title: "trusted_clients.http_header.headers"
 subcategory: "Load Balancing"
 description: "List of HTTP header name and value pairs."
-xcsh_docs: {"aliases": ["trusted clients http header headers"], "body_bytes": 6653, "body_sha256": "sha256:354312ec4a2542bd84ba79b6852c66ff5f07f169176a02edce80d002189a99af", "capabilities": ["cdn"], "category": "cdn", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:data-sources:cdn_loadbalancer:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:trusted_clients:http_header:headers", "parent_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:trusted_clients:http_header", "path": "documentation/data-sources/cdn_loadbalancer/properties/trusted_clients/http_header/headers/index.md", "product": "distributed-cloud", "provider_name": "cdn_loadbalancer", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "data-sources", "registry_anchor": "canonical-3203211213223211-1213100101012313-3103031023200023-0330023211213211-2311233023100013-3232132132220313-1003200120032131-1110023100132320", "registry_path": "docs/guides/data-sources--cdn_loadbalancer--reference--group-014.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["trusted_clients", "http_header", "headers"], "schema_version": 1, "sections": [{"aliases": ["trusted clients http header headers exact"], "anchor": "schema-trusted_clients--http_header--headers--exact", "description": "Exclusive with Header value to match exactly.", "document_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:trusted_clients:http_header:headers", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["trusted_clients", "http_header", "headers", "exact"], "syntax": "attribute", "type": "string"}, {"aliases": ["trusted clients http header headers invert match"], "anchor": "schema-trusted_clients--http_header--headers--invert_match", "description": "Invert the result of the match to detect missing header or non-matching value.", "document_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:trusted_clients:http_header:headers", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["trusted_clients", "http_header", "headers", "invert_match"], "syntax": "attribute", "type": "bool"}, {"aliases": ["trusted clients http header headers name"], "anchor": "schema-trusted_clients--http_header--headers--name", "description": "Name of the header.", "document_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:trusted_clients:http_header:headers", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["trusted_clients", "http_header", "headers", "name"], "syntax": "attribute", "type": "string"}, {"aliases": ["trusted clients http header headers presence"], "anchor": "schema-trusted_clients--http_header--headers--presence", "description": "Exclusive with If true, check for presence of header.", "document_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:trusted_clients:http_header:headers", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["trusted_clients", "http_header", "headers", "presence"], "syntax": "attribute", "type": "bool"}, {"aliases": ["trusted clients http header headers regex"], "anchor": "schema-trusted_clients--http_header--headers--regex", "description": "Exclusive with Regex match of the header value in re2 format.", "document_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:trusted_clients:http_header:headers", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["trusted_clients", "http_header", "headers", "regex"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cdn_loadbalancer/properties/trusted_clients/http_header/headers/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "List of HTTP header name and value pairs.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["cdn_loadbalancerCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
+xcsh_docs: {"aliases": ["trusted clients http header headers"], "body_bytes": 6032, "body_sha256": "sha256:1ab35c651c0a0074941d1f74c24a08b523fb6d78223f3e46e96ca195be310ffd", "capabilities": ["cdn"], "category": "cdn", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:data-sources:cdn_loadbalancer:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:trusted_clients:http_header:headers", "parent_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:trusted_clients:http_header", "path": "documentation/data-sources/cdn_loadbalancer/properties/trusted_clients/http_header/headers/index.md", "product": "distributed-cloud", "provider_name": "cdn_loadbalancer", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "data-sources", "registry_anchor": "canonical-3203211213223211-1213100101012313-3103031023200023-0330023211213211-2311233023100013-3232132132220313-1003200120032131-1110023100132320", "registry_path": "docs/guides/data-sources--cdn_loadbalancer--reference--group-015.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["trusted_clients", "http_header", "headers"], "schema_version": 1, "sections": [{"aliases": ["trusted clients http header headers exact"], "anchor": "schema-trusted_clients--http_header--headers--exact", "description": "Exclusive with Header value to match exactly.", "document_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:trusted_clients:http_header:headers", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["trusted_clients", "http_header", "headers", "exact"], "syntax": "attribute", "type": "string"}, {"aliases": ["trusted clients http header headers invert match"], "anchor": "schema-trusted_clients--http_header--headers--invert_match", "description": "Invert the result of the match to detect missing header or non-matching value.", "document_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:trusted_clients:http_header:headers", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["trusted_clients", "http_header", "headers", "invert_match"], "syntax": "attribute", "type": "bool"}, {"aliases": ["trusted clients http header headers name"], "anchor": "schema-trusted_clients--http_header--headers--name", "description": "Name of the header.", "document_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:trusted_clients:http_header:headers", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["trusted_clients", "http_header", "headers", "name"], "syntax": "attribute", "type": "string"}, {"aliases": ["trusted clients http header headers presence"], "anchor": "schema-trusted_clients--http_header--headers--presence", "description": "Exclusive with If true, check for presence of header.", "document_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:trusted_clients:http_header:headers", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["trusted_clients", "http_header", "headers", "presence"], "syntax": "attribute", "type": "bool"}, {"aliases": ["trusted clients http header headers regex"], "anchor": "schema-trusted_clients--http_header--headers--regex", "description": "Exclusive with Regex match of the header value in re2 format.", "document_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:trusted_clients:http_header:headers", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["trusted_clients", "http_header", "headers", "regex"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cdn_loadbalancer/properties/trusted_clients/http_header/headers/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "List of HTTP header name and value pairs.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["cdn_loadbalancerCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -67,10 +67,6 @@ Receipt-pinned upstream constraints:
 ### exact property
 
 Type: `"string"`. Computed.
-
-Exclusive with \[presence regex\] Header value to match exactly.
-
-Upstream description:
 
 Exclusive with \[presence regex\] Header value to match exactly.
 
@@ -139,10 +135,6 @@ Type: `"string"`. Computed.
 
 Name. Name of the header.
 
-Upstream description:
-
-Name of the header.
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -207,10 +199,6 @@ Type: `"bool"`. Computed.
 
 Exclusive with \[exact regex\] If true, check for presence of header.
 
-Upstream description:
-
-Exclusive with \[exact regex\] If true, check for presence of header.
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -229,10 +217,6 @@ Receipt-pinned upstream constraints:
 ### regex property
 
 Type: `"string"`. Computed.
-
-Exclusive with \[exact presence\] Regex match of the header value in re2 format.
-
-Upstream description:
 
 Exclusive with \[exact presence\] Regex match of the header value in re2 format.
 
@@ -272,8 +256,3 @@ Receipt-pinned upstream constraints:
   }
 }
 ```
-
-## Next pages
-
-- [trusted_clients.http_header](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/cdn_loadbalancer/properties/trusted_clients/http_header/)
-- [xcsh_cdn_loadbalancer](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/cdn_loadbalancer/)

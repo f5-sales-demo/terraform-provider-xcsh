@@ -2,7 +2,7 @@
 page_title: "cloudfront.protected_endpoints.web_client.redirect"
 subcategory: ""
 description: "Redirect."
-xcsh_docs: {"aliases": ["cloudfront protected endpoints web client redirect"], "body_bytes": 10176, "body_sha256": "sha256:a6fe922a23dd470f74b756ba71ba827a57799d749183bf4a2e063f734f3c09fe", "capabilities": ["security"], "category": "security", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:resources:protected_application:collection", "completeness": "complete", "id": "xcsh-docs:resources:protected_application:properties:cloudfront:protected_endpoints:web_client:redirect", "parent_id": "xcsh-docs:resources:protected_application:properties:cloudfront:protected_endpoints:web_client", "path": "documentation/resources/protected_application/properties/cloudfront/protected_endpoints/web_client/redirect/index.md", "product": "distributed-cloud", "provider_name": "protected_application", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-1223230012000300-0011103211013221-2231222012013301-1130032030132002-1133133030210121-0020302122123331-1101101221333311-0203300023123020", "registry_path": "docs/guides/resources--protected_application--reference--group-004.md", "relationships": [{"anchor": "schema-cloudfront--protected_endpoints--web_client--redirect--location", "enforcement": "provider-schema", "group": "cloudfront.protected_endpoints.web_client.redirect:RequiredObjectAttributes:location", "source": "ast-validator:RequiredObjectAttributes", "target_id": "xcsh-docs:resources:protected_application:properties:cloudfront:protected_endpoints:web_client:redirect", "type": "requires"}], "retrieval_version": 1, "role": "properties", "schema_path": ["cloudfront", "protected_endpoints", "web_client", "redirect"], "schema_version": 1, "sections": [{"aliases": ["cloudfront protected endpoints web client redirect location"], "anchor": "schema-cloudfront--protected_endpoints--web_client--redirect--location", "description": "URI location for redirect response.", "document_id": "xcsh-docs:resources:protected_application:properties:cloudfront:protected_endpoints:web_client:redirect", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["cloudfront", "protected_endpoints", "web_client", "redirect", "location"], "syntax": "attribute", "type": "string"}, {"aliases": ["cloudfront protected endpoints web client redirect status", "duration"], "anchor": "schema-cloudfront--protected_endpoints--web_client--redirect--status", "description": "HTTP response status codes EmptyStatusCode response codes means it is not specified Continue status code OK status code Created status code Accepted status code Non Authoritative Information status code No Content status code Reset Content status code Partial Content status code Multi Status status code Already", "document_id": "xcsh-docs:resources:protected_application:properties:cloudfront:protected_endpoints:web_client:redirect", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["cloudfront", "protected_endpoints", "web_client", "redirect", "status"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudfront/protected_endpoints/web_client/redirect/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Redirect.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["protected_applicationCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
+xcsh_docs: {"aliases": ["cloudfront protected endpoints web client redirect"], "body_bytes": 9763, "body_sha256": "sha256:ca16986bb5f71168c27981ce4df4b61736a4365a33ec28aae9bb1a065adfa6ee", "capabilities": ["security"], "category": "security", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:resources:protected_application:collection", "completeness": "complete", "id": "xcsh-docs:resources:protected_application:properties:cloudfront:protected_endpoints:web_client:redirect", "parent_id": "xcsh-docs:resources:protected_application:properties:cloudfront:protected_endpoints:web_client", "path": "documentation/resources/protected_application/properties/cloudfront/protected_endpoints/web_client/redirect/index.md", "product": "distributed-cloud", "provider_name": "protected_application", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "resources", "registry_anchor": "canonical-1223230012000300-0011103211013221-2231222012013301-1130032030132002-1133133030210121-0020302122123331-1101101221333311-0203300023123020", "registry_path": "docs/guides/resources--protected_application--reference--group-004.md", "relationships": [{"anchor": "schema-cloudfront--protected_endpoints--web_client--redirect--location", "enforcement": "provider-schema", "group": "cloudfront.protected_endpoints.web_client.redirect:RequiredObjectAttributes:location", "source": "ast-validator:RequiredObjectAttributes", "target_id": "xcsh-docs:resources:protected_application:properties:cloudfront:protected_endpoints:web_client:redirect", "type": "requires"}], "retrieval_version": 1, "role": "properties", "schema_path": ["cloudfront", "protected_endpoints", "web_client", "redirect"], "schema_version": 1, "sections": [{"aliases": ["cloudfront protected endpoints web client redirect location"], "anchor": "schema-cloudfront--protected_endpoints--web_client--redirect--location", "description": "URI location for redirect response.", "document_id": "xcsh-docs:resources:protected_application:properties:cloudfront:protected_endpoints:web_client:redirect", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["cloudfront", "protected_endpoints", "web_client", "redirect", "location"], "syntax": "attribute", "type": "string"}, {"aliases": ["cloudfront protected endpoints web client redirect status", "duration"], "anchor": "schema-cloudfront--protected_endpoints--web_client--redirect--status", "description": "HTTP response status codes EmptyStatusCode response codes means it is not specified Continue status code OK status code Created status code Accepted status code Non Authoritative Information status code No Content status code Reset Content status code Partial Content status code Multi Status status code Already", "document_id": "xcsh-docs:resources:protected_application:properties:cloudfront:protected_endpoints:web_client:redirect", "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["cloudfront", "protected_endpoints", "web_client", "redirect", "status"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudfront/protected_endpoints/web_client/redirect/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Redirect.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["protected_applicationCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -25,10 +25,6 @@ Breadcrumbs:
 Type: `"object"`. single nested block, Optional.
 
 Redirect. Redirect.
-
-Upstream description:
-
-Redirect.
 
 Provider validators and defaults (from schema source):
 
@@ -66,10 +62,6 @@ redirect {
 Type: `"string"`. Optional.
 
 Location. URI location for redirect response.
-
-Upstream description:
-
-URI location for redirect response.
 
 Provider validators and defaults (from schema source):
 
@@ -143,7 +135,7 @@ Possible values are \`EmptyStatusCode\`, \`Continue\`, \`OK\`, \`Created\`, \`Ac
 \`InsufficientStorage\`, \`LoopDetected\`, \`NotExtended\`, \`NetworkAuthenticationRequired\`.
 Defaults to \`EmptyStatusCode\`.
 
-Upstream description:
+Additional upstream details:
 
 HTTP response status codes
 
@@ -301,8 +293,3 @@ Receipt-pinned upstream constraints:
   }
 }
 ```
-
-## Next pages
-
-- [cloudfront.protected_endpoints.web_client](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/protected_application/properties/cloudfront/protected_endpoints/web_client/)
-- [xcsh_protected_application](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/protected_application/)

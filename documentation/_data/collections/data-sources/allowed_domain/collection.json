@@ -46,8 +46,8 @@
   "pages": [
     {
       "aliases": ["allowed domain"],
-      "body_bytes": 1314,
-      "body_sha256": "sha256:08ecd2da844ba645a72ca4a24702227dbb67da46685e40a71ff8d91f3ad0b833",
+      "body_bytes": 1339,
+      "body_sha256": "sha256:3dfa1203cbbc3e84332abd9cde62fb418830110a698893bb5e7f6bf340c8a4f8",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -78,7 +78,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/allowed_domain/index.txt",
       "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0",
-      "summary": "Manages allowed domain in F5 Distributed Cloud.",
+      "summary": "Reads Allowed Domain information from F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_allowed_domain",
       "unresolved_relationships": [],
@@ -90,8 +90,8 @@
     },
     {
       "aliases": ["allowed domain"],
-      "body_bytes": 9202,
-      "body_sha256": "sha256:d9a5b4bd8060f16590df527a961eacc915f63ff5e961df6eca61782e27b439e5",
+      "body_bytes": 8887,
+      "body_sha256": "sha256:2e8936950bef874f1ae6b2899295c510d7ac8d479b338afeedb584ab88ae054b",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -229,8 +229,8 @@
     },
     {
       "aliases": ["allowed domain"],
-      "body_bytes": 669,
-      "body_sha256": "sha256:e116d1bf6a87d6f2f29e1f5aa99276aff1f24a7f795ad7740045f92af5db7d3a",
+      "body_bytes": 420,
+      "body_sha256": "sha256:2bb6ed2d241b0baab006652cfee706199435c13f8321666a36941d067e075b0c",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:allowed_domain:example:data-source"],
@@ -269,8 +269,8 @@
     },
     {
       "aliases": ["data-source"],
-      "body_bytes": 1305,
-      "body_sha256": "sha256:e5e5caf94aaaa7a80a11cba736f0daf77563d69109408cb58aa1a8a4dd32e1d6",
+      "body_bytes": 1071,
+      "body_sha256": "sha256:6645bfa540712de0387e30e62c0c6f1da6820a7cd5951a01c38678e159cef4e9",
       "capabilities": [],
       "category": null,
       "child_ids": [],

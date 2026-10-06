@@ -2,7 +2,7 @@
 page_title: "peers.external"
 subcategory: ""
 description: "External BGP Peer parameters."
-xcsh_docs: {"aliases": ["peers external"], "body_bytes": 14305, "body_sha256": "sha256:6b92ee6ee61e8eab8edccefc6e3c860369cc084ad5d641e0952ecd8a56411467", "capabilities": ["networking"], "category": "networking", "child_ids": ["xcsh-docs:data-sources:bgp:properties:peers:external:default_gateway", "xcsh-docs:data-sources:bgp:properties:peers:external:default_gateway_v6", "xcsh-docs:data-sources:bgp:properties:peers:external:disable_spec", "xcsh-docs:data-sources:bgp:properties:peers:external:disable_v6", "xcsh-docs:data-sources:bgp:properties:peers:external:external_connector", "xcsh-docs:data-sources:bgp:properties:peers:external:family_inet", "xcsh-docs:data-sources:bgp:properties:peers:external:from_site", "xcsh-docs:data-sources:bgp:properties:peers:external:from_site_v6", "xcsh-docs:data-sources:bgp:properties:peers:external:interface", "xcsh-docs:data-sources:bgp:properties:peers:external:interface_list", "xcsh-docs:data-sources:bgp:properties:peers:external:no_authentication"], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:data-sources:bgp:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:bgp:properties:peers:external", "parent_id": "xcsh-docs:data-sources:bgp:properties:peers", "path": "documentation/data-sources/bgp/properties/peers/external/index.md", "product": "distributed-cloud", "provider_name": "bgp", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "data-sources", "registry_anchor": "canonical-1100310013200210-1203020110333122-1021132031333130-2101223233233213-1131110231302303-0103022103010102-1213030130001120-2231321011221302", "registry_path": "docs/guides/data-sources--bgp--reference--group-001.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["peers", "external"], "schema_version": 1, "sections": [{"aliases": ["peers external address"], "anchor": "schema-peers--external--address", "description": "Exclusive with Specify IPv4 peer address.", "document_id": "xcsh-docs:data-sources:bgp:properties:peers:external", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["peers", "external", "address"], "syntax": "attribute", "type": "string"}, {"aliases": ["peers external address ipv6"], "anchor": "schema-peers--external--address_ipv6", "description": "Exclusive with Specify peer IPv6 address.", "document_id": "xcsh-docs:data-sources:bgp:properties:peers:external", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["peers", "external", "address_ipv6"], "syntax": "attribute", "type": "string"}, {"aliases": ["peers external asn"], "anchor": "schema-peers--external--asn", "description": "Autonomous System Number for BGP peer.", "document_id": "xcsh-docs:data-sources:bgp:properties:peers:external", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["peers", "external", "asn"], "syntax": "attribute", "type": "number"}, {"aliases": ["peers external default gateway"], "anchor": "section", "description": "This can be used for messages where no values are needed.", "document_id": "xcsh-docs:data-sources:bgp:properties:peers:external:default_gateway", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["peers", "external", "default_gateway"], "syntax": "attribute", "type": "object"}, {"aliases": ["peers external default gateway v6"], "anchor": "section", "description": "This can be used for messages where no values are needed.", "document_id": "xcsh-docs:data-sources:bgp:properties:peers:external:default_gateway_v6", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["peers", "external", "default_gateway_v6"], "syntax": "attribute", "type": "object"}, {"aliases": ["peers external disable spec"], "anchor": "section", "description": "Enable this option", "document_id": "xcsh-docs:data-sources:bgp:properties:peers:external:disable_spec", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["peers", "external", "disable_spec"], "syntax": "attribute", "type": "object"}, {"aliases": ["peers external disable v6"], "anchor": "section", "description": "This can be used for messages where no values are needed.", "document_id": "xcsh-docs:data-sources:bgp:properties:peers:external:disable_v6", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["peers", "external", "disable_v6"], "syntax": "attribute", "type": "object"}, {"aliases": ["peers external external connector"], "anchor": "section", "description": "This can be used for messages where no values are needed.", "document_id": "xcsh-docs:data-sources:bgp:properties:peers:external:external_connector", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["peers", "external", "external_connector"], "syntax": "attribute", "type": "object"}, {"aliases": ["peers external family inet"], "anchor": "section", "description": "Parameters for inet family.", "document_id": "xcsh-docs:data-sources:bgp:properties:peers:external:family_inet", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": "single", "relationships": [], "schema_path": ["peers", "external", "family_inet"], "syntax": "attribute", "type": "object"}, {"aliases": ["peers external from site"], "anchor": "section", "description": "This can be used for messages where no values are needed.", "document_id": "xcsh-docs:data-sources:bgp:properties:peers:external:from_site", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["peers", "external", "from_site"], "syntax": "attribute", "type": "object"}, {"aliases": ["peers external from site v6"], "anchor": "section", "description": "This can be used for messages where no values are needed.", "document_id": "xcsh-docs:data-sources:bgp:properties:peers:external:from_site_v6", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["peers", "external", "from_site_v6"], "syntax": "attribute", "type": "object"}, {"aliases": ["peers external interface"], "anchor": "section", "description": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.", "document_id": "xcsh-docs:data-sources:bgp:properties:peers:external:interface", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": "single", "relationships": [], "schema_path": ["peers", "external", "interface"], "syntax": "attribute", "type": "object"}, {"aliases": ["peers external interface list"], "anchor": "section", "description": "List of network interfaces.", "document_id": "xcsh-docs:data-sources:bgp:properties:peers:external:interface_list", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": "single", "relationships": [], "schema_path": ["peers", "external", "interface_list"], "syntax": "attribute", "type": "object"}, {"aliases": ["peers external md5 auth key"], "anchor": "schema-peers--external--md5_auth_key", "description": "Exclusive with MD5 key for protecting BGP Sessions (RFC 2385)", "document_id": "xcsh-docs:data-sources:bgp:properties:peers:external", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["peers", "external", "md5_auth_key"], "syntax": "attribute", "type": "string"}, {"aliases": ["authentication", "credential setup", "credentials", "peers external no authentication"], "anchor": "section", "description": "This can be used for messages where no values are needed.", "document_id": "xcsh-docs:data-sources:bgp:properties:peers:external:no_authentication", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["peers", "external", "no_authentication"], "syntax": "attribute", "type": "object"}, {"aliases": ["peers external port"], "anchor": "schema-peers--external--port", "description": "Peer TCP port number.", "document_id": "xcsh-docs:data-sources:bgp:properties:peers:external", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["peers", "external", "port"], "syntax": "attribute", "type": "number"}, {"aliases": ["peers external subnet begin offset"], "anchor": "schema-peers--external--subnet_begin_offset", "description": "Exclusive with Calculate peer address using offset from the beginning of the subnet.", "document_id": "xcsh-docs:data-sources:bgp:properties:peers:external", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["peers", "external", "subnet_begin_offset"], "syntax": "attribute", "type": "number"}, {"aliases": ["peers external subnet begin offset v6"], "anchor": "schema-peers--external--subnet_begin_offset_v6", "description": "Exclusive with Calculate peer address using offset from the beginning of the subnet.", "document_id": "xcsh-docs:data-sources:bgp:properties:peers:external", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["peers", "external", "subnet_begin_offset_v6"], "syntax": "attribute", "type": "number"}, {"aliases": ["peers external subnet end offset"], "anchor": "schema-peers--external--subnet_end_offset", "description": "Exclusive with Calculate peer address using offset from the end of the subnet.", "document_id": "xcsh-docs:data-sources:bgp:properties:peers:external", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["peers", "external", "subnet_end_offset"], "syntax": "attribute", "type": "number"}, {"aliases": ["peers external subnet end offset v6"], "anchor": "schema-peers--external--subnet_end_offset_v6", "description": "Exclusive with Calculate peer address using offset from the end of the subnet.", "document_id": "xcsh-docs:data-sources:bgp:properties:peers:external", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["peers", "external", "subnet_end_offset_v6"], "syntax": "attribute", "type": "number"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bgp/properties/peers/external/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "External BGP Peer parameters.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["bgpCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
+xcsh_docs: {"aliases": ["peers external"], "body_bytes": 11075, "body_sha256": "sha256:6f63b159ea9155927412a48c256805e301f96ffeede034119b256ed9d0e8aeb1", "capabilities": ["networking"], "category": "networking", "child_ids": ["xcsh-docs:data-sources:bgp:properties:peers:external:default_gateway", "xcsh-docs:data-sources:bgp:properties:peers:external:default_gateway_v6", "xcsh-docs:data-sources:bgp:properties:peers:external:disable_spec", "xcsh-docs:data-sources:bgp:properties:peers:external:disable_v6", "xcsh-docs:data-sources:bgp:properties:peers:external:external_connector", "xcsh-docs:data-sources:bgp:properties:peers:external:family_inet", "xcsh-docs:data-sources:bgp:properties:peers:external:from_site", "xcsh-docs:data-sources:bgp:properties:peers:external:from_site_v6", "xcsh-docs:data-sources:bgp:properties:peers:external:interface", "xcsh-docs:data-sources:bgp:properties:peers:external:interface_list", "xcsh-docs:data-sources:bgp:properties:peers:external:no_authentication"], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:data-sources:bgp:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:bgp:properties:peers:external", "parent_id": "xcsh-docs:data-sources:bgp:properties:peers", "path": "documentation/data-sources/bgp/properties/peers/external/index.md", "product": "distributed-cloud", "provider_name": "bgp", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "data-sources", "registry_anchor": "canonical-1100310013200210-1203020110333122-1021132031333130-2101223233233213-1131110231302303-0103022103010102-1213030130001120-2231321011221302", "registry_path": "docs/guides/data-sources--bgp--reference--group-001.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["peers", "external"], "schema_version": 1, "sections": [{"aliases": ["peers external address"], "anchor": "schema-peers--external--address", "description": "Exclusive with Specify IPv4 peer address.", "document_id": "xcsh-docs:data-sources:bgp:properties:peers:external", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["peers", "external", "address"], "syntax": "attribute", "type": "string"}, {"aliases": ["peers external address ipv6"], "anchor": "schema-peers--external--address_ipv6", "description": "Exclusive with Specify peer IPv6 address.", "document_id": "xcsh-docs:data-sources:bgp:properties:peers:external", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["peers", "external", "address_ipv6"], "syntax": "attribute", "type": "string"}, {"aliases": ["peers external asn"], "anchor": "schema-peers--external--asn", "description": "Autonomous System Number for BGP peer.", "document_id": "xcsh-docs:data-sources:bgp:properties:peers:external", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["peers", "external", "asn"], "syntax": "attribute", "type": "number"}, {"aliases": ["peers external default gateway"], "anchor": "section", "description": "This can be used for messages where no values are needed.", "document_id": "xcsh-docs:data-sources:bgp:properties:peers:external:default_gateway", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["peers", "external", "default_gateway"], "syntax": "attribute", "type": "object"}, {"aliases": ["peers external default gateway v6"], "anchor": "section", "description": "This can be used for messages where no values are needed.", "document_id": "xcsh-docs:data-sources:bgp:properties:peers:external:default_gateway_v6", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["peers", "external", "default_gateway_v6"], "syntax": "attribute", "type": "object"}, {"aliases": ["peers external disable spec"], "anchor": "section", "description": "Enable this option", "document_id": "xcsh-docs:data-sources:bgp:properties:peers:external:disable_spec", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["peers", "external", "disable_spec"], "syntax": "attribute", "type": "object"}, {"aliases": ["peers external disable v6"], "anchor": "section", "description": "This can be used for messages where no values are needed.", "document_id": "xcsh-docs:data-sources:bgp:properties:peers:external:disable_v6", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["peers", "external", "disable_v6"], "syntax": "attribute", "type": "object"}, {"aliases": ["peers external external connector"], "anchor": "section", "description": "This can be used for messages where no values are needed.", "document_id": "xcsh-docs:data-sources:bgp:properties:peers:external:external_connector", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["peers", "external", "external_connector"], "syntax": "attribute", "type": "object"}, {"aliases": ["peers external family inet"], "anchor": "section", "description": "Parameters for inet family.", "document_id": "xcsh-docs:data-sources:bgp:properties:peers:external:family_inet", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": "single", "relationships": [], "schema_path": ["peers", "external", "family_inet"], "syntax": "attribute", "type": "object"}, {"aliases": ["peers external from site"], "anchor": "section", "description": "This can be used for messages where no values are needed.", "document_id": "xcsh-docs:data-sources:bgp:properties:peers:external:from_site", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["peers", "external", "from_site"], "syntax": "attribute", "type": "object"}, {"aliases": ["peers external from site v6"], "anchor": "section", "description": "This can be used for messages where no values are needed.", "document_id": "xcsh-docs:data-sources:bgp:properties:peers:external:from_site_v6", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["peers", "external", "from_site_v6"], "syntax": "attribute", "type": "object"}, {"aliases": ["peers external interface"], "anchor": "section", "description": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.", "document_id": "xcsh-docs:data-sources:bgp:properties:peers:external:interface", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": "single", "relationships": [], "schema_path": ["peers", "external", "interface"], "syntax": "attribute", "type": "object"}, {"aliases": ["peers external interface list"], "anchor": "section", "description": "List of network interfaces.", "document_id": "xcsh-docs:data-sources:bgp:properties:peers:external:interface_list", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": "single", "relationships": [], "schema_path": ["peers", "external", "interface_list"], "syntax": "attribute", "type": "object"}, {"aliases": ["peers external md5 auth key"], "anchor": "schema-peers--external--md5_auth_key", "description": "Exclusive with MD5 key for protecting BGP Sessions (RFC 2385)", "document_id": "xcsh-docs:data-sources:bgp:properties:peers:external", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["peers", "external", "md5_auth_key"], "syntax": "attribute", "type": "string"}, {"aliases": ["authentication", "credential setup", "credentials", "peers external no authentication"], "anchor": "section", "description": "This can be used for messages where no values are needed.", "document_id": "xcsh-docs:data-sources:bgp:properties:peers:external:no_authentication", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["peers", "external", "no_authentication"], "syntax": "attribute", "type": "object"}, {"aliases": ["peers external port"], "anchor": "schema-peers--external--port", "description": "Peer TCP port number.", "document_id": "xcsh-docs:data-sources:bgp:properties:peers:external", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["peers", "external", "port"], "syntax": "attribute", "type": "number"}, {"aliases": ["peers external subnet begin offset"], "anchor": "schema-peers--external--subnet_begin_offset", "description": "Exclusive with Calculate peer address using offset from the beginning of the subnet.", "document_id": "xcsh-docs:data-sources:bgp:properties:peers:external", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["peers", "external", "subnet_begin_offset"], "syntax": "attribute", "type": "number"}, {"aliases": ["peers external subnet begin offset v6"], "anchor": "schema-peers--external--subnet_begin_offset_v6", "description": "Exclusive with Calculate peer address using offset from the beginning of the subnet.", "document_id": "xcsh-docs:data-sources:bgp:properties:peers:external", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["peers", "external", "subnet_begin_offset_v6"], "syntax": "attribute", "type": "number"}, {"aliases": ["peers external subnet end offset"], "anchor": "schema-peers--external--subnet_end_offset", "description": "Exclusive with Calculate peer address using offset from the end of the subnet.", "document_id": "xcsh-docs:data-sources:bgp:properties:peers:external", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["peers", "external", "subnet_end_offset"], "syntax": "attribute", "type": "number"}, {"aliases": ["peers external subnet end offset v6"], "anchor": "schema-peers--external--subnet_end_offset_v6", "description": "Exclusive with Calculate peer address using offset from the end of the subnet.", "document_id": "xcsh-docs:data-sources:bgp:properties:peers:external", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["peers", "external", "subnet_end_offset_v6"], "syntax": "attribute", "type": "number"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/bgp/properties/peers/external/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "External BGP Peer parameters.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["bgpCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -23,10 +23,6 @@ Breadcrumbs:
 Type: `"single"`. Computed.
 
 External BGP Peer. External BGP Peer parameters.
-
-Upstream description:
-
-External BGP Peer parameters.
 
 Receipt-pinned upstream constraints:
 
@@ -52,11 +48,6 @@ Receipt-pinned upstream constraints:
 ### address property
 
 Type: `"string"`. Computed.
-
-Exclusive with \[default\_gateway disable external\_connector from\_site subnet\_begin\_offset
-subnet\_end\_offset\] Specify IPv4 peer address.
-
-Upstream description:
 
 Exclusive with \[default\_gateway disable external\_connector from\_site subnet\_begin\_offset
 subnet\_end\_offset\] Specify IPv4 peer address.
@@ -101,11 +92,6 @@ Type: `"string"`. Computed.
 Exclusive with \[default\_gateway\_v6 disable\_v6 from\_site\_v6 subnet\_begin\_offset\_v6
 subnet\_end\_offset\_v6\] Specify peer IPv6 address.
 
-Upstream description:
-
-Exclusive with \[default\_gateway\_v6 disable\_v6 from\_site\_v6 subnet\_begin\_offset\_v6
-subnet\_end\_offset\_v6\] Specify peer IPv6 address.
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -144,10 +130,6 @@ Receipt-pinned upstream constraints:
 Type: `"number"`. Computed.
 
 ASN. Autonomous System Number for BGP peer.
-
-Upstream description:
-
-Autonomous System Number for BGP peer.
 
 Receipt-pinned upstream constraints:
 
@@ -209,10 +191,6 @@ Type: `"string"`. Computed.
 
 Exclusive with \[no\_authentication\] MD5 key for protecting BGP Sessions (RFC 2385).
 
-Upstream description:
-
-Exclusive with \[no\_authentication\] MD5 key for protecting BGP Sessions (RFC 2385)
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -245,10 +223,6 @@ Receipt-pinned upstream constraints:
 Type: `"number"`. Computed.
 
 Peer Port. Peer TCP port number.
-
-Upstream description:
-
-Peer TCP port number.
 
 Receipt-pinned upstream constraints:
 
@@ -289,11 +263,6 @@ Receipt-pinned upstream constraints:
 ### subnet_begin_offset property
 
 Type: `"number"`. Computed.
-
-Exclusive with \[address default\_gateway disable external\_connector from\_site
-subnet\_end\_offset\] Calculate peer address using offset from the beginning of the subnet.
-
-Upstream description:
 
 Exclusive with \[address default\_gateway disable external\_connector from\_site
 subnet\_end\_offset\] Calculate peer address using offset from the beginning of the subnet.
@@ -340,11 +309,6 @@ Type: `"number"`. Computed.
 Exclusive with \[address\_ipv6 default\_gateway\_v6 disable\_v6 from\_site\_v6
 subnet\_end\_offset\_v6\] Calculate peer address using offset from the beginning of the subnet.
 
-Upstream description:
-
-Exclusive with \[address\_ipv6 default\_gateway\_v6 disable\_v6 from\_site\_v6
-subnet\_end\_offset\_v6\] Calculate peer address using offset from the beginning of the subnet.
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -383,11 +347,6 @@ Receipt-pinned upstream constraints:
 ### subnet_end_offset property
 
 Type: `"number"`. Computed.
-
-Exclusive with \[address default\_gateway disable external\_connector from\_site
-subnet\_begin\_offset\] Calculate peer address using offset from the end of the subnet.
-
-Upstream description:
 
 Exclusive with \[address default\_gateway disable external\_connector from\_site
 subnet\_begin\_offset\] Calculate peer address using offset from the end of the subnet.
@@ -434,11 +393,6 @@ Type: `"number"`. Computed.
 Exclusive with \[address\_ipv6 default\_gateway\_v6 disable\_v6 from\_site\_v6
 subnet\_begin\_offset\_v6\] Calculate peer address using offset from the end of the subnet.
 
-Upstream description:
-
-Exclusive with \[address\_ipv6 default\_gateway\_v6 disable\_v6 from\_site\_v6
-subnet\_begin\_offset\_v6\] Calculate peer address using offset from the end of the subnet.
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -471,19 +425,3 @@ Receipt-pinned upstream constraints:
   }
 }
 ```
-
-## Next pages
-
-- [peers.external.default_gateway](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bgp/properties/peers/external/default_gateway/)
-- [peers.external.default_gateway_v6](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bgp/properties/peers/external/default_gateway_v6/)
-- [peers.external.disable_spec](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bgp/properties/peers/external/disable_spec/)
-- [peers.external.disable_v6](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bgp/properties/peers/external/disable_v6/)
-- [peers.external.external_connector](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bgp/properties/peers/external/external_connector/)
-- [peers.external.family_inet](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bgp/properties/peers/external/family_inet/)
-- [peers.external.from_site](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bgp/properties/peers/external/from_site/)
-- [peers.external.from_site_v6](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bgp/properties/peers/external/from_site_v6/)
-- [peers.external.interface](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bgp/properties/peers/external/interface/)
-- [peers.external.interface_list](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bgp/properties/peers/external/interface_list/)
-- [peers.external.no_authentication](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bgp/properties/peers/external/no_authentication/)
-- [peers](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bgp/properties/peers/)
-- [xcsh_bgp](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bgp/)

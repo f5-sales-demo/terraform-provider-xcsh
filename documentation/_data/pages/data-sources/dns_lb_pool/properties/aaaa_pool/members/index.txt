@@ -2,7 +2,7 @@
 page_title: "aaaa_pool.members"
 subcategory: ""
 description: "Configuration parameter for members"
-xcsh_docs: {"aliases": ["aaaa pool members"], "body_bytes": 6063, "body_sha256": "sha256:7ce66e896f832c30e0c78a300d4d7f9de709f0beac1c9090ed769612bb827db1", "capabilities": ["dns"], "category": "dns", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:data-sources:dns_lb_pool:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:dns_lb_pool:properties:aaaa_pool:members", "parent_id": "xcsh-docs:data-sources:dns_lb_pool:properties:aaaa_pool", "path": "documentation/data-sources/dns_lb_pool/properties/aaaa_pool/members/index.md", "product": "distributed-cloud", "provider_name": "dns_lb_pool", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "data-sources", "registry_anchor": "canonical-3330231313131112-2230323222113321-0232330201121330-1021130323222322-3001220022312012-1323112332011303-2003132101303123-0233222033231313", "registry_path": "docs/guides/data-sources--dns_lb_pool--reference--group-001.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["aaaa_pool", "members"], "schema_version": 1, "sections": [{"aliases": ["aaaa pool members disable spec"], "anchor": "schema-aaaa_pool--members--disable_spec", "description": "Value of true will disable the pool-member.", "document_id": "xcsh-docs:data-sources:dns_lb_pool:properties:aaaa_pool:members", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["aaaa_pool", "members", "disable_spec"], "syntax": "attribute", "type": "bool"}, {"aliases": ["aaaa pool members ip endpoint"], "anchor": "schema-aaaa_pool--members--ip_endpoint", "description": "Public IP address.", "document_id": "xcsh-docs:data-sources:dns_lb_pool:properties:aaaa_pool:members", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["aaaa_pool", "members", "ip_endpoint"], "syntax": "attribute", "type": "string"}, {"aliases": ["aaaa pool members name"], "anchor": "schema-aaaa_pool--members--name", "description": "Pool member name.", "document_id": "xcsh-docs:data-sources:dns_lb_pool:properties:aaaa_pool:members", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["aaaa_pool", "members", "name"], "syntax": "attribute", "type": "string"}, {"aliases": ["aaaa pool members priority"], "anchor": "schema-aaaa_pool--members--priority", "description": "Used if the pool’s load balancing mode is set to Priority.", "document_id": "xcsh-docs:data-sources:dns_lb_pool:properties:aaaa_pool:members", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["aaaa_pool", "members", "priority"], "syntax": "attribute", "type": "number"}, {"aliases": ["aaaa pool members ratio"], "anchor": "schema-aaaa_pool--members--ratio", "description": "Used if the pool’s load balancing mode is set to Ratio-Member.", "document_id": "xcsh-docs:data-sources:dns_lb_pool:properties:aaaa_pool:members", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["aaaa_pool", "members", "ratio"], "syntax": "attribute", "type": "number"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_lb_pool/properties/aaaa_pool/members/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Configuration parameter for members", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["dns_lb_poolCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
+xcsh_docs: {"aliases": ["aaaa pool members"], "body_bytes": 5680, "body_sha256": "sha256:d0182cad3f26aec2605d0eb61c2d4ef48814dc91ff53d12607f134cc0994dee1", "capabilities": ["dns"], "category": "dns", "child_ids": [], "classification": {"rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:data-sources:dns_lb_pool:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:dns_lb_pool:properties:aaaa_pool:members", "parent_id": "xcsh-docs:data-sources:dns_lb_pool:properties:aaaa_pool", "path": "documentation/data-sources/dns_lb_pool/properties/aaaa_pool/members/index.md", "product": "distributed-cloud", "provider_name": "dns_lb_pool", "provider_schema_digest": "sha256:76b040ce5603716b60411a0b7b17f23487536172558be7ac592beb4163ee8dcd", "provider_type": "data-sources", "registry_anchor": "canonical-3330231313131112-2230323222113321-0232330201121330-1021130323222322-3001220022312012-1323112332011303-2003132101303123-0233222033231313", "registry_path": "docs/guides/data-sources--dns_lb_pool--reference--group-001.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["aaaa_pool", "members"], "schema_version": 1, "sections": [{"aliases": ["aaaa pool members disable spec"], "anchor": "schema-aaaa_pool--members--disable_spec", "description": "Value of true will disable the pool-member.", "document_id": "xcsh-docs:data-sources:dns_lb_pool:properties:aaaa_pool:members", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["aaaa_pool", "members", "disable_spec"], "syntax": "attribute", "type": "bool"}, {"aliases": ["aaaa pool members ip endpoint"], "anchor": "schema-aaaa_pool--members--ip_endpoint", "description": "Public IP address.", "document_id": "xcsh-docs:data-sources:dns_lb_pool:properties:aaaa_pool:members", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["aaaa_pool", "members", "ip_endpoint"], "syntax": "attribute", "type": "string"}, {"aliases": ["aaaa pool members name"], "anchor": "schema-aaaa_pool--members--name", "description": "Pool member name.", "document_id": "xcsh-docs:data-sources:dns_lb_pool:properties:aaaa_pool:members", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["aaaa_pool", "members", "name"], "syntax": "attribute", "type": "string"}, {"aliases": ["aaaa pool members priority"], "anchor": "schema-aaaa_pool--members--priority", "description": "Used if the pool’s load balancing mode is set to Priority.", "document_id": "xcsh-docs:data-sources:dns_lb_pool:properties:aaaa_pool:members", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["aaaa_pool", "members", "priority"], "syntax": "attribute", "type": "number"}, {"aliases": ["aaaa pool members ratio"], "anchor": "schema-aaaa_pool--members--ratio", "description": "Used if the pool’s load balancing mode is set to Ratio-Member.", "document_id": "xcsh-docs:data-sources:dns_lb_pool:properties:aaaa_pool:members", "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["aaaa_pool", "members", "ratio"], "syntax": "attribute", "type": "number"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_lb_pool/properties/aaaa_pool/members/index.txt", "spec_pin_digest": "sha256:d5d38f86a968695cc56903b906faab6a444f49e9fcc196f42ae694b1a3960be0", "summary": "Configuration parameter for members", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.0", "schema_components": ["dns_lb_poolCreateRequest"], "target_commit": "a9be0360815e3fd3fa08ded845e03c0bd4afd6ec"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -23,10 +23,6 @@ Breadcrumbs:
 Type: `"list"`. Computed.
 
 Pool Members. Configuration parameter for members
-
-Upstream description:
-
-Configuration parameter for members
 
 Receipt-pinned upstream constraints:
 
@@ -86,10 +82,6 @@ Type: `"string"`. Computed.
 
 Public IP. Public IP address.
 
-Upstream description:
-
-Public IP address.
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -130,10 +122,6 @@ Receipt-pinned upstream constraints:
 Type: `"string"`. Computed.
 
 Name. Pool member name.
-
-Upstream description:
-
-Pool member name.
 
 Receipt-pinned upstream constraints:
 
@@ -262,8 +250,3 @@ Receipt-pinned upstream constraints:
   }
 }
 ```
-
-## Next pages
-
-- [aaaa_pool](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/dns_lb_pool/properties/aaaa_pool/)
-- [xcsh_dns_lb_pool](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/dns_lb_pool/)
