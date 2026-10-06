@@ -186,6 +186,8 @@ interfaces with label group3. Possible values are \`ANY\_AVAILABLE\_INTERFACE\`,
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["ANY_AVAILABLE_INTERFACE","INTERFACE_GROUP1","INTERFACE_GROUP2","INTERFACE_GROUP3"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("ANY_AVAILABLE_INTERFACE",
     "INTERFACE_GROUP1",
@@ -262,6 +264,7 @@ follow DNS-1035 format.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   validators.NameValidator(),
 }
@@ -329,6 +332,7 @@ DNS\_LABEL format. For a namespace object itself, namespace value will be ""
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   validators.NamespaceValidator(),
 }
@@ -407,6 +411,8 @@ recommended.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["DSCP_BEST_EFFORT","DSCP_CLASS1","DSCP_CLASS2","DSCP_CLASS3","DSCP_CLASS4","DSCP_CONTROL_L2","DSCP_CONTROL_L3","DSCP_EXPRESS_FORWARDING"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("DSCP_BEST_EFFORT",
     "DSCP_CLASS1",
@@ -459,6 +465,7 @@ Precedence Class 1 and drop precedence low.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.AtMost(255),
 }
@@ -596,6 +603,8 @@ precedence value is taken from output of policer. Possible values are \`DSCP\_AF
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["DSCP_AF_HIGH","DSCP_AF_LOW","DSCP_AF_MEDIUM","DSCP_AF_POLICER"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("DSCP_AF_LOW",
     "DSCP_AF_MEDIUM",
@@ -652,6 +661,8 @@ recommended.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["DSCP_BEST_EFFORT","DSCP_CLASS1","DSCP_CLASS2","DSCP_CLASS3","DSCP_CLASS4","DSCP_CONTROL_L2","DSCP_CONTROL_L3","DSCP_EXPRESS_FORWARDING"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("DSCP_BEST_EFFORT",
     "DSCP_CLASS1",
@@ -861,6 +872,7 @@ Such a reference is in form of tenant/namespace/name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
 ```
 
@@ -901,6 +913,7 @@ referred object's(e.g. Route's) name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 128),
 }
@@ -961,6 +974,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -1028,6 +1042,7 @@ the referred object's(e.g. Route's) tenant.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(64),
 }

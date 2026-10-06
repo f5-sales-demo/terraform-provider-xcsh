@@ -6,6 +6,165 @@ description: "Complete grouped canonical reference for xcsh_protected_applicatio
 
 # xcsh_protected_application reference
 
+<a id="canonical-2023230121133030-2201121101121230-0220332300301121-2302020013003231-2020332313030301-3013310311001322-2300002322121000-0203111111331023"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `cloudfront.protected_endpoints.flow_label.authentication.logout` properties
+
+Breadcrumbs:
+
+- [xcsh_protected_application](../resources/protected_application.md#canonical-0002322312001300-2321122230000322-1132302132120131-2310022322102121-3300111330013030-3223012202311310-1021020212202332-0020010133311002)
+- [Property reference](resources--protected_application--reference--group-001.md#canonical-1112011310232010-1130212322220320-1323121033211100-0313202312023232-3332212122311300-1331303332321012-0100301021312031-1320300331013311)
+- [CloudFront](resources--protected_application--reference--group-002.md#canonical-3023230230223213-0113310010212111-0023030201111012-2212202220232211-0013230310132300-3132331133230002-2331013021302322-2211302231010320)
+- [cloudfront.protected_endpoints](resources--protected_application--reference--group-003.md#canonical-2331031331211001-2203303321110110-3203202010032323-1311020101113303-1331221311131220-0322003310233220-3231300302101310-1323132122212232)
+- [cloudfront.protected_endpoints.flow_label](resources--protected_application--reference--group-003.md#canonical-2003301112323021-1003101203221303-3200130031112010-1113223021202211-0112323031302303-0233032001012210-3211303300322001-1101322113022321)
+- [cloudfront.protected_endpoints.flow_label.authentication](resources--protected_application--reference--group-003.md#canonical-0323111212011331-2233302330122121-1312022311201112-3020213013212312-2311332012311021-1220300222331032-0121102320033210-2310022210020110)
+- CloudFront.protected_endpoints.flow_label.authentication.logout
+
+<a id="canonical-3210322333030011-0220230330311302-0311003201123012-2231031002312301-1022313021002022-0301133021100133-2032030300032320-1212200213323031"></a>
+
+Type: `["object", {}]`. Optional.
+
+Enable this option
+
+Additional upstream details:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+logout = {}
+```
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-0221220001332301-1120022323032010-3223222333000222-3122210013003033-1211103333223233-2023023223100310-1203113132202212-1301101303333202"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `cloudfront.protected_endpoints.flow_label.authentication.token_refresh` properties
+
+Breadcrumbs:
+
+- [xcsh_protected_application](../resources/protected_application.md#canonical-0002322312001300-2321122230000322-1132302132120131-2310022322102121-3300111330013030-3223012202311310-1021020212202332-0020010133311002)
+- [Property reference](resources--protected_application--reference--group-001.md#canonical-1112011310232010-1130212322220320-1323121033211100-0313202312023232-3332212122311300-1331303332321012-0100301021312031-1320300331013311)
+- [CloudFront](resources--protected_application--reference--group-002.md#canonical-3023230230223213-0113310010212111-0023030201111012-2212202220232211-0013230310132300-3132331133230002-2331013021302322-2211302231010320)
+- [cloudfront.protected_endpoints](resources--protected_application--reference--group-003.md#canonical-2331031331211001-2203303321110110-3203202010032323-1311020101113303-1331221311131220-0322003310233220-3231300302101310-1323132122212232)
+- [cloudfront.protected_endpoints.flow_label](resources--protected_application--reference--group-003.md#canonical-2003301112323021-1003101203221303-3200130031112010-1113223021202211-0112323031302303-0233032001012210-3211303300322001-1101322113022321)
+- [cloudfront.protected_endpoints.flow_label.authentication](resources--protected_application--reference--group-003.md#canonical-0323111212011331-2233302330122121-1312022311201112-3020213013212312-2311332012311021-1220300222331032-0121102320033210-2310022210020110)
+- CloudFront.protected_endpoints.flow_label.authentication.token_refresh
+
+<a id="canonical-0133020132230213-1032230031202221-0233133023130312-2112323011122320-1221133031211230-0121113031103022-2320110121300230-3332212320130031"></a>
+
+Type: `["object", {}]`. Optional.
+
+Configuration parameter for token refresh.
+
+Additional upstream details:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+token_refresh = {}
+```
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-1221023222000133-2202131211101230-3002001310200213-2332103310233321-1101212233310220-2110032311022233-2010231232203303-3311033032212012"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `cloudfront.protected_endpoints.flow_label.financial_services` properties
+
+Breadcrumbs:
+
+- [xcsh_protected_application](../resources/protected_application.md#canonical-0002322312001300-2321122230000322-1132302132120131-2310022322102121-3300111330013030-3223012202311310-1021020212202332-0020010133311002)
+- [Property reference](resources--protected_application--reference--group-001.md#canonical-1112011310232010-1130212322220320-1323121033211100-0313202312023232-3332212122311300-1331303332321012-0100301021312031-1320300331013311)
+- [CloudFront](resources--protected_application--reference--group-002.md#canonical-3023230230223213-0113310010212111-0023030201111012-2212202220232211-0013230310132300-3132331133230002-2331013021302322-2211302231010320)
+- [cloudfront.protected_endpoints](resources--protected_application--reference--group-003.md#canonical-2331031331211001-2203303321110110-3203202010032323-1311020101113303-1331221311131220-0322003310233220-3231300302101310-1323132122212232)
+- [cloudfront.protected_endpoints.flow_label](resources--protected_application--reference--group-003.md#canonical-2003301112323021-1003101203221303-3200130031112010-1113223021202211-0112323031302303-0233032001012210-3211303300322001-1101322113022321)
+- CloudFront.protected_endpoints.flow_label.financial_services
+
+<a id="canonical-3311023122210020-0012103130131013-2112303010103103-0223101301311113-0230213211331112-3322023232310120-0131230302031121-2033011023231133"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+Bot Defense Flow Label Financial Services Category.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: false
+Validators: []validator.Object{validators.ConflictingObjectAttributes("apply",
+    "money_transfer")}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-label_choice": "[\"apply\",\"money_transfer\"]"
+}
+```
+
+Terraform syntax:
+
+```terraform
+financial_services {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-3102202121223032-3202013033330002-3100222110300031-2333202032123302-1213103032033201-3300231030330001-1222200333122131-2032000111223131"></a>
+
+### Direct properties for `cloudfront.protected_endpoints.flow_label.financial_services`
+
+- [apply](resources--protected_application--reference--group-004.md#canonical-3233130101131012-2230231323120303-1112132001020310-0331221320303132-0133030121333222-2103013232210132-2000323131320330-0130212132311231): complete subsection reference.
+
+- [money_transfer](resources--protected_application--reference--group-004.md#canonical-2123133020032313-0001102203232031-2301333103103301-2233222202131001-0301301130233211-1232100322300112-3330100302320022-3311203301301333): complete subsection reference.
+
 <a id="canonical-3233130101131012-2230231323120303-1112132001020310-0331221320303132-0133030121333222-2103013232210132-2000323131320330-0130212132311231"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -21,7 +180,7 @@ Breadcrumbs:
 - [CloudFront](resources--protected_application--reference--group-002.md#canonical-3023230230223213-0113310010212111-0023030201111012-2212202220232211-0013230310132300-3132331133230002-2331013021302322-2211302231010320)
 - [cloudfront.protected_endpoints](resources--protected_application--reference--group-003.md#canonical-2331031331211001-2203303321110110-3203202010032323-1311020101113303-1331221311131220-0322003310233220-3231300302101310-1323132122212232)
 - [cloudfront.protected_endpoints.flow_label](resources--protected_application--reference--group-003.md#canonical-2003301112323021-1003101203221303-3200130031112010-1113223021202211-0112323031302303-0233032001012210-3211303300322001-1101322113022321)
-- [cloudfront.protected_endpoints.flow_label.financial_services](resources--protected_application--reference--group-003.md#canonical-1221023222000133-2202131211101230-3002001310200213-2332103310233321-1101212233310220-2110032311022233-2010231232203303-3311033032212012)
+- [cloudfront.protected_endpoints.flow_label.financial_services](resources--protected_application--reference--group-004.md#canonical-1221023222000133-2202131211101230-3002001310200213-2332103310233321-1101212233310220-2110032311022233-2010231232203303-3311033032212012)
 - CloudFront.protected_endpoints.flow_label.financial_services.apply
 
 <a id="canonical-1110203300103111-3200322301300013-3101120200310203-3103111322303212-3310333133301011-0333302103303311-2032120232031001-3030211000303332"></a>
@@ -70,7 +229,7 @@ Breadcrumbs:
 - [CloudFront](resources--protected_application--reference--group-002.md#canonical-3023230230223213-0113310010212111-0023030201111012-2212202220232211-0013230310132300-3132331133230002-2331013021302322-2211302231010320)
 - [cloudfront.protected_endpoints](resources--protected_application--reference--group-003.md#canonical-2331031331211001-2203303321110110-3203202010032323-1311020101113303-1331221311131220-0322003310233220-3231300302101310-1323132122212232)
 - [cloudfront.protected_endpoints.flow_label](resources--protected_application--reference--group-003.md#canonical-2003301112323021-1003101203221303-3200130031112010-1113223021202211-0112323031302303-0233032001012210-3211303300322001-1101322113022321)
-- [cloudfront.protected_endpoints.flow_label.financial_services](resources--protected_application--reference--group-003.md#canonical-1221023222000133-2202131211101230-3002001310200213-2332103310233321-1101212233310220-2110032311022233-2010231232203303-3311033032212012)
+- [cloudfront.protected_endpoints.flow_label.financial_services](resources--protected_application--reference--group-004.md#canonical-1221023222000133-2202131211101230-3002001310200213-2332103310233321-1101212233310220-2110032311022233-2010231232203303-3311033032212012)
 - CloudFront.protected_endpoints.flow_label.financial_services.money_transfer
 
 <a id="canonical-0012330332312330-2122100113301031-2222200313101032-2200323331210200-2032303022212221-1211033301033222-1233212210301313-1102223030121200"></a>
@@ -230,6 +389,7 @@ Bot Defense Flow Label Profile Management Category.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("create",
     "update"),
   validators.ConflictingObjectAttributes("create",
@@ -443,6 +603,7 @@ Bot Defense Flow Label Search Category. Bot Defense Flow Label Search Category.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("flight_search",
     "product_search"),
   validators.ConflictingObjectAttributes("flight_search",
@@ -713,6 +874,7 @@ Bot Defense Flow Label Shopping &amp; Gift Cards Category.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("gift_card_make_purchase_with_gift_card",
     "gift_card_validation"),
   validators.ConflictingObjectAttributes("gift_card_make_purchase_with_gift_card",
@@ -1513,6 +1675,7 @@ and replace APIs.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
 ```
 
@@ -1552,6 +1715,7 @@ Description. Human readable description.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(256),
 }
@@ -1570,6 +1734,7 @@ This is the name of the message. The value of name has to follow DNS-1035 format
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -1649,6 +1814,7 @@ Mobile Client. Mobile client configuration OPTIONS.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("block",
     "continue")}
 ```
@@ -1742,6 +1908,7 @@ Body. Custom body message.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(4096),
 }
@@ -1791,6 +1958,7 @@ Content type to use in a block response.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(128),
 }
@@ -1880,6 +2048,8 @@ Extended status code Network Authentication Required status code.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["Accepted","AlreadyReported","BadGateway","BadRequest","Conflict","Continue","Created","EmptyStatusCode","ExpectationFailed","FailedDependency","Forbidden","Found","GatewayTimeout","Gone","HTTPVersionNotSupported","IMUsed","InsufficientStorage","InternalServerError","LengthRequired","Locked","LoopDetected","MethodNotAllowed","MisdirectedRequest","MovedPermanently","MultiStatus","MultipleChoices","NetworkAuthenticationRequired","NoContent","NonAuthoritativeInformation","NotAcceptable","NotExtended","NotFound","NotImplemented","NotModified","OK","PartialContent","PayloadTooLarge","PaymentRequired","PermanentRedirect","PreconditionFailed","PreconditionRequired","ProxyAuthenticationRequired","RangeNotSatisfiable","RequestHeaderFieldsTooLarge","RequestTimeout","ResetContent","SeeOther","ServiceUnavailable","TemporaryRedirect","TooManyRequests","URITooLong","Unauthorized","UnprocessableEntity","UnsupportedMediaType","UpgradeRequired","UseProxy","VariantAlsoNegotiates"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("EmptyStatusCode",
     "Continue",
@@ -2040,6 +2210,7 @@ Select Continue Bot Mitigation Action. Continue mitigation action.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("add_header",
     "no_header")}
 ```
@@ -2244,6 +2415,7 @@ Web Client. Web client configuration OPTIONS.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("block",
     "continue"),
   validators.ConflictingObjectAttributes("block",
@@ -2343,6 +2515,7 @@ Body. Custom body message.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(4096),
 }
@@ -2392,6 +2565,7 @@ Content type to use in a block response.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(128),
 }
@@ -2481,6 +2655,8 @@ Extended status code Network Authentication Required status code.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["Accepted","AlreadyReported","BadGateway","BadRequest","Conflict","Continue","Created","EmptyStatusCode","ExpectationFailed","FailedDependency","Forbidden","Found","GatewayTimeout","Gone","HTTPVersionNotSupported","IMUsed","InsufficientStorage","InternalServerError","LengthRequired","Locked","LoopDetected","MethodNotAllowed","MisdirectedRequest","MovedPermanently","MultiStatus","MultipleChoices","NetworkAuthenticationRequired","NoContent","NonAuthoritativeInformation","NotAcceptable","NotExtended","NotFound","NotImplemented","NotModified","OK","PartialContent","PayloadTooLarge","PaymentRequired","PermanentRedirect","PreconditionFailed","PreconditionRequired","ProxyAuthenticationRequired","RangeNotSatisfiable","RequestHeaderFieldsTooLarge","RequestTimeout","ResetContent","SeeOther","ServiceUnavailable","TemporaryRedirect","TooManyRequests","URITooLong","Unauthorized","UnprocessableEntity","UnsupportedMediaType","UpgradeRequired","UseProxy","VariantAlsoNegotiates"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("EmptyStatusCode",
     "Continue",
@@ -2641,6 +2817,7 @@ Select Continue Bot Mitigation Action. Continue mitigation action.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("add_header",
     "no_header")}
 ```
@@ -2799,6 +2976,7 @@ Redirect. Redirect.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("location")}
 ```
 
@@ -2838,6 +3016,7 @@ Location. URI location for redirect response.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(512),
 }
@@ -2934,6 +3113,8 @@ Extended status code Network Authentication Required status code.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["Accepted","AlreadyReported","BadGateway","BadRequest","Conflict","Continue","Created","EmptyStatusCode","ExpectationFailed","FailedDependency","Forbidden","Found","GatewayTimeout","Gone","HTTPVersionNotSupported","IMUsed","InsufficientStorage","InternalServerError","LengthRequired","Locked","LoopDetected","MethodNotAllowed","MisdirectedRequest","MovedPermanently","MultiStatus","MultipleChoices","NetworkAuthenticationRequired","NoContent","NonAuthoritativeInformation","NotAcceptable","NotExtended","NotFound","NotImplemented","NotModified","OK","PartialContent","PayloadTooLarge","PaymentRequired","PermanentRedirect","PreconditionFailed","PreconditionRequired","ProxyAuthenticationRequired","RangeNotSatisfiable","RequestHeaderFieldsTooLarge","RequestTimeout","ResetContent","SeeOther","ServiceUnavailable","TemporaryRedirect","TooManyRequests","URITooLong","Unauthorized","UnprocessableEntity","UnsupportedMediaType","UpgradeRequired","UseProxy","VariantAlsoNegotiates"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("EmptyStatusCode",
     "Continue",
@@ -3093,6 +3274,7 @@ Web and Mobile client configuration OPTIONS.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("block_mobile",
     "continue_mobile"),
   validators.ConflictingObjectAttributes("block_web",
@@ -3199,6 +3381,7 @@ Body. Custom body message.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(4096),
 }
@@ -3248,6 +3431,7 @@ Content type to use in a block response.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(128),
 }
@@ -3337,6 +3521,8 @@ Extended status code Network Authentication Required status code.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["Accepted","AlreadyReported","BadGateway","BadRequest","Conflict","Continue","Created","EmptyStatusCode","ExpectationFailed","FailedDependency","Forbidden","Found","GatewayTimeout","Gone","HTTPVersionNotSupported","IMUsed","InsufficientStorage","InternalServerError","LengthRequired","Locked","LoopDetected","MethodNotAllowed","MisdirectedRequest","MovedPermanently","MultiStatus","MultipleChoices","NetworkAuthenticationRequired","NoContent","NonAuthoritativeInformation","NotAcceptable","NotExtended","NotFound","NotImplemented","NotModified","OK","PartialContent","PayloadTooLarge","PaymentRequired","PermanentRedirect","PreconditionFailed","PreconditionRequired","ProxyAuthenticationRequired","RangeNotSatisfiable","RequestHeaderFieldsTooLarge","RequestTimeout","ResetContent","SeeOther","ServiceUnavailable","TemporaryRedirect","TooManyRequests","URITooLong","Unauthorized","UnprocessableEntity","UnsupportedMediaType","UpgradeRequired","UseProxy","VariantAlsoNegotiates"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("EmptyStatusCode",
     "Continue",
@@ -3530,6 +3716,7 @@ Body. Custom body message.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(4096),
 }
@@ -3579,6 +3766,7 @@ Content type to use in a block response.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(128),
 }
@@ -3668,6 +3856,8 @@ Extended status code Network Authentication Required status code.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["Accepted","AlreadyReported","BadGateway","BadRequest","Conflict","Continue","Created","EmptyStatusCode","ExpectationFailed","FailedDependency","Forbidden","Found","GatewayTimeout","Gone","HTTPVersionNotSupported","IMUsed","InsufficientStorage","InternalServerError","LengthRequired","Locked","LoopDetected","MethodNotAllowed","MisdirectedRequest","MovedPermanently","MultiStatus","MultipleChoices","NetworkAuthenticationRequired","NoContent","NonAuthoritativeInformation","NotAcceptable","NotExtended","NotFound","NotImplemented","NotModified","OK","PartialContent","PayloadTooLarge","PaymentRequired","PermanentRedirect","PreconditionFailed","PreconditionRequired","ProxyAuthenticationRequired","RangeNotSatisfiable","RequestHeaderFieldsTooLarge","RequestTimeout","ResetContent","SeeOther","ServiceUnavailable","TemporaryRedirect","TooManyRequests","URITooLong","Unauthorized","UnprocessableEntity","UnsupportedMediaType","UpgradeRequired","UseProxy","VariantAlsoNegotiates"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("EmptyStatusCode",
     "Continue",
@@ -3828,6 +4018,7 @@ Select Continue Bot Mitigation Action. Continue mitigation action.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("add_header",
     "no_header")}
 ```
@@ -3986,6 +4177,7 @@ Select Continue Bot Mitigation Action. Continue mitigation action.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("add_header",
     "no_header")}
 ```
@@ -4144,6 +4336,7 @@ Redirect. Redirect.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("location")}
 ```
 
@@ -4183,6 +4376,7 @@ Location. URI location for redirect response.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(512),
 }
@@ -4279,6 +4473,8 @@ Extended status code Network Authentication Required status code.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["Accepted","AlreadyReported","BadGateway","BadRequest","Conflict","Continue","Created","EmptyStatusCode","ExpectationFailed","FailedDependency","Forbidden","Found","GatewayTimeout","Gone","HTTPVersionNotSupported","IMUsed","InsufficientStorage","InternalServerError","LengthRequired","Locked","LoopDetected","MethodNotAllowed","MisdirectedRequest","MovedPermanently","MultiStatus","MultipleChoices","NetworkAuthenticationRequired","NoContent","NonAuthoritativeInformation","NotAcceptable","NotExtended","NotFound","NotImplemented","NotModified","OK","PartialContent","PayloadTooLarge","PaymentRequired","PermanentRedirect","PreconditionFailed","PreconditionRequired","ProxyAuthenticationRequired","RangeNotSatisfiable","RequestHeaderFieldsTooLarge","RequestTimeout","ResetContent","SeeOther","ServiceUnavailable","TemporaryRedirect","TooManyRequests","URITooLong","Unauthorized","UnprocessableEntity","UnsupportedMediaType","UpgradeRequired","UseProxy","VariantAlsoNegotiates"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("EmptyStatusCode",
     "Continue",
@@ -4437,6 +4633,7 @@ Define your allowlists to skip Bot Defense inference processing.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.ConflictingListObjectAttributes("http_header",
     "ip_prefix")}
 ```
@@ -4501,6 +4698,7 @@ Exclusive with \[http\_header\] IP prefix string.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthAtMost(1024),
   validators.CIDRValidator(),
@@ -4569,6 +4767,7 @@ Request header name and value pairs.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("headers")}
 ```
 
@@ -4625,6 +4824,7 @@ List of HTTP header name and value pairs.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.RequiredListObjectAttributes("name"),
   validators.ConflictingListObjectAttributes("exact",
     "regex")}
@@ -4688,6 +4888,7 @@ Exclusive with \[regular expression\] Header value to match exactly.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(256),
 }
@@ -4742,6 +4943,7 @@ Name. Name of the header.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -4816,6 +5018,7 @@ Exclusive with \[exact\] regular expression match of the header value in re2 for
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 256),
 }
@@ -4888,6 +5091,7 @@ and replace APIs.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
 ```
 
@@ -4927,6 +5131,7 @@ Description. Human readable description.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(256),
 }
@@ -4945,6 +5150,7 @@ This is the name of the message. The value of name has to follow DNS-1035 format
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }

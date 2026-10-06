@@ -2,6 +2,18 @@
   "schema_version": 1,
   "sections": [
     {
+      "canonical_id": "xcsh-docs:data-sources:waf_exclusion_policy:properties:waf_exclusion_rules:app_firewall_detection_control:exclude_signature_contexts",
+      "section_id": "xcsh-docs:data-sources:waf_exclusion_policy:properties:waf_exclusion_rules:app_firewall_detection_control:exclude_signature_contexts:section:3",
+      "source_sha256": "sha256:5a944a31444be407a231d30a477cbe9269a13a8ba8a3556c132fd2f041449c1c",
+      "source_bytes": 1034,
+      "canonical_source_sha256": "sha256:44a62c874771c29c376a68cec6a30a9d098c8498f60ccaa9d547febc3439880e",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/waf_exclusion_policy/properties/waf_exclusion_rules/app_firewall_detection_control/exclude_signature_contexts/",
+      "anchor": "canonical-3323000022003133-2221121213010101-1212011031123132-2121201133121332-1133100201121201-2020302232211012-1210020230312220-1311112000100332",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--waf_exclusion_policy--reference--group-001.md"
+    },
+    {
       "canonical_id": "xcsh-docs:data-sources:waf_exclusion_policy:properties:waf_exclusion_rules:app_firewall_detection_control:exclude_violation_contexts",
       "section_id": "xcsh-docs:data-sources:waf_exclusion_policy:properties:waf_exclusion_rules:app_firewall_detection_control:exclude_violation_contexts:section:0",
       "source_sha256": "sha256:db1baaa5f65c6941ed9c8032f3befde51d6e6931c470fe6a227c22a433eefa79",
@@ -447,7 +459,7 @@
       "section_id": "xcsh-docs:data-sources:waf_threat_campaigns:properties:threat_campaigns:section:0",
       "source_sha256": "sha256:291dd8cfe4714de74092d794dd585371fda52940b59c496ba9e6db7f17c68a3b",
       "source_bytes": 511,
-      "canonical_source_sha256": "sha256:e9918257845d87c7d7c827313c7277afc860e5be7947afa8105b214bb9a76ed4",
+      "canonical_source_sha256": "sha256:8c56a77d5377ee9335c5ad17f4b9ef1f9e2f7a9d78d5d74d071369b4b4b60a47",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/waf_threat_campaigns/properties/threat_campaigns/",
       "anchor": "canonical-1112100013220222-0231111002331131-0022021333120010-2333303312103312-1131000232000213-1031301222013030-1133011230131331-2322302201201021",
       "anchor_map": [
@@ -464,7 +476,7 @@
       "section_id": "xcsh-docs:data-sources:waf_threat_campaigns:properties:threat_campaigns:section:1",
       "source_sha256": "sha256:af33e02edfc20cf6ee4d51f50370b0af886e0f3b6e6a17ee99cbd8a9c99843b1",
       "source_bytes": 231,
-      "canonical_source_sha256": "sha256:e9918257845d87c7d7c827313c7277afc860e5be7947afa8105b214bb9a76ed4",
+      "canonical_source_sha256": "sha256:8c56a77d5377ee9335c5ad17f4b9ef1f9e2f7a9d78d5d74d071369b4b4b60a47",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/waf_threat_campaigns/properties/threat_campaigns/",
       "anchor": "canonical-2113230010200213-0020212203001333-1302213301103000-2303201230203022-1332133320232320-1330202323331120-3230330233212331-0031001323002122",
       "anchor_map": [
@@ -485,7 +497,7 @@
       "section_id": "xcsh-docs:data-sources:waf_threat_campaigns:properties:threat_campaigns:section:2",
       "source_sha256": "sha256:698e5879ab029e582f5257fb0f5104129bd6c0e8b58452be9c7179c6f621661c",
       "source_bytes": 149,
-      "canonical_source_sha256": "sha256:e9918257845d87c7d7c827313c7277afc860e5be7947afa8105b214bb9a76ed4",
+      "canonical_source_sha256": "sha256:8c56a77d5377ee9335c5ad17f4b9ef1f9e2f7a9d78d5d74d071369b4b4b60a47",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/waf_threat_campaigns/properties/threat_campaigns/",
       "anchor": "canonical-2333222121330203-2333202312211010-1011123302122211-2221210023002323-1332231012100232-0102121211122302-3031331120032130-3330132103132102",
       "anchor_map": [
@@ -502,7 +514,7 @@
       "section_id": "xcsh-docs:data-sources:waf_threat_campaigns:properties:threat_campaigns:section:3",
       "source_sha256": "sha256:4ca7b5539fadc8878d8ea4cbb787f94a22e1929db08a7dab6963c1b4f0a38974",
       "source_bytes": 121,
-      "canonical_source_sha256": "sha256:e9918257845d87c7d7c827313c7277afc860e5be7947afa8105b214bb9a76ed4",
+      "canonical_source_sha256": "sha256:8c56a77d5377ee9335c5ad17f4b9ef1f9e2f7a9d78d5d74d071369b4b4b60a47",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/waf_threat_campaigns/properties/threat_campaigns/",
       "anchor": "canonical-3312233031301001-1312301222013131-0001302113321030-3111230212223330-1121031332012123-0120012131211210-0133131211122022-3102301012320302",
       "anchor_map": [
@@ -519,7 +531,7 @@
       "section_id": "xcsh-docs:data-sources:waf_threat_campaigns:properties:threat_campaigns:section:4",
       "source_sha256": "sha256:e2bdcd3ebc8fe9b57a062a36d4ea3839a8fe675c6d566c1546067442961f2f23",
       "source_bytes": 138,
-      "canonical_source_sha256": "sha256:e9918257845d87c7d7c827313c7277afc860e5be7947afa8105b214bb9a76ed4",
+      "canonical_source_sha256": "sha256:8c56a77d5377ee9335c5ad17f4b9ef1f9e2f7a9d78d5d74d071369b4b4b60a47",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/waf_threat_campaigns/properties/threat_campaigns/",
       "anchor": "canonical-2000313211131220-1012213120303122-0121010311321000-0302032030000200-3322213010322203-1010033033312000-2302122303122022-2100201101012203",
       "anchor_map": [
@@ -536,7 +548,7 @@
       "section_id": "xcsh-docs:data-sources:waf_threat_campaigns:properties:threat_campaigns:section:5",
       "source_sha256": "sha256:85bbf89a6aa36b733eb4b54789eb9631923225180a2ec2cd2b0e0ec400c85a1c",
       "source_bytes": 155,
-      "canonical_source_sha256": "sha256:e9918257845d87c7d7c827313c7277afc860e5be7947afa8105b214bb9a76ed4",
+      "canonical_source_sha256": "sha256:8c56a77d5377ee9335c5ad17f4b9ef1f9e2f7a9d78d5d74d071369b4b4b60a47",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/waf_threat_campaigns/properties/threat_campaigns/",
       "anchor": "canonical-1232030020210321-1133210201032313-0003202332002111-3311012222003100-1020132012202300-2200101122010202-3300300123230101-2320013021330131",
       "anchor_map": [
@@ -553,7 +565,7 @@
       "section_id": "xcsh-docs:data-sources:waf_threat_campaigns:properties:threat_campaigns:section:6",
       "source_sha256": "sha256:a924f3b4c2907196afae5ae849373a64a3b42df6f68d3bfacc98a2cdcb565334",
       "source_bytes": 147,
-      "canonical_source_sha256": "sha256:e9918257845d87c7d7c827313c7277afc860e5be7947afa8105b214bb9a76ed4",
+      "canonical_source_sha256": "sha256:8c56a77d5377ee9335c5ad17f4b9ef1f9e2f7a9d78d5d74d071369b4b4b60a47",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/waf_threat_campaigns/properties/threat_campaigns/",
       "anchor": "canonical-1003211023233202-3320000033322300-0230331122332310-0230222103023302-1331133001303003-3030333230200001-1300122332122033-0133313202321302",
       "anchor_map": [
@@ -568,9 +580,9 @@
     {
       "canonical_id": "xcsh-docs:data-sources:waf_threat_campaigns:properties:threat_campaigns",
       "section_id": "xcsh-docs:data-sources:waf_threat_campaigns:properties:threat_campaigns:section:7",
-      "source_sha256": "sha256:f2b3718cbc9074aca747f67061416bdaaf1121a6a8b6db0406f814c176541c22",
-      "source_bytes": 364,
-      "canonical_source_sha256": "sha256:e9918257845d87c7d7c827313c7277afc860e5be7947afa8105b214bb9a76ed4",
+      "source_sha256": "sha256:b5aea538c856fbb3e38edb225898ffc77519a28e19e3868b077100419cf09d9e",
+      "source_bytes": 394,
+      "canonical_source_sha256": "sha256:8c56a77d5377ee9335c5ad17f4b9ef1f9e2f7a9d78d5d74d071369b4b4b60a47",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/waf_threat_campaigns/properties/threat_campaigns/",
       "anchor": "canonical-2012111303002032-3122223131120122-1300111322101222-0133123001323200-1323201313301110-3030302323323320-3203202313331211-0121033023213032",
       "anchor_map": [
@@ -587,7 +599,7 @@
       "section_id": "xcsh-docs:data-sources:waf_threat_campaigns:properties:threat_campaigns:section:8",
       "source_sha256": "sha256:27d707ea2780d444d20c7530599ed7eb16de18ad13ae478c9df8960a4b5a1d7a",
       "source_bytes": 153,
-      "canonical_source_sha256": "sha256:e9918257845d87c7d7c827313c7277afc860e5be7947afa8105b214bb9a76ed4",
+      "canonical_source_sha256": "sha256:8c56a77d5377ee9335c5ad17f4b9ef1f9e2f7a9d78d5d74d071369b4b4b60a47",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/waf_threat_campaigns/properties/threat_campaigns/",
       "anchor": "canonical-2111221113222332-0101123113013311-0200301030200032-3031030201303022-3330211332223131-1223322020030332-0330131310213110-1230011022001211",
       "anchor_map": [
@@ -604,7 +616,7 @@
       "section_id": "xcsh-docs:data-sources:waf_threat_campaigns:properties:threat_campaigns:section:9",
       "source_sha256": "sha256:5f810cff53c4be3568597b4d5290a0419df89ab554843a5b0550027cf72e6fb1",
       "source_bytes": 128,
-      "canonical_source_sha256": "sha256:e9918257845d87c7d7c827313c7277afc860e5be7947afa8105b214bb9a76ed4",
+      "canonical_source_sha256": "sha256:8c56a77d5377ee9335c5ad17f4b9ef1f9e2f7a9d78d5d74d071369b4b4b60a47",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/waf_threat_campaigns/properties/threat_campaigns/",
       "anchor": "canonical-3232211202103322-3330013031000121-3001332012221032-2003231101122123-2102222330303121-1002123220302223-0120222001300303-1332032113101213",
       "anchor_map": [
@@ -621,7 +633,7 @@
       "section_id": "xcsh-docs:data-sources:waf_threat_campaigns:properties:threat_campaigns:section:10",
       "source_sha256": "sha256:57672918cbc7c7434a9dd5800fa736e6e9291130aac330dd0147fde5e90f9141",
       "source_bytes": 99,
-      "canonical_source_sha256": "sha256:e9918257845d87c7d7c827313c7277afc860e5be7947afa8105b214bb9a76ed4",
+      "canonical_source_sha256": "sha256:8c56a77d5377ee9335c5ad17f4b9ef1f9e2f7a9d78d5d74d071369b4b4b60a47",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/waf_threat_campaigns/properties/threat_campaigns/",
       "anchor": "canonical-2320120002110303-3223330321131121-3112101220120120-3213323011002023-2322131311201011-2023101220210302-3002030223333102-1112111203201321",
       "anchor_map": [],
@@ -854,7 +866,7 @@
       "section_id": "xcsh-docs:data-sources:waf_threats:properties:cve_ids:section:0",
       "source_sha256": "sha256:e532278dfb8a41d6686112bbac75c1a6afa6ba1de53ebeaff2cb0c59d401bf40",
       "source_bytes": 440,
-      "canonical_source_sha256": "sha256:0df6262ba4627fd59667731a443d6895b4602e3c1a544072f66bf32b3ee27e70",
+      "canonical_source_sha256": "sha256:37151db5542f5e39cd548563ae3926cfa13bd31e34d004b32ce5b88b0e8fcbae",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/waf_threats/properties/cve_ids/",
       "anchor": "canonical-3310211112211330-1200201202322030-3033320213030222-0131133002322122-0001312021112313-3301333212123330-1201120120331021-1220322301000111",
       "anchor_map": [
@@ -869,9 +881,9 @@
     {
       "canonical_id": "xcsh-docs:data-sources:waf_threats:properties:cve_ids",
       "section_id": "xcsh-docs:data-sources:waf_threats:properties:cve_ids:section:1",
-      "source_sha256": "sha256:08b8642da21a4555e93958cde17b9396aff116ef677fa78716298f2710afa5fd",
-      "source_bytes": 272,
-      "canonical_source_sha256": "sha256:0df6262ba4627fd59667731a443d6895b4602e3c1a544072f66bf32b3ee27e70",
+      "source_sha256": "sha256:66278cc53bd69fcadd5e226b60407681a7628a66dd742461e1a72a5d17ccd942",
+      "source_bytes": 302,
+      "canonical_source_sha256": "sha256:37151db5542f5e39cd548563ae3926cfa13bd31e34d004b32ce5b88b0e8fcbae",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/waf_threats/properties/cve_ids/",
       "anchor": "canonical-1032112331000030-1132002300312030-2220220201032102-0000112022221132-2223222300223333-3233311123001212-3100121302011032-1232033210231231",
       "anchor_map": [
@@ -7196,23 +7208,6 @@
         [
           "section",
           "canonical-3003323202321120-0230323212223020-0101102231001321-1032012232002121-3311233032110000-3200221013203101-0300010231121211-2023211302121113"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--workload--reference--group-008.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:workload:properties:service:advertise_options:advertise_custom:ports:http_loadbalancer:specific_routes:routes:redirect_route",
-      "section_id": "xcsh-docs:data-sources:workload:properties:service:advertise_options:advertise_custom:ports:http_loadbalancer:specific_routes:routes:redirect_route:section:1",
-      "source_sha256": "sha256:ec3f07f58a0425aea13c9b4b50509e61d7b2a3a7aef8401311688fa6ee25a9a9",
-      "source_bytes": 417,
-      "canonical_source_sha256": "sha256:89661ff1a260457bcac63ebd928c361d87ea47285627d20e58d2ded696e952a5",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/workload/properties/service/advertise_options/advertise_custom/ports/http_loadbalancer/specific_routes/routes/redirect_route/",
-      "anchor": "canonical-3112001111222131-0122020121312032-2212203120100010-1331010111101233-2301221331310233-0123301000232323-1333031010030202-3230123003310301",
-      "anchor_map": [
-        [
-          "schema-service--advertise_options--advertise_custom--ports--http_loadbalancer--specific_routes--routes--redirect_route--http_method",
-          "canonical-0020121311120310-0130300113133231-3020301312202110-0101030231000310-1233011110300103-3302203201310233-2333023321311131-0133310302133023"
         ]
       ],
       "mode": "embedded",

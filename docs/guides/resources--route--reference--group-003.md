@@ -6,6 +6,14 @@ description: "Complete grouped canonical reference for xcsh_route reference."
 
 # xcsh_route reference
 
+<a id="canonical-2203211113132330-0103221330023330-0321331310011312-3031033321310302-1013112131000211-2231111302303033-3210113020100203-0022232303320313"></a>
+
+## Direct properties for `routes.response_headers_to_add.secret_value`
+
+- [blindfold_secret_info](resources--route--reference--group-003.md#canonical-3203333320300320-1001303300122003-1302121103333112-2100212201013022-3332320200103031-0011130011222123-0132200132321021-1031303233123221): complete subsection reference.
+
+- [clear_secret_info](resources--route--reference--group-003.md#canonical-2031221013021230-3200000002021300-0320211122130203-3022021200310300-3220131112131311-2200200130031121-1031030211313012-2333031122022233): complete subsection reference.
+
 <a id="canonical-3203333320300320-1001303300122003-1302121103333112-2100212201013022-3332320200103031-0011130011222123-0132200132321021-1031303233123221"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -32,6 +40,7 @@ BlindfoldSecretInfoType specifies information about the Secret managed by F5XC S
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("location")}
 ```
 
@@ -106,6 +115,7 @@ store provider is an HTTP/HTTPS location.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(4, 131072),
 }
@@ -208,6 +218,7 @@ ClearSecretInfoType specifies information about the Secret that is not encrypted
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("url")}
 ```
 
@@ -260,6 +271,7 @@ base64 decoding.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 131072),
 }
@@ -335,6 +347,7 @@ List of destination to choose if the route is match.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("destinations"),
   validators.ConflictingObjectAttributes("auto_host_rewrite",
     "host_rewrite"),
@@ -422,6 +435,7 @@ swapped with this value.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 256),
 }
@@ -488,6 +502,7 @@ Having above entries in the config, requests to /register will be stripped to /,
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(256),
 }
@@ -546,6 +561,8 @@ Priority routing for each request. Default routing mechanism High-Priority routi
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["DEFAULT","HIGH"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("DEFAULT",
     "HIGH"),
@@ -595,6 +612,7 @@ timeout.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(1, 1800000),
 }
@@ -722,6 +740,7 @@ buffering and return a RequestEntityTooLarge (413) response.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.AtMost(10485760),
 }
@@ -938,6 +957,7 @@ allow\_origin or allow\_origin\_regex match.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(128),
 }
@@ -995,6 +1015,7 @@ allow\_origin\_regex match.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(16),
 }
@@ -1112,6 +1133,7 @@ value is 86400 seconds (24 hours).
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(-1, 86400),
 }
@@ -1185,6 +1207,7 @@ state-changing requests, the policy only acts on the HTTP requests that have sta
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("all_load_balancer_domains",
     "custom_domain_list"),
   validators.ConflictingObjectAttributes("all_load_balancer_domains",
@@ -1299,6 +1322,7 @@ List of domain names used for Host header matching.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("domains")}
 ```
 
@@ -1339,6 +1363,7 @@ match. Wildcard names are supported in the suffix or prefix form.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeBetween(1, 32),
 }
@@ -1476,6 +1501,7 @@ specified in the destination.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.RequiredListObjectAttributes("cluster")}
 ```
 
@@ -1544,6 +1570,7 @@ per the increasing priority.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(0, 32),
 }
@@ -1607,6 +1634,7 @@ specified in the destination.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(0, 65535),
 }
@@ -1798,6 +1826,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
   stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`),
@@ -2125,6 +2154,7 @@ individually and the combined result is used to route the request.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.ConflictingListObjectAttributes("cookie",
     "header_name"),
   validators.ConflictingListObjectAttributes("cookie",
@@ -2192,6 +2222,7 @@ obtain the hash key.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 256),
 }
@@ -2313,6 +2344,7 @@ will independently receive the same cookie, even if they arrive simultaneously.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("name"),
   validators.ConflictingObjectAttributes("add_httponly",
     "ignore_httponly"),
@@ -2384,6 +2416,7 @@ TTL below is not set, no hash will be produced.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 256),
 }
@@ -2931,6 +2964,7 @@ shadow cluster making this feature useful for testing and troubleshooting.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("cluster")}
 ```
 
@@ -3117,6 +3151,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
   stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`),
@@ -3256,6 +3291,7 @@ Fraction used where sampling percentages are needed. Example sampled requests.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("numerator")}
 ```
 
@@ -3298,6 +3334,8 @@ million as denominator. Possible values are \`HUNDRED\`, \`TEN\_THOUSAND\`, \`MI
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["HUNDRED","MILLION","TEN_THOUSAND"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("HUNDRED",
     "TEN_THOUSAND",
@@ -3378,6 +3416,7 @@ Handling of incoming query parameters in simple route.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("remove_all_params",
     "replace_params"),
   validators.ConflictingObjectAttributes("remove_all_params",
@@ -3427,6 +3466,7 @@ Exclusive with \[remove\_all\_params retain\_all\_params\].
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 256),
 }
@@ -3624,6 +3664,7 @@ The regular expression used to find portions of a string that should be replaced
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 256),
 }
@@ -3680,6 +3721,7 @@ substitution operation to produce a new string.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(256),
 }
@@ -3788,6 +3830,7 @@ Retry policy configuration for route destination.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("retry_condition")}
 ```
 
@@ -3836,6 +3879,7 @@ Defaults to 1.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.AtMost(8),
 }
@@ -3884,6 +3928,7 @@ Specifies a non-zero timeout per retry attempt. In milliseconds.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.AtMost(600000),
 }
@@ -3932,6 +3977,7 @@ HTTP status codes that should trigger a retry in addition to those specified by 
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(16),
 }
@@ -4014,6 +4060,7 @@ timeout.)
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeBetween(1, 7),
 }
@@ -4120,6 +4167,7 @@ Specifies the base interval between retries in milliseconds.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.AtLeast(1),
 }
@@ -4351,6 +4399,7 @@ Send this direct response in case of route match action is direct response.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("response_code")}
 ```
 
@@ -4393,6 +4442,7 @@ string:///PHA+IEFjY2VzcyBEZW5pZWQgPC9wPg==.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(65536),
 }
@@ -4448,6 +4498,7 @@ Response Code. Response code to send.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(100, 599),
 }
@@ -4510,6 +4561,7 @@ Route redirect parameters when match action is redirect.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("path_redirect",
     "prefix_rewrite"),
   validators.ConflictingObjectAttributes("remove_all_params",
@@ -4591,6 +4643,7 @@ Exclusive with \[prefix\_rewrite\] swap path part of incoming URL in redirect UR
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(256),
 }
@@ -4644,6 +4697,7 @@ request.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(256),
 }
@@ -4697,6 +4751,8 @@ protocol is not done. Possible values are \`incoming-proto\`, \`http\`, \`https\
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["http","https","incoming-proto"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("incoming-proto",
     "http",
@@ -4753,6 +4809,7 @@ Exclusive with \[remove\_all\_params retain\_all\_params\].
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 256),
 }
@@ -4806,6 +4863,7 @@ The HTTP status code to use in the redirect response.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.AtMost(599),
 }
@@ -5018,6 +5076,7 @@ Such a reference is in form of tenant/namespace/name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
 ```
 
@@ -5058,6 +5117,7 @@ referred object's(e.g. Route's) name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 128),
 }
@@ -5118,6 +5178,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -5185,6 +5246,7 @@ the referred object's(e.g. Route's) tenant.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(64),
 }
@@ -5248,6 +5310,7 @@ WAF instance will be pointing to an app\_firewall object.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("app_firewall",
     "disable_waf"),
   validators.ConflictingObjectAttributes("app_firewall",
@@ -5313,6 +5376,7 @@ A list of references to the app\_firewall configuration objects.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("app_firewall")}
 ```
 
@@ -5484,6 +5548,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
   stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`),

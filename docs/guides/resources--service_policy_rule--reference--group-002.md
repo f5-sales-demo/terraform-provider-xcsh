@@ -6,6 +6,60 @@ description: "Complete grouped canonical reference for xcsh_service_policy_rule 
 
 # xcsh_service_policy_rule reference
 
+<a id="canonical-0012001101012313-2101111330322311-2001020120021103-2102102331311203-2222313122301232-2123002201333331-1010330323223020-1032023303003112"></a>
+
+## `request_constraints.max_request_line_size_exceeds` property
+
+Type: `"number"`. Optional.
+
+Exclusive with \[max\_request\_line\_size\_none\].
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: false
+Validators: []validator.Int64{
+  int64validator.Between(1, 65536),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "number",
+    "deterministic": true,
+    "maximum": 65536,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "api-probed",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "minimum": 1
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.uint32.gte": "1",
+    "ves.io.schema.rules.uint32.lte": "65536"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.uint32.gte": "1",
+    "ves.io.schema.rules.uint32.lte": "65536"
+  }
+}
+```
+
+- [max_request_line_size_none](resources--service_policy_rule--reference--group-002.md#canonical-0000013323113031-2033013133320032-2010233210331233-2202002001102333-3222323012130033-2132022123121011-0231320022032213-0133013002000130): complete subsection reference.
+
+<a id="canonical-3011003132011022-0130310200023122-2020210310200003-3111113130013010-1000222210303013-2302222331212011-1323123120232121-2303101010230003"></a>
+
 <a id="canonical-2233111203233002-3113012332313333-1203012113132300-3321313223322101-3330203201123233-2200123022100301-1133230223211020-3222111220133222"></a>
 
 ## `request_constraints.max_request_size_exceeds` property
@@ -17,6 +71,7 @@ Match on the Request Size that exceed this value. Exclusive with \[max\_request\
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(1, 65536),
 }
@@ -70,6 +125,7 @@ Match on the URL Size that exceed this value. Exclusive with \[max\_url\_size\_n
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(1, 128000),
 }
@@ -731,6 +787,7 @@ Configure source and destination segment for policy.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("dst_any",
     "dst_segments"),
   validators.ConflictingObjectAttributes("dst_any",
@@ -852,6 +909,7 @@ List of references to Segments.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("segments")}
 ```
 
@@ -907,6 +965,7 @@ Segments. Select list of segments.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.RequiredListObjectAttributes("name")}
 ```
 
@@ -953,6 +1012,7 @@ referred object's(e.g. Route's) name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 128),
 }
@@ -1013,6 +1073,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -1080,6 +1141,7 @@ the referred object's(e.g. Route's) tenant.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(64),
 }
@@ -1239,6 +1301,7 @@ List of references to Segments.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("segments")}
 ```
 
@@ -1294,6 +1357,7 @@ Segments. Select list of segments.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.RequiredListObjectAttributes("name")}
 ```
 
@@ -1340,6 +1404,7 @@ referred object's(e.g. Route's) name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 128),
 }
@@ -1400,6 +1465,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -1467,6 +1533,7 @@ the referred object's(e.g. Route's) tenant.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(64),
 }
@@ -1652,6 +1719,7 @@ A list of known classes of TLS fingerprints to match the input TLS JA3 fingerpri
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(16),
 }
@@ -1704,6 +1772,7 @@ A list of exact TLS JA3 fingerprints to match the input TLS JA3 fingerprint agai
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(16),
 }
@@ -1760,6 +1829,7 @@ enclosing matcher.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(32),
 }
@@ -1826,6 +1896,7 @@ Rule Control settings.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("app_firewall_detection_control",
     "none"),
   validators.ConflictingObjectAttributes("app_firewall_detection_control",
@@ -2010,6 +2081,8 @@ one cookie, or CONTEXT\_ANY only for an intentionally global scope.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["CONTEXT_ANY","CONTEXT_BODY","CONTEXT_COOKIE","CONTEXT_HEADER","CONTEXT_PARAMETER","CONTEXT_REQUEST","CONTEXT_RESPONSE","CONTEXT_URI","CONTEXT_URL"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("CONTEXT_ANY",
     "CONTEXT_BODY",
@@ -2062,6 +2135,7 @@ context to CONTEXT\_PARAMETER and name only the intended parameter.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(128),
 }
@@ -2133,6 +2207,8 @@ attack types remain enforced.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["ATTACK_TYPE_ABUSE_OF_FUNCTIONALITY","ATTACK_TYPE_AUTHENTICATION_AUTHORIZATION_ATTACKS","ATTACK_TYPE_BUFFER_OVERFLOW","ATTACK_TYPE_COMMAND_EXECUTION","ATTACK_TYPE_CROSS_SITE_SCRIPTING","ATTACK_TYPE_DENIAL_OF_SERVICE","ATTACK_TYPE_DETECTION_EVASION","ATTACK_TYPE_DIRECTORY_INDEXING","ATTACK_TYPE_FORCEFUL_BROWSING","ATTACK_TYPE_GRAPHQL_PARSER_ATTACK","ATTACK_TYPE_HTTP_PARSER_ATTACK","ATTACK_TYPE_HTTP_RESPONSE_SPLITTING","ATTACK_TYPE_INFORMATION_LEAKAGE","ATTACK_TYPE_LDAP_INJECTION","ATTACK_TYPE_MALICIOUS_FILE_UPLOAD","ATTACK_TYPE_NONE","ATTACK_TYPE_NON_BROWSER_CLIENT","ATTACK_TYPE_OTHER_APPLICATION_ATTACKS","ATTACK_TYPE_PATH_TRAVERSAL","ATTACK_TYPE_PREDICTABLE_RESOURCE_LOCATION","ATTACK_TYPE_REMOTE_FILE_INCLUDE","ATTACK_TYPE_SERVER_SIDE_CODE_INJECTION","ATTACK_TYPE_SESSION_HIJACKING","ATTACK_TYPE_SQL_INJECTION","ATTACK_TYPE_TROJAN_BACKDOOR_SPYWARE","ATTACK_TYPE_VULNERABILITY_SCAN","ATTACK_TYPE_XPATH_INJECTION"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("ATTACK_TYPE_NONE",
     "ATTACK_TYPE_NON_BROWSER_CLIENT",
@@ -2232,6 +2308,7 @@ Bot Names to be excluded for the defined match criteria.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.RequiredListObjectAttributes("bot_name")}
 ```
 
@@ -2343,6 +2420,7 @@ Signature IDs to be excluded for the defined match criteria.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.RequiredListObjectAttributes("signature_id")}
 ```
 
@@ -2438,6 +2516,8 @@ Detection will be excluded for the request URL. &#8203;- CONTEXT\_URI: CONTEXT\_
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["CONTEXT_ANY","CONTEXT_BODY","CONTEXT_COOKIE","CONTEXT_HEADER","CONTEXT_PARAMETER","CONTEXT_REQUEST","CONTEXT_RESPONSE","CONTEXT_URI","CONTEXT_URL"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("CONTEXT_ANY",
     "CONTEXT_BODY",
@@ -2491,6 +2571,7 @@ wildcard asterisk (\*).
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(128),
 }
@@ -2541,6 +2622,7 @@ all signatures will be excluded for the specified context.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(0, 299999999),
 }
@@ -2695,6 +2777,8 @@ Detection will be excluded for the request URL. &#8203;- CONTEXT\_URI: CONTEXT\_
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["CONTEXT_ANY","CONTEXT_BODY","CONTEXT_COOKIE","CONTEXT_HEADER","CONTEXT_PARAMETER","CONTEXT_REQUEST","CONTEXT_RESPONSE","CONTEXT_URI","CONTEXT_URL"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("CONTEXT_ANY",
     "CONTEXT_BODY",
@@ -2748,6 +2832,7 @@ wildcard asterisk (\*).
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(128),
 }
@@ -2841,6 +2926,8 @@ VIOL\_GRAPHQL\_FORMAT VIOL\_GRAPHQL\_MALFORMED VIOL\_GRAPHQL\_INTROSPECTION\_QUE
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["VIOL_ASM_COOKIE_MODIFIED","VIOL_COOKIE_MALFORMED","VIOL_COOKIE_MODIFIED","VIOL_DATA_GUARD","VIOL_ENCODING","VIOL_EVASION_APACHE_WHITESPACE","VIOL_EVASION_BAD_UNESCAPE","VIOL_EVASION_BARE_BYTE_DECODING","VIOL_EVASION_DIRECTORY_TRAVERSALS","VIOL_EVASION_IIS_BACKSLASHES","VIOL_EVASION_IIS_UNICODE_CODEPOINTS","VIOL_EVASION_MULTIPLE_DECODING","VIOL_EVASION_PERCENT_U_DECODING","VIOL_FILETYPE","VIOL_FILE_UPLOAD","VIOL_FILE_UPLOAD_IN_BODY","VIOL_GRAPHQL_FORMAT","VIOL_GRAPHQL_INTROSPECTION_QUERY","VIOL_GRAPHQL_MALFORMED","VIOL_HTTP_PROTOCOL_BAD_HOST_HEADER_VALUE","VIOL_HTTP_PROTOCOL_BAD_HTTP_VERSION","VIOL_HTTP_PROTOCOL_BODY_IN_GET_OR_HEAD_REQUEST","VIOL_HTTP_PROTOCOL_MULTIPLE_HOST_HEADERS","VIOL_HTTP_PROTOCOL_NULL_IN_REQUEST","VIOL_HTTP_PROTOCOL_SEVERAL_CONTENT_LENGTH_HEADERS","VIOL_HTTP_PROTOCOL_UNPARSABLE_REQUEST_CONTENT","VIOL_HTTP_RESPONSE_STATUS","VIOL_JSON_MALFORMED","VIOL_MALFORMED_REQUEST","VIOL_MANDATORY_HEADER","VIOL_METHOD","VIOL_NONE","VIOL_REQUEST_MAX_LENGTH","VIOL_XML_MALFORMED"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("VIOL_NONE",
     "VIOL_FILETYPE",

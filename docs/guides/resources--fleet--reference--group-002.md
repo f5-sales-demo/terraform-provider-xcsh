@@ -6,6 +6,70 @@ description: "Complete grouped canonical reference for xcsh_fleet reference."
 
 # xcsh_fleet reference
 
+<a id="canonical-1003301030310212-0332212031232101-0111013023221100-0021201003320202-2320020300102121-2123113120021030-0120211213330232-0202311133312321"></a>
+
+## `bond_device_list.bond_devices.name` property
+
+Type: `"string"`. Optional.
+
+Bond Device Name. Name for the Bond. Ex 'bond0'
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: true
+Validators: []validator.String{
+  stringvalidator.LengthBetween(1, 64),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 64,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "characterSet": {
+      "allowed": "[a-z0-9-]",
+      "description": "Lowercase letter start, alphanumeric with hyphens, alphanumeric end",
+      "required": "[a-z0-9]",
+      "restricted": "[^a-z0-9-]"
+    },
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "dns-label",
+    "formatDescription": "DNS-1035 label: must start with a lowercase letter, may contain lowercase alphanumeric and hyphens, must end with alphanumeric",
+    "maxLength": 64,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "minLength": 1,
+    "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
+    "validation": {
+      "rfc": "RFC 1035",
+      "standard": "DNS-1035 label (alpha-first)"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.max_len": "64"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.max_len": "64"
+  }
+}
+```
+
 <a id="canonical-2320220031020231-2330123331333300-0121030331313323-1311323222233031-3201020003201011-3111210101112123-2301231002321223-1311303002311002"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -78,6 +142,7 @@ LACP parameters. LACP parameters for the bond device.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("rate")}
 ```
 
@@ -117,6 +182,7 @@ Interval in seconds to transmit LACP packets.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(1, 30),
 }
@@ -184,6 +250,7 @@ This type establishes a direct reference from one object(the referrer) to anothe
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
 ```
 
@@ -232,6 +299,7 @@ referred object's(e.g. Route's) name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 128),
 }
@@ -292,6 +360,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -359,6 +428,7 @@ the referred object's(e.g. Route's) tenant.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(64),
 }
@@ -422,6 +492,7 @@ Such a reference is in form of tenant/namespace/name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
 ```
 
@@ -462,6 +533,7 @@ referred object's(e.g. Route's) name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 128),
 }
@@ -522,6 +594,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -589,6 +662,7 @@ the referred object's(e.g. Route's) tenant.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(64),
 }
@@ -963,6 +1037,7 @@ device in host-OS of node.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
   stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`),
@@ -1034,6 +1109,8 @@ service. Like TPM.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["DEVICE_OWNER_HOST","DEVICE_OWNER_INVALID","DEVICE_OWNER_VER","DEVICE_OWNER_VK8S_WORK_LOAD"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("DEVICE_OWNER_INVALID",
     "DEVICE_OWNER_VER",
@@ -1094,6 +1171,7 @@ Interface for the device &#8203;- device name for physical-interface in the node
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("interface")}
 ```
 
@@ -1153,6 +1231,8 @@ network.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["NETWORK_INTERFACE_USE_INSIDE","NETWORK_INTERFACE_USE_OUTSIDE","NETWORK_INTERFACE_USE_REGULAR"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("NETWORK_INTERFACE_USE_REGULAR",
     "NETWORK_INTERFACE_USE_OUTSIDE",
@@ -1340,6 +1420,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
   stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`),
@@ -1725,6 +1806,7 @@ Licensing configuration for NVIDIA vGPU.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("server_port")}
 ```
 
@@ -1766,6 +1848,8 @@ Possible values are \`UNLICENSED\`, \`VGPU\`, \`VWS\`, \`VCS\`. Defaults to \`UN
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["UNLICENSED","VCS","VGPU","VWS"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("UNLICENSED",
     "VGPU",
@@ -1846,6 +1930,7 @@ License Server Port Number. Set License Server port number.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(1, 65535),
 }
@@ -2073,6 +2158,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
   stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`),
@@ -2209,6 +2295,7 @@ Add all interfaces belonging to this fleet.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("interfaces")}
 ```
 
@@ -2263,6 +2350,7 @@ Add all interfaces belonging to this fleet.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.RequiredListObjectAttributes("name")}
 ```
 
@@ -2330,6 +2418,7 @@ referred object's(e.g. Route's) name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 128),
 }
@@ -2390,6 +2479,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -2457,6 +2547,7 @@ the referred object's(e.g. Route's) tenant.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(64),
 }
@@ -2519,6 +2610,7 @@ Specify how worker nodes within a site will be upgraded.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("disable_upgrade_drain",
     "enable_upgrade_drain")}
 ```
@@ -2623,6 +2715,7 @@ Specify batch upgrade settings for worker nodes within a site.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("drain_node_timeout"),
   validators.ConflictingObjectAttributes("disable_vega_upgrade_mode",
     "enable_vega_upgrade_mode"),
@@ -2672,6 +2765,7 @@ Node Batch Size Count. Exclusive with \[\]
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(1, 5000),
 }
@@ -2736,6 +2830,7 @@ recommended to use the default value).
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(0, 900),
 }
@@ -2900,6 +2995,7 @@ This type establishes a direct reference from one object(the referrer) to anothe
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
 ```
 
@@ -2947,6 +3043,7 @@ referred object's(e.g. Route's) name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 128),
 }
@@ -3007,6 +3104,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -3074,6 +3172,7 @@ the referred object's(e.g. Route's) tenant.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(64),
 }
@@ -3308,6 +3407,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
   stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`),
@@ -3571,6 +3671,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
   stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`),
@@ -3921,7 +4022,7 @@ Receipt-pinned upstream constraints:
 OneOf alternatives in this subsection:
 
 - [no_storage_static_routes](resources--fleet--reference--group-002.md#canonical-3333003330002323-2020312322133222-3003221302331313-3221312221202102-1100230230310222-2202101300132202-0113222211333133-1021333131121331)
-- [storage_static_routes](resources--fleet--reference--group-003.md#canonical-3300220221311210-2223123102101211-3220330103110130-2013011230213113-0302003112110032-0211100233331131-0000213033313103-2010020102112211)
+- [storage_static_routes](resources--fleet--reference--group-004.md#canonical-3300220221311210-2223123102101211-3220330103110130-2013011230213113-0302003112110032-0211100233331131-0000213033313103-2010020102112211)
 
 Select alternatives according to the provider validators above.
 
@@ -4081,6 +4182,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
   stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`),
@@ -4217,6 +4319,7 @@ Optimize the site for L3 or L7 traffic processing. L7 optimized is the default.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("perf_mode_l3_enhanced",
     "perf_mode_l7_enhanced")}
 ```
@@ -4279,6 +4382,7 @@ L3 enhanced performance mode OPTIONS.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("jumbo",
     "no_jumbo")}
 ```
@@ -4435,6 +4539,7 @@ L7 enhanced performance mode OPTIONS.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("jumbo_disabled",
     "jumbo_enabled")}
 ```
@@ -4634,6 +4739,7 @@ Use custom SR-IOV interfaces Configuration.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.RequiredListObjectAttributes("interface_name",
     "number_of_vfs")}
 ```
@@ -4840,6 +4946,7 @@ List of Storage Classes. List of custom storage classes.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.RequiredListObjectAttributes("storage_class_name",
     "storage_device"),
   validators.ConflictingListObjectAttributes("custom_storage",
@@ -4913,6 +5020,7 @@ Advanced Parameters. Map of parameter name and string value.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Map{validators.MapConstraintsValidator("{\"cardinality\":{\"maxProperties\":64},\"category\":\"discovery\",\"constraintType\":\"map\",\"deterministic\":true,\"keys\":{\"maxLength\":128,\"minLength\":1,\"type\":\"string\"},\"originalRules\":{\"ves.io.schema.rules.map.keys.string.max_len\":\"128\",\"ves.io.schema.rules.map.keys.string.min_len\":\"1\",\"ves.io.schema.rules.map.max_pairs\":\"64\",\"ves.io.schema.rules.map.values.string.max_len\":\"128\",\"ves.io.schema.rules.map.values.string.min_len\":\"1\"},\"values\":{\"maxLength\":128,\"minLength\":1,\"type\":\"string\"}}")}
 ```
 
@@ -5029,6 +5137,7 @@ Storage Class Description. Description for this storage class.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(256),
 }
@@ -5057,6 +5166,7 @@ Reclaim Policy.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(16),
 }
@@ -5106,6 +5216,7 @@ Name of the storage class as it will appear in K8s.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(1024),
 }
@@ -5158,6 +5269,7 @@ Storage device that this class will use. The Device name defined at previous ste
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 64),
 }
@@ -5263,6 +5375,7 @@ Storage Class YAML. K8s YAML for StorageClass.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 4096),
 }
@@ -5365,6 +5478,7 @@ Mutation can override specified parameters.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(256),
 }
@@ -5414,6 +5528,7 @@ AllowOverrides. PVC can override specified parameters.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(256),
 }
@@ -5487,6 +5602,7 @@ information.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(512),
 }
@@ -5552,6 +5668,7 @@ The name of the folder in which to place the volume.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(128),
 }
@@ -5673,6 +5790,7 @@ The name of the performance policy to assign to the volume.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(128),
 }
@@ -5722,6 +5840,7 @@ The name of the pool in which to place the volume.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(128),
 }
@@ -5771,6 +5890,7 @@ The name of the performance policy to assign to the volume.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(128),
 }
@@ -5821,6 +5941,7 @@ information.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(256),
 }
@@ -5870,6 +5991,7 @@ The SecretNamespace parameter is used to identify name of namespace where secret
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(256),
 }
@@ -6016,6 +6138,7 @@ attributes.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(512),
 }
@@ -6156,6 +6279,8 @@ aspects defined in the chosen virtual pool. Possible values are \`block\`, \`fil
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["block","file"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("block",
     "file"),
@@ -6210,6 +6335,7 @@ MiB, and GiB.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(12),
 }
@@ -6260,6 +6386,7 @@ defined.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   validators.Int64RangeSetValidator(
     validators.Int64Range{Minimum: 0, Maximum: 0},
@@ -6369,6 +6496,7 @@ List of Storage Devices. List of custom storage devices.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.RequiredListObjectAttributes("storage_device"),
   validators.ConflictingListObjectAttributes("custom_storage",
     "hpe_storage"),
@@ -6441,6 +6569,7 @@ Advanced Parameters. Map of parameter name and string value.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Map{validators.MapConstraintsValidator("{\"cardinality\":{\"maxProperties\":64},\"category\":\"discovery\",\"constraintType\":\"map\",\"deterministic\":true,\"keys\":{\"maxLength\":128,\"minLength\":1,\"type\":\"string\"},\"originalRules\":{\"ves.io.schema.rules.map.keys.string.max_len\":\"128\",\"ves.io.schema.rules.map.keys.string.min_len\":\"1\",\"ves.io.schema.rules.map.max_pairs\":\"64\",\"ves.io.schema.rules.map.values.string.max_len\":\"128\",\"ves.io.schema.rules.map.values.string.min_len\":\"1\"},\"values\":{\"maxLength\":128,\"minLength\":1,\"type\":\"string\"}}")}
 ```
 
@@ -6517,6 +6646,7 @@ Storage Device. Storage device and device unit.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(64),
 }
@@ -6631,6 +6761,7 @@ Device configuration for HPE Storage.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("api_server_port",
     "username")}
 ```
@@ -6671,6 +6802,7 @@ Storage server Port. Enter Storage Server Port.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(1, 65535),
 }
@@ -6724,6 +6856,7 @@ Chap Username to connect to the HPE storage.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(256),
 }
@@ -6775,6 +6908,7 @@ Storage Server IP address. Enter storage server IP address.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthAtMost(1024),
   validators.IPv4Validator(),
@@ -6825,6 +6959,7 @@ Storage Server Name. Enter storage server Name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(1024),
 }
@@ -6874,6 +7009,7 @@ Username to connect to the HPE storage management IP.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 256),
 }
@@ -6947,6 +7083,7 @@ SecretType is used in an object to indicate a sensitive/confidential field.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info",
     "clear_secret_info")}
 ```
@@ -7008,6 +7145,7 @@ BlindfoldSecretInfoType specifies information about the Secret managed by F5XC S
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("location")}
 ```
 
@@ -7082,6 +7220,7 @@ store provider is an HTTP/HTTPS location.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(4, 131072),
 }
@@ -7185,6 +7324,7 @@ ClearSecretInfoType specifies information about the Secret that is not encrypted
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("url")}
 ```
 
@@ -7237,6 +7377,7 @@ base64 decoding.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 131072),
 }
@@ -7314,6 +7455,7 @@ SecretType is used in an object to indicate a sensitive/confidential field.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info",
     "clear_secret_info")}
 ```
@@ -7375,6 +7517,7 @@ BlindfoldSecretInfoType specifies information about the Secret managed by F5XC S
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("location")}
 ```
 
@@ -7449,6 +7592,7 @@ store provider is an HTTP/HTTPS location.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(4, 131072),
 }
@@ -7552,6 +7696,7 @@ ClearSecretInfoType specifies information about the Secret that is not encrypted
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("url")}
 ```
 
@@ -7604,6 +7749,7 @@ base64 decoding.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 131072),
 }
@@ -7680,6 +7826,7 @@ Device configuration for NetApp Trident Storage.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("netapp_backend_ontap_nas",
     "netapp_backend_ontap_san")}
 ```
@@ -7740,6 +7887,7 @@ Configuration of storage backend for NetApp ONTAP NAS.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("storage_driver_name",
     "username"),
   validators.ConflictingObjectAttributes("data_lif_dns_name",
@@ -7821,6 +7969,7 @@ Driver is name + "\_" + dataLIF.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 50),
 }
@@ -7874,6 +8023,7 @@ Please Enter base64-encoded value of client certificate. Used for certificate-ba
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(8192),
 }
@@ -7926,6 +8076,7 @@ name resolution. The name given here is fully qualified domain name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(256),
 }
@@ -7979,6 +8130,7 @@ address.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthAtMost(1024),
   validators.IPValidator(),
@@ -8029,6 +8181,7 @@ List of labels for Storage Device used in NetApp ONTAP. It is used for storage c
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Map{validators.MapConstraintsValidator("{\"cardinality\":{\"maxProperties\":20},\"category\":\"discovery\",\"constraintType\":\"map\",\"deterministic\":true,\"keys\":{\"maxLength\":128,\"minLength\":1,\"type\":\"string\"},\"originalRules\":{\"ves.io.schema.rules.map.keys.string.max_len\":\"128\",\"ves.io.schema.rules.map.keys.string.min_len\":\"1\",\"ves.io.schema.rules.map.max_pairs\":\"20\",\"ves.io.schema.rules.map.values.string.max_len\":\"128\",\"ves.io.schema.rules.map.values.string.min_len\":\"1\"},\"values\":{\"maxLength\":128,\"minLength\":1,\"type\":\"string\"}}")}
 ```
 
@@ -8164,6 +8317,7 @@ using DNS name resolution. The name given here is fully qualified domain name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(256),
 }
@@ -8217,6 +8371,7 @@ given IP address.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthAtMost(1024),
   validators.IPValidator(),
@@ -8287,7 +8442,7 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [password](resources--fleet--reference--group-002.md#canonical-1300320120013220-1111311020033332-2110201300332223-1330230012212101-3132130210000210-0310202102232330-2230320110022220-0211021223113033): complete subsection reference.
+- [password](resources--fleet--reference--group-003.md#canonical-1300320120013220-1111311020033332-2110201300332223-1330230012212101-3132130210000210-0310202102232330-2230320110022220-0211021223113033): complete subsection reference.
 
 <a id="canonical-3331213221131132-2023230121203212-2003000331121231-1131000100303122-0203332230231322-2211313103200331-1012110002220312-0000233210031123"></a>
 
@@ -8338,6 +8493,8 @@ Backend Name. Possible values are \`ontap-nas\`, \`ontap-nas-economy\`, \`ontap-
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["ontap-nas","ontap-nas-economy","ontap-nas-flexgroup"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("ontap-nas",
     "ontap-nas-economy",
@@ -8427,6 +8584,7 @@ Storage virtual machine to use. Derived if an SVM managementLIF is specified.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 256),
 }
@@ -8481,6 +8639,7 @@ auth.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(8192),
 }
@@ -8530,6 +8689,7 @@ Username. Username to connect to the cluster/SVM.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 256),
 }
@@ -8639,6 +8799,7 @@ List of IPv4 prefixes that represent an endpoint.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(128),
 }
@@ -8707,6 +8868,7 @@ SecretType is used in an object to indicate a sensitive/confidential field.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info",
     "clear_secret_info")}
 ```
@@ -8769,6 +8931,7 @@ BlindfoldSecretInfoType specifies information about the Secret managed by F5XC S
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("location")}
 ```
 
@@ -8843,6 +9006,7 @@ store provider is an HTTP/HTTPS location.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(4, 131072),
 }
@@ -8947,6 +9111,7 @@ ClearSecretInfoType specifies information about the Secret that is not encrypted
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("url")}
 ```
 
@@ -8999,6 +9164,7 @@ base64 decoding.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 131072),
 }
@@ -9049,64 +9215,3 @@ Receipt-pinned upstream constraints:
   }
 }
 ```
-
-<a id="canonical-1300320120013220-1111311020033332-2110201300332223-1330230012212101-3132130210000210-0310202102232330-2230320110022220-0211021223113033"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-## `storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_nas.password` properties
-
-Breadcrumbs:
-
-- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
-- [Property reference](resources--fleet--reference--group-001.md#canonical-3312201012220032-2032322221221203-2303110033300201-0023202031100302-0322303132112120-1000212311220020-2212322120022212-1100233331203300)
-- [storage_device_list](resources--fleet--reference--group-002.md#canonical-2120213230221113-1333030012101112-2301222000203003-0123012120201213-1323232311211033-3022303032122220-1133001002321021-1101312223021101)
-- [storage_device_list.storage_devices](resources--fleet--reference--group-002.md#canonical-1121310030023210-2313133122303233-3230332100212103-3010021230232322-3223210233032123-3200023200220121-3112220232033121-3020030131031221)
-- [storage_device_list.storage_devices.netapp_trident](resources--fleet--reference--group-002.md#canonical-2221120100320330-2103110113123100-1120330002302000-1201000323033013-3233130203103031-0231013330113102-1203110130230313-0232230300113023)
-- [storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_nas](resources--fleet--reference--group-002.md#canonical-0212303102231111-0123213211300022-2033323003020332-1102233001310032-3231013001133100-1303333132211323-0201123013213012-0223113021221131)
-- storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_nas.password
-
-<a id="canonical-2310201301301300-3100121212331033-2232033100203311-1330302310003123-0232233021333003-2200330123100132-3300122313002212-2100311033121231"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-SecretType is used in an object to indicate a sensitive/confidential field.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info",
-    "clear_secret_info")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-ves-oneof-field-secret_info_oneof": "[\"blindfold_secret_info\",\"clear_secret_info\"]"
-}
-```
-
-Terraform syntax:
-
-```terraform
-password {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-1212222021213321-0021333320132123-1033312323221231-1211331212213122-0321221213203113-2001231321221323-3220330320213210-0223213031321303"></a>
-
-### Direct properties for `storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_nas.password`
-
-- [blindfold_secret_info](resources--fleet--reference--group-003.md#canonical-0313031320220001-1022121101320112-3101002202203311-0230200323122201-0100310223000021-2112000302223133-3231231321013323-1120320102230330): complete subsection reference.
-
-- [clear_secret_info](resources--fleet--reference--group-003.md#canonical-0103103020330320-2211332020322103-0111232101323212-2320200313030001-1201233210331002-3331223222012101-2133203032230302-1232113003313111): complete subsection reference.

@@ -6,6 +6,204 @@ description: "Complete grouped canonical reference for xcsh_securemesh_site_v2 r
 
 # xcsh_securemesh_site_v2 reference
 
+<a id="canonical-3130323333121200-0110102201002123-1320302133301102-0230000110321223-1030232032002301-1103202303233023-2033331330113332-2221101222131110"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `nutanix.not_managed.node_list.interface_list.network_option.site_local_inside_network` properties
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
+- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
+- [nutanix](resources--securemesh_site_v2--reference--group-011.md#canonical-3313330100011000-1321012221111023-2203201131220011-0021313133031220-2300300000311310-1301020003123302-1012202333312321-3300313210310321)
+- [nutanix.not_managed](resources--securemesh_site_v2--reference--group-011.md#canonical-3220112021101122-3110130321202300-3000232201030020-2030130010113300-3130023211030002-3301102302032211-2131231030302103-0302111102333000)
+- [nutanix.not_managed.node_list](resources--securemesh_site_v2--reference--group-011.md#canonical-1223230220233333-3021121210321110-3201032121033100-2123303013201331-0102030230013033-3331232111223103-3201332331212232-2110010123111231)
+- [nutanix.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-011.md#canonical-3132013111121322-1131131200100030-3111302000312210-0102200232202332-3223003333332223-1333213321210012-2013112001021313-2333000031110202)
+- [nutanix.not_managed.node_list.interface_list.network_option](resources--securemesh_site_v2--reference--group-012.md#canonical-2033233301013022-2201212323332122-2311010013222211-0233122301232213-2022203031021300-2002200331012323-3201033130200012-2133230201113131)
+- nutanix.not_managed.node_list.interface_list.network_option.site_local_inside_network
+
+<a id="canonical-0121310200300010-3003011330233123-0331212023121212-2313223032211231-0113330101212101-2310000121110223-2212012213310300-1033003100133000"></a>
+
+Type: `["object", {}]`. Optional.
+
+Enable this option
+
+Additional upstream details:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+site_local_inside_network = {}
+```
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-1223322132200200-1233233020202100-1020212132331010-1313132112003311-0103023123001201-3333130333003100-3001030311301022-3110121201020201"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `nutanix.not_managed.node_list.interface_list.network_option.site_local_network` properties
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
+- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
+- [nutanix](resources--securemesh_site_v2--reference--group-011.md#canonical-3313330100011000-1321012221111023-2203201131220011-0021313133031220-2300300000311310-1301020003123302-1012202333312321-3300313210310321)
+- [nutanix.not_managed](resources--securemesh_site_v2--reference--group-011.md#canonical-3220112021101122-3110130321202300-3000232201030020-2030130010113300-3130023211030002-3301102302032211-2131231030302103-0302111102333000)
+- [nutanix.not_managed.node_list](resources--securemesh_site_v2--reference--group-011.md#canonical-1223230220233333-3021121210321110-3201032121033100-2123303013201331-0102030230013033-3331232111223103-3201332331212232-2110010123111231)
+- [nutanix.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-011.md#canonical-3132013111121322-1131131200100030-3111302000312210-0102200232202332-3223003333332223-1333213321210012-2013112001021313-2333000031110202)
+- [nutanix.not_managed.node_list.interface_list.network_option](resources--securemesh_site_v2--reference--group-012.md#canonical-2033233301013022-2201212323332122-2311010013222211-0233122301232213-2022203031021300-2002200331012323-3201033130200012-2133230201113131)
+- nutanix.not_managed.node_list.interface_list.network_option.site_local_network
+
+<a id="canonical-1210233222323013-2123231312210221-1032322232312211-0100222033320003-2300230300011322-0230113223322203-0321223332300020-3120120030213332"></a>
+
+Type: `["object", {}]`. Optional.
+
+Enable this option
+
+Additional upstream details:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+site_local_network = {}
+```
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-1300113120101223-1220103101320303-2033212212031203-0302232302113211-3320033201230113-3331203111100003-1222310233300013-2003010201023320"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `nutanix.not_managed.node_list.interface_list.no_ipv4_address` properties
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
+- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
+- [nutanix](resources--securemesh_site_v2--reference--group-011.md#canonical-3313330100011000-1321012221111023-2203201131220011-0021313133031220-2300300000311310-1301020003123302-1012202333312321-3300313210310321)
+- [nutanix.not_managed](resources--securemesh_site_v2--reference--group-011.md#canonical-3220112021101122-3110130321202300-3000232201030020-2030130010113300-3130023211030002-3301102302032211-2131231030302103-0302111102333000)
+- [nutanix.not_managed.node_list](resources--securemesh_site_v2--reference--group-011.md#canonical-1223230220233333-3021121210321110-3201032121033100-2123303013201331-0102030230013033-3331232111223103-3201332331212232-2110010123111231)
+- [nutanix.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-011.md#canonical-3132013111121322-1131131200100030-3111302000312210-0102200232202332-3223003333332223-1333213321210012-2013112001021313-2333000031110202)
+- nutanix.not_managed.node_list.interface_list.no_ipv4_address
+
+<a id="canonical-0202313113011011-0133012123111221-3122323323110031-1033122110131133-2310231231231000-3233232032321313-2231113232210330-2103333202312302"></a>
+
+Type: `["object", {}]`. Optional.
+
+Enable this option
+
+Additional upstream details:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+no_ipv4_address = {}
+```
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-1003012130113301-0102301003301331-3223303121002030-1103313212120000-3101301301110332-1210200200131110-2221021033010310-1313302111203121"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `nutanix.not_managed.node_list.interface_list.no_ipv6_address` properties
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
+- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
+- [nutanix](resources--securemesh_site_v2--reference--group-011.md#canonical-3313330100011000-1321012221111023-2203201131220011-0021313133031220-2300300000311310-1301020003123302-1012202333312321-3300313210310321)
+- [nutanix.not_managed](resources--securemesh_site_v2--reference--group-011.md#canonical-3220112021101122-3110130321202300-3000232201030020-2030130010113300-3130023211030002-3301102302032211-2131231030302103-0302111102333000)
+- [nutanix.not_managed.node_list](resources--securemesh_site_v2--reference--group-011.md#canonical-1223230220233333-3021121210321110-3201032121033100-2123303013201331-0102030230013033-3331232111223103-3201332331212232-2110010123111231)
+- [nutanix.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-011.md#canonical-3132013111121322-1131131200100030-3111302000312210-0102200232202332-3223003333332223-1333213321210012-2013112001021313-2333000031110202)
+- nutanix.not_managed.node_list.interface_list.no_ipv6_address
+
+<a id="canonical-2212332211203202-0231032103311333-1000323223200311-3011221220220303-3002111320203312-3200001023031010-3211310211030021-3000331310230312"></a>
+
+Type: `["object", {}]`. Optional.
+
+Enable this option
+
+Additional upstream details:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+no_ipv6_address = {}
+```
+
+This is an empty object or choice marker. It has no direct properties.
+
 <a id="canonical-1231301312010313-2213232000112222-3013230012232221-0133121113311310-1103002210331213-3120322321210302-3322223321233130-2113230112301313"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -131,6 +329,7 @@ Configure Static IP parameters for a node.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("ip_address")}
 ```
 
@@ -170,6 +369,7 @@ Default Gateway. IP address of the default gateway.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthAtMost(1024),
   validators.IPValidator(),
@@ -230,6 +430,7 @@ IP address of the interface and prefix length.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(7, 1024),
   validators.CIDRValidator(),
@@ -299,6 +500,7 @@ Static IP Parameters. Configure Static IP parameters.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("cluster_static_ip",
     "node_static_ip")}
 ```
@@ -394,6 +596,7 @@ Map of Node to Static IP configuration value, Key:Node, Value:IP Address.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Map{validators.MapConstraintsValidator("{\"cardinality\":{\"maxProperties\":128},\"category\":\"discovery\",\"constraintType\":\"map\",\"deterministic\":true,\"keys\":{\"maxLength\":128,\"minLength\":1,\"type\":\"string\"},\"originalRules\":{\"ves.io.schema.rules.map.keys.string.max_len\":\"128\",\"ves.io.schema.rules.map.keys.string.min_len\":\"1\",\"ves.io.schema.rules.map.max_pairs\":\"128\"}}")}
 ```
 
@@ -466,6 +669,7 @@ Configure Static IP parameters for a node.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("ip_address")}
 ```
 
@@ -505,6 +709,7 @@ Default Gateway. IP address of the default gateway.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthAtMost(1024),
   validators.IPValidator(),
@@ -565,6 +770,7 @@ IP address of the interface and prefix length.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(7, 1024),
   validators.CIDRValidator(),
@@ -634,6 +840,7 @@ Configuration parameter for vlan interface.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("device",
     "vlan_id")}
 ```
@@ -674,6 +881,7 @@ Select a parent interface from the dropdown.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 64),
 }
@@ -729,6 +937,7 @@ Configure the VLAN tag for this interface.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(1, 4095),
 }
@@ -947,6 +1156,7 @@ Hostname. Hostname for this Node.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 256),
 }
@@ -1004,6 +1214,7 @@ Public IP. Public IP for this Node.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(256),
 }
@@ -1054,6 +1265,8 @@ Type: `"string"`. Optional.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["Control","Worker"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("Control",
     "Worker"),
@@ -1119,6 +1332,7 @@ Manage interfaces belonging to this node.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.ConflictingListObjectAttributes("bond_interface",
     "ethernet_interface"),
   validators.ConflictingListObjectAttributes("bond_interface",
@@ -1210,6 +1424,7 @@ Interface Description. Description for this Interface.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(256),
 }
@@ -1256,6 +1471,7 @@ Add Labels for this Interface, these labels can be used in firewall policy.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Map{validators.MapConstraintsValidator("{\"cardinality\":{\"maxProperties\":16},\"category\":\"discovery\",\"constraintType\":\"map\",\"deterministic\":true,\"keys\":{\"maxLength\":64,\"minLength\":1,\"type\":\"string\"},\"originalRules\":{\"ves.io.schema.rules.map.keys.string.max_len\":\"64\",\"ves.io.schema.rules.map.keys.string.min_len\":\"1\",\"ves.io.schema.rules.map.max_pairs\":\"16\",\"ves.io.schema.rules.map.values.string.max_len\":\"64\",\"ves.io.schema.rules.map.values.string.min_len\":\"1\"},\"values\":{\"maxLength\":64,\"minLength\":1,\"type\":\"string\"}}")}
 ```
 
@@ -1329,6 +1545,7 @@ Maximum packet size (Maximum Transfer Unit) of the interface When configured, MT
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   validators.Int64RangeSetValidator(
     validators.Int64Range{Minimum: 0, Maximum: 0},
@@ -1380,6 +1597,7 @@ Interface Name. Name of this Interface.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 256),
 }
@@ -1451,6 +1669,7 @@ have the same priority, ECMP will be used. Greater the value, higher the priorit
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(0, 255),
 }
@@ -1531,6 +1750,7 @@ Bond devices configuration for fleet.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("devices",
     "link_polling_interval",
     "link_up_delay",
@@ -1580,6 +1800,7 @@ Ethernet devices that will make up this bond.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeBetween(1, 8),
 }
@@ -1642,6 +1863,7 @@ Link Polling Interval. Link polling interval in milliseconds.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(500, 5000),
 }
@@ -1695,6 +1917,7 @@ Milliseconds wait before link is declared up.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(0, 1000),
 }
@@ -1748,6 +1971,7 @@ Bond Device Name. Name for the Bond. Ex 'bond0'
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 64),
 }
@@ -1878,6 +2102,7 @@ LACP parameters. LACP parameters for the bond device.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("rate")}
 ```
 
@@ -1917,6 +2142,7 @@ Interval in seconds to transmit LACP packets.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(1, 30),
 }
@@ -2035,6 +2261,7 @@ DHCP server configuration for this interface.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("dhcp_networks"),
   validators.ConflictingObjectAttributes("automatic_from_end",
     "automatic_from_start"),
@@ -2093,6 +2320,7 @@ Assign fixed IPv4 addresses based on the MAC Address of the DHCP Client.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Map{validators.MapConstraintsValidator("{\"cardinality\":{\"maxProperties\":128},\"category\":\"discovery\",\"constraintType\":\"map\",\"crossEntry\":{\"uniqueValues\":true},\"deterministic\":true,\"keys\":{\"format\":\"mac-address\",\"type\":\"string\"},\"originalRules\":{\"ves.io.schema.rules.map.keys.string.mac\":\"true\",\"ves.io.schema.rules.map.max_pairs\":\"128\",\"ves.io.schema.rules.map.unique_values\":\"true\",\"ves.io.schema.rules.map.values.string.ipv4\":\"true\"},\"values\":{\"format\":\"ipv4\",\"type\":\"string\"}}")}
 ```
 
@@ -2276,6 +2504,7 @@ List of networks from which DHCP Server can allocate IPv4 Addresses.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.ConflictingListObjectAttributes("dgw_address",
     "first_address"),
   validators.ConflictingListObjectAttributes("dgw_address",
@@ -2350,6 +2579,7 @@ used as the default gateway.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthAtMost(1024),
   validators.IPv4Validator(),
@@ -2401,6 +2631,7 @@ server.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthAtMost(1024),
   validators.IPv4Validator(),
@@ -2499,6 +2730,8 @@ Possible values are \`INCLUDE\_IP\_ADDRESSES\_FROM\_DHCP\_POOLS\`,
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["EXCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS","INCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("INCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS",
     "EXCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS"),
@@ -2714,6 +2947,7 @@ prefix. 192.0.2.39 with prefix length of 24, end offset is 192.0.2.186.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthAtMost(1024),
   validators.IPv4Validator(),
@@ -2775,6 +3009,7 @@ prefix. 192.0.2.173 with prefix length of 24, start offset is 192.0.2.96.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthAtMost(1024),
   validators.IPv4Validator(),
@@ -2924,6 +3159,7 @@ Specify static IPv4 addresses per site:node.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Map{validators.MapConstraintsValidator("{\"cardinality\":{\"maxProperties\":64},\"category\":\"discovery\",\"constraintType\":\"map\",\"deterministic\":true,\"keys\":{\"maxLength\":128,\"minLength\":1,\"type\":\"string\"},\"originalRules\":{\"ves.io.schema.rules.map.keys.string.max_len\":\"128\",\"ves.io.schema.rules.map.keys.string.min_len\":\"1\",\"ves.io.schema.rules.map.max_pairs\":\"64\",\"ves.io.schema.rules.map.values.string.ipv4\":\"true\"},\"values\":{\"format\":\"ipv4\",\"type\":\"string\"}}")}
 ```
 
@@ -3002,6 +3238,7 @@ Configuration parameter for ethernet interface.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("mac")}
 ```
 
@@ -3043,6 +3280,7 @@ configured on this site.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 64),
 }
@@ -3095,6 +3333,7 @@ MAC Address. Configuration parameter for mac
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthAtMost(1024),
   validators.MACValidator(),
@@ -3158,6 +3397,7 @@ IPV6AutoConfigType.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("host",
     "router")}
 ```
@@ -3270,6 +3510,7 @@ IPV6AutoConfigRouterType.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("network_prefix",
     "stateful")}
 ```
@@ -3316,6 +3557,7 @@ prefix length as per RFC 4862.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(1024),
 }
@@ -3385,6 +3627,7 @@ IPV6DnsConfig.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("configured_list",
     "local_dns")}
 ```
@@ -3449,6 +3692,7 @@ IPV6DnsList.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("dns_list")}
 ```
 
@@ -3488,6 +3732,7 @@ List of IPv6 Addresses acting as DNS servers.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeBetween(1, 4),
 }
@@ -3565,6 +3810,7 @@ IPV6LocalDnsAddress.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("configured_address",
     "first_address"),
   validators.ConflictingObjectAttributes("configured_address",
@@ -3611,6 +3857,7 @@ as DNS server.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthAtMost(1024),
   validators.IPv6Validator(),
@@ -3787,6 +4034,7 @@ DHCPIPV6 Stateful Server.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("dhcp_networks"),
   validators.ConflictingObjectAttributes("automatic_from_end",
     "automatic_from_start"),
@@ -3842,6 +4090,7 @@ addresses based on the MAC Address of the DHCP Client.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Map{validators.MapConstraintsValidator("{\"cardinality\":{\"maxProperties\":128},\"category\":\"discovery\",\"constraintType\":\"map\",\"crossEntry\":{\"uniqueValues\":true},\"deterministic\":true,\"keys\":{\"format\":\"mac-address\",\"type\":\"string\"},\"originalRules\":{\"ves.io.schema.rules.map.keys.string.mac\":\"true\",\"ves.io.schema.rules.map.max_pairs\":\"128\",\"ves.io.schema.rules.map.unique_values\":\"true\",\"ves.io.schema.rules.map.values.string.ipv6\":\"true\"},\"values\":{\"format\":\"ipv6\",\"type\":\"string\"}}")}
 ```
 
@@ -4135,6 +4384,8 @@ Possible values are \`INCLUDE\_IP\_ADDRESSES\_FROM\_DHCP\_POOLS\`,
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["EXCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS","INCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("INCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS",
     "EXCLUDE_IP_ADDRESSES_FROM_DHCP_POOLS"),
@@ -4248,6 +4499,7 @@ network prefix.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthAtMost(1024),
   validators.IPv6Validator(),
@@ -4299,6 +4551,7 @@ network prefix. 2001::1 with prefix length of 64, start offset is 5.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthAtMost(1024),
   validators.IPv6Validator(),
@@ -4399,6 +4652,7 @@ Site:Node to IPv6 Mapping. Map of Site:Node to IPv6 address.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Map{validators.MapConstraintsValidator("{\"cardinality\":{\"maxProperties\":64},\"category\":\"discovery\",\"constraintType\":\"map\",\"deterministic\":true,\"keys\":{\"maxLength\":128,\"minLength\":1,\"type\":\"string\"},\"originalRules\":{\"ves.io.schema.rules.map.keys.string.max_len\":\"128\",\"ves.io.schema.rules.map.keys.string.min_len\":\"1\",\"ves.io.schema.rules.map.max_pairs\":\"64\",\"ves.io.schema.rules.map.values.string.ipv6\":\"true\"},\"values\":{\"format\":\"ipv6\",\"type\":\"string\"}}")}
 ```
 
@@ -4575,6 +4829,7 @@ Segments (global VRFs).
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("site_local_inside_network",
     "site_local_network")}
 ```
@@ -4932,6 +5187,7 @@ Configure Static IP parameters for a node.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("ip_address")}
 ```
 
@@ -4971,6 +5227,7 @@ Default Gateway. IP address of the default gateway.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthAtMost(1024),
   validators.IPValidator(),
@@ -5031,6 +5288,7 @@ IP address of the interface and prefix length.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(7, 1024),
   validators.CIDRValidator(),
@@ -5100,6 +5358,7 @@ Static IP Parameters. Configure Static IP parameters.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("cluster_static_ip",
     "node_static_ip")}
 ```
@@ -5195,6 +5454,7 @@ Map of Node to Static IP configuration value, Key:Node, Value:IP Address.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Map{validators.MapConstraintsValidator("{\"cardinality\":{\"maxProperties\":128},\"category\":\"discovery\",\"constraintType\":\"map\",\"deterministic\":true,\"keys\":{\"maxLength\":128,\"minLength\":1,\"type\":\"string\"},\"originalRules\":{\"ves.io.schema.rules.map.keys.string.max_len\":\"128\",\"ves.io.schema.rules.map.keys.string.min_len\":\"1\",\"ves.io.schema.rules.map.max_pairs\":\"128\"}}")}
 ```
 
@@ -5267,6 +5527,7 @@ Configure Static IP parameters for a node.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("ip_address")}
 ```
 
@@ -5306,6 +5567,7 @@ Default Gateway. IP address of the default gateway.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthAtMost(1024),
   validators.IPValidator(),
@@ -5366,6 +5628,7 @@ IP address of the interface and prefix length.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(7, 1024),
   validators.CIDRValidator(),
@@ -5435,6 +5698,7 @@ Configuration parameter for vlan interface.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("device",
     "vlan_id")}
 ```
@@ -5475,6 +5739,7 @@ Select a parent interface from the dropdown.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 64),
 }
@@ -5530,6 +5795,7 @@ Configure the VLAN tag for this interface.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(1, 4095),
 }
@@ -5597,6 +5863,7 @@ loss. When the mode is toggled, services will restart and traffic disruption wil
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("enable_offline_survivability_mode",
     "no_offline_survivability_mode")}
 ```
@@ -5622,381 +5889,3 @@ offline_survivability_mode {
   # Configure direct properties listed below.
 }
 ```
-
-<a id="canonical-2201031103112231-0330110211313320-2123013321011213-2000002123110033-0230111033002310-2123302332100312-3002021220313132-0332030313023100"></a>
-
-### Direct properties for `offline_survivability_mode`
-
-- [enable_offline_survivability_mode](resources--securemesh_site_v2--reference--group-013.md#canonical-2203323101230022-1133103332103223-2322333231131013-3322223200313333-0320203103020033-3313002110322230-0310000220213131-1211112300030132): complete subsection reference.
-
-- [no_offline_survivability_mode](resources--securemesh_site_v2--reference--group-013.md#canonical-3123323000230212-3102121330200201-0201030120033300-2323100013322001-3323132303023302-3231120012133100-3002031313310001-2130112101330300): complete subsection reference.
-
-<a id="canonical-2203323101230022-1133103332103223-2322333231131013-3322223200313333-0320203103020033-3313002110322230-0310000220213131-1211112300030132"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-## `offline_survivability_mode.enable_offline_survivability_mode` properties
-
-Breadcrumbs:
-
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
-- [offline_survivability_mode](resources--securemesh_site_v2--reference--group-013.md#canonical-2001312130230101-3132012012311122-0230112101013213-1333302011302001-3223331311230002-0320013221303203-3122311112320113-1320320233110001)
-- offline_survivability_mode.enable_offline_survivability_mode
-
-<a id="canonical-0033012223320232-2103233222131121-3211012013110302-2103323232202310-3300021013213031-0231330113302021-3322202232002202-0331302123012123"></a>
-
-Type: `["object", {}]`. Optional.
-
-Configuration parameter for enable offline survivability mode.
-
-Additional upstream details:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-enable_offline_survivability_mode = {}
-```
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-3123323000230212-3102121330200201-0201030120033300-2323100013322001-3323132303023302-3231120012133100-3002031313310001-2130112101330300"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-## `offline_survivability_mode.no_offline_survivability_mode` properties
-
-Breadcrumbs:
-
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
-- [offline_survivability_mode](resources--securemesh_site_v2--reference--group-013.md#canonical-2001312130230101-3132012012311122-0230112101013213-1333302011302001-3223331311230002-0320013221303203-3122311112320113-1320320233110001)
-- offline_survivability_mode.no_offline_survivability_mode
-
-<a id="canonical-1120311012102221-3311200211322022-3132100332303102-0310312200233122-3023213203322210-2213301303222021-3222222303313202-0013233300000022"></a>
-
-Type: `["object", {}]`. Optional.
-
-Configuration parameter for no offline survivability mode.
-
-Additional upstream details:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-no_offline_survivability_mode = {}
-```
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-0121302321233330-0012112200322203-1301113300000200-3112222001032003-2331112123023303-3200031230001123-2210131121011110-1303130031122213"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-## `openshift_virtualization` properties
-
-Breadcrumbs:
-
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
-- openshift_virtualization
-
-<a id="canonical-3003123030210310-0301231331323231-0021331202123232-3303321030311102-3012130232302131-0202020101313000-2300110212321333-3123322121330230"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-Configuration parameter for openshift virtualization.
-
-Additional upstream details:
-
-OpenShift Provider Type.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-ves-oneof-field-orchestration_choice": "[\"not_managed\"]"
-}
-```
-
-Terraform syntax:
-
-```terraform
-openshift_virtualization {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-1323033031133112-2031000003333201-0112333203122211-1002000233021010-3023031113013033-0010112223300331-1301213033233131-3333321110031320"></a>
-
-### Direct properties for `openshift_virtualization`
-
-- [not_managed](resources--securemesh_site_v2--reference--group-013.md#canonical-3312123010201223-0322231331231113-1001303330031101-0333001011110002-2013203012023212-3302312220022210-0233131332122310-2310031033301013): complete subsection reference.
-
-<a id="canonical-3312123010201223-0322231331231113-1001303330031101-0333001011110002-2013203012023212-3302312220022210-0233131332122310-2310031033301013"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-## `openshift_virtualization.not_managed` properties
-
-Breadcrumbs:
-
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
-- [openshift_virtualization](resources--securemesh_site_v2--reference--group-013.md#canonical-0121302321233330-0012112200322203-1301113300000200-3112222001032003-2331112123023303-3200031230001123-2210131121011110-1303130031122213)
-- openshift_virtualization.not_managed
-
-<a id="canonical-1121312132013120-3113222101223331-3002202122110303-2211232102202131-0012003030001303-1102032220323023-0200332313201131-1322213033230103"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-This section will show nodes associated with this site. Note: For sites that are not orchestrated by
-F5XC, create nodes in the chosen provider. Once a node is created and registers with the site, it
-will be shown in this section.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-not_managed {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-1123111132301111-2121230102133212-0332232133211210-1333003111020133-2213200003231301-3310220333220332-0100011321103001-3232212321012111"></a>
-
-### Direct properties for `openshift_virtualization.not_managed`
-
-- [node_list](resources--securemesh_site_v2--reference--group-013.md#canonical-0132300131131032-2021130132112331-0312003011233211-2101210212103030-1211222230002213-3032312132223331-0301102321220023-0333221223201213): complete subsection reference.
-
-<a id="canonical-0132300131131032-2021130132112331-0312003011233211-2101210212103030-1211222230002213-3032312132223331-0301102321220023-0333221223201213"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-## `openshift_virtualization.not_managed.node_list` properties
-
-Breadcrumbs:
-
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
-- [openshift_virtualization](resources--securemesh_site_v2--reference--group-013.md#canonical-0121302321233330-0012112200322203-1301113300000200-3112222001032003-2331112123023303-3200031230001123-2210131121011110-1303130031122213)
-- [openshift_virtualization.not_managed](resources--securemesh_site_v2--reference--group-013.md#canonical-3312123010201223-0322231331231113-1001303330031101-0333001011110002-2013203012023212-3302312220022210-0233131332122310-2310031033301013)
-- openshift_virtualization.not_managed.node_list
-
-<a id="canonical-3323103211230202-1203223332203131-0110121212010110-0230020122331221-3133312211301102-1011120121203103-3032230130222200-3332033113132300"></a>
-
-Type: `"object"`. list nested block, Optional.
-
-This section will show nodes associated with this site. Note: For sites that are not orchestrated by
-F5XC, create nodes in the chosen provider. Once a node is created and registers with the site, it
-will be shown in this section.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxItems": 128,
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "array",
-    "deterministic": true,
-    "maxItems": 128,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
-    },
-    "uniqueItems": true
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.repeated.max_items": "128",
-    "ves.io.schema.rules.repeated.unique": "true"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.repeated.max_items": "128",
-    "ves.io.schema.rules.repeated.unique": "true"
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-node_list {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-1032033101232011-0032001003033323-3112311100011310-2113330310122003-3112202330232313-0303012013323101-3213013220102311-1331311331110230"></a>
-
-### Direct properties for `openshift_virtualization.not_managed.node_list`
-
-<a id="canonical-2103011133220100-0010331233012221-2333233221013220-2102110030031330-1230130322233322-2232211110221322-0320211131120120-3302330322122103"></a>
-
-#### `openshift_virtualization.not_managed.node_list.hostname` property
-
-Type: `"string"`. Optional.
-
-Hostname. Hostname for this Node.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 256),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxLength": 256,
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "format": "fqdn",
-    "maxLength": 256,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
-    },
-    "minLength": 1,
-    "pattern": "^([a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?\\.)*[a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?$",
-    "validation": {
-      "rfc": "RFC 1123"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.string.max_len": "256"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.string.max_len": "256"
-  }
-}
-```
-
-- [interface_list](resources--securemesh_site_v2--reference--group-014.md#canonical-2310102100123101-1311022222003201-2300021203211133-0123212010313320-0200223222033202-2121330212012032-0013031012001213-2101320202001012): complete subsection reference.
-
-<a id="canonical-1122323122103313-1103220222201012-0320332131230112-2300230112030133-0213003200331003-3011003211200311-1020131113312101-3131112001311112"></a>
-
-<a id="canonical-0030220033122123-1000313223021332-1122130330103210-3203021013223102-3100000022031130-0301131020133111-3113303123200133-3232332330333130"></a>
-
-#### `openshift_virtualization.not_managed.node_list.public_ip` property
-
-Type: `"string"`. Optional.
-
-Public IP. Public IP for this Node.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.String{
-  stringvalidator.LengthAtMost(256),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxLength": 256,
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "maxLength": 256,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.string.max_len": "256"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.string.max_len": "256"
-  }
-}
-```
-
-<a id="canonical-1022132103330223-0333033301223111-0330001000203012-0321222331211311-1331213330132200-3331102032032230-1320123221213232-0130332032112012"></a>

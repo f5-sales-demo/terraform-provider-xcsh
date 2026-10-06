@@ -117,7 +117,7 @@
         "xcsh-docs:resources:k8s_pod_security_admission:timeouts"
       ],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -152,8 +152,8 @@
     },
     {
       "aliases": ["k8s pod security admission"],
-      "body_bytes": 11299,
-      "body_sha256": "sha256:d67d328dd5d342b47faa334b8fdf57d166165b272b751b297a3197be7d03437c",
+      "body_bytes": 11575,
+      "body_sha256": "sha256:cf4d7e52de6351a9cc1a3d9c3c8240342ac488d89b5a114422e7b07c43b4ac54",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [
@@ -161,7 +161,7 @@
         "xcsh-docs:resources:k8s_pod_security_admission:properties:timeouts"
       ],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -187,6 +187,8 @@
           "anchor": "schema-annotations",
           "description": "Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when modifying objects.",
           "document_id": "xcsh-docs:resources:k8s_pod_security_admission:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -201,6 +203,8 @@
           "anchor": "schema-description",
           "description": "Human readable description for the object.",
           "document_id": "xcsh-docs:resources:k8s_pod_security_admission:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -215,6 +219,8 @@
           "anchor": "schema-disable",
           "description": "A value of true will administratively disable the object.",
           "document_id": "xcsh-docs:resources:k8s_pod_security_admission:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -229,6 +235,8 @@
           "anchor": "schema-id",
           "description": "Unique identifier for the resource.",
           "document_id": "xcsh-docs:resources:k8s_pod_security_admission:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -243,6 +251,8 @@
           "anchor": "schema-labels",
           "description": "Map of string keys and values that can be used to organize and categorize (scope and select) objects as chosen by the user. Values specified here will be used by selector expression.",
           "document_id": "xcsh-docs:resources:k8s_pod_security_admission:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -257,6 +267,8 @@
           "anchor": "schema-name",
           "description": "This is the name of configuration object. It has to be unique within the namespace. It can only be specified during create API and cannot be changed during replace API. The value of name has to follow DNS-1035 format.",
           "document_id": "xcsh-docs:resources:k8s_pod_security_admission:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["required"],
           "max_items": null,
           "min_items": null,
@@ -271,6 +283,17 @@
           "anchor": "schema-namespace",
           "description": "This defines the workspace within which each the configuration object is to be created. Must be a DNS_LABEL format. For a namespace object itself, namespace value will be \"\"",
           "document_id": "xcsh-docs:resources:k8s_pod_security_admission:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [
+            {
+              "case_sensitive": true,
+              "complete": true,
+              "source": "ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf",
+              "validator": "OneOf",
+              "values": ["system"],
+              "version": 1
+            }
+          ],
           "flags": ["optional", "computed"],
           "max_items": null,
           "min_items": null,
@@ -285,6 +308,8 @@
           "anchor": "section",
           "description": "Uniform Resource Identifier",
           "document_id": "xcsh-docs:resources:k8s_pod_security_admission:properties:pod_security_admission_specs",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -396,6 +421,8 @@
           "anchor": "section",
           "description": "timeouts",
           "document_id": "xcsh-docs:resources:k8s_pod_security_admission:properties:timeouts",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -419,8 +446,8 @@
     },
     {
       "aliases": ["pod security admission specs"],
-      "body_bytes": 3353,
-      "body_sha256": "sha256:e9c1f262776f4962e9e6992f122a2a05d3a249b4215082ae3879cce09e558828",
+      "body_bytes": 3383,
+      "body_sha256": "sha256:0e46093abb6587e1db58d6f1829903b8965b376b18a6d2bffcc9af6436eb0454",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [
@@ -432,7 +459,7 @@
         "xcsh-docs:resources:k8s_pod_security_admission:properties:pod_security_admission_specs:warn"
       ],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -555,6 +582,8 @@
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:k8s_pod_security_admission:properties:pod_security_admission_specs:audit",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -569,6 +598,8 @@
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:k8s_pod_security_admission:properties:pod_security_admission_specs:baseline",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -583,6 +614,8 @@
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:k8s_pod_security_admission:properties:pod_security_admission_specs:enforce",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -597,6 +630,8 @@
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:k8s_pod_security_admission:properties:pod_security_admission_specs:privileged",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -611,6 +646,8 @@
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:k8s_pod_security_admission:properties:pod_security_admission_specs:restricted",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -625,6 +662,8 @@
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:k8s_pod_security_admission:properties:pod_security_admission_specs:warn",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -654,7 +693,7 @@
       "category": "container",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -694,7 +733,7 @@
       "category": "container",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -734,7 +773,7 @@
       "category": "container",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -774,7 +813,7 @@
       "category": "container",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -814,7 +853,7 @@
       "category": "container",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -854,7 +893,7 @@
       "category": "container",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -894,7 +933,7 @@
       "category": "container",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -928,6 +967,8 @@
           "anchor": "schema-timeouts--create",
           "description": "Configures the timeout duration for resource creation.",
           "document_id": "xcsh-docs:resources:k8s_pod_security_admission:properties:timeouts",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -951,6 +992,8 @@
           "anchor": "schema-timeouts--delete",
           "description": "Configures the timeout duration for resource deletion, applicable only if changes are saved into state before destroy.",
           "document_id": "xcsh-docs:resources:k8s_pod_security_admission:properties:timeouts",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -974,6 +1017,8 @@
           "anchor": "schema-timeouts--read",
           "description": "Configures the timeout duration for read operations during refresh or planning.",
           "document_id": "xcsh-docs:resources:k8s_pod_security_admission:properties:timeouts",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -997,6 +1042,8 @@
           "anchor": "schema-timeouts--update",
           "description": "Configures the timeout duration for resource update operations.",
           "document_id": "xcsh-docs:resources:k8s_pod_security_admission:properties:timeouts",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -1026,7 +1073,7 @@
       "category": "container",
       "child_ids": ["xcsh-docs:resources:k8s_pod_security_admission:example:resource"],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1066,7 +1113,7 @@
       "category": "container",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1113,7 +1160,7 @@
       "category": "container",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1154,7 +1201,7 @@
       "category": "container",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"

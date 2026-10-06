@@ -218,6 +218,7 @@ follow DNS-1035 format.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   validators.NameValidator(),
 }
@@ -285,6 +286,7 @@ DNS\_LABEL format. For a namespace object itself, namespace value will be ""
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   validators.NamespaceValidator(),
 }
@@ -424,6 +426,7 @@ Address records. Configuration parameter for records
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Map{validators.MapConstraintsValidator("{\"cardinality\":{\"maxProperties\":4096},\"category\":\"discovery\",\"constraintType\":\"map\",\"deterministic\":true,\"keys\":{\"format\":\"ip-address\",\"type\":\"string\"},\"originalRules\":{\"ves.io.schema.rules.map.keys.string.ip\":\"true\",\"ves.io.schema.rules.map.max_pairs\":\"4096\",\"ves.io.schema.rules.map.values.string.pattern\":\"^[0-9a-zA-Z._-]*$\"},\"values\":{\"pattern\":\"^[0-9a-zA-Z._-]*$\",\"type\":\"string\"}}")}
 ```
 
@@ -531,6 +534,7 @@ Integer records. Configuration parameter for records
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Map{validators.MapConstraintsValidator("{\"cardinality\":{\"maxProperties\":4096},\"category\":\"discovery\",\"constraintType\":\"map\",\"deterministic\":true,\"originalRules\":{\"ves.io.schema.rules.map.max_pairs\":\"4096\",\"ves.io.schema.rules.map.values.string.pattern\":\"^[a-zA-Z_][a-zA-Z0-9_]*$\"},\"values\":{\"pattern\":\"^[a-zA-Z_][a-zA-Z0-9_]*$\",\"type\":\"string\"}}")}
 ```
 
@@ -631,6 +635,7 @@ String records. Configuration parameter for records
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Map{validators.MapConstraintsValidator("{\"cardinality\":{\"maxProperties\":4096},\"category\":\"discovery\",\"constraintType\":\"map\",\"deterministic\":true,\"originalRules\":{\"ves.io.schema.rules.map.max_pairs\":\"4096\",\"ves.io.schema.rules.map.values.string.pattern\":\"^[0-9a-zA-Z._-]*$\"},\"values\":{\"pattern\":\"^[0-9a-zA-Z._-]*$\",\"type\":\"string\"}}")}
 ```
 

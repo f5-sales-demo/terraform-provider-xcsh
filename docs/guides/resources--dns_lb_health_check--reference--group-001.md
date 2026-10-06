@@ -218,6 +218,7 @@ follow DNS-1035 format.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   validators.NameValidator(),
 }
@@ -287,6 +288,8 @@ Provider validators and defaults (from schema source):
 
 ```go
 Default: stringdefault.StaticString("system")
+EnumExtractionComplete: false
+EnumValidators: [{"version":1,"validator":"OneOf","values":["system"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   validators.NamespaceValidator(),
   stringvalidator.OneOf("system"),
@@ -416,6 +419,7 @@ tcp\_hex\_health\_check, udp\_health\_check\] Configuration parameter for http h
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("health_check_port"),
   validators.ConflictingObjectAttributes("disable_virtual_host",
     "inherit_load_balancer_fqdn"),
@@ -477,6 +481,7 @@ Health Check Port. Port used for performing health check.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(1, 65535),
 }
@@ -531,6 +536,7 @@ health check to pass.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(0, 65535),
 }
@@ -585,6 +591,7 @@ upon receipt of a successful regular expression match. Uses re2 regular expressi
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(2048),
 }
@@ -636,6 +643,7 @@ Send String. HTTP payload to send to the target.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(2048),
 }
@@ -686,6 +694,7 @@ use for SNI.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(2048),
 }
@@ -840,6 +849,7 @@ Configuration parameter for https health check.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("health_check_port"),
   validators.ConflictingObjectAttributes("disable_virtual_host",
     "inherit_load_balancer_fqdn"),
@@ -890,6 +900,7 @@ Health Check Port. Port used for performing health check.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(1, 65535),
 }
@@ -944,6 +955,7 @@ health check to pass.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(0, 65535),
 }
@@ -998,6 +1010,7 @@ upon receipt of a successful regular expression match. Uses re2 regular expressi
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(2048),
 }
@@ -1049,6 +1062,7 @@ Send String. HTTP payload to send to the target.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(2048),
 }
@@ -1099,6 +1113,7 @@ use for SNI.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(2048),
 }
@@ -1298,6 +1313,7 @@ Configuration parameter for tcp health check.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("health_check_port")}
 ```
 
@@ -1337,6 +1353,7 @@ Health Check Port. Port used for performing health check.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(1, 65535),
 }
@@ -1391,6 +1408,7 @@ health check to pass.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(0, 65535),
 }
@@ -1443,6 +1461,7 @@ receipt of a successful regular expression match. Uses re2 regular expression sy
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(2048),
 }
@@ -1495,6 +1514,7 @@ Send this string to target (default empty. When send and receive are both empty,
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(2048),
 }
@@ -1554,6 +1574,7 @@ Configuration parameter for tcp hex health check.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("health_check_port")}
 ```
 
@@ -1593,6 +1614,7 @@ Health Check Port. Port used for performing health check.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(1, 65535),
 }
@@ -1647,6 +1669,7 @@ health check to pass.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(0, 65535),
 }
@@ -1698,6 +1721,7 @@ Hex encoded raw bytes expected in the response.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(2048),
 }
@@ -1750,6 +1774,7 @@ Hex encoded raw bytes sent in the request. Empty payloads imply a connect-only h
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(2048),
 }
@@ -1890,6 +1915,7 @@ Configuration parameter for udp health check.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("health_check_port",
     "receive",
     "send")}
@@ -1931,6 +1957,7 @@ Health Check Port. Port used for performing health check.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(1, 65535),
 }
@@ -1985,6 +2012,7 @@ health check to pass.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(0, 65535),
 }
@@ -2036,6 +2064,7 @@ UDP response to be matched. It can be a regular expression.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 2048),
 }
@@ -2093,6 +2122,7 @@ Send String. UDP payload.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 2048),
 }

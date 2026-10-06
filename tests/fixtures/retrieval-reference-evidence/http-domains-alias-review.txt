@@ -1,0 +1,9 @@
+Approve the narrow terminology change.
+
+- Evidence supports `hostnames`, `host header domains`, and `authority header domains`, with **Configure** for the required resource field and **Inspect** for the computed data-source field.
+- Rules target exactly root `http_loadbalancer.domains`; no unsupported semantics or broader propagation claims appear.
+- Focused test and direct checks of all three aliases, exact summaries, and negative paths passed.
+
+Minor test gap: [test_retrieval_metadata.py:135](/data/robin-GIT/worktrees/terraform-provider-xcsh-2421-retrieval-enums/tests/test_retrieval_metadata.py:135) omits the authority alias and checks only summary prefixes.
+
+Approval covers terminology only; the evidence does not establish validation, apply behavior, or qualification. No edits made.

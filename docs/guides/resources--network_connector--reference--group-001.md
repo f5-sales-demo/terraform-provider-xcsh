@@ -216,6 +216,7 @@ follow DNS-1035 format.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   validators.NameValidator(),
 }
@@ -283,6 +284,7 @@ DNS\_LABEL format. For a namespace object itself, namespace value will be ""
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   validators.NamespaceValidator(),
 }
@@ -489,6 +491,7 @@ server.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("no_interception",
     "tls_intercept")}
 ```
@@ -535,6 +538,7 @@ The default value is 2000 (2 seconds)
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.AtMost(600000),
 }
@@ -587,6 +591,7 @@ Defaults to 1.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.AtMost(8),
 }
@@ -645,6 +650,7 @@ port.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(64),
 }
@@ -702,6 +708,7 @@ IP.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(64),
 }
@@ -813,6 +820,7 @@ Configuration to enable TLS interception.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("custom_certificate",
     "volterra_certificate"),
   validators.ConflictingObjectAttributes("enable_for_all_domains",
@@ -869,6 +877,7 @@ certificate.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(131072),
 }
@@ -944,6 +953,7 @@ Handle to fetch certificate and key.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("certificate_url"),
   validators.ConflictingObjectAttributes("custom_hash_algorithms",
     "disable_ocsp_stapling"),
@@ -990,6 +1000,7 @@ TLS certificate. Certificate or certificate chain in PEM format including the PE
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 131072),
 }
@@ -1082,6 +1093,7 @@ Specifies the hash algorithms to be used.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("hash_algorithms")}
 ```
 
@@ -1123,6 +1135,7 @@ values are \`INVALID\_HASH\_ALGORITHM\`, \`SHA256\`, \`SHA1\`. Defaults to
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeBetween(1, 4),
 }
@@ -1242,6 +1255,7 @@ SecretType is used in an object to indicate a sensitive/confidential field.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info",
     "clear_secret_info")}
 ```
@@ -1303,6 +1317,7 @@ BlindfoldSecretInfoType specifies information about the Secret managed by F5XC S
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("location")}
 ```
 
@@ -1377,6 +1392,7 @@ store provider is an HTTP/HTTPS location.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(4, 131072),
 }
@@ -1480,6 +1496,7 @@ ClearSecretInfoType specifies information about the Secret that is not encrypted
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("url")}
 ```
 
@@ -1532,6 +1549,7 @@ base64 decoding.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 131072),
 }
@@ -1703,6 +1721,7 @@ Policy to enable or disable TLS interception.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("interception_rules")}
 ```
 
@@ -1759,6 +1778,7 @@ List of ordered rules to enable or disable for TLS interception.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.ConflictingListObjectAttributes("disable_interception",
     "enable_interception")}
 ```
@@ -1901,6 +1921,7 @@ Domains names.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("exact_value",
     "regex_value"),
   validators.ConflictingObjectAttributes("exact_value",
@@ -1946,6 +1967,7 @@ Exclusive with \[regular expression\_value suffix\_value\] Exact domain name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 256),
 }
@@ -2002,6 +2024,7 @@ Exclusive with \[exact\_value suffix\_value\] Regular Expression value for the d
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 256),
 }
@@ -2063,6 +2086,7 @@ Exclusive with \[exact\_value regular expression\_value\] Suffix of domain name 
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 256),
 }
@@ -2330,6 +2354,7 @@ Such a reference is in form of tenant/namespace/name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
 ```
 
@@ -2370,6 +2395,7 @@ referred object's(e.g. Route's) name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 128),
 }
@@ -2430,6 +2456,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -2497,6 +2524,7 @@ the referred object's(e.g. Route's) tenant.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(64),
 }
@@ -2755,6 +2783,7 @@ Such a reference is in form of tenant/namespace/name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
 ```
 
@@ -2795,6 +2824,7 @@ referred object's(e.g. Route's) name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 128),
 }
@@ -2855,6 +2885,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -2922,6 +2953,7 @@ the referred object's(e.g. Route's) tenant.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(64),
 }

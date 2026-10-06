@@ -94,6 +94,7 @@ discover only from this discovery object.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(256),
 }
@@ -274,6 +275,7 @@ follow DNS-1035 format.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   validators.NameValidator(),
 }
@@ -341,6 +343,7 @@ DNS\_LABEL format. For a namespace object itself, namespace value will be ""
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   validators.NamespaceValidator(),
 }
@@ -641,6 +644,7 @@ Configuration details to access discovery service REST API.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("api_server")}
 ```
 
@@ -680,6 +684,7 @@ API server must be a fully qualified domain string and port specified as host:po
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(262),
 }
@@ -781,6 +786,7 @@ Client certificate is PEM-encoded certificate or certificate-chain.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(100, 131072),
 }
@@ -845,6 +851,7 @@ against. If ServerName is empty, the hostname used to contact the server is used
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(256),
 }
@@ -898,6 +905,7 @@ including the PEM headers.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(131072),
 }
@@ -967,6 +975,7 @@ SecretType is used in an object to indicate a sensitive/confidential field.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info",
     "clear_secret_info")}
 ```
@@ -1029,6 +1038,7 @@ BlindfoldSecretInfoType specifies information about the Secret managed by F5XC S
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("location")}
 ```
 
@@ -1103,6 +1113,7 @@ store provider is an HTTP/HTTPS location.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(4, 131072),
 }
@@ -1207,6 +1218,7 @@ ClearSecretInfoType specifies information about the Secret that is not encrypted
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("url")}
 ```
 
@@ -1259,6 +1271,7 @@ base64 decoding.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 131072),
 }
@@ -1372,6 +1385,7 @@ username. Username in consul.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(64),
 }
@@ -1434,6 +1448,7 @@ SecretType is used in an object to indicate a sensitive/confidential field.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info",
     "clear_secret_info")}
 ```
@@ -1495,6 +1510,7 @@ BlindfoldSecretInfoType specifies information about the Secret managed by F5XC S
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("location")}
 ```
 
@@ -1569,6 +1585,7 @@ store provider is an HTTP/HTTPS location.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(4, 131072),
 }
@@ -1672,6 +1689,7 @@ ClearSecretInfoType specifies information about the Secret that is not encrypted
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("url")}
 ```
 
@@ -1724,6 +1742,7 @@ base64 decoding.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 131072),
 }
@@ -1803,6 +1822,7 @@ Consul Configuration to publish VIPs.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("disable_spec",
     "publish")}
 ```
@@ -1941,6 +1961,7 @@ Discovery configuration for K8s.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("default_all",
     "namespace_mapping")}
 ```
@@ -2007,6 +2028,7 @@ K8s API server access.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("connection_info",
     "kubeconfig_url"),
   validators.ConflictingObjectAttributes("isolated",
@@ -2073,6 +2095,7 @@ Configuration details to access discovery service REST API.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("api_server")}
 ```
 
@@ -2112,6 +2135,7 @@ API server must be a fully qualified domain string and port specified as host:po
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(262),
 }
@@ -2213,6 +2237,7 @@ Client certificate is PEM-encoded certificate or certificate-chain.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(100, 131072),
 }
@@ -2277,6 +2302,7 @@ against. If ServerName is empty, the hostname used to contact the server is used
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(256),
 }
@@ -2330,6 +2356,7 @@ including the PEM headers.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(131072),
 }
@@ -2399,6 +2426,7 @@ SecretType is used in an object to indicate a sensitive/confidential field.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info",
     "clear_secret_info")}
 ```
@@ -2461,6 +2489,7 @@ BlindfoldSecretInfoType specifies information about the Secret managed by F5XC S
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("location")}
 ```
 
@@ -2535,6 +2564,7 @@ store provider is an HTTP/HTTPS location.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(4, 131072),
 }
@@ -2639,6 +2669,7 @@ ClearSecretInfoType specifies information about the Secret that is not encrypted
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("url")}
 ```
 
@@ -2691,6 +2722,7 @@ base64 decoding.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 131072),
 }

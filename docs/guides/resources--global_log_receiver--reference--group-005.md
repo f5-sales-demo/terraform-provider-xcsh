@@ -22,6 +22,7 @@ than this many bytes.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(4096, 10485760),
 }
@@ -76,6 +77,7 @@ the batch.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(32, 2000),
 }
@@ -329,6 +331,7 @@ Compression Type.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("compression_default",
     "compression_gzip"),
   validators.ConflictingObjectAttributes("compression_default",
@@ -535,6 +538,7 @@ bucket or file.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("custom_folder",
     "log_type_folder"),
   validators.ConflictingObjectAttributes("custom_folder",
@@ -581,6 +585,7 @@ in the endpoint bucket or file The folder name must match \`/^\[a-z\_\]\[a-z0-9\
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(1024),
 }
@@ -783,6 +788,7 @@ Configuration for Splunk HEC Logs endpoint.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("endpoint"),
   validators.ConflictingObjectAttributes("no_tls",
     "use_tls")}
@@ -831,6 +837,7 @@ Splunk HEC Logs Endpoint. Splunk HEC Logs Endpoint, (Note: must not contain \`/s
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 1024),
 }
@@ -901,6 +908,7 @@ Batch OPTIONS allow tuning for how batches of logs are sent to an endpoint.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("max_bytes",
     "max_bytes_disabled"),
   validators.ConflictingObjectAttributes("max_events",
@@ -949,6 +957,7 @@ than this many bytes.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(4096, 10485760),
 }
@@ -1003,6 +1012,7 @@ the batch.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(32, 2000),
 }
@@ -1256,6 +1266,7 @@ Compression Type.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("compression_default",
     "compression_gzip"),
   validators.ConflictingObjectAttributes("compression_default",
@@ -1507,6 +1518,7 @@ SecretType is used in an object to indicate a sensitive/confidential field.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info",
     "clear_secret_info")}
 ```
@@ -1566,6 +1578,7 @@ BlindfoldSecretInfoType specifies information about the Secret managed by F5XC S
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("location")}
 ```
 
@@ -1640,6 +1653,7 @@ store provider is an HTTP/HTTPS location.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(4, 131072),
 }
@@ -1741,6 +1755,7 @@ ClearSecretInfoType specifies information about the Secret that is not encrypted
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("url")}
 ```
 
@@ -1793,6 +1808,7 @@ base64 decoding.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 131072),
 }
@@ -1868,6 +1884,7 @@ TLS Parameters for client connection to the endpoint.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("disable_verify_certificate",
     "enable_verify_certificate"),
   validators.ConflictingObjectAttributes("disable_verify_hostname",
@@ -1935,6 +1952,7 @@ Certificates in PEM format including the PEM headers.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(131072),
 }
@@ -2269,6 +2287,7 @@ Client certificate is PEM-encoded certificate or certificate-chain.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(100, 131072),
 }
@@ -2345,6 +2364,7 @@ SecretType is used in an object to indicate a sensitive/confidential field.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info",
     "clear_secret_info")}
 ```
@@ -2406,6 +2426,7 @@ BlindfoldSecretInfoType specifies information about the Secret managed by F5XC S
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("location")}
 ```
 
@@ -2480,6 +2501,7 @@ store provider is an HTTP/HTTPS location.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(4, 131072),
 }
@@ -2583,6 +2605,7 @@ ClearSecretInfoType specifies information about the Secret that is not encrypted
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("url")}
 ```
 
@@ -2635,6 +2658,7 @@ base64 decoding.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 131072),
 }
@@ -2808,6 +2832,7 @@ SecretType is used in an object to indicate a sensitive/confidential field.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info",
     "clear_secret_info")}
 ```
@@ -2867,6 +2892,7 @@ BlindfoldSecretInfoType specifies information about the Secret managed by F5XC S
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("location")}
 ```
 
@@ -2941,6 +2967,7 @@ store provider is an HTTP/HTTPS location.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(4, 131072),
 }
@@ -3042,6 +3069,7 @@ ClearSecretInfoType specifies information about the Secret that is not encrypted
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("url")}
 ```
 
@@ -3094,6 +3122,7 @@ base64 decoding.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 131072),
 }

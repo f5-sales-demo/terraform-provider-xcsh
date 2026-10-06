@@ -44,6 +44,7 @@ Type: `"string"`. Optional.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{stringvalidator.LengthAtLeast(1)}
 ```
 
@@ -58,6 +59,7 @@ Type: `"string"`. Optional.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{stringvalidator.LengthAtLeast(1)}
 ```
 
@@ -123,6 +125,7 @@ Type: `"number"`. Optional, Computed.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{int64validator.Between(1, 300)}
 ```
 
@@ -147,6 +150,7 @@ Type: `"string"`. Required.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{stringvalidator.LengthAtLeast(1)}
 ```
 
@@ -209,6 +213,7 @@ Type: `"number"`. Optional, Computed.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{int64validator.Between(1, 7200)}
 ```
 

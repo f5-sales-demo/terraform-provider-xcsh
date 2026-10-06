@@ -164,9 +164,9 @@ Each exact path has one authoritative reference destination. Collection element 
 | `items.get_spec.infra.hw_info.storage.driver` | [items.get_spec.infra.hw_info.storage.driver](data-sources--site_registrations--reference--group-001.md#canonical-3302133101312302-0032300113011332-3032021233320231-2030123001223233-0113120201200132-1011322213331110-1003301020221202-2331303121321301) |
 | `items.get_spec.infra.hw_info.storage.model` | [items.get_spec.infra.hw_info.storage.model](data-sources--site_registrations--reference--group-001.md#canonical-3120003332012221-2311012201231031-3310132122223223-3313022131103111-1001300020001301-3100020120012321-1030132023212221-0202130333320312) |
 | `items.get_spec.infra.hw_info.storage.name` | [items.get_spec.infra.hw_info.storage.name](data-sources--site_registrations--reference--group-001.md#canonical-0320220321133232-2303222231310132-2232021203332113-2113230322212313-1320200210012222-0321202333133233-2031011033131112-0332320030330100) |
-| `items.get_spec.infra.hw_info.storage.serial` | [items.get_spec.infra.hw_info.storage.serial](data-sources--site_registrations--reference--group-001.md#canonical-2313313221113110-3133020231302200-3030330032312323-3003110222323231-0312322131202211-3200122003011023-0211011300022111-0313322333323303) |
-| `items.get_spec.infra.hw_info.storage.size_gb` | [items.get_spec.infra.hw_info.storage.size_gb](data-sources--site_registrations--reference--group-001.md#canonical-1311123313123101-0122333100020103-3211332230320222-1312012112032203-2012113132001300-3111001331111311-1000133031232103-2032110110023001) |
-| `items.get_spec.infra.hw_info.storage.vendor` | [items.get_spec.infra.hw_info.storage.vendor](data-sources--site_registrations--reference--group-001.md#canonical-2032103212122322-1030000100332203-0201113113231210-1111131120223222-3023103010131323-0011103123233112-3221212002120223-3323230333013322) |
+| `items.get_spec.infra.hw_info.storage.serial` | [items.get_spec.infra.hw_info.storage.serial](data-sources--site_registrations--reference--group-002.md#canonical-2313313221113110-3133020231302200-3030330032312323-3003110222323231-0312322131202211-3200122003011023-0211011300022111-0313322333323303) |
+| `items.get_spec.infra.hw_info.storage.size_gb` | [items.get_spec.infra.hw_info.storage.size_gb](data-sources--site_registrations--reference--group-002.md#canonical-1311123313123101-0122333100020103-3211332230320222-1312012112032203-2012113132001300-3111001331111311-1000133031232103-2032110110023001) |
+| `items.get_spec.infra.hw_info.storage.vendor` | [items.get_spec.infra.hw_info.storage.vendor](data-sources--site_registrations--reference--group-002.md#canonical-2032103212122322-1030000100332203-0201113113231210-1111131120223222-3023103010131323-0011103123233112-3221212002120223-3323230333013322) |
 | `items.get_spec.infra.hw_info.usb` | [items.get_spec.infra.hw_info.usb](data-sources--site_registrations--reference--group-002.md#canonical-0122002130131311-1312332211222020-2031022030313320-0202230211100111-0220233303232110-0313213100203113-2101022113013002-0130112223012032) |
 | `items.get_spec.infra.hw_info.usb.address` | [items.get_spec.infra.hw_info.usb.address](data-sources--site_registrations--reference--group-002.md#canonical-1131330022301033-1023021320103231-0331202102201220-3023100021021002-1203002230212131-1300201023221331-0101333133333023-1110112222332123) |
 | `items.get_spec.infra.hw_info.usb.b_device_class` | [items.get_spec.infra.hw_info.usb.b_device_class](data-sources--site_registrations--reference--group-002.md#canonical-0012202311320103-3100323000202200-2232333211030310-1113330310010301-0332303231123321-3033111310323021-3101000033012201-0001033123211212) |
@@ -298,7 +298,7 @@ Each exact path has one authoritative reference destination. Collection element 
 | `items.object.spec.gc_spec.infra.hw_info.network.port` | [items.object.spec.gc_spec.infra.hw_info.network.port](data-sources--site_registrations--reference--group-002.md#canonical-0220330333113203-3002300113011023-2201120333223212-1312331113022113-1122031322033302-0110231023302303-1310120001131032-2323030122123102) |
 | `items.object.spec.gc_spec.infra.hw_info.network.speed` | [items.object.spec.gc_spec.infra.hw_info.network.speed](data-sources--site_registrations--reference--group-002.md#canonical-1102030211021132-0032323221023202-2010033320331022-3321012301210020-1011330131201122-1121301232120212-1200131122012110-2330033233012330) |
 | `items.object.spec.gc_spec.infra.hw_info.numa_nodes` | [items.object.spec.gc_spec.infra.hw_info.numa_nodes](data-sources--site_registrations--reference--group-002.md#canonical-2310300310012301-1032020102101312-3111323203202033-3202211200302023-2120020310020113-2223031303321131-2012013022211313-2032333111213030) |
-| `items.object.spec.gc_spec.infra.hw_info.os` | [items.object.spec.gc_spec.infra.hw_info.os](data-sources--site_registrations--reference--group-002.md#canonical-0310123312122012-1033320223020030-3100020322212322-0221000103300101-3031012203201233-3233202232021303-0131313020230320-3310133100121100) |
+| `items.object.spec.gc_spec.infra.hw_info.os` | [items.object.spec.gc_spec.infra.hw_info.os](data-sources--site_registrations--reference--group-003.md#canonical-0310123312122012-1033320223020030-3100020322212322-0221000103300101-3031012203201233-3233202232021303-0131313020230320-3310133100121100) |
 | `items.object.spec.gc_spec.infra.hw_info.os.architecture` | [items.object.spec.gc_spec.infra.hw_info.os.architecture](data-sources--site_registrations--reference--group-003.md#canonical-1313323301333332-2223101131023030-3303021301301032-3222033101012313-1200200031100032-3133121303033123-0023012232300132-2331231003122302) |
 | `items.object.spec.gc_spec.infra.hw_info.os.name` | [items.object.spec.gc_spec.infra.hw_info.os.name](data-sources--site_registrations--reference--group-003.md#canonical-1112303031111133-3230130113301122-0132032130113011-0203111013113132-0013223202111322-0030200102231032-1222313012121330-3201121230123101) |
 | `items.object.spec.gc_spec.infra.hw_info.os.release` | [items.object.spec.gc_spec.infra.hw_info.os.release](data-sources--site_registrations--reference--group-003.md#canonical-1130033300202121-0010231211023221-3210103322222233-1111211233123120-0021203110322321-2120020202200112-0333333223013001-2202011112210330) |
@@ -489,6 +489,8 @@ values are \`EOK\`, \`EPERMS\`, \`EBADINPUT\`, \`ENOTFOUND\`, \`EEXISTS\`, \`EUN
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["EBADINPUT","EEXISTS","EINTERNAL","ENOTFOUND","EOK","EPARTIAL","EPERMS","ESERIALIZE","EUNKNOWN"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("EOK",
     "EPERMS",
@@ -626,6 +628,7 @@ Name. The name of this registration.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
   stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`),
@@ -646,6 +649,7 @@ Namespace. The namespace this item belongs to.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
   stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`),
@@ -812,6 +816,7 @@ Must be unique in entire cluster and same as OS settings. '.' (dots) are not all
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 1024),
   stringvalidator.RegexMatches(regexp.MustCompile(`^([a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?\.)*[a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?$`),
@@ -878,6 +883,8 @@ provider, which was not identified by system. Possible values are \`UNKNOWN\`, \
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["AWS","AWS_K8S","AZURE","AZURE_K8S","EQUINIX","F5OS","GCP_K8S","GOOGLE","IBMCLOUD","IBMCLOUD_K8S","KUBERNETES","KVM","KVM_K8S","NUTANIX","OCI","OPENSHIFT_VIRTUALIZATION","OPENSTACK","OTHER","OTHER_K8S","RSERIES","UNKNOWN","UNKNOWN_K8S","VMWARE","VMWARE_K8S","VOLTERRA","VOLTERRA_K8S"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("UNKNOWN",
     "AWS",
@@ -923,6 +930,7 @@ It's used to verify machine have acceptable time difference from server.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(20, 1024),
   stringvalidator.RegexMatches(regexp.MustCompile(`^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d{3})?Z?$`),
@@ -978,6 +986,7 @@ Member Interfaces. Configuration parameter for interfaces
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeBetween(1, 8),
 }
@@ -1000,6 +1009,8 @@ backup) IEEE 802.3ad Dynamic link aggregation (LACP). Possible values are
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["ACTIVE_BACKUP","BOND_MODE_UNSPECIFIED","LACP_802_3AD"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("BOND_MODE_UNSPECIFIED",
     "ACTIVE_BACKUP",
@@ -1020,6 +1031,7 @@ Bond Name. Human-readable name for the resource
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 64),
 }
@@ -1136,6 +1148,7 @@ Non-uniform memory access (NUMA) nodes count.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.AtLeast(0),
 }
@@ -1188,6 +1201,7 @@ Information from /sys/class/dmi/ID/bios\_date.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(10, 1024),
   stringvalidator.RegexMatches(regexp.MustCompile(`^\d{4}-\d{2}-\d{2}$`),
@@ -1264,6 +1278,7 @@ Information from /sys/class/dmi/ID/board\_name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
   stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`),
@@ -1752,6 +1767,8 @@ disabled. Possible values are \`QUALITY\_UNKNOWN\`, \`QUALITY\_GOOD\`, \`QUALITY
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["QUALITY_DISABLED","QUALITY_GOOD","QUALITY_POOR","QUALITY_UNKNOWN"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("QUALITY_UNKNOWN",
     "QUALITY_GOOD",
@@ -1779,6 +1796,8 @@ Defaults to \`LINK\_TYPE\_UNKNOWN\`.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["LINK_TYPE_4G","LINK_TYPE_ETHERNET","LINK_TYPE_UNKNOWN","LINK_TYPE_WAN","LINK_TYPE_WIFI","LINK_TYPE_WIFI_802_11AC","LINK_TYPE_WIFI_802_11BGN"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("LINK_TYPE_UNKNOWN",
     "LINK_TYPE_ETHERNET",
@@ -1803,6 +1822,7 @@ MAC Address. MAC address on interface.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(17, 1024),
   stringvalidator.RegexMatches(regexp.MustCompile(`^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$`),
@@ -1823,6 +1843,7 @@ Name. Name of device, eg. Eth0.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
   stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`),
@@ -1899,6 +1920,7 @@ Name. Name of OS.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
   stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`),
@@ -1975,6 +1997,7 @@ Name. Product name, eg. For AWS m5a.xlarge. Info taken from /sys/class/dmi/ID/pr
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
   stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`),
@@ -2060,51 +2083,3 @@ Type: `"string"`. Computed.
 Model. Model of device.
 
 <a id="canonical-0320220321133232-2303222231310132-2232021203332113-2113230322212313-1320200210012222-0321202333133233-2031011033131112-0332320030330100"></a>
-
-<a id="canonical-2000322220131333-0010112020331012-1230112010112112-1132133320103231-3201200020200220-3331010313123323-3330133303001031-1300213323203213"></a>
-
-#### `items.get_spec.infra.hw_info.storage.name` property
-
-Type: `"string"`. Computed.
-
-Name. Name of device, eg. Nvme0n1.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 63),
-  stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`),
-    ""),
-}
-```
-
-<a id="canonical-2313313221113110-3133020231302200-3030330032312323-3003110222323231-0312322131202211-3200122003011023-0211011300022111-0313322333323303"></a>
-
-<a id="canonical-2132302002023012-3232110212111311-2130313121312011-1330112203020131-0110222310101211-1010301222301121-1230220331002113-2232000330212130"></a>
-
-#### `items.get_spec.infra.hw_info.storage.serial` property
-
-Type: `"string"`. Computed.
-
-Serial Number. Serial of device.
-
-<a id="canonical-1311123313123101-0122333100020103-3211332230320222-1312012112032203-2012113132001300-3111001331111311-1000133031232103-2032110110023001"></a>
-
-<a id="canonical-3020101322312033-0210201221003013-2213312133130310-3033201300101321-3122011312302001-3203110033113322-1331101020130031-2330130122020333"></a>
-
-#### `items.get_spec.infra.hw_info.storage.size_gb` property
-
-Type: `"number"`. Computed.
-
-Size(GB). Device size in GB.
-
-<a id="canonical-2032103212122322-1030000100332203-0201113113231210-1111131120223222-3023103010131323-0011103123233112-3221212002120223-3323230333013322"></a>
-
-<a id="canonical-3331322310333332-2333102221122132-0013020001020312-1322311110023121-3323000112222310-1130122010211332-0013010223112123-3102220131212011"></a>
-
-#### `items.get_spec.infra.hw_info.storage.vendor` property
-
-Type: `"string"`. Computed.
-
-Vendor. Vendor of device.

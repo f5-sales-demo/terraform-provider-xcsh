@@ -1,0 +1,13 @@
+{
+  "development_only": true,
+  "qualification_passed": false,
+  "generated_pages": 18958,
+  "generated_destinations": 39565,
+  "reference_records": 4688,
+  "corpus_tests": 57,
+  "archive_bytes": 56503099,
+  "archive_sha256": "sha256:8fe0bc6964688547906335df45a32b9d50d510b5853433a5f72c6d600d7b4332",
+  "indexed_roundtrip_checks": 4688,
+  "indexed_roundtrip_mismatches": 0,
+  "remaining": "Second deterministic reference generation, immutable release/snapshot and final consumer qualification remain required."
+}

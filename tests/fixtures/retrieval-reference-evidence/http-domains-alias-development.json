@@ -1,0 +1,49 @@
+{
+  "development_only": true,
+  "qualification_passed": false,
+  "unpublished_preview": true,
+  "generated_artifact": false,
+  "changed_fields": [
+    {
+      "provider_type": "resources",
+      "collection": "http_loadbalancer",
+      "schema_path": ["domains"],
+      "aliases": ["hostnames", "host header domains", "authority header domains"]
+    },
+    {
+      "provider_type": "data-sources",
+      "collection": "http_loadbalancer",
+      "schema_path": ["domains"],
+      "aliases": ["hostnames", "host header domains", "authority header domains"]
+    }
+  ],
+  "before_correct": 97,
+  "after_correct": 98,
+  "before_top5": 126,
+  "after_top5": 127,
+  "changes": [
+    {
+      "id": "A044",
+      "before": {
+        "top5": false,
+        "kind": "choices",
+        "correct": false,
+        "destinations": [
+          "xcsh://terraform-documentation/documentation/resources/http_loadbalancer/properties/api_protection_rules/api_endpoint_rules/client_matcher/ip_prefix_list/index.md#schema-api_protection_rules--api_endpoint_rules--client_matcher--ip_prefix_list--invert_match",
+          "xcsh://terraform-documentation/documentation/resources/http_loadbalancer/properties/api_protection_rules/api_groups_rules/client_matcher/ip_prefix_list/index.md#schema-api_protection_rules--api_groups_rules--client_matcher--ip_prefix_list--invert_match",
+          "xcsh://terraform-documentation/documentation/resources/http_loadbalancer/properties/api_rate_limit/api_endpoint_rules/client_matcher/ip_prefix_list/index.md#schema-api_rate_limit--api_endpoint_rules--client_matcher--ip_prefix_list--invert_match",
+          "xcsh://terraform-documentation/documentation/resources/http_loadbalancer/properties/api_rate_limit/bypass_rate_limiting_rules/bypass_rate_limiting_rules/client_matcher/ip_prefix_list/index.md#schema-api_rate_limit--bypass_rate_limiting_rules--bypass_rate_limiting_rules--client_matcher--ip_prefix_list--invert_match",
+          "xcsh://terraform-documentation/documentation/resources/http_loadbalancer/properties/api_rate_limit/server_url_rules/client_matcher/ip_prefix_list/index.md#schema-api_rate_limit--server_url_rules--client_matcher--ip_prefix_list--invert_match"
+        ]
+      },
+      "after": {
+        "top5": true,
+        "kind": "leaf",
+        "correct": true,
+        "destinations": [
+          "xcsh://terraform-documentation/documentation/resources/http_loadbalancer/properties/index.md#schema-domains"
+        ]
+      }
+    }
+  ]
+}

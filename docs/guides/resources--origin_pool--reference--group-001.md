@@ -187,6 +187,8 @@ endpoints will be considered.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["DISTRIBUTED","LOCAL_ONLY","LOCAL_PREFERRED"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("DISTRIBUTED",
     "LOCAL_ONLY",
@@ -227,6 +229,7 @@ Port used for performing health check.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(0, 65535),
 }
@@ -363,6 +366,8 @@ Hash policy is taken from from the load balancer which is using this origin pool
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["LB_OVERRIDE","LEAST_REQUEST","RANDOM","RING_HASH","ROUND_ROBIN"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("ROUND_ROBIN",
     "LEAST_REQUEST",
@@ -412,6 +417,7 @@ follow DNS-1035 format.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   validators.NameValidator(),
 }
@@ -479,6 +485,7 @@ DNS\_LABEL format. For a namespace object itself, namespace value will be ""
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   validators.NamespaceValidator(),
 }
@@ -540,6 +547,7 @@ Exclusive with \[automatic\_port lb\_port\] Endpoint service is available on thi
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(1, 65535),
 }
@@ -627,7 +635,7 @@ Each exact path has one authoritative reference destination. Collection element 
 | `advanced_options.http2_options.enabled` | [advanced_options.http2_options.enabled](resources--origin_pool--reference--group-001.md#canonical-0001032332222230-1232102121000202-0223132112001333-0301133131132123-3302031331201113-1212301110000123-0100310303122321-0220022202310212) |
 | `advanced_options.http_idle_timeout` | [advanced_options.http_idle_timeout](resources--origin_pool--reference--group-001.md#canonical-1321010201322222-1130133001201211-3121010322233010-3330321322232321-3133201010030331-3033221133311122-3312201231002102-2213330131233312) |
 | `advanced_options.max_requests_per_connection` | [advanced_options.max_requests_per_connection](resources--origin_pool--reference--group-001.md#canonical-0130231302123131-1313302130002302-1120311231300200-1122311220210332-2223002102212200-0131303313120211-3311033101321000-2101011110101211) |
-| `advanced_options.no_panic_threshold` | [advanced_options.no_panic_threshold](resources--origin_pool--reference--group-001.md#canonical-3022211111030303-3303210112231032-3021322222331213-0112210010001200-3301230202232230-1333221121031111-3310020003001123-3221033220022021) |
+| `advanced_options.no_panic_threshold` | [advanced_options.no_panic_threshold](resources--origin_pool--reference--group-002.md#canonical-3022211111030303-3303210112231032-3021322222331213-0112210010001200-3301230202232230-1333221121031111-3310020003001123-3221033220022021) |
 | `advanced_options.no_request_limit_per_connection` | [advanced_options.no_request_limit_per_connection](resources--origin_pool--reference--group-002.md#canonical-0333321010033130-3320313302301220-2122011100131333-3213123332220331-2232001112011220-1120330033123332-0302232303012031-1233011330211012) |
 | `advanced_options.outlier_detection` | [advanced_options.outlier_detection](resources--origin_pool--reference--group-002.md#canonical-3303000202220013-3031232033223310-1321323003321201-1010000202210313-1202211123013022-0303123122302011-3300002131010223-1100212211121220) |
 | `advanced_options.outlier_detection.base_ejection_time` | [advanced_options.outlier_detection.base_ejection_time](resources--origin_pool--reference--group-002.md#canonical-3222013223202212-3021331003111312-1122020202020233-1223310211021313-3333132332131022-1111030030331122-2313200201332021-3321323232013330) |
@@ -682,7 +690,7 @@ Each exact path has one authoritative reference destination. Collection element 
 | `origin_servers.custom_endpoint_object.endpoint.tenant` | [origin_servers.custom_endpoint_object.endpoint.tenant](resources--origin_pool--reference--group-002.md#canonical-3330231212331013-2101100320123121-2312213221032033-1100233211312111-0320330002222031-3200032130101023-3130301011122012-2210101201330221) |
 | `origin_servers.k8s_service` | [origin_servers.k8s_service](resources--origin_pool--reference--group-002.md#canonical-1030300312310013-0232032320031233-0321120322100000-1203211033132131-0011131303210313-3312332103010313-1112021202002011-0333111102120233) |
 | `origin_servers.k8s_service.inside_network` | [origin_servers.k8s_service.inside_network](resources--origin_pool--reference--group-002.md#canonical-1023300302332022-1002212333203103-0200330012333210-0302332010031111-1320013012311210-0100021132200333-1022300201013233-2313233023220331) |
-| `origin_servers.k8s_service.outside_network` | [origin_servers.k8s_service.outside_network](resources--origin_pool--reference--group-002.md#canonical-0200213003113132-2023222231331310-2230113323301202-2211222031132011-0033332200031130-2013120323322321-1330102032233232-3101213331030010) |
+| `origin_servers.k8s_service.outside_network` | [origin_servers.k8s_service.outside_network](resources--origin_pool--reference--group-003.md#canonical-0200213003113132-2023222231331310-2230113323301202-2211222031132011-0033332200031130-2013120323322321-1330102032233232-3101213331030010) |
 | `origin_servers.k8s_service.protocol` | [origin_servers.k8s_service.protocol](resources--origin_pool--reference--group-002.md#canonical-0311121300123202-2221210100230022-1233300103220023-2013022122201102-0101123301122032-0120131013101312-0112020211120133-1230322023012303) |
 | `origin_servers.k8s_service.service_name` | [origin_servers.k8s_service.service_name](resources--origin_pool--reference--group-002.md#canonical-3121002331113031-3230020310313222-2210212222223132-3211103300021220-0001213102332021-0302210231311112-0303111122301210-2130131333030202) |
 | `origin_servers.k8s_service.site_locator` | [origin_servers.k8s_service.site_locator](resources--origin_pool--reference--group-003.md#canonical-0210110101223301-1332211132103003-2122101201000300-3232202220003030-0323132200322021-1031030230301100-3013303132331112-1301002231102332) |
@@ -838,6 +846,7 @@ Configure Advanced OPTIONS for origin pool.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("auto_http_config",
     "http1_config"),
   validators.ConflictingObjectAttributes("auto_http_config",
@@ -920,6 +929,7 @@ milliseconds. The default value is 2 seconds. Server applies default when omitte
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.AtMost(1800000),
 }
@@ -995,6 +1005,7 @@ specified in milliseconds. The default value is 5 minutes.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.AtMost(600000),
 }
@@ -1045,6 +1056,7 @@ connection.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.AtLeast(1),
 }
@@ -1080,7 +1092,7 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [no_panic_threshold](resources--origin_pool--reference--group-001.md#canonical-0202112120201020-0312010230000131-1100030322023231-3232212311110032-1220210322222103-2332221300001302-3110032302100201-0210013330221330): complete subsection reference.
+- [no_panic_threshold](resources--origin_pool--reference--group-002.md#canonical-0202112120201020-0312010230000131-1100030322023231-3232212311110032-1220210322222103-2332221300001302-3110032302100201-0210013330221330): complete subsection reference.
 
 - [no_request_limit_per_connection](resources--origin_pool--reference--group-002.md#canonical-1330213333313110-3100031301022021-2123130200313332-3201013222020131-2223030121213030-2220120203131331-1221101000313013-1112103003000113): complete subsection reference.
 
@@ -1100,6 +1112,7 @@ below which all endpoints will be considered for load balancing ignoring its hea
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.AtMost(100),
 }
@@ -1247,6 +1260,7 @@ reach connection limit.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.AtMost(32768),
 }
@@ -1298,6 +1312,7 @@ exceed this count.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.AtMost(32768),
 }
@@ -1352,6 +1367,7 @@ if pending request reach pending\_request.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.AtMost(32768),
 }
@@ -1407,6 +1423,8 @@ Priority routing for each request. Default routing mechanism High-Priority routi
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["DEFAULT","HIGH"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("DEFAULT",
     "HIGH"),
@@ -1445,6 +1463,7 @@ Remove endpoint out of load balancing decision, if retries for request exceed th
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(0, 32768),
 }
@@ -1831,6 +1850,7 @@ Configure subset OPTIONS for origin pool.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("endpoint_subsets"),
   validators.ConflictingObjectAttributes("any_endpoint",
     "default_subset"),
@@ -2062,6 +2082,7 @@ values of these keys form a subset within the class.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.RequiredListObjectAttributes("keys")}
 ```
 
@@ -2121,6 +2142,7 @@ List of keys that define a cluster subset class.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(16),
 }
@@ -2281,6 +2303,7 @@ Header Transformation OPTIONS for HTTP/1.1 request/response headers.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("default_header_transformation",
     "preserve_case_header_transformation"),
   validators.ConflictingObjectAttributes("default_header_transformation",
@@ -2519,50 +2542,3 @@ Receipt-pinned upstream constraints:
   }
 }
 ```
-
-<a id="canonical-0202112120201020-0312010230000131-1100030322023231-3232212311110032-1220210322222103-2332221300001302-3110032302100201-0210013330221330"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-## `advanced_options.no_panic_threshold` properties
-
-Breadcrumbs:
-
-- [xcsh_origin_pool](../resources/origin_pool.md#canonical-1300222123211010-0221103312033303-3103220201011310-0312202100212232-2132331032032202-3102123303123231-2302302300131121-2101021333132222)
-- [Property reference](resources--origin_pool--reference--group-001.md#canonical-3212012302103133-0133102110013031-2131221222021021-2000212221110230-2323033002013033-2112321312312211-0213033122012333-3133112201301013)
-- [advanced_options](resources--origin_pool--reference--group-001.md#canonical-1023311220110031-0231320022131021-0033212101303010-3313122003030112-0232231312233323-0112101220121031-0120211031032111-3200312011212231)
-- advanced_options.no_panic_threshold
-
-<a id="canonical-3022211111030303-3303210112231032-3021322222331213-0112210010001200-3301230202232230-1333221121031111-3310020003001123-3221033220022021"></a>
-
-Type: `["object", {}]`. Optional, Computed.
-
-Configuration parameter for no panic threshold. Defaults to \`map\[\]\`. Server applies default when
-omitted.
-
-Additional upstream details:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-no_panic_threshold = {}
-```
-
-This is an empty object or choice marker. It has no direct properties.

@@ -381,7 +381,7 @@
       "category": "container",
       "child_ids": ["xcsh-docs:data-sources:k8s_cluster:reference", "xcsh-docs:data-sources:k8s_cluster:examples"],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -443,7 +443,7 @@
         "xcsh-docs:data-sources:k8s_cluster:properties:vk8s_namespace_access_permit"
       ],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -469,6 +469,8 @@
           "anchor": "schema-annotations",
           "description": "Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when modifying objects.",
           "document_id": "xcsh-docs:data-sources:k8s_cluster:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -483,6 +485,8 @@
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:k8s_cluster:properties:cluster_scoped_access_deny",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -497,6 +501,8 @@
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:k8s_cluster:properties:cluster_scoped_access_permit",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -511,6 +517,8 @@
           "anchor": "section",
           "description": "List of cluster wide applications.",
           "document_id": "xcsh-docs:data-sources:k8s_cluster:properties:cluster_wide_app_list",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -525,6 +533,8 @@
           "anchor": "schema-description",
           "description": "Human readable description for the object.",
           "document_id": "xcsh-docs:data-sources:k8s_cluster:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -539,6 +549,8 @@
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:k8s_cluster:properties:global_access_enable",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -553,6 +565,8 @@
           "anchor": "schema-id",
           "description": "Unique identifier for the resource.",
           "document_id": "xcsh-docs:data-sources:k8s_cluster:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -567,6 +581,8 @@
           "anchor": "section",
           "description": "List of docker insecure registries.",
           "document_id": "xcsh-docs:data-sources:k8s_cluster:properties:insecure_registry_list",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -581,6 +597,8 @@
           "anchor": "schema-labels",
           "description": "Map of string keys and values that can be used to organize and categorize (scope and select) objects as chosen by the user. Values specified here will be used by selector expression.",
           "document_id": "xcsh-docs:data-sources:k8s_cluster:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -595,6 +613,8 @@
           "anchor": "section",
           "description": "Parameters required to enable local access.",
           "document_id": "xcsh-docs:data-sources:k8s_cluster:properties:local_access_config",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -609,6 +629,8 @@
           "anchor": "schema-name",
           "description": "This is the name of configuration object. It has to be unique within the namespace. It can only be specified during create API and cannot be changed during replace API. The value of name has to follow DNS-1035 format.",
           "document_id": "xcsh-docs:data-sources:k8s_cluster:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["required"],
           "max_items": null,
           "min_items": null,
@@ -623,6 +645,8 @@
           "anchor": "schema-namespace",
           "description": "This defines the workspace within which each the configuration object is to be created. Must be a DNS_LABEL format. For a namespace object itself, namespace value will be \"\"",
           "document_id": "xcsh-docs:data-sources:k8s_cluster:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional", "computed"],
           "max_items": null,
           "min_items": null,
@@ -637,6 +661,8 @@
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:k8s_cluster:properties:no_cluster_wide_apps",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -651,6 +677,8 @@
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:k8s_cluster:properties:no_global_access",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -665,6 +693,8 @@
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:k8s_cluster:properties:no_insecure_registries",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -679,6 +709,8 @@
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:k8s_cluster:properties:no_local_access",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -693,6 +725,8 @@
           "anchor": "section",
           "description": "List of active cluster role binding list for a K8s cluster.",
           "document_id": "xcsh-docs:data-sources:k8s_cluster:properties:use_custom_cluster_role_bindings",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -707,6 +741,8 @@
           "anchor": "section",
           "description": "List of active cluster role list for a K8s cluster.",
           "document_id": "xcsh-docs:data-sources:k8s_cluster:properties:use_custom_cluster_role_list",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -721,6 +757,8 @@
           "anchor": "section",
           "description": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
           "document_id": "xcsh-docs:data-sources:k8s_cluster:properties:use_custom_pod_security_admission",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -735,6 +773,8 @@
           "anchor": "section",
           "description": "List of active Pod security policies for a K8s cluster.",
           "document_id": "xcsh-docs:data-sources:k8s_cluster:properties:use_custom_psp_list",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -749,6 +789,8 @@
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:k8s_cluster:properties:use_default_cluster_role_bindings",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -763,6 +805,8 @@
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:k8s_cluster:properties:use_default_cluster_roles",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -777,6 +821,8 @@
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:k8s_cluster:properties:use_default_pod_security_admission",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -791,6 +837,8 @@
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:k8s_cluster:properties:use_default_psp",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -805,6 +853,8 @@
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:k8s_cluster:properties:vk8s_namespace_access_deny",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -819,6 +869,8 @@
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:k8s_cluster:properties:vk8s_namespace_access_permit",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -848,7 +900,7 @@
       "category": "container",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -888,7 +940,7 @@
       "category": "container",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -928,7 +980,7 @@
       "category": "container",
       "child_ids": ["xcsh-docs:data-sources:k8s_cluster:properties:cluster_wide_app_list:cluster_wide_apps"],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -954,6 +1006,8 @@
           "anchor": "section",
           "description": "List of cluster wide applications.",
           "document_id": "xcsh-docs:data-sources:k8s_cluster:properties:cluster_wide_app_list:cluster_wide_apps",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -988,7 +1042,7 @@
         "xcsh-docs:data-sources:k8s_cluster:properties:cluster_wide_app_list:cluster_wide_apps:prometheus"
       ],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1014,6 +1068,8 @@
           "anchor": "section",
           "description": "Description Parameters for Argo Continuous Deployment(CD) application.",
           "document_id": "xcsh-docs:data-sources:k8s_cluster:properties:cluster_wide_app_list:cluster_wide_apps:argo_cd",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -1028,6 +1084,8 @@
           "anchor": "section",
           "description": "Description Parameters for K8s dashboard.",
           "document_id": "xcsh-docs:data-sources:k8s_cluster:properties:cluster_wide_app_list:cluster_wide_apps:dashboard",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -1042,6 +1100,8 @@
           "anchor": "section",
           "description": "Description Parameters for Kubernetes Metrics Server application.",
           "document_id": "xcsh-docs:data-sources:k8s_cluster:properties:cluster_wide_app_list:cluster_wide_apps:metrics_server",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -1056,6 +1116,8 @@
           "anchor": "section",
           "description": "Description Parameters for Prometheus server access.",
           "document_id": "xcsh-docs:data-sources:k8s_cluster:properties:cluster_wide_app_list:cluster_wide_apps:prometheus",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -1087,7 +1149,7 @@
         "xcsh-docs:data-sources:k8s_cluster:properties:cluster_wide_app_list:cluster_wide_apps:argo_cd:local_domain"
       ],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1113,6 +1175,8 @@
           "anchor": "section",
           "description": "Parameters required to enable local access.",
           "document_id": "xcsh-docs:data-sources:k8s_cluster:properties:cluster_wide_app_list:cluster_wide_apps:argo_cd:local_domain",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -1145,7 +1209,7 @@
         "xcsh-docs:data-sources:k8s_cluster:properties:cluster_wide_app_list:cluster_wide_apps:argo_cd:local_domain:password"
       ],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1171,6 +1235,8 @@
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:k8s_cluster:properties:cluster_wide_app_list:cluster_wide_apps:argo_cd:local_domain:default_port",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -1185,6 +1251,8 @@
           "anchor": "schema-cluster_wide_app_list--cluster_wide_apps--argo_cd--local_domain--local_domain",
           "description": "ArgoCD will be accessible at <site name>.<local domain>.",
           "document_id": "xcsh-docs:data-sources:k8s_cluster:properties:cluster_wide_app_list:cluster_wide_apps:argo_cd:local_domain",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -1199,6 +1267,8 @@
           "anchor": "section",
           "description": "SecretType is used in an object to indicate a sensitive/confidential field.",
           "document_id": "xcsh-docs:data-sources:k8s_cluster:properties:cluster_wide_app_list:cluster_wide_apps:argo_cd:local_domain:password",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -1213,6 +1283,8 @@
           "anchor": "schema-cluster_wide_app_list--cluster_wide_apps--argo_cd--local_domain--port",
           "description": "Exclusive with Use custom ArgoCD port. Available port range is less than 65000 except reserved ports.",
           "document_id": "xcsh-docs:data-sources:k8s_cluster:properties:cluster_wide_app_list:cluster_wide_apps:argo_cd:local_domain",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -1242,7 +1314,7 @@
       "category": "container",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1285,7 +1357,7 @@
         "xcsh-docs:data-sources:k8s_cluster:properties:cluster_wide_app_list:cluster_wide_apps:argo_cd:local_domain:password:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1311,6 +1383,8 @@
           "anchor": "section",
           "description": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
           "document_id": "xcsh-docs:data-sources:k8s_cluster:properties:cluster_wide_app_list:cluster_wide_apps:argo_cd:local_domain:password:blindfold_secret_info",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -1332,6 +1406,8 @@
           "anchor": "section",
           "description": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
           "document_id": "xcsh-docs:data-sources:k8s_cluster:properties:cluster_wide_app_list:cluster_wide_apps:argo_cd:local_domain:password:clear_secret_info",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -1368,7 +1444,7 @@
       "category": "container",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1403,6 +1479,8 @@
           "anchor": "schema-cluster_wide_app_list--cluster_wide_apps--argo_cd--local_domain--password--blindfold_secret_info--decryption_provider",
           "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
           "document_id": "xcsh-docs:data-sources:k8s_cluster:properties:cluster_wide_app_list:cluster_wide_apps:argo_cd:local_domain:password:blindfold_secret_info",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -1427,6 +1505,8 @@
           "anchor": "schema-cluster_wide_app_list--cluster_wide_apps--argo_cd--local_domain--password--blindfold_secret_info--location",
           "description": "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
           "document_id": "xcsh-docs:data-sources:k8s_cluster:properties:cluster_wide_app_list:cluster_wide_apps:argo_cd:local_domain:password:blindfold_secret_info",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed", "sensitive"],
           "max_items": null,
           "min_items": null,
@@ -1451,6 +1531,8 @@
           "anchor": "schema-cluster_wide_app_list--cluster_wide_apps--argo_cd--local_domain--password--blindfold_secret_info--store_provider",
           "description": "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
           "document_id": "xcsh-docs:data-sources:k8s_cluster:properties:cluster_wide_app_list:cluster_wide_apps:argo_cd:local_domain:password:blindfold_secret_info",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -1488,7 +1570,7 @@
       "category": "container",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1523,6 +1605,8 @@
           "anchor": "schema-cluster_wide_app_list--cluster_wide_apps--argo_cd--local_domain--password--clear_secret_info--provider_ref",
           "description": "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
           "document_id": "xcsh-docs:data-sources:k8s_cluster:properties:cluster_wide_app_list:cluster_wide_apps:argo_cd:local_domain:password:clear_secret_info",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -1545,6 +1629,8 @@
           "anchor": "schema-cluster_wide_app_list--cluster_wide_apps--argo_cd--local_domain--password--clear_secret_info--url",
           "description": "URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding.",
           "document_id": "xcsh-docs:data-sources:k8s_cluster:properties:cluster_wide_app_list:cluster_wide_apps:argo_cd:local_domain:password:clear_secret_info",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed", "sensitive"],
           "max_items": null,
           "min_items": null,
@@ -1582,7 +1668,7 @@
       "category": "container",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1622,7 +1708,7 @@
       "category": "container",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1662,7 +1748,7 @@
       "category": "container",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1702,7 +1788,7 @@
       "category": "container",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1742,7 +1828,7 @@
       "category": "container",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1768,6 +1854,8 @@
           "anchor": "schema-insecure_registry_list--insecure_registries",
           "description": "List of docker insecure registries in format \"example.com:5000\"",
           "document_id": "xcsh-docs:data-sources:k8s_cluster:properties:insecure_registry_list",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -1797,7 +1885,7 @@
       "category": "container",
       "child_ids": ["xcsh-docs:data-sources:k8s_cluster:properties:local_access_config:default_port"],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1823,6 +1911,8 @@
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:k8s_cluster:properties:local_access_config:default_port",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -1837,6 +1927,8 @@
           "anchor": "schema-local_access_config--local_domain",
           "description": "Local K8s API server will be accessible at <site name>.<local domain>.",
           "document_id": "xcsh-docs:data-sources:k8s_cluster:properties:local_access_config",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -1851,6 +1943,8 @@
           "anchor": "schema-local_access_config--port",
           "description": "Exclusive with Use custom K8s port for API server. Available port range is less than 65000 except reserved ports.",
           "document_id": "xcsh-docs:data-sources:k8s_cluster:properties:local_access_config",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -1880,7 +1974,7 @@
       "category": "container",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1920,7 +2014,7 @@
       "category": "container",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1960,7 +2054,7 @@
       "category": "container",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2000,7 +2094,7 @@
       "category": "container",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2040,7 +2134,7 @@
       "category": "container",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2082,7 +2176,7 @@
         "xcsh-docs:data-sources:k8s_cluster:properties:use_custom_cluster_role_bindings:cluster_role_bindings"
       ],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2108,6 +2202,8 @@
           "anchor": "section",
           "description": "List of active cluster role binding list for a K8s cluster.",
           "document_id": "xcsh-docs:data-sources:k8s_cluster:properties:use_custom_cluster_role_bindings:cluster_role_bindings",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -2137,7 +2233,7 @@
       "category": "container",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2163,10 +2259,19 @@
           "anchor": "schema-use_custom_cluster_role_bindings--cluster_role_bindings--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:k8s_cluster:properties:use_custom_cluster_role_bindings:cluster_role_bindings",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
           "nesting": null,
+          "reference_identity": {
+            "member": "name",
+            "scope_path": ["use_custom_cluster_role_bindings", "cluster_role_bindings"],
+            "source": "receipt-pinned-schema-identity",
+            "upstream_message": "ves.io.schema.views.ObjectRefType",
+            "version": 1
+          },
           "relationships": [],
           "schema_path": ["use_custom_cluster_role_bindings", "cluster_role_bindings", "name"],
           "syntax": "attribute",
@@ -2177,10 +2282,19 @@
           "anchor": "schema-use_custom_cluster_role_bindings--cluster_role_bindings--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:k8s_cluster:properties:use_custom_cluster_role_bindings:cluster_role_bindings",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
           "nesting": null,
+          "reference_identity": {
+            "member": "namespace",
+            "scope_path": ["use_custom_cluster_role_bindings", "cluster_role_bindings"],
+            "source": "receipt-pinned-schema-identity",
+            "upstream_message": "ves.io.schema.views.ObjectRefType",
+            "version": 1
+          },
           "relationships": [],
           "schema_path": ["use_custom_cluster_role_bindings", "cluster_role_bindings", "namespace"],
           "syntax": "attribute",
@@ -2191,10 +2305,19 @@
           "anchor": "schema-use_custom_cluster_role_bindings--cluster_role_bindings--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:k8s_cluster:properties:use_custom_cluster_role_bindings:cluster_role_bindings",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
           "nesting": null,
+          "reference_identity": {
+            "member": "tenant",
+            "scope_path": ["use_custom_cluster_role_bindings", "cluster_role_bindings"],
+            "source": "receipt-pinned-schema-identity",
+            "upstream_message": "ves.io.schema.views.ObjectRefType",
+            "version": 1
+          },
           "relationships": [],
           "schema_path": ["use_custom_cluster_role_bindings", "cluster_role_bindings", "tenant"],
           "syntax": "attribute",
@@ -2220,7 +2343,7 @@
       "category": "container",
       "child_ids": ["xcsh-docs:data-sources:k8s_cluster:properties:use_custom_cluster_role_list:cluster_roles"],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2246,6 +2369,8 @@
           "anchor": "section",
           "description": "List of active cluster role list for a K8s cluster.",
           "document_id": "xcsh-docs:data-sources:k8s_cluster:properties:use_custom_cluster_role_list:cluster_roles",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -2275,7 +2400,7 @@
       "category": "container",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2301,10 +2426,19 @@
           "anchor": "schema-use_custom_cluster_role_list--cluster_roles--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:k8s_cluster:properties:use_custom_cluster_role_list:cluster_roles",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
           "nesting": null,
+          "reference_identity": {
+            "member": "name",
+            "scope_path": ["use_custom_cluster_role_list", "cluster_roles"],
+            "source": "receipt-pinned-schema-identity",
+            "upstream_message": "ves.io.schema.views.ObjectRefType",
+            "version": 1
+          },
           "relationships": [],
           "schema_path": ["use_custom_cluster_role_list", "cluster_roles", "name"],
           "syntax": "attribute",
@@ -2315,10 +2449,19 @@
           "anchor": "schema-use_custom_cluster_role_list--cluster_roles--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:k8s_cluster:properties:use_custom_cluster_role_list:cluster_roles",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
           "nesting": null,
+          "reference_identity": {
+            "member": "namespace",
+            "scope_path": ["use_custom_cluster_role_list", "cluster_roles"],
+            "source": "receipt-pinned-schema-identity",
+            "upstream_message": "ves.io.schema.views.ObjectRefType",
+            "version": 1
+          },
           "relationships": [],
           "schema_path": ["use_custom_cluster_role_list", "cluster_roles", "namespace"],
           "syntax": "attribute",
@@ -2329,10 +2472,19 @@
           "anchor": "schema-use_custom_cluster_role_list--cluster_roles--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:k8s_cluster:properties:use_custom_cluster_role_list:cluster_roles",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
           "nesting": null,
+          "reference_identity": {
+            "member": "tenant",
+            "scope_path": ["use_custom_cluster_role_list", "cluster_roles"],
+            "source": "receipt-pinned-schema-identity",
+            "upstream_message": "ves.io.schema.views.ObjectRefType",
+            "version": 1
+          },
           "relationships": [],
           "schema_path": ["use_custom_cluster_role_list", "cluster_roles", "tenant"],
           "syntax": "attribute",
@@ -2358,7 +2510,7 @@
       "category": "container",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2384,10 +2536,19 @@
           "anchor": "schema-use_custom_pod_security_admission--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:k8s_cluster:properties:use_custom_pod_security_admission",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
           "nesting": null,
+          "reference_identity": {
+            "member": "name",
+            "scope_path": ["use_custom_pod_security_admission"],
+            "source": "receipt-pinned-schema-identity",
+            "upstream_message": "ves.io.schema.views.ObjectRefType",
+            "version": 1
+          },
           "relationships": [],
           "schema_path": ["use_custom_pod_security_admission", "name"],
           "syntax": "attribute",
@@ -2398,10 +2559,19 @@
           "anchor": "schema-use_custom_pod_security_admission--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:k8s_cluster:properties:use_custom_pod_security_admission",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
           "nesting": null,
+          "reference_identity": {
+            "member": "namespace",
+            "scope_path": ["use_custom_pod_security_admission"],
+            "source": "receipt-pinned-schema-identity",
+            "upstream_message": "ves.io.schema.views.ObjectRefType",
+            "version": 1
+          },
           "relationships": [],
           "schema_path": ["use_custom_pod_security_admission", "namespace"],
           "syntax": "attribute",
@@ -2412,10 +2582,19 @@
           "anchor": "schema-use_custom_pod_security_admission--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:k8s_cluster:properties:use_custom_pod_security_admission",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
           "nesting": null,
+          "reference_identity": {
+            "member": "tenant",
+            "scope_path": ["use_custom_pod_security_admission"],
+            "source": "receipt-pinned-schema-identity",
+            "upstream_message": "ves.io.schema.views.ObjectRefType",
+            "version": 1
+          },
           "relationships": [],
           "schema_path": ["use_custom_pod_security_admission", "tenant"],
           "syntax": "attribute",
@@ -2441,7 +2620,7 @@
       "category": "container",
       "child_ids": ["xcsh-docs:data-sources:k8s_cluster:properties:use_custom_psp_list:pod_security_policies"],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2467,6 +2646,8 @@
           "anchor": "section",
           "description": "List of active Pod security policies for a K8s cluster.",
           "document_id": "xcsh-docs:data-sources:k8s_cluster:properties:use_custom_psp_list:pod_security_policies",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -2496,7 +2677,7 @@
       "category": "container",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2522,10 +2703,19 @@
           "anchor": "schema-use_custom_psp_list--pod_security_policies--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:k8s_cluster:properties:use_custom_psp_list:pod_security_policies",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
           "nesting": null,
+          "reference_identity": {
+            "member": "name",
+            "scope_path": ["use_custom_psp_list", "pod_security_policies"],
+            "source": "receipt-pinned-schema-identity",
+            "upstream_message": "ves.io.schema.views.ObjectRefType",
+            "version": 1
+          },
           "relationships": [],
           "schema_path": ["use_custom_psp_list", "pod_security_policies", "name"],
           "syntax": "attribute",
@@ -2536,10 +2726,19 @@
           "anchor": "schema-use_custom_psp_list--pod_security_policies--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:k8s_cluster:properties:use_custom_psp_list:pod_security_policies",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
           "nesting": null,
+          "reference_identity": {
+            "member": "namespace",
+            "scope_path": ["use_custom_psp_list", "pod_security_policies"],
+            "source": "receipt-pinned-schema-identity",
+            "upstream_message": "ves.io.schema.views.ObjectRefType",
+            "version": 1
+          },
           "relationships": [],
           "schema_path": ["use_custom_psp_list", "pod_security_policies", "namespace"],
           "syntax": "attribute",
@@ -2550,10 +2749,19 @@
           "anchor": "schema-use_custom_psp_list--pod_security_policies--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:k8s_cluster:properties:use_custom_psp_list:pod_security_policies",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
           "nesting": null,
+          "reference_identity": {
+            "member": "tenant",
+            "scope_path": ["use_custom_psp_list", "pod_security_policies"],
+            "source": "receipt-pinned-schema-identity",
+            "upstream_message": "ves.io.schema.views.ObjectRefType",
+            "version": 1
+          },
           "relationships": [],
           "schema_path": ["use_custom_psp_list", "pod_security_policies", "tenant"],
           "syntax": "attribute",
@@ -2579,7 +2787,7 @@
       "category": "container",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2619,7 +2827,7 @@
       "category": "container",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2659,7 +2867,7 @@
       "category": "container",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2699,7 +2907,7 @@
       "category": "container",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2739,7 +2947,7 @@
       "category": "container",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2779,7 +2987,7 @@
       "category": "container",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2819,7 +3027,7 @@
       "category": "container",
       "child_ids": ["xcsh-docs:data-sources:k8s_cluster:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2859,7 +3067,7 @@
       "category": "container",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"

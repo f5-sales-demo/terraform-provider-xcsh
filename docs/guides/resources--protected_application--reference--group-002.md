@@ -6,9 +6,65 @@ description: "Complete grouped canonical reference for xcsh_protected_applicatio
 
 # xcsh_protected_application reference
 
+<a id="canonical-0213202232233011-0000312212000013-2113100002231110-2301000001213232-0031000313130131-1333121310313202-2201321230031021-0123023212011332"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `cloudflare.protected_endpoints.web_client` properties
+
+Breadcrumbs:
+
+- [xcsh_protected_application](../resources/protected_application.md#canonical-0002322312001300-2321122230000322-1132302132120131-2310022322102121-3300111330013030-3223012202311310-1021020212202332-0020010133311002)
+- [Property reference](resources--protected_application--reference--group-001.md#canonical-1112011310232010-1130212322220320-1323121033211100-0313202312023232-3332212122311300-1331303332321012-0100301021312031-1320300331013311)
+- [Cloudflare](resources--protected_application--reference--group-001.md#canonical-1300213123131122-1030311223302010-1123221002212300-1123122213010200-1110331233223310-3211033220031200-3333302300120030-0020033300031111)
+- [cloudflare.protected_endpoints](resources--protected_application--reference--group-001.md#canonical-3122300021323100-2230320020332020-3300130320322201-0303020102021123-1120021320220130-3133000132211113-0133313003222210-2112203222032200)
+- Cloudflare.protected_endpoints.web_client
+
+<a id="canonical-3121310223103111-0301010320012013-3120110030132220-3202231230330102-1023232201201213-0320310200133333-1122201101321010-0333232030022222"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+Web Client. Web client configuration OPTIONS.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: false
+Validators: []validator.Object{validators.ConflictingObjectAttributes("block",
+    "continue"),
+  validators.ConflictingObjectAttributes("block",
+    "redirect"),
+  validators.ConflictingObjectAttributes("continue",
+    "redirect")}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-mitigation": "[\"block\",\"continue\",\"redirect\"]"
+}
+```
+
+Terraform syntax:
+
+```terraform
+web_client {
+  # Configure direct properties listed below.
+}
+```
+
 <a id="canonical-1013110231203301-3300113310332011-2020230022120113-1331301121301300-1021210032003332-0030220331323113-3112010100120323-3133023133203232"></a>
 
-## Direct properties for `cloudflare.protected_endpoints.web_client`
+### Direct properties for `cloudflare.protected_endpoints.web_client`
 
 - [block](resources--protected_application--reference--group-002.md#canonical-3112012233110303-1213332313103120-2021013130012232-1213300123323111-0033233013221231-2213110231312112-1122201022120013-3213300223331123): complete subsection reference.
 
@@ -30,7 +86,7 @@ Breadcrumbs:
 - [Property reference](resources--protected_application--reference--group-001.md#canonical-1112011310232010-1130212322220320-1323121033211100-0313202312023232-3332212122311300-1331303332321012-0100301021312031-1320300331013311)
 - [Cloudflare](resources--protected_application--reference--group-001.md#canonical-1300213123131122-1030311223302010-1123221002212300-1123122213010200-1110331233223310-3211033220031200-3333302300120030-0020033300031111)
 - [cloudflare.protected_endpoints](resources--protected_application--reference--group-001.md#canonical-3122300021323100-2230320020332020-3300130320322201-0303020102021123-1120021320220130-3133000132211113-0133313003222210-2112203222032200)
-- [cloudflare.protected_endpoints.web_client](resources--protected_application--reference--group-001.md#canonical-0213202232233011-0000312212000013-2113100002231110-2301000001213232-0031000313130131-1333121310313202-2201321230031021-0123023212011332)
+- [cloudflare.protected_endpoints.web_client](resources--protected_application--reference--group-002.md#canonical-0213202232233011-0000312212000013-2113100002231110-2301000001213232-0031000313130131-1333121310313202-2201321230031021-0123023212011332)
 - Cloudflare.protected_endpoints.web_client.block
 
 <a id="canonical-3113230031312132-1013333030110310-1103201101313101-2010020112300212-3221033123032102-0033012120323122-2132012332211031-1132012021211023"></a>
@@ -75,6 +131,7 @@ Body. Custom body message.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(4096),
 }
@@ -124,6 +181,7 @@ Content type to use in a block response.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(128),
 }
@@ -213,6 +271,8 @@ Extended status code Network Authentication Required status code.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["Accepted","AlreadyReported","BadGateway","BadRequest","Conflict","Continue","Created","EmptyStatusCode","ExpectationFailed","FailedDependency","Forbidden","Found","GatewayTimeout","Gone","HTTPVersionNotSupported","IMUsed","InsufficientStorage","InternalServerError","LengthRequired","Locked","LoopDetected","MethodNotAllowed","MisdirectedRequest","MovedPermanently","MultiStatus","MultipleChoices","NetworkAuthenticationRequired","NoContent","NonAuthoritativeInformation","NotAcceptable","NotExtended","NotFound","NotImplemented","NotModified","OK","PartialContent","PayloadTooLarge","PaymentRequired","PermanentRedirect","PreconditionFailed","PreconditionRequired","ProxyAuthenticationRequired","RangeNotSatisfiable","RequestHeaderFieldsTooLarge","RequestTimeout","ResetContent","SeeOther","ServiceUnavailable","TemporaryRedirect","TooManyRequests","URITooLong","Unauthorized","UnprocessableEntity","UnsupportedMediaType","UpgradeRequired","UseProxy","VariantAlsoNegotiates"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("EmptyStatusCode",
     "Continue",
@@ -361,7 +421,7 @@ Breadcrumbs:
 - [Property reference](resources--protected_application--reference--group-001.md#canonical-1112011310232010-1130212322220320-1323121033211100-0313202312023232-3332212122311300-1331303332321012-0100301021312031-1320300331013311)
 - [Cloudflare](resources--protected_application--reference--group-001.md#canonical-1300213123131122-1030311223302010-1123221002212300-1123122213010200-1110331233223310-3211033220031200-3333302300120030-0020033300031111)
 - [cloudflare.protected_endpoints](resources--protected_application--reference--group-001.md#canonical-3122300021323100-2230320020332020-3300130320322201-0303020102021123-1120021320220130-3133000132211113-0133313003222210-2112203222032200)
-- [cloudflare.protected_endpoints.web_client](resources--protected_application--reference--group-001.md#canonical-0213202232233011-0000312212000013-2113100002231110-2301000001213232-0031000313130131-1333121310313202-2201321230031021-0123023212011332)
+- [cloudflare.protected_endpoints.web_client](resources--protected_application--reference--group-002.md#canonical-0213202232233011-0000312212000013-2113100002231110-2301000001213232-0031000313130131-1333121310313202-2201321230031021-0123023212011332)
 - Cloudflare.protected_endpoints.web_client.continue
 
 <a id="canonical-0103301000301232-2102202133001231-3101010102310102-0132321123013312-2233113022313221-2322021020021312-2320120323301222-3010203201332102"></a>
@@ -373,6 +433,7 @@ Select Continue Bot Mitigation Action. Continue mitigation action.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("add_header",
     "no_header")}
 ```
@@ -421,7 +482,7 @@ Breadcrumbs:
 - [Property reference](resources--protected_application--reference--group-001.md#canonical-1112011310232010-1130212322220320-1323121033211100-0313202312023232-3332212122311300-1331303332321012-0100301021312031-1320300331013311)
 - [Cloudflare](resources--protected_application--reference--group-001.md#canonical-1300213123131122-1030311223302010-1123221002212300-1123122213010200-1110331233223310-3211033220031200-3333302300120030-0020033300031111)
 - [cloudflare.protected_endpoints](resources--protected_application--reference--group-001.md#canonical-3122300021323100-2230320020332020-3300130320322201-0303020102021123-1120021320220130-3133000132211113-0133313003222210-2112203222032200)
-- [cloudflare.protected_endpoints.web_client](resources--protected_application--reference--group-001.md#canonical-0213202232233011-0000312212000013-2113100002231110-2301000001213232-0031000313130131-1333121310313202-2201321230031021-0123023212011332)
+- [cloudflare.protected_endpoints.web_client](resources--protected_application--reference--group-002.md#canonical-0213202232233011-0000312212000013-2113100002231110-2301000001213232-0031000313130131-1333121310313202-2201321230031021-0123023212011332)
 - [cloudflare.protected_endpoints.web_client.continue](resources--protected_application--reference--group-002.md#canonical-2332001013223300-1121102021023132-2023200303321003-1132233223312202-0333211011333032-1321233331330202-2001010011100030-3023312112102220)
 - Cloudflare.protected_endpoints.web_client.continue.add_header
 
@@ -470,7 +531,7 @@ Breadcrumbs:
 - [Property reference](resources--protected_application--reference--group-001.md#canonical-1112011310232010-1130212322220320-1323121033211100-0313202312023232-3332212122311300-1331303332321012-0100301021312031-1320300331013311)
 - [Cloudflare](resources--protected_application--reference--group-001.md#canonical-1300213123131122-1030311223302010-1123221002212300-1123122213010200-1110331233223310-3211033220031200-3333302300120030-0020033300031111)
 - [cloudflare.protected_endpoints](resources--protected_application--reference--group-001.md#canonical-3122300021323100-2230320020332020-3300130320322201-0303020102021123-1120021320220130-3133000132211113-0133313003222210-2112203222032200)
-- [cloudflare.protected_endpoints.web_client](resources--protected_application--reference--group-001.md#canonical-0213202232233011-0000312212000013-2113100002231110-2301000001213232-0031000313130131-1333121310313202-2201321230031021-0123023212011332)
+- [cloudflare.protected_endpoints.web_client](resources--protected_application--reference--group-002.md#canonical-0213202232233011-0000312212000013-2113100002231110-2301000001213232-0031000313130131-1333121310313202-2201321230031021-0123023212011332)
 - [cloudflare.protected_endpoints.web_client.continue](resources--protected_application--reference--group-002.md#canonical-2332001013223300-1121102021023132-2023200303321003-1132233223312202-0333211011333032-1321233331330202-2001010011100030-3023312112102220)
 - Cloudflare.protected_endpoints.web_client.continue.no_header
 
@@ -519,7 +580,7 @@ Breadcrumbs:
 - [Property reference](resources--protected_application--reference--group-001.md#canonical-1112011310232010-1130212322220320-1323121033211100-0313202312023232-3332212122311300-1331303332321012-0100301021312031-1320300331013311)
 - [Cloudflare](resources--protected_application--reference--group-001.md#canonical-1300213123131122-1030311223302010-1123221002212300-1123122213010200-1110331233223310-3211033220031200-3333302300120030-0020033300031111)
 - [cloudflare.protected_endpoints](resources--protected_application--reference--group-001.md#canonical-3122300021323100-2230320020332020-3300130320322201-0303020102021123-1120021320220130-3133000132211113-0133313003222210-2112203222032200)
-- [cloudflare.protected_endpoints.web_client](resources--protected_application--reference--group-001.md#canonical-0213202232233011-0000312212000013-2113100002231110-2301000001213232-0031000313130131-1333121310313202-2201321230031021-0123023212011332)
+- [cloudflare.protected_endpoints.web_client](resources--protected_application--reference--group-002.md#canonical-0213202232233011-0000312212000013-2113100002231110-2301000001213232-0031000313130131-1333121310313202-2201321230031021-0123023212011332)
 - Cloudflare.protected_endpoints.web_client.redirect
 
 <a id="canonical-2330331123021232-2310211101130032-3220122333323223-1212121020101113-3120103311003003-2322300032133210-2011013003012000-2331103030003211"></a>
@@ -531,6 +592,7 @@ Redirect. Redirect.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("location")}
 ```
 
@@ -570,6 +632,7 @@ Location. URI location for redirect response.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(512),
 }
@@ -666,6 +729,8 @@ Extended status code Network Authentication Required status code.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["Accepted","AlreadyReported","BadGateway","BadRequest","Conflict","Continue","Created","EmptyStatusCode","ExpectationFailed","FailedDependency","Forbidden","Found","GatewayTimeout","Gone","HTTPVersionNotSupported","IMUsed","InsufficientStorage","InternalServerError","LengthRequired","Locked","LoopDetected","MethodNotAllowed","MisdirectedRequest","MovedPermanently","MultiStatus","MultipleChoices","NetworkAuthenticationRequired","NoContent","NonAuthoritativeInformation","NotAcceptable","NotExtended","NotFound","NotImplemented","NotModified","OK","PartialContent","PayloadTooLarge","PaymentRequired","PermanentRedirect","PreconditionFailed","PreconditionRequired","ProxyAuthenticationRequired","RangeNotSatisfiable","RequestHeaderFieldsTooLarge","RequestTimeout","ResetContent","SeeOther","ServiceUnavailable","TemporaryRedirect","TooManyRequests","URITooLong","Unauthorized","UnprocessableEntity","UnsupportedMediaType","UpgradeRequired","UseProxy","VariantAlsoNegotiates"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("EmptyStatusCode",
     "Continue",
@@ -825,6 +890,7 @@ Web and Mobile client configuration OPTIONS.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("block_mobile",
     "continue_mobile"),
   validators.ConflictingObjectAttributes("block_web",
@@ -931,6 +997,7 @@ Body. Custom body message.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(4096),
 }
@@ -980,6 +1047,7 @@ Content type to use in a block response.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(128),
 }
@@ -1069,6 +1137,8 @@ Extended status code Network Authentication Required status code.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["Accepted","AlreadyReported","BadGateway","BadRequest","Conflict","Continue","Created","EmptyStatusCode","ExpectationFailed","FailedDependency","Forbidden","Found","GatewayTimeout","Gone","HTTPVersionNotSupported","IMUsed","InsufficientStorage","InternalServerError","LengthRequired","Locked","LoopDetected","MethodNotAllowed","MisdirectedRequest","MovedPermanently","MultiStatus","MultipleChoices","NetworkAuthenticationRequired","NoContent","NonAuthoritativeInformation","NotAcceptable","NotExtended","NotFound","NotImplemented","NotModified","OK","PartialContent","PayloadTooLarge","PaymentRequired","PermanentRedirect","PreconditionFailed","PreconditionRequired","ProxyAuthenticationRequired","RangeNotSatisfiable","RequestHeaderFieldsTooLarge","RequestTimeout","ResetContent","SeeOther","ServiceUnavailable","TemporaryRedirect","TooManyRequests","URITooLong","Unauthorized","UnprocessableEntity","UnsupportedMediaType","UpgradeRequired","UseProxy","VariantAlsoNegotiates"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("EmptyStatusCode",
     "Continue",
@@ -1262,6 +1332,7 @@ Body. Custom body message.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(4096),
 }
@@ -1311,6 +1382,7 @@ Content type to use in a block response.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(128),
 }
@@ -1400,6 +1472,8 @@ Extended status code Network Authentication Required status code.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["Accepted","AlreadyReported","BadGateway","BadRequest","Conflict","Continue","Created","EmptyStatusCode","ExpectationFailed","FailedDependency","Forbidden","Found","GatewayTimeout","Gone","HTTPVersionNotSupported","IMUsed","InsufficientStorage","InternalServerError","LengthRequired","Locked","LoopDetected","MethodNotAllowed","MisdirectedRequest","MovedPermanently","MultiStatus","MultipleChoices","NetworkAuthenticationRequired","NoContent","NonAuthoritativeInformation","NotAcceptable","NotExtended","NotFound","NotImplemented","NotModified","OK","PartialContent","PayloadTooLarge","PaymentRequired","PermanentRedirect","PreconditionFailed","PreconditionRequired","ProxyAuthenticationRequired","RangeNotSatisfiable","RequestHeaderFieldsTooLarge","RequestTimeout","ResetContent","SeeOther","ServiceUnavailable","TemporaryRedirect","TooManyRequests","URITooLong","Unauthorized","UnprocessableEntity","UnsupportedMediaType","UpgradeRequired","UseProxy","VariantAlsoNegotiates"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("EmptyStatusCode",
     "Continue",
@@ -1560,6 +1634,7 @@ Select Continue Bot Mitigation Action. Continue mitigation action.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("add_header",
     "no_header")}
 ```
@@ -1718,6 +1793,7 @@ Select Continue Bot Mitigation Action. Continue mitigation action.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("add_header",
     "no_header")}
 ```
@@ -1876,6 +1952,7 @@ Redirect. Redirect.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("location")}
 ```
 
@@ -1915,6 +1992,7 @@ Location. URI location for redirect response.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(512),
 }
@@ -2011,6 +2089,8 @@ Extended status code Network Authentication Required status code.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["Accepted","AlreadyReported","BadGateway","BadRequest","Conflict","Continue","Created","EmptyStatusCode","ExpectationFailed","FailedDependency","Forbidden","Found","GatewayTimeout","Gone","HTTPVersionNotSupported","IMUsed","InsufficientStorage","InternalServerError","LengthRequired","Locked","LoopDetected","MethodNotAllowed","MisdirectedRequest","MovedPermanently","MultiStatus","MultipleChoices","NetworkAuthenticationRequired","NoContent","NonAuthoritativeInformation","NotAcceptable","NotExtended","NotFound","NotImplemented","NotModified","OK","PartialContent","PayloadTooLarge","PaymentRequired","PermanentRedirect","PreconditionFailed","PreconditionRequired","ProxyAuthenticationRequired","RangeNotSatisfiable","RequestHeaderFieldsTooLarge","RequestTimeout","ResetContent","SeeOther","ServiceUnavailable","TemporaryRedirect","TooManyRequests","URITooLong","Unauthorized","UnprocessableEntity","UnsupportedMediaType","UpgradeRequired","UseProxy","VariantAlsoNegotiates"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("EmptyStatusCode",
     "Continue",
@@ -2169,6 +2249,7 @@ Define your allowlists to skip Bot Defense inference processing.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.ConflictingListObjectAttributes("http_header",
     "ip_prefix")}
 ```
@@ -2233,6 +2314,7 @@ Exclusive with \[http\_header\] IP prefix string.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthAtMost(1024),
   validators.CIDRValidator(),
@@ -2301,6 +2383,7 @@ Request header name and value pairs.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("headers")}
 ```
 
@@ -2357,6 +2440,7 @@ List of HTTP header name and value pairs.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.RequiredListObjectAttributes("name"),
   validators.ConflictingListObjectAttributes("exact",
     "regex")}
@@ -2420,6 +2504,7 @@ Exclusive with \[regular expression\] Header value to match exactly.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(256),
 }
@@ -2474,6 +2559,7 @@ Name. Name of the header.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -2548,6 +2634,7 @@ Exclusive with \[exact\] regular expression match of the header value in re2 for
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 256),
 }
@@ -2620,6 +2707,7 @@ and replace APIs.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
 ```
 
@@ -2659,6 +2747,7 @@ Description. Human readable description.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(256),
 }
@@ -2677,6 +2766,7 @@ This is the name of the message. The value of name has to follow DNS-1035 format
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -2754,6 +2844,7 @@ Bot Defense policy configuration for AWS CloudFront.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("protected_endpoints"),
   validators.ConflictingObjectAttributes("aws_configuration_id_selector",
     "aws_configuration_tag_selector"),
@@ -2816,6 +2907,7 @@ A case-insensitive HTTP header name for Continue Mitigation Action when add head
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(256),
 }
@@ -2871,6 +2963,7 @@ Limit on amount of request-body data (other than F5 telemetry) to send for analy
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(0, 1048576),
 }
@@ -2935,6 +3028,8 @@ are \`LOG\_UNDEFINED\`, \`LOG\_ERROR\`, \`LOG\_WARNING\`, \`LOG\_INFO\`, \`LOG\_
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["LOG_DEBUG","LOG_ERROR","LOG_INFO","LOG_UNDEFINED","LOG_WARNING"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("LOG_UNDEFINED",
     "LOG_ERROR",
@@ -2984,6 +3079,7 @@ The timeout for the inference check, in milliseconds.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(0, 60000),
 }
@@ -3053,6 +3149,7 @@ List of CloudFront distributions.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("ids")}
 ```
 
@@ -3092,6 +3189,7 @@ Add AWS CloudFront distribution ID, e.g. ABCDEFGHI0JKLM.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeBetween(1, 16),
 }
@@ -3167,6 +3265,7 @@ Distribution Tag List. CloudFront distribution tag list.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("tags")}
 ```
 
@@ -3207,6 +3306,7 @@ regular expression to match.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Map{validators.MapConstraintsValidator("{\"cardinality\":{\"maxProperties\":20,\"minProperties\":1},\"category\":\"discovery\",\"constraintType\":\"map\",\"deterministic\":true,\"keys\":{\"maxLength\":64,\"minLength\":1,\"type\":\"string\"},\"originalRules\":{\"ves.io.schema.rules.map.keys.string.max_len\":\"64\",\"ves.io.schema.rules.map.keys.string.min_len\":\"1\",\"ves.io.schema.rules.map.max_pairs\":\"20\",\"ves.io.schema.rules.map.min_pairs\":\"1\",\"ves.io.schema.rules.map.values.string.max_len\":\"256\",\"ves.io.schema.rules.map.values.string.min_len\":\"1\",\"ves.io.schema.rules.map.values.string.regex\":\"true\"},\"values\":{\"format\":\"regex\",\"maxLength\":256,\"minLength\":1,\"type\":\"string\"}}")}
 ```
 
@@ -3434,6 +3534,7 @@ This defines custom JavaScript insertion rules for Bot Defense Policy.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("rules")}
 ```
 
@@ -3481,6 +3582,8 @@ before first tag. Possible values are \`JAVA\_SCRIPT\_LOCATION\_UNDEFINED\`, \`A
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["AFTER_HEAD","AFTER_TITLE_END","BEFORE_SCRIPT","JAVA_SCRIPT_LOCATION_UNDEFINED"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("JAVA_SCRIPT_LOCATION_UNDEFINED",
     "AFTER_HEAD",
@@ -3535,6 +3638,8 @@ synchronously, and it is cacheable.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["ASYNC_JS_CACHING","ASYNC_JS_NO_CACHING","SYNC_JS_CACHING","SYNC_JS_NO_CACHING"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("ASYNC_JS_NO_CACHING",
     "ASYNC_JS_CACHING",
@@ -3630,6 +3735,7 @@ Optional JavaScript insertions exclude list of domain and path matchers.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.ConflictingListObjectAttributes("any_domain",
     "domain")}
 ```
@@ -3682,7 +3788,7 @@ exclude_list {
 
 - [any_domain](resources--protected_application--reference--group-002.md#canonical-0022030103303102-2202331303322220-3022121202010330-1031302103233020-2112220330332130-0010031203101232-2212333311021031-2113120120013133): complete subsection reference.
 
-- [domain](resources--protected_application--reference--group-002.md#canonical-0223132131303030-1021321002133031-1322031020210023-3021012231212331-3323212220200021-3333310133301130-1033301220110133-0232301203331323): complete subsection reference.
+- [domain](resources--protected_application--reference--group-003.md#canonical-0223132131303030-1021321002133031-1322031020210023-3021012231212331-3323212220200021-3333310133301130-1033301220110133-0232301203331323): complete subsection reference.
 
 - [metadata](resources--protected_application--reference--group-003.md#canonical-2010012310003231-3020100210200133-2210333023120033-1323211001220022-1201221122322313-0012223022121231-2311120202101323-3322032232313013): complete subsection reference.
 
@@ -3735,178 +3841,3 @@ any_domain = {}
 ```
 
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-0223132131303030-1021321002133031-1322031020210023-3021012231212331-3323212220200021-3333310133301130-1033301220110133-0232301203331323"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-## `cloudfront.js_insertion_rules.exclude_list.domain` properties
-
-Breadcrumbs:
-
-- [xcsh_protected_application](../resources/protected_application.md#canonical-0002322312001300-2321122230000322-1132302132120131-2310022322102121-3300111330013030-3223012202311310-1021020212202332-0020010133311002)
-- [Property reference](resources--protected_application--reference--group-001.md#canonical-1112011310232010-1130212322220320-1323121033211100-0313202312023232-3332212122311300-1331303332321012-0100301021312031-1320300331013311)
-- [CloudFront](resources--protected_application--reference--group-002.md#canonical-3023230230223213-0113310010212111-0023030201111012-2212202220232211-0013230310132300-3132331133230002-2331013021302322-2211302231010320)
-- [cloudfront.js_insertion_rules](resources--protected_application--reference--group-002.md#canonical-0231330302202122-3333330110232010-0233303200130220-0301122123331132-2200201002333200-2020222112331210-1313021231112202-3002213230012210)
-- [cloudfront.js_insertion_rules.exclude_list](resources--protected_application--reference--group-002.md#canonical-3030120312130131-3321220122223102-0002133300030211-3213101323223323-3213011023030033-1101103231223220-2013022123312013-2102222320232103)
-- CloudFront.js_insertion_rules.exclude_list.domain
-
-<a id="canonical-0110023101111330-2100003101201210-3220210301313112-3122012123320131-2203001331203003-0000122002021020-1212112020000021-0032011100222031"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-Domain name for routing and identification.
-
-Additional upstream details:
-
-Domains names.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.Object{validators.ConflictingObjectAttributes("exact_value",
-    "regex_value"),
-  validators.ConflictingObjectAttributes("exact_value",
-    "suffix_value"),
-  validators.ConflictingObjectAttributes("regex_value",
-    "suffix_value")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-ves-oneof-field-domain_choice": "[\"exact_value\",\"regex_value\",\"suffix_value\"]"
-}
-```
-
-Terraform syntax:
-
-```terraform
-domain {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-2321103001302133-2233102201310302-2213300223210120-1301102103321002-0012331213013301-0112102300201103-0021220311212012-0223212231110113"></a>
-
-### Direct properties for `cloudfront.js_insertion_rules.exclude_list.domain`
-
-<a id="canonical-3333212031332210-1233001202012210-1000012210011312-0211203132313301-1030032121202301-0202332231300320-0210222211000213-2130312303020320"></a>
-
-#### `cloudfront.js_insertion_rules.exclude_list.domain.exact_value` property
-
-Type: `"string"`. Optional.
-
-Exclusive with \[regular expression\_value suffix\_value\] Exact domain name.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 256),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxLength": 256,
-  "minLength": 1,
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "format": "hostname",
-    "maxLength": 256,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
-    },
-    "minLength": 1
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.string.hostname": "true",
-    "ves.io.schema.rules.string.max_len": "256",
-    "ves.io.schema.rules.string.min_len": "1"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.string.hostname": "true",
-    "ves.io.schema.rules.string.max_len": "256",
-    "ves.io.schema.rules.string.min_len": "1"
-  }
-}
-```
-
-<a id="canonical-1212312013033113-3312110132332300-0231320133000112-0012322322210203-3020120112230002-3112222233213232-2233232100203321-0331231103333122"></a>
-
-<a id="canonical-1201220123121330-1301021201313320-2011220030331130-3330112312231323-3111101110310031-3303031331211031-0112121022303001-0131210200130201"></a>
-
-#### `cloudfront.js_insertion_rules.exclude_list.domain.regex_value` property
-
-Type: `"string"`. Optional.
-
-Exclusive with \[exact\_value suffix\_value\] Regular Expression value for the domain name.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 256),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxLength": 256,
-  "minLength": 1,
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "maxLength": 256,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
-    },
-    "minLength": 1
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.string.max_len": "256",
-    "ves.io.schema.rules.string.min_len": "1",
-    "ves.io.schema.rules.string.regex": "true"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.string.max_len": "256",
-    "ves.io.schema.rules.string.min_len": "1",
-    "ves.io.schema.rules.string.regex": "true"
-  }
-}
-```
-
-<a id="canonical-3010312020320321-3021213012322230-3031023033233131-2321330012130212-0011120322101223-1232122311121032-1312213211013311-1033232103200021"></a>

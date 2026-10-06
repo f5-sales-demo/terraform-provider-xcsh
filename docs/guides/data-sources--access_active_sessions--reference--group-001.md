@@ -57,6 +57,8 @@ GET previous page of results. Possible values are \`FORWARD\`, \`BACKWARD\`. Def
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["BACKWARD","FORWARD"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("FORWARD",
     "BACKWARD"),
@@ -197,6 +199,8 @@ Possible values are \`ANY\`, \`PENDING\_ONLY\`, \`ESTABLISHED\_ONLY\`. Defaults 
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["ANY","ESTABLISHED_ONLY","PENDING_ONLY"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("ANY",
     "PENDING_ONLY",
@@ -392,6 +396,8 @@ Session status is established. Possible values are \`PENDING\`, \`ESTABLISHED\`.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["ESTABLISHED","PENDING"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("PENDING",
     "ESTABLISHED"),

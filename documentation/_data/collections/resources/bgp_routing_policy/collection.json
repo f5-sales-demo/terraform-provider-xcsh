@@ -177,7 +177,7 @@
         "xcsh-docs:resources:bgp_routing_policy:timeouts"
       ],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -212,8 +212,8 @@
     },
     {
       "aliases": ["bgp routing policy"],
-      "body_bytes": 13184,
-      "body_sha256": "sha256:5a4ec380ebf159433444e1add4e1c33000b6bdcae27c215e2154954c7bf6bf1d",
+      "body_bytes": 13244,
+      "body_sha256": "sha256:16b6c42785d4e3810c3d50a795520d53e3d10ed7464777df4c587ca8281bc36c",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -221,7 +221,7 @@
         "xcsh-docs:resources:bgp_routing_policy:properties:timeouts"
       ],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -247,6 +247,8 @@
           "anchor": "schema-annotations",
           "description": "Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when modifying objects.",
           "document_id": "xcsh-docs:resources:bgp_routing_policy:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -261,6 +263,8 @@
           "anchor": "schema-description",
           "description": "Human readable description for the object.",
           "document_id": "xcsh-docs:resources:bgp_routing_policy:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -275,6 +279,8 @@
           "anchor": "schema-disable",
           "description": "A value of true will administratively disable the object.",
           "document_id": "xcsh-docs:resources:bgp_routing_policy:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -289,6 +295,8 @@
           "anchor": "schema-id",
           "description": "Unique identifier for the resource.",
           "document_id": "xcsh-docs:resources:bgp_routing_policy:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -303,6 +311,8 @@
           "anchor": "schema-labels",
           "description": "Map of string keys and values that can be used to organize and categorize (scope and select) objects as chosen by the user. Values specified here will be used by selector expression.",
           "document_id": "xcsh-docs:resources:bgp_routing_policy:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -317,6 +327,8 @@
           "anchor": "schema-name",
           "description": "This is the name of configuration object. It has to be unique within the namespace. It can only be specified during create API and cannot be changed during replace API. The value of name has to follow DNS-1035 format.",
           "document_id": "xcsh-docs:resources:bgp_routing_policy:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["required"],
           "max_items": null,
           "min_items": null,
@@ -331,6 +343,8 @@
           "anchor": "schema-namespace",
           "description": "This defines the workspace within which each the configuration object is to be created. Must be a DNS_LABEL format. For a namespace object itself, namespace value will be \"\"",
           "document_id": "xcsh-docs:resources:bgp_routing_policy:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["required"],
           "max_items": null,
           "min_items": null,
@@ -345,6 +359,8 @@
           "anchor": "section",
           "description": "A BGP Routing policy is composed of one or more rules. Note that the order of rules is critical as rules are applied top to bottom.",
           "document_id": "xcsh-docs:resources:bgp_routing_policy:properties:rules",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -359,6 +375,8 @@
           "anchor": "section",
           "description": "timeouts",
           "document_id": "xcsh-docs:resources:bgp_routing_policy:properties:timeouts",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -391,7 +409,7 @@
         "xcsh-docs:resources:bgp_routing_policy:properties:rules:match"
       ],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -417,6 +435,8 @@
           "anchor": "section",
           "description": "Action to be enforced if the BGP route matches the rule.",
           "document_id": "xcsh-docs:resources:bgp_routing_policy:properties:rules:action",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -672,6 +692,8 @@
           "anchor": "section",
           "description": "Predicates which have to match information in route for action to be applied.",
           "document_id": "xcsh-docs:resources:bgp_routing_policy:properties:rules:match",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -744,8 +766,8 @@
     },
     {
       "aliases": ["rules action"],
-      "body_bytes": 4128,
-      "body_sha256": "sha256:4eb955c752c1490dafc79c3de9a80f1e842a340f24b6e87095edd4979e6f9ea8",
+      "body_bytes": 4158,
+      "body_sha256": "sha256:c2deb744e4b42c4419d6201cacbc42406b8f3f17577acf489a124cefecba0d36",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -754,7 +776,7 @@
         "xcsh-docs:resources:bgp_routing_policy:properties:rules:action:deny"
       ],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1021,6 +1043,8 @@
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:bgp_routing_policy:properties:rules:action:allow",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -1035,6 +1059,8 @@
           "anchor": "schema-rules--action--as_path",
           "description": "Exclusive with AS-Path Prepending is generally used to influence incoming traffic.",
           "document_id": "xcsh-docs:resources:bgp_routing_policy:properties:rules:action",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -1049,6 +1075,8 @@
           "anchor": "section",
           "description": "List of BGP communities.",
           "document_id": "xcsh-docs:resources:bgp_routing_policy:properties:rules:action:community",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -1072,6 +1100,8 @@
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:bgp_routing_policy:properties:rules:action:deny",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -1086,6 +1116,8 @@
           "anchor": "schema-rules--action--local_preference",
           "description": "Exclusive with BGP Local Preference is generally used to influence outgoing traffic.",
           "document_id": "xcsh-docs:resources:bgp_routing_policy:properties:rules:action",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -1100,6 +1132,8 @@
           "anchor": "schema-rules--action--metric",
           "description": "Exclusive with The Multi-Exit Discriminator metric to indicate the preferred path to AS.",
           "document_id": "xcsh-docs:resources:bgp_routing_policy:properties:rules:action",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -1129,7 +1163,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1163,13 +1197,13 @@
     },
     {
       "aliases": ["rules action community"],
-      "body_bytes": 2725,
-      "body_sha256": "sha256:dc0cbadeed29d0855d1d6bed3ada9b269ac00a01dabb79dfcae1ce86dcd72851",
+      "body_bytes": 2785,
+      "body_sha256": "sha256:04d713f22e5ff86f72fa71e4e2390164d1eaed4a4f244f15be4dcebea8c4c38a",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1204,6 +1238,8 @@
           "anchor": "schema-rules--action--community--community",
           "description": "An unordered set of RFC 1997 defined 4-byte community, first 16 bits being ASN and lower 16 bits being value.",
           "document_id": "xcsh-docs:resources:bgp_routing_policy:properties:rules:action:community",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -1233,7 +1269,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1267,8 +1303,8 @@
     },
     {
       "aliases": ["rules match"],
-      "body_bytes": 2297,
-      "body_sha256": "sha256:01a9d4125f27d3e7d74c94db213feb10a07264476fedd7b0d9ff978b8346ed9e",
+      "body_bytes": 2327,
+      "body_sha256": "sha256:7d2676bf2cbe8059636e533f17ef0e423ecb19e160bc2799aed3537130315410",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -1276,7 +1312,7 @@
         "xcsh-docs:resources:bgp_routing_policy:properties:rules:match:ip_prefixes"
       ],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1351,6 +1387,8 @@
           "anchor": "schema-rules--match--as_path",
           "description": "Exclusive with AS path can also be a regex, which will be matched against route information.",
           "document_id": "xcsh-docs:resources:bgp_routing_policy:properties:rules:match",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -1365,6 +1403,8 @@
           "anchor": "section",
           "description": "List of BGP communities.",
           "document_id": "xcsh-docs:resources:bgp_routing_policy:properties:rules:match:community",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -1388,6 +1428,8 @@
           "anchor": "section",
           "description": "List of IP prefix and prefix length range match condition.",
           "document_id": "xcsh-docs:resources:bgp_routing_policy:properties:rules:match:ip_prefixes",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -1420,13 +1462,13 @@
     },
     {
       "aliases": ["rules match community"],
-      "body_bytes": 2720,
-      "body_sha256": "sha256:d565894e5c773fd1370a00b8a3be4244c1566ffc6d4ce03f6b25e3d6cba600a8",
+      "body_bytes": 2780,
+      "body_sha256": "sha256:52d423d60add63f5327f43997cd5c08a3eb192fef3a91a241c0e60ad39e22900",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1461,6 +1503,8 @@
           "anchor": "schema-rules--match--community--community",
           "description": "An unordered set of RFC 1997 defined 4-byte community, first 16 bits being ASN and lower 16 bits being value.",
           "document_id": "xcsh-docs:resources:bgp_routing_policy:properties:rules:match:community",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -1484,13 +1528,13 @@
     },
     {
       "aliases": ["rules match ip prefixes"],
-      "body_bytes": 1394,
-      "body_sha256": "sha256:f5c58a18e56961f0158ba12a91e43f6e1ff2898aa82df8a942c283facc3f86f2",
+      "body_bytes": 1424,
+      "body_sha256": "sha256:fb79d735bf42ac897cced45ed2a4ffb256968628fb160f701b861376ff0d2d90",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": ["xcsh-docs:resources:bgp_routing_policy:properties:rules:match:ip_prefixes:prefixes"],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1525,6 +1569,8 @@
           "anchor": "section",
           "description": "List of IP prefix.",
           "document_id": "xcsh-docs:resources:bgp_routing_policy:properties:rules:match:ip_prefixes:prefixes",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -1597,8 +1643,8 @@
     },
     {
       "aliases": ["rules match ip prefixes prefixes"],
-      "body_bytes": 3814,
-      "body_sha256": "sha256:0c273e1b0c123832acaef3de9fc0f800055002b8178dd9ac78c4fcd7640dba32",
+      "body_bytes": 3874,
+      "body_sha256": "sha256:c450ee66a8ab830504995e65ad76bf6cb5826ba88a099a95f488ca2d931b5272",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -1607,7 +1653,7 @@
         "xcsh-docs:resources:bgp_routing_policy:properties:rules:match:ip_prefixes:prefixes:longer_than"
       ],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1682,6 +1728,8 @@
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:bgp_routing_policy:properties:rules:match:ip_prefixes:prefixes:equal_or_longer_than",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -1696,6 +1744,8 @@
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:bgp_routing_policy:properties:rules:match:ip_prefixes:prefixes:exact_match",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -1710,6 +1760,8 @@
           "anchor": "schema-rules--match--ip_prefixes--prefixes--ip_prefixes",
           "description": "IP prefix to match on BGP route.",
           "document_id": "xcsh-docs:resources:bgp_routing_policy:properties:rules:match:ip_prefixes:prefixes",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -1724,6 +1776,8 @@
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:bgp_routing_policy:properties:rules:match:ip_prefixes:prefixes:longer_than",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -1753,7 +1807,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1793,7 +1847,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1833,7 +1887,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1873,7 +1927,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1907,6 +1961,8 @@
           "anchor": "schema-timeouts--create",
           "description": "Configures the timeout duration for resource creation.",
           "document_id": "xcsh-docs:resources:bgp_routing_policy:properties:timeouts",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -1930,6 +1986,8 @@
           "anchor": "schema-timeouts--delete",
           "description": "Configures the timeout duration for resource deletion, applicable only if changes are saved into state before destroy.",
           "document_id": "xcsh-docs:resources:bgp_routing_policy:properties:timeouts",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -1953,6 +2011,8 @@
           "anchor": "schema-timeouts--read",
           "description": "Configures the timeout duration for read operations during refresh or planning.",
           "document_id": "xcsh-docs:resources:bgp_routing_policy:properties:timeouts",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -1976,6 +2036,8 @@
           "anchor": "schema-timeouts--update",
           "description": "Configures the timeout duration for resource update operations.",
           "document_id": "xcsh-docs:resources:bgp_routing_policy:properties:timeouts",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -2005,7 +2067,7 @@
       "category": "networking",
       "child_ids": ["xcsh-docs:resources:bgp_routing_policy:example:resource"],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2045,7 +2107,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2092,7 +2154,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2133,7 +2195,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"

@@ -6,6 +6,74 @@ description: "Complete grouped canonical reference for xcsh_http_loadbalancer re
 
 # xcsh_http_loadbalancer reference
 
+<a id="canonical-0101310122001121-3031003300313023-2332320232123211-0310330303310223-0330313122101312-3312031031303221-1201300202330022-1101130001332233"></a>
+
+## `advertise_on_public.public_ip.namespace` property
+
+Type: `"string"`. Optional, Computed.
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
+hold the referred object's(e.g. Route's) namespace.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: true
+Validators: []validator.String{
+  stringvalidator.LengthBetween(1, 63),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 64,
+  "x-f5xc-constraints": {
+    "byteLength": {
+      "max": 64
+    },
+    "category": "discovery",
+    "characterSet": {
+      "allowed": "[a-z0-9-]",
+      "description": "Lowercase letter start, alphanumeric with hyphens, alphanumeric end",
+      "required": "[a-z0-9]",
+      "restricted": "[^a-z0-9-]"
+    },
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "dns-label",
+    "formatDescription": "DNS-1035 label: must start with a lowercase letter",
+    "maxLength": 63,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "minLength": 1,
+    "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
+    "validation": {
+      "rfc": "RFC 1035",
+      "standard": "DNS-1035 label (alpha-first)"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.max_bytes": "64"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.max_bytes": "64"
+  }
+}
+```
+
+<a id="canonical-1210312210100213-0032333112033311-3030013112131033-3322032013213202-1300112023231001-0012330130132132-2011121112131023-2010202332310133"></a>
+
 <a id="canonical-2012013022031303-3311231202323012-2123110323003011-2231203332013320-1023311111022211-0101113221013302-1022221313203010-3122301220012223"></a>
 
 ## `advertise_on_public.public_ip.tenant` property
@@ -18,6 +86,7 @@ the referred object's(e.g. Route's) tenant.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(64),
 }
@@ -175,6 +244,7 @@ Such a reference is in form of tenant/namespace/name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
 ```
 
@@ -215,6 +285,7 @@ referred object's(e.g. Route's) name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 128),
 }
@@ -275,6 +346,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -342,6 +414,7 @@ the referred object's(e.g. Route's) tenant.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(64),
 }
@@ -455,6 +528,7 @@ skipping second category rules.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.RequiredListObjectAttributes("api_endpoint_path"),
   validators.ConflictingListObjectAttributes("any_domain",
     "specific_domain")}
@@ -522,6 +596,7 @@ API Endpoint. The endpoint (path) of the request.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(1024),
 }
@@ -582,6 +657,7 @@ api.example.com.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(128),
 }
@@ -646,6 +722,7 @@ The action to take if the input request matches the rule.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("allow",
     "deny")}
 ```
@@ -908,6 +985,7 @@ match against. Possible values are \`ANY\`, \`GET\`, \`HEAD\`, \`POST\`, \`PUT\`
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(16),
 }
@@ -974,6 +1052,7 @@ Client Matcher. Client conditions for matching a rule.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("any_client",
     "client_selector"),
   validators.ConflictingObjectAttributes("any_client",
@@ -1171,6 +1250,7 @@ DNS Load Balancer.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("as_numbers")}
 ```
 
@@ -1212,6 +1292,7 @@ DNS Load Balancer.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeBetween(1, 16),
 }
@@ -1283,6 +1364,7 @@ Match any AS number contained in the list of bgp\_asn\_sets.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("asn_sets")}
 ```
 
@@ -1467,6 +1549,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
   stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`),
@@ -1617,6 +1700,7 @@ BNF for expression string &lt;selector-syntax&gt; ::= &lt;requirement&gt; | &lt;
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("expressions")}
 ```
 
@@ -1656,6 +1740,7 @@ Expressions contains the Kubernetes style label expression for selections.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(1),
 }
@@ -1727,6 +1812,7 @@ if invert\_matcher is true.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("prefix_sets")}
 ```
 
@@ -1932,6 +2018,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
   stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`),
@@ -2127,6 +2214,7 @@ IPv4 Prefix List. List of IPv4 prefix strings.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(128),
 }
@@ -2196,6 +2284,7 @@ IP Threat Category List Type. List of IP threat categories.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("ip_threat_categories")}
 ```
 
@@ -2241,6 +2330,7 @@ selection expressions. Possible values are \`SPAM\_SOURCES\`, \`WINDOWS\_EXPLOIT
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(32),
 }
@@ -2353,6 +2443,7 @@ A list of known classes of TLS fingerprints to match the input TLS JA3 fingerpri
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(16),
 }
@@ -2405,6 +2496,7 @@ A list of exact TLS JA3 fingerprints to match the input TLS JA3 fingerprint agai
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(16),
 }
@@ -2461,6 +2553,7 @@ enclosing matcher.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(32),
 }
@@ -2530,6 +2623,7 @@ and replace APIs.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
 ```
 
@@ -2569,6 +2663,7 @@ Description. Human readable description.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(256),
 }
@@ -2587,6 +2682,7 @@ This is the name of the message. The value of name has to follow DNS-1035 format
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -2729,6 +2825,7 @@ matcher predicates must evaluate to true.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.RequiredListObjectAttributes("name"),
   validators.ConflictingListObjectAttributes("check_not_present",
     "check_present"),
@@ -2823,6 +2920,7 @@ Cookie Name. A case-sensitive cookie name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -3038,6 +3136,7 @@ A list of exact values to match the input against.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(64),
 }
@@ -3094,6 +3193,7 @@ A list of regular expressions to match the input against.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(16),
 }
@@ -3160,6 +3260,7 @@ An ordered list of transformers (starting from index 0) to be applied to the pat
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(9),
 }
@@ -3228,6 +3329,7 @@ specified header predicates must evaluate to true.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.RequiredListObjectAttributes("name"),
   validators.ConflictingListObjectAttributes("check_not_present",
     "check_present"),
@@ -3324,6 +3426,7 @@ Header Name. A case-insensitive HTTP header name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -3541,6 +3644,7 @@ A list of exact values to match the input against.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(64),
 }
@@ -3597,6 +3701,7 @@ A list of regular expressions to match the input against.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(16),
 }
@@ -3663,6 +3768,7 @@ An ordered list of transformers (starting from index 0) to be applied to the pat
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(9),
 }
@@ -3731,6 +3837,7 @@ must evaluate to true. Note that this feature only works on LBs with JWT Validat
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.RequiredListObjectAttributes("name"),
   validators.ConflictingListObjectAttributes("check_not_present",
     "check_present"),
@@ -3778,38 +3885,3 @@ jwt_claims {
   # Configure direct properties listed below.
 }
 ```
-
-<a id="canonical-2113110322302302-2000102202222022-1132023032031300-0000102100111122-0112112113103222-1210133210313131-0002012113212020-0133212011021302"></a>
-
-### Direct properties for `api_protection_rules.api_endpoint_rules.request_matcher.jwt_claims`
-
-- [check_not_present](resources--http_loadbalancer--reference--group-006.md#canonical-0003011201021003-0213010021322221-3120231301210002-3021312233122213-1300323113122200-3010112330131222-2332331112213133-2330023000213022): complete subsection reference.
-
-- [check_present](resources--http_loadbalancer--reference--group-006.md#canonical-1013231211303123-1220030002202332-1310300330221320-0313113300201011-2221331103333213-1100201111213201-0312333232202311-0113333203010301): complete subsection reference.
-
-<a id="canonical-0213131013102220-3023310302013302-3202300321321202-0332310103133033-3321110313013133-0110301223313023-0100122303113200-1202011211030323"></a>
-
-<a id="canonical-0231221120003111-3331231203222120-3002103033001323-3231230131131333-0021210211020011-0320232001233120-1310233031301221-0100123303010022"></a>
-
-#### `api_protection_rules.api_endpoint_rules.request_matcher.jwt_claims.invert_matcher` property
-
-Type: `"bool"`. Optional.
-
-Invert Matcher. Invert the match result.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-- [item](resources--http_loadbalancer--reference--group-006.md#canonical-0203322301301102-3102301233101300-1002313100310033-2121102301111000-0001321213001332-2221212100222123-2133100312013320-0300321121203300): complete subsection reference.
-
-<a id="canonical-1202310110320132-0010033112012001-1303212111003101-1003223221131332-1133222300211303-3003123203300011-1123121230231303-3203123101330003"></a>

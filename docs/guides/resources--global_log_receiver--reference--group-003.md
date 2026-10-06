@@ -6,9 +6,61 @@ description: "Complete grouped canonical reference for xcsh_global_log_receiver 
 
 # xcsh_global_log_receiver reference
 
+<a id="canonical-1033323112022211-3003201200310311-3010321003132310-1213101100232030-1130010321211202-3321121122113013-0110212000322033-2023303300123230"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `http_receiver.auth_basic.password` properties
+
+Breadcrumbs:
+
+- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
+- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-1322330330000012-0203110000231213-0031203023120323-1120213213023112-1123022010033101-0301112213201020-2213113031120201-3132330010200020)
+- [http_receiver](resources--global_log_receiver--reference--group-002.md#canonical-2333020321103033-1131201001210213-1030333120020331-3102120203022030-2020212132223122-3212110301033113-2301112212113303-0200101300212333)
+- [http_receiver.auth_basic](resources--global_log_receiver--reference--group-002.md#canonical-1022130202001203-2123222000302011-0303000113321310-1202322232132113-3001121022210122-3232110303312101-0210032303121020-2131003101302233)
+- http_receiver.auth_basic.password
+
+<a id="canonical-2230311112201102-3323031123201210-3131022111310113-0230111200302000-0102332121021221-3033302311313132-2103000101122122-0302230223110221"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+SecretType is used in an object to indicate a sensitive/confidential field.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: false
+Validators: []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info",
+    "clear_secret_info")}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-secret_info_oneof": "[\"blindfold_secret_info\",\"clear_secret_info\"]"
+}
+```
+
+Terraform syntax:
+
+```terraform
+password {
+  # Configure direct properties listed below.
+}
+```
+
 <a id="canonical-0203220313323012-1033203012123232-1332303202313330-3020132313130112-0010213032213103-2323030113210330-3301132103213200-1211331233033123"></a>
 
-## Direct properties for `http_receiver.auth_basic.password`
+### Direct properties for `http_receiver.auth_basic.password`
 
 - [blindfold_secret_info](resources--global_log_receiver--reference--group-003.md#canonical-0113112210111023-0200001333020232-3103313213132311-1113313220011133-2001121131112113-0123330111113002-3121122212223132-2331311211102223): complete subsection reference.
 
@@ -28,7 +80,7 @@ Breadcrumbs:
 - [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-1322330330000012-0203110000231213-0031203023120323-1120213213023112-1123022010033101-0301112213201020-2213113031120201-3132330010200020)
 - [http_receiver](resources--global_log_receiver--reference--group-002.md#canonical-2333020321103033-1131201001210213-1030333120020331-3102120203022030-2020212132223122-3212110301033113-2301112212113303-0200101300212333)
 - [http_receiver.auth_basic](resources--global_log_receiver--reference--group-002.md#canonical-1022130202001203-2123222000302011-0303000113321310-1202322232132113-3001121022210122-3232110303312101-0210032303121020-2131003101302233)
-- [http_receiver.auth_basic.password](resources--global_log_receiver--reference--group-002.md#canonical-1033323112022211-3003201200310311-3010321003132310-1213101100232030-1130010321211202-3321121122113013-0110212000322033-2023303300123230)
+- [http_receiver.auth_basic.password](resources--global_log_receiver--reference--group-003.md#canonical-1033323112022211-3003201200310311-3010321003132310-1213101100232030-1130010321211202-3321121122113013-0110212000322033-2023303300123230)
 - http_receiver.auth_basic.password.blindfold_secret_info
 
 <a id="canonical-2021002230020210-3213022213201321-3122200021310323-1300123213003330-1031230133320031-1113102101322022-3311320011101222-2201201031200102"></a>
@@ -40,6 +92,7 @@ BlindfoldSecretInfoType specifies information about the Secret managed by F5XC S
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("location")}
 ```
 
@@ -114,6 +167,7 @@ store provider is an HTTP/HTTPS location.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(4, 131072),
 }
@@ -204,7 +258,7 @@ Breadcrumbs:
 - [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-1322330330000012-0203110000231213-0031203023120323-1120213213023112-1123022010033101-0301112213201020-2213113031120201-3132330010200020)
 - [http_receiver](resources--global_log_receiver--reference--group-002.md#canonical-2333020321103033-1131201001210213-1030333120020331-3102120203022030-2020212132223122-3212110301033113-2301112212113303-0200101300212333)
 - [http_receiver.auth_basic](resources--global_log_receiver--reference--group-002.md#canonical-1022130202001203-2123222000302011-0303000113321310-1202322232132113-3001121022210122-3232110303312101-0210032303121020-2131003101302233)
-- [http_receiver.auth_basic.password](resources--global_log_receiver--reference--group-002.md#canonical-1033323112022211-3003201200310311-3010321003132310-1213101100232030-1130010321211202-3321121122113013-0110212000322033-2023303300123230)
+- [http_receiver.auth_basic.password](resources--global_log_receiver--reference--group-003.md#canonical-1033323112022211-3003201200310311-3010321003132310-1213101100232030-1130010321211202-3321121122113013-0110212000322033-2023303300123230)
 - http_receiver.auth_basic.password.clear_secret_info
 
 <a id="canonical-1211313223030302-2022231333303013-0313323321330023-1133333313300103-1203022230012210-0333200030333101-1131012131020200-2020310322000222"></a>
@@ -216,6 +270,7 @@ ClearSecretInfoType specifies information about the Secret that is not encrypted
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("url")}
 ```
 
@@ -268,6 +323,7 @@ base64 decoding.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 131072),
 }
@@ -438,6 +494,7 @@ SecretType is used in an object to indicate a sensitive/confidential field.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info",
     "clear_secret_info")}
 ```
@@ -498,6 +555,7 @@ BlindfoldSecretInfoType specifies information about the Secret managed by F5XC S
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("location")}
 ```
 
@@ -572,6 +630,7 @@ store provider is an HTTP/HTTPS location.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(4, 131072),
 }
@@ -674,6 +733,7 @@ ClearSecretInfoType specifies information about the Secret that is not encrypted
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("url")}
 ```
 
@@ -726,6 +786,7 @@ base64 decoding.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 131072),
 }
@@ -801,6 +862,7 @@ Batch OPTIONS allow tuning for how batches of logs are sent to an endpoint.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("max_bytes",
     "max_bytes_disabled"),
   validators.ConflictingObjectAttributes("max_events",
@@ -849,6 +911,7 @@ than this many bytes.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(4096, 10485760),
 }
@@ -903,6 +966,7 @@ the batch.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(32, 2000),
 }
@@ -1156,6 +1220,7 @@ Compression Type.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("compression_default",
     "compression_gzip"),
   validators.ConflictingObjectAttributes("compression_default",
@@ -1407,6 +1472,7 @@ TLS Parameters for client connection to the endpoint.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("disable_verify_certificate",
     "enable_verify_certificate"),
   validators.ConflictingObjectAttributes("disable_verify_hostname",
@@ -1474,6 +1540,7 @@ Certificates in PEM format including the PEM headers.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(131072),
 }
@@ -1808,6 +1875,7 @@ Client certificate is PEM-encoded certificate or certificate-chain.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(100, 131072),
 }
@@ -1884,6 +1952,7 @@ SecretType is used in an object to indicate a sensitive/confidential field.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info",
     "clear_secret_info")}
 ```
@@ -1945,6 +2014,7 @@ BlindfoldSecretInfoType specifies information about the Secret managed by F5XC S
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("location")}
 ```
 
@@ -2019,6 +2089,7 @@ store provider is an HTTP/HTTPS location.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(4, 131072),
 }
@@ -2122,6 +2193,7 @@ ClearSecretInfoType specifies information about the Secret that is not encrypted
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("url")}
 ```
 
@@ -2174,6 +2246,7 @@ base64 decoding.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 131072),
 }
@@ -2295,6 +2368,7 @@ Kafka Configuration for Global Log Receiver.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("bootstrap_servers",
     "kafka_topic"),
   validators.ConflictingObjectAttributes("no_tls",
@@ -2342,6 +2416,7 @@ List of host:port pairs of the Kafka brokers.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeBetween(1, 8),
 }
@@ -2406,6 +2481,7 @@ The Kafka topic name to write events to.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(3, 255),
 }
@@ -2479,6 +2555,7 @@ Batch OPTIONS allow tuning for how batches of logs are sent to an endpoint.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("max_bytes",
     "max_bytes_disabled"),
   validators.ConflictingObjectAttributes("max_events",
@@ -2527,6 +2604,7 @@ than this many bytes.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(4096, 10485760),
 }
@@ -2581,6 +2659,7 @@ the batch.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(32, 2000),
 }
@@ -2834,6 +2913,7 @@ Compression Type.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("compression_default",
     "compression_gzip"),
   validators.ConflictingObjectAttributes("compression_default",
@@ -3085,6 +3165,7 @@ TLS Parameters for client connection to the endpoint.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("disable_verify_certificate",
     "enable_verify_certificate"),
   validators.ConflictingObjectAttributes("disable_verify_hostname",
@@ -3152,6 +3233,7 @@ Certificates in PEM format including the PEM headers.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(131072),
 }
@@ -3470,68 +3552,3 @@ mtls_enable {
   # Configure direct properties listed below.
 }
 ```
-
-<a id="canonical-2313211122003111-0133311312310203-1110230130303301-3320333120121122-1021300210311203-0201330003131332-3020021303223201-0232311033013211"></a>
-
-### Direct properties for `kafka_receiver.use_tls.mtls_enable`
-
-<a id="canonical-0110231120301200-3031202311211211-3121103021011312-0233313210312232-0321211331201002-0332220300311323-0321010001203313-3311113003223112"></a>
-
-#### `kafka_receiver.use_tls.mtls_enable.certificate` property
-
-Type: `"string"`. Optional.
-
-Client certificate is PEM-encoded certificate or certificate-chain.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.String{
-  stringvalidator.LengthBetween(100, 131072),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxLength": 131072,
-  "x-f5xc-constraints": {
-    "byteLength": {
-      "max": 131072
-    },
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "format": "uri",
-    "formatDescription": "PEM-encoded X.509 certificate, max 5MB",
-    "maxLength": 131072,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
-    },
-    "minLength": 100,
-    "pattern": "^-----BEGIN CERTIFICATE-----\\n.*\\n-----END CERTIFICATE-----$",
-    "validation": {
-      "standard": "PEM"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.string.max_bytes": "131072",
-    "ves.io.schema.rules.string.uri_ref": "true"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.string.max_bytes": "131072",
-    "ves.io.schema.rules.string.uri_ref": "true"
-  }
-}
-```
-
-- [key_url](resources--global_log_receiver--reference--group-004.md#canonical-1203010003330300-2010101220321003-0021123021012301-2331213102112133-1130002332012220-3233203321210031-2012131213331222-1011100231010100): complete subsection reference.

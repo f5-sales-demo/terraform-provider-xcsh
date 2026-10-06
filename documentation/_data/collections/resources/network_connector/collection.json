@@ -396,7 +396,7 @@
         "xcsh-docs:resources:network_connector:timeouts"
       ],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -439,8 +439,8 @@
     },
     {
       "aliases": ["network connector"],
-      "body_bytes": 24818,
-      "body_sha256": "sha256:10911f3d3e7182a3af21bc07872f838bb4247ae96ded8addec230b111473ee76",
+      "body_bytes": 24878,
+      "body_sha256": "sha256:bff82203d1599dcf63d14e21e86d8587b5d02e869fb3491e635f34fe2ba6664f",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -452,7 +452,7 @@
         "xcsh-docs:resources:network_connector:properties:timeouts"
       ],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -478,6 +478,8 @@
           "anchor": "schema-annotations",
           "description": "Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when modifying objects.",
           "document_id": "xcsh-docs:resources:network_connector:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -492,6 +494,8 @@
           "anchor": "schema-description",
           "description": "Human readable description for the object.",
           "document_id": "xcsh-docs:resources:network_connector:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -506,6 +510,8 @@
           "anchor": "schema-disable",
           "description": "A value of true will administratively disable the object.",
           "document_id": "xcsh-docs:resources:network_connector:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -520,6 +526,8 @@
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:network_connector:properties:disable_forward_proxy",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -534,6 +542,8 @@
           "anchor": "section",
           "description": "Fine tune forward proxy behavior Few configurations allowed are White listed ports and IP prefixes: Forward proxy does application protocol detection and server name(SNI) detection by peeking into the traffic on the incoming downstream connection. Few protocols doesn't have client sending the first data. In such",
           "document_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -565,6 +575,8 @@
           "anchor": "schema-id",
           "description": "Unique identifier for the resource.",
           "document_id": "xcsh-docs:resources:network_connector:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -579,6 +591,8 @@
           "anchor": "schema-labels",
           "description": "Map of string keys and values that can be used to organize and categorize (scope and select) objects as chosen by the user. Values specified here will be used by selector expression.",
           "document_id": "xcsh-docs:resources:network_connector:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -593,6 +607,8 @@
           "anchor": "schema-name",
           "description": "This is the name of configuration object. It has to be unique within the namespace. It can only be specified during create API and cannot be changed during replace API. The value of name has to follow DNS-1035 format.",
           "document_id": "xcsh-docs:resources:network_connector:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["required"],
           "max_items": null,
           "min_items": null,
@@ -607,6 +623,8 @@
           "anchor": "schema-namespace",
           "description": "This defines the workspace within which each the configuration object is to be created. Must be a DNS_LABEL format. For a namespace object itself, namespace value will be \"\"",
           "document_id": "xcsh-docs:resources:network_connector:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["required"],
           "max_items": null,
           "min_items": null,
@@ -621,6 +639,8 @@
           "anchor": "section",
           "description": "Global network reference for direct connection.",
           "document_id": "xcsh-docs:resources:network_connector:properties:sli_to_global_dr",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -635,6 +655,8 @@
           "anchor": "section",
           "description": "X-example: \"\" description.",
           "document_id": "xcsh-docs:resources:network_connector:properties:sli_to_slo_snat",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -649,6 +671,8 @@
           "anchor": "section",
           "description": "Global network reference for direct connection.",
           "document_id": "xcsh-docs:resources:network_connector:properties:slo_to_global_dr",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -663,6 +687,8 @@
           "anchor": "section",
           "description": "timeouts",
           "document_id": "xcsh-docs:resources:network_connector:properties:timeouts",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -692,7 +718,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -726,8 +752,8 @@
     },
     {
       "aliases": ["duration", "enable forward proxy"],
-      "body_bytes": 6780,
-      "body_sha256": "sha256:1f900fbe74af09931a6df435f3e0be619ce13be6a8a9c4e1c854381f00a9605f",
+      "body_bytes": 6930,
+      "body_sha256": "sha256:b2a18284b25274027e4b5969ce30f4d3b9a7b7166f58096fc3456d07266ff14b",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -735,7 +761,7 @@
         "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept"
       ],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -778,6 +804,8 @@
           "anchor": "schema-enable_forward_proxy--connection_timeout",
           "description": "The timeout for new network connections to upstream server. This is specified in milliseconds. The default value is 2000 (2 seconds)",
           "document_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -792,6 +820,8 @@
           "anchor": "schema-enable_forward_proxy--max_connect_attempts",
           "description": "Specifies the allowed number of retries on connect failure to upstream server. Defaults to 1.",
           "document_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -806,6 +836,8 @@
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:no_interception",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -820,6 +852,8 @@
           "anchor": "section",
           "description": "Configuration to enable TLS interception.",
           "document_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -883,6 +917,8 @@
           "anchor": "schema-enable_forward_proxy--white_listed_ports",
           "description": "Traffic to these destination TCP ports is not subjected to protocol parsing Example \"tmate\" server port.",
           "document_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -897,6 +933,8 @@
           "anchor": "schema-enable_forward_proxy--white_listed_prefixes",
           "description": "Traffic to these destination IP prefixes is not subjected to protocol parsing Example \"tmate\" server IP.",
           "document_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -926,7 +964,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -960,8 +998,8 @@
     },
     {
       "aliases": ["enable forward proxy tls intercept"],
-      "body_bytes": 3832,
-      "body_sha256": "sha256:16b07e454a7884085f2286fab779bcec1a31821d233a2fec1eb4faa690e43f9d",
+      "body_bytes": 3891,
+      "body_sha256": "sha256:5ec9697d1316ece7a0c3f27b45e65824b7867b1a14088dba1537842bd95f2a9e",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -972,7 +1010,7 @@
         "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:volterra_trusted_ca"
       ],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1047,6 +1085,8 @@
           "anchor": "section",
           "description": "Handle to fetch certificate and key.",
           "document_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:custom_certificate",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -1118,6 +1158,8 @@
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:enable_for_all_domains",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -1132,6 +1174,8 @@
           "anchor": "section",
           "description": "Policy to enable or disable TLS interception.",
           "document_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:policy",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -1155,6 +1199,8 @@
           "anchor": "schema-enable_forward_proxy--tls_intercept--trusted_ca_url",
           "description": "Exclusive with Custom Root CA Certificate for validating upstream server certificate.",
           "document_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept",
+          "enum_extraction_complete": true,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -1169,6 +1215,8 @@
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:volterra_certificate",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -1183,6 +1231,8 @@
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:volterra_trusted_ca",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -1206,8 +1256,8 @@
     },
     {
       "aliases": ["enable forward proxy tls intercept custom certificate"],
-      "body_bytes": 4388,
-      "body_sha256": "sha256:177e9626b557fe2bcb828a27302157386d69e6b9a973c79f4ecc07211ff63eb9",
+      "body_bytes": 4447,
+      "body_sha256": "sha256:c6c040b2ee46c534839830c5f349a05b47838357126c15b85aaed026df93cb82",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -1217,7 +1267,7 @@
         "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:custom_certificate:use_system_defaults"
       ],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1306,6 +1356,8 @@
           "anchor": "schema-enable_forward_proxy--tls_intercept--custom_certificate--certificate_url",
           "description": "TLS certificate. Certificate or certificate chain in PEM format including the PEM headers.",
           "document_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:custom_certificate",
+          "enum_extraction_complete": true,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -1320,6 +1372,8 @@
           "anchor": "section",
           "description": "Specifies the hash algorithms to be used.",
           "document_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:custom_certificate:custom_hash_algorithms",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -1343,6 +1397,8 @@
           "anchor": "schema-enable_forward_proxy--tls_intercept--custom_certificate--description_spec",
           "description": "Description. Description for the certificate.",
           "document_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:custom_certificate",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -1357,6 +1413,8 @@
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:custom_certificate:disable_ocsp_stapling",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -1371,6 +1429,8 @@
           "anchor": "section",
           "description": "SecretType is used in an object to indicate a sensitive/confidential field.",
           "document_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:custom_certificate:private_key",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -1402,6 +1462,8 @@
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:custom_certificate:use_system_defaults",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -1425,13 +1487,13 @@
     },
     {
       "aliases": ["enable forward proxy tls intercept custom certificate custom hash algorithms"],
-      "body_bytes": 3121,
-      "body_sha256": "sha256:79071f685d02b2a0fbce2f2669135e5180a6d91120a54f4fdf7860080d1cb810",
+      "body_bytes": 3181,
+      "body_sha256": "sha256:a1d4317778892825ba2c58017e84a4005d8ad60677f118848d7643cf07ffc0cd",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1466,6 +1528,8 @@
           "anchor": "schema-enable_forward_proxy--tls_intercept--custom_certificate--custom_hash_algorithms--hash_algorithms",
           "description": "Ordered list of hash algorithms to be used.",
           "document_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:custom_certificate:custom_hash_algorithms",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -1501,7 +1565,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1535,8 +1599,8 @@
     },
     {
       "aliases": ["enable forward proxy tls intercept custom certificate private key"],
-      "body_bytes": 2213,
-      "body_sha256": "sha256:e1ce29db9c10bd156c08d8a4c3da167253ff36d5fc31594f11cda85a149aa108",
+      "body_bytes": 2243,
+      "body_sha256": "sha256:fbf70c22a801ca3e699d3cb0cdc84e5dbcf2ff89067188205a687242be23ecf1",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -1544,7 +1608,7 @@
         "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:custom_certificate:private_key:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1587,6 +1651,8 @@
           "anchor": "section",
           "description": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
           "document_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:custom_certificate:private_key:blindfold_secret_info",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -1616,6 +1682,8 @@
           "anchor": "section",
           "description": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
           "document_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:custom_certificate:private_key:clear_secret_info",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -1654,13 +1722,13 @@
     },
     {
       "aliases": ["enable forward proxy tls intercept custom certificate private key blindfold secret info"],
-      "body_bytes": 4927,
-      "body_sha256": "sha256:8e8f933474cb70d65ef13547de5baf833b529da25bd8563a0c95084c276ff680",
+      "body_bytes": 4986,
+      "body_sha256": "sha256:5da38cf118782663baeea460dca214a32d9b1b0e44c1660fb76e74312bb8c33d",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1703,6 +1771,8 @@
           "anchor": "schema-enable_forward_proxy--tls_intercept--custom_certificate--private_key--blindfold_secret_info--decryption_provider",
           "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
           "document_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:custom_certificate:private_key:blindfold_secret_info",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -1726,6 +1796,8 @@
           "anchor": "schema-enable_forward_proxy--tls_intercept--custom_certificate--private_key--blindfold_secret_info--location",
           "description": "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
           "document_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:custom_certificate:private_key:blindfold_secret_info",
+          "enum_extraction_complete": true,
+          "enum_validators": [],
           "flags": ["optional", "sensitive"],
           "max_items": null,
           "min_items": null,
@@ -1749,6 +1821,8 @@
           "anchor": "schema-enable_forward_proxy--tls_intercept--custom_certificate--private_key--blindfold_secret_info--store_provider",
           "description": "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
           "document_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:custom_certificate:private_key:blindfold_secret_info",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -1779,13 +1853,13 @@
     },
     {
       "aliases": ["enable forward proxy tls intercept custom certificate private key clear secret info"],
-      "body_bytes": 3904,
-      "body_sha256": "sha256:854a602e4b7f6402b1adc61924df2a54ba8d071eab42ee8bc94330a8d929f11a",
+      "body_bytes": 3963,
+      "body_sha256": "sha256:df745f8c277046516b33394534423c92b18a6356891b2d304267da20db075f3e",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1828,6 +1902,8 @@
           "anchor": "schema-enable_forward_proxy--tls_intercept--custom_certificate--private_key--clear_secret_info--provider_ref",
           "description": "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
           "document_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:custom_certificate:private_key:clear_secret_info",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -1849,6 +1925,8 @@
           "anchor": "schema-enable_forward_proxy--tls_intercept--custom_certificate--private_key--clear_secret_info--url",
           "description": "URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding.",
           "document_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:custom_certificate:private_key:clear_secret_info",
+          "enum_extraction_complete": true,
+          "enum_validators": [],
           "flags": ["optional", "sensitive"],
           "max_items": null,
           "min_items": null,
@@ -1885,7 +1963,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1925,7 +2003,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1959,15 +2037,15 @@
     },
     {
       "aliases": ["enable forward proxy tls intercept policy"],
-      "body_bytes": 1530,
-      "body_sha256": "sha256:0cf816b9f39406860575ca1a433253046c24b5007d73bdc21bf709761e12fe47",
+      "body_bytes": 1560,
+      "body_sha256": "sha256:35176f1df23163f94b4d2fe25bafbf6e0fdd4a96b4fe213a2c719da2dd34af98",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
         "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:policy:interception_rules"
       ],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2002,6 +2080,8 @@
           "anchor": "section",
           "description": "List of ordered rules to enable or disable for TLS interception.",
           "document_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:policy:interception_rules",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -2042,8 +2122,8 @@
     },
     {
       "aliases": ["enable forward proxy tls intercept policy interception rules"],
-      "body_bytes": 3114,
-      "body_sha256": "sha256:073cce7fe9161f4848568d5b28a6c2d79e5ac5e90a94d44a21ce8ba801a415aa",
+      "body_bytes": 3144,
+      "body_sha256": "sha256:f2d5f6d89625aa38c1cbe193f505abac4f7fd1591faa3f378c7bb481aab9f746",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -2052,7 +2132,7 @@
         "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:policy:interception_rules:enable_interception"
       ],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2095,6 +2175,8 @@
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:policy:interception_rules:disable_interception",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -2115,6 +2197,8 @@
           "anchor": "section",
           "description": "Domains names.",
           "document_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:policy:interception_rules:domain_match",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -2178,6 +2262,8 @@
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:policy:interception_rules:enable_interception",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -2213,7 +2299,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2247,13 +2333,13 @@
     },
     {
       "aliases": ["enable forward proxy tls intercept policy interception rules domain match"],
-      "body_bytes": 6081,
-      "body_sha256": "sha256:d2cd1bf719413d369d56e8870d3ac3303d94d0575b1848cb6fa1f36bfd33283a",
+      "body_bytes": 6198,
+      "body_sha256": "sha256:9008b894f6e63d6ae9b48003042fbcfd57573cb98506a5b351b585a6d42c48d5",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2328,6 +2414,8 @@
           "anchor": "schema-enable_forward_proxy--tls_intercept--policy--interception_rules--domain_match--exact_value",
           "description": "Exclusive with Exact domain name.",
           "document_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:policy:interception_rules:domain_match",
+          "enum_extraction_complete": true,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -2349,6 +2437,8 @@
           "anchor": "schema-enable_forward_proxy--tls_intercept--policy--interception_rules--domain_match--regex_value",
           "description": "Exclusive with Regular Expression value for the domain name.",
           "document_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:policy:interception_rules:domain_match",
+          "enum_extraction_complete": true,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -2370,6 +2460,8 @@
           "anchor": "schema-enable_forward_proxy--tls_intercept--policy--interception_rules--domain_match--suffix_value",
           "description": "Exclusive with Suffix of domain name e.g \"xyz.com\" will match \"*.xyz.com\" and \"xyz.com\"",
           "document_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:policy:interception_rules:domain_match",
+          "enum_extraction_complete": true,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -2406,7 +2498,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2446,7 +2538,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2486,7 +2578,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2526,7 +2618,7 @@
       "category": "networking",
       "child_ids": ["xcsh-docs:resources:network_connector:properties:sli_to_global_dr:global_vn"],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2552,6 +2644,8 @@
           "anchor": "section",
           "description": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
           "document_id": "xcsh-docs:resources:network_connector:properties:sli_to_global_dr:global_vn",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -2584,13 +2678,13 @@
     },
     {
       "aliases": ["sli to global dr global vn"],
-      "body_bytes": 5142,
-      "body_sha256": "sha256:9776e3113ad6cee6eb6e3c4895e8fa0e9e09b293cef17ff5d23035e0be64a13a",
+      "body_bytes": 5259,
+      "body_sha256": "sha256:216bfd95a1ef6db7dcd6fa8888307b562e38bced9b41f76fbd80a2ba3b86d5b2",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2625,10 +2719,19 @@
           "anchor": "schema-sli_to_global_dr--global_vn--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:resources:network_connector:properties:sli_to_global_dr:global_vn",
+          "enum_extraction_complete": true,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
           "nesting": null,
+          "reference_identity": {
+            "member": "name",
+            "scope_path": ["sli_to_global_dr", "global_vn"],
+            "source": "receipt-pinned-schema-identity",
+            "upstream_message": "ves.io.schema.views.ObjectRefType",
+            "version": 1
+          },
           "relationships": [],
           "schema_path": ["sli_to_global_dr", "global_vn", "name"],
           "syntax": "attribute",
@@ -2639,10 +2742,19 @@
           "anchor": "schema-sli_to_global_dr--global_vn--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:resources:network_connector:properties:sli_to_global_dr:global_vn",
+          "enum_extraction_complete": true,
+          "enum_validators": [],
           "flags": ["optional", "computed"],
           "max_items": null,
           "min_items": null,
           "nesting": null,
+          "reference_identity": {
+            "member": "namespace",
+            "scope_path": ["sli_to_global_dr", "global_vn"],
+            "source": "receipt-pinned-schema-identity",
+            "upstream_message": "ves.io.schema.views.ObjectRefType",
+            "version": 1
+          },
           "relationships": [],
           "schema_path": ["sli_to_global_dr", "global_vn", "namespace"],
           "syntax": "attribute",
@@ -2653,10 +2765,19 @@
           "anchor": "schema-sli_to_global_dr--global_vn--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:resources:network_connector:properties:sli_to_global_dr:global_vn",
+          "enum_extraction_complete": true,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
           "nesting": null,
+          "reference_identity": {
+            "member": "tenant",
+            "scope_path": ["sli_to_global_dr", "global_vn"],
+            "source": "receipt-pinned-schema-identity",
+            "upstream_message": "ves.io.schema.views.ObjectRefType",
+            "version": 1
+          },
           "relationships": [],
           "schema_path": ["sli_to_global_dr", "global_vn", "tenant"],
           "syntax": "attribute",
@@ -2685,7 +2806,7 @@
         "xcsh-docs:resources:network_connector:properties:sli_to_slo_snat:interface_ip"
       ],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2711,6 +2832,8 @@
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:network_connector:properties:sli_to_slo_snat:default_gw_snat",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -2725,6 +2848,8 @@
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:network_connector:properties:sli_to_slo_snat:interface_ip",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -2754,7 +2879,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2794,7 +2919,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2834,7 +2959,7 @@
       "category": "networking",
       "child_ids": ["xcsh-docs:resources:network_connector:properties:slo_to_global_dr:global_vn"],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2860,6 +2985,8 @@
           "anchor": "section",
           "description": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
           "document_id": "xcsh-docs:resources:network_connector:properties:slo_to_global_dr:global_vn",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -2892,13 +3019,13 @@
     },
     {
       "aliases": ["slo to global dr global vn"],
-      "body_bytes": 5142,
-      "body_sha256": "sha256:948ea0600e4a911b8670176da8f7bce5b518766b46a5ab3eb4c1b90ca5f42607",
+      "body_bytes": 5259,
+      "body_sha256": "sha256:fc126c5c28b21602113a3a622a0114e5a06382b0cc020b7986f44e712396d721",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2933,10 +3060,19 @@
           "anchor": "schema-slo_to_global_dr--global_vn--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:resources:network_connector:properties:slo_to_global_dr:global_vn",
+          "enum_extraction_complete": true,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
           "nesting": null,
+          "reference_identity": {
+            "member": "name",
+            "scope_path": ["slo_to_global_dr", "global_vn"],
+            "source": "receipt-pinned-schema-identity",
+            "upstream_message": "ves.io.schema.views.ObjectRefType",
+            "version": 1
+          },
           "relationships": [],
           "schema_path": ["slo_to_global_dr", "global_vn", "name"],
           "syntax": "attribute",
@@ -2947,10 +3083,19 @@
           "anchor": "schema-slo_to_global_dr--global_vn--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:resources:network_connector:properties:slo_to_global_dr:global_vn",
+          "enum_extraction_complete": true,
+          "enum_validators": [],
           "flags": ["optional", "computed"],
           "max_items": null,
           "min_items": null,
           "nesting": null,
+          "reference_identity": {
+            "member": "namespace",
+            "scope_path": ["slo_to_global_dr", "global_vn"],
+            "source": "receipt-pinned-schema-identity",
+            "upstream_message": "ves.io.schema.views.ObjectRefType",
+            "version": 1
+          },
           "relationships": [],
           "schema_path": ["slo_to_global_dr", "global_vn", "namespace"],
           "syntax": "attribute",
@@ -2961,10 +3106,19 @@
           "anchor": "schema-slo_to_global_dr--global_vn--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:resources:network_connector:properties:slo_to_global_dr:global_vn",
+          "enum_extraction_complete": true,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
           "nesting": null,
+          "reference_identity": {
+            "member": "tenant",
+            "scope_path": ["slo_to_global_dr", "global_vn"],
+            "source": "receipt-pinned-schema-identity",
+            "upstream_message": "ves.io.schema.views.ObjectRefType",
+            "version": 1
+          },
           "relationships": [],
           "schema_path": ["slo_to_global_dr", "global_vn", "tenant"],
           "syntax": "attribute",
@@ -2990,7 +3144,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3024,6 +3178,8 @@
           "anchor": "schema-timeouts--create",
           "description": "Configures the timeout duration for resource creation.",
           "document_id": "xcsh-docs:resources:network_connector:properties:timeouts",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -3047,6 +3203,8 @@
           "anchor": "schema-timeouts--delete",
           "description": "Configures the timeout duration for resource deletion, applicable only if changes are saved into state before destroy.",
           "document_id": "xcsh-docs:resources:network_connector:properties:timeouts",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -3070,6 +3228,8 @@
           "anchor": "schema-timeouts--read",
           "description": "Configures the timeout duration for read operations during refresh or planning.",
           "document_id": "xcsh-docs:resources:network_connector:properties:timeouts",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -3093,6 +3253,8 @@
           "anchor": "schema-timeouts--update",
           "description": "Configures the timeout duration for resource update operations.",
           "document_id": "xcsh-docs:resources:network_connector:properties:timeouts",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -3122,7 +3284,7 @@
       "category": "networking",
       "child_ids": ["xcsh-docs:resources:network_connector:example:resource"],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3162,7 +3324,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3209,7 +3371,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3250,7 +3412,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"

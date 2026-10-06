@@ -101,6 +101,7 @@ The default value is 2000 (2 seconds)
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.AtMost(1800000),
 }
@@ -275,6 +276,7 @@ follow DNS-1035 format.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   validators.NameValidator(),
 }
@@ -342,6 +344,7 @@ DNS\_LABEL format. For a namespace object itself, namespace value will be ""
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   validators.NamespaceValidator(),
 }
@@ -709,7 +712,7 @@ Each exact path has one authoritative reference destination. Collection element 
 | `http_proxy.more_option.response_cookies_to_add.samesite_none` | [http_proxy.more_option.response_cookies_to_add.samesite_none](resources--proxy--reference--group-004.md#canonical-0333030220112210-2021023111232103-0122120132213233-2033202133101020-1110312213101233-3331210333132111-3133213211111101-0130332211011103) |
 | `http_proxy.more_option.response_cookies_to_add.samesite_strict` | [http_proxy.more_option.response_cookies_to_add.samesite_strict](resources--proxy--reference--group-004.md#canonical-1111222130212203-0131223230132311-3010311232233220-3111231010232322-3301221010120130-3211003012131223-0303220300123312-0302102210001222) |
 | `http_proxy.more_option.response_cookies_to_add.secret_value` | [http_proxy.more_option.response_cookies_to_add.secret_value](resources--proxy--reference--group-004.md#canonical-1300211320131301-0203023131301210-1303101312013001-1112303003212202-0120331100100003-2001013102011323-2100133111233203-3101011302130220) |
-| `http_proxy.more_option.response_cookies_to_add.secret_value.blindfold_secret_info` | [http_proxy.more_option.response_cookies_to_add.secret_value.blindfold_secret_info](resources--proxy--reference--group-004.md#canonical-3333123130100000-2100030320313133-1023322130300210-2110122230231023-1003110310131130-2231022121323302-0201202132100000-0313013132223032) |
+| `http_proxy.more_option.response_cookies_to_add.secret_value.blindfold_secret_info` | [http_proxy.more_option.response_cookies_to_add.secret_value.blindfold_secret_info](resources--proxy--reference--group-005.md#canonical-3333123130100000-2100030320313133-1023322130300210-2110122230231023-1003110310131130-2231022121323302-0201202132100000-0313013132223032) |
 | `http_proxy.more_option.response_cookies_to_add.secret_value.blindfold_secret_info.decryption_provider` | [http_proxy.more_option.response_cookies_to_add.secret_value.blindfold_secret_info.decryption_provider](resources--proxy--reference--group-005.md#canonical-1322101213233323-0021003222021021-0313103233202203-0312133311320113-0131331130102022-0121103111122102-0001233021330003-3030033331111011) |
 | `http_proxy.more_option.response_cookies_to_add.secret_value.blindfold_secret_info.location` | [http_proxy.more_option.response_cookies_to_add.secret_value.blindfold_secret_info.location](resources--proxy--reference--group-005.md#canonical-3310112200003233-0330310212312012-1112233102021320-3111222012311013-0301010202320300-1023021312220311-0032032112202232-0312221232123101) |
 | `http_proxy.more_option.response_cookies_to_add.secret_value.blindfold_secret_info.store_provider` | [http_proxy.more_option.response_cookies_to_add.secret_value.blindfold_secret_info.store_provider](resources--proxy--reference--group-005.md#canonical-0121031200311302-0221100023112130-1130220012202102-0122110212010003-3322131220212233-1210200213131113-1113030212001213-2303100300012211) |
@@ -814,6 +817,7 @@ no\_forward\_proxy\_policy\] Ordered List of Forward Proxy Policies active.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("forward_proxy_policies")}
 ```
 
@@ -875,6 +879,7 @@ Ordered List of Forward Proxy Policies active.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.RequiredListObjectAttributes("name")}
 ```
 
@@ -939,6 +944,7 @@ referred object's(e.g. Route's) name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 128),
 }
@@ -999,6 +1005,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -1066,6 +1073,7 @@ the referred object's(e.g. Route's) tenant.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(64),
 }
@@ -1180,6 +1188,7 @@ Type: `"object"`. single nested block, Optional.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("domains"),
   validators.ConflictingObjectAttributes("disable_dns_masquerade",
     "enable_dns_masquerade"),
@@ -1253,6 +1262,7 @@ unique across all virtual hosts within an advertise policy.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeBetween(1, 32),
 }
@@ -1477,6 +1487,7 @@ This defines various OPTIONS to define a route.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("disable_path_normalize",
     "enable_path_normalize"),
   validators.ConflictingObjectAttributes("max_requests_per_connection",
@@ -1533,6 +1544,7 @@ matches for a request.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Map{validators.MapConstraintsValidator("{\"cardinality\":{\"maxProperties\":16},\"category\":\"discovery\",\"constraintType\":\"map\",\"deterministic\":true,\"keys\":{\"ranges\":[[3,3],[4,4],[5,5],[300,599]],\"type\":\"uint32-string\"},\"originalRules\":{\"ves.io.schema.rules.map.keys.uint32.ranges\":\"3,4,5,300-599\",\"ves.io.schema.rules.map.max_pairs\":\"16\",\"ves.io.schema.rules.map.values.string.max_len\":\"65536\",\"ves.io.schema.rules.map.values.string.uri_ref\":\"true\"},\"values\":{\"format\":\"uri-reference\",\"maxLength\":65536,\"type\":\"string\"}}")}
 ```
 
@@ -1643,6 +1655,7 @@ header has been received, otherwise the stream is reset.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.AtMost(3600000),
 }
@@ -1695,6 +1708,7 @@ such load balancers is used for all the load balancers in question.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.AtMost(96),
 }
@@ -1745,6 +1759,7 @@ request limit per connection.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.AtLeast(1),
 }
@@ -1797,6 +1812,7 @@ List of keys of Cookies to be removed from the HTTP request being sent towards u
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(32),
 }
@@ -1855,6 +1871,7 @@ List of keys of Headers to be removed from the HTTP request being sent towards u
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(32),
 }
@@ -1914,6 +1931,7 @@ set-cookie header will be removed.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(32),
 }
@@ -1972,6 +1990,7 @@ List of keys of Headers to be removed from the HTTP response being sent towards 
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(32),
 }
@@ -2104,6 +2123,7 @@ buffering and return a RequestEntityTooLarge (413) response.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.AtMost(10485760),
 }
@@ -2192,6 +2212,7 @@ A value which is optimal balance between speed of compression and amount of comp
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("content_length")}
 ```
 
@@ -2235,6 +2256,7 @@ The default value is 30.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.AtLeast(30),
 }
@@ -2293,6 +2315,7 @@ defined, compression will be applied to the following mime-types: "application/J
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(50),
 }
@@ -2555,6 +2578,7 @@ specified at this level are applied after cookies from matched Route are applied
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.RequiredListObjectAttributes("name"),
   validators.ConflictingListObjectAttributes("secret_value",
     "value")}
@@ -2617,6 +2641,7 @@ Name. Name of the cookie in Cookie header.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 256),
 }
@@ -2714,6 +2739,7 @@ Exclusive with \[secret\_value\] Value of the Cookie header.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(8096),
 }

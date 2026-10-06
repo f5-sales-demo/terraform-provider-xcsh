@@ -243,7 +243,7 @@
         "xcsh-docs:resources:api_discovery:timeouts"
       ],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -278,8 +278,8 @@
     },
     {
       "aliases": ["api discovery"],
-      "body_bytes": 17315,
-      "body_sha256": "sha256:eae00f1ecf25c0d40abd5b03b2561f8315a3c4a770391da29b1a38097d2e3645",
+      "body_bytes": 17375,
+      "body_sha256": "sha256:85bbf11899f40aa5e38a467b7a7f3ebb5209142dd569602c3a8e58c36bc86d0f",
       "capabilities": ["api-management"],
       "category": "api-management",
       "child_ids": [
@@ -288,7 +288,7 @@
         "xcsh-docs:resources:api_discovery:properties:user_defined_api_discovery_policy"
       ],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -314,6 +314,8 @@
           "anchor": "schema-annotations",
           "description": "Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when modifying objects.",
           "document_id": "xcsh-docs:resources:api_discovery:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -328,6 +330,8 @@
           "anchor": "section",
           "description": "Select your custom authentication types to be detected in the API discovery.",
           "document_id": "xcsh-docs:resources:api_discovery:properties:custom_auth_types",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -351,6 +355,8 @@
           "anchor": "schema-description",
           "description": "Human readable description for the object.",
           "document_id": "xcsh-docs:resources:api_discovery:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -365,6 +371,8 @@
           "anchor": "schema-disable",
           "description": "A value of true will administratively disable the object.",
           "document_id": "xcsh-docs:resources:api_discovery:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -379,6 +387,8 @@
           "anchor": "schema-id",
           "description": "Unique identifier for the resource.",
           "document_id": "xcsh-docs:resources:api_discovery:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -393,6 +403,8 @@
           "anchor": "schema-labels",
           "description": "Map of string keys and values that can be used to organize and categorize (scope and select) objects as chosen by the user. Values specified here will be used by selector expression.",
           "document_id": "xcsh-docs:resources:api_discovery:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -407,6 +419,8 @@
           "anchor": "schema-name",
           "description": "This is the name of configuration object. It has to be unique within the namespace. It can only be specified during create API and cannot be changed during replace API. The value of name has to follow DNS-1035 format.",
           "document_id": "xcsh-docs:resources:api_discovery:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["required"],
           "max_items": null,
           "min_items": null,
@@ -421,6 +435,8 @@
           "anchor": "schema-namespace",
           "description": "This defines the workspace within which each the configuration object is to be created. Must be a DNS_LABEL format. For a namespace object itself, namespace value will be \"\"",
           "document_id": "xcsh-docs:resources:api_discovery:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["required"],
           "max_items": null,
           "min_items": null,
@@ -435,6 +451,8 @@
           "anchor": "section",
           "description": "timeouts",
           "document_id": "xcsh-docs:resources:api_discovery:properties:timeouts",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -449,6 +467,8 @@
           "anchor": "section",
           "description": "Rules are evaluated sequentially, top to bottom. If no rules are added, all traffic will be discovered or ignored based on the selection in the 'Default Behaviour of the Rule Set' field.",
           "document_id": "xcsh-docs:resources:api_discovery:properties:user_defined_api_discovery_policy",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -489,13 +509,13 @@
     },
     {
       "aliases": ["custom auth types"],
-      "body_bytes": 3634,
-      "body_sha256": "sha256:298712debe0aa5d3d1fcb20e7a52c7bc172397306d52e2f5bfcd7d1163fb33e9",
+      "body_bytes": 3965,
+      "body_sha256": "sha256:d7877d0b6dcf1e462f38ea3ab9d0677dea26217ab27d69025ef15d810f1383ed",
       "capabilities": ["api-management"],
       "category": "api-management",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -530,6 +550,8 @@
           "anchor": "schema-custom_auth_types--parameter_name",
           "description": "The authentication parameter name.",
           "document_id": "xcsh-docs:resources:api_discovery:properties:custom_auth_types",
+          "enum_extraction_complete": true,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -544,6 +566,17 @@
           "anchor": "schema-custom_auth_types--parameter_type",
           "description": "Enumeration for authentication parameter types.",
           "document_id": "xcsh-docs:resources:api_discovery:properties:custom_auth_types",
+          "enum_extraction_complete": true,
+          "enum_validators": [
+            {
+              "case_sensitive": true,
+              "complete": true,
+              "source": "ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf",
+              "validator": "OneOf",
+              "values": ["COOKIE", "HEADER", "QUERY_PARAMETER"],
+              "version": 1
+            }
+          ],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -573,7 +606,7 @@
       "category": "api-management",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -607,6 +640,8 @@
           "anchor": "schema-timeouts--create",
           "description": "Configures the timeout duration for resource creation.",
           "document_id": "xcsh-docs:resources:api_discovery:properties:timeouts",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -630,6 +665,8 @@
           "anchor": "schema-timeouts--delete",
           "description": "Configures the timeout duration for resource deletion, applicable only if changes are saved into state before destroy.",
           "document_id": "xcsh-docs:resources:api_discovery:properties:timeouts",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -653,6 +690,8 @@
           "anchor": "schema-timeouts--read",
           "description": "Configures the timeout duration for read operations during refresh or planning.",
           "document_id": "xcsh-docs:resources:api_discovery:properties:timeouts",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -676,6 +715,8 @@
           "anchor": "schema-timeouts--update",
           "description": "Configures the timeout duration for resource update operations.",
           "document_id": "xcsh-docs:resources:api_discovery:properties:timeouts",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -699,8 +740,8 @@
     },
     {
       "aliases": ["user defined api discovery policy"],
-      "body_bytes": 1797,
-      "body_sha256": "sha256:8700584f62b6022fe12390b8f74bf97e8b3e08dc6c5d772c1d04a2a38f3781e3",
+      "body_bytes": 1827,
+      "body_sha256": "sha256:9286f85937cf077ab5fdf06b39c3fd7448406ffb61cc605870d44b3b2624fb3a",
       "capabilities": ["api-management"],
       "category": "api-management",
       "child_ids": [
@@ -709,7 +750,7 @@
         "xcsh-docs:resources:api_discovery:properties:user_defined_api_discovery_policy:inclusive"
       ],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -752,6 +793,8 @@
           "anchor": "section",
           "description": "Define rules to include or exclude endpoints by path, domain, or header. Rules run top to bottom; unmatched endpoints follow the default action.",
           "document_id": "xcsh-docs:resources:api_discovery:properties:user_defined_api_discovery_policy:discovery_rules",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -766,6 +809,8 @@
           "anchor": "section",
           "description": "Configuration for exclusion action.",
           "document_id": "xcsh-docs:resources:api_discovery:properties:user_defined_api_discovery_policy:exclusive",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -797,6 +842,8 @@
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:api_discovery:properties:user_defined_api_discovery_policy:inclusive",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional", "computed"],
           "max_items": null,
           "min_items": null,
@@ -830,7 +877,7 @@
         "xcsh-docs:resources:api_discovery:properties:user_defined_api_discovery_policy:discovery_rules:rule_properties"
       ],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -856,6 +903,8 @@
           "anchor": "section",
           "description": "Map of string keys and values that can be used to organize and categorize the rule.",
           "document_id": "xcsh-docs:resources:api_discovery:properties:user_defined_api_discovery_policy:discovery_rules:labels",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -870,6 +919,8 @@
           "anchor": "section",
           "description": "MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create and replace APIs.",
           "document_id": "xcsh-docs:resources:api_discovery:properties:user_defined_api_discovery_policy:discovery_rules:metadata",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -893,6 +944,8 @@
           "anchor": "section",
           "description": "Determines whether matching endpoints are included in API Discovery or excluded.",
           "document_id": "xcsh-docs:resources:api_discovery:properties:user_defined_api_discovery_policy:discovery_rules:rule_properties",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -955,7 +1008,7 @@
       "category": "api-management",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -989,13 +1042,13 @@
     },
     {
       "aliases": ["user defined api discovery policy discovery rules metadata"],
-      "body_bytes": 3744,
-      "body_sha256": "sha256:8ea3fd4fda346c7e36879ba2dc8873eff2fe0cb14a02af2c46597b6104803238",
+      "body_bytes": 3832,
+      "body_sha256": "sha256:6c7242409e9d6eaf508a6e6d76fedd593abf25b6608a4d1cdcfd083dd778f411",
       "capabilities": ["api-management"],
       "category": "api-management",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1030,6 +1083,8 @@
           "anchor": "schema-user_defined_api_discovery_policy--discovery_rules--metadata--description_spec",
           "description": "Description. Human readable description.",
           "document_id": "xcsh-docs:resources:api_discovery:properties:user_defined_api_discovery_policy:discovery_rules:metadata",
+          "enum_extraction_complete": true,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -1044,6 +1099,8 @@
           "anchor": "schema-user_defined_api_discovery_policy--discovery_rules--metadata--name",
           "description": "This is the name of the message. The value of name has to follow DNS-1035 format.",
           "document_id": "xcsh-docs:resources:api_discovery:properties:user_defined_api_discovery_policy:discovery_rules:metadata",
+          "enum_extraction_complete": true,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -1067,8 +1124,8 @@
     },
     {
       "aliases": ["user defined api discovery policy discovery rules rule properties"],
-      "body_bytes": 3747,
-      "body_sha256": "sha256:1fe20c0f1370b871208faf6057284f0fbfe6dae52a570d354dcf740f4a3ea169",
+      "body_bytes": 3806,
+      "body_sha256": "sha256:64dd7b9f5f9166c8b38eb233828d8394a5b654fe836e2372020cab88d43a2df8",
       "capabilities": ["api-management"],
       "category": "api-management",
       "child_ids": [
@@ -1077,7 +1134,7 @@
         "xcsh-docs:resources:api_discovery:properties:user_defined_api_discovery_policy:discovery_rules:rule_properties:inclusion"
       ],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1136,6 +1193,8 @@
           "anchor": "section",
           "description": "Configuration for exclusion action.",
           "document_id": "xcsh-docs:resources:api_discovery:properties:user_defined_api_discovery_policy:discovery_rules:rule_properties:exclusion",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -1167,6 +1226,8 @@
           "anchor": "section",
           "description": "Criteria for matching HTTP headers.",
           "document_id": "xcsh-docs:resources:api_discovery:properties:user_defined_api_discovery_policy:discovery_rules:rule_properties:http_header_criteria",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -1203,6 +1264,8 @@
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:api_discovery:properties:user_defined_api_discovery_policy:discovery_rules:rule_properties:inclusion",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -1217,6 +1280,8 @@
           "anchor": "schema-user_defined_api_discovery_policy--discovery_rules--rule_properties--pattern",
           "description": "Exclusive with Patterns are matched against the request path to identify endpoints by path structure, file extension, or version prefix. Endpoints that match this pattern are affected by the rule.",
           "document_id": "xcsh-docs:resources:api_discovery:properties:user_defined_api_discovery_policy:discovery_rules:rule_properties",
+          "enum_extraction_complete": true,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -1240,8 +1305,8 @@
     },
     {
       "aliases": ["user defined api discovery policy discovery rules rule properties exclusion"],
-      "body_bytes": 2180,
-      "body_sha256": "sha256:363b23f0cda10b536b4548adf3edd3b798634bf72f32c3e15ab5139059769de5",
+      "body_bytes": 2210,
+      "body_sha256": "sha256:117379cfd1df21c38ebe6d153fcedcb5ee8ac4d27f0c80eba9f07559b520847c",
       "capabilities": ["api-management"],
       "category": "api-management",
       "child_ids": [
@@ -1249,7 +1314,7 @@
         "xcsh-docs:resources:api_discovery:properties:user_defined_api_discovery_policy:discovery_rules:rule_properties:exclusion:ignore"
       ],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1292,6 +1357,8 @@
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:api_discovery:properties:user_defined_api_discovery_policy:discovery_rules:rule_properties:exclusion:archive",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -1312,6 +1379,8 @@
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:api_discovery:properties:user_defined_api_discovery_policy:discovery_rules:rule_properties:exclusion:ignore",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -1347,7 +1416,7 @@
       "category": "api-management",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1393,7 +1462,7 @@
       "category": "api-management",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1427,13 +1496,13 @@
     },
     {
       "aliases": ["user defined api discovery policy discovery rules rule properties http header criteria"],
-      "body_bytes": 5926,
-      "body_sha256": "sha256:c817fa8f688468a01f618048f70678fa801751b9bc20680fb14bf35557de070f",
+      "body_bytes": 6541,
+      "body_sha256": "sha256:5e0e334a709f74104c7179ff3daf00c9d6b9e037e73700f5aafb5bddb8d3347b",
       "capabilities": ["api-management"],
       "category": "api-management",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1483,6 +1552,8 @@
           "anchor": "schema-user_defined_api_discovery_policy--discovery_rules--rule_properties--http_header_criteria--field_name",
           "description": "Human-readable name for the resource",
           "document_id": "xcsh-docs:resources:api_discovery:properties:user_defined_api_discovery_policy:discovery_rules:rule_properties:http_header_criteria",
+          "enum_extraction_complete": true,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -1505,6 +1576,17 @@
           "anchor": "schema-user_defined_api_discovery_policy--discovery_rules--rule_properties--http_header_criteria--location",
           "description": "Specifies whether the rule criteria should be evaluated against request or response Applies the rule to incoming traffic from the client. Applies the rule to outgoing traffic sent back to the client.",
           "document_id": "xcsh-docs:resources:api_discovery:properties:user_defined_api_discovery_policy:discovery_rules:rule_properties:http_header_criteria",
+          "enum_extraction_complete": true,
+          "enum_validators": [
+            {
+              "case_sensitive": true,
+              "complete": true,
+              "source": "ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf",
+              "validator": "OneOf",
+              "values": ["REQUEST", "RESPONSE"],
+              "version": 1
+            }
+          ],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -1527,6 +1609,17 @@
           "anchor": "schema-user_defined_api_discovery_policy--discovery_rules--rule_properties--http_header_criteria--match_type",
           "description": "Specifies how the value should be matched.",
           "document_id": "xcsh-docs:resources:api_discovery:properties:user_defined_api_discovery_policy:discovery_rules:rule_properties:http_header_criteria",
+          "enum_extraction_complete": true,
+          "enum_validators": [
+            {
+              "case_sensitive": true,
+              "complete": true,
+              "source": "ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf",
+              "validator": "OneOf",
+              "values": ["EXACT_MATCH", "REGEX", "SUBSTRING"],
+              "version": 1
+            }
+          ],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -1547,6 +1640,8 @@
           "anchor": "schema-user_defined_api_discovery_policy--discovery_rules--rule_properties--http_header_criteria--value",
           "description": "Configuration parameter for value",
           "document_id": "xcsh-docs:resources:api_discovery:properties:user_defined_api_discovery_policy:discovery_rules:rule_properties:http_header_criteria",
+          "enum_extraction_complete": true,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -1582,7 +1677,7 @@
       "category": "api-management",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1616,8 +1711,8 @@
     },
     {
       "aliases": ["user defined api discovery policy exclusive"],
-      "body_bytes": 1626,
-      "body_sha256": "sha256:0f4b38bf0aec904d2ce37f7fac6fb7c5df7b3aba1cf0e7ac21d3e16df995fa05",
+      "body_bytes": 1656,
+      "body_sha256": "sha256:dafd1566706d7a94026042fe0d68725c5b9ff65fc67fac0d75bc53bf04a548ff",
       "capabilities": ["api-management"],
       "category": "api-management",
       "child_ids": [
@@ -1625,7 +1720,7 @@
         "xcsh-docs:resources:api_discovery:properties:user_defined_api_discovery_policy:exclusive:ignore"
       ],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1668,6 +1763,8 @@
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:api_discovery:properties:user_defined_api_discovery_policy:exclusive:archive",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -1682,6 +1779,8 @@
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:api_discovery:properties:user_defined_api_discovery_policy:exclusive:ignore",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -1711,7 +1810,7 @@
       "category": "api-management",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1751,7 +1850,7 @@
       "category": "api-management",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1791,7 +1890,7 @@
       "category": "api-management",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1831,7 +1930,7 @@
       "category": "api-management",
       "child_ids": ["xcsh-docs:resources:api_discovery:example:resource"],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1871,7 +1970,7 @@
       "category": "api-management",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1918,7 +2017,7 @@
       "category": "api-management",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1959,7 +2058,7 @@
       "category": "api-management",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"

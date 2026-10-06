@@ -206,9 +206,9 @@ Receipt-pinned upstream constraints:
 
 - [equinix](resources--securemesh_site_v2--reference--group-008.md#canonical-2332330220333003-0112232110213210-0301011120213331-0000032322213303-1310020022232313-3122100333322101-0013220013132310-3033223312203022): complete subsection reference.
 
-- [f5_proxy](resources--securemesh_site_v2--reference--group-008.md#canonical-3021301201330310-0230130120101310-2231211023332220-1302200202031013-3111011231130033-1300202330311330-3213031120313332-2203211111320211): complete subsection reference.
+- [f5_proxy](resources--securemesh_site_v2--reference--group-009.md#canonical-3021301201330310-0230130120101310-2231211023332220-1302200202031013-3111011231130033-1300202330311330-3213031120313332-2203211111320211): complete subsection reference.
 
-- [gcp](resources--securemesh_site_v2--reference--group-008.md#canonical-1232231101021302-2212123100200301-1321330010022103-1021211002121101-2301000320030230-0003030030322203-2001112121212002-3322301022001012): complete subsection reference.
+- [gcp](resources--securemesh_site_v2--reference--group-009.md#canonical-1232231101021302-2212123100200301-1321330010022103-1021211002121101-2301000320030230-0003030030322203-2001112121212002-3322301022001012): complete subsection reference.
 
 <a id="canonical-2120221000003031-3300201203322021-0011233110212322-1012323112031122-2122313110322312-3302312322212103-1203313002223200-2103013322020212"></a>
 
@@ -279,6 +279,7 @@ follow DNS-1035 format.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   validators.NameValidator(),
   stringvalidator.LengthAtMost(63),
@@ -349,6 +350,8 @@ Provider validators and defaults (from schema source):
 
 ```go
 Default: stringdefault.StaticString("system")
+EnumExtractionComplete: false
+EnumValidators: [{"version":1,"validator":"OneOf","values":["system"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   validators.NamespaceValidator(),
   stringvalidator.OneOf("system"),
@@ -409,7 +412,7 @@ Receipt-pinned upstream constraints:
 
 - [offline_survivability_mode](resources--securemesh_site_v2--reference--group-013.md#canonical-2001312130230101-3132012012311122-0230112101013213-1333302011302001-3223331311230002-0320013221303203-3122311112320113-1320320233110001): complete subsection reference.
 
-- [openshift_virtualization](resources--securemesh_site_v2--reference--group-013.md#canonical-0121302321233330-0012112200322203-1301113300000200-3112222001032003-2331112123023303-3200031230001123-2210131121011110-1303130031122213): complete subsection reference.
+- [openshift_virtualization](resources--securemesh_site_v2--reference--group-014.md#canonical-0121302321233330-0012112200322203-1301113300000200-3112222001032003-2331112123023303-3200031230001123-2210131121011110-1303130031122213): complete subsection reference.
 
 - [openstack](resources--securemesh_site_v2--reference--group-015.md#canonical-3103330221113213-1101002321121001-1323321202302031-0033322000331021-3233221231330113-2212103122303202-3302221330110020-0111211323131322): complete subsection reference.
 
@@ -441,6 +444,7 @@ detected. When not set (== 0), a default value of 10000 msec will be used.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(0, 180000),
 }
@@ -497,6 +501,8 @@ being preferred over SSL. Tunnel is of type IPsec Tunnel is of type SSL. Possibl
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["SITE_TO_SITE_TUNNEL_IPSEC","SITE_TO_SITE_TUNNEL_IPSEC_OR_SSL","SITE_TO_SITE_TUNNEL_SSL"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("SITE_TO_SITE_TUNNEL_IPSEC_OR_SSL",
     "SITE_TO_SITE_TUNNEL_IPSEC",

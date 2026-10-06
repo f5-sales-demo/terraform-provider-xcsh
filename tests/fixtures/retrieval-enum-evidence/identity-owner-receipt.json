@@ -1,0 +1,22 @@
+{
+  "draft_only": true,
+  "qualification_passed": false,
+  "export_sha256": "sha256:43f7fbdf81e00b10052078ba036b5fbac8c51d6a8f8c336f8cf672174571ddec",
+  "files": 331,
+  "fields": 38859,
+  "enum_fields": 628,
+  "export_unchanged": true,
+  "package_assertions": true,
+  "metadata_destination_identity": true,
+  "duplicate_schema_owners_rejected": true,
+  "runtime_provider_selection_verified": false,
+  "checks": ["Go race tests", "Go vet", "two identical exports", "Ubuntu ChatGPT-authenticated static review"],
+  "installed_schema_surface": {
+    "resources": 131,
+    "data_sources": 198,
+    "actions": 11,
+    "ephemeral_resources": 2
+  },
+  "installed_schema_surface_matches": true,
+  "remaining": "Complete generation and final snapshot validation ongoing. Parser fixtures do not establish runtime provider selection. No qualification or release."
+}

@@ -1,0 +1,11 @@
+**Approve the narrow declared-role hardening.** I found no concrete bug introduced by these five pending files against HEAD.
+
+- [receiver.go:60](tools/pkg/docconstraints/receiver.go:60) requires the exact framework import and corresponding interface name. Line 66 requires address-of `&`; conflicting roles remain unresolved, including after a third assertion.
+- [enum.go:145](tools/pkg/docconstraints/enum.go:145) requires a matching receiver declaration; lines 173 and 278 bind the response and root schema to that same role. The additions do not broaden enum completeness claims.
+- Source inspection found matching same-file assertion text for all 334 provider `Schema` methods. This textual check found no obvious omission caused by the new gate.
+
+**Registration and global coverage remain unresolved.** Compile-time assertions do not prove runtime constructor registration. The file-local recognizer excludes assertions elsewhere and alternative forms such as `(*Thing)(nil)`. The exporter also silently omits unresolved roots and skipped fields; this patch does not establish coverage of every installed field.
+
+Your supplied unchanged exports—331 files / 38,859 fields / 628 enum fields, SHA-256 `43f7fbdf81e00b10052078ba036b5fbac8c51d6a8f8c336f8cf672174571ddec`—support export stability, not installed-schema completeness.
+
+This was source-only review; I did not rerun tests or exports. No files were changed, and no benchmark prompts were inspected. Approval does **not** extend to release or qualification.

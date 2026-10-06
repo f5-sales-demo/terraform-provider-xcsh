@@ -1,0 +1,14 @@
+**Approve the narrow changes as bounded, declared constructor evidence.** I found no new blocking regression against HEAD. This is not qualification or release approval.
+
+Factory identity, local shadow rejection, conditional/duplicate constructor rejection, import ownership, and role matching look sound. Incomplete direct enums and all three combinators remain unresolved.
+
+Two pre-existing limitations remain:
+
+- **Split assertions can still drop schemas.** [RegisteredSchemaRoots](/data/robin-GIT/worktrees/terraform-provider-xcsh-2421-retrieval-enums/tools/pkg/docconstraints/registration.go:144) calls file-local `SchemaRoots` and `ReceiverContracts`. Moving a receiver’s assertion into another file leaves registration resolved but loses its schema—including a provider schema. The split-file fixture keeps the resource assertion beside `Schema`, so it misses this case.
+- **Exact exported destinations remain filename-based.** [The exporter](/data/robin-GIT/worktrees/terraform-provider-xcsh-2421-retrieval-enums/tools/export-doc-constraints.go:98) discards receiver identity. The consumer expects `<name>_<role>.go`; moving schema methods into another filename produces unmatched enum targets. Multiple receivers in one file also share one field map. A read-only consumer probe confirmed the filename mismatch. The new split-file test verifies field traversal, not the final destination.
+
+The four-role test checks registration mappings; it does not exercise each role through export and destination validation.
+
+`git diff --check` passed. Focused Go tests could not run because the read-only filesystem prevents creating `/tmp/go-build…`. I did not rerun the exports; the supplied matching hash and 331/38,859/628 counts establish current-output stability, not these missing cases.
+
+No files changed, external contacts, subagents, or benchmark-prompt inspection.

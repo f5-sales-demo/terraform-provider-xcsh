@@ -1,0 +1,21 @@
+**I would not approve the pending exporter mapping yet.** Against HEAD `4ca9113cf3b`, two identity ambiguities remain:
+
+- **P2 — Different provider receivers are merged into `provider.go`.** [export-doc-constraints.go:56](/data/robin-GIT/worktrees/terraform-provider-xcsh-2421-retrieval-enums/tools/export-doc-constraints.go:56) bypasses destination uniqueness for providers. Two asserted provider types with distinct schema fields produce one combined document; identical overlapping evidence also passes. Reject ambiguous provider ownership before collecting fields.
+
+- **P2 — Multiple Schema declarations for one receiver are combined.** [export-doc-constraints.go:62](/data/robin-GIT/worktrees/terraform-provider-xcsh-2421-retrieval-enums/tools/export-doc-constraints.go:62) reuses destination fields without establishing a unique Schema declaration. One Metadata method plus two Schema methods in mutually exclusive platform/build-tagged files can therefore produce a synthetic union: the exporter parses both files, and disjoint fields evade the conflict check. Duplicate Metadata detection does not protect this case. Reject ambiguous schema ownership or select the applicable build files.
+
+These are source-traced counterexamples, not executed reproductions.
+
+The **four-role Metadata helper itself looks sound by inspection**: canonical suffixes match the collection consumer; request and response types must belong to the receiver’s role; assignments reference their parameter objects; conditional, indirect, and repeated writes remain unresolved. Duplicate Metadata receivers and duplicate destinations fail closed. Package-wide assertion conflicts also remain unresolved, and schema selection now receives package-wide contracts.
+
+Remaining proof gaps:
+
+- [identity_test.go:38](/data/robin-GIT/worktrees/terraform-provider-xcsh-2421-retrieval-enums/tools/pkg/docconstraints/identity_test.go:38) claims split-file coverage but puts everything in one file. Existing tests separately exercise resource assertion/factory splits, not the complete assertion → factory → Metadata → Schema split across all four roles.
+- Dedicated Metadata tests are missing for request ownership, parameter shadowing, and duplicate receiver declarations.
+- Go tests could not run: creating `/tmp/go-build…` failed on the read-only filesystem. `git diff --check` passed.
+
+Existing receiver exports and the earlier baseline are byte-identical, with **331 files, 38,859 fields, 628 enum-bearing fields**, and SHA-256:
+
+`43f7fbdf81e00b10052078ba036b5fbac8c51d6a8f8c336f8cf672174571ddec`
+
+That verifies existing artifacts, not a fresh export from these pending sources. Runtime registration, qualification, and release remain unverified. No files were changed.

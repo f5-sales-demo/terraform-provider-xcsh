@@ -101,6 +101,7 @@ The default value is 2 seconds.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.AtMost(600000),
 }
@@ -241,6 +242,8 @@ endpoints will be considered.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["DISTRIBUTED","LOCAL_ONLY","LOCAL_PREFERRED"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("DISTRIBUTED",
     "LOCAL_ONLY",
@@ -295,6 +298,8 @@ default\_subset if the cluster had no endpoint matching the subset policy.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["ANY_ENDPOINT","DEFAULT_SUBSET","NO_FALLBACK"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("NO_FALLBACK",
     "ANY_ENDPOINT",
@@ -343,6 +348,7 @@ This is specified in milliseconds. The default value is 5 minutes.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.AtMost(600000),
 }
@@ -465,6 +471,8 @@ Hash policy is taken from from the load balancer which is using this origin pool
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["LB_OVERRIDE","LEAST_REQUEST","RANDOM","RING_HASH","ROUND_ROBIN"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("ROUND_ROBIN",
     "LEAST_REQUEST",
@@ -511,6 +519,7 @@ define the request limit per connection.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.AtLeast(1),
 }
@@ -572,6 +581,7 @@ follow DNS-1035 format.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   validators.NameValidator(),
 }
@@ -639,6 +649,7 @@ DNS\_LABEL format. For a namespace object itself, namespace value will be ""
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   validators.NamespaceValidator(),
 }
@@ -702,6 +713,7 @@ below which all endpoints will be considered for loadbalancing ignoring its heal
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.AtMost(100),
 }
@@ -992,6 +1004,7 @@ reach connection limit.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.AtMost(32768),
 }
@@ -1043,6 +1056,7 @@ exceed this count.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.AtMost(32768),
 }
@@ -1097,6 +1111,7 @@ if pending request reach pending\_request.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.AtMost(32768),
 }
@@ -1152,6 +1167,8 @@ Priority routing for each request. Default routing mechanism High-Priority routi
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["DEFAULT","HIGH"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("DEFAULT",
     "HIGH"),
@@ -1190,6 +1207,7 @@ Remove endpoint out of load balancing decision, if retries for request exceed th
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(0, 32768),
 }
@@ -1408,6 +1426,7 @@ Fallback: No subset requested.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.RequiredListObjectAttributes("keys")}
 ```
 
@@ -1465,6 +1484,7 @@ List of keys that define a cluster subset class.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(16),
 }
@@ -1659,6 +1679,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
   stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`),
@@ -1924,6 +1945,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
   stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`),
@@ -2108,6 +2130,7 @@ Header Transformation OPTIONS for HTTP/1.1 request/response headers.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("default_header_transformation",
     "preserve_case_header_transformation"),
   validators.ConflictingObjectAttributes("default_header_transformation",
@@ -2513,6 +2536,7 @@ they continue to fail. Defaults to 30000ms or 30s. Specified in milliseconds.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.AtMost(1800000),
 }
@@ -2565,6 +2589,7 @@ number of consecutive 5xx responses required before a consecutive 5xx ejection o
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.AtMost(1024),
 }
@@ -2617,6 +2642,7 @@ consecutive gateway failure ejection occurs. Defaults to 5.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.AtMost(1024),
 }
@@ -2670,6 +2696,7 @@ Defaults to 10000ms or 10s. Specified in milliseconds.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(1, 600000),
 }
@@ -2726,6 +2753,7 @@ but will eject at least one host regardless of the value.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.AtMost(100),
 }
@@ -2952,6 +2980,7 @@ TLS configuration for upstream connections.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("cert_params",
     "common_params"),
   validators.ConflictingObjectAttributes("default_session_key_caching",
@@ -3020,6 +3049,7 @@ keys that are cached.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(2, 64),
 }

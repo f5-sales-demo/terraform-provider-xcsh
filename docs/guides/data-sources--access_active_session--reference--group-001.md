@@ -116,6 +116,8 @@ Session status is established. Possible values are \`PENDING\`, \`ESTABLISHED\`.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["ESTABLISHED","PENDING"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("PENDING",
     "ESTABLISHED"),

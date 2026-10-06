@@ -92,6 +92,7 @@ The maximum size permitted for bursts of data. E.g. 10000 pps burst.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.AtLeast(1),
 }
@@ -143,6 +144,7 @@ under normal conditions. E.g. 10000 pps.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(1, 10000000),
 }
@@ -316,6 +318,7 @@ follow DNS-1035 format.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   validators.NameValidator(),
 }
@@ -383,6 +386,7 @@ DNS\_LABEL format. For a namespace object itself, namespace value will be ""
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   validators.NamespaceValidator(),
 }
@@ -443,6 +447,8 @@ Shared A common policer instance is used for for all references to the policer. 
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["POLICER_MODE_NOT_SHARED","POLICER_MODE_SHARED"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("POLICER_MODE_NOT_SHARED",
     "POLICER_MODE_SHARED"),
@@ -482,6 +488,8 @@ Two-Color Policer. The only possible value is \`POLICER\_SINGLE\_RATE\_TWO\_COLO
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["POLICER_SINGLE_RATE_TWO_COLOR"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("POLICER_SINGLE_RATE_TWO_COLOR"),
 }

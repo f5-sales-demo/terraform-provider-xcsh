@@ -333,6 +333,7 @@ follow DNS-1035 format.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   validators.NameValidator(),
 }
@@ -400,6 +401,7 @@ DNS\_LABEL format. For a namespace object itself, namespace value will be ""
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   validators.NamespaceValidator(),
 }
@@ -471,6 +473,7 @@ Operating System version can be overridden via site config.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(256),
 }
@@ -519,7 +522,7 @@ Receipt-pinned upstream constraints:
 
 - [storage_interface_list](resources--fleet--reference--group-003.md#canonical-2200223121321313-3202113301130230-3113322333033203-2122021133112132-3302320001211330-3311111102111033-2201322232210330-0102122100010132): complete subsection reference.
 
-- [storage_static_routes](resources--fleet--reference--group-003.md#canonical-3310103001011013-0133232333013322-2230330101201311-3021013203230121-1032321030203020-3003121131331312-2101312003321212-2012211010032330): complete subsection reference.
+- [storage_static_routes](resources--fleet--reference--group-004.md#canonical-3310103001011013-0133232333013322-2230330101201311-3021013203230121-1032321030203020-3003121131331312-2101312003321212-2012211010032330): complete subsection reference.
 
 - [timeouts](resources--fleet--reference--group-004.md#canonical-3013312232300101-1023222303301232-0210002302033021-2230300221300103-1230132310201312-1210112221101000-0010122001311202-1320000331121210): complete subsection reference.
 
@@ -540,6 +543,7 @@ installed can be overridden via site config.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(256),
 }
@@ -786,7 +790,7 @@ Each exact path has one authoritative reference destination. Collection element 
 | `storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_nas.management_lif_dns_name` | [storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_nas.management_lif_dns_name](resources--fleet--reference--group-002.md#canonical-3301201200012332-1032312121230011-3010112210201220-1002102302101201-2122102002110231-1013031101220221-1011311032313100-3022100332012303) |
 | `storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_nas.management_lif_ip` | [storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_nas.management_lif_ip](resources--fleet--reference--group-002.md#canonical-0130113221022031-0231200122210132-2030110123103212-2221320021223333-3023300223020032-1213220212331122-3020101001201101-0110330111110102) |
 | `storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_nas.nfs_mount_options` | [storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_nas.nfs_mount_options](resources--fleet--reference--group-002.md#canonical-2322331212203101-2032212003322321-2303333321222121-3213010111101213-3103221220001131-1310221300121132-3131331323311222-1000323120210310) |
-| `storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_nas.password` | [storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_nas.password](resources--fleet--reference--group-002.md#canonical-2310201301301300-3100121212331033-2232033100203311-1330302310003123-0232233021333003-2200330123100132-3300122313002212-2100311033121231) |
+| `storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_nas.password` | [storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_nas.password](resources--fleet--reference--group-003.md#canonical-2310201301301300-3100121212331033-2232033100203311-1330302310003123-0232233021333003-2200330123100132-3300122313002212-2100311033121231) |
 | `storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_nas.password.blindfold_secret_info` | [storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_nas.password.blindfold_secret_info](resources--fleet--reference--group-003.md#canonical-1320123220002003-2203232200231032-3301031122212302-3122003300332103-3303331233110203-1302223022222111-0030311012311010-0120002332101312) |
 | `storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_nas.password.blindfold_secret_info.decryption_provider` | [storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_nas.password.blindfold_secret_info.decryption_provider](resources--fleet--reference--group-003.md#canonical-0012222303202103-1030022203232022-1031300000330331-3322130231130130-1011212201110012-3311100003331202-1323301110333310-0112212110323021) |
 | `storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_nas.password.blindfold_secret_info.location` | [storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_nas.password.blindfold_secret_info.location](resources--fleet--reference--group-003.md#canonical-2001103321320003-2233120032302001-0120133101032131-3032020323303122-3122021213013330-1202203022020033-3102100120030100-2211333311110001) |
@@ -961,9 +965,9 @@ Each exact path has one authoritative reference destination. Collection element 
 | `storage_interface_list.interfaces.name` | [storage_interface_list.interfaces.name](resources--fleet--reference--group-003.md#canonical-0001010310110001-1200131311112010-2231313101122232-0322212100003322-3123320023203123-3301022220130213-3033322311320202-3102232200131213) |
 | `storage_interface_list.interfaces.namespace` | [storage_interface_list.interfaces.namespace](resources--fleet--reference--group-003.md#canonical-3331312331220012-3303310000313201-0003322220301233-1213002222333210-0023023023021011-2130220012020132-3323310110113311-3012111312100313) |
 | `storage_interface_list.interfaces.tenant` | [storage_interface_list.interfaces.tenant](resources--fleet--reference--group-003.md#canonical-1112313210200113-0201231203031213-0311323110130011-1311330212123223-2023110213000013-3222023102113131-3022312230222133-0003220101330101) |
-| `storage_static_routes` | [storage_static_routes](resources--fleet--reference--group-003.md#canonical-3300220221311210-2223123102101211-3220330103110130-2013011230213113-0302003112110032-0211100233331131-0000213033313103-2010020102112211) |
-| `storage_static_routes.storage_routes` | [storage_static_routes.storage_routes](resources--fleet--reference--group-003.md#canonical-1113103203120230-0103213211302232-2101121302323232-1122111212313231-2311322311200031-1121301130131233-1130133302322133-3311302231122210) |
-| `storage_static_routes.storage_routes.attrs` | [storage_static_routes.storage_routes.attrs](resources--fleet--reference--group-003.md#canonical-2033130301313321-1232220332313121-3311112212031300-2211323031330223-1200021003201131-3310133300223310-2120201103231320-3022031112310003) |
+| `storage_static_routes` | [storage_static_routes](resources--fleet--reference--group-004.md#canonical-3300220221311210-2223123102101211-3220330103110130-2013011230213113-0302003112110032-0211100233331131-0000213033313103-2010020102112211) |
+| `storage_static_routes.storage_routes` | [storage_static_routes.storage_routes](resources--fleet--reference--group-004.md#canonical-1113103203120230-0103213211302232-2101121302323232-1122111212313231-2311322311200031-1121301130131233-1130133302322133-3311302231122210) |
+| `storage_static_routes.storage_routes.attrs` | [storage_static_routes.storage_routes.attrs](resources--fleet--reference--group-004.md#canonical-2033130301313321-1232220332313121-3311112212031300-2211323031330223-1200021003201131-3310133300223310-2120201103231320-3022031112310003) |
 | `storage_static_routes.storage_routes.labels` | [storage_static_routes.storage_routes.labels](resources--fleet--reference--group-004.md#canonical-3200200330113233-0203010303222300-1203213313200323-0002201003200323-2102302130320131-3200001233330020-2303323033120202-2032013003021232) |
 | `storage_static_routes.storage_routes.nexthop` | [storage_static_routes.storage_routes.nexthop](resources--fleet--reference--group-004.md#canonical-1133203310222332-0201030230322312-3010300302332211-3030020321111100-1000213331231233-3213113130130232-2213202002102121-1300021112121130) |
 | `storage_static_routes.storage_routes.nexthop.interface` | [storage_static_routes.storage_routes.nexthop.interface](resources--fleet--reference--group-004.md#canonical-2101122030320222-1011022121032223-2221103102123222-0320321300122312-0211111133123331-0202123303102012-3133231312131131-0210333030032200) |
@@ -1077,6 +1081,7 @@ Disable node local services on this site.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.ConflictingListObjectAttributes("dns",
     "ssh"),
   validators.ConflictingListObjectAttributes("dns",
@@ -1201,6 +1206,8 @@ VIRTUAL\_NETWORK\_MANAGEMENT is used for management purposes.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["VIRTUAL_NETWORK_GLOBAL","VIRTUAL_NETWORK_IP_AUTO","VIRTUAL_NETWORK_IP_FABRIC","VIRTUAL_NETWORK_MANAGEMENT","VIRTUAL_NETWORK_PER_SITE","VIRTUAL_NETWORK_PUBLIC","VIRTUAL_NETWORK_SEGMENT","VIRTUAL_NETWORK_SITE_LOCAL","VIRTUAL_NETWORK_SITE_LOCAL_INSIDE","VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE","VIRTUAL_NETWORK_SITE_SERVICE","VIRTUAL_NETWORK_SRV6_NETWORK","VIRTUAL_NETWORK_VER_INTERNAL","VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("VIRTUAL_NETWORK_SITE_LOCAL",
     "VIRTUAL_NETWORK_SITE_LOCAL_INSIDE",
@@ -1415,6 +1422,7 @@ of bond devices for this fleet.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("bond_devices")}
 ```
 
@@ -1476,6 +1484,7 @@ Bond Devices. List of bond devices.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.RequiredListObjectAttributes("devices",
     "link_polling_interval",
     "link_up_delay",
@@ -1551,6 +1560,7 @@ Ethernet devices that will make up this bond.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeBetween(1, 8),
 }
@@ -1613,6 +1623,7 @@ Link Polling Interval. Link polling interval in milliseconds.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(500, 5000),
 }
@@ -1666,6 +1677,7 @@ Milliseconds wait before link is declared up.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(0, 1000),
 }
@@ -1707,66 +1719,3 @@ Receipt-pinned upstream constraints:
 ```
 
 <a id="canonical-2133233103031220-1330321001113020-1103312233020121-0100122200001233-1103032120012000-3130012302010322-3313003331032211-2100312203130113"></a>
-
-<a id="canonical-1003301030310212-0332212031232101-0111013023221100-0021201003320202-2320020300102121-2123113120021030-0120211213330232-0202311133312321"></a>
-
-#### `bond_device_list.bond_devices.name` property
-
-Type: `"string"`. Optional.
-
-Bond Device Name. Name for the Bond. Ex 'bond0'
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 64),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxLength": 64,
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "characterSet": {
-      "allowed": "[a-z0-9-]",
-      "description": "Lowercase letter start, alphanumeric with hyphens, alphanumeric end",
-      "required": "[a-z0-9]",
-      "restricted": "[^a-z0-9-]"
-    },
-    "constraintType": "string",
-    "deterministic": true,
-    "format": "dns-label",
-    "formatDescription": "DNS-1035 label: must start with a lowercase letter, may contain lowercase alphanumeric and hyphens, must end with alphanumeric",
-    "maxLength": 64,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
-    },
-    "minLength": 1,
-    "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
-    "validation": {
-      "rfc": "RFC 1035",
-      "standard": "DNS-1035 label (alpha-first)"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": true,
-    "minimum_config": true,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.max_len": "64"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.max_len": "64"
-  }
-}
-```

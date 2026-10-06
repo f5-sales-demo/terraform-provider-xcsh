@@ -230,6 +230,7 @@ follow DNS-1035 format.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   validators.NameValidator(),
 }
@@ -297,6 +298,7 @@ DNS\_LABEL format. For a namespace object itself, namespace value will be ""
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   validators.NamespaceValidator(),
 }
@@ -494,7 +496,7 @@ Each exact path has one authoritative reference destination. Collection element 
 | `gcp_bucket_receiver.gcp_cred.tenant` | [gcp_bucket_receiver.gcp_cred.tenant](resources--global_log_receiver--reference--group-002.md#canonical-1000113133002230-3130231000312130-0030032132013100-0201120132023133-3323031302001200-0111303100330012-0221320103103220-3321311022322102) |
 | `http_receiver` | [http_receiver](resources--global_log_receiver--reference--group-002.md#canonical-1220320110200100-0011203102210333-0202102011023021-3001200203203131-1331100111313102-1233023130201221-3030123213313322-1030001103211002) |
 | `http_receiver.auth_basic` | [http_receiver.auth_basic](resources--global_log_receiver--reference--group-002.md#canonical-3212310332211222-3232202111020220-3031310313113232-3313212222012200-2003321211113132-1013230300231033-1231033202002022-3310212132331000) |
-| `http_receiver.auth_basic.password` | [http_receiver.auth_basic.password](resources--global_log_receiver--reference--group-002.md#canonical-2230311112201102-3323031123201210-3131022111310113-0230111200302000-0102332121021221-3033302311313132-2103000101122122-0302230223110221) |
+| `http_receiver.auth_basic.password` | [http_receiver.auth_basic.password](resources--global_log_receiver--reference--group-003.md#canonical-2230311112201102-3323031123201210-3131022111310113-0230111200302000-0102332121021221-3033302311313132-2103000101122122-0302230223110221) |
 | `http_receiver.auth_basic.password.blindfold_secret_info` | [http_receiver.auth_basic.password.blindfold_secret_info](resources--global_log_receiver--reference--group-003.md#canonical-2021002230020210-3213022213201321-3122200021310323-1300123213003330-1031230133320031-1113102101322022-3311320011101222-2201201031200102) |
 | `http_receiver.auth_basic.password.blindfold_secret_info.decryption_provider` | [http_receiver.auth_basic.password.blindfold_secret_info.decryption_provider](resources--global_log_receiver--reference--group-003.md#canonical-0131101320302333-2033321030133302-2000122020012211-3203313102003303-0231332112302220-1202002000111002-0003132033201322-3123331203122103) |
 | `http_receiver.auth_basic.password.blindfold_secret_info.location` | [http_receiver.auth_basic.password.blindfold_secret_info.location](resources--global_log_receiver--reference--group-003.md#canonical-1210110320220213-3323201211311201-2310103123313231-3212301312020313-2303121021122321-2223203320012320-0033111313020231-0023112302212023) |
@@ -567,7 +569,7 @@ Each exact path has one authoritative reference destination. Collection element 
 | `kafka_receiver.use_tls.enable_verify_hostname` | [kafka_receiver.use_tls.enable_verify_hostname](resources--global_log_receiver--reference--group-003.md#canonical-1101213130230231-0301030231020130-1330011000310103-2302233213111010-0033311330330220-0201111213202032-3102003032230123-3123121232303120) |
 | `kafka_receiver.use_tls.mtls_disabled` | [kafka_receiver.use_tls.mtls_disabled](resources--global_log_receiver--reference--group-003.md#canonical-1130120021222200-3202130213203011-0112112223132001-3002320033321222-2032311310211330-1010231033001120-0021320233030133-3111230222120010) |
 | `kafka_receiver.use_tls.mtls_enable` | [kafka_receiver.use_tls.mtls_enable](resources--global_log_receiver--reference--group-003.md#canonical-1131130022323103-1203321331130201-1310103333213203-3002020102120011-2001002122211211-0233313013200330-0223023330323000-3113200013003032) |
-| `kafka_receiver.use_tls.mtls_enable.certificate` | [kafka_receiver.use_tls.mtls_enable.certificate](resources--global_log_receiver--reference--group-003.md#canonical-0110231120301200-3031202311211211-3121103021011312-0233313210312232-0321211331201002-0332220300311323-0321010001203313-3311113003223112) |
+| `kafka_receiver.use_tls.mtls_enable.certificate` | [kafka_receiver.use_tls.mtls_enable.certificate](resources--global_log_receiver--reference--group-004.md#canonical-0110231120301200-3031202311211211-3121103021011312-0233313210312232-0321211331201002-0332220300311323-0321010001203313-3311113003223112) |
 | `kafka_receiver.use_tls.mtls_enable.key_url` | [kafka_receiver.use_tls.mtls_enable.key_url](resources--global_log_receiver--reference--group-004.md#canonical-3300203201300012-0012033001230122-2303010112222211-3230021003303320-1103330030000313-1203131002321323-1322103102223033-1302302333013333) |
 | `kafka_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info` | [kafka_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info](resources--global_log_receiver--reference--group-004.md#canonical-0330202331311013-2221000013002320-1023002333321333-2202331030103120-2001020120113123-3312311100010030-2331110012223112-3123311313311003) |
 | `kafka_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info.decryption_provider` | [kafka_receiver.use_tls.mtls_enable.key_url.blindfold_secret_info.decryption_provider](resources--global_log_receiver--reference--group-004.md#canonical-0303101220303220-1002313302300221-0110000011310300-0220202210101020-1012300221223320-2003112303021120-1022222001122222-3121130201121212) |
@@ -789,6 +791,7 @@ Configuration for Global Log Receiver.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("aws_region",
     "group_name",
     "stream_name")}
@@ -857,6 +860,8 @@ AWS Region. AWS Region Name. Possible values are \`ap-northeast-1\`, \`ap-southe
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["af-south-1","ap-east-1","ap-northeast-1","ap-northeast-2","ap-south-1","ap-southeast-1","ap-southeast-2","ap-southeast-3","ca-central-1","eu-central-1","eu-north-1","eu-south-1","eu-west-1","eu-west-2","eu-west-3","me-south-1","sa-east-1","us-east-1","us-east-2","us-west-1","us-west-2"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("ap-northeast-1",
     "ap-southeast-1",
@@ -953,6 +958,7 @@ The group name of the target Cloudwatch Logs stream.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(3, 512),
 }
@@ -1012,6 +1018,7 @@ log stream at a time.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(3, 512),
 }
@@ -1082,6 +1089,7 @@ Such a reference is in form of tenant/namespace/name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
 ```
 
@@ -1122,6 +1130,7 @@ referred object's(e.g. Route's) name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 128),
 }
@@ -1182,6 +1191,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -1249,6 +1259,7 @@ the referred object's(e.g. Route's) tenant.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(64),
 }
@@ -1312,6 +1323,7 @@ Batch OPTIONS allow tuning for how batches of logs are sent to an endpoint.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("max_bytes",
     "max_bytes_disabled"),
   validators.ConflictingObjectAttributes("max_events",
@@ -1360,6 +1372,7 @@ than this many bytes.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(4096, 10485760),
 }
@@ -1414,6 +1427,7 @@ the batch.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(32, 2000),
 }
@@ -1667,6 +1681,7 @@ Compression Type.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("compression_default",
     "compression_gzip"),
   validators.ConflictingObjectAttributes("compression_default",
@@ -1871,6 +1886,7 @@ Azure Event Hubs Configuration for Global Log Receiver.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("instance",
     "namespace")}
 ```
@@ -1915,6 +1931,7 @@ Event Hubs Instance name into which logs should be stored.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(3, 63),
 }
@@ -1973,6 +1990,7 @@ Event Hubs Namespace is namespace with instance into which logs should be stored
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(3, 63),
 }
@@ -2054,6 +2072,7 @@ SecretType is used in an object to indicate a sensitive/confidential field.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info",
     "clear_secret_info")}
 ```
@@ -2113,6 +2132,7 @@ BlindfoldSecretInfoType specifies information about the Secret managed by F5XC S
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("location")}
 ```
 
@@ -2187,6 +2207,7 @@ store provider is an HTTP/HTTPS location.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(4, 131072),
 }
@@ -2288,6 +2309,7 @@ ClearSecretInfoType specifies information about the Secret that is not encrypted
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("url")}
 ```
 
@@ -2340,6 +2362,7 @@ base64 decoding.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 131072),
 }
@@ -2414,6 +2437,7 @@ Azure Blob Configuration for Global Log Receiver.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("container_name")}
 ```
 
@@ -2461,6 +2485,7 @@ Container Name is the name of the container into which logs should be stored.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(3, 63),
 }
@@ -2532,6 +2557,7 @@ Batch OPTIONS allow tuning for how batches of logs are sent to an endpoint.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("max_bytes",
     "max_bytes_disabled"),
   validators.ConflictingObjectAttributes("max_events",
@@ -2580,6 +2606,7 @@ than this many bytes.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(4096, 10485760),
 }
@@ -2634,6 +2661,7 @@ the batch.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(32, 2000),
 }
@@ -2887,6 +2915,7 @@ Compression Type.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("compression_default",
     "compression_gzip"),
   validators.ConflictingObjectAttributes("compression_default",
@@ -3092,6 +3121,7 @@ SecretType is used in an object to indicate a sensitive/confidential field.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info",
     "clear_secret_info")}
 ```
@@ -3151,6 +3181,7 @@ BlindfoldSecretInfoType specifies information about the Secret managed by F5XC S
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("location")}
 ```
 
@@ -3225,6 +3256,7 @@ store provider is an HTTP/HTTPS location.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(4, 131072),
 }
@@ -3326,6 +3358,7 @@ ClearSecretInfoType specifies information about the Secret that is not encrypted
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("url")}
 ```
 
@@ -3378,6 +3411,7 @@ base64 decoding.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 131072),
 }
@@ -3454,6 +3488,7 @@ bucket or file.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("custom_folder",
     "log_type_folder"),
   validators.ConflictingObjectAttributes("custom_folder",

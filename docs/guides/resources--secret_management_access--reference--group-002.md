@@ -6,6 +6,53 @@ description: "Complete grouped canonical reference for xcsh_secret_management_ac
 
 # xcsh_secret_management_access reference
 
+<a id="canonical-3322021123121120-1331101321210003-0101221331112313-0323133121220331-1012102110102230-1011002102022021-0102001122103112-1312103231303100"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `where.site.disable_internet_vip` properties
+
+Breadcrumbs:
+
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
+- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0032020332001320-3010332010002310-2231312312333102-1213312333213211-2000323020020311-0210022012013130-0030301110003231-0300312031002123)
+- [where](resources--secret_management_access--reference--group-001.md#canonical-3010002013310032-1213220213323213-2123321300111132-1013020133110321-1213123032001233-2000133123322201-2232220303213303-3030000000122211)
+- [where.site](resources--secret_management_access--reference--group-001.md#canonical-3033131013101111-0223012002311321-1033203233321312-1220103012131012-1122021131131000-0210211310301120-1113032001320320-1013332231323303)
+- where.site.disable_internet_vip
+
+<a id="canonical-1211223111003203-0122202211311203-1201012323200232-2302220322103103-2331123323320300-2312230301322003-0112300111210001-1210201223000020"></a>
+
+Type: `["object", {}]`. Optional.
+
+Enable this option
+
+Additional upstream details:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+disable_internet_vip = {}
+```
+
+This is an empty object or choice marker. It has no direct properties.
+
 <a id="canonical-0130032100011033-3031212022022130-0002133032312211-2121030011321011-0030122120011302-3022110113130203-3000010223121222-0222122322010021"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -205,6 +252,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
   stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`),
@@ -342,6 +390,7 @@ This specifies a direct reference to a network configuration object.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("ref")}
 ```
 
@@ -524,6 +573,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
   stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`),
@@ -661,6 +711,7 @@ Virtual Site. A reference to virtual\_site object.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("ref"),
   validators.ConflictingObjectAttributes("disable_internet_vip",
     "enable_internet_vip")}
@@ -767,6 +818,8 @@ VIRTUAL\_NETWORK\_MANAGEMENT is used for management purposes.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["VIRTUAL_NETWORK_GLOBAL","VIRTUAL_NETWORK_IP_AUTO","VIRTUAL_NETWORK_IP_FABRIC","VIRTUAL_NETWORK_MANAGEMENT","VIRTUAL_NETWORK_PER_SITE","VIRTUAL_NETWORK_PUBLIC","VIRTUAL_NETWORK_SEGMENT","VIRTUAL_NETWORK_SITE_LOCAL","VIRTUAL_NETWORK_SITE_LOCAL_INSIDE","VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE","VIRTUAL_NETWORK_SITE_SERVICE","VIRTUAL_NETWORK_SRV6_NETWORK","VIRTUAL_NETWORK_VER_INTERNAL","VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("VIRTUAL_NETWORK_SITE_LOCAL",
     "VIRTUAL_NETWORK_SITE_LOCAL_INSIDE",
@@ -1063,6 +1116,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
   stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`),

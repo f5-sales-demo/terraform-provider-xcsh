@@ -225,6 +225,7 @@ addresses by the system.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeBetween(1, 32),
 }
@@ -299,6 +300,7 @@ Server applies default when omitted.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.AtMost(4147200000),
 }
@@ -377,6 +379,7 @@ balancer.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.AtMost(65535),
 }
@@ -438,6 +441,7 @@ follow DNS-1035 format.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   validators.NameValidator(),
 }
@@ -505,6 +509,7 @@ DNS\_LABEL format. For a namespace object itself, namespace value will be ""
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   validators.NamespaceValidator(),
 }
@@ -572,6 +577,7 @@ Each port range consists of a single port or two ports separated by "-".
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 512),
 }
@@ -732,7 +738,7 @@ Each exact path has one authoritative reference destination. Collection element 
 | `origin_pools_weights.cluster.name` | [origin_pools_weights.cluster.name](resources--tcp_loadbalancer--reference--group-002.md#canonical-2221201022222220-1101232211132331-1211322311311012-0231322230031012-3120232331301301-2201122100233320-1022002012301012-1202111222101233) |
 | `origin_pools_weights.cluster.namespace` | [origin_pools_weights.cluster.namespace](resources--tcp_loadbalancer--reference--group-002.md#canonical-1312321133020223-2023020303320302-1113321133221211-3310033222323121-2220011331211020-1223021233121022-2002130332202303-1101110012302002) |
 | `origin_pools_weights.cluster.tenant` | [origin_pools_weights.cluster.tenant](resources--tcp_loadbalancer--reference--group-002.md#canonical-0303130010011030-3130300323203021-1212130313322132-2232300322020230-3330311013001331-3111111123120112-3333021020320230-0311201223201221) |
-| `origin_pools_weights.endpoint_subsets` | [origin_pools_weights.endpoint_subsets](resources--tcp_loadbalancer--reference--group-002.md#canonical-3120233110133312-0321210100022022-3000321113133310-3130101101021221-1223301332330133-1103223110230230-2230020003011021-0233130133022230) |
+| `origin_pools_weights.endpoint_subsets` | [origin_pools_weights.endpoint_subsets](resources--tcp_loadbalancer--reference--group-003.md#canonical-3120233110133312-0321210100022022-3000321113133310-3130101101021221-1223301332330133-1103223110230230-2230020003011021-0233130133022230) |
 | `origin_pools_weights.pool` | [origin_pools_weights.pool](resources--tcp_loadbalancer--reference--group-003.md#canonical-2211110010101203-3132220223100012-1211011020310013-3133233312232003-2030302002310022-0201203300032312-2202322100111100-2111033302210000) |
 | `origin_pools_weights.pool.name` | [origin_pools_weights.pool.name](resources--tcp_loadbalancer--reference--group-003.md#canonical-3231133211120113-0210010220020230-3032001333300132-3330221200210310-2003211213221020-2022321330203001-3201322003333331-2230210321333301) |
 | `origin_pools_weights.pool.namespace` | [origin_pools_weights.pool.namespace](resources--tcp_loadbalancer--reference--group-003.md#canonical-1311301302321321-1103201112111120-2303010031013133-3031313320321301-2213220113003101-2320121311011330-2210330332320103-3323320323200323) |
@@ -873,6 +879,7 @@ List of service policies.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("policies")}
 ```
 
@@ -941,6 +948,7 @@ match, then the request will be denied by default.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.RequiredListObjectAttributes("name")}
 ```
 
@@ -1008,6 +1016,7 @@ referred object's(e.g. Route's) name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 128),
 }
@@ -1068,6 +1077,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -1135,6 +1145,7 @@ the referred object's(e.g. Route's) tenant.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(64),
 }
@@ -1203,6 +1214,7 @@ This defines a way to advertise a VIP on specific sites.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("advertise_where")}
 ```
 
@@ -1266,6 +1278,7 @@ Where should this load balancer be available.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.ConflictingListObjectAttributes("advertise_dualstack_on_public",
     "advertise_on_public"),
   validators.ConflictingListObjectAttributes("advertise_dualstack_on_public",
@@ -1401,6 +1414,7 @@ Exclusive with \[port\_ranges use\_default\_port\] Port to Listen.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(1, 65535),
 }
@@ -1458,6 +1472,7 @@ Each port range consists of a single port or two ports separated by "-".
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 512),
 }
@@ -1591,6 +1606,7 @@ Such a reference is in form of tenant/namespace/name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
 ```
 
@@ -1631,6 +1647,7 @@ referred object's(e.g. Route's) name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 128),
 }
@@ -1691,6 +1708,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -1758,6 +1776,7 @@ the referred object's(e.g. Route's) tenant.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(64),
 }
@@ -1874,6 +1893,7 @@ Such a reference is in form of tenant/namespace/name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
 ```
 
@@ -1914,6 +1934,7 @@ referred object's(e.g. Route's) name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 128),
 }
@@ -1974,6 +1995,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -2041,6 +2063,7 @@ the referred object's(e.g. Route's) tenant.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(64),
 }
@@ -2157,6 +2180,7 @@ Such a reference is in form of tenant/namespace/name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
 ```
 
@@ -2197,6 +2221,7 @@ referred object's(e.g. Route's) name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 128),
 }
@@ -2257,6 +2282,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -2324,6 +2350,7 @@ the referred object's(e.g. Route's) tenant.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(64),
 }
@@ -2422,6 +2449,7 @@ Use given IP address as VIP on the site.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthAtMost(1024),
   validators.IPv4Validator(),
@@ -2490,6 +2518,8 @@ for endpoint in IP Fabric network.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["SITE_NETWORK_INSIDE","SITE_NETWORK_INSIDE_AND_OUTSIDE","SITE_NETWORK_INSIDE_AND_OUTSIDE_WITH_INTERNET_VIP","SITE_NETWORK_IP_FABRIC","SITE_NETWORK_OUTSIDE","SITE_NETWORK_OUTSIDE_WITH_INTERNET_VIP","SITE_NETWORK_SERVICE"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("SITE_NETWORK_INSIDE_AND_OUTSIDE",
     "SITE_NETWORK_INSIDE",
@@ -2553,6 +2583,7 @@ Such a reference is in form of tenant/namespace/name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
 ```
 
@@ -2593,6 +2624,7 @@ referred object's(e.g. Route's) name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 128),
 }
@@ -2653,6 +2685,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -2720,6 +2753,7 @@ the referred object's(e.g. Route's) tenant.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(64),
 }
@@ -2831,6 +2865,7 @@ Parameters to advertise on a given virtual network.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("default_v6_vip",
     "specific_v6_vip"),
   validators.ConflictingObjectAttributes("default_vip",

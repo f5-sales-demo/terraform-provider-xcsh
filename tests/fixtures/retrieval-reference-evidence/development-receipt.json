@@ -1,0 +1,70 @@
+{
+  "development_only": true,
+  "qualification_passed": false,
+  "counts": {
+    "resources": 2344,
+    "data-sources": 2344
+  },
+  "samples": [
+    {
+      "provider": "advertise_policy",
+      "path": "public_ip.kind",
+      "evidence": {
+        "version": 1,
+        "scope_path": ["public_ip"],
+        "member": "kind",
+        "upstream_message": "ves.io.schema.ObjectRefType",
+        "source": "receipt-pinned-schema-identity"
+      }
+    },
+    {
+      "provider": "advertise_policy",
+      "path": "public_ip.name",
+      "evidence": {
+        "version": 1,
+        "scope_path": ["public_ip"],
+        "member": "name",
+        "upstream_message": "ves.io.schema.ObjectRefType",
+        "source": "receipt-pinned-schema-identity"
+      }
+    },
+    {
+      "provider": "advertise_policy",
+      "path": "public_ip.namespace",
+      "evidence": {
+        "version": 1,
+        "scope_path": ["public_ip"],
+        "member": "namespace",
+        "upstream_message": "ves.io.schema.ObjectRefType",
+        "source": "receipt-pinned-schema-identity"
+      }
+    },
+    {
+      "provider": "advertise_policy",
+      "path": "public_ip.tenant",
+      "evidence": {
+        "version": 1,
+        "scope_path": ["public_ip"],
+        "member": "tenant",
+        "upstream_message": "ves.io.schema.ObjectRefType",
+        "source": "receipt-pinned-schema-identity"
+      }
+    },
+    {
+      "provider": "advertise_policy",
+      "path": "public_ip.uid",
+      "evidence": {
+        "version": 1,
+        "scope_path": ["public_ip"],
+        "member": "uid",
+        "upstream_message": "ves.io.schema.ObjectRefType",
+        "source": "receipt-pinned-schema-identity"
+      }
+    }
+  ],
+  "basis": "checked-in canonical destinations and receipt-pinned specification; not a new published corpus",
+  "source_review": "approve narrow producer source",
+  "tests": 48,
+  "generated_corpus_test_skipped": 1,
+  "complete_generation_pending": true
+}

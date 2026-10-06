@@ -6,13 +6,78 @@ description: "Complete grouped canonical reference for xcsh_service_policy refer
 
 # xcsh_service_policy reference
 
+<a id="canonical-3013111121202120-1033033012323330-1020021320132301-3202002003210211-0333123103122320-1100213133023033-2021101000133111-2002101210222223"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `rule_list.rules.spec.asn_matcher.asn_sets` properties
+
+Breadcrumbs:
+
+- [xcsh_service_policy](../resources/service_policy.md#canonical-3130230113123200-0200122303013133-3003310003113113-2022033310201211-3303333001012130-2333023010121030-2132303102102003-2201111001022301)
+- [Property reference](resources--service_policy--reference--group-001.md#canonical-3233121223111310-1123021201111211-2020111333013010-3123332230330123-3220120121331001-3202000010100310-1011313102310030-1312202213103330)
+- [rule_list](resources--service_policy--reference--group-001.md#canonical-0313033202111122-3020302003132312-3312200200230103-2323022300313111-1011031013312303-3010311302110303-3020012330131122-1010302101102100)
+- [rule_list.rules](resources--service_policy--reference--group-001.md#canonical-2003033211210223-1233232013203033-1213012320103003-1220003210002322-3220300031211001-2003332333132300-0301022032112012-0132021330223231)
+- [rule_list.rules.spec](resources--service_policy--reference--group-001.md#canonical-2200022213120332-0220211101301113-3032022313032233-3330130333233030-0010110110311113-1112333223123300-0232313012010010-0302001123322212)
+- [rule_list.rules.spec.asn_matcher](resources--service_policy--reference--group-001.md#canonical-0232211031132121-3002321133223230-3303210013302032-0323302103003332-0131313120223121-3031312302333221-3012100033212200-2323100313231113)
+- rule_list.rules.spec.asn_matcher.asn_sets
+
+<a id="canonical-3002022331323320-1223010221333030-1232321121220102-1211213203301123-1221001020311203-3030131120033132-1000220012130230-3230210113102001"></a>
+
+Type: `"object"`. list nested block, Optional.
+
+A list of references to bgp\_asn\_set objects.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxItems": 4,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "array",
+    "deterministic": true,
+    "maxItems": 4,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.repeated.max_items": "4"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.repeated.max_items": "4"
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+asn_sets {
+  # Configure direct properties listed below.
+}
+```
+
 <a id="canonical-0111121131133321-2030320112122331-3302031102310222-2101022332102021-0332230232133030-0232233023322203-0210321002110022-2322111101220230"></a>
 
-## Direct properties for `rule_list.rules.spec.asn_matcher.asn_sets`
+### Direct properties for `rule_list.rules.spec.asn_matcher.asn_sets`
 
 <a id="canonical-3013121001110201-3121330022333310-3032312310303200-0012331200121213-3133221220110312-1203313123201022-2202200002121101-3301312321100100"></a>
 
-### `rule_list.rules.spec.asn_matcher.asn_sets.kind` property
+#### `rule_list.rules.spec.asn_matcher.asn_sets.kind` property
 
 Type: `"string"`. Computed.
 
@@ -51,7 +116,7 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-2211211120130322-3321132303002232-1232112300120322-1200310213221012-3002233221231232-0210222100133022-1131203110101323-1202132011313232"></a>
 
-### `rule_list.rules.spec.asn_matcher.asn_sets.name` property
+#### `rule_list.rules.spec.asn_matcher.asn_sets.name` property
 
 Type: `"string"`. Optional.
 
@@ -85,7 +150,7 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-1130213021110333-1310000020331333-2310322132000312-3101211211301130-1100003103100212-1202133030102020-1113030133033220-2331230222113303"></a>
 
-### `rule_list.rules.spec.asn_matcher.asn_sets.namespace` property
+#### `rule_list.rules.spec.asn_matcher.asn_sets.namespace` property
 
 Type: `"string"`. Optional, Computed.
 
@@ -95,6 +160,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
   stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`),
@@ -144,7 +210,7 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-3021022201311300-3332130011122120-1201132031103210-2332232021322303-0230100302022310-0111030310031301-1113122121320032-0122300322000230"></a>
 
-### `rule_list.rules.spec.asn_matcher.asn_sets.tenant` property
+#### `rule_list.rules.spec.asn_matcher.asn_sets.tenant` property
 
 Type: `"string"`. Computed.
 
@@ -178,7 +244,7 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-2133012021323331-2310200302331212-2211102110303011-1130011110012322-2323113200301123-2112033233330020-2231310301200211-1300223303213303"></a>
 
-### `rule_list.rules.spec.asn_matcher.asn_sets.uid` property
+#### `rule_list.rules.spec.asn_matcher.asn_sets.uid` property
 
 Type: `"string"`. Computed.
 
@@ -269,6 +335,7 @@ A list of exact values to match the input against.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(64),
 }
@@ -325,6 +392,7 @@ A list of regular expressions to match the input against.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(16),
 }
@@ -391,6 +459,7 @@ An ordered list of transformers (starting from index 0) to be applied to the pat
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(9),
 }
@@ -457,6 +526,7 @@ Bot processing.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("bot_skip_processing",
     "none")}
 ```
@@ -650,6 +720,7 @@ A list of exact values to match the input against.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(64),
 }
@@ -706,6 +777,7 @@ A list of regular expressions to match the input against.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(16),
 }
@@ -772,6 +844,7 @@ An ordered list of transformers (starting from index 0) to be applied to the pat
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(9),
 }
@@ -848,6 +921,7 @@ BNF for expression string &lt;selector-syntax&gt; ::= &lt;requirement&gt; | &lt;
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("expressions")}
 ```
 
@@ -887,6 +961,7 @@ Expressions contains the Kubernetes style label expression for selections.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(1),
 }
@@ -960,6 +1035,7 @@ matcher predicates must evaluate to true.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.RequiredListObjectAttributes("name"),
   validators.ConflictingListObjectAttributes("check_not_present",
     "check_present"),
@@ -1054,6 +1130,7 @@ Cookie Name. A case-sensitive cookie name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -1269,6 +1346,7 @@ A list of exact values to match the input against.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(64),
 }
@@ -1325,6 +1403,7 @@ A list of regular expressions to match the input against.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(16),
 }
@@ -1391,6 +1470,7 @@ An ordered list of transformers (starting from index 0) to be applied to the pat
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(9),
 }
@@ -1491,6 +1571,7 @@ A list of exact values to match the input against.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(64),
 }
@@ -1547,6 +1628,7 @@ A list of regular expressions to match the input against.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(16),
 }
@@ -1613,6 +1695,7 @@ An ordered list of transformers (starting from index 0) to be applied to the pat
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(9),
 }
@@ -1681,6 +1764,7 @@ specified header predicates must evaluate to true.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.RequiredListObjectAttributes("name"),
   validators.ConflictingListObjectAttributes("check_not_present",
     "check_present"),
@@ -1777,6 +1861,7 @@ Header Name. A case-insensitive HTTP header name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -1994,6 +2079,7 @@ A list of exact values to match the input against.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(64),
 }
@@ -2050,6 +2136,7 @@ A list of regular expressions to match the input against.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(16),
 }
@@ -2116,6 +2203,7 @@ An ordered list of transformers (starting from index 0) to be applied to the pat
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(9),
 }
@@ -2241,6 +2329,7 @@ match against. Possible values are \`ANY\`, \`GET\`, \`HEAD\`, \`POST\`, \`PUT\`
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(16),
 }
@@ -2309,6 +2398,7 @@ if invert\_matcher is true.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("prefix_sets")}
 ```
 
@@ -2514,6 +2604,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
   stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`),
@@ -2709,6 +2800,7 @@ IPv4 Prefix List. List of IPv4 prefix strings.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(128),
 }
@@ -2778,6 +2870,7 @@ IP Threat Category List Type. List of IP threat categories.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("ip_threat_categories")}
 ```
 
@@ -2823,6 +2916,7 @@ selection expressions. Possible values are \`SPAM\_SOURCES\`, \`WINDOWS\_EXPLOIT
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(32),
 }
@@ -2924,6 +3018,7 @@ A list of exact JA4 TLS fingerprint to match the input JA4 TLS fingerprint again
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(16),
 }
@@ -2994,6 +3089,7 @@ must evaluate to true.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.RequiredListObjectAttributes("name"),
   validators.ConflictingListObjectAttributes("check_not_present",
     "check_present"),
@@ -3088,6 +3184,7 @@ JWT Claim Name. JWT claim name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -3303,6 +3400,7 @@ A list of exact values to match the input against.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(64),
 }
@@ -3359,6 +3457,7 @@ A list of regular expressions to match the input against.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(16),
 }
@@ -3425,6 +3524,7 @@ An ordered list of transformers (starting from index 0) to be applied to the pat
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(9),
 }
@@ -3525,6 +3625,7 @@ The list of label key names that have to match.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(16),
 }
@@ -3594,6 +3695,7 @@ Modify behavior for a matching request. The modification could be to entirely sk
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("default",
     "skip_processing")}
 ```
@@ -3810,6 +3912,7 @@ A list of exact path values to match the input HTTP path against.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(16),
 }
@@ -3891,6 +3994,7 @@ A list of path prefix values to match the input HTTP path against.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(16),
 }
@@ -3949,6 +4053,7 @@ A list of regular expressions to match the input HTTP path against.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(16),
 }
@@ -4007,6 +4112,7 @@ A list of path suffix values to match the input HTTP path against.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(64),
 }
@@ -4071,6 +4177,7 @@ An ordered list of transformers (starting from index 0) to be applied to the pat
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(9),
 }
@@ -4142,6 +4249,7 @@ A port matcher specifies a list of port ranges as match criteria.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("ports")}
 ```
 
@@ -4210,6 +4318,7 @@ separated by "-".
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(16),
 }
@@ -4282,6 +4391,7 @@ parameter name. Note that all specified query parameter predicates must evaluate
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.RequiredListObjectAttributes("key"),
   validators.ConflictingListObjectAttributes("check_not_present",
     "check_present"),
@@ -4376,6 +4486,7 @@ A case-sensitive HTTP query parameter name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(256),
 }
@@ -4577,6 +4688,7 @@ A list of exact values to match the input against.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(64),
 }
@@ -4633,6 +4745,7 @@ A list of regular expressions to match the input against.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(16),
 }
@@ -4699,6 +4812,7 @@ An ordered list of transformers (starting from index 0) to be applied to the pat
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(9),
 }
@@ -4764,6 +4878,7 @@ Configuration parameter for request constraints.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("max_cookie_count_exceeds",
     "max_cookie_count_none"),
   validators.ConflictingObjectAttributes("max_cookie_key_size_exceeds",
@@ -4842,6 +4957,7 @@ Match on the Count for all Cookies that exceed this value. Exclusive with
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(1, 1024),
 }
@@ -4895,6 +5011,7 @@ Exclusive with \[max\_cookie\_key\_size\_none\].
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(1, 1024),
 }
@@ -4948,6 +5065,7 @@ Exclusive with \[max\_cookie\_value\_size\_none\].
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(1, 32768),
 }
@@ -5002,6 +5120,7 @@ Match on the Count for all Headers that exceed this value. Exclusive with
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(1, 40),
 }
@@ -5055,6 +5174,7 @@ Exclusive with \[max\_header\_key\_size\_none\].
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(1, 1024),
 }
@@ -5108,6 +5228,7 @@ Exclusive with \[max\_header\_value\_size\_none\].
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(1, 64000),
 }
@@ -5161,6 +5282,7 @@ Exclusive with \[max\_parameter\_count\_none\].
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(1, 1024),
 }
@@ -5214,6 +5336,7 @@ Exclusive with \[max\_parameter\_name\_size\_none\].
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(1, 1024),
 }
@@ -5267,6 +5390,7 @@ Exclusive with \[max\_parameter\_value\_size\_none\].
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(1, 1073741824),
 }
@@ -5320,6 +5444,7 @@ Match on the URL Query Size that exceed this value. Exclusive with \[max\_query\
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(1, 60000),
 }
@@ -5373,6 +5498,7 @@ Exclusive with \[max\_request\_line\_size\_none\].
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(1, 65536),
 }
@@ -5426,6 +5552,7 @@ Match on the Request Size that exceed this value. Exclusive with \[max\_request\
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(1, 65536),
 }
@@ -5479,6 +5606,7 @@ Match on the URL Size that exceed this value. Exclusive with \[max\_url\_size\_n
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(1, 128000),
 }
@@ -6182,6 +6310,7 @@ Configure source and destination segment for policy.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("dst_any",
     "dst_segments"),
   validators.ConflictingObjectAttributes("dst_any",
@@ -6309,6 +6438,7 @@ List of references to Segments.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("segments")}
 ```
 
@@ -6367,6 +6497,7 @@ Segments. Select list of segments.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.RequiredListObjectAttributes("name")}
 ```
 
@@ -6413,6 +6544,7 @@ referred object's(e.g. Route's) name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 128),
 }
@@ -6473,6 +6605,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -6540,6 +6673,7 @@ the referred object's(e.g. Route's) tenant.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(64),
 }
@@ -6708,6 +6842,7 @@ List of references to Segments.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("segments")}
 ```
 
@@ -6766,6 +6901,7 @@ Segments. Select list of segments.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.RequiredListObjectAttributes("name")}
 ```
 
@@ -6812,6 +6948,7 @@ referred object's(e.g. Route's) name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 128),
 }
@@ -6872,6 +7009,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -6939,6 +7077,7 @@ the referred object's(e.g. Route's) tenant.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(64),
 }
@@ -7049,6 +7188,7 @@ A list of known classes of TLS fingerprints to match the input TLS JA3 fingerpri
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(16),
 }
@@ -7101,6 +7241,7 @@ A list of exact TLS JA3 fingerprints to match the input TLS JA3 fingerprint agai
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(16),
 }
@@ -7157,6 +7298,7 @@ enclosing matcher.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(32),
 }
@@ -7259,6 +7401,7 @@ A list of exact values to match the input against.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(64),
 }
@@ -7315,6 +7458,7 @@ A list of regular expressions to match the input against.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(16),
 }
@@ -7359,71 +7503,3 @@ Receipt-pinned upstream constraints:
   }
 }
 ```
-
-<a id="canonical-1330120330031000-3202113320223100-2303020333222232-1113322320113320-2131320031302300-3021303213200102-0321303213312133-3121220001012010"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-## `rule_list.rules.spec.waf_action` properties
-
-Breadcrumbs:
-
-- [xcsh_service_policy](../resources/service_policy.md#canonical-3130230113123200-0200122303013133-3003310003113113-2022033310201211-3303333001012130-2333023010121030-2132303102102003-2201111001022301)
-- [Property reference](resources--service_policy--reference--group-001.md#canonical-3233121223111310-1123021201111211-2020111333013010-3123332230330123-3220120121331001-3202000010100310-1011313102310030-1312202213103330)
-- [rule_list](resources--service_policy--reference--group-001.md#canonical-0313033202111122-3020302003132312-3312200200230103-2323022300313111-1011031013312303-3010311302110303-3020012330131122-1010302101102100)
-- [rule_list.rules](resources--service_policy--reference--group-001.md#canonical-2003033211210223-1233232013203033-1213012320103003-1220003210002322-3220300031211001-2003332333132300-0301022032112012-0132021330223231)
-- [rule_list.rules.spec](resources--service_policy--reference--group-001.md#canonical-2200022213120332-0220211101301113-3032022313032233-3330130333233030-0010110110311113-1112333223123300-0232313012010010-0302001123322212)
-- rule_list.rules.spec.waf_action
-
-<a id="canonical-2323131031010332-3002023002320130-2322222211000312-3130213100113011-2320002112103301-2101033310021200-1130113033130203-0233221333232023"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-Modify App Firewall behavior for a matching request. The modification could either be to entirely
-skip firewall processing or to customize the firewall rules to be applied as defined by App Firewall
-Rule Control settings.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.Object{validators.ConflictingObjectAttributes("app_firewall_detection_control",
-    "none"),
-  validators.ConflictingObjectAttributes("app_firewall_detection_control",
-    "waf_skip_processing"),
-  validators.ConflictingObjectAttributes("none",
-    "waf_skip_processing")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": true,
-    "minimum_config": true,
-    "read": false,
-    "update": false
-  },
-  "x-ves-oneof-field-action_type": "[\"app_firewall_detection_control\",\"none\",\"waf_skip_processing\"]"
-}
-```
-
-Terraform syntax:
-
-```terraform
-waf_action {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-3321123201100001-0002332311031111-1113212310021110-1021313200021130-3112332231211231-2030320012302110-3222100111320331-3031301212133313"></a>
-
-### Direct properties for `rule_list.rules.spec.waf_action`
-
-- [app_firewall_detection_control](resources--service_policy--reference--group-003.md#canonical-3022321321013201-0020033302122032-2311011301300323-1202110132110022-1233301221333112-0030120230100322-3103323111103001-1210013301233011): complete subsection reference.
-
-- [none](resources--service_policy--reference--group-003.md#canonical-0203032203021300-2101223011122200-2011010020200031-1121003201202320-3121133102312123-0230221030232323-0331000320232021-3330311131131220): complete subsection reference.
-
-- [waf_skip_processing](resources--service_policy--reference--group-003.md#canonical-0332300220323213-1323323030222322-1131312000330222-2232032001110301-0212213131220202-0321130113302233-2100102223233213-2032013001120230): complete subsection reference.

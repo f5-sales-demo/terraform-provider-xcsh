@@ -6,6 +6,53 @@ description: "Complete grouped canonical reference for xcsh_origin_pool referenc
 
 # xcsh_origin_pool reference
 
+<a id="canonical-0202112120201020-0312010230000131-1100030322023231-3232212311110032-1220210322222103-2332221300001302-3110032302100201-0210013330221330"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `advanced_options.no_panic_threshold` properties
+
+Breadcrumbs:
+
+- [xcsh_origin_pool](../resources/origin_pool.md#canonical-1300222123211010-0221103312033303-3103220201011310-0312202100212232-2132331032032202-3102123303123231-2302302300131121-2101021333132222)
+- [Property reference](resources--origin_pool--reference--group-001.md#canonical-3212012302103133-0133102110013031-2131221222021021-2000212221110230-2323033002013033-2112321312312211-0213033122012333-3133112201301013)
+- [advanced_options](resources--origin_pool--reference--group-001.md#canonical-1023311220110031-0231320022131021-0033212101303010-3313122003030112-0232231312233323-0112101220121031-0120211031032111-3200312011212231)
+- advanced_options.no_panic_threshold
+
+<a id="canonical-3022211111030303-3303210112231032-3021322222331213-0112210010001200-3301230202232230-1333221121031111-3310020003001123-3221033220022021"></a>
+
+Type: `["object", {}]`. Optional, Computed.
+
+Configuration parameter for no panic threshold. Defaults to \`map\[\]\`. Server applies default when
+omitted.
+
+Additional upstream details:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+no_panic_threshold = {}
+```
+
+This is an empty object or choice marker. It has no direct properties.
+
 <a id="canonical-1330213333313110-3100031301022021-2123130200313332-3201013222020131-2223030121213030-2220120203131331-1221101000313013-1112103003000113"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -126,6 +173,7 @@ they continue to fail. Defaults to 30000ms or 30s. Specified in milliseconds.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.AtMost(1800000),
 }
@@ -178,6 +226,7 @@ number of consecutive 5xx responses required before a consecutive 5xx ejection o
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.AtMost(1024),
 }
@@ -230,6 +279,7 @@ consecutive gateway failure ejection occurs. Defaults to 5.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.AtMost(1024),
 }
@@ -283,6 +333,7 @@ Defaults to 10000ms or 10s. Specified in milliseconds.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(1, 600000),
 }
@@ -339,6 +390,7 @@ but will eject at least one host regardless of the value.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.AtMost(100),
 }
@@ -543,6 +595,7 @@ omitted.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.RequiredListObjectAttributes("name")}
 ```
 
@@ -601,6 +654,7 @@ referred object's(e.g. Route's) name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 128),
 }
@@ -661,6 +715,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -728,6 +783,7 @@ the referred object's(e.g. Route's) tenant.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(64),
 }
@@ -888,6 +944,7 @@ Origin Servers. List of origin servers in this pool.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.ConflictingListObjectAttributes("cbip_service",
     "consul_service"),
   validators.ConflictingListObjectAttributes("cbip_service",
@@ -1099,6 +1156,7 @@ Specify origin server with Classic BIG-IP Service (Virtual Server).
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("service_name")}
 ```
 
@@ -1188,6 +1246,7 @@ Specify origin server with HashiCorp Consul service name and site information.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("service_name"),
   validators.ConflictingObjectAttributes("inside_network",
     "outside_network")}
@@ -1386,6 +1445,7 @@ This message defines a reference to a site or virtual site object.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("site",
     "virtual_site")}
 ```
@@ -1447,6 +1507,7 @@ Such a reference is in form of tenant/namespace/name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
 ```
 
@@ -1487,6 +1548,7 @@ referred object's(e.g. Route's) name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 128),
 }
@@ -1547,6 +1609,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -1614,6 +1677,7 @@ the referred object's(e.g. Route's) tenant.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(64),
 }
@@ -1680,6 +1744,7 @@ Such a reference is in form of tenant/namespace/name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
 ```
 
@@ -1720,6 +1785,7 @@ referred object's(e.g. Route's) name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 128),
 }
@@ -1780,6 +1846,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -1847,6 +1914,7 @@ the referred object's(e.g. Route's) tenant.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(64),
 }
@@ -1911,6 +1979,7 @@ SNAT Pool. SNAT Pool configuration.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("no_snat_pool",
     "snat_pool")}
 ```
@@ -2052,6 +2121,7 @@ List of IPv4 prefixes that represent an endpoint.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(128),
 }
@@ -2167,6 +2237,7 @@ Such a reference is in form of tenant/namespace/name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
 ```
 
@@ -2207,6 +2278,7 @@ referred object's(e.g. Route's) name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 128),
 }
@@ -2267,6 +2339,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -2334,6 +2407,7 @@ the referred object's(e.g. Route's) tenant.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(64),
 }
@@ -2397,6 +2471,7 @@ Specify origin server with K8s service name and site information.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("inside_network",
     "outside_network"),
   validators.ConflictingObjectAttributes("inside_network",
@@ -2434,7 +2509,7 @@ k8s_service {
 
 - [inside_network](resources--origin_pool--reference--group-002.md#canonical-0001033333001312-1110000223233102-1301013231111010-2202132121010201-0001211300033022-1122123130321202-1323202300302333-1310032301322011): complete subsection reference.
 
-- [outside_network](resources--origin_pool--reference--group-002.md#canonical-2032033302122022-1103111020001001-2303301333213001-3102322130322113-3113231020002223-3033131021221332-2021231222100202-3011311100002022): complete subsection reference.
+- [outside_network](resources--origin_pool--reference--group-003.md#canonical-2032033302122022-1103111020001001-2303301333213001-3102322130322113-3113231020002223-3033131021221332-2021231222100202-3011311100002022): complete subsection reference.
 
 <a id="canonical-0311121300123202-2221210100230022-1233300103220023-2013022122201102-0101123301122032-0120131013101312-0112020211120133-1230322023012303"></a>
 
@@ -2450,6 +2525,8 @@ Possible values are \`PROTOCOL\_TCP\`, \`PROTOCOL\_UDP\`. Defaults to \`PROTOCOL
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["PROTOCOL_TCP","PROTOCOL_UDP"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("PROTOCOL_TCP",
     "PROTOCOL_UDP"),
@@ -2571,53 +2648,6 @@ Terraform syntax:
 
 ```terraform
 inside_network = {}
-```
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-2032033302122022-1103111020001001-2303301333213001-3102322130322113-3113231020002223-3033131021221332-2021231222100202-3011311100002022"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-## `origin_servers.k8s_service.outside_network` properties
-
-Breadcrumbs:
-
-- [xcsh_origin_pool](../resources/origin_pool.md#canonical-1300222123211010-0221103312033303-3103220201011310-0312202100212232-2132331032032202-3102123303123231-2302302300131121-2101021333132222)
-- [Property reference](resources--origin_pool--reference--group-001.md#canonical-3212012302103133-0133102110013031-2131221222021021-2000212221110230-2323033002013033-2112321312312211-0213033122012333-3133112201301013)
-- [origin_servers](resources--origin_pool--reference--group-002.md#canonical-3213210211103302-0113102102311332-3301020313122313-2300311021121330-3110303331323010-3002302023032312-3331303322001030-2133000010210120)
-- [origin_servers.k8s_service](resources--origin_pool--reference--group-002.md#canonical-2000133232313121-0012133003021110-2020130000113133-3222221313310322-1112103023033022-3023021201311203-3003323121302310-2122200312303300)
-- origin_servers.k8s_service.outside_network
-
-<a id="canonical-0200213003113132-2023222231331310-2230113323301202-2211222031132011-0033332200031130-2013120323322321-1330102032233232-3101213331030010"></a>
-
-Type: `["object", {}]`. Optional.
-
-Configuration parameter for outside network.
-
-Additional upstream details:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-outside_network = {}
 ```
 
 This is an empty object or choice marker. It has no direct properties.

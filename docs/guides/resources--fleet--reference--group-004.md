@@ -6,6 +6,203 @@ description: "Complete grouped canonical reference for xcsh_fleet reference."
 
 # xcsh_fleet reference
 
+<a id="canonical-3310103001011013-0133232333013322-2230330101201311-3021013203230121-1032321030203020-3003121131331312-2101312003321212-2012211010032330"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `storage_static_routes` properties
+
+Breadcrumbs:
+
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
+- [Property reference](resources--fleet--reference--group-001.md#canonical-3312201012220032-2032322221221203-2303110033300201-0023202031100302-0322303132112120-1000212311220020-2212322120022212-1100233331203300)
+- storage_static_routes
+
+<a id="canonical-3300220221311210-2223123102101211-3220330103110130-2013011230213113-0302003112110032-0211100233331131-0000213033313103-2010020102112211"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+Configuration parameter for storage static routes.
+
+Additional upstream details:
+
+List of storage static routes.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: false
+Validators: []validator.Object{validators.RequiredObjectAttributes("storage_routes")}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+storage_static_routes {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-1313032300003323-1200212133312312-0212122021211232-1303300232332111-2112103212022002-0103033330303011-2310121212100231-3130322003330220"></a>
+
+### Direct properties for `storage_static_routes`
+
+- [storage_routes](resources--fleet--reference--group-004.md#canonical-2103110110001123-1000122230223022-2202332021231220-0033011003313113-1322332012002001-0120330220321111-3021132100100332-2230130122031231): complete subsection reference.
+
+<a id="canonical-2103110110001123-1000122230223022-2202332021231220-0033011003313113-1322332012002001-0120330220321111-3021132100100332-2230130122031231"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `storage_static_routes.storage_routes` properties
+
+Breadcrumbs:
+
+- [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
+- [Property reference](resources--fleet--reference--group-001.md#canonical-3312201012220032-2032322221221203-2303110033300201-0023202031100302-0322303132112120-1000212311220020-2212322120022212-1100233331203300)
+- [storage_static_routes](resources--fleet--reference--group-004.md#canonical-3310103001011013-0133232333013322-2230330101201311-3021013203230121-1032321030203020-3003121131331312-2101312003321212-2012211010032330)
+- storage_static_routes.storage_routes
+
+<a id="canonical-1113103203120230-0103213211302232-2101121302323232-1122111212313231-2311322311200031-1121301130131233-1130133302322133-3311302231122210"></a>
+
+Type: `"object"`. list nested block, Optional.
+
+List of Static Routes. List of storage static routes.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: false
+Validators: []validator.List{validators.RequiredListObjectAttributes("subnets")}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxItems": 8,
+  "minItems": 1,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "array",
+    "deterministic": true,
+    "maxItems": 8,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "minItems": 1,
+    "uniqueItems": true
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.repeated.max_items": "8",
+    "ves.io.schema.rules.repeated.min_items": "1",
+    "ves.io.schema.rules.repeated.unique": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.repeated.max_items": "8",
+    "ves.io.schema.rules.repeated.min_items": "1",
+    "ves.io.schema.rules.repeated.unique": "true"
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+storage_routes {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-0220311232321311-2101323223330230-1103013003202300-2110122210120013-0010021330313201-3023010223031310-3102321301330120-0123212122123231"></a>
+
+### Direct properties for `storage_static_routes.storage_routes`
+
+<a id="canonical-2033130301313321-1232220332313121-3311112212031300-2211323031330223-1200021003201131-3310133300223310-2120201103231320-3022031112310003"></a>
+
+#### `storage_static_routes.storage_routes.attrs` property
+
+Type: `["list", "string"]`. Optional.
+
+\[Enum:
+ROUTE\_ATTR\_NO\_OP|ROUTE\_ATTR\_ADVERTISE|ROUTE\_ATTR\_INSTALL\_HOST|ROUTE\_ATTR\_INSTALL\_FORWARDING|ROUTE\_ATTR\_MERGE\_ONLY\]
+List of route attributes associated with the static route. Possible values are
+\`ROUTE\_ATTR\_NO\_OP\`, \`ROUTE\_ATTR\_ADVERTISE\`, \`ROUTE\_ATTR\_INSTALL\_HOST\`,
+\`ROUTE\_ATTR\_INSTALL\_FORWARDING\`, \`ROUTE\_ATTR\_MERGE\_ONLY\`. Defaults to
+\`ROUTE\_ATTR\_NO\_OP\`.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: false
+Validators: []validator.List{
+  listvalidator.SizeAtMost(4),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxItems": 4,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "array",
+    "deterministic": true,
+    "maxItems": 4,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.repeated.max_items": "4"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.repeated.max_items": "4"
+  }
+}
+```
+
+- [labels](resources--fleet--reference--group-004.md#canonical-3122130211122322-1301231021112223-1012121131110203-0212120302301103-0321330301322030-1322303112321312-2232110100220131-3212330121123110): complete subsection reference.
+
+- [nexthop](resources--fleet--reference--group-004.md#canonical-2323102010131331-0222022123303131-0001320120102230-3002231130201221-0320012123110310-2111211303213332-2101222302031312-1321301311201213): complete subsection reference.
+
+- [subnets](resources--fleet--reference--group-004.md#canonical-0011031323102333-2133013032021320-3023030012331100-2101022003022112-3302133213002111-2211232221112303-0333322213031131-1131101123022222): complete subsection reference.
+
 <a id="canonical-3122130211122322-1301231021112223-1012121131110203-0212120302301103-0321330301322030-1322303112321312-2232110100220131-3212330121123110"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -18,8 +215,8 @@ Breadcrumbs:
 
 - [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
 - [Property reference](resources--fleet--reference--group-001.md#canonical-3312201012220032-2032322221221203-2303110033300201-0023202031100302-0322303132112120-1000212311220020-2212322120022212-1100233331203300)
-- [storage_static_routes](resources--fleet--reference--group-003.md#canonical-3310103001011013-0133232333013322-2230330101201311-3021013203230121-1032321030203020-3003121131331312-2101312003321212-2012211010032330)
-- [storage_static_routes.storage_routes](resources--fleet--reference--group-003.md#canonical-2103110110001123-1000122230223022-2202332021231220-0033011003313113-1322332012002001-0120330220321111-3021132100100332-2230130122031231)
+- [storage_static_routes](resources--fleet--reference--group-004.md#canonical-3310103001011013-0133232333013322-2230330101201311-3021013203230121-1032321030203020-3003121131331312-2101312003321212-2012211010032330)
+- [storage_static_routes.storage_routes](resources--fleet--reference--group-004.md#canonical-2103110110001123-1000122230223022-2202332021231220-0033011003313113-1322332012002001-0120330220321111-3021132100100332-2230130122031231)
 - storage_static_routes.storage_routes.labels
 
 <a id="canonical-3200200330113233-0203010303222300-1203213313200323-0002201003200323-2102302130320131-3200001233330020-2303323033120202-2032013003021232"></a>
@@ -61,8 +258,8 @@ Breadcrumbs:
 
 - [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
 - [Property reference](resources--fleet--reference--group-001.md#canonical-3312201012220032-2032322221221203-2303110033300201-0023202031100302-0322303132112120-1000212311220020-2212322120022212-1100233331203300)
-- [storage_static_routes](resources--fleet--reference--group-003.md#canonical-3310103001011013-0133232333013322-2230330101201311-3021013203230121-1032321030203020-3003121131331312-2101312003321212-2012211010032330)
-- [storage_static_routes.storage_routes](resources--fleet--reference--group-003.md#canonical-2103110110001123-1000122230223022-2202332021231220-0033011003313113-1322332012002001-0120330220321111-3021132100100332-2230130122031231)
+- [storage_static_routes](resources--fleet--reference--group-004.md#canonical-3310103001011013-0133232333013322-2230330101201311-3021013203230121-1032321030203020-3003121131331312-2101312003321212-2012211010032330)
+- [storage_static_routes.storage_routes](resources--fleet--reference--group-004.md#canonical-2103110110001123-1000122230223022-2202332021231220-0033011003313113-1322332012002001-0120330220321111-3021132100100332-2230130122031231)
 - storage_static_routes.storage_routes.nexthop
 
 <a id="canonical-1133203310222332-0201030230322312-3010300302332211-3030020321111100-1000213331231233-3213113130130232-2213202002102121-1300021112121130"></a>
@@ -126,6 +323,8 @@ in VoltADN private virtual network.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["NEXT_HOP_DEFAULT_GATEWAY","NEXT_HOP_NETWORK_INTERFACE","NEXT_HOP_USE_CONFIGURED"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("NEXT_HOP_DEFAULT_GATEWAY",
     "NEXT_HOP_USE_CONFIGURED",
@@ -164,8 +363,8 @@ Breadcrumbs:
 
 - [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
 - [Property reference](resources--fleet--reference--group-001.md#canonical-3312201012220032-2032322221221203-2303110033300201-0023202031100302-0322303132112120-1000212311220020-2212322120022212-1100233331203300)
-- [storage_static_routes](resources--fleet--reference--group-003.md#canonical-3310103001011013-0133232333013322-2230330101201311-3021013203230121-1032321030203020-3003121131331312-2101312003321212-2012211010032330)
-- [storage_static_routes.storage_routes](resources--fleet--reference--group-003.md#canonical-2103110110001123-1000122230223022-2202332021231220-0033011003313113-1322332012002001-0120330220321111-3021132100100332-2230130122031231)
+- [storage_static_routes](resources--fleet--reference--group-004.md#canonical-3310103001011013-0133232333013322-2230330101201311-3021013203230121-1032321030203020-3003121131331312-2101312003321212-2012211010032330)
+- [storage_static_routes.storage_routes](resources--fleet--reference--group-004.md#canonical-2103110110001123-1000122230223022-2202332021231220-0033011003313113-1322332012002001-0120330220321111-3021132100100332-2230130122031231)
 - [storage_static_routes.storage_routes.nexthop](resources--fleet--reference--group-004.md#canonical-2323102010131331-0222022123303131-0001320120102230-3002231130201221-0320012123110310-2111211303213332-2101222302031312-1321301311201213)
 - storage_static_routes.storage_routes.nexthop.interface
 
@@ -307,6 +506,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
   stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`),
@@ -432,8 +632,8 @@ Breadcrumbs:
 
 - [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
 - [Property reference](resources--fleet--reference--group-001.md#canonical-3312201012220032-2032322221221203-2303110033300201-0023202031100302-0322303132112120-1000212311220020-2212322120022212-1100233331203300)
-- [storage_static_routes](resources--fleet--reference--group-003.md#canonical-3310103001011013-0133232333013322-2230330101201311-3021013203230121-1032321030203020-3003121131331312-2101312003321212-2012211010032330)
-- [storage_static_routes.storage_routes](resources--fleet--reference--group-003.md#canonical-2103110110001123-1000122230223022-2202332021231220-0033011003313113-1322332012002001-0120330220321111-3021132100100332-2230130122031231)
+- [storage_static_routes](resources--fleet--reference--group-004.md#canonical-3310103001011013-0133232333013322-2230330101201311-3021013203230121-1032321030203020-3003121131331312-2101312003321212-2012211010032330)
+- [storage_static_routes.storage_routes](resources--fleet--reference--group-004.md#canonical-2103110110001123-1000122230223022-2202332021231220-0033011003313113-1322332012002001-0120330220321111-3021132100100332-2230130122031231)
 - [storage_static_routes.storage_routes.nexthop](resources--fleet--reference--group-004.md#canonical-2323102010131331-0222022123303131-0001320120102230-3002231130201221-0320012123110310-2111211303213332-2101222302031312-1321301311201213)
 - storage_static_routes.storage_routes.nexthop.nexthop_address
 
@@ -446,6 +646,7 @@ IP Address used to specify an IPv4 or IPv6 address.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("dual_stack",
     "ipv4"),
   validators.ConflictingObjectAttributes("dual_stack",
@@ -498,8 +699,8 @@ Breadcrumbs:
 
 - [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
 - [Property reference](resources--fleet--reference--group-001.md#canonical-3312201012220032-2032322221221203-2303110033300201-0023202031100302-0322303132112120-1000212311220020-2212322120022212-1100233331203300)
-- [storage_static_routes](resources--fleet--reference--group-003.md#canonical-3310103001011013-0133232333013322-2230330101201311-3021013203230121-1032321030203020-3003121131331312-2101312003321212-2012211010032330)
-- [storage_static_routes.storage_routes](resources--fleet--reference--group-003.md#canonical-2103110110001123-1000122230223022-2202332021231220-0033011003313113-1322332012002001-0120330220321111-3021132100100332-2230130122031231)
+- [storage_static_routes](resources--fleet--reference--group-004.md#canonical-3310103001011013-0133232333013322-2230330101201311-3021013203230121-1032321030203020-3003121131331312-2101312003321212-2012211010032330)
+- [storage_static_routes.storage_routes](resources--fleet--reference--group-004.md#canonical-2103110110001123-1000122230223022-2202332021231220-0033011003313113-1322332012002001-0120330220321111-3021132100100332-2230130122031231)
 - [storage_static_routes.storage_routes.nexthop](resources--fleet--reference--group-004.md#canonical-2323102010131331-0222022123303131-0001320120102230-3002231130201221-0320012123110310-2111211303213332-2101222302031312-1321301311201213)
 - [storage_static_routes.storage_routes.nexthop.nexthop_address](resources--fleet--reference--group-004.md#canonical-0113300103011330-2021221000112230-2120203033320002-0000031323332030-3330320102133210-3331212021003013-3132112030012121-0110211233022031)
 - storage_static_routes.storage_routes.nexthop.nexthop_address.dual_stack
@@ -551,8 +752,8 @@ Breadcrumbs:
 
 - [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
 - [Property reference](resources--fleet--reference--group-001.md#canonical-3312201012220032-2032322221221203-2303110033300201-0023202031100302-0322303132112120-1000212311220020-2212322120022212-1100233331203300)
-- [storage_static_routes](resources--fleet--reference--group-003.md#canonical-3310103001011013-0133232333013322-2230330101201311-3021013203230121-1032321030203020-3003121131331312-2101312003321212-2012211010032330)
-- [storage_static_routes.storage_routes](resources--fleet--reference--group-003.md#canonical-2103110110001123-1000122230223022-2202332021231220-0033011003313113-1322332012002001-0120330220321111-3021132100100332-2230130122031231)
+- [storage_static_routes](resources--fleet--reference--group-004.md#canonical-3310103001011013-0133232333013322-2230330101201311-3021013203230121-1032321030203020-3003121131331312-2101312003321212-2012211010032330)
+- [storage_static_routes.storage_routes](resources--fleet--reference--group-004.md#canonical-2103110110001123-1000122230223022-2202332021231220-0033011003313113-1322332012002001-0120330220321111-3021132100100332-2230130122031231)
 - [storage_static_routes.storage_routes.nexthop](resources--fleet--reference--group-004.md#canonical-2323102010131331-0222022123303131-0001320120102230-3002231130201221-0320012123110310-2111211303213332-2101222302031312-1321301311201213)
 - [storage_static_routes.storage_routes.nexthop.nexthop_address](resources--fleet--reference--group-004.md#canonical-0113300103011330-2021221000112230-2120203033320002-0000031323332030-3330320102133210-3331212021003013-3132112030012121-0110211233022031)
 - [storage_static_routes.storage_routes.nexthop.nexthop_address.dual_stack](resources--fleet--reference--group-004.md#canonical-3102121312220313-0113030102112222-1312112312222122-2222211021110113-3333023030230230-0211333200121331-3222310113021231-1001121303013130)
@@ -604,6 +805,7 @@ IPv4 Address in string form with dot-decimal notation.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthAtMost(1024),
   validators.IPv4Validator(),
@@ -653,8 +855,8 @@ Breadcrumbs:
 
 - [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
 - [Property reference](resources--fleet--reference--group-001.md#canonical-3312201012220032-2032322221221203-2303110033300201-0023202031100302-0322303132112120-1000212311220020-2212322120022212-1100233331203300)
-- [storage_static_routes](resources--fleet--reference--group-003.md#canonical-3310103001011013-0133232333013322-2230330101201311-3021013203230121-1032321030203020-3003121131331312-2101312003321212-2012211010032330)
-- [storage_static_routes.storage_routes](resources--fleet--reference--group-003.md#canonical-2103110110001123-1000122230223022-2202332021231220-0033011003313113-1322332012002001-0120330220321111-3021132100100332-2230130122031231)
+- [storage_static_routes](resources--fleet--reference--group-004.md#canonical-3310103001011013-0133232333013322-2230330101201311-3021013203230121-1032321030203020-3003121131331312-2101312003321212-2012211010032330)
+- [storage_static_routes.storage_routes](resources--fleet--reference--group-004.md#canonical-2103110110001123-1000122230223022-2202332021231220-0033011003313113-1322332012002001-0120330220321111-3021132100100332-2230130122031231)
 - [storage_static_routes.storage_routes.nexthop](resources--fleet--reference--group-004.md#canonical-2323102010131331-0222022123303131-0001320120102230-3002231130201221-0320012123110310-2111211303213332-2101222302031312-1321301311201213)
 - [storage_static_routes.storage_routes.nexthop.nexthop_address](resources--fleet--reference--group-004.md#canonical-0113300103011330-2021221000112230-2120203033320002-0000031323332030-3330320102133210-3331212021003013-3132112030012121-0110211233022031)
 - [storage_static_routes.storage_routes.nexthop.nexthop_address.dual_stack](resources--fleet--reference--group-004.md#canonical-3102121312220313-0113030102112222-1312112312222122-2222211021110113-3333023030230230-0211333200121331-3222310113021231-1001121303013130)
@@ -704,6 +906,7 @@ IPv6 Address in form of string. IPv6 address must be specified as hexadecimal nu
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthAtMost(1024),
   validators.IPv6Validator(),
@@ -753,8 +956,8 @@ Breadcrumbs:
 
 - [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
 - [Property reference](resources--fleet--reference--group-001.md#canonical-3312201012220032-2032322221221203-2303110033300201-0023202031100302-0322303132112120-1000212311220020-2212322120022212-1100233331203300)
-- [storage_static_routes](resources--fleet--reference--group-003.md#canonical-3310103001011013-0133232333013322-2230330101201311-3021013203230121-1032321030203020-3003121131331312-2101312003321212-2012211010032330)
-- [storage_static_routes.storage_routes](resources--fleet--reference--group-003.md#canonical-2103110110001123-1000122230223022-2202332021231220-0033011003313113-1322332012002001-0120330220321111-3021132100100332-2230130122031231)
+- [storage_static_routes](resources--fleet--reference--group-004.md#canonical-3310103001011013-0133232333013322-2230330101201311-3021013203230121-1032321030203020-3003121131331312-2101312003321212-2012211010032330)
+- [storage_static_routes.storage_routes](resources--fleet--reference--group-004.md#canonical-2103110110001123-1000122230223022-2202332021231220-0033011003313113-1322332012002001-0120330220321111-3021132100100332-2230130122031231)
 - [storage_static_routes.storage_routes.nexthop](resources--fleet--reference--group-004.md#canonical-2323102010131331-0222022123303131-0001320120102230-3002231130201221-0320012123110310-2111211303213332-2101222302031312-1321301311201213)
 - [storage_static_routes.storage_routes.nexthop.nexthop_address](resources--fleet--reference--group-004.md#canonical-0113300103011330-2021221000112230-2120203033320002-0000031323332030-3330320102133210-3331212021003013-3132112030012121-0110211233022031)
 - storage_static_routes.storage_routes.nexthop.nexthop_address.IPv4
@@ -805,6 +1008,7 @@ IPv4 Address in string form with dot-decimal notation.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthAtMost(1024),
   validators.IPv4Validator(),
@@ -854,8 +1058,8 @@ Breadcrumbs:
 
 - [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
 - [Property reference](resources--fleet--reference--group-001.md#canonical-3312201012220032-2032322221221203-2303110033300201-0023202031100302-0322303132112120-1000212311220020-2212322120022212-1100233331203300)
-- [storage_static_routes](resources--fleet--reference--group-003.md#canonical-3310103001011013-0133232333013322-2230330101201311-3021013203230121-1032321030203020-3003121131331312-2101312003321212-2012211010032330)
-- [storage_static_routes.storage_routes](resources--fleet--reference--group-003.md#canonical-2103110110001123-1000122230223022-2202332021231220-0033011003313113-1322332012002001-0120330220321111-3021132100100332-2230130122031231)
+- [storage_static_routes](resources--fleet--reference--group-004.md#canonical-3310103001011013-0133232333013322-2230330101201311-3021013203230121-1032321030203020-3003121131331312-2101312003321212-2012211010032330)
+- [storage_static_routes.storage_routes](resources--fleet--reference--group-004.md#canonical-2103110110001123-1000122230223022-2202332021231220-0033011003313113-1322332012002001-0120330220321111-3021132100100332-2230130122031231)
 - [storage_static_routes.storage_routes.nexthop](resources--fleet--reference--group-004.md#canonical-2323102010131331-0222022123303131-0001320120102230-3002231130201221-0320012123110310-2111211303213332-2101222302031312-1321301311201213)
 - [storage_static_routes.storage_routes.nexthop.nexthop_address](resources--fleet--reference--group-004.md#canonical-0113300103011330-2021221000112230-2120203033320002-0000031323332030-3330320102133210-3331212021003013-3132112030012121-0110211233022031)
 - storage_static_routes.storage_routes.nexthop.nexthop_address.IPv6
@@ -904,6 +1108,7 @@ IPv6 Address in form of string. IPv6 address must be specified as hexadecimal nu
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthAtMost(1024),
   validators.IPv6Validator(),
@@ -953,8 +1158,8 @@ Breadcrumbs:
 
 - [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
 - [Property reference](resources--fleet--reference--group-001.md#canonical-3312201012220032-2032322221221203-2303110033300201-0023202031100302-0322303132112120-1000212311220020-2212322120022212-1100233331203300)
-- [storage_static_routes](resources--fleet--reference--group-003.md#canonical-3310103001011013-0133232333013322-2230330101201311-3021013203230121-1032321030203020-3003121131331312-2101312003321212-2012211010032330)
-- [storage_static_routes.storage_routes](resources--fleet--reference--group-003.md#canonical-2103110110001123-1000122230223022-2202332021231220-0033011003313113-1322332012002001-0120330220321111-3021132100100332-2230130122031231)
+- [storage_static_routes](resources--fleet--reference--group-004.md#canonical-3310103001011013-0133232333013322-2230330101201311-3021013203230121-1032321030203020-3003121131331312-2101312003321212-2012211010032330)
+- [storage_static_routes.storage_routes](resources--fleet--reference--group-004.md#canonical-2103110110001123-1000122230223022-2202332021231220-0033011003313113-1322332012002001-0120330220321111-3021132100100332-2230130122031231)
 - storage_static_routes.storage_routes.subnets
 
 <a id="canonical-2110130201003120-3313131233010200-0331032132113333-0013023022000333-3132030321222020-2121121003312322-3023020031111031-1032000302312012"></a>
@@ -966,6 +1171,7 @@ Subnets. List of route prefixes.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.ConflictingListObjectAttributes("ipv4",
     "ipv6")}
 ```
@@ -1031,8 +1237,8 @@ Breadcrumbs:
 
 - [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
 - [Property reference](resources--fleet--reference--group-001.md#canonical-3312201012220032-2032322221221203-2303110033300201-0023202031100302-0322303132112120-1000212311220020-2212322120022212-1100233331203300)
-- [storage_static_routes](resources--fleet--reference--group-003.md#canonical-3310103001011013-0133232333013322-2230330101201311-3021013203230121-1032321030203020-3003121131331312-2101312003321212-2012211010032330)
-- [storage_static_routes.storage_routes](resources--fleet--reference--group-003.md#canonical-2103110110001123-1000122230223022-2202332021231220-0033011003313113-1322332012002001-0120330220321111-3021132100100332-2230130122031231)
+- [storage_static_routes](resources--fleet--reference--group-004.md#canonical-3310103001011013-0133232333013322-2230330101201311-3021013203230121-1032321030203020-3003121131331312-2101312003321212-2012211010032330)
+- [storage_static_routes.storage_routes](resources--fleet--reference--group-004.md#canonical-2103110110001123-1000122230223022-2202332021231220-0033011003313113-1322332012002001-0120330220321111-3021132100100332-2230130122031231)
 - [storage_static_routes.storage_routes.subnets](resources--fleet--reference--group-004.md#canonical-0011031323102333-2133013032021320-3023030012331100-2101022003022112-3302133213002111-2211232221112303-0333322213031131-1131101123022222)
 - storage_static_routes.storage_routes.subnets.IPv4
 
@@ -1078,6 +1284,7 @@ Prefix-length of the IPv4 subnet. Must be &lt;= 32.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.AtMost(32),
 }
@@ -1126,6 +1333,7 @@ Prefix part of the IPv4 subnet in string form with dot-decimal notation.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthAtMost(1024),
   validators.IPv4Validator(),
@@ -1175,8 +1383,8 @@ Breadcrumbs:
 
 - [xcsh_fleet](../resources/fleet.md#canonical-1321121000121112-1223302232121013-1011232202230112-2103020112013103-1311332313321220-3321211333313013-1320031110133332-2012010122222131)
 - [Property reference](resources--fleet--reference--group-001.md#canonical-3312201012220032-2032322221221203-2303110033300201-0023202031100302-0322303132112120-1000212311220020-2212322120022212-1100233331203300)
-- [storage_static_routes](resources--fleet--reference--group-003.md#canonical-3310103001011013-0133232333013322-2230330101201311-3021013203230121-1032321030203020-3003121131331312-2101312003321212-2012211010032330)
-- [storage_static_routes.storage_routes](resources--fleet--reference--group-003.md#canonical-2103110110001123-1000122230223022-2202332021231220-0033011003313113-1322332012002001-0120330220321111-3021132100100332-2230130122031231)
+- [storage_static_routes](resources--fleet--reference--group-004.md#canonical-3310103001011013-0133232333013322-2230330101201311-3021013203230121-1032321030203020-3003121131331312-2101312003321212-2012211010032330)
+- [storage_static_routes.storage_routes](resources--fleet--reference--group-004.md#canonical-2103110110001123-1000122230223022-2202332021231220-0033011003313113-1322332012002001-0120330220321111-3021132100100332-2230130122031231)
 - [storage_static_routes.storage_routes.subnets](resources--fleet--reference--group-004.md#canonical-0011031323102333-2133013032021320-3023030012331100-2101022003022112-3302133213002111-2211232221112303-0333322213031131-1131101123022222)
 - storage_static_routes.storage_routes.subnets.IPv6
 
@@ -1222,6 +1430,7 @@ Prefix length of the IPv6 subnet. Must be &lt;= 128.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.AtMost(128),
 }
@@ -1277,6 +1486,7 @@ The address can be compacted by suppressing zeros e.g. "2001:db8::2::"
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthAtMost(1024),
   validators.IPv6Validator(),
@@ -1416,6 +1626,7 @@ Such a reference is in form of tenant/namespace/name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
 ```
 
@@ -1456,6 +1667,7 @@ referred object's(e.g. Route's) name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 128),
 }
@@ -1516,6 +1728,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -1583,6 +1796,7 @@ the referred object's(e.g. Route's) tenant.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(64),
 }

@@ -6,6 +6,53 @@ description: "Complete grouped canonical reference for xcsh_nfv_service referenc
 
 # xcsh_nfv_service reference
 
+<a id="canonical-2310030231113303-2033101102332013-1331110233332322-0310323000231011-3303212131313201-2003113011031122-1130002302333131-1132332122011112"></a>
+
+## `https_management.advertise_on_slo_internet_vip.tls_config.custom_security.max_version` property
+
+Type: `"string"`. Optional.
+
+\[Enum: TLS\_AUTO|TLSv1\_0|TLSv1\_1|TLSv1\_2|TLSv1\_3\] TlsProtocol is enumeration of supported TLS
+versions F5 Distributed Cloud will choose the optimal TLS version. Possible values are
+\`TLS\_AUTO\`, \`TLSv1\_0\`, \`TLSv1\_1\`, \`TLSv1\_2\`, \`TLSv1\_3\`. Defaults to \`TLS\_AUTO\`.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["TLS_AUTO","TLSv1_0","TLSv1_1","TLSv1_2","TLSv1_3"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
+Validators: []validator.String{
+  stringvalidator.OneOf("TLS_AUTO",
+    "TLSv1_0",
+    "TLSv1_1",
+    "TLSv1_2",
+    "TLSv1_3"),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "default": "TLS_AUTO",
+  "enum": [
+    "TLS_AUTO",
+    "TLSv1_0",
+    "TLSv1_1",
+    "TLSv1_2",
+    "TLSv1_3"
+  ],
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-1030303032300000-2113132130001330-2110210002203021-0102132031212110-2222130101203120-3032320030232212-3301331330010330-2200332131330003"></a>
+
 <a id="canonical-0301131203322012-2223212120223320-1021200330010102-3001031102122000-2122111030120000-0300002113323023-0321331130100010-0101022200333103"></a>
 
 ## `https_management.advertise_on_slo_internet_vip.tls_config.custom_security.min_version` property
@@ -19,6 +66,8 @@ versions F5 Distributed Cloud will choose the optimal TLS version. Possible valu
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["TLS_AUTO","TLSv1_0","TLSv1_1","TLSv1_2","TLSv1_3"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("TLS_AUTO",
     "TLSv1_0",
@@ -218,6 +267,7 @@ Validation context for downstream client TLS connections.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("crl",
     "no_crl"),
   validators.ConflictingObjectAttributes("trusted_ca",
@@ -296,6 +346,7 @@ Exclusive with \[trusted\_ca\] Upload a Root CA Certificate specifically for thi
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 131072),
 }
@@ -373,6 +424,7 @@ Such a reference is in form of tenant/namespace/name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
 ```
 
@@ -413,6 +465,7 @@ referred object's(e.g. Route's) name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 128),
 }
@@ -473,6 +526,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -540,6 +594,7 @@ the referred object's(e.g. Route's) tenant.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(64),
 }
@@ -654,6 +709,7 @@ Such a reference is in form of tenant/namespace/name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
 ```
 
@@ -694,6 +750,7 @@ referred object's(e.g. Route's) name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 128),
 }
@@ -754,6 +811,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -821,6 +879,7 @@ the referred object's(e.g. Route's) tenant.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(64),
 }
@@ -934,6 +993,7 @@ X-Forwarded-Client-Cert header elements to be added to requests.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("xfcc_header_elements")}
 ```
 
@@ -1024,6 +1084,7 @@ Inline TLS parameters.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("tls_certificates"),
   validators.ConflictingObjectAttributes("no_mtls",
     "use_mtls")}
@@ -1136,6 +1197,7 @@ and \*.domain.com - but use different signature algorithms.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.RequiredListObjectAttributes("certificate_url"),
   validators.ConflictingListObjectAttributes("custom_hash_algorithms",
     "disable_ocsp_stapling"),
@@ -1205,6 +1267,7 @@ TLS certificate. Certificate or certificate chain in PEM format including the PE
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 131072),
 }
@@ -1297,6 +1360,7 @@ Specifies the hash algorithms to be used.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("hash_algorithms")}
 ```
 
@@ -1338,6 +1402,7 @@ values are \`INVALID\_HASH\_ALGORITHM\`, \`SHA256\`, \`SHA1\`. Defaults to
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeBetween(1, 4),
 }
@@ -1457,6 +1522,7 @@ SecretType is used in an object to indicate a sensitive/confidential field.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info",
     "clear_secret_info")}
 ```
@@ -1518,6 +1584,7 @@ BlindfoldSecretInfoType specifies information about the Secret managed by F5XC S
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("location")}
 ```
 
@@ -1592,6 +1659,7 @@ store provider is an HTTP/HTTPS location.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(4, 131072),
 }
@@ -1695,6 +1763,7 @@ ClearSecretInfoType specifies information about the Secret that is not encrypted
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("url")}
 ```
 
@@ -1747,6 +1816,7 @@ base64 decoding.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 131072),
 }
@@ -1871,6 +1941,7 @@ This defines various OPTIONS to configure TLS configuration parameters.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("custom_security",
     "default_security"),
   validators.ConflictingObjectAttributes("custom_security",
@@ -1945,6 +2016,7 @@ This defines TLS protocol config including min/max versions and allowed ciphers.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("cipher_suites")}
 ```
 
@@ -2030,6 +2102,8 @@ versions F5 Distributed Cloud will choose the optimal TLS version. Possible valu
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["TLS_AUTO","TLSv1_0","TLSv1_1","TLSv1_2","TLSv1_3"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("TLS_AUTO",
     "TLSv1_0",
@@ -2075,6 +2149,8 @@ versions F5 Distributed Cloud will choose the optimal TLS version. Possible valu
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["TLS_AUTO","TLSv1_0","TLSv1_1","TLSv1_2","TLSv1_3"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("TLS_AUTO",
     "TLSv1_0",
@@ -2274,6 +2350,7 @@ Validation context for downstream client TLS connections.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("crl",
     "no_crl"),
   validators.ConflictingObjectAttributes("trusted_ca",
@@ -2352,6 +2429,7 @@ Exclusive with \[trusted\_ca\] Upload a Root CA Certificate specifically for thi
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 131072),
 }
@@ -2429,6 +2507,7 @@ Such a reference is in form of tenant/namespace/name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
 ```
 
@@ -2469,6 +2548,7 @@ referred object's(e.g. Route's) name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 128),
 }
@@ -2529,6 +2609,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -2596,6 +2677,7 @@ the referred object's(e.g. Route's) tenant.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(64),
 }
@@ -2710,6 +2792,7 @@ Such a reference is in form of tenant/namespace/name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
 ```
 
@@ -2750,6 +2833,7 @@ referred object's(e.g. Route's) name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 128),
 }
@@ -2810,6 +2894,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -2877,6 +2962,7 @@ the referred object's(e.g. Route's) tenant.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(64),
 }
@@ -2990,6 +3076,7 @@ X-Forwarded-Client-Cert header elements to be added to requests.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("xfcc_header_elements")}
 ```
 
@@ -3076,6 +3163,7 @@ Inline TLS Parameters. Inline TLS parameters.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("tls_certificates"),
   validators.ConflictingObjectAttributes("no_mtls",
     "use_mtls")}
@@ -3188,6 +3276,7 @@ and \*.domain.com - but use different signature algorithms.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.RequiredListObjectAttributes("certificate_url"),
   validators.ConflictingListObjectAttributes("custom_hash_algorithms",
     "disable_ocsp_stapling"),
@@ -3257,6 +3346,7 @@ TLS certificate. Certificate or certificate chain in PEM format including the PE
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 131072),
 }
@@ -3319,7 +3409,7 @@ Description. Description for the certificate.
 
 - [disable_ocsp_stapling](resources--nfv_service--reference--group-003.md#canonical-1223312232131130-3323102031233232-3103230230232313-0023320033320202-0210000233222211-3012010210210210-2201000102130223-2220232000002001): complete subsection reference.
 
-- [private_key](resources--nfv_service--reference--group-003.md#canonical-0022012123311000-1212203230321020-1330231021210332-3201020233133002-2323100303020232-0312203302233123-3000300312202110-2223011033132013): complete subsection reference.
+- [private_key](resources--nfv_service--reference--group-004.md#canonical-0022012123311000-1212203230321020-1330231021210332-3201020233133002-2323100303020232-0312203302233123-3000300312202110-2223011033132013): complete subsection reference.
 
 - [use_system_defaults](resources--nfv_service--reference--group-004.md#canonical-1011101211010132-3312322032312331-3113201301221030-0122312102211300-0221000121010231-3102333110002230-2312323213001223-1111002232331221): complete subsection reference.
 
@@ -3349,6 +3439,7 @@ Specifies the hash algorithms to be used.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("hash_algorithms")}
 ```
 
@@ -3390,6 +3481,7 @@ values are \`INVALID\_HASH\_ALGORITHM\`, \`SHA256\`, \`SHA1\`. Defaults to
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeBetween(1, 4),
 }
@@ -3482,63 +3574,3 @@ disable_ocsp_stapling = {}
 ```
 
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-0022012123311000-1212203230321020-1330231021210332-3201020233133002-2323100303020232-0312203302233123-3000300312202110-2223011033132013"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-## `https_management.advertise_on_slo_vip.tls_certificates.private_key` properties
-
-Breadcrumbs:
-
-- [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
-- [Property reference](resources--nfv_service--reference--group-001.md#canonical-1033200313012130-2303320020000220-3032203302003212-3030323031320111-0322032022323123-0203102131300133-1232321110231101-1022222010201320)
-- [https_management](resources--nfv_service--reference--group-001.md#canonical-2012312013030011-0102312120121131-2122112110311110-1102330303132211-1031011331133302-3311032130133131-3022001211230302-3310030220221101)
-- [https_management.advertise_on_slo_vip](resources--nfv_service--reference--group-003.md#canonical-3123232331313231-1003300030030012-0013233023203203-0221011121303133-2002120310330210-0313012223300221-2030131203030100-3230303033112000)
-- [https_management.advertise_on_slo_vip.tls_certificates](resources--nfv_service--reference--group-003.md#canonical-0201100000120203-2021020301330032-0310123232303233-0102332130311132-1233200003321230-1112232313301301-3210030321330101-0101132333333033)
-- https_management.advertise_on_slo_vip.tls_certificates.private_key
-
-<a id="canonical-2123010121130221-0131130220001200-3011012221222210-1103000020112311-0111030031330223-0332201202131330-1311331301232212-1201221111331100"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-SecretType is used in an object to indicate a sensitive/confidential field.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info",
-    "clear_secret_info")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-ves-oneof-field-secret_info_oneof": "[\"blindfold_secret_info\",\"clear_secret_info\"]"
-}
-```
-
-Terraform syntax:
-
-```terraform
-private_key {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-3010123322220121-0000032222010111-2213122230231332-1131032110103212-1231320011210302-3020011210023211-0323313200320123-0033332301023002"></a>
-
-### Direct properties for `https_management.advertise_on_slo_vip.tls_certificates.private_key`
-
-- [blindfold_secret_info](resources--nfv_service--reference--group-004.md#canonical-0303233320112200-3220033130320200-3223032232212000-2132032213123332-1012210220020200-3102211222300113-0212030203120101-3331102210022210): complete subsection reference.
-
-- [clear_secret_info](resources--nfv_service--reference--group-004.md#canonical-2112031210010210-1111112120300332-0010203003220232-1033332002002210-1311220031111310-0113102010002113-0000010300102300-1001023330320103): complete subsection reference.

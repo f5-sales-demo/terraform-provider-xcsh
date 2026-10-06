@@ -6,9 +6,187 @@ description: "Complete grouped canonical reference for xcsh_protected_applicatio
 
 # xcsh_protected_application reference
 
+<a id="canonical-0223132131303030-1021321002133031-1322031020210023-3021012231212331-3323212220200021-3333310133301130-1033301220110133-0232301203331323"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `cloudfront.js_insertion_rules.exclude_list.domain` properties
+
+Breadcrumbs:
+
+- [xcsh_protected_application](../resources/protected_application.md#canonical-0002322312001300-2321122230000322-1132302132120131-2310022322102121-3300111330013030-3223012202311310-1021020212202332-0020010133311002)
+- [Property reference](resources--protected_application--reference--group-001.md#canonical-1112011310232010-1130212322220320-1323121033211100-0313202312023232-3332212122311300-1331303332321012-0100301021312031-1320300331013311)
+- [CloudFront](resources--protected_application--reference--group-002.md#canonical-3023230230223213-0113310010212111-0023030201111012-2212202220232211-0013230310132300-3132331133230002-2331013021302322-2211302231010320)
+- [cloudfront.js_insertion_rules](resources--protected_application--reference--group-002.md#canonical-0231330302202122-3333330110232010-0233303200130220-0301122123331132-2200201002333200-2020222112331210-1313021231112202-3002213230012210)
+- [cloudfront.js_insertion_rules.exclude_list](resources--protected_application--reference--group-002.md#canonical-3030120312130131-3321220122223102-0002133300030211-3213101323223323-3213011023030033-1101103231223220-2013022123312013-2102222320232103)
+- CloudFront.js_insertion_rules.exclude_list.domain
+
+<a id="canonical-0110023101111330-2100003101201210-3220210301313112-3122012123320131-2203001331203003-0000122002021020-1212112020000021-0032011100222031"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+Domain name for routing and identification.
+
+Additional upstream details:
+
+Domains names.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: false
+Validators: []validator.Object{validators.ConflictingObjectAttributes("exact_value",
+    "regex_value"),
+  validators.ConflictingObjectAttributes("exact_value",
+    "suffix_value"),
+  validators.ConflictingObjectAttributes("regex_value",
+    "suffix_value")}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-domain_choice": "[\"exact_value\",\"regex_value\",\"suffix_value\"]"
+}
+```
+
+Terraform syntax:
+
+```terraform
+domain {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-2321103001302133-2233102201310302-2213300223210120-1301102103321002-0012331213013301-0112102300201103-0021220311212012-0223212231110113"></a>
+
+### Direct properties for `cloudfront.js_insertion_rules.exclude_list.domain`
+
+<a id="canonical-3333212031332210-1233001202012210-1000012210011312-0211203132313301-1030032121202301-0202332231300320-0210222211000213-2130312303020320"></a>
+
+#### `cloudfront.js_insertion_rules.exclude_list.domain.exact_value` property
+
+Type: `"string"`. Optional.
+
+Exclusive with \[regular expression\_value suffix\_value\] Exact domain name.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: true
+Validators: []validator.String{
+  stringvalidator.LengthBetween(1, 256),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 256,
+  "minLength": 1,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "hostname",
+    "maxLength": 256,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "minLength": 1
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.hostname": "true",
+    "ves.io.schema.rules.string.max_len": "256",
+    "ves.io.schema.rules.string.min_len": "1"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.hostname": "true",
+    "ves.io.schema.rules.string.max_len": "256",
+    "ves.io.schema.rules.string.min_len": "1"
+  }
+}
+```
+
+<a id="canonical-1212312013033113-3312110132332300-0231320133000112-0012322322210203-3020120112230002-3112222233213232-2233232100203321-0331231103333122"></a>
+
+<a id="canonical-1201220123121330-1301021201313320-2011220030331130-3330112312231323-3111101110310031-3303031331211031-0112121022303001-0131210200130201"></a>
+
+#### `cloudfront.js_insertion_rules.exclude_list.domain.regex_value` property
+
+Type: `"string"`. Optional.
+
+Exclusive with \[exact\_value suffix\_value\] Regular Expression value for the domain name.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: true
+Validators: []validator.String{
+  stringvalidator.LengthBetween(1, 256),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 256,
+  "minLength": 1,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "maxLength": 256,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "minLength": 1
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.max_len": "256",
+    "ves.io.schema.rules.string.min_len": "1",
+    "ves.io.schema.rules.string.regex": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.max_len": "256",
+    "ves.io.schema.rules.string.min_len": "1",
+    "ves.io.schema.rules.string.regex": "true"
+  }
+}
+```
+
+<a id="canonical-3010312020320321-3021213012322230-3031023033233131-2321330012130212-0011120322101223-1232122311121032-1312213211013311-1033232103200021"></a>
+
 <a id="canonical-0221301003322033-2310011123133031-3303131101032111-3303223323200102-1213000131123113-3001123003100131-2130111311302123-1313310001322233"></a>
 
-## `cloudfront.js_insertion_rules.exclude_list.domain.suffix_value` property
+#### `cloudfront.js_insertion_rules.exclude_list.domain.suffix_value` property
 
 Type: `"string"`. Optional.
 
@@ -23,6 +201,7 @@ Exclusive with \[exact\_value regular expression\_value\] Suffix of domain name 
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 256),
 }
@@ -95,6 +274,7 @@ and replace APIs.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
 ```
 
@@ -134,6 +314,7 @@ Description. Human readable description.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(256),
 }
@@ -152,6 +333,7 @@ This is the name of the message. The value of name has to follow DNS-1035 format
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -232,6 +414,7 @@ Path match of the URI can be either be, Prefix match or exact match or regular e
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("path",
     "prefix"),
   validators.ConflictingObjectAttributes("path",
@@ -277,6 +460,7 @@ Exclusive with \[prefix regular expression\] Exact path value to match.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 256),
 }
@@ -330,6 +514,7 @@ Exclusive with \[path regular expression\] Path prefix to match (e.g. The value 
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(256),
 }
@@ -382,6 +567,7 @@ all paths).
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 256),
 }
@@ -453,6 +639,7 @@ Required list of pages to insert Bot Defense client JavaScript.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.ConflictingListObjectAttributes("any_domain",
     "domain"),
   validators.ConflictingListObjectAttributes("exact_path",
@@ -532,6 +719,7 @@ Exclusive with \[glob prefix\] Exact path value to match.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(256),
 }
@@ -584,6 +772,7 @@ match a single character.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 256),
 }
@@ -646,6 +835,7 @@ Exclusive with \[exact\_path glob\] Path prefix to match (e.g. The value / will 
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(256),
 }
@@ -762,6 +952,7 @@ Domains names.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("exact_value",
     "regex_value"),
   validators.ConflictingObjectAttributes("exact_value",
@@ -807,6 +998,7 @@ Exclusive with \[regular expression\_value suffix\_value\] Exact domain name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 256),
 }
@@ -863,6 +1055,7 @@ Exclusive with \[exact\_value suffix\_value\] Regular Expression value for the d
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 256),
 }
@@ -924,6 +1117,7 @@ Exclusive with \[exact\_value regular expression\_value\] Suffix of domain name 
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 256),
 }
@@ -996,6 +1190,7 @@ and replace APIs.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
 ```
 
@@ -1035,6 +1230,7 @@ Description. Human readable description.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(256),
 }
@@ -1053,6 +1249,7 @@ This is the name of the message. The value of name has to follow DNS-1035 format
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -1177,6 +1374,8 @@ synchronously, and it is cacheable.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["ASYNC_JS_CACHING","ASYNC_JS_NO_CACHING","SYNC_JS_CACHING","SYNC_JS_NO_CACHING"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("ASYNC_JS_NO_CACHING",
     "ASYNC_JS_CACHING",
@@ -1368,6 +1567,7 @@ A list of headers that can be used to identify mobile traffic.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.RequiredListObjectAttributes("name"),
   validators.ConflictingListObjectAttributes("exact",
     "regex")}
@@ -1429,6 +1629,7 @@ Exclusive with \[regular expression\] Header value to match exactly.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(256),
 }
@@ -1483,6 +1684,7 @@ Name. Name of the header.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -1557,6 +1759,7 @@ Exclusive with \[exact\] regular expression match of the header value in re2 for
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 256),
 }
@@ -1625,6 +1828,7 @@ List of protected endpoints (max 128 items).
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.RequiredListObjectAttributes("http_methods",
     "path"),
   validators.ConflictingListObjectAttributes("any_domain",
@@ -1714,6 +1918,7 @@ Defaults to \`METHOD\_ANY\`.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeBetween(1, 4),
 }
@@ -1780,6 +1985,7 @@ Accepts wildcards \* to match multiple characters or ? To match a single charact
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 256),
 }
@@ -1842,6 +2048,7 @@ Enter a regular expression to match your query parameters of interest.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(256),
 }
@@ -1966,6 +2173,7 @@ Domains names.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("exact_value",
     "regex_value"),
   validators.ConflictingObjectAttributes("exact_value",
@@ -2011,6 +2219,7 @@ Exclusive with \[regular expression\_value suffix\_value\] Exact domain name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 256),
 }
@@ -2067,6 +2276,7 @@ Exclusive with \[exact\_value suffix\_value\] Regular Expression value for the d
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 256),
 }
@@ -2128,6 +2338,7 @@ Exclusive with \[exact\_value regular expression\_value\] Suffix of domain name 
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 256),
 }
@@ -2196,6 +2407,7 @@ Bot Defense Flow Label Category allows to associate traffic with selected catego
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("account_management",
     "authentication"),
   validators.ConflictingObjectAttributes("account_management",
@@ -2270,7 +2482,7 @@ flow_label {
 
 - [authentication](resources--protected_application--reference--group-003.md#canonical-0323111212011331-2233302330122121-1312022311201112-3020213013212312-2311332012311021-1220300222331032-0121102320033210-2310022210020110): complete subsection reference.
 
-- [financial_services](resources--protected_application--reference--group-003.md#canonical-1221023222000133-2202131211101230-3002001310200213-2332103310233321-1101212233310220-2110032311022233-2010231232203303-3311033032212012): complete subsection reference.
+- [financial_services](resources--protected_application--reference--group-004.md#canonical-1221023222000133-2202131211101230-3002001310200213-2332103310233321-1101212233310220-2110032311022233-2010231232203303-3311033032212012): complete subsection reference.
 
 - [flight](resources--protected_application--reference--group-004.md#canonical-1222012302233310-3002202302031210-3333311020003022-3111110222100121-0022220203120113-3212033313021202-1110103012131232-2221322022111020): complete subsection reference.
 
@@ -2306,6 +2518,7 @@ Bot Defense Flow Label Account Management Category.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("create",
     "password_reset")}
 ```
@@ -2464,6 +2677,7 @@ Bot Defense Flow Label Authentication Category.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("login",
     "login_mfa"),
   validators.ConflictingObjectAttributes("login",
@@ -2518,9 +2732,9 @@ authentication {
 
 - [login_partner](resources--protected_application--reference--group-003.md#canonical-3021331301322233-0202121213222120-1202301321321011-0001020133303301-3231212320132102-1233320130021010-0102332203222333-1331232032201022): complete subsection reference.
 
-- [logout](resources--protected_application--reference--group-003.md#canonical-2023230121133030-2201121101121230-0220332300301121-2302020013003231-2020332313030301-3013310311001322-2300002322121000-0203111111331023): complete subsection reference.
+- [logout](resources--protected_application--reference--group-004.md#canonical-2023230121133030-2201121101121230-0220332300301121-2302020013003231-2020332313030301-3013310311001322-2300002322121000-0203111111331023): complete subsection reference.
 
-- [token_refresh](resources--protected_application--reference--group-003.md#canonical-0221220001332301-1120022323032010-3223222333000222-3122210013003033-1211103333223233-2023023223100310-1203113132202212-1301101303333202): complete subsection reference.
+- [token_refresh](resources--protected_application--reference--group-004.md#canonical-0221220001332301-1120022323032010-3223222333000222-3122210013003033-1211103333223233-2023023223100310-1203113132202212-1301101303333202): complete subsection reference.
 
 <a id="canonical-2110110120000110-1211111300013013-1012332313111333-0002322001030310-0100030321111311-2130220020103010-1013210131330023-0332131102302123"></a>
 
@@ -2549,6 +2763,7 @@ Bot Defense Transaction Result. Bot Defense Transaction Result.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("disable_transaction_result",
     "transaction_result")}
 ```
@@ -2770,6 +2985,7 @@ Header Name. A case-insensitive HTTP header name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -2838,6 +3054,7 @@ A list of regular expressions to match the input against.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(16),
 }
@@ -2934,6 +3151,8 @@ Extended status code Network Authentication Required status code.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["Accepted","AlreadyReported","BadGateway","BadRequest","Conflict","Continue","Created","EmptyStatusCode","ExpectationFailed","FailedDependency","Forbidden","Found","GatewayTimeout","Gone","HTTPVersionNotSupported","IMUsed","InsufficientStorage","InternalServerError","LengthRequired","Locked","LoopDetected","MethodNotAllowed","MisdirectedRequest","MovedPermanently","MultiStatus","MultipleChoices","NetworkAuthenticationRequired","NoContent","NonAuthoritativeInformation","NotAcceptable","NotExtended","NotFound","NotImplemented","NotModified","OK","PartialContent","PayloadTooLarge","PaymentRequired","PermanentRedirect","PreconditionFailed","PreconditionRequired","ProxyAuthenticationRequired","RangeNotSatisfiable","RequestHeaderFieldsTooLarge","RequestTimeout","ResetContent","SeeOther","ServiceUnavailable","TemporaryRedirect","TooManyRequests","URITooLong","Unauthorized","UnprocessableEntity","UnsupportedMediaType","UpgradeRequired","UseProxy","VariantAlsoNegotiates"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("EmptyStatusCode",
     "Continue",
@@ -3151,6 +3370,7 @@ Header Name. A case-insensitive HTTP header name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -3219,6 +3439,7 @@ A list of regular expressions to match the input against.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(16),
 }
@@ -3315,6 +3536,8 @@ Extended status code Network Authentication Required status code.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["Accepted","AlreadyReported","BadGateway","BadRequest","Conflict","Continue","Created","EmptyStatusCode","ExpectationFailed","FailedDependency","Forbidden","Found","GatewayTimeout","Gone","HTTPVersionNotSupported","IMUsed","InsufficientStorage","InternalServerError","LengthRequired","Locked","LoopDetected","MethodNotAllowed","MisdirectedRequest","MovedPermanently","MultiStatus","MultipleChoices","NetworkAuthenticationRequired","NoContent","NonAuthoritativeInformation","NotAcceptable","NotExtended","NotFound","NotImplemented","NotModified","OK","PartialContent","PayloadTooLarge","PaymentRequired","PermanentRedirect","PreconditionFailed","PreconditionRequired","ProxyAuthenticationRequired","RangeNotSatisfiable","RequestHeaderFieldsTooLarge","RequestTimeout","ResetContent","SeeOther","ServiceUnavailable","TemporaryRedirect","TooManyRequests","URITooLong","Unauthorized","UnprocessableEntity","UnsupportedMediaType","UpgradeRequired","UseProxy","VariantAlsoNegotiates"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("EmptyStatusCode",
     "Continue",
@@ -3546,161 +3769,3 @@ login_partner = {}
 ```
 
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-2023230121133030-2201121101121230-0220332300301121-2302020013003231-2020332313030301-3013310311001322-2300002322121000-0203111111331023"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-## `cloudfront.protected_endpoints.flow_label.authentication.logout` properties
-
-Breadcrumbs:
-
-- [xcsh_protected_application](../resources/protected_application.md#canonical-0002322312001300-2321122230000322-1132302132120131-2310022322102121-3300111330013030-3223012202311310-1021020212202332-0020010133311002)
-- [Property reference](resources--protected_application--reference--group-001.md#canonical-1112011310232010-1130212322220320-1323121033211100-0313202312023232-3332212122311300-1331303332321012-0100301021312031-1320300331013311)
-- [CloudFront](resources--protected_application--reference--group-002.md#canonical-3023230230223213-0113310010212111-0023030201111012-2212202220232211-0013230310132300-3132331133230002-2331013021302322-2211302231010320)
-- [cloudfront.protected_endpoints](resources--protected_application--reference--group-003.md#canonical-2331031331211001-2203303321110110-3203202010032323-1311020101113303-1331221311131220-0322003310233220-3231300302101310-1323132122212232)
-- [cloudfront.protected_endpoints.flow_label](resources--protected_application--reference--group-003.md#canonical-2003301112323021-1003101203221303-3200130031112010-1113223021202211-0112323031302303-0233032001012210-3211303300322001-1101322113022321)
-- [cloudfront.protected_endpoints.flow_label.authentication](resources--protected_application--reference--group-003.md#canonical-0323111212011331-2233302330122121-1312022311201112-3020213013212312-2311332012311021-1220300222331032-0121102320033210-2310022210020110)
-- CloudFront.protected_endpoints.flow_label.authentication.logout
-
-<a id="canonical-3210322333030011-0220230330311302-0311003201123012-2231031002312301-1022313021002022-0301133021100133-2032030300032320-1212200213323031"></a>
-
-Type: `["object", {}]`. Optional.
-
-Enable this option
-
-Additional upstream details:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-logout = {}
-```
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-0221220001332301-1120022323032010-3223222333000222-3122210013003033-1211103333223233-2023023223100310-1203113132202212-1301101303333202"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-## `cloudfront.protected_endpoints.flow_label.authentication.token_refresh` properties
-
-Breadcrumbs:
-
-- [xcsh_protected_application](../resources/protected_application.md#canonical-0002322312001300-2321122230000322-1132302132120131-2310022322102121-3300111330013030-3223012202311310-1021020212202332-0020010133311002)
-- [Property reference](resources--protected_application--reference--group-001.md#canonical-1112011310232010-1130212322220320-1323121033211100-0313202312023232-3332212122311300-1331303332321012-0100301021312031-1320300331013311)
-- [CloudFront](resources--protected_application--reference--group-002.md#canonical-3023230230223213-0113310010212111-0023030201111012-2212202220232211-0013230310132300-3132331133230002-2331013021302322-2211302231010320)
-- [cloudfront.protected_endpoints](resources--protected_application--reference--group-003.md#canonical-2331031331211001-2203303321110110-3203202010032323-1311020101113303-1331221311131220-0322003310233220-3231300302101310-1323132122212232)
-- [cloudfront.protected_endpoints.flow_label](resources--protected_application--reference--group-003.md#canonical-2003301112323021-1003101203221303-3200130031112010-1113223021202211-0112323031302303-0233032001012210-3211303300322001-1101322113022321)
-- [cloudfront.protected_endpoints.flow_label.authentication](resources--protected_application--reference--group-003.md#canonical-0323111212011331-2233302330122121-1312022311201112-3020213013212312-2311332012311021-1220300222331032-0121102320033210-2310022210020110)
-- CloudFront.protected_endpoints.flow_label.authentication.token_refresh
-
-<a id="canonical-0133020132230213-1032230031202221-0233133023130312-2112323011122320-1221133031211230-0121113031103022-2320110121300230-3332212320130031"></a>
-
-Type: `["object", {}]`. Optional.
-
-Configuration parameter for token refresh.
-
-Additional upstream details:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-token_refresh = {}
-```
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-1221023222000133-2202131211101230-3002001310200213-2332103310233321-1101212233310220-2110032311022233-2010231232203303-3311033032212012"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-## `cloudfront.protected_endpoints.flow_label.financial_services` properties
-
-Breadcrumbs:
-
-- [xcsh_protected_application](../resources/protected_application.md#canonical-0002322312001300-2321122230000322-1132302132120131-2310022322102121-3300111330013030-3223012202311310-1021020212202332-0020010133311002)
-- [Property reference](resources--protected_application--reference--group-001.md#canonical-1112011310232010-1130212322220320-1323121033211100-0313202312023232-3332212122311300-1331303332321012-0100301021312031-1320300331013311)
-- [CloudFront](resources--protected_application--reference--group-002.md#canonical-3023230230223213-0113310010212111-0023030201111012-2212202220232211-0013230310132300-3132331133230002-2331013021302322-2211302231010320)
-- [cloudfront.protected_endpoints](resources--protected_application--reference--group-003.md#canonical-2331031331211001-2203303321110110-3203202010032323-1311020101113303-1331221311131220-0322003310233220-3231300302101310-1323132122212232)
-- [cloudfront.protected_endpoints.flow_label](resources--protected_application--reference--group-003.md#canonical-2003301112323021-1003101203221303-3200130031112010-1113223021202211-0112323031302303-0233032001012210-3211303300322001-1101322113022321)
-- CloudFront.protected_endpoints.flow_label.financial_services
-
-<a id="canonical-3311023122210020-0012103130131013-2112303010103103-0223101301311113-0230213211331112-3322023232310120-0131230302031121-2033011023231133"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-Bot Defense Flow Label Financial Services Category.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.Object{validators.ConflictingObjectAttributes("apply",
-    "money_transfer")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-ves-oneof-field-label_choice": "[\"apply\",\"money_transfer\"]"
-}
-```
-
-Terraform syntax:
-
-```terraform
-financial_services {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-3102202121223032-3202013033330002-3100222110300031-2333202032123302-1213103032033201-3300231030330001-1222200333122131-2032000111223131"></a>
-
-### Direct properties for `cloudfront.protected_endpoints.flow_label.financial_services`
-
-- [apply](resources--protected_application--reference--group-004.md#canonical-3233130101131012-2230231323120303-1112132001020310-0331221320303132-0133030121333222-2103013232210132-2000323131320330-0130212132311231): complete subsection reference.
-
-- [money_transfer](resources--protected_application--reference--group-004.md#canonical-2123133020032313-0001102203232031-2301333103103301-2233222202131001-0301301130233211-1232100322300112-3330100302320022-3311203301301333): complete subsection reference.

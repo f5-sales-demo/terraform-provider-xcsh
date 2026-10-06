@@ -222,6 +222,7 @@ follow DNS-1035 format.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   validators.NameValidator(),
 }
@@ -289,6 +290,7 @@ DNS\_LABEL format. For a namespace object itself, namespace value will be ""
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   validators.NamespaceValidator(),
 }
@@ -470,7 +472,7 @@ Each exact path has one authoritative reference destination. Collection element 
 | `https_management.advertise_on_slo_internet_vip.tls_config.custom_security` | [https_management.advertise_on_slo_internet_vip.tls_config.custom_security](resources--nfv_service--reference--group-002.md#canonical-1110212103322000-1013330322012313-3323120112303113-3222010211200331-2120231300311131-1311311201123032-1122221212131220-1121013123212233) |
 | `https_management.advertise_on_slo_internet_vip.tls_config.custom_security.cipher_suites` | [https_management.advertise_on_slo_internet_vip.tls_config.custom_security.cipher_suites](resources--nfv_service--reference--group-002.md#canonical-2201132011011232-3111211002233201-3223300323000121-2131002003333323-3102222211110231-0021023210023032-1330032300233203-2131220120110021) |
 | `https_management.advertise_on_slo_internet_vip.tls_config.custom_security.max_version` | [https_management.advertise_on_slo_internet_vip.tls_config.custom_security.max_version](resources--nfv_service--reference--group-002.md#canonical-0101023300312311-1303202012010120-2101231121302302-0323233113221003-2121003121210320-0003012333002322-2302232210003302-0321212222021103) |
-| `https_management.advertise_on_slo_internet_vip.tls_config.custom_security.min_version` | [https_management.advertise_on_slo_internet_vip.tls_config.custom_security.min_version](resources--nfv_service--reference--group-002.md#canonical-1030303032300000-2113132130001330-2110210002203021-0102132031212110-2222130101203120-3032320030232212-3301331330010330-2200332131330003) |
+| `https_management.advertise_on_slo_internet_vip.tls_config.custom_security.min_version` | [https_management.advertise_on_slo_internet_vip.tls_config.custom_security.min_version](resources--nfv_service--reference--group-003.md#canonical-1030303032300000-2113132130001330-2110210002203021-0102132031212110-2222130101203120-3032320030232212-3301331330010330-2200332131330003) |
 | `https_management.advertise_on_slo_internet_vip.tls_config.default_security` | [https_management.advertise_on_slo_internet_vip.tls_config.default_security](resources--nfv_service--reference--group-003.md#canonical-2111021302020010-1212233132030233-3033202030220223-1123310233232202-2133023300010023-0233111032020020-3212130022102102-0220103103013121) |
 | `https_management.advertise_on_slo_internet_vip.tls_config.low_security` | [https_management.advertise_on_slo_internet_vip.tls_config.low_security](resources--nfv_service--reference--group-003.md#canonical-1233103000320302-0301003332100021-2000232131123320-3333132020020002-3221202311310333-3002301221010220-0303103131123132-0311321102000223) |
 | `https_management.advertise_on_slo_internet_vip.tls_config.medium_security` | [https_management.advertise_on_slo_internet_vip.tls_config.medium_security](resources--nfv_service--reference--group-003.md#canonical-0232022330032012-1320012332332331-3202210121333312-3230011333201001-1303210011231011-3331333033113001-3021033312312003-2031223103221202) |
@@ -537,7 +539,7 @@ Each exact path has one authoritative reference destination. Collection element 
 | `https_management.advertise_on_slo_vip.tls_certificates.custom_hash_algorithms.hash_algorithms` | [https_management.advertise_on_slo_vip.tls_certificates.custom_hash_algorithms.hash_algorithms](resources--nfv_service--reference--group-003.md#canonical-3213230122223201-0300123032111130-1022332131222302-0101131123311331-1302131210333213-2031331003312132-1220010222210302-1032110020322333) |
 | `https_management.advertise_on_slo_vip.tls_certificates.description_spec` | [https_management.advertise_on_slo_vip.tls_certificates.description_spec](resources--nfv_service--reference--group-003.md#canonical-1301110230122310-3000311233031332-3121111031002000-3010230001301101-1101203131321121-0213110012203131-2323323311220321-3023322223020220) |
 | `https_management.advertise_on_slo_vip.tls_certificates.disable_ocsp_stapling` | [https_management.advertise_on_slo_vip.tls_certificates.disable_ocsp_stapling](resources--nfv_service--reference--group-003.md#canonical-0221121130213003-0221302100231011-1332330232032013-0000321233021313-2212103103133210-1013212211333213-1330112012111233-0323300330223112) |
-| `https_management.advertise_on_slo_vip.tls_certificates.private_key` | [https_management.advertise_on_slo_vip.tls_certificates.private_key](resources--nfv_service--reference--group-003.md#canonical-2123010121130221-0131130220001200-3011012221222210-1103000020112311-0111030031330223-0332201202131330-1311331301232212-1201221111331100) |
+| `https_management.advertise_on_slo_vip.tls_certificates.private_key` | [https_management.advertise_on_slo_vip.tls_certificates.private_key](resources--nfv_service--reference--group-004.md#canonical-2123010121130221-0131130220001200-3011012221222210-1103000020112311-0111030031330223-0332201202131330-1311331301232212-1201221111331100) |
 | `https_management.advertise_on_slo_vip.tls_certificates.private_key.blindfold_secret_info` | [https_management.advertise_on_slo_vip.tls_certificates.private_key.blindfold_secret_info](resources--nfv_service--reference--group-004.md#canonical-1331111321322033-3212131212031310-2231023021332322-3333003101202020-1330132302130321-1120321003203012-2230023111111213-3203033111022323) |
 | `https_management.advertise_on_slo_vip.tls_certificates.private_key.blindfold_secret_info.decryption_provider` | [https_management.advertise_on_slo_vip.tls_certificates.private_key.blindfold_secret_info.decryption_provider](resources--nfv_service--reference--group-004.md#canonical-3211033203210233-3021100103321211-0113213303233220-2003022202221211-0131122331222331-0001221303201332-1211021233013131-0331103213300132) |
 | `https_management.advertise_on_slo_vip.tls_certificates.private_key.blindfold_secret_info.location` | [https_management.advertise_on_slo_vip.tls_certificates.private_key.blindfold_secret_info.location](resources--nfv_service--reference--group-004.md#canonical-1132213331011100-0301000132302203-0023301313312020-1213300103201230-0330321011302011-0132002122101302-2301212231130310-0123001202102303) |
@@ -768,6 +770,7 @@ SSH based configuration.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("domain_suffix",
     "node_ssh_ports"),
   validators.ConflictingObjectAttributes("advertise_on_sli",
@@ -823,6 +826,7 @@ Domain suffix will be used along with node name to form the hostname for SSH nod
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(1024),
 }
@@ -1025,6 +1029,7 @@ Management Node SSH Port. Enter TCP port and node name per node.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.RequiredListObjectAttributes("node_name",
     "ssh_port")}
 ```
@@ -1085,6 +1090,7 @@ Node name will be used to match a particular node with the desired TCP port.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 256),
 }
@@ -1143,6 +1149,7 @@ SSH Port. Enter TCP port per node.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(1024, 65535),
 }
@@ -1207,6 +1214,7 @@ specification for AWS.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("admin_username",
     "nodes",
     "ssh_key")}
@@ -1261,6 +1269,7 @@ Admin Username. Admin Username for BIG-IP.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(256),
 }
@@ -1320,6 +1329,7 @@ Public SSH key for accessing the Big IP nodes.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 8192),
 }
@@ -1376,6 +1386,7 @@ organize, search for, and filter resources in AWS console.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Map{validators.MapConstraintsValidator("{\"cardinality\":{\"maxProperties\":40},\"category\":\"discovery\",\"constraintType\":\"map\",\"deterministic\":true,\"keys\":{\"maxLength\":127,\"type\":\"string\"},\"originalRules\":{\"ves.io.schema.rules.map.keys.string.max_len\":\"127\",\"ves.io.schema.rules.map.max_pairs\":\"40\",\"ves.io.schema.rules.map.values.string.max_len\":\"255\"},\"values\":{\"maxLength\":255,\"type\":\"string\"}}")}
 ```
 
@@ -1447,6 +1458,7 @@ SecretType is used in an object to indicate a sensitive/confidential field.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info",
     "clear_secret_info")}
 ```
@@ -1506,6 +1518,7 @@ BlindfoldSecretInfoType specifies information about the Secret managed by F5XC S
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("location")}
 ```
 
@@ -1580,6 +1593,7 @@ store provider is an HTTP/HTTPS location.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(4, 131072),
 }
@@ -1681,6 +1695,7 @@ ClearSecretInfoType specifies information about the Secret that is not encrypted
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("url")}
 ```
 
@@ -1733,6 +1748,7 @@ base64 decoding.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 131072),
 }
@@ -1858,6 +1874,7 @@ Such a reference is in form of tenant/namespace/name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
 ```
 
@@ -1898,6 +1915,7 @@ referred object's(e.g. Route's) name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 128),
 }
@@ -1958,6 +1976,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -2025,6 +2044,7 @@ the referred object's(e.g. Route's) tenant.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(64),
 }
@@ -2089,6 +2109,7 @@ the destination with a new destination address.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("advertise_on_slo_ip",
     "advertise_on_slo_ip_external"),
   validators.ConflictingObjectAttributes("advertise_on_slo_ip",
@@ -2169,6 +2190,7 @@ Exclusive with \[automatic\_vip\] Enter IP address for the default VIP.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthAtMost(1024),
   validators.IPValidator(),
@@ -2390,6 +2412,7 @@ Port Range List. List of port ranges.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("ports")}
 ```
 
@@ -2429,6 +2452,7 @@ List of port ranges. Each range is a single port or a pair of start and end port
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(128),
 }
@@ -2494,6 +2518,7 @@ Port Range List. List of port ranges.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("ports")}
 ```
 
@@ -2533,6 +2558,7 @@ List of port ranges. Each range is a single port or a pair of start and end port
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(128),
 }
@@ -2879,6 +2905,7 @@ BIG-IP AWS Pay as You Go Image Selection.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("awafpay_g200_mbps",
     "awafpay_g3_gbps")}
 ```
@@ -2997,6 +3024,7 @@ Specify how and where the service nodes are spawned.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.RequiredListObjectAttributes("aws_az_name",
     "node_name"),
   validators.ConflictingListObjectAttributes("automatic_prefix",
@@ -3070,6 +3098,7 @@ same Region as your TGW Site.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(1024),
 }
@@ -3123,6 +3152,7 @@ Node Name will be used to assign as hostname to the service.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 256),
 }
@@ -3285,6 +3315,7 @@ Parameters for AWS subnet.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("existing_subnet_id",
     "subnet_param")}
 ```
@@ -3326,6 +3357,7 @@ Exclusive with \[subnet\_param\] Information about existing subnet ID.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(64),
 }
@@ -3393,6 +3425,7 @@ Parameters for creating a new cloud subnet.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("ipv4")}
 ```
 
@@ -3537,6 +3570,7 @@ HTTPS based configuration.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("domain_suffix"),
   validators.ConflictingObjectAttributes("advertise_on_internet",
     "advertise_on_internet_default_vip"),
@@ -3627,6 +3661,7 @@ Domain suffix will be used along with node name to form URL to access node manag
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(1024),
 }
@@ -3678,6 +3713,7 @@ Exclusive with \[default\_https\_port\] Enter TCP port number.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(1, 65535),
 }

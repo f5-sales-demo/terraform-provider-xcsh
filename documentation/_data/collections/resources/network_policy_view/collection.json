@@ -432,7 +432,7 @@
         "xcsh-docs:resources:network_policy_view:timeouts"
       ],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -467,8 +467,8 @@
     },
     {
       "aliases": ["network policy view"],
-      "body_bytes": 25301,
-      "body_sha256": "sha256:fafeb9c7f2c86f28eaa9e82008d6892fbf6faceb1cbe1763542322bf54e737f9",
+      "body_bytes": 25577,
+      "body_sha256": "sha256:3e2174d46a080482172ffebe5fc520c6508e1992717b759a1db4b965fa40c756",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -478,7 +478,7 @@
         "xcsh-docs:resources:network_policy_view:properties:timeouts"
       ],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -504,6 +504,8 @@
           "anchor": "schema-annotations",
           "description": "Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when modifying objects.",
           "document_id": "xcsh-docs:resources:network_policy_view:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -518,6 +520,8 @@
           "anchor": "schema-description",
           "description": "Human readable description for the object.",
           "document_id": "xcsh-docs:resources:network_policy_view:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -532,6 +536,8 @@
           "anchor": "schema-disable",
           "description": "A value of true will administratively disable the object.",
           "document_id": "xcsh-docs:resources:network_policy_view:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -546,6 +552,8 @@
           "anchor": "section",
           "description": "Ordered list of rules applied to connections from policy endpoints.",
           "document_id": "xcsh-docs:resources:network_policy_view:properties:egress_rules",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -961,6 +969,8 @@
           "anchor": "section",
           "description": "Shape of the endpoint choices for a view.",
           "document_id": "xcsh-docs:resources:network_policy_view:properties:endpoint",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -1136,6 +1146,8 @@
           "anchor": "schema-id",
           "description": "Unique identifier for the resource.",
           "document_id": "xcsh-docs:resources:network_policy_view:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -1150,6 +1162,8 @@
           "anchor": "section",
           "description": "Ordered list of rules applied to connections to policy endpoints.",
           "document_id": "xcsh-docs:resources:network_policy_view:properties:ingress_rules",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -1565,6 +1579,8 @@
           "anchor": "schema-labels",
           "description": "Map of string keys and values that can be used to organize and categorize (scope and select) objects as chosen by the user. Values specified here will be used by selector expression.",
           "document_id": "xcsh-docs:resources:network_policy_view:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -1579,6 +1595,8 @@
           "anchor": "schema-name",
           "description": "This is the name of configuration object. It has to be unique within the namespace. It can only be specified during create API and cannot be changed during replace API. The value of name has to follow DNS-1035 format.",
           "document_id": "xcsh-docs:resources:network_policy_view:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["required"],
           "max_items": null,
           "min_items": null,
@@ -1593,6 +1611,17 @@
           "anchor": "schema-namespace",
           "description": "This defines the workspace within which each the configuration object is to be created. Must be a DNS_LABEL format. For a namespace object itself, namespace value will be \"\"",
           "document_id": "xcsh-docs:resources:network_policy_view:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [
+            {
+              "case_sensitive": true,
+              "complete": true,
+              "source": "ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf",
+              "validator": "OneOf",
+              "values": ["system"],
+              "version": 1
+            }
+          ],
           "flags": ["optional", "computed"],
           "max_items": null,
           "min_items": null,
@@ -1607,6 +1636,8 @@
           "anchor": "section",
           "description": "timeouts",
           "document_id": "xcsh-docs:resources:network_policy_view:properties:timeouts",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -1630,8 +1661,8 @@
     },
     {
       "aliases": ["egress rules"],
-      "body_bytes": 6777,
-      "body_sha256": "sha256:5f5390e0fad521aa9ec1baa294b1ffd83fdf2311bf411bbeddd34cf8e33f51a1",
+      "body_bytes": 7058,
+      "body_sha256": "sha256:42f95320e72ca5adf35a7271a7b9be0ab4c0a1cacfd27bec3916ab3c9b445108",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -1651,7 +1682,7 @@
         "xcsh-docs:resources:network_policy_view:properties:egress_rules:protocol_port_range"
       ],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2078,6 +2109,17 @@
           "anchor": "schema-egress_rules--action",
           "description": "Network policy rule action configures the action to be taken on rule match Apply deny action on rule match Apply allow action on rule match.",
           "document_id": "xcsh-docs:resources:network_policy_view:properties:egress_rules",
+          "enum_extraction_complete": true,
+          "enum_validators": [
+            {
+              "case_sensitive": true,
+              "complete": true,
+              "source": "ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf",
+              "validator": "OneOf",
+              "values": ["ALLOW", "DENY"],
+              "version": 1
+            }
+          ],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -2092,6 +2134,8 @@
           "anchor": "section",
           "description": "Network Policy Rule Advanced Action provides additional OPTIONS along with RuleAction and PBRRuleAction.",
           "document_id": "xcsh-docs:resources:network_policy_view:properties:egress_rules:adv_action",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -2106,6 +2150,8 @@
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:network_policy_view:properties:egress_rules:all_tcp_traffic",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -2120,6 +2166,8 @@
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:network_policy_view:properties:egress_rules:all_traffic",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -2134,6 +2182,8 @@
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:network_policy_view:properties:egress_rules:all_udp_traffic",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -2148,6 +2198,8 @@
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:network_policy_view:properties:egress_rules:any",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -2162,6 +2214,8 @@
           "anchor": "section",
           "description": "Application protocols like HTTP, SNMP.",
           "document_id": "xcsh-docs:resources:network_policy_view:properties:egress_rules:applications",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -2176,6 +2230,8 @@
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:network_policy_view:properties:egress_rules:inside_endpoints",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -2190,6 +2246,8 @@
           "anchor": "section",
           "description": "A list of references to ip_prefix_set objects.",
           "document_id": "xcsh-docs:resources:network_policy_view:properties:egress_rules:ip_prefix_set",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -2204,6 +2262,8 @@
           "anchor": "section",
           "description": "A label matcher specifies a list of label keys whose values need to match for source/client and destination/server. Note that the actual label values are not specified and do not matter. This allows an ability to scope grouping by the label key name.",
           "document_id": "xcsh-docs:resources:network_policy_view:properties:egress_rules:label_matcher",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -2218,6 +2278,8 @@
           "anchor": "section",
           "description": "This type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects. A null label selector matches no objects.",
           "document_id": "xcsh-docs:resources:network_policy_view:properties:egress_rules:label_selector",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -2241,6 +2303,8 @@
           "anchor": "section",
           "description": "MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create and replace APIs.",
           "document_id": "xcsh-docs:resources:network_policy_view:properties:egress_rules:metadata",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -2264,6 +2328,8 @@
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:network_policy_view:properties:egress_rules:outside_endpoints",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -2278,6 +2344,8 @@
           "anchor": "section",
           "description": "List of IPv4 prefixes that represent an endpoint.",
           "document_id": "xcsh-docs:resources:network_policy_view:properties:egress_rules:prefix_list",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -2292,6 +2360,8 @@
           "anchor": "section",
           "description": "Protocol and Port ranges.",
           "document_id": "xcsh-docs:resources:network_policy_view:properties:egress_rules:protocol_port_range",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -2315,13 +2385,13 @@
     },
     {
       "aliases": ["egress rules adv action"],
-      "body_bytes": 2242,
-      "body_sha256": "sha256:f93fd67d790c0b6ffa1abb5775528577186fdea17ad1679fdb987650e09fb6cc",
+      "body_bytes": 2492,
+      "body_sha256": "sha256:dc464b27bd120f6cd562f32b9b4962deda3200a1ff9395e6f4fa1e436c702ef0",
       "capabilities": [],
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2347,6 +2417,17 @@
           "anchor": "schema-egress_rules--adv_action--action",
           "description": "Choice to choose logging or no logging This works together with option selected via NetworkPolicyRuleAction or any other action specified x-example: (No Selection in NetworkPolicyRuleAction + AdvancedAction as LOG) = LOG Only, (ALLOW/DENY in NetworkPolicyRuleAction + AdvancedAction as LOG) = Log and Allow/Deny,",
           "document_id": "xcsh-docs:resources:network_policy_view:properties:egress_rules:adv_action",
+          "enum_extraction_complete": true,
+          "enum_validators": [
+            {
+              "case_sensitive": true,
+              "complete": true,
+              "source": "ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf",
+              "validator": "OneOf",
+              "values": ["LOG", "NOLOG"],
+              "version": 1
+            }
+          ],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -2376,7 +2457,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2416,7 +2497,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2456,7 +2537,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2496,7 +2577,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2536,7 +2617,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2562,6 +2643,8 @@
           "anchor": "schema-egress_rules--applications--applications",
           "description": "Application protocols like HTTP, SNMP.",
           "document_id": "xcsh-docs:resources:network_policy_view:properties:egress_rules:applications",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -2591,7 +2674,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2631,7 +2714,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:resources:network_policy_view:properties:egress_rules:ip_prefix_set:ref"],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2657,6 +2740,8 @@
           "anchor": "section",
           "description": "A list of references to ip_prefix_set objects.",
           "document_id": "xcsh-docs:resources:network_policy_view:properties:egress_rules:ip_prefix_set:ref",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -2680,13 +2765,13 @@
     },
     {
       "aliases": ["egress rules ip prefix set ref"],
-      "body_bytes": 5793,
-      "body_sha256": "sha256:b4a47e326a2dd2e148f4e1f18718032fd740f1ca01851f6303cad888671066f5",
+      "body_bytes": 5823,
+      "body_sha256": "sha256:b3df655e691847ab82cfa27c2d3d27bc0f4872bc1eb7df7d596ca09c2c3d4d81",
       "capabilities": [],
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2712,10 +2797,19 @@
           "anchor": "schema-egress_rules--ip_prefix_set--ref--kind",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. \"route\")",
           "document_id": "xcsh-docs:resources:network_policy_view:properties:egress_rules:ip_prefix_set:ref",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
           "nesting": null,
+          "reference_identity": {
+            "member": "kind",
+            "scope_path": ["egress_rules", "ip_prefix_set", "ref"],
+            "source": "receipt-pinned-schema-identity",
+            "upstream_message": "ves.io.schema.ObjectRefType",
+            "version": 1
+          },
           "relationships": [],
           "schema_path": ["egress_rules", "ip_prefix_set", "ref", "kind"],
           "syntax": "attribute",
@@ -2726,10 +2820,19 @@
           "anchor": "schema-egress_rules--ip_prefix_set--ref--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:resources:network_policy_view:properties:egress_rules:ip_prefix_set:ref",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
           "nesting": null,
+          "reference_identity": {
+            "member": "name",
+            "scope_path": ["egress_rules", "ip_prefix_set", "ref"],
+            "source": "receipt-pinned-schema-identity",
+            "upstream_message": "ves.io.schema.ObjectRefType",
+            "version": 1
+          },
           "relationships": [],
           "schema_path": ["egress_rules", "ip_prefix_set", "ref", "name"],
           "syntax": "attribute",
@@ -2740,10 +2843,19 @@
           "anchor": "schema-egress_rules--ip_prefix_set--ref--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:resources:network_policy_view:properties:egress_rules:ip_prefix_set:ref",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional", "computed"],
           "max_items": null,
           "min_items": null,
           "nesting": null,
+          "reference_identity": {
+            "member": "namespace",
+            "scope_path": ["egress_rules", "ip_prefix_set", "ref"],
+            "source": "receipt-pinned-schema-identity",
+            "upstream_message": "ves.io.schema.ObjectRefType",
+            "version": 1
+          },
           "relationships": [],
           "schema_path": ["egress_rules", "ip_prefix_set", "ref", "namespace"],
           "syntax": "attribute",
@@ -2754,10 +2866,19 @@
           "anchor": "schema-egress_rules--ip_prefix_set--ref--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:resources:network_policy_view:properties:egress_rules:ip_prefix_set:ref",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
           "nesting": null,
+          "reference_identity": {
+            "member": "tenant",
+            "scope_path": ["egress_rules", "ip_prefix_set", "ref"],
+            "source": "receipt-pinned-schema-identity",
+            "upstream_message": "ves.io.schema.ObjectRefType",
+            "version": 1
+          },
           "relationships": [],
           "schema_path": ["egress_rules", "ip_prefix_set", "ref", "tenant"],
           "syntax": "attribute",
@@ -2768,10 +2889,19 @@
           "anchor": "schema-egress_rules--ip_prefix_set--ref--uid",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
           "document_id": "xcsh-docs:resources:network_policy_view:properties:egress_rules:ip_prefix_set:ref",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
           "nesting": null,
+          "reference_identity": {
+            "member": "uid",
+            "scope_path": ["egress_rules", "ip_prefix_set", "ref"],
+            "source": "receipt-pinned-schema-identity",
+            "upstream_message": "ves.io.schema.ObjectRefType",
+            "version": 1
+          },
           "relationships": [],
           "schema_path": ["egress_rules", "ip_prefix_set", "ref", "uid"],
           "syntax": "attribute",
@@ -2791,13 +2921,13 @@
     },
     {
       "aliases": ["egress rules label matcher"],
-      "body_bytes": 2459,
-      "body_sha256": "sha256:af694c0775f4a7adc56abb09bb70083f901d0678f9f4f62e92334bd3c7e89122",
+      "body_bytes": 2489,
+      "body_sha256": "sha256:d0ff3bdb4c3bd0f61157646b617a940ead26cbe3cac380edfe0723b43366946e",
       "capabilities": [],
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2823,6 +2953,8 @@
           "anchor": "schema-egress_rules--label_matcher--keys",
           "description": "The list of label key names that have to match.",
           "document_id": "xcsh-docs:resources:network_policy_view:properties:egress_rules:label_matcher",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -2846,13 +2978,13 @@
     },
     {
       "aliases": ["egress rules label selector"],
-      "body_bytes": 3630,
-      "body_sha256": "sha256:d678a83cb97799c262c847016901ff0b2eb1aebf192fc7dee212812d766aa652",
+      "body_bytes": 3690,
+      "body_sha256": "sha256:24398eb0af99be81305ffc74b0d73e464eb4865f979db5adb7c8d057e8d0b8e7",
       "capabilities": [],
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2887,6 +3019,8 @@
           "anchor": "schema-egress_rules--label_selector--expressions",
           "description": "Expressions contains the Kubernetes style label expression for selections.",
           "document_id": "xcsh-docs:resources:network_policy_view:properties:egress_rules:label_selector",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -2910,13 +3044,13 @@
     },
     {
       "aliases": ["egress rules metadata"],
-      "body_bytes": 3379,
-      "body_sha256": "sha256:3234178f6f8d3a4b6c9ef4c3a52871209df66ae5601e15b940aac37752b695ab",
+      "body_bytes": 3467,
+      "body_sha256": "sha256:edd35c12a324b941c43c7300056f60bb523bf80506f2b66608f9976532cd55f6",
       "capabilities": [],
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2951,6 +3085,8 @@
           "anchor": "schema-egress_rules--metadata--description_spec",
           "description": "Description. Human readable description.",
           "document_id": "xcsh-docs:resources:network_policy_view:properties:egress_rules:metadata",
+          "enum_extraction_complete": true,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -2965,6 +3101,8 @@
           "anchor": "schema-egress_rules--metadata--name",
           "description": "This is the name of the message. The value of name has to follow DNS-1035 format.",
           "document_id": "xcsh-docs:resources:network_policy_view:properties:egress_rules:metadata",
+          "enum_extraction_complete": true,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -2994,7 +3132,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3028,13 +3166,13 @@
     },
     {
       "aliases": ["egress rules prefix list"],
-      "body_bytes": 2153,
-      "body_sha256": "sha256:2961433f6f652798da6269141b496754d80fc2c7925ded4b75c9bbdfafbe7b2f",
+      "body_bytes": 2183,
+      "body_sha256": "sha256:8e89c25a4c04c4477268ad4a5b46b4e5fddfab15339458686c25ee148bd68581",
       "capabilities": [],
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3060,6 +3198,8 @@
           "anchor": "schema-egress_rules--prefix_list--prefixes",
           "description": "List of IPv4 prefixes that represent an endpoint.",
           "document_id": "xcsh-docs:resources:network_policy_view:properties:egress_rules:prefix_list",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -3083,13 +3223,13 @@
     },
     {
       "aliases": ["egress rules protocol port range"],
-      "body_bytes": 3278,
-      "body_sha256": "sha256:eded0b1ff752feb3237f189bc352fed01c56db4cc79f51136cb7a9bec05a623f",
+      "body_bytes": 3569,
+      "body_sha256": "sha256:69d83aa5a36d82abb093ff3d453738c27b51e53785c9b5cb36445fc7d2eaf3aa",
       "capabilities": [],
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3115,6 +3255,8 @@
           "anchor": "schema-egress_rules--protocol_port_range--port_ranges",
           "description": "List of port ranges. Each range is a single port or a pair of start and end ports e.g. 8080-8192.",
           "document_id": "xcsh-docs:resources:network_policy_view:properties:egress_rules:protocol_port_range",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -3129,6 +3271,17 @@
           "anchor": "schema-egress_rules--protocol_port_range--protocol",
           "description": "Protocol in IP packet to be used as match criteria Values are TCP, UDP, and icmp.",
           "document_id": "xcsh-docs:resources:network_policy_view:properties:egress_rules:protocol_port_range",
+          "enum_extraction_complete": true,
+          "enum_validators": [
+            {
+              "case_sensitive": true,
+              "complete": true,
+              "source": "ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf",
+              "validator": "OneOf",
+              "values": ["ALL", "ICMP", "TCP", "UDP"],
+              "version": 1
+            }
+          ],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -3152,8 +3305,8 @@
     },
     {
       "aliases": ["endpoint"],
-      "body_bytes": 2650,
-      "body_sha256": "sha256:d18055f92910a5cef11b2087341bbea64aca265043751f51d55c9306e5e4b93f",
+      "body_bytes": 2680,
+      "body_sha256": "sha256:123cc3b9a8c5cc8abbf488ba9f1d1bb99397d6a1c5d307dfeb269eb91ce3a84e",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -3164,7 +3317,7 @@
         "xcsh-docs:resources:network_policy_view:properties:endpoint:prefix_list"
       ],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3351,6 +3504,8 @@
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:network_policy_view:properties:endpoint:any",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -3365,6 +3520,8 @@
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:network_policy_view:properties:endpoint:inside_endpoints",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -3379,6 +3536,8 @@
           "anchor": "section",
           "description": "This type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects. A null label selector matches no objects.",
           "document_id": "xcsh-docs:resources:network_policy_view:properties:endpoint:label_selector",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -3402,6 +3561,8 @@
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:network_policy_view:properties:endpoint:outside_endpoints",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -3416,6 +3577,8 @@
           "anchor": "section",
           "description": "List of IPv4 prefixes that represent an endpoint.",
           "document_id": "xcsh-docs:resources:network_policy_view:properties:endpoint:prefix_list",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -3445,7 +3608,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3485,7 +3648,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3519,13 +3682,13 @@
     },
     {
       "aliases": ["endpoint label selector"],
-      "body_bytes": 3610,
-      "body_sha256": "sha256:abe3e4718733972d9fc08c823d7e9a8e03abd64efd2261de2fc2afbb84b09fb0",
+      "body_bytes": 3670,
+      "body_sha256": "sha256:3bf4e250fcca43c046cb920d48bb2ed65b71d808c0548f7c788f63f2ca2be29c",
       "capabilities": [],
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3560,6 +3723,8 @@
           "anchor": "schema-endpoint--label_selector--expressions",
           "description": "Expressions contains the Kubernetes style label expression for selections.",
           "document_id": "xcsh-docs:resources:network_policy_view:properties:endpoint:label_selector",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -3589,7 +3754,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3623,13 +3788,13 @@
     },
     {
       "aliases": ["endpoint prefix list"],
-      "body_bytes": 2133,
-      "body_sha256": "sha256:e9b93da50b3c4e28c34f7638ad8c079eccc6adba8b03078ae62cb17d7eee8177",
+      "body_bytes": 2163,
+      "body_sha256": "sha256:3e3c204f6d3b66dd7e6512edf35a5cb9b09c0379db806f9d34d72d92bd51024b",
       "capabilities": [],
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3655,6 +3820,8 @@
           "anchor": "schema-endpoint--prefix_list--prefixes",
           "description": "List of IPv4 prefixes that represent an endpoint.",
           "document_id": "xcsh-docs:resources:network_policy_view:properties:endpoint:prefix_list",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -3678,8 +3845,8 @@
     },
     {
       "aliases": ["ingress rules"],
-      "body_bytes": 6793,
-      "body_sha256": "sha256:7e67458b52a4efe0380ffa7a46e50145d4812b84a0ebcdff4633fb4a87d1c977",
+      "body_bytes": 7074,
+      "body_sha256": "sha256:b0f37801998a31293ef46dfe04f01329589eefc8baa8cd6c88fbb944dd4b0913",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -3699,7 +3866,7 @@
         "xcsh-docs:resources:network_policy_view:properties:ingress_rules:protocol_port_range"
       ],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4126,6 +4293,17 @@
           "anchor": "schema-ingress_rules--action",
           "description": "Network policy rule action configures the action to be taken on rule match Apply deny action on rule match Apply allow action on rule match.",
           "document_id": "xcsh-docs:resources:network_policy_view:properties:ingress_rules",
+          "enum_extraction_complete": true,
+          "enum_validators": [
+            {
+              "case_sensitive": true,
+              "complete": true,
+              "source": "ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf",
+              "validator": "OneOf",
+              "values": ["ALLOW", "DENY"],
+              "version": 1
+            }
+          ],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -4140,6 +4318,8 @@
           "anchor": "section",
           "description": "Network Policy Rule Advanced Action provides additional OPTIONS along with RuleAction and PBRRuleAction.",
           "document_id": "xcsh-docs:resources:network_policy_view:properties:ingress_rules:adv_action",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -4154,6 +4334,8 @@
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:network_policy_view:properties:ingress_rules:all_tcp_traffic",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -4168,6 +4350,8 @@
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:network_policy_view:properties:ingress_rules:all_traffic",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -4182,6 +4366,8 @@
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:network_policy_view:properties:ingress_rules:all_udp_traffic",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -4196,6 +4382,8 @@
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:network_policy_view:properties:ingress_rules:any",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -4210,6 +4398,8 @@
           "anchor": "section",
           "description": "Application protocols like HTTP, SNMP.",
           "document_id": "xcsh-docs:resources:network_policy_view:properties:ingress_rules:applications",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -4224,6 +4414,8 @@
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:network_policy_view:properties:ingress_rules:inside_endpoints",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -4238,6 +4430,8 @@
           "anchor": "section",
           "description": "A list of references to ip_prefix_set objects.",
           "document_id": "xcsh-docs:resources:network_policy_view:properties:ingress_rules:ip_prefix_set",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -4252,6 +4446,8 @@
           "anchor": "section",
           "description": "A label matcher specifies a list of label keys whose values need to match for source/client and destination/server. Note that the actual label values are not specified and do not matter. This allows an ability to scope grouping by the label key name.",
           "document_id": "xcsh-docs:resources:network_policy_view:properties:ingress_rules:label_matcher",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -4266,6 +4462,8 @@
           "anchor": "section",
           "description": "This type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects. A null label selector matches no objects.",
           "document_id": "xcsh-docs:resources:network_policy_view:properties:ingress_rules:label_selector",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -4289,6 +4487,8 @@
           "anchor": "section",
           "description": "MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create and replace APIs.",
           "document_id": "xcsh-docs:resources:network_policy_view:properties:ingress_rules:metadata",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -4312,6 +4512,8 @@
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:network_policy_view:properties:ingress_rules:outside_endpoints",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -4326,6 +4528,8 @@
           "anchor": "section",
           "description": "List of IPv4 prefixes that represent an endpoint.",
           "document_id": "xcsh-docs:resources:network_policy_view:properties:ingress_rules:prefix_list",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -4340,6 +4544,8 @@
           "anchor": "section",
           "description": "Protocol and Port ranges.",
           "document_id": "xcsh-docs:resources:network_policy_view:properties:ingress_rules:protocol_port_range",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -4363,13 +4569,13 @@
     },
     {
       "aliases": ["ingress rules adv action"],
-      "body_bytes": 2247,
-      "body_sha256": "sha256:463747c05c43b9ee5c1b22ec5a123b68e063db9b444c961636d9f4f3753142f9",
+      "body_bytes": 2497,
+      "body_sha256": "sha256:08e91a676771a55cbdc18a31e1906a88761a8cfbc89b710780f98a4ba9becdf8",
       "capabilities": [],
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4395,6 +4601,17 @@
           "anchor": "schema-ingress_rules--adv_action--action",
           "description": "Choice to choose logging or no logging This works together with option selected via NetworkPolicyRuleAction or any other action specified x-example: (No Selection in NetworkPolicyRuleAction + AdvancedAction as LOG) = LOG Only, (ALLOW/DENY in NetworkPolicyRuleAction + AdvancedAction as LOG) = Log and Allow/Deny,",
           "document_id": "xcsh-docs:resources:network_policy_view:properties:ingress_rules:adv_action",
+          "enum_extraction_complete": true,
+          "enum_validators": [
+            {
+              "case_sensitive": true,
+              "complete": true,
+              "source": "ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf",
+              "validator": "OneOf",
+              "values": ["LOG", "NOLOG"],
+              "version": 1
+            }
+          ],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -4424,7 +4641,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4464,7 +4681,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4504,7 +4721,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4544,7 +4761,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4584,7 +4801,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4610,6 +4827,8 @@
           "anchor": "schema-ingress_rules--applications--applications",
           "description": "Application protocols like HTTP, SNMP.",
           "document_id": "xcsh-docs:resources:network_policy_view:properties:ingress_rules:applications",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -4639,7 +4858,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4679,7 +4898,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:resources:network_policy_view:properties:ingress_rules:ip_prefix_set:ref"],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4705,6 +4924,8 @@
           "anchor": "section",
           "description": "A list of references to ip_prefix_set objects.",
           "document_id": "xcsh-docs:resources:network_policy_view:properties:ingress_rules:ip_prefix_set:ref",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -4728,13 +4949,13 @@
     },
     {
       "aliases": ["ingress rules ip prefix set ref"],
-      "body_bytes": 5804,
-      "body_sha256": "sha256:d3ed5e71c2e899d444a56a65f009f70d54c1c1ea0bb1ed009890429f2502468b",
+      "body_bytes": 5834,
+      "body_sha256": "sha256:0eca813f7ea35069784cfe3487bdd8bc7faab795f1da3a2f5e5c5f76d1819782",
       "capabilities": [],
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4760,10 +4981,19 @@
           "anchor": "schema-ingress_rules--ip_prefix_set--ref--kind",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. \"route\")",
           "document_id": "xcsh-docs:resources:network_policy_view:properties:ingress_rules:ip_prefix_set:ref",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
           "nesting": null,
+          "reference_identity": {
+            "member": "kind",
+            "scope_path": ["ingress_rules", "ip_prefix_set", "ref"],
+            "source": "receipt-pinned-schema-identity",
+            "upstream_message": "ves.io.schema.ObjectRefType",
+            "version": 1
+          },
           "relationships": [],
           "schema_path": ["ingress_rules", "ip_prefix_set", "ref", "kind"],
           "syntax": "attribute",
@@ -4774,10 +5004,19 @@
           "anchor": "schema-ingress_rules--ip_prefix_set--ref--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:resources:network_policy_view:properties:ingress_rules:ip_prefix_set:ref",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
           "nesting": null,
+          "reference_identity": {
+            "member": "name",
+            "scope_path": ["ingress_rules", "ip_prefix_set", "ref"],
+            "source": "receipt-pinned-schema-identity",
+            "upstream_message": "ves.io.schema.ObjectRefType",
+            "version": 1
+          },
           "relationships": [],
           "schema_path": ["ingress_rules", "ip_prefix_set", "ref", "name"],
           "syntax": "attribute",
@@ -4788,10 +5027,19 @@
           "anchor": "schema-ingress_rules--ip_prefix_set--ref--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:resources:network_policy_view:properties:ingress_rules:ip_prefix_set:ref",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional", "computed"],
           "max_items": null,
           "min_items": null,
           "nesting": null,
+          "reference_identity": {
+            "member": "namespace",
+            "scope_path": ["ingress_rules", "ip_prefix_set", "ref"],
+            "source": "receipt-pinned-schema-identity",
+            "upstream_message": "ves.io.schema.ObjectRefType",
+            "version": 1
+          },
           "relationships": [],
           "schema_path": ["ingress_rules", "ip_prefix_set", "ref", "namespace"],
           "syntax": "attribute",
@@ -4802,10 +5050,19 @@
           "anchor": "schema-ingress_rules--ip_prefix_set--ref--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:resources:network_policy_view:properties:ingress_rules:ip_prefix_set:ref",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
           "nesting": null,
+          "reference_identity": {
+            "member": "tenant",
+            "scope_path": ["ingress_rules", "ip_prefix_set", "ref"],
+            "source": "receipt-pinned-schema-identity",
+            "upstream_message": "ves.io.schema.ObjectRefType",
+            "version": 1
+          },
           "relationships": [],
           "schema_path": ["ingress_rules", "ip_prefix_set", "ref", "tenant"],
           "syntax": "attribute",
@@ -4816,10 +5073,19 @@
           "anchor": "schema-ingress_rules--ip_prefix_set--ref--uid",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
           "document_id": "xcsh-docs:resources:network_policy_view:properties:ingress_rules:ip_prefix_set:ref",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
           "nesting": null,
+          "reference_identity": {
+            "member": "uid",
+            "scope_path": ["ingress_rules", "ip_prefix_set", "ref"],
+            "source": "receipt-pinned-schema-identity",
+            "upstream_message": "ves.io.schema.ObjectRefType",
+            "version": 1
+          },
           "relationships": [],
           "schema_path": ["ingress_rules", "ip_prefix_set", "ref", "uid"],
           "syntax": "attribute",
@@ -4839,13 +5105,13 @@
     },
     {
       "aliases": ["ingress rules label matcher"],
-      "body_bytes": 2464,
-      "body_sha256": "sha256:32a8d06bfbe0646fcb29264678242f305e9ebb2cd822fded38eb485d6afa058a",
+      "body_bytes": 2494,
+      "body_sha256": "sha256:a936238216b9197b6a655989c34c6fed15cd12cb3af3b38562a70310014f700d",
       "capabilities": [],
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4871,6 +5137,8 @@
           "anchor": "schema-ingress_rules--label_matcher--keys",
           "description": "The list of label key names that have to match.",
           "document_id": "xcsh-docs:resources:network_policy_view:properties:ingress_rules:label_matcher",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -4894,13 +5162,13 @@
     },
     {
       "aliases": ["ingress rules label selector"],
-      "body_bytes": 3635,
-      "body_sha256": "sha256:99e103f5f0a90dd5f99f618e828df77dfce89b927e136ad021be580a55139378",
+      "body_bytes": 3695,
+      "body_sha256": "sha256:2da38ee352a6cc278139b708efa25dd1e3cedfb1ef006584da5e322cad872afa",
       "capabilities": [],
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4935,6 +5203,8 @@
           "anchor": "schema-ingress_rules--label_selector--expressions",
           "description": "Expressions contains the Kubernetes style label expression for selections.",
           "document_id": "xcsh-docs:resources:network_policy_view:properties:ingress_rules:label_selector",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -4958,13 +5228,13 @@
     },
     {
       "aliases": ["ingress rules metadata"],
-      "body_bytes": 3385,
-      "body_sha256": "sha256:b7e799c609c6b279221d90cee38ab585378cba3349cced335a728578a63fb8d4",
+      "body_bytes": 3473,
+      "body_sha256": "sha256:2a4570b488d418b76f428d75aebd4e12f85214f0a53c53581292452ba9aeebc4",
       "capabilities": [],
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4999,6 +5269,8 @@
           "anchor": "schema-ingress_rules--metadata--description_spec",
           "description": "Description. Human readable description.",
           "document_id": "xcsh-docs:resources:network_policy_view:properties:ingress_rules:metadata",
+          "enum_extraction_complete": true,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -5013,6 +5285,8 @@
           "anchor": "schema-ingress_rules--metadata--name",
           "description": "This is the name of the message. The value of name has to follow DNS-1035 format.",
           "document_id": "xcsh-docs:resources:network_policy_view:properties:ingress_rules:metadata",
+          "enum_extraction_complete": true,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -5042,7 +5316,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5076,13 +5350,13 @@
     },
     {
       "aliases": ["ingress rules prefix list"],
-      "body_bytes": 2158,
-      "body_sha256": "sha256:18621fa11f16c911229875fa1dc761b0cfa777c7ff4c80bbeb4cce75b184580c",
+      "body_bytes": 2188,
+      "body_sha256": "sha256:f4cec81919ec97d7ebcfc75930befb61457cfddcebcb6ce787d657fb81cad66c",
       "capabilities": [],
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5108,6 +5382,8 @@
           "anchor": "schema-ingress_rules--prefix_list--prefixes",
           "description": "List of IPv4 prefixes that represent an endpoint.",
           "document_id": "xcsh-docs:resources:network_policy_view:properties:ingress_rules:prefix_list",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -5131,13 +5407,13 @@
     },
     {
       "aliases": ["ingress rules protocol port range"],
-      "body_bytes": 3284,
-      "body_sha256": "sha256:ce479709dd3f12c4415406be71befee188d13f49ab7375a6e2bc2d121f841900",
+      "body_bytes": 3575,
+      "body_sha256": "sha256:539acd2edc09bd4b284c9b277d4d72cde03a8159bd0a3f55c9a6e7447dc1d550",
       "capabilities": [],
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5163,6 +5439,8 @@
           "anchor": "schema-ingress_rules--protocol_port_range--port_ranges",
           "description": "List of port ranges. Each range is a single port or a pair of start and end ports e.g. 8080-8192.",
           "document_id": "xcsh-docs:resources:network_policy_view:properties:ingress_rules:protocol_port_range",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -5177,6 +5455,17 @@
           "anchor": "schema-ingress_rules--protocol_port_range--protocol",
           "description": "Protocol in IP packet to be used as match criteria Values are TCP, UDP, and icmp.",
           "document_id": "xcsh-docs:resources:network_policy_view:properties:ingress_rules:protocol_port_range",
+          "enum_extraction_complete": true,
+          "enum_validators": [
+            {
+              "case_sensitive": true,
+              "complete": true,
+              "source": "ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf",
+              "validator": "OneOf",
+              "values": ["ALL", "ICMP", "TCP", "UDP"],
+              "version": 1
+            }
+          ],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -5206,7 +5495,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5240,6 +5529,8 @@
           "anchor": "schema-timeouts--create",
           "description": "Configures the timeout duration for resource creation.",
           "document_id": "xcsh-docs:resources:network_policy_view:properties:timeouts",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -5263,6 +5554,8 @@
           "anchor": "schema-timeouts--delete",
           "description": "Configures the timeout duration for resource deletion, applicable only if changes are saved into state before destroy.",
           "document_id": "xcsh-docs:resources:network_policy_view:properties:timeouts",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -5286,6 +5579,8 @@
           "anchor": "schema-timeouts--read",
           "description": "Configures the timeout duration for read operations during refresh or planning.",
           "document_id": "xcsh-docs:resources:network_policy_view:properties:timeouts",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -5309,6 +5604,8 @@
           "anchor": "schema-timeouts--update",
           "description": "Configures the timeout duration for resource update operations.",
           "document_id": "xcsh-docs:resources:network_policy_view:properties:timeouts",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -5338,7 +5635,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:resources:network_policy_view:example:resource"],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5378,7 +5675,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5425,7 +5722,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5466,7 +5763,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"

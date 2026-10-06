@@ -6,9 +6,54 @@ description: "Complete grouped canonical reference for xcsh_site_registrations_b
 
 # xcsh_site_registrations_by_site reference
 
+<a id="canonical-2212022102030320-0231033122123101-1232210113132300-3031212031023131-2133000221013313-1210333000301130-2033102113130300-1331230332223012"></a>
+
+## Direct properties for `items.get_spec.infra.hw_info.storage`
+
+<a id="canonical-1223222033200223-1112323010301202-2011023213110310-0121121223213000-3313131223231313-1312223123221223-1212331201210020-0230030021122013"></a>
+
+### `items.get_spec.infra.hw_info.storage.driver` property
+
+Type: `"string"`. Computed.
+
+Driver. Driver of device.
+
+<a id="canonical-3012131121313211-0110221002232321-2001121223233300-3223133333100232-1132132202310322-3320211101232302-1203303321231210-2203322212130302"></a>
+
+<a id="canonical-2220110030112211-1133200020230232-1220220020101023-0001132110120301-3310001010030320-3101323312202312-2300112032233300-3333333131202100"></a>
+
+### `items.get_spec.infra.hw_info.storage.model` property
+
+Type: `"string"`. Computed.
+
+Model. Model of device.
+
+<a id="canonical-0311032223210331-3332320211102201-3320033032303320-3013221002120310-2100211200311103-1231212303201223-1331121302310321-0112030020133130"></a>
+
+<a id="canonical-1331131210033030-3320101023301132-3033320020011011-1003302032103211-2031033102310301-0111133230203233-3121313020031001-3320032123323020"></a>
+
+### `items.get_spec.infra.hw_info.storage.name` property
+
+Type: `"string"`. Computed.
+
+Name. Name of device, eg. Nvme0n1.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: false
+Validators: []validator.String{
+  stringvalidator.LengthBetween(1, 63),
+  stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`),
+    ""),
+}
+```
+
+<a id="canonical-0110223001021332-1122031213211323-3021230121111122-3333030231123332-2032212011120002-1103113002120322-0231220201211333-3300222120301121"></a>
+
 <a id="canonical-1002313100020232-2033101111002130-1200231212133022-2333320233230131-1332233103221122-3310103033001121-1333300123310221-0303222120123321"></a>
 
-## `items.get_spec.infra.hw_info.storage.serial` property
+### `items.get_spec.infra.hw_info.storage.serial` property
 
 Type: `"string"`. Computed.
 
@@ -18,7 +63,7 @@ Serial Number. Serial of device.
 
 <a id="canonical-1130001213120101-3001331212133332-0200010011023200-1203232121020120-3311303323312321-1203331221330122-3011312100103311-1323031120131221"></a>
 
-## `items.get_spec.infra.hw_info.storage.size_gb` property
+### `items.get_spec.infra.hw_info.storage.size_gb` property
 
 Type: `"number"`. Computed.
 
@@ -28,7 +73,7 @@ Size(GB). Device size in GB.
 
 <a id="canonical-3111313232222122-3232330101230012-2022123123102123-0121200112132011-1213321310010202-1203233011010103-1332022323312033-0023100101102123"></a>
 
-## `items.get_spec.infra.hw_info.storage.vendor` property
+### `items.get_spec.infra.hw_info.storage.vendor` property
 
 Type: `"string"`. Computed.
 
@@ -213,6 +258,7 @@ Port on which the device was detected in decimal.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(1, 65535),
 }
@@ -254,6 +300,8 @@ be matched by USB rules. Possible values are \`UNKNOWN\_USB\`, \`INTERNAL\`, \`R
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["CONFIGURABLE","INTERNAL","REGISTERED","UNKNOWN_USB"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("UNKNOWN_USB",
     "INTERNAL",
@@ -496,6 +544,7 @@ to specify target SW version for particular site e.g. 7.2009.10.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(20),
 }
@@ -515,6 +564,7 @@ CloudLink and L3VPN.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(64),
 }
@@ -534,6 +584,7 @@ specify target SW version for particular site e.g. Crt-20210329-1002.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(20),
 }
@@ -660,6 +711,7 @@ Human readable description for the object.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(1200),
 }
@@ -691,6 +743,7 @@ during create API and cannot be changed during replace API.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
   stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`),
@@ -712,6 +765,7 @@ DNS\_LABEL format. For a namespace object itself, namespace value will be ''.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
   stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`),
@@ -827,6 +881,7 @@ Human readable description for the object.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(1200),
 }
@@ -867,6 +922,7 @@ during create API and cannot be changed during replace API.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
   stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`),
@@ -888,6 +944,7 @@ DNS\_LABEL format. For a namespace object itself, namespace value will be ''.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
   stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`),
@@ -1014,6 +1071,8 @@ being preferred over SSL. Tunnel is of type IPsec Tunnel is of type SSL. Possibl
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["SITE_TO_SITE_TUNNEL_IPSEC","SITE_TO_SITE_TUNNEL_IPSEC_OR_SSL","SITE_TO_SITE_TUNNEL_SSL"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("SITE_TO_SITE_TUNNEL_IPSEC_OR_SSL",
     "SITE_TO_SITE_TUNNEL_IPSEC",
@@ -1094,6 +1153,7 @@ Must be unique in entire cluster and same as OS settings. '.' (dots) are not all
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 1024),
   stringvalidator.RegexMatches(regexp.MustCompile(`^([a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?\.)*[a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?$`),
@@ -1160,6 +1220,8 @@ provider, which was not identified by system. Possible values are \`UNKNOWN\`, \
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["AWS","AWS_K8S","AZURE","AZURE_K8S","EQUINIX","F5OS","GCP_K8S","GOOGLE","IBMCLOUD","IBMCLOUD_K8S","KUBERNETES","KVM","KVM_K8S","NUTANIX","OCI","OPENSHIFT_VIRTUALIZATION","OPENSTACK","OTHER","OTHER_K8S","RSERIES","UNKNOWN","UNKNOWN_K8S","VMWARE","VMWARE_K8S","VOLTERRA","VOLTERRA_K8S"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("UNKNOWN",
     "AWS",
@@ -1205,6 +1267,7 @@ It's used to verify machine have acceptable time difference from server.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(20, 1024),
   stringvalidator.RegexMatches(regexp.MustCompile(`^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d{3})?Z?$`),
@@ -1262,6 +1325,7 @@ Member Interfaces. Configuration parameter for interfaces
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeBetween(1, 8),
 }
@@ -1284,6 +1348,8 @@ backup) IEEE 802.3ad Dynamic link aggregation (LACP). Possible values are
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["ACTIVE_BACKUP","BOND_MODE_UNSPECIFIED","LACP_802_3AD"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("BOND_MODE_UNSPECIFIED",
     "ACTIVE_BACKUP",
@@ -1304,6 +1370,7 @@ Bond Name. Human-readable name for the resource
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 64),
 }
@@ -1424,6 +1491,7 @@ Non-uniform memory access (NUMA) nodes count.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.AtLeast(0),
 }
@@ -1478,6 +1546,7 @@ Information from /sys/class/dmi/ID/bios\_date.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(10, 1024),
   stringvalidator.RegexMatches(regexp.MustCompile(`^\d{4}-\d{2}-\d{2}$`),
@@ -1556,6 +1625,7 @@ Information from /sys/class/dmi/ID/board\_name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
   stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`),
@@ -2058,6 +2128,8 @@ disabled. Possible values are \`QUALITY\_UNKNOWN\`, \`QUALITY\_GOOD\`, \`QUALITY
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["QUALITY_DISABLED","QUALITY_GOOD","QUALITY_POOR","QUALITY_UNKNOWN"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("QUALITY_UNKNOWN",
     "QUALITY_GOOD",
@@ -2085,6 +2157,8 @@ Defaults to \`LINK\_TYPE\_UNKNOWN\`.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["LINK_TYPE_4G","LINK_TYPE_ETHERNET","LINK_TYPE_UNKNOWN","LINK_TYPE_WAN","LINK_TYPE_WIFI","LINK_TYPE_WIFI_802_11AC","LINK_TYPE_WIFI_802_11BGN"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("LINK_TYPE_UNKNOWN",
     "LINK_TYPE_ETHERNET",
@@ -2109,6 +2183,7 @@ MAC Address. MAC address on interface.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(17, 1024),
   stringvalidator.RegexMatches(regexp.MustCompile(`^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$`),
@@ -2129,6 +2204,7 @@ Name. Name of device, eg. Eth0.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
   stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`),
@@ -2137,21 +2213,3 @@ Validators: []validator.String{
 ```
 
 <a id="canonical-0231112123223101-3222302211101002-1311021230212320-3312300333221033-1232313332210131-2103131033312010-3202232103302212-2231312112003120"></a>
-
-<a id="canonical-2312032313333212-3302100222310103-1220101202013310-1031022102312300-3322022001321233-2131111010202103-3201220201122231-0221212131312300"></a>
-
-#### `items.object.spec.gc_spec.infra.hw_info.network.port` property
-
-Type: `"string"`. Computed.
-
-Port. Used port, eg. Tp.
-
-<a id="canonical-3331132332230201-2232223120321311-0221223112230031-2303110320130301-1133102221232121-2123030020033023-2031031323132031-0233301033321030"></a>
-
-<a id="canonical-3000020032101023-0330032301020331-1102001233202003-0312223301232300-3002232122300233-1013000132212133-3010232331121200-0200311130110230"></a>
-
-#### `items.object.spec.gc_spec.infra.hw_info.network.speed` property
-
-Type: `"number"`. Computed.
-
-Speed. Device max supported speed in Mbps.

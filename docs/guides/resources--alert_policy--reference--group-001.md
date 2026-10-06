@@ -212,6 +212,7 @@ follow DNS-1035 format.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   validators.NameValidator(),
 }
@@ -279,6 +280,7 @@ DNS\_LABEL format. For a namespace object itself, namespace value will be ""
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   validators.NamespaceValidator(),
 }
@@ -420,6 +422,7 @@ receivers.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("custom",
     "default"),
   validators.ConflictingObjectAttributes("custom",
@@ -671,6 +674,7 @@ Name of labels to group/aggregate the alerts.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(5),
 }
@@ -1000,6 +1004,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
   stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`),
@@ -1137,6 +1142,7 @@ terminates on the first match.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.ConflictingListObjectAttributes("alertname",
     "alertname_regex"),
   validators.ConflictingListObjectAttributes("alertname",
@@ -1273,6 +1279,8 @@ place.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["API_SECURITY_RISK_SCORE_HIGH_DETECTED","API_SECURITY_SENSITIVE_DATA_IN_RESPONSE_DETECTED","API_SECURITY_SHADOW_API_DETECTED","API_SECURITY_TOO_MANY_ATTACKS","API_SECURITY_UNUSED_API_DETECTED","BOT_DEFENSE_TOO_MANY_SECURITY_EVENTS","DNS_ZONE_IGNORED_DUPLICATE_RECORD","L7DDOS","L7_DDOS_AUTO_MITIGATION","MALICIOUS_USER_DETECTED","ROUTED_DDOS_ALERT_NOTIFICATION","ROUTED_DDOS_MITIGATION_NOTIFICATION","ROUTED_DDOS_TUNNEL_STATUS_UPDATE_NOTIFICATION","SERVICE_CLIENT_ERROR","SERVICE_CLIENT_ERROR_PER_SOURCE_SITE","SERVICE_ENDPOINT_HEALTHCHECK_FAILURE","SERVICE_HEALTH_LOW","SERVICE_POLICY_TOO_MANY_ATTACKS","SERVICE_SERVER_ERROR","SERVICE_SERVER_ERROR_PER_SOURCE_SITE","SERVICE_UNAVAILABLE","SITE_CUSTOMER_TUNNEL_INTERFACE_DOWN","SITE_PHYSICAL_INTERFACE_DOWN","SYNTHETIC_MONITOR_HEALTH_CRITICAL","THREAT_CAMPAIGN","TLS_AUTOMATIC_CERTIFICATE_EXPIRED","TLS_AUTOMATIC_CERTIFICATE_RENEWAL_FAILURE","TLS_AUTOMATIC_CERTIFICATE_RENEWAL_STILL_FAILING","TLS_CUSTOM_CERTIFICATE_EXPIRED","TLS_CUSTOM_CERTIFICATE_EXPIRING","TLS_CUSTOM_CERTIFICATE_EXPIRING_SOON","TUNNELS_TO_CUSTOMER_SITE_DOWN","VES_CLIENT_SIDE_DEFENSE_SENSITIVE_FIELD_READ","VES_CLIENT_SIDE_DEFENSE_SUSPICIOUS_DOMAIN","WAF_TOO_MANY_ATTACKS","WAF_TOO_MANY_MALICIOUS_BOTS"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("SITE_CUSTOMER_TUNNEL_INTERFACE_DOWN",
     "SITE_PHYSICAL_INTERFACE_DOWN",
@@ -1612,6 +1620,7 @@ Label Matcher.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("exact_match",
     "regex_match")}
 ```
@@ -1731,6 +1740,7 @@ Label Matcher.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("exact_match",
     "regex_match")}
 ```
@@ -1850,6 +1860,7 @@ Label Matcher.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("exact_match",
     "regex_match")}
 ```
@@ -2088,6 +2099,7 @@ receivers.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("custom",
     "default"),
   validators.ConflictingObjectAttributes("custom",
@@ -2340,6 +2352,7 @@ Name of labels to group/aggregate the alerts.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(5),
 }

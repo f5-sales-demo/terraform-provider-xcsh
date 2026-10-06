@@ -98,6 +98,7 @@ breach. Possible values are \`GDPR\`, \`CCPA\`, \`PIPEDA\`, \`LGPD\`, \`DPA\_UK\
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(17),
 }
@@ -321,6 +322,7 @@ follow DNS-1035 format.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   validators.NameValidator(),
 }
@@ -388,6 +390,7 @@ DNS\_LABEL format. For a namespace object itself, namespace value will be ""
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   validators.NamespaceValidator(),
 }
@@ -505,6 +508,7 @@ the API request or response.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.ConflictingListObjectAttributes("key_pattern",
     "key_value_pattern"),
   validators.ConflictingListObjectAttributes("key_pattern",
@@ -599,6 +603,7 @@ Test
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("exact_values",
     "regex_value"),
   validators.ConflictingObjectAttributes("exact_values",
@@ -649,6 +654,7 @@ expression.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(1024),
 }
@@ -703,6 +709,7 @@ Exclusive with \[exact\_values regular expression\_value\] Search for values tha
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(1024),
 }
@@ -771,6 +778,7 @@ List of exact values to match.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("exact_values")}
 ```
 
@@ -920,6 +928,7 @@ Test
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("exact_values",
     "regex_value"),
   validators.ConflictingObjectAttributes("exact_values",
@@ -970,6 +979,7 @@ expression.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(1024),
 }
@@ -1024,6 +1034,7 @@ Exclusive with \[exact\_values regular expression\_value\] Search for values tha
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(1024),
 }
@@ -1093,6 +1104,7 @@ List of exact values to match.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("exact_values")}
 ```
 
@@ -1192,6 +1204,7 @@ Test
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("exact_values",
     "regex_value"),
   validators.ConflictingObjectAttributes("exact_values",
@@ -1242,6 +1255,7 @@ expression.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(1024),
 }
@@ -1296,6 +1310,7 @@ Exclusive with \[exact\_values regular expression\_value\] Search for values tha
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(1024),
 }
@@ -1365,6 +1380,7 @@ List of exact values to match.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("exact_values")}
 ```
 
@@ -1463,6 +1479,7 @@ Test
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("exact_values",
     "regex_value"),
   validators.ConflictingObjectAttributes("exact_values",
@@ -1513,6 +1530,7 @@ expression.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(1024),
 }
@@ -1567,6 +1585,7 @@ Exclusive with \[exact\_values regular expression\_value\] Search for values tha
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(1024),
 }
@@ -1635,6 +1654,7 @@ List of exact values to match.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("exact_values")}
 ```
 

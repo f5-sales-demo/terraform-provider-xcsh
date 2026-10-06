@@ -6,6 +6,24 @@ description: "Complete grouped canonical reference for xcsh_site_registrations_b
 
 # xcsh_site_registrations_by_site reference
 
+<a id="canonical-2312032313333212-3302100222310103-1220101202013310-1031022102312300-3322022001321233-2131111010202103-3201220201122231-0221212131312300"></a>
+
+## `items.object.spec.gc_spec.infra.hw_info.network.port` property
+
+Type: `"string"`. Computed.
+
+Port. Used port, eg. Tp.
+
+<a id="canonical-3331132332230201-2232223120321311-0221223112230031-2303110320130301-1133102221232121-2123030020033023-2031031323132031-0233301033321030"></a>
+
+<a id="canonical-3000020032101023-0330032301020331-1102001233202003-0312223301232300-3002232122300233-1013000132212133-3010232331121200-0200311130110230"></a>
+
+## `items.object.spec.gc_spec.infra.hw_info.network.speed` property
+
+Type: `"number"`. Computed.
+
+Speed. Device max supported speed in Mbps.
+
 <a id="canonical-0323231132310121-1233023000111310-0030213122322032-1213121203132131-3333232313322033-0033013332320201-2332330222111213-3110213011321101"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -57,6 +75,7 @@ Name. Name of OS.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
   stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`),
@@ -135,6 +154,7 @@ Name. Product name, eg. For AWS m5a.xlarge. Info taken from /sys/class/dmi/ID/pr
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
   stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`),
@@ -234,6 +254,7 @@ Name. Name of device, eg. Nvme0n1.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
   stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`),
@@ -452,6 +473,7 @@ Port on which the device was detected in decimal.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.Between(1, 65535),
 }
@@ -493,6 +515,8 @@ be matched by USB rules. Possible values are \`UNKNOWN\_USB\`, \`INTERNAL\`, \`R
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["CONFIGURABLE","INTERNAL","REGISTERED","UNKNOWN_USB"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("UNKNOWN_USB",
     "INTERNAL",
@@ -743,6 +767,7 @@ to specify target SW version for particular site e.g. 7.2009.10.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(20),
 }
@@ -762,6 +787,7 @@ CloudLink and L3VPN.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(64),
 }
@@ -781,6 +807,7 @@ specify target SW version for particular site e.g. Crt-20210329-1002.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(20),
 }
@@ -902,6 +929,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
   stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`),
@@ -975,6 +1003,8 @@ Possible values are \`NOTSET\`, \`NEW\`, \`APPROVED\`, \`ADMITTED\`, \`RETIRED\`
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["ADMITTED","APPROVED","DONE","FAILED","FAILED_INACTIVE","MAINTENANCE","NEW","NOTSET","ONLINE","PENDING","RETIRED","UPGRADING"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("NOTSET",
     "NEW",
@@ -1017,6 +1047,8 @@ connected Regional Edge. Site is in process of upgrade. Possible values are \`ON
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["DECOMMISSIONING","DELETED_CLOUD_RESOURCES","DELETE_QUEUED","DELETING_CLOUD_RESOURCES","ERROR_DELETING_CLOUD_RESOURCES","ERROR_IN_ORCHESTRATION","ERROR_UPDATING_CLOUD_RESOURCES","FAILED","FAILED_INACTIVE","ONLINE","ORCHESTRATION_COMPLETE","ORCHESTRATION_IN_PROGRESS","ORCHESTRATION_QUEUED","PROVISIONING","REREGISTRATION","STANDBY","UPDATE_QUEUED","UPDATING_CLOUD_RESOURCES","UPGRADING","VALIDATION_FAILED","VALIDATION_IN_PROGRESS","VALIDATION_SUCCESS","WAITINGNODES","WAITING_FOR_REGISTRATION"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("ONLINE",
     "PROVISIONING",
@@ -1397,6 +1429,7 @@ Name of the service that is responsible for initializing this object.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
   stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`),
@@ -1515,6 +1548,7 @@ metadata.namespace field when an object is created.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(1),
 }
@@ -1558,6 +1592,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
   stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`),
@@ -1636,6 +1671,7 @@ referred object's(e.g. Route's) name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
   stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`),
@@ -1657,6 +1693,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
   stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`),
@@ -1721,6 +1758,7 @@ referred object's(e.g. Route's) name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
   stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`),
@@ -1742,6 +1780,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
   stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`),
@@ -1960,6 +1999,7 @@ Name of the service that is responsible for initializing this object.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
   stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`),
@@ -2097,6 +2137,7 @@ referred object's(e.g. Route's) name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
   stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`),
@@ -2118,6 +2159,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
   stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`),

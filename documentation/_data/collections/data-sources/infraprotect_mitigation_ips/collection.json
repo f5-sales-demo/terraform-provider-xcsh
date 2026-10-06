@@ -45,7 +45,7 @@
         "xcsh-docs:data-sources:infraprotect_mitigation_ips:examples"
       ],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -86,7 +86,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:infraprotect_mitigation_ips:properties:ips"],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -112,6 +112,8 @@
           "anchor": "section",
           "description": "List of IP addresses along with log count.",
           "document_id": "xcsh-docs:data-sources:infraprotect_mitigation_ips:properties:ips",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -126,6 +128,8 @@
           "anchor": "schema-mitigation_id",
           "description": "Mitigation ID ID of the mitigation we want to GET the IPs for.",
           "document_id": "xcsh-docs:data-sources:infraprotect_mitigation_ips:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["required"],
           "max_items": null,
           "min_items": null,
@@ -140,6 +144,8 @@
           "anchor": "schema-namespace",
           "description": "Namespace This request is supported only in system namespace.",
           "document_id": "xcsh-docs:data-sources:infraprotect_mitigation_ips:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["required"],
           "max_items": null,
           "min_items": null,
@@ -169,7 +175,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -195,6 +201,8 @@
           "anchor": "schema-ips--ip",
           "description": "IP. Mitigation source IP.",
           "document_id": "xcsh-docs:data-sources:infraprotect_mitigation_ips:properties:ips",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -209,6 +217,8 @@
           "anchor": "schema-ips--log_count",
           "description": "Number of times the IP appears in the log.",
           "document_id": "xcsh-docs:data-sources:infraprotect_mitigation_ips:properties:ips",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -238,7 +248,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:infraprotect_mitigation_ips:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -278,7 +288,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"

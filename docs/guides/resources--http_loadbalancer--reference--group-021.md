@@ -6,9 +6,776 @@ description: "Complete grouped canonical reference for xcsh_http_loadbalancer re
 
 # xcsh_http_loadbalancer reference
 
+<a id="canonical-1203220123211112-0333213101021211-3032322322301333-1123002121131122-1132021012300312-0033101032210333-0003203203030123-2303201211200311"></a>
+
+## `more_option.response_cookies_to_remove` property
+
+Type: `["list", "string"]`. Optional.
+
+List of name of Cookies to be removed from the HTTP response being sent towards downstream. Entire
+set-cookie header will be removed.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: false
+Validators: []validator.List{
+  listvalidator.SizeAtMost(32),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxItems": 32,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "array",
+    "deterministic": true,
+    "maxItems": 32,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "uniqueItems": true
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.repeated.items.string.max_bytes": "256",
+    "ves.io.schema.rules.repeated.items.string.min_bytes": "1",
+    "ves.io.schema.rules.repeated.max_items": "32",
+    "ves.io.schema.rules.repeated.unique": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.repeated.items.string.max_bytes": "256",
+    "ves.io.schema.rules.repeated.items.string.min_bytes": "1",
+    "ves.io.schema.rules.repeated.max_items": "32",
+    "ves.io.schema.rules.repeated.unique": "true"
+  }
+}
+```
+
+- [response_headers_to_add](resources--http_loadbalancer--reference--group-021.md#canonical-1323300001113123-3203203102212333-2210110210001301-2210001303013102-0333132110100211-1122113113020333-0111303223313232-2011231300210212): complete subsection reference.
+
+<a id="canonical-2101231132233033-3100231200220211-0221311200303311-2121010320102122-3110000012120102-0222113301002220-0203111133213111-0033113233220222"></a>
+
+<a id="canonical-0111231323010311-0322111133320230-0121120332301133-0203102022003032-1211012031312003-3031221012110323-2322011103011003-1033223120013330"></a>
+
+## `more_option.response_headers_to_remove` property
+
+Type: `["list", "string"]`. Optional.
+
+List of keys of Headers to be removed from the HTTP response being sent towards downstream.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: false
+Validators: []validator.List{
+  listvalidator.SizeAtMost(32),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxItems": 32,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "array",
+    "deterministic": true,
+    "maxItems": 32,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "uniqueItems": true
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.repeated.items.string.max_bytes": "256",
+    "ves.io.schema.rules.repeated.items.string.min_bytes": "1",
+    "ves.io.schema.rules.repeated.max_items": "32",
+    "ves.io.schema.rules.repeated.unique": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.repeated.items.string.max_bytes": "256",
+    "ves.io.schema.rules.repeated.items.string.min_bytes": "1",
+    "ves.io.schema.rules.repeated.max_items": "32",
+    "ves.io.schema.rules.repeated.unique": "true"
+  }
+}
+```
+
+<a id="canonical-3001230121131210-2320111332013012-2111012221211123-0201000121203103-2231133211130003-1333223331020330-3002111133222000-2333201100021120"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `more_option.buffer_policy` properties
+
+Breadcrumbs:
+
+- [xcsh_http_loadbalancer](../resources/http_loadbalancer.md#canonical-1323101131323213-1200201313300133-0300111301103013-3131213012211311-3010002202001122-3231033222023323-2111000220211131-3013003223311203)
+- [Property reference](resources--http_loadbalancer--reference--group-001.md#canonical-2110231031112310-1130011000331010-1312132022002200-1232103213011301-2012100333100023-2000320333201213-1130030102202313-3122301032230233)
+- [more_option](resources--http_loadbalancer--reference--group-020.md#canonical-0103232331000000-3202301220200212-2333013000233203-1310210130333000-1220011203132102-0102220112330233-2210002322102333-1111002302303232)
+- more_option.buffer_policy
+
+<a id="canonical-0323113100202132-1003203131133102-3131011321202002-3311332311013221-1100322202112230-0032311233010220-3021203232003123-0033113313123013"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+Some upstream applications are not capable of handling streamed data. This config enables buffering
+the entire request before sending to upstream application. We can specify the maximum buffer size
+and buffer interval with this config.
+
+Buffering can be enabled and disabled at VirtualHost and Route levels Route level buffer
+configuration takes precedence.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+buffer_policy {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-0031331002021313-3013030210202021-3323032231300112-3320033031122030-1223102103113131-3230303000120210-3033101122000230-0202300300330312"></a>
+
+### Direct properties for `more_option.buffer_policy`
+
+<a id="canonical-1002021302011323-3111011323002210-2101002202032320-2020320032211003-0222123233302023-0211113131232313-0231313323001302-2001003201211100"></a>
+
+#### `more_option.buffer_policy.disabled` property
+
+Type: `"bool"`. Optional.
+
+Disable buffering for a particular route. This is useful when virtual-host has buffering, but we
+need to disable it on a specific route. The value of this field is ignored for virtual-host.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-3101130222312100-3032320302031312-1000312310013232-1210330020221022-3012133230231330-3312031103200132-1201000100102223-2011332002030210"></a>
+
+<a id="canonical-1133310320321131-0130310310013203-0023222133331312-3232222232323100-0123230011331200-3003322323020320-2213113211332220-3232133222112121"></a>
+
+#### `more_option.buffer_policy.max_request_bytes` property
+
+Type: `"number"`. Optional.
+
+The maximum request size that the filter will buffer before the connection manager will stop
+buffering and return a RequestEntityTooLarge (413) response.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: false
+Validators: []validator.Int64{
+  int64validator.AtMost(10485760),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "number",
+    "deterministic": true,
+    "maximum": 10485760,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "api-probed",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.uint32.lte": "10485760"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.uint32.lte": "10485760"
+  }
+}
+```
+
+<a id="canonical-2210002000001212-0010203202310332-1010121210231301-3211000110202332-0022230020101320-1312133232033210-1220213012122321-0223023202033001"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `more_option.compression_params` properties
+
+Breadcrumbs:
+
+- [xcsh_http_loadbalancer](../resources/http_loadbalancer.md#canonical-1323101131323213-1200201313300133-0300111301103013-3131213012211311-3010002202001122-3231033222023323-2111000220211131-3013003223311203)
+- [Property reference](resources--http_loadbalancer--reference--group-001.md#canonical-2110231031112310-1130011000331010-1312132022002200-1232103213011301-2012100333100023-2000320333201213-1130030102202313-3122301032230233)
+- [more_option](resources--http_loadbalancer--reference--group-020.md#canonical-0103232331000000-3202301220200212-2333013000233203-1310210130333000-1220011203132102-0102220112330233-2210002322102333-1111002302303232)
+- more_option.compression_params
+
+<a id="canonical-1121131012300332-2021323232113211-0313320003030013-0323330333223223-2332101130220121-1033321203333320-0031313131030120-0102312030331010"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+Enables loadbalancer to compress dispatched data from an upstream service upon client request. The
+content is compressed and then sent to the client with the appropriate headers if either response
+and request allow. Only GZIP compression is supported.
+
+By default compression will be skipped when:
+
+A request does NOT contain accept-encoding header. A request includes accept-encoding header, but it
+does not contain “gzip” or “\*”. A request includes accept-encoding with “gzip” or “\*” with the
+weight “q=0”. Note that the “gzip” will have a higher weight then “\*”. For example, if
+accept-encoding is “gzip;q=0,\*;q=1”, the filter will not compress. But if the header is set to
+“\*;q=0,gzip;q=1”, the filter will compress. A request whose accept-encoding header includes
+“identity”. A response contains a content-encoding header. A response contains a cache-control
+header whose value includes “no-transform”. A response contains a transfer-encoding header whose
+value includes “gzip”. A response does not contain a content-type value that matches one of the
+selected mime-types, which default to application/JavaScript, application/JSON,
+application/xhtml+XML, image/svg+XML, text/CSS, text/HTML, text/plain, text/XML. Neither
+content-length nor transfer-encoding headers are present in the response. Response size is smaller
+than 30 bytes (only applicable when transfer-encoding is not chunked).
+
+When compression is applied:
+
+The content-length is removed from response headers. Response headers contain “transfer-encoding:
+chunked” and do not contain “content-encoding” header. The “vary: accept-encoding” header is
+inserted on every response.
+
+GZIP Compression Level:
+
+A value which is optimal balance between speed of compression and amount of compression is chosen.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: false
+Validators: []validator.Object{validators.RequiredObjectAttributes("content_length")}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+compression_params {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-0310101201233022-3012122022210300-2233012231032323-0211001231333130-2223022020230320-3322321323331031-2133201232123323-2021003221331211"></a>
+
+### Direct properties for `more_option.compression_params`
+
+<a id="canonical-2232222112120022-1210233201132300-2011232023322030-1333032011301300-2220023022001332-2330223031101322-3010113121012111-3202220023233122"></a>
+
+#### `more_option.compression_params.content_length` property
+
+Type: `"number"`. Optional.
+
+Minimum response length, in bytes, which will trigger compression. The. Defaults to \`30\`.
+
+Additional upstream details:
+
+The default value is 30.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: false
+Validators: []validator.Int64{
+  int64validator.AtLeast(30),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "number",
+    "deterministic": true,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "api-probed",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "minimum": 30
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.uint32.gte": "30"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.uint32.gte": "30"
+  }
+}
+```
+
+<a id="canonical-1222121131321102-0310221332100002-2112113033112111-2302221103312121-1120110032022002-2323333200210131-2123110011033322-3210330233013111"></a>
+
+<a id="canonical-2001321110120231-1012022031231210-2123022110210103-1331113232023201-3311230333131110-3303331130110210-2200321000213310-1232311302011000"></a>
+
+#### `more_option.compression_params.content_type` property
+
+Type: `["list", "string"]`. Optional.
+
+Set of strings that allows specifying which mime-types yield compression When this field is not
+defined, compression will be applied to the following mime-types: 'application/JavaScript'
+'application/JSON', 'application/xhtml+XML' 'image/svg+XML' 'text/CSS' 'text/HTML' 'text/plain'
+'text/XML'.
+
+Additional upstream details:
+
+Set of strings that allows specifying which mime-types yield compression When this field is not
+defined, compression will be applied to the following mime-types: "application/JavaScript"
+"application/JSON", "application/xhtml+XML" "image/svg+XML" "text/CSS" "text/HTML" "text/plain"
+"text/XML"
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: false
+Validators: []validator.List{
+  listvalidator.SizeAtMost(50),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxItems": 50,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "array",
+    "deterministic": true,
+    "maxItems": 50,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "uniqueItems": true
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.repeated.items.string.max_bytes": "256",
+    "ves.io.schema.rules.repeated.items.string.min_bytes": "1",
+    "ves.io.schema.rules.repeated.max_items": "50",
+    "ves.io.schema.rules.repeated.unique": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.repeated.items.string.max_bytes": "256",
+    "ves.io.schema.rules.repeated.items.string.min_bytes": "1",
+    "ves.io.schema.rules.repeated.max_items": "50",
+    "ves.io.schema.rules.repeated.unique": "true"
+  }
+}
+```
+
+<a id="canonical-3322132223311003-1013301032111003-1001203323301010-3313011021110132-0112231202332102-0221203300231221-0101112022231331-1033023331223303"></a>
+
+<a id="canonical-0022100322230120-0222301011100323-3020233001100313-3101113310313300-3330211011213331-0222310200332110-0003133312102203-1233013003310103"></a>
+
+#### `more_option.compression_params.disable_on_etag_header` property
+
+Type: `"bool"`. Optional.
+
+If true, disables compression when the response contains an etag header. When it is false, weak
+etags will be preserved and the ones that require strong validation will be removed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-3003330301022113-0311323333232302-0130213220123233-2033201213121321-1002300201323222-3320133113223212-1223200200023102-3330201111220002"></a>
+
+<a id="canonical-3102211330023033-0103330121010230-3103131112301132-0322320013210130-1111103001333103-0212013120300120-2002321021002310-1332111221310100"></a>
+
+#### `more_option.compression_params.remove_accept_encoding_header` property
+
+Type: `"bool"`. Optional.
+
+If true, removes accept-encoding from the request headers before dispatching it to the upstream so
+that responses do not GET compressed before reaching the filter.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-1033132001213130-2001323231130303-3302133101202300-2012320223111211-2113022313122123-3231031321132200-0022333302032210-1001120012321201"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `more_option.disable_path_normalize` properties
+
+Breadcrumbs:
+
+- [xcsh_http_loadbalancer](../resources/http_loadbalancer.md#canonical-1323101131323213-1200201313300133-0300111301103013-3131213012211311-3010002202001122-3231033222023323-2111000220211131-3013003223311203)
+- [Property reference](resources--http_loadbalancer--reference--group-001.md#canonical-2110231031112310-1130011000331010-1312132022002200-1232103213011301-2012100333100023-2000320333201213-1130030102202313-3122301032230233)
+- [more_option](resources--http_loadbalancer--reference--group-020.md#canonical-0103232331000000-3202301220200212-2333013000233203-1310210130333000-1220011203132102-0102220112330233-2210002322102333-1111002302303232)
+- more_option.disable_path_normalize
+
+<a id="canonical-0031312320132020-3012321002233212-2012033220311202-0220320331220201-0133312310033010-3001301122000121-1330321221230022-3210300033320232"></a>
+
+Type: `["object", {}]`. Optional.
+
+Enable this option
+
+Additional upstream details:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+disable_path_normalize = {}
+```
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-0200102323330033-2123023013233122-3220321300123212-3020110001131003-2313312012331231-1030020232012220-3302210111313313-3333332202102203"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `more_option.enable_path_normalize` properties
+
+Breadcrumbs:
+
+- [xcsh_http_loadbalancer](../resources/http_loadbalancer.md#canonical-1323101131323213-1200201313300133-0300111301103013-3131213012211311-3010002202001122-3231033222023323-2111000220211131-3013003223311203)
+- [Property reference](resources--http_loadbalancer--reference--group-001.md#canonical-2110231031112310-1130011000331010-1312132022002200-1232103213011301-2012100333100023-2000320333201213-1130030102202313-3122301032230233)
+- [more_option](resources--http_loadbalancer--reference--group-020.md#canonical-0103232331000000-3202301220200212-2333013000233203-1310210130333000-1220011203132102-0102220112330233-2210002322102333-1111002302303232)
+- more_option.enable_path_normalize
+
+<a id="canonical-2223132031010201-3001001330102303-1100302130200330-1131133312013011-1121233200131030-1233301013023331-2121112011101023-1102131102221132"></a>
+
+Type: `["object", {}]`. Optional.
+
+Enable this option
+
+Additional upstream details:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+enable_path_normalize = {}
+```
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-1023102010030230-2332223133022232-3123113033013210-3231031103313320-3102130133132220-1233310023222222-3310320102211232-1232211101323103"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `more_option.no_request_limit_per_connection` properties
+
+Breadcrumbs:
+
+- [xcsh_http_loadbalancer](../resources/http_loadbalancer.md#canonical-1323101131323213-1200201313300133-0300111301103013-3131213012211311-3010002202001122-3231033222023323-2111000220211131-3013003223311203)
+- [Property reference](resources--http_loadbalancer--reference--group-001.md#canonical-2110231031112310-1130011000331010-1312132022002200-1232103213011301-2012100333100023-2000320333201213-1130030102202313-3122301032230233)
+- [more_option](resources--http_loadbalancer--reference--group-020.md#canonical-0103232331000000-3202301220200212-2333013000233203-1310210130333000-1220011203132102-0102220112330233-2210002322102333-1111002302303232)
+- more_option.no_request_limit_per_connection
+
+<a id="canonical-1111012202212331-3101223002301022-1111133110302213-0300013131301101-3321310113223220-3110000330131212-0030333130303223-0233231320003111"></a>
+
+Type: `["object", {}]`. Optional.
+
+Configuration parameter for no request limit per connection.
+
+Additional upstream details:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+no_request_limit_per_connection = {}
+```
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-1002021132200112-1120200221201022-0220211301011220-0101022100322133-2202230030112132-3203321123003202-3201221131021020-2201202320300321"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `more_option.request_cookies_to_add` properties
+
+Breadcrumbs:
+
+- [xcsh_http_loadbalancer](../resources/http_loadbalancer.md#canonical-1323101131323213-1200201313300133-0300111301103013-3131213012211311-3010002202001122-3231033222023323-2111000220211131-3013003223311203)
+- [Property reference](resources--http_loadbalancer--reference--group-001.md#canonical-2110231031112310-1130011000331010-1312132022002200-1232103213011301-2012100333100023-2000320333201213-1130030102202313-3122301032230233)
+- [more_option](resources--http_loadbalancer--reference--group-020.md#canonical-0103232331000000-3202301220200212-2333013000233203-1310210130333000-1220011203132102-0102220112330233-2210002322102333-1111002302303232)
+- more_option.request_cookies_to_add
+
+<a id="canonical-3032323122310110-3121030123113131-3023320332332001-3202231032213332-1120301133031303-2213133132222320-1230322332200312-3121212312110220"></a>
+
+Type: `"object"`. list nested block, Optional.
+
+Cookies are key-value pairs to be added to HTTP request being routed towards upstream. Cookies
+specified at this level are applied after cookies from matched Route are applied.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: false
+Validators: []validator.List{validators.RequiredListObjectAttributes("name"),
+  validators.ConflictingListObjectAttributes("secret_value",
+    "value")}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxItems": 32,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "array",
+    "deterministic": true,
+    "maxItems": 32,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "uniqueItems": true
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.repeated.max_items": "32",
+    "ves.io.schema.rules.repeated.unique": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.repeated.max_items": "32",
+    "ves.io.schema.rules.repeated.unique": "true"
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+request_cookies_to_add {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-0213121122032113-3101211223101220-3131022022331021-0200130013210121-0322011302323111-0002023010330011-1120322021101022-3103210111330220"></a>
+
+### Direct properties for `more_option.request_cookies_to_add`
+
+<a id="canonical-3223031230130313-2102013213320213-0230313030120222-2010321020000032-1232311222103111-0110132331011332-0302012332130110-0022013131223010"></a>
+
+#### `more_option.request_cookies_to_add.name` property
+
+Type: `"string"`. Optional.
+
+Name. Name of the cookie in Cookie header.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: true
+Validators: []validator.String{
+  stringvalidator.LengthBetween(1, 256),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 256,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "characterSet": {
+      "allowed": "[a-z0-9-]",
+      "description": "Lowercase letter start, alphanumeric with hyphens, alphanumeric end",
+      "required": "[a-z0-9]",
+      "restricted": "[^a-z0-9-]"
+    },
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "dns-label",
+    "formatDescription": "DNS-1035 label: must start with a lowercase letter, may contain lowercase alphanumeric and hyphens, must end with alphanumeric",
+    "maxLength": 256,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "minLength": 1,
+    "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
+    "validation": {
+      "rfc": "RFC 1035",
+      "standard": "DNS-1035 label (alpha-first)"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.cookie_name": "true",
+    "ves.io.schema.rules.string.max_len": "256"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.cookie_name": "true",
+    "ves.io.schema.rules.string.max_len": "256"
+  }
+}
+```
+
+<a id="canonical-0330001022311333-1112122103232003-2032332310213200-2003213210223022-3020300311111220-1112331331331130-2112213303223311-0130113123332002"></a>
+
 <a id="canonical-3202203222112113-2222100003202221-0121223222212233-3303003001131333-0211213023230312-1002131011212111-2121110210121022-2323232303203330"></a>
 
-## `more_option.request_cookies_to_add.overwrite` property
+#### `more_option.request_cookies_to_add.overwrite` property
 
 Type: `"bool"`. Optional.
 
@@ -38,7 +805,7 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-0031321321102120-0311123230011103-1313313133131221-0102020211222201-3003131102032131-3213120232032310-2003102102202322-2302322333302203"></a>
 
-## `more_option.request_cookies_to_add.value` property
+#### `more_option.request_cookies_to_add.value` property
 
 Type: `"string"`. Optional.
 
@@ -47,6 +814,7 @@ Exclusive with \[secret\_value\] Value of the Cookie header.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(8096),
 }
@@ -96,7 +864,7 @@ Breadcrumbs:
 - [xcsh_http_loadbalancer](../resources/http_loadbalancer.md#canonical-1323101131323213-1200201313300133-0300111301103013-3131213012211311-3010002202001122-3231033222023323-2111000220211131-3013003223311203)
 - [Property reference](resources--http_loadbalancer--reference--group-001.md#canonical-2110231031112310-1130011000331010-1312132022002200-1232103213011301-2012100333100023-2000320333201213-1130030102202313-3122301032230233)
 - [more_option](resources--http_loadbalancer--reference--group-020.md#canonical-0103232331000000-3202301220200212-2333013000233203-1310210130333000-1220011203132102-0102220112330233-2210002322102333-1111002302303232)
-- [more_option.request_cookies_to_add](resources--http_loadbalancer--reference--group-020.md#canonical-1002021132200112-1120200221201022-0220211301011220-0101022100322133-2202230030112132-3203321123003202-3201221131021020-2201202320300321)
+- [more_option.request_cookies_to_add](resources--http_loadbalancer--reference--group-021.md#canonical-1002021132200112-1120200221201022-0220211301011220-0101022100322133-2202230030112132-3203321123003202-3201221131021020-2201202320300321)
 - more_option.request_cookies_to_add.secret_value
 
 <a id="canonical-0221121301010031-3113320022011033-2132220322220332-3301332130321120-1200230002022010-2230220333110030-3301003313012221-2133032013022121"></a>
@@ -108,6 +876,7 @@ SecretType is used in an object to indicate a sensitive/confidential field.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info",
     "clear_secret_info")}
 ```
@@ -155,7 +924,7 @@ Breadcrumbs:
 - [xcsh_http_loadbalancer](../resources/http_loadbalancer.md#canonical-1323101131323213-1200201313300133-0300111301103013-3131213012211311-3010002202001122-3231033222023323-2111000220211131-3013003223311203)
 - [Property reference](resources--http_loadbalancer--reference--group-001.md#canonical-2110231031112310-1130011000331010-1312132022002200-1232103213011301-2012100333100023-2000320333201213-1130030102202313-3122301032230233)
 - [more_option](resources--http_loadbalancer--reference--group-020.md#canonical-0103232331000000-3202301220200212-2333013000233203-1310210130333000-1220011203132102-0102220112330233-2210002322102333-1111002302303232)
-- [more_option.request_cookies_to_add](resources--http_loadbalancer--reference--group-020.md#canonical-1002021132200112-1120200221201022-0220211301011220-0101022100322133-2202230030112132-3203321123003202-3201221131021020-2201202320300321)
+- [more_option.request_cookies_to_add](resources--http_loadbalancer--reference--group-021.md#canonical-1002021132200112-1120200221201022-0220211301011220-0101022100322133-2202230030112132-3203321123003202-3201221131021020-2201202320300321)
 - [more_option.request_cookies_to_add.secret_value](resources--http_loadbalancer--reference--group-021.md#canonical-1200231202100131-3122103102312230-3321323121301302-0320302022310221-2130220131323003-3013203321222032-0213321020233320-0102321301003002)
 - more_option.request_cookies_to_add.secret_value.blindfold_secret_info
 
@@ -168,6 +937,7 @@ BlindfoldSecretInfoType specifies information about the Secret managed by F5XC S
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("location")}
 ```
 
@@ -242,6 +1012,7 @@ store provider is an HTTP/HTTPS location.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(4, 131072),
 }
@@ -331,7 +1102,7 @@ Breadcrumbs:
 - [xcsh_http_loadbalancer](../resources/http_loadbalancer.md#canonical-1323101131323213-1200201313300133-0300111301103013-3131213012211311-3010002202001122-3231033222023323-2111000220211131-3013003223311203)
 - [Property reference](resources--http_loadbalancer--reference--group-001.md#canonical-2110231031112310-1130011000331010-1312132022002200-1232103213011301-2012100333100023-2000320333201213-1130030102202313-3122301032230233)
 - [more_option](resources--http_loadbalancer--reference--group-020.md#canonical-0103232331000000-3202301220200212-2333013000233203-1310210130333000-1220011203132102-0102220112330233-2210002322102333-1111002302303232)
-- [more_option.request_cookies_to_add](resources--http_loadbalancer--reference--group-020.md#canonical-1002021132200112-1120200221201022-0220211301011220-0101022100322133-2202230030112132-3203321123003202-3201221131021020-2201202320300321)
+- [more_option.request_cookies_to_add](resources--http_loadbalancer--reference--group-021.md#canonical-1002021132200112-1120200221201022-0220211301011220-0101022100322133-2202230030112132-3203321123003202-3201221131021020-2201202320300321)
 - [more_option.request_cookies_to_add.secret_value](resources--http_loadbalancer--reference--group-021.md#canonical-1200231202100131-3122103102312230-3321323121301302-0320302022310221-2130220131323003-3013203321222032-0213321020233320-0102321301003002)
 - more_option.request_cookies_to_add.secret_value.clear_secret_info
 
@@ -344,6 +1115,7 @@ ClearSecretInfoType specifies information about the Secret that is not encrypted
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("url")}
 ```
 
@@ -396,6 +1168,7 @@ base64 decoding.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 131072),
 }
@@ -472,6 +1245,7 @@ specified at this level are applied after headers from matched Route are applied
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.RequiredListObjectAttributes("name"),
   validators.ConflictingListObjectAttributes("secret_value",
     "value")}
@@ -562,6 +1336,7 @@ Name. Name of the HTTP header.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 256),
 }
@@ -629,6 +1404,7 @@ Exclusive with \[secret\_value\] Value of the HTTP header.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(8096),
 }
@@ -690,6 +1466,7 @@ SecretType is used in an object to indicate a sensitive/confidential field.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info",
     "clear_secret_info")}
 ```
@@ -750,6 +1527,7 @@ BlindfoldSecretInfoType specifies information about the Secret managed by F5XC S
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("location")}
 ```
 
@@ -824,6 +1602,7 @@ store provider is an HTTP/HTTPS location.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(4, 131072),
 }
@@ -926,6 +1705,7 @@ ClearSecretInfoType specifies information about the Secret that is not encrypted
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("url")}
 ```
 
@@ -978,6 +1758,7 @@ base64 decoding.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 131072),
 }
@@ -1055,6 +1836,7 @@ matched Route are applied.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.RequiredListObjectAttributes("name"),
   validators.ConflictingListObjectAttributes("add_domain",
     "ignore_domain"),
@@ -1147,6 +1929,7 @@ Exclusive with \[ignore\_domain\] Add domain attribute.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 256),
 }
@@ -1203,6 +1986,7 @@ Exclusive with \[ignore\_expiry\] Add expiry attribute.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(256),
 }
@@ -1256,6 +2040,7 @@ Exclusive with \[ignore\_path\] Add path attribute.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(256),
 }
@@ -1327,6 +2112,7 @@ Exclusive with \[ignore\_max\_age\] Add max age attribute.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Int64{
   int64validator.AtMost(34560000),
 }
@@ -1375,6 +2161,7 @@ Name. Name of the cookie in Cookie header.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 256),
 }
@@ -1478,6 +2265,7 @@ Exclusive with \[ignore\_value secret\_value\] Value of the Cookie header.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(8096),
 }
@@ -2244,6 +3032,7 @@ SecretType is used in an object to indicate a sensitive/confidential field.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info",
     "clear_secret_info")}
 ```
@@ -2304,6 +3093,7 @@ BlindfoldSecretInfoType specifies information about the Secret managed by F5XC S
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("location")}
 ```
 
@@ -2378,6 +3168,7 @@ store provider is an HTTP/HTTPS location.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(4, 131072),
 }
@@ -2480,6 +3271,7 @@ ClearSecretInfoType specifies information about the Secret that is not encrypted
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("url")}
 ```
 
@@ -2532,6 +3324,7 @@ base64 decoding.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 131072),
 }
@@ -2608,6 +3401,7 @@ specified at this level are applied after headers from matched Route are applied
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.RequiredListObjectAttributes("name"),
   validators.ConflictingListObjectAttributes("secret_value",
     "value")}
@@ -2698,6 +3492,7 @@ Name. Name of the HTTP header.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 256),
 }
@@ -2765,6 +3560,7 @@ Exclusive with \[secret\_value\] Value of the HTTP header.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(8096),
 }
@@ -2826,6 +3622,7 @@ SecretType is used in an object to indicate a sensitive/confidential field.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info",
     "clear_secret_info")}
 ```
@@ -2886,6 +3683,7 @@ BlindfoldSecretInfoType specifies information about the Secret managed by F5XC S
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("location")}
 ```
 
@@ -2960,6 +3758,7 @@ store provider is an HTTP/HTTPS location.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(4, 131072),
 }
@@ -3062,6 +3861,7 @@ ClearSecretInfoType specifies information about the Secret that is not encrypted
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("url")}
 ```
 
@@ -3114,6 +3914,7 @@ base64 decoding.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 131072),
 }
@@ -3262,697 +4063,3 @@ no_challenge = {}
 ```
 
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-1213221123121332-0130210312020112-0030010203112202-1320321321320032-1222212130023330-2011211132030330-2231013002131030-0013313003020331"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-## `no_service_policies` properties
-
-Breadcrumbs:
-
-- [xcsh_http_loadbalancer](../resources/http_loadbalancer.md#canonical-1323101131323213-1200201313300133-0300111301103013-3131213012211311-3010002202001122-3231033222023323-2111000220211131-3013003223311203)
-- [Property reference](resources--http_loadbalancer--reference--group-001.md#canonical-2110231031112310-1130011000331010-1312132022002200-1232103213011301-2012100333100023-2000320333201213-1130030102202313-3122301032230233)
-- no_service_policies
-
-<a id="canonical-1101022221112332-2030130211022031-1133103101333213-1101003230013311-3103302223310030-3213132312012201-0000201122030113-1223213310313002"></a>
-
-Type: `["object", {}]`. Optional.
-
-Configuration parameter for no service policies.
-
-Additional upstream details:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-no_service_policies = {}
-```
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-0213330010003320-3033321220120021-2320212310032100-2232122130011320-2133212222310031-1313023301001000-3333100122210230-1131233020121300"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-## `origin_server_subset_rule_list` properties
-
-Breadcrumbs:
-
-- [xcsh_http_loadbalancer](../resources/http_loadbalancer.md#canonical-1323101131323213-1200201313300133-0300111301103013-3131213012211311-3010002202001122-3231033222023323-2111000220211131-3013003223311203)
-- [Property reference](resources--http_loadbalancer--reference--group-001.md#canonical-2110231031112310-1130011000331010-1312132022002200-1232103213011301-2012100333100023-2000320333201213-1130030102202313-3122301032230233)
-- origin_server_subset_rule_list
-
-<a id="canonical-3011031302203312-1320300230222133-2210031101333001-3012120333010320-1021301101102203-3232213320210222-0233230312223211-3020200330331313"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-Origin Server Subset Rule List Type. List of Origin Pools.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-origin_server_subset_rule_list {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-1320132321221023-1012033003330010-1002032213320131-1311333132022102-3032103112322320-0123110222201011-3332201302333111-1202100021121321"></a>
-
-### Direct properties for `origin_server_subset_rule_list`
-
-- [origin_server_subset_rules](resources--http_loadbalancer--reference--group-021.md#canonical-0101020121111330-0131112101110030-2303101320302313-2010200231331320-2330032111021330-3332112120230001-3123111322330033-3121130132021210): complete subsection reference.
-
-<a id="canonical-0101020121111330-0131112101110030-2303101320302313-2010200231331320-2330032111021330-3332112120230001-3123111322330033-3121130132021210"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-## `origin_server_subset_rule_list.origin_server_subset_rules` properties
-
-Breadcrumbs:
-
-- [xcsh_http_loadbalancer](../resources/http_loadbalancer.md#canonical-1323101131323213-1200201313300133-0300111301103013-3131213012211311-3010002202001122-3231033222023323-2111000220211131-3013003223311203)
-- [Property reference](resources--http_loadbalancer--reference--group-001.md#canonical-2110231031112310-1130011000331010-1312132022002200-1232103213011301-2012100333100023-2000320333201213-1130030102202313-3122301032230233)
-- [origin_server_subset_rule_list](resources--http_loadbalancer--reference--group-021.md#canonical-0213330010003320-3033321220120021-2320212310032100-2232122130011320-2133212222310031-1313023301001000-3333100122210230-1131233020121300)
-- origin_server_subset_rule_list.origin_server_subset_rules
-
-<a id="canonical-1213300313322030-1003111033010333-3131211020312030-3221030020022012-3233021021232302-2230010311030323-2112103131133320-1010110322311213"></a>
-
-Type: `"object"`. list nested block, Optional.
-
-Origin Server Subset Rules allow users to define match condition on Client (IP address, ASN,
-Country), IP Reputation, Regional Edge names, Request for subset selection of origin servers. Origin
-Server Subset is a sequential engine where rules are evaluated one after the other. It's important
-to define the correct order for Origin Server Subset to GET the intended result, rules are evaluated
-from top to bottom in the list. When an Origin server subset rule is matched, then this selection
-rule takes effect and no more rules are evaluated.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.List{validators.RequiredListObjectAttributes("origin_server_subsets_action"),
-  validators.ConflictingListObjectAttributes("any_asn",
-    "asn_list"),
-  validators.ConflictingListObjectAttributes("any_asn",
-    "asn_matcher"),
-  validators.ConflictingListObjectAttributes("any_ip",
-    "ip_matcher"),
-  validators.ConflictingListObjectAttributes("any_ip",
-    "ip_prefix_list"),
-  validators.ConflictingListObjectAttributes("asn_list",
-    "asn_matcher"),
-  validators.ConflictingListObjectAttributes("client_selector",
-    "none"),
-  validators.ConflictingListObjectAttributes("ip_matcher",
-    "ip_prefix_list")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxItems": 64,
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "array",
-    "deterministic": true,
-    "maxItems": 64,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.repeated.max_items": "64",
-    "ves.io.schema.rules.repeated.unique_metadata_name": "true"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.repeated.max_items": "64",
-    "ves.io.schema.rules.repeated.unique_metadata_name": "true"
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-origin_server_subset_rules {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-0212302032011001-1323310322311331-1222133113021222-3102313012223113-2001220112021220-0001213121120103-3332021120300022-0333010133220331"></a>
-
-### Direct properties for `origin_server_subset_rule_list.origin_server_subset_rules`
-
-- [any_asn](resources--http_loadbalancer--reference--group-021.md#canonical-1302111220302030-3001330021000231-3112112223302013-2220311032232231-2020101312020033-2310233211031132-0131223203311131-1222001331101321): complete subsection reference.
-
-- [any_ip](resources--http_loadbalancer--reference--group-021.md#canonical-2210123021022011-3220321020322313-1232200022032120-0002100200013131-1202331212220302-3210312031113231-0320130320222102-0120112330131132): complete subsection reference.
-
-- [asn_list](resources--http_loadbalancer--reference--group-021.md#canonical-3222323023321133-3012102203110231-3232333031113211-1203011322120130-2013302110020210-2230233122312101-0311121100023013-1331111002121103): complete subsection reference.
-
-- [asn_matcher](resources--http_loadbalancer--reference--group-021.md#canonical-2131232131220022-3231312032001311-1001123321021221-1010012233233102-3032020321321013-2003031121101100-2013021031132131-2032111122221213): complete subsection reference.
-
-- [client_selector](resources--http_loadbalancer--reference--group-022.md#canonical-3212132133222002-2131213233133333-0121323232210133-0023102330231222-3110220221030033-1321101302100320-2212002031310232-2021123112120111): complete subsection reference.
-
-<a id="canonical-2211011233311303-1332330221112122-3021130201122320-0102131002101030-2333322100030033-3320121100111310-1210211221300030-2020103311213320"></a>
-
-<a id="canonical-3020033113003231-3101231201031230-2010312113232221-2301001223130102-3333110120223203-2330330323032010-1130233002131231-2023122220123133"></a>
-
-#### `origin_server_subset_rule_list.origin_server_subset_rules.country_codes` property
-
-Type: `["list", "string"]`. Optional.
-
-\[Enum:
-COUNTRY\_NONE|COUNTRY\_AD|COUNTRY\_AE|COUNTRY\_AF|COUNTRY\_AG|COUNTRY\_AI|COUNTRY\_AL|COUNTRY\_AM|COUNTRY\_AN|COUNTRY\_AO|COUNTRY\_AQ|COUNTRY\_AR|COUNTRY\_AS|COUNTRY\_AT|COUNTRY\_AU|COUNTRY\_AW|COUNTRY\_AX|COUNTRY\_AZ|COUNTRY\_BA|COUNTRY\_BB|COUNTRY\_BD|COUNTRY\_BE|COUNTRY\_BF|COUNTRY\_BG|COUNTRY\_BH|COUNTRY\_BI|COUNTRY\_BJ|COUNTRY\_BL|COUNTRY\_BM|COUNTRY\_BN|COUNTRY\_BO|COUNTRY\_BQ|COUNTRY\_BR|COUNTRY\_BS|COUNTRY\_BT|COUNTRY\_BV|COUNTRY\_BW|COUNTRY\_BY|COUNTRY\_BZ|COUNTRY\_CA|COUNTRY\_CC|COUNTRY\_CD|COUNTRY\_CF|COUNTRY\_CG|COUNTRY\_CH|COUNTRY\_CI|COUNTRY\_CK|COUNTRY\_CL|COUNTRY\_CM|COUNTRY\_CN|COUNTRY\_CO|COUNTRY\_CR|COUNTRY\_CS|COUNTRY\_CU|COUNTRY\_CV|COUNTRY\_CW|COUNTRY\_CX|COUNTRY\_CY|COUNTRY\_CZ|COUNTRY\_DE|COUNTRY\_DJ|COUNTRY\_DK|COUNTRY\_DM|COUNTRY\_DO|COUNTRY\_DZ|COUNTRY\_EC|COUNTRY\_EE|COUNTRY\_EG|COUNTRY\_EH|COUNTRY\_ER|COUNTRY\_ES|COUNTRY\_ET|COUNTRY\_FI|COUNTRY\_FJ|COUNTRY\_FK|COUNTRY\_FM|COUNTRY\_FO|COUNTRY\_FR|COUNTRY\_GA|COUNTRY\_GB|COUNTRY\_GD|COUNTRY\_GE|COUNTRY\_GF|COUNTRY\_GG|COUNTRY\_GH|COUNTRY\_GI|COUNTRY\_GL|COUNTRY\_GM|COUNTRY\_GN|COUNTRY\_GP|COUNTRY\_GQ|COUNTRY\_GR|COUNTRY\_GS|COUNTRY\_GT|COUNTRY\_GU|COUNTRY\_GW|COUNTRY\_GY|COUNTRY\_HK|COUNTRY\_HM|COUNTRY\_HN|COUNTRY\_HR|COUNTRY\_HT|COUNTRY\_HU|COUNTRY\_ID|COUNTRY\_IE|COUNTRY\_IL|COUNTRY\_IM|COUNTRY\_IN|COUNTRY\_IO|COUNTRY\_IQ|COUNTRY\_IR|COUNTRY\_IS|COUNTRY\_IT|COUNTRY\_JE|COUNTRY\_JM|COUNTRY\_JO|COUNTRY\_JP|COUNTRY\_KE|COUNTRY\_KG|COUNTRY\_KH|COUNTRY\_KI|COUNTRY\_KM|COUNTRY\_KN|COUNTRY\_KP|COUNTRY\_KR|COUNTRY\_KW|COUNTRY\_KY|COUNTRY\_KZ|COUNTRY\_LA|COUNTRY\_LB|COUNTRY\_LC|COUNTRY\_LI|COUNTRY\_LK|COUNTRY\_LR|COUNTRY\_LS|COUNTRY\_LT|COUNTRY\_LU|COUNTRY\_LV|COUNTRY\_LY|COUNTRY\_MA|COUNTRY\_MC|COUNTRY\_MD|COUNTRY\_ME|COUNTRY\_MF|COUNTRY\_MG|COUNTRY\_MH|COUNTRY\_MK|COUNTRY\_ML|COUNTRY\_MM|COUNTRY\_MN|COUNTRY\_MO|COUNTRY\_MP|COUNTRY\_MQ|COUNTRY\_MR|COUNTRY\_MS|COUNTRY\_MT|COUNTRY\_MU|COUNTRY\_MV|COUNTRY\_MW|COUNTRY\_MX|COUNTRY\_MY|COUNTRY\_MZ|COUNTRY\_NA|COUNTRY\_NC|COUNTRY\_NE|COUNTRY\_NF|COUNTRY\_NG|COUNTRY\_NI|COUNTRY\_NL|COUNTRY\_NO|COUNTRY\_NP|COUNTRY\_NR|COUNTRY\_NU|COUNTRY\_NZ|COUNTRY\_OM|COUNTRY\_PA|COUNTRY\_PE|COUNTRY\_PF|COUNTRY\_PG|COUNTRY\_PH|COUNTRY\_PK|COUNTRY\_PL|COUNTRY\_PM|COUNTRY\_PN|COUNTRY\_PR|COUNTRY\_PS|COUNTRY\_PT|COUNTRY\_PW|COUNTRY\_PY|COUNTRY\_QA|COUNTRY\_RE|COUNTRY\_RO|COUNTRY\_RS|COUNTRY\_RU|COUNTRY\_RW|COUNTRY\_SA|COUNTRY\_SB|COUNTRY\_SC|COUNTRY\_SD|COUNTRY\_SE|COUNTRY\_SG|COUNTRY\_SH|COUNTRY\_SI|COUNTRY\_SJ|COUNTRY\_SK|COUNTRY\_SL|COUNTRY\_SM|COUNTRY\_SN|COUNTRY\_SO|COUNTRY\_SR|COUNTRY\_SS|COUNTRY\_ST|COUNTRY\_SV|COUNTRY\_SX|COUNTRY\_SY|COUNTRY\_SZ|COUNTRY\_TC|COUNTRY\_TD|COUNTRY\_TF|COUNTRY\_TG|COUNTRY\_TH|COUNTRY\_TJ|COUNTRY\_TK|COUNTRY\_TL|COUNTRY\_TM|COUNTRY\_TN|COUNTRY\_TO|COUNTRY\_TR|COUNTRY\_TT|COUNTRY\_TV|COUNTRY\_TW|COUNTRY\_TZ|COUNTRY\_UA|COUNTRY\_UG|COUNTRY\_UM|COUNTRY\_US|COUNTRY\_UY|COUNTRY\_UZ|COUNTRY\_VA|COUNTRY\_VC|COUNTRY\_VE|COUNTRY\_VG|COUNTRY\_VI|COUNTRY\_VN|COUNTRY\_VU|COUNTRY\_WF|COUNTRY\_WS|COUNTRY\_XK|COUNTRY\_XT|COUNTRY\_YE|COUNTRY\_YT|COUNTRY\_ZA|COUNTRY\_ZM|COUNTRY\_ZW\]
-Country Codes List. List of Country Codes. Possible values are \`COUNTRY\_NONE\`, \`COUNTRY\_AD\`,
-\`COUNTRY\_AE\`, \`COUNTRY\_AF\`, \`COUNTRY\_AG\`, \`COUNTRY\_AI\`, \`COUNTRY\_AL\`,
-\`COUNTRY\_AM\`, \`COUNTRY\_AN\`, \`COUNTRY\_AO\`, \`COUNTRY\_AQ\`, \`COUNTRY\_AR\`,
-\`COUNTRY\_AS\`, \`COUNTRY\_AT\`, \`COUNTRY\_AU\`, \`COUNTRY\_AW\`, \`COUNTRY\_AX\`,
-\`COUNTRY\_AZ\`, \`COUNTRY\_BA\`, \`COUNTRY\_BB\`, \`COUNTRY\_BD\`, \`COUNTRY\_BE\`,
-\`COUNTRY\_BF\`, \`COUNTRY\_BG\`, \`COUNTRY\_BH\`, \`COUNTRY\_BI\`, \`COUNTRY\_BJ\`,
-\`COUNTRY\_BL\`, \`COUNTRY\_BM\`, \`COUNTRY\_BN\`, \`COUNTRY\_BO\`, \`COUNTRY\_BQ\`,
-\`COUNTRY\_BR\`, \`COUNTRY\_BS\`, \`COUNTRY\_BT\`, \`COUNTRY\_BV\`, \`COUNTRY\_BW\`,
-\`COUNTRY\_BY\`, \`COUNTRY\_BZ\`, \`COUNTRY\_CA\`, \`COUNTRY\_CC\`, \`COUNTRY\_CD\`,
-\`COUNTRY\_CF\`, \`COUNTRY\_CG\`, \`COUNTRY\_CH\`, \`COUNTRY\_CI\`, \`COUNTRY\_CK\`,
-\`COUNTRY\_CL\`, \`COUNTRY\_CM\`, \`COUNTRY\_CN\`, \`COUNTRY\_CO\`, \`COUNTRY\_CR\`,
-\`COUNTRY\_CS\`, \`COUNTRY\_CU\`, \`COUNTRY\_CV\`, \`COUNTRY\_CW\`, \`COUNTRY\_CX\`,
-\`COUNTRY\_CY\`, \`COUNTRY\_CZ\`, \`COUNTRY\_DE\`, \`COUNTRY\_DJ\`, \`COUNTRY\_DK\`,
-\`COUNTRY\_DM\`, \`COUNTRY\_DO\`, \`COUNTRY\_DZ\`, \`COUNTRY\_EC\`, \`COUNTRY\_EE\`,
-\`COUNTRY\_EG\`, \`COUNTRY\_EH\`, \`COUNTRY\_ER\`, \`COUNTRY\_ES\`, \`COUNTRY\_ET\`,
-\`COUNTRY\_FI\`, \`COUNTRY\_FJ\`, \`COUNTRY\_FK\`, \`COUNTRY\_FM\`, \`COUNTRY\_FO\`,
-\`COUNTRY\_FR\`, \`COUNTRY\_GA\`, \`COUNTRY\_GB\`, \`COUNTRY\_GD\`, \`COUNTRY\_GE\`,
-\`COUNTRY\_GF\`, \`COUNTRY\_GG\`, \`COUNTRY\_GH\`, \`COUNTRY\_GI\`, \`COUNTRY\_GL\`,
-\`COUNTRY\_GM\`, \`COUNTRY\_GN\`, \`COUNTRY\_GP\`, \`COUNTRY\_GQ\`, \`COUNTRY\_GR\`,
-\`COUNTRY\_GS\`, \`COUNTRY\_GT\`, \`COUNTRY\_GU\`, \`COUNTRY\_GW\`, \`COUNTRY\_GY\`,
-\`COUNTRY\_HK\`, \`COUNTRY\_HM\`, \`COUNTRY\_HN\`, \`COUNTRY\_HR\`, \`COUNTRY\_HT\`,
-\`COUNTRY\_HU\`, \`COUNTRY\_ID\`, \`COUNTRY\_IE\`, \`COUNTRY\_IL\`, \`COUNTRY\_IM\`,
-\`COUNTRY\_IN\`, \`COUNTRY\_IO\`, \`COUNTRY\_IQ\`, \`COUNTRY\_IR\`, \`COUNTRY\_IS\`,
-\`COUNTRY\_IT\`, \`COUNTRY\_JE\`, \`COUNTRY\_JM\`, \`COUNTRY\_JO\`, \`COUNTRY\_JP\`,
-\`COUNTRY\_KE\`, \`COUNTRY\_KG\`, \`COUNTRY\_KH\`, \`COUNTRY\_KI\`, \`COUNTRY\_KM\`,
-\`COUNTRY\_KN\`, \`COUNTRY\_KP\`, \`COUNTRY\_KR\`, \`COUNTRY\_KW\`, \`COUNTRY\_KY\`,
-\`COUNTRY\_KZ\`, \`COUNTRY\_LA\`, \`COUNTRY\_LB\`, \`COUNTRY\_LC\`, \`COUNTRY\_LI\`,
-\`COUNTRY\_LK\`, \`COUNTRY\_LR\`, \`COUNTRY\_LS\`, \`COUNTRY\_LT\`, \`COUNTRY\_LU\`,
-\`COUNTRY\_LV\`, \`COUNTRY\_LY\`, \`COUNTRY\_MA\`, \`COUNTRY\_MC\`, \`COUNTRY\_MD\`,
-\`COUNTRY\_ME\`, \`COUNTRY\_MF\`, \`COUNTRY\_MG\`, \`COUNTRY\_MH\`, \`COUNTRY\_MK\`,
-\`COUNTRY\_ML\`, \`COUNTRY\_MM\`, \`COUNTRY\_MN\`, \`COUNTRY\_MO\`, \`COUNTRY\_MP\`,
-\`COUNTRY\_MQ\`, \`COUNTRY\_MR\`, \`COUNTRY\_MS\`, \`COUNTRY\_MT\`, \`COUNTRY\_MU\`,
-\`COUNTRY\_MV\`, \`COUNTRY\_MW\`, \`COUNTRY\_MX\`, \`COUNTRY\_MY\`, \`COUNTRY\_MZ\`,
-\`COUNTRY\_NA\`, \`COUNTRY\_NC\`, \`COUNTRY\_NE\`, \`COUNTRY\_NF\`, \`COUNTRY\_NG\`,
-\`COUNTRY\_NI\`, \`COUNTRY\_NL\`, \`COUNTRY\_NO\`, \`COUNTRY\_NP\`, \`COUNTRY\_NR\`,
-\`COUNTRY\_NU\`, \`COUNTRY\_NZ\`, \`COUNTRY\_OM\`, \`COUNTRY\_PA\`, \`COUNTRY\_PE\`,
-\`COUNTRY\_PF\`, \`COUNTRY\_PG\`, \`COUNTRY\_PH\`, \`COUNTRY\_PK\`, \`COUNTRY\_PL\`,
-\`COUNTRY\_PM\`, \`COUNTRY\_PN\`, \`COUNTRY\_PR\`, \`COUNTRY\_PS\`, \`COUNTRY\_PT\`,
-\`COUNTRY\_PW\`, \`COUNTRY\_PY\`, \`COUNTRY\_QA\`, \`COUNTRY\_RE\`, \`COUNTRY\_RO\`,
-\`COUNTRY\_RS\`, \`COUNTRY\_RU\`, \`COUNTRY\_RW\`, \`COUNTRY\_SA\`, \`COUNTRY\_SB\`,
-\`COUNTRY\_SC\`, \`COUNTRY\_SD\`, \`COUNTRY\_SE\`, \`COUNTRY\_SG\`, \`COUNTRY\_SH\`,
-\`COUNTRY\_SI\`, \`COUNTRY\_SJ\`, \`COUNTRY\_SK\`, \`COUNTRY\_SL\`, \`COUNTRY\_SM\`,
-\`COUNTRY\_SN\`, \`COUNTRY\_SO\`, \`COUNTRY\_SR\`, \`COUNTRY\_SS\`, \`COUNTRY\_ST\`,
-\`COUNTRY\_SV\`, \`COUNTRY\_SX\`, \`COUNTRY\_SY\`, \`COUNTRY\_SZ\`, \`COUNTRY\_TC\`,
-\`COUNTRY\_TD\`, \`COUNTRY\_TF\`, \`COUNTRY\_TG\`, \`COUNTRY\_TH\`, \`COUNTRY\_TJ\`,
-\`COUNTRY\_TK\`, \`COUNTRY\_TL\`, \`COUNTRY\_TM\`, \`COUNTRY\_TN\`, \`COUNTRY\_TO\`,
-\`COUNTRY\_TR\`, \`COUNTRY\_TT\`, \`COUNTRY\_TV\`, \`COUNTRY\_TW\`, \`COUNTRY\_TZ\`,
-\`COUNTRY\_UA\`, \`COUNTRY\_UG\`, \`COUNTRY\_UM\`, \`COUNTRY\_US\`, \`COUNTRY\_UY\`,
-\`COUNTRY\_UZ\`, \`COUNTRY\_VA\`, \`COUNTRY\_VC\`, \`COUNTRY\_VE\`, \`COUNTRY\_VG\`,
-\`COUNTRY\_VI\`, \`COUNTRY\_VN\`, \`COUNTRY\_VU\`, \`COUNTRY\_WF\`, \`COUNTRY\_WS\`,
-\`COUNTRY\_XK\`, \`COUNTRY\_XT\`, \`COUNTRY\_YE\`, \`COUNTRY\_YT\`, \`COUNTRY\_ZA\`,
-\`COUNTRY\_ZM\`, \`COUNTRY\_ZW\`. Defaults to \`COUNTRY\_NONE\`.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.List{
-  listvalidator.SizeAtMost(64),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxItems": 64,
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "array",
-    "deterministic": true,
-    "maxItems": 64,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
-    },
-    "uniqueItems": true
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.repeated.max_items": "64",
-    "ves.io.schema.rules.repeated.unique": "true"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.repeated.max_items": "64",
-    "ves.io.schema.rules.repeated.unique": "true"
-  }
-}
-```
-
-- [ip_matcher](resources--http_loadbalancer--reference--group-022.md#canonical-0203121202130031-2203220200231131-2001322323233203-0133212303033123-1123320021332113-2112022122112233-2331321110200131-3131031333310133): complete subsection reference.
-
-- [ip_prefix_list](resources--http_loadbalancer--reference--group-022.md#canonical-0111102320002302-0210101031332300-3113003023002203-3122211120031033-0021332113133230-0120303321101031-3133132212123213-3011103223302301): complete subsection reference.
-
-- [metadata](resources--http_loadbalancer--reference--group-022.md#canonical-0020222103110101-2120130130101001-2303101303303210-2203023310303011-0101200212201213-1310123333103230-3133121312302332-2300113211122131): complete subsection reference.
-
-- [none](resources--http_loadbalancer--reference--group-022.md#canonical-2211230323332300-3330211101102100-2023012322001003-1112202131233213-2321022211100031-0100321221002031-1333310000231113-0102002232313223): complete subsection reference.
-
-<a id="canonical-1331010112333200-0320033011322030-2202133222113201-1112211202033001-0031031022113003-1213332232330312-0021111131300112-0332222212232031"></a>
-
-<a id="canonical-2110112033203022-0032210333102222-1220130030122203-0322021201333101-2110122103101020-1010102200232000-1021101021103212-1223301201000101"></a>
-
-#### `origin_server_subset_rule_list.origin_server_subset_rules.origin_server_subsets_action` property
-
-Type: `["map", "string"]`. Optional.
-
-Add labels to select one or more origin servers. Note: The pre-requisite settings to be configured
-in the origin pool are: &#8203;1. Add labels to origin servers &#8203;2. Enable subset load
-balancing in the Origin Server Subsets section and configure keys in origin server subsets classes.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.Map{validators.MapConstraintsValidator("{\"cardinality\":{\"maxProperties\":16},\"category\":\"discovery\",\"constraintType\":\"map\",\"deterministic\":true,\"keys\":{\"maxLength\":128,\"minLength\":1,\"type\":\"string\"},\"originalRules\":{\"ves.io.schema.rules.map.keys.string.max_len\":\"128\",\"ves.io.schema.rules.map.keys.string.min_len\":\"1\",\"ves.io.schema.rules.map.max_pairs\":\"16\",\"ves.io.schema.rules.map.values.string.max_len\":\"128\",\"ves.io.schema.rules.map.values.string.min_len\":\"1\"},\"values\":{\"maxLength\":128,\"minLength\":1,\"type\":\"string\"}}")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "cardinality": {
-      "maxProperties": 16
-    },
-    "category": "discovery",
-    "constraintType": "map",
-    "deterministic": true,
-    "keys": {
-      "maxLength": 128,
-      "minLength": 1,
-      "type": "string"
-    },
-    "originalRules": {
-      "ves.io.schema.rules.map.keys.string.max_len": "128",
-      "ves.io.schema.rules.map.keys.string.min_len": "1",
-      "ves.io.schema.rules.map.max_pairs": "16",
-      "ves.io.schema.rules.map.values.string.max_len": "128",
-      "ves.io.schema.rules.map.values.string.min_len": "1"
-    },
-    "values": {
-      "maxLength": 128,
-      "minLength": 1,
-      "type": "string"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": true,
-    "minimum_config": true,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.map.keys.string.max_len": "128",
-    "ves.io.schema.rules.map.keys.string.min_len": "1",
-    "ves.io.schema.rules.map.max_pairs": "16",
-    "ves.io.schema.rules.map.values.string.max_len": "128",
-    "ves.io.schema.rules.map.values.string.min_len": "1",
-    "ves.io.schema.rules.message.required": "true"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.map.keys.string.max_len": "128",
-    "ves.io.schema.rules.map.keys.string.min_len": "1",
-    "ves.io.schema.rules.map.max_pairs": "16",
-    "ves.io.schema.rules.map.values.string.max_len": "128",
-    "ves.io.schema.rules.map.values.string.min_len": "1",
-    "ves.io.schema.rules.message.required": "true"
-  }
-}
-```
-
-<a id="canonical-3320220033301301-0000332222110111-3023100203013113-1111020331203121-3130020233100300-3022330130023113-1011312010210033-2000223331211331"></a>
-
-<a id="canonical-2322200001110333-0213120121000021-2030232201323302-0230302321300201-0030102131203020-0100313213211023-1123300031132330-1102133123302213"></a>
-
-#### `origin_server_subset_rule_list.origin_server_subset_rules.re_name_list` property
-
-Type: `["list", "string"]`. Optional.
-
-RE Names. List of RE names for match.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.List{
-  listvalidator.SizeAtMost(32),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxItems": 32,
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "array",
-    "deterministic": true,
-    "maxItems": 32,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
-    },
-    "uniqueItems": true
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.repeated.items.string.max_len": "64",
-    "ves.io.schema.rules.repeated.max_items": "32",
-    "ves.io.schema.rules.repeated.unique": "true"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.repeated.items.string.max_len": "64",
-    "ves.io.schema.rules.repeated.max_items": "32",
-    "ves.io.schema.rules.repeated.unique": "true"
-  }
-}
-```
-
-<a id="canonical-1302111220302030-3001330021000231-3112112223302013-2220311032232231-2020101312020033-2310233211031132-0131223203311131-1222001331101321"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-## `origin_server_subset_rule_list.origin_server_subset_rules.any_asn` properties
-
-Breadcrumbs:
-
-- [xcsh_http_loadbalancer](../resources/http_loadbalancer.md#canonical-1323101131323213-1200201313300133-0300111301103013-3131213012211311-3010002202001122-3231033222023323-2111000220211131-3013003223311203)
-- [Property reference](resources--http_loadbalancer--reference--group-001.md#canonical-2110231031112310-1130011000331010-1312132022002200-1232103213011301-2012100333100023-2000320333201213-1130030102202313-3122301032230233)
-- [origin_server_subset_rule_list](resources--http_loadbalancer--reference--group-021.md#canonical-0213330010003320-3033321220120021-2320212310032100-2232122130011320-2133212222310031-1313023301001000-3333100122210230-1131233020121300)
-- [origin_server_subset_rule_list.origin_server_subset_rules](resources--http_loadbalancer--reference--group-021.md#canonical-0101020121111330-0131112101110030-2303101320302313-2010200231331320-2330032111021330-3332112120230001-3123111322330033-3121130132021210)
-- origin_server_subset_rule_list.origin_server_subset_rules.any_asn
-
-<a id="canonical-3211310331033002-1022231030332230-3023111101120210-0030031322010331-3010013212100011-3211010123033013-0133020310031010-0013201323010112"></a>
-
-Type: `["object", {}]`. Optional.
-
-Enable this option
-
-Additional upstream details:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-any_asn = {}
-```
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-2210123021022011-3220321020322313-1232200022032120-0002100200013131-1202331212220302-3210312031113231-0320130320222102-0120112330131132"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-## `origin_server_subset_rule_list.origin_server_subset_rules.any_ip` properties
-
-Breadcrumbs:
-
-- [xcsh_http_loadbalancer](../resources/http_loadbalancer.md#canonical-1323101131323213-1200201313300133-0300111301103013-3131213012211311-3010002202001122-3231033222023323-2111000220211131-3013003223311203)
-- [Property reference](resources--http_loadbalancer--reference--group-001.md#canonical-2110231031112310-1130011000331010-1312132022002200-1232103213011301-2012100333100023-2000320333201213-1130030102202313-3122301032230233)
-- [origin_server_subset_rule_list](resources--http_loadbalancer--reference--group-021.md#canonical-0213330010003320-3033321220120021-2320212310032100-2232122130011320-2133212222310031-1313023301001000-3333100122210230-1131233020121300)
-- [origin_server_subset_rule_list.origin_server_subset_rules](resources--http_loadbalancer--reference--group-021.md#canonical-0101020121111330-0131112101110030-2303101320302313-2010200231331320-2330032111021330-3332112120230001-3123111322330033-3121130132021210)
-- origin_server_subset_rule_list.origin_server_subset_rules.any_ip
-
-<a id="canonical-3113211132333302-1212020311323010-0001213121233100-2031202201112121-3212331323010321-0111222131031033-0330100332220202-1001020322331333"></a>
-
-Type: `["object", {}]`. Optional.
-
-Enable this option
-
-Additional upstream details:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-any_ip = {}
-```
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-3222323023321133-3012102203110231-3232333031113211-1203011322120130-2013302110020210-2230233122312101-0311121100023013-1331111002121103"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-## `origin_server_subset_rule_list.origin_server_subset_rules.asn_list` properties
-
-Breadcrumbs:
-
-- [xcsh_http_loadbalancer](../resources/http_loadbalancer.md#canonical-1323101131323213-1200201313300133-0300111301103013-3131213012211311-3010002202001122-3231033222023323-2111000220211131-3013003223311203)
-- [Property reference](resources--http_loadbalancer--reference--group-001.md#canonical-2110231031112310-1130011000331010-1312132022002200-1232103213011301-2012100333100023-2000320333201213-1130030102202313-3122301032230233)
-- [origin_server_subset_rule_list](resources--http_loadbalancer--reference--group-021.md#canonical-0213330010003320-3033321220120021-2320212310032100-2232122130011320-2133212222310031-1313023301001000-3333100122210230-1131233020121300)
-- [origin_server_subset_rule_list.origin_server_subset_rules](resources--http_loadbalancer--reference--group-021.md#canonical-0101020121111330-0131112101110030-2303101320302313-2010200231331320-2330032111021330-3332112120230001-3123111322330033-3121130132021210)
-- origin_server_subset_rule_list.origin_server_subset_rules.asn_list
-
-<a id="canonical-3111011320213333-2033230120210312-2311021333320203-3223220222320300-0201202323113212-3132011231120223-2003133021303123-3030111103033211"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-An unordered set of RFC 6793 defined 4-byte AS numbers that can be used to create allow or deny
-lists for use in network policy or service policy. It can be used to create the allow list only for
-DNS Load Balancer.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.Object{validators.RequiredObjectAttributes("as_numbers")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-asn_list {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-1202123123021111-2301332013032001-0222101302002103-2203303002021320-1322310030331003-0230012002002030-0232010332303121-3221303210110223"></a>
-
-### Direct properties for `origin_server_subset_rule_list.origin_server_subset_rules.asn_list`
-
-<a id="canonical-2332221012013123-3232312030103201-1011331003013103-1301103010320320-0121021021112303-3223320013322010-0322323111012212-2223130102123222"></a>
-
-#### `origin_server_subset_rule_list.origin_server_subset_rules.asn_list.as_numbers` property
-
-Type: `["list", "number"]`. Optional.
-
-An unordered set of RFC 6793 defined 4-byte AS numbers that can be used to create allow or deny
-lists for use in network policy or service policy. It can be used to create the allow list only for
-DNS Load Balancer.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.List{
-  listvalidator.SizeBetween(1, 16),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxItems": 16,
-  "minItems": 1,
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "array",
-    "deterministic": true,
-    "maxItems": 16,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
-    },
-    "minItems": 1,
-    "uniqueItems": true
-  },
-  "x-f5xc-required-for": {
-    "create": true,
-    "minimum_config": true,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.repeated.max_items": "16",
-    "ves.io.schema.rules.repeated.min_items": "1",
-    "ves.io.schema.rules.repeated.unique": "true"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.repeated.max_items": "16",
-    "ves.io.schema.rules.repeated.min_items": "1",
-    "ves.io.schema.rules.repeated.unique": "true"
-  }
-}
-```
-
-<a id="canonical-2131232131220022-3231312032001311-1001123321021221-1010012233233102-3032020321321013-2003031121101100-2013021031132131-2032111122221213"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-## `origin_server_subset_rule_list.origin_server_subset_rules.asn_matcher` properties
-
-Breadcrumbs:
-
-- [xcsh_http_loadbalancer](../resources/http_loadbalancer.md#canonical-1323101131323213-1200201313300133-0300111301103013-3131213012211311-3010002202001122-3231033222023323-2111000220211131-3013003223311203)
-- [Property reference](resources--http_loadbalancer--reference--group-001.md#canonical-2110231031112310-1130011000331010-1312132022002200-1232103213011301-2012100333100023-2000320333201213-1130030102202313-3122301032230233)
-- [origin_server_subset_rule_list](resources--http_loadbalancer--reference--group-021.md#canonical-0213330010003320-3033321220120021-2320212310032100-2232122130011320-2133212222310031-1313023301001000-3333100122210230-1131233020121300)
-- [origin_server_subset_rule_list.origin_server_subset_rules](resources--http_loadbalancer--reference--group-021.md#canonical-0101020121111330-0131112101110030-2303101320302313-2010200231331320-2330032111021330-3332112120230001-3123111322330033-3121130132021210)
-- origin_server_subset_rule_list.origin_server_subset_rules.asn_matcher
-
-<a id="canonical-1122010312123323-0220323031202020-2032021011320120-0132333012232321-3312223000122321-2112010100210331-0030122000210132-3232230012222232"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-Match any AS number contained in the list of bgp\_asn\_sets.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.Object{validators.RequiredObjectAttributes("asn_sets")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-asn_matcher {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-2130122302102213-0213321300003013-1012221310012100-2321002033021133-3310003112323101-2332133223312330-3033323210110322-1022022211221333"></a>
-
-### Direct properties for `origin_server_subset_rule_list.origin_server_subset_rules.asn_matcher`
-
-- [asn_sets](resources--http_loadbalancer--reference--group-022.md#canonical-2133331202111302-1223330200330231-1303003211331110-0302111201302110-3220213222231011-1023012032011322-2311313300133130-1011321011233023): complete subsection reference.

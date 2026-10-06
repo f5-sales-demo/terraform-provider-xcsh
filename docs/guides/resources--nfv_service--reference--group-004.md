@@ -6,6 +6,67 @@ description: "Complete grouped canonical reference for xcsh_nfv_service referenc
 
 # xcsh_nfv_service reference
 
+<a id="canonical-0022012123311000-1212203230321020-1330231021210332-3201020233133002-2323100303020232-0312203302233123-3000300312202110-2223011033132013"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `https_management.advertise_on_slo_vip.tls_certificates.private_key` properties
+
+Breadcrumbs:
+
+- [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
+- [Property reference](resources--nfv_service--reference--group-001.md#canonical-1033200313012130-2303320020000220-3032203302003212-3030323031320111-0322032022323123-0203102131300133-1232321110231101-1022222010201320)
+- [https_management](resources--nfv_service--reference--group-001.md#canonical-2012312013030011-0102312120121131-2122112110311110-1102330303132211-1031011331133302-3311032130133131-3022001211230302-3310030220221101)
+- [https_management.advertise_on_slo_vip](resources--nfv_service--reference--group-003.md#canonical-3123232331313231-1003300030030012-0013233023203203-0221011121303133-2002120310330210-0313012223300221-2030131203030100-3230303033112000)
+- [https_management.advertise_on_slo_vip.tls_certificates](resources--nfv_service--reference--group-003.md#canonical-0201100000120203-2021020301330032-0310123232303233-0102332130311132-1233200003321230-1112232313301301-3210030321330101-0101132333333033)
+- https_management.advertise_on_slo_vip.tls_certificates.private_key
+
+<a id="canonical-2123010121130221-0131130220001200-3011012221222210-1103000020112311-0111030031330223-0332201202131330-1311331301232212-1201221111331100"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+SecretType is used in an object to indicate a sensitive/confidential field.
+
+Provider validators and defaults (from schema source):
+
+```go
+EnumExtractionComplete: false
+Validators: []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info",
+    "clear_secret_info")}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-secret_info_oneof": "[\"blindfold_secret_info\",\"clear_secret_info\"]"
+}
+```
+
+Terraform syntax:
+
+```terraform
+private_key {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-3010123322220121-0000032222010111-2213122230231332-1131032110103212-1231320011210302-3020011210023211-0323313200320123-0033332301023002"></a>
+
+### Direct properties for `https_management.advertise_on_slo_vip.tls_certificates.private_key`
+
+- [blindfold_secret_info](resources--nfv_service--reference--group-004.md#canonical-0303233320112200-3220033130320200-3223032232212000-2132032213123332-1012210220020200-3102211222300113-0212030203120101-3331102210022210): complete subsection reference.
+
+- [clear_secret_info](resources--nfv_service--reference--group-004.md#canonical-2112031210010210-1111112120300332-0010203003220232-1033332002002210-1311220031111310-0113102010002113-0000010300102300-1001023330320103): complete subsection reference.
+
 <a id="canonical-0303233320112200-3220033130320200-3223032232212000-2132032213123332-1012210220020200-3102211222300113-0212030203120101-3331102210022210"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -21,7 +82,7 @@ Breadcrumbs:
 - [https_management](resources--nfv_service--reference--group-001.md#canonical-2012312013030011-0102312120121131-2122112110311110-1102330303132211-1031011331133302-3311032130133131-3022001211230302-3310030220221101)
 - [https_management.advertise_on_slo_vip](resources--nfv_service--reference--group-003.md#canonical-3123232331313231-1003300030030012-0013233023203203-0221011121303133-2002120310330210-0313012223300221-2030131203030100-3230303033112000)
 - [https_management.advertise_on_slo_vip.tls_certificates](resources--nfv_service--reference--group-003.md#canonical-0201100000120203-2021020301330032-0310123232303233-0102332130311132-1233200003321230-1112232313301301-3210030321330101-0101132333333033)
-- [https_management.advertise_on_slo_vip.tls_certificates.private_key](resources--nfv_service--reference--group-003.md#canonical-0022012123311000-1212203230321020-1330231021210332-3201020233133002-2323100303020232-0312203302233123-3000300312202110-2223011033132013)
+- [https_management.advertise_on_slo_vip.tls_certificates.private_key](resources--nfv_service--reference--group-004.md#canonical-0022012123311000-1212203230321020-1330231021210332-3201020233133002-2323100303020232-0312203302233123-3000300312202110-2223011033132013)
 - https_management.advertise_on_slo_vip.tls_certificates.private_key.blindfold_secret_info
 
 <a id="canonical-1331111321322033-3212131212031310-2231023021332322-3333003101202020-1330132302130321-1120321003203012-2230023111111213-3203033111022323"></a>
@@ -33,6 +94,7 @@ BlindfoldSecretInfoType specifies information about the Secret managed by F5XC S
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("location")}
 ```
 
@@ -107,6 +169,7 @@ store provider is an HTTP/HTTPS location.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(4, 131072),
 }
@@ -198,7 +261,7 @@ Breadcrumbs:
 - [https_management](resources--nfv_service--reference--group-001.md#canonical-2012312013030011-0102312120121131-2122112110311110-1102330303132211-1031011331133302-3311032130133131-3022001211230302-3310030220221101)
 - [https_management.advertise_on_slo_vip](resources--nfv_service--reference--group-003.md#canonical-3123232331313231-1003300030030012-0013233023203203-0221011121303133-2002120310330210-0313012223300221-2030131203030100-3230303033112000)
 - [https_management.advertise_on_slo_vip.tls_certificates](resources--nfv_service--reference--group-003.md#canonical-0201100000120203-2021020301330032-0310123232303233-0102332130311132-1233200003321230-1112232313301301-3210030321330101-0101132333333033)
-- [https_management.advertise_on_slo_vip.tls_certificates.private_key](resources--nfv_service--reference--group-003.md#canonical-0022012123311000-1212203230321020-1330231021210332-3201020233133002-2323100303020232-0312203302233123-3000300312202110-2223011033132013)
+- [https_management.advertise_on_slo_vip.tls_certificates.private_key](resources--nfv_service--reference--group-004.md#canonical-0022012123311000-1212203230321020-1330231021210332-3201020233133002-2323100303020232-0312203302233123-3000300312202110-2223011033132013)
 - https_management.advertise_on_slo_vip.tls_certificates.private_key.clear_secret_info
 
 <a id="canonical-3112202333130320-2010030322332211-3130233201012322-1221302032101201-2202113231331232-1101111313303330-3321210023100121-3320231101000232"></a>
@@ -210,6 +273,7 @@ ClearSecretInfoType specifies information about the Secret that is not encrypted
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("url")}
 ```
 
@@ -262,6 +326,7 @@ base64 decoding.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 131072),
 }
@@ -386,6 +451,7 @@ This defines various OPTIONS to configure TLS configuration parameters.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("custom_security",
     "default_security"),
   validators.ConflictingObjectAttributes("custom_security",
@@ -460,6 +526,7 @@ This defines TLS protocol config including min/max versions and allowed ciphers.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("cipher_suites")}
 ```
 
@@ -545,6 +612,8 @@ versions F5 Distributed Cloud will choose the optimal TLS version. Possible valu
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["TLS_AUTO","TLSv1_0","TLSv1_1","TLSv1_2","TLSv1_3"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("TLS_AUTO",
     "TLSv1_0",
@@ -590,6 +659,8 @@ versions F5 Distributed Cloud will choose the optimal TLS version. Possible valu
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["TLS_AUTO","TLSv1_0","TLSv1_1","TLSv1_2","TLSv1_3"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("TLS_AUTO",
     "TLSv1_0",
@@ -789,6 +860,7 @@ Validation context for downstream client TLS connections.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("crl",
     "no_crl"),
   validators.ConflictingObjectAttributes("trusted_ca",
@@ -867,6 +939,7 @@ Exclusive with \[trusted\_ca\] Upload a Root CA Certificate specifically for thi
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 131072),
 }
@@ -944,6 +1017,7 @@ Such a reference is in form of tenant/namespace/name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
 ```
 
@@ -984,6 +1058,7 @@ referred object's(e.g. Route's) name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 128),
 }
@@ -1044,6 +1119,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -1111,6 +1187,7 @@ the referred object's(e.g. Route's) tenant.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(64),
 }
@@ -1225,6 +1302,7 @@ Such a reference is in form of tenant/namespace/name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
 ```
 
@@ -1265,6 +1343,7 @@ referred object's(e.g. Route's) name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 128),
 }
@@ -1325,6 +1404,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -1392,6 +1472,7 @@ the referred object's(e.g. Route's) tenant.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(64),
 }
@@ -1505,6 +1586,7 @@ X-Forwarded-Client-Cert header elements to be added to requests.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("xfcc_header_elements")}
 ```
 
@@ -1636,6 +1718,7 @@ Palo Alto Networks VM-Series next-generation firewall configuration.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("auto_setup",
     "ssh_key"),
   validators.ConflictingObjectAttributes("disable_panaroma",
@@ -1790,6 +1873,8 @@ Additional upstream details:
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["PALO_ALTO_FW_AWS_INSTANCE_TYPE_C4_2XLARGE","PALO_ALTO_FW_AWS_INSTANCE_TYPE_C4_4XLARGE","PALO_ALTO_FW_AWS_INSTANCE_TYPE_C4_8XLARGE","PALO_ALTO_FW_AWS_INSTANCE_TYPE_C4_LARGE","PALO_ALTO_FW_AWS_INSTANCE_TYPE_C4_XLARGE","PALO_ALTO_FW_AWS_INSTANCE_TYPE_C5N_18XLARGE","PALO_ALTO_FW_AWS_INSTANCE_TYPE_C5N_2XLARGE","PALO_ALTO_FW_AWS_INSTANCE_TYPE_C5N_4XLARGE","PALO_ALTO_FW_AWS_INSTANCE_TYPE_C5N_9XLARGE","PALO_ALTO_FW_AWS_INSTANCE_TYPE_C5N_LARGE","PALO_ALTO_FW_AWS_INSTANCE_TYPE_C5N_XLARGE","PALO_ALTO_FW_AWS_INSTANCE_TYPE_C5_18XLARGE","PALO_ALTO_FW_AWS_INSTANCE_TYPE_C5_2XLARGE","PALO_ALTO_FW_AWS_INSTANCE_TYPE_C5_4XLARGE","PALO_ALTO_FW_AWS_INSTANCE_TYPE_C5_9XLARGE","PALO_ALTO_FW_AWS_INSTANCE_TYPE_C5_LARGE","PALO_ALTO_FW_AWS_INSTANCE_TYPE_C5_XLARGE","PALO_ALTO_FW_AWS_INSTANCE_TYPE_M4_2XLARGE","PALO_ALTO_FW_AWS_INSTANCE_TYPE_M4_4XLARGE","PALO_ALTO_FW_AWS_INSTANCE_TYPE_M4_XLARGE","PALO_ALTO_FW_AWS_INSTANCE_TYPE_M5N_2XLARGE","PALO_ALTO_FW_AWS_INSTANCE_TYPE_M5N_4XLARGE","PALO_ALTO_FW_AWS_INSTANCE_TYPE_M5N_LARGE","PALO_ALTO_FW_AWS_INSTANCE_TYPE_M5N_XLARGE","PALO_ALTO_FW_AWS_INSTANCE_TYPE_M5_12XLARGE","PALO_ALTO_FW_AWS_INSTANCE_TYPE_M5_2XLARGE","PALO_ALTO_FW_AWS_INSTANCE_TYPE_M5_4XLARGE","PALO_ALTO_FW_AWS_INSTANCE_TYPE_M5_LARGE","PALO_ALTO_FW_AWS_INSTANCE_TYPE_M5_XLARGE","PALO_ALTO_FW_AWS_INSTANCE_TYPE_R5_2XLARGE"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("PALO_ALTO_FW_AWS_INSTANCE_TYPE_M4_XLARGE",
     "PALO_ALTO_FW_AWS_INSTANCE_TYPE_M4_2XLARGE",
@@ -1892,6 +1977,7 @@ vmseries nodes using its corresponding SSH private key.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 8192),
 }
@@ -1946,6 +2032,7 @@ organize, search for, and filter resources in AWS console.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Map{validators.MapConstraintsValidator("{\"cardinality\":{\"maxProperties\":40},\"category\":\"discovery\",\"constraintType\":\"map\",\"deterministic\":true,\"keys\":{\"maxLength\":127,\"type\":\"string\"},\"originalRules\":{\"ves.io.schema.rules.map.keys.string.max_len\":\"127\",\"ves.io.schema.rules.map.max_pairs\":\"40\",\"ves.io.schema.rules.map.values.string.max_len\":\"255\"},\"values\":{\"maxLength\":255,\"type\":\"string\"}}")}
 ```
 
@@ -2006,6 +2093,8 @@ Type: `"string"`. Optional.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
+EnumValidators: [{"version":1,"validator":"OneOf","values":["11.0.0"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
 Validators: []validator.String{
   stringvalidator.OneOf("11.0.0"),
 }
@@ -2068,6 +2157,7 @@ will be configured.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("admin_username")}
 ```
 
@@ -2112,6 +2202,7 @@ Firewall Admin Username. Firewall Admin Username.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(256),
 }
@@ -2177,6 +2268,7 @@ SecretType is used in an object to indicate a sensitive/confidential field.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info",
     "clear_secret_info")}
 ```
@@ -2237,6 +2329,7 @@ BlindfoldSecretInfoType specifies information about the Secret managed by F5XC S
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("location")}
 ```
 
@@ -2311,6 +2404,7 @@ store provider is an HTTP/HTTPS location.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(4, 131072),
 }
@@ -2413,6 +2507,7 @@ ClearSecretInfoType specifies information about the Secret that is not encrypted
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("url")}
 ```
 
@@ -2465,6 +2560,7 @@ base64 decoding.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 131072),
 }
@@ -2541,6 +2637,7 @@ SSH Key includes both public and private key.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("public_key")}
 ```
 
@@ -2584,6 +2681,7 @@ Authorized Public SSH key which will be programmed on the node.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 8192),
 }
@@ -2661,6 +2759,7 @@ SecretType is used in an object to indicate a sensitive/confidential field.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info",
     "clear_secret_info")}
 ```
@@ -2722,6 +2821,7 @@ BlindfoldSecretInfoType specifies information about the Secret managed by F5XC S
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("location")}
 ```
 
@@ -2796,6 +2896,7 @@ store provider is an HTTP/HTTPS location.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(4, 131072),
 }
@@ -2899,6 +3000,7 @@ ClearSecretInfoType specifies information about the Secret that is not encrypted
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("url")}
 ```
 
@@ -2951,6 +3053,7 @@ base64 decoding.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 131072),
 }
@@ -3027,6 +3130,7 @@ Such a reference is in form of tenant/namespace/name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
 ```
 
@@ -3067,6 +3171,7 @@ referred object's(e.g. Route's) name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 128),
 }
@@ -3127,6 +3232,7 @@ hold the referred object's(e.g. Route's) namespace.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 63),
 }
@@ -3194,6 +3300,7 @@ the referred object's(e.g. Route's) tenant.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(64),
 }
@@ -3399,6 +3506,7 @@ Panorama Server Type.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("server")}
 ```
 
@@ -3442,6 +3550,7 @@ Device Group Name. Device Group Name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(128),
 }
@@ -3491,6 +3600,7 @@ Panorama Server Address to which the firewall should connect to.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.String{
   stringvalidator.LengthAtMost(1024),
   validators.IPValidator(),
@@ -3543,6 +3653,7 @@ Template stack name. Template Stack Name.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(128),
 }
@@ -3604,6 +3715,7 @@ SecretType is used in an object to indicate a sensitive/confidential field.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info",
     "clear_secret_info")}
 ```
@@ -3664,6 +3776,7 @@ BlindfoldSecretInfoType specifies information about the Secret managed by F5XC S
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("location")}
 ```
 
@@ -3738,6 +3851,7 @@ store provider is an HTTP/HTTPS location.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(4, 131072),
 }
@@ -3840,6 +3954,7 @@ ClearSecretInfoType specifies information about the Secret that is not encrypted
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("url")}
 ```
 
@@ -3892,6 +4007,7 @@ base64 decoding.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 131072),
 }
@@ -3967,6 +4083,7 @@ Configuration parameter for service nodes.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("nodes")}
 ```
 
@@ -4022,6 +4139,7 @@ Palo Alto Networks AZ Nodes. Configuration parameter for nodes
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.List{validators.RequiredListObjectAttributes("aws_az_name",
     "node_name"),
   validators.ConflictingListObjectAttributes("mgmt_subnet",
@@ -4089,6 +4207,7 @@ one of the AZ for sites.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(1024),
 }
@@ -4142,6 +4261,7 @@ Node Name will be used to assign as hostname to the service.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthBetween(1, 256),
 }
@@ -4219,6 +4339,7 @@ Parameters for AWS subnet.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.ConflictingObjectAttributes("existing_subnet_id",
     "subnet_param")}
 ```
@@ -4260,6 +4381,7 @@ Exclusive with \[subnet\_param\] Information about existing subnet ID.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: true
 Validators: []validator.String{
   stringvalidator.LengthAtMost(64),
 }
@@ -4328,6 +4450,7 @@ Parameters for creating a new cloud subnet.
 Provider validators and defaults (from schema source):
 
 ```go
+EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("ipv4")}
 ```
 

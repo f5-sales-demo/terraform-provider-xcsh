@@ -122,7 +122,7 @@
         "xcsh-docs:resources:bot_infrastructure:timeouts"
       ],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -157,8 +157,8 @@
     },
     {
       "aliases": ["bot infrastructure"],
-      "body_bytes": 12196,
-      "body_sha256": "sha256:06b29cc81c824327b3d62d5004a91ded95ff22d769b0e82c43865545e05ded1c",
+      "body_bytes": 12507,
+      "body_sha256": "sha256:63950d10d4fca533509a059f0ad748be8a514dd6f7089b684d0d0d902a94fc64",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -166,7 +166,7 @@
         "xcsh-docs:resources:bot_infrastructure:properties:timeouts"
       ],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -192,6 +192,8 @@
           "anchor": "schema-annotations",
           "description": "Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when modifying objects.",
           "document_id": "xcsh-docs:resources:bot_infrastructure:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -206,6 +208,8 @@
           "anchor": "section",
           "description": "F5 Cloud Hosted.",
           "document_id": "xcsh-docs:resources:bot_infrastructure:properties:create_cloud_hosted",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -237,6 +241,8 @@
           "anchor": "schema-description",
           "description": "Human readable description for the object.",
           "document_id": "xcsh-docs:resources:bot_infrastructure:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -251,6 +257,8 @@
           "anchor": "schema-disable",
           "description": "A value of true will administratively disable the object.",
           "document_id": "xcsh-docs:resources:bot_infrastructure:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -265,6 +273,8 @@
           "anchor": "schema-id",
           "description": "Unique identifier for the resource.",
           "document_id": "xcsh-docs:resources:bot_infrastructure:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
           "min_items": null,
@@ -279,6 +289,8 @@
           "anchor": "schema-labels",
           "description": "Map of string keys and values that can be used to organize and categorize (scope and select) objects as chosen by the user. Values specified here will be used by selector expression.",
           "document_id": "xcsh-docs:resources:bot_infrastructure:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -293,6 +305,8 @@
           "anchor": "schema-name",
           "description": "This is the name of configuration object. It has to be unique within the namespace. It can only be specified during create API and cannot be changed during replace API. The value of name has to follow DNS-1035 format.",
           "document_id": "xcsh-docs:resources:bot_infrastructure:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["required"],
           "max_items": null,
           "min_items": null,
@@ -307,6 +321,8 @@
           "anchor": "schema-namespace",
           "description": "This defines the workspace within which each the configuration object is to be created. Must be a DNS_LABEL format. For a namespace object itself, namespace value will be \"\"",
           "document_id": "xcsh-docs:resources:bot_infrastructure:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["required"],
           "max_items": null,
           "min_items": null,
@@ -321,6 +337,8 @@
           "anchor": "section",
           "description": "timeouts",
           "document_id": "xcsh-docs:resources:bot_infrastructure:properties:timeouts",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -335,6 +353,17 @@
           "anchor": "schema-traffic_type",
           "description": "The type of traffic that is routed to and processed by this infrastructure (Web or Mobile). Only web traffic, including browser-based traffic from mobile devices, is routed through this Bot Defense infrastructure. Only mobile traffic from native mobile apps with the Bot Defense SDK are routed through this Bot Defense",
           "document_id": "xcsh-docs:resources:bot_infrastructure:reference",
+          "enum_extraction_complete": true,
+          "enum_validators": [
+            {
+              "case_sensitive": true,
+              "complete": true,
+              "source": "ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf",
+              "validator": "OneOf",
+              "values": ["MOBILE", "WEB"],
+              "version": 1
+            }
+          ],
           "flags": ["optional", "computed"],
           "max_items": null,
           "min_items": null,
@@ -358,8 +387,8 @@
     },
     {
       "aliases": ["create cloud hosted"],
-      "body_bytes": 1912,
-      "body_sha256": "sha256:b66fcf4a538bb24545b4881454c9f210342aa2b21173646c41a68e72af6a3b2c",
+      "body_bytes": 1942,
+      "body_sha256": "sha256:5ff1b0b953863ae00de84637febee14adc69a23388aee2b2e51be95bd5d5c2d2",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -367,7 +396,7 @@
         "xcsh-docs:resources:bot_infrastructure:properties:create_cloud_hosted:testing"
       ],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -410,6 +439,8 @@
           "anchor": "schema-create_cloud_hosted--ip_addresses",
           "description": "Only traffic from these IP addresses is allowed to access this Bot Defense infrastructure.",
           "document_id": "xcsh-docs:resources:bot_infrastructure:properties:create_cloud_hosted",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -424,6 +455,8 @@
           "anchor": "section",
           "description": "Production.",
           "document_id": "xcsh-docs:resources:bot_infrastructure:properties:create_cloud_hosted:production",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -455,6 +488,8 @@
           "anchor": "section",
           "description": "Testing",
           "document_id": "xcsh-docs:resources:bot_infrastructure:properties:create_cloud_hosted:testing",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": [],
           "max_items": null,
           "min_items": null,
@@ -487,13 +522,13 @@
     },
     {
       "aliases": ["create cloud hosted production"],
-      "body_bytes": 2717,
-      "body_sha256": "sha256:012d0c0d839fe518d35224f09c0a859dde2b544eac7c57823ef7b1161b798dce",
+      "body_bytes": 2747,
+      "body_sha256": "sha256:437b0e689f6b78ccdf9fee523f848af6ca22cb10d576738d3dff352fbb3d4a85",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -536,6 +571,8 @@
           "anchor": "schema-create_cloud_hosted--production--region_1",
           "description": "This is an Active-Active Infrastructure configuration where traffic is routed equally between the two regions.",
           "document_id": "xcsh-docs:resources:bot_infrastructure:properties:create_cloud_hosted:production",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -550,6 +587,8 @@
           "anchor": "schema-create_cloud_hosted--production--region_2",
           "description": "This is an Active-Active Infrastructure configuration where traffic is routed equally between the two regions.",
           "document_id": "xcsh-docs:resources:bot_infrastructure:properties:create_cloud_hosted:production",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -573,13 +612,13 @@
     },
     {
       "aliases": ["create cloud hosted testing"],
-      "body_bytes": 1865,
-      "body_sha256": "sha256:8aaa5b00dc1fef14235d3af82ea3aba8983177131be767e4fd3de9593493911c",
+      "body_bytes": 1895,
+      "body_sha256": "sha256:db4c9962dd07f07718fba39aa39644c7a5d03d71b8cc038b0aa9a9795bb28ece",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -614,6 +653,8 @@
           "anchor": "schema-create_cloud_hosted--testing--region_1",
           "description": "This is an Active-Passive Infrastructure configuration where traffic is routed to a single region.",
           "document_id": "xcsh-docs:resources:bot_infrastructure:properties:create_cloud_hosted:testing",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -643,7 +684,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -677,6 +718,8 @@
           "anchor": "schema-timeouts--create",
           "description": "Configures the timeout duration for resource creation.",
           "document_id": "xcsh-docs:resources:bot_infrastructure:properties:timeouts",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -700,6 +743,8 @@
           "anchor": "schema-timeouts--delete",
           "description": "Configures the timeout duration for resource deletion, applicable only if changes are saved into state before destroy.",
           "document_id": "xcsh-docs:resources:bot_infrastructure:properties:timeouts",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -723,6 +768,8 @@
           "anchor": "schema-timeouts--read",
           "description": "Configures the timeout duration for read operations during refresh or planning.",
           "document_id": "xcsh-docs:resources:bot_infrastructure:properties:timeouts",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -746,6 +793,8 @@
           "anchor": "schema-timeouts--update",
           "description": "Configures the timeout duration for resource update operations.",
           "document_id": "xcsh-docs:resources:bot_infrastructure:properties:timeouts",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -775,7 +824,7 @@
       "category": "security",
       "child_ids": ["xcsh-docs:resources:bot_infrastructure:example:resource"],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -815,7 +864,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -862,7 +911,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -903,7 +952,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:4f920e935e3e9e01c1ed47fa429843ff2503dc1cd21c48cc88a4ef7a6b8b0d6a",
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
