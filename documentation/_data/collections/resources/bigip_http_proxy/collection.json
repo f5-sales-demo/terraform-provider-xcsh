@@ -2070,21 +2070,21 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "Manages BIG-IP HTTP Proxy in a given namespace. If one already exists, it will give an error in F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_bigip_http_proxy",
       "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
       "aliases": ["bigip http proxy"],
       "body_bytes": 106223,
-      "body_sha256": "sha256:d05a1e039fec5023f94305ac68d642d5d67a25e4f0bf28562a0a8d879c8ddb7c",
+      "body_sha256": "sha256:b8cb1940e12b1c0861e8082550daac17fde222612d33b38e3598a956293c0f9a",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [
@@ -2469,14 +2469,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "Property reference for xcsh_bigip_http_proxy.",
       "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -2562,14 +2562,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/advanced_profile/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This defines various advanced Profile OPTIONS for a Loadbalancer.",
       "tasks": ["configuration"],
       "title": "advanced_profile",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -2602,14 +2602,14 @@
       "schema_path": ["advanced_profile", "disable_spec"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/advanced_profile/disable_spec/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "Enable this option",
       "tasks": ["configuration"],
       "title": "advanced_profile.disable_spec",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -2642,14 +2642,14 @@
       "schema_path": ["advanced_profile", "enable_default_profile"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/advanced_profile/enable_default_profile/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "advanced_profile.enable_default_profile",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -2735,14 +2735,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/ddos_profile/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "BIG-IP DDoS Protection Rules.",
       "tasks": ["configuration"],
       "title": "ddos_profile",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -2775,14 +2775,14 @@
       "schema_path": ["ddos_profile", "disable_ddos_mitigation"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/ddos_profile/disable_ddos_mitigation/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "ddos_profile.disable_ddos_mitigation",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -2815,14 +2815,14 @@
       "schema_path": ["ddos_profile", "enable_ddos_mitigation"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/ddos_profile/enable_ddos_mitigation/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "ddos_profile.enable_ddos_mitigation",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -2881,20 +2881,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/irules/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "IRules Configuration for downstream connections.",
       "tasks": ["configuration"],
       "title": "irules",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
       "aliases": ["irules irules"],
       "body_bytes": 5646,
-      "body_sha256": "sha256:ec41d7ac0335e1a1ef966ad7d13930c3f6b5b202bb1b8118169044fd897eaba6",
+      "body_sha256": "sha256:746cfb7a8d87115362d933d276d9f4867ac0dc38ef851a7a8741f949845d143d",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -3000,14 +3000,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/irules/irules/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "OPTIONS for attaching iRules to BIG-IP HTTP Proxy.",
       "tasks": ["configuration"],
       "title": "irules.irules",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -3057,14 +3057,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/lb_algorithm/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "Load Balancing Algorithm Type.",
       "tasks": ["configuration"],
       "title": "lb_algorithm",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -3097,14 +3097,14 @@
       "schema_path": ["lb_algorithm", "round_robin"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/lb_algorithm/round_robin/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "lb_algorithm.round_robin",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -3163,20 +3163,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/origin_pools/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "List of Origin Pools.",
       "tasks": ["configuration"],
       "title": "origin_pools",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
       "aliases": ["origin pools pools"],
       "body_bytes": 5226,
-      "body_sha256": "sha256:9efd345578a376c4da3244fef67190c3747a6321564429e4dd8c7fcd95dc6273",
+      "body_sha256": "sha256:19569fe4ad74f3a01a294b3803ef9fd0409ef74216e080aec95d98b766d7f336",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": ["xcsh-docs:resources:bigip_http_proxy:properties:origin_pools:pools:origin_servers"],
@@ -3334,20 +3334,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/origin_pools/pools/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "List of Origin Pools.",
       "tasks": ["configuration"],
       "title": "origin_pools.pools",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
       "aliases": ["backend servers", "origin pools pools origin servers", "origin servers", "upstream servers"],
       "body_bytes": 3443,
-      "body_sha256": "sha256:1445b67ca9d037c3caef12dd0aa336de91523da7cb7ab22a109adf248915a2d8",
+      "body_sha256": "sha256:9b8d20dd06e86c699a27046a358efe45f881218cc854764f03b3d515116f6adf",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [
@@ -3660,14 +3660,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/origin_pools/pools/origin_servers/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "List of origin Servers for the BIG-IP HTTP Proxy.",
       "tasks": ["configuration"],
       "title": "origin_pools.pools.origin_servers",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -3700,20 +3700,20 @@
       "schema_path": ["origin_pools", "pools", "origin_servers", "automatic_port"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/origin_pools/pools/origin_servers/automatic_port/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "origin_pools.pools.origin_servers.automatic_port",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
       "aliases": ["origin pools pools origin servers health checks"],
       "body_bytes": 7118,
-      "body_sha256": "sha256:c354033e47eae26b4d4e4de2900656b9e3c79acea1ec6b88155f96ba370431e8",
+      "body_sha256": "sha256:8e02b8e5ea581c46172248deadd97ce2dae8b46f3593767135107a03682bdcf1",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [
@@ -3892,20 +3892,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/origin_pools/pools/origin_servers/health_checks/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "Origin Server Health Checks.",
       "tasks": ["configuration"],
       "title": "origin_pools.pools.origin_servers.health_checks",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
       "aliases": ["origin pools pools origin servers health checks health check"],
       "body_bytes": 2983,
-      "body_sha256": "sha256:538b8b959d30cff93163e705f1d975e7d7eaeb87aa59790494b6f72755d50e2b",
+      "body_sha256": "sha256:3799753c79010e4ed61814b5da479a75db66ca441da75a107c53194af5083b0f",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [
@@ -4021,14 +4021,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/origin_pools/pools/origin_servers/health_checks/health_check/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "List of Health Checks.",
       "tasks": ["configuration"],
       "title": "origin_pools.pools.origin_servers.health_checks.health_check",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -4061,14 +4061,14 @@
       "schema_path": ["origin_pools", "pools", "origin_servers", "health_checks", "health_check", "icmp_health_check"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/origin_pools/pools/origin_servers/health_checks/health_check/icmp_health_check/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "origin_pools.pools.origin_servers.health_checks.health_check.icmp_health_check",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -4079,7 +4079,7 @@
         "successful"
       ],
       "body_bytes": 4346,
-      "body_sha256": "sha256:4cb9101a0a8988ce597d8b1468a719e3a20d59faa8d40b0cbef6debfaca8a441",
+      "body_sha256": "sha256:fb2bac77742da9169babd66a803439801d46643a729f4deea01c70f83cd6a51b",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -4174,14 +4174,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/origin_pools/pools/origin_servers/health_checks/health_check/tcp_health_check/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "Monitor reports healthy status if UDP connection is successful and response payload matches expected response pattern.",
       "tasks": ["configuration"],
       "title": "origin_pools.pools.origin_servers.health_checks.health_check.tcp_health_check",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -4214,14 +4214,14 @@
       "schema_path": ["origin_pools", "pools", "origin_servers", "lb_port"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/origin_pools/pools/origin_servers/lb_port/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "origin_pools.pools.origin_servers.lb_port",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -4232,7 +4232,7 @@
         "upstream servers"
       ],
       "body_bytes": 3534,
-      "body_sha256": "sha256:debbd110c8775389d7e5a6265d556812e5bf45b78e5a0642f318678e8fdf44ab",
+      "body_sha256": "sha256:ebce6606f2401ea5a7f4d69dc463ae5c8dae56fd8195e54b115eb48881bc85b1",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [
@@ -4533,20 +4533,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/origin_pools/pools/origin_servers/origin_servers/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "List of origin servers for Proxy.",
       "tasks": ["configuration"],
       "title": "origin_pools.pools.origin_servers.origin_servers",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
       "aliases": ["origin pools pools origin servers origin servers k8s service"],
       "body_bytes": 5555,
-      "body_sha256": "sha256:ab9f2fb9cbaef5ba2b68dc977c92cb58bb79985c7461f187854132374957ae8d",
+      "body_sha256": "sha256:f40f3f41e57cebfcb82a9753d0321d4cb1adde2f7079299164c2bd918c11fe21",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [
@@ -4791,14 +4791,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/origin_pools/pools/origin_servers/origin_servers/k8s_service/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "Specify origin server with K8s service name and site information.",
       "tasks": ["configuration"],
       "title": "origin_pools.pools.origin_servers.origin_servers.k8s_service",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -4831,14 +4831,14 @@
       "schema_path": ["origin_pools", "pools", "origin_servers", "origin_servers", "k8s_service", "inside_network"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/origin_pools/pools/origin_servers/origin_servers/k8s_service/inside_network/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "origin_pools.pools.origin_servers.origin_servers.k8s_service.inside_network",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -4871,14 +4871,14 @@
       "schema_path": ["origin_pools", "pools", "origin_servers", "origin_servers", "k8s_service", "outside_network"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/origin_pools/pools/origin_servers/origin_servers/k8s_service/outside_network/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "origin_pools.pools.origin_servers.origin_servers.k8s_service.outside_network",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -4998,20 +4998,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/origin_pools/pools/origin_servers/origin_servers/k8s_service/site_locator/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This message defines a reference to a site or virtual site object.",
       "tasks": ["configuration"],
       "title": "origin_pools.pools.origin_servers.origin_servers.k8s_service.site_locator",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
       "aliases": ["origin pools pools origin servers origin servers k8s service site locator site"],
       "body_bytes": 6491,
-      "body_sha256": "sha256:81395da0deb7824afb6c5c8581ad8c95d8ac407e07583cc972deca03b3f30ecd",
+      "body_sha256": "sha256:7a061a8f5d743e0438fcb37204050293b160e9623e87f0b45798fa0b3a4789d0",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -5176,20 +5176,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/origin_pools/pools/origin_servers/origin_servers/k8s_service/site_locator/site/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "origin_pools.pools.origin_servers.origin_servers.k8s_service.site_locator.site",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
       "aliases": ["origin pools pools origin servers origin servers k8s service site locator virtual site"],
       "body_bytes": 6539,
-      "body_sha256": "sha256:4bdd0f4339031f331b46e2cbc8563ea3849c2be9ffe24075ac4b0a530ef95e80",
+      "body_sha256": "sha256:c53b26cb6b927cae74195d6f43a4fb9eff27a3f3d2d3c87bf78f8b564163d3b0",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -5356,14 +5356,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/origin_pools/pools/origin_servers/origin_servers/k8s_service/site_locator/virtual_site/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "origin_pools.pools.origin_servers.origin_servers.k8s_service.site_locator.virtual_site",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -5465,14 +5465,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/origin_pools/pools/origin_servers/origin_servers/k8s_service/snat_pool/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "SNAT Pool configuration.",
       "tasks": ["configuration"],
       "title": "origin_pools.pools.origin_servers.origin_servers.k8s_service.snat_pool",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -5513,20 +5513,20 @@
       ],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/origin_pools/pools/origin_servers/origin_servers/k8s_service/snat_pool/no_snat_pool/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "origin_pools.pools.origin_servers.origin_servers.k8s_service.snat_pool.no_snat_pool",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
       "aliases": ["origin pools pools origin servers origin servers k8s service snat pool snat pool"],
       "body_bytes": 3310,
-      "body_sha256": "sha256:06f455fb63cc12ec06a455349af902d552404716612bb0cd0d9c5e8084304754",
+      "body_sha256": "sha256:bcc7b6af38727167ef10f0c54e204149a5b7a52b82c619c2d0efd7e873c39976",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -5587,14 +5587,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/origin_pools/pools/origin_servers/origin_servers/k8s_service/snat_pool/snat_pool/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "List of IPv4 prefixes that represent an endpoint.",
       "tasks": ["configuration"],
       "title": "origin_pools.pools.origin_servers.origin_servers.k8s_service.snat_pool.snat_pool",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -5627,20 +5627,20 @@
       "schema_path": ["origin_pools", "pools", "origin_servers", "origin_servers", "k8s_service", "vk8s_networks"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/origin_pools/pools/origin_servers/origin_servers/k8s_service/vk8s_networks/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "origin_pools.pools.origin_servers.origin_servers.k8s_service.vk8s_networks",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
       "aliases": ["origin pools pools origin servers origin servers private ip"],
       "body_bytes": 4146,
-      "body_sha256": "sha256:689d456f9fc0edc3edd039ac95d55f7b761452670a9c267d99b6e3f13dae2593",
+      "body_sha256": "sha256:b8d08311564d11649c62287522ee5478311d165132d6bbf17611c9f600c5d22f",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [
@@ -5862,14 +5862,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/origin_pools/pools/origin_servers/origin_servers/private_ip/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "Specify origin server with private or public IP address and site information.",
       "tasks": ["configuration"],
       "title": "origin_pools.pools.origin_servers.origin_servers.private_ip",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -5902,14 +5902,14 @@
       "schema_path": ["origin_pools", "pools", "origin_servers", "origin_servers", "private_ip", "inside_network"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/origin_pools/pools/origin_servers/origin_servers/private_ip/inside_network/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "origin_pools.pools.origin_servers.origin_servers.private_ip.inside_network",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -5942,20 +5942,20 @@
       "schema_path": ["origin_pools", "pools", "origin_servers", "origin_servers", "private_ip", "outside_network"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/origin_pools/pools/origin_servers/origin_servers/private_ip/outside_network/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "origin_pools.pools.origin_servers.origin_servers.private_ip.outside_network",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
       "aliases": ["origin pools pools origin servers origin servers private ip segment"],
       "body_bytes": 6186,
-      "body_sha256": "sha256:28c834ba9da70d33328d80269a8682d47a82dbe2f684118c20925766a0a6fe23",
+      "body_sha256": "sha256:cfd72b6daabbd0eecd7a376ea1bd9f7c4dd532b863bd00811e2a04cee3cfa3ab",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -6077,14 +6077,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/origin_pools/pools/origin_servers/origin_servers/private_ip/segment/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "origin_pools.pools.origin_servers.origin_servers.private_ip.segment",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -6204,20 +6204,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/origin_pools/pools/origin_servers/origin_servers/private_ip/site_locator/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This message defines a reference to a site or virtual site object.",
       "tasks": ["configuration"],
       "title": "origin_pools.pools.origin_servers.origin_servers.private_ip.site_locator",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
       "aliases": ["origin pools pools origin servers origin servers private ip site locator site"],
       "body_bytes": 6482,
-      "body_sha256": "sha256:8e75ca132be981f82b0a855040fd1931df4b8556ff02c2c4078ab2390f17d9ef",
+      "body_sha256": "sha256:21e910cb6a2234057e471919d8c1774987f6c11f71eaad4d9348300ba9bf999c",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -6382,20 +6382,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/origin_pools/pools/origin_servers/origin_servers/private_ip/site_locator/site/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "origin_pools.pools.origin_servers.origin_servers.private_ip.site_locator.site",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
       "aliases": ["origin pools pools origin servers origin servers private ip site locator virtual site"],
       "body_bytes": 6530,
-      "body_sha256": "sha256:e54b75e1266626a845fbc62231aa57aa5b4d3cb14633943c38af9f2824218b97",
+      "body_sha256": "sha256:85d378ba19a82fb911e63d33ff2f0f9438437f6ecf2e6fe9a3927daae13d2455",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -6562,14 +6562,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/origin_pools/pools/origin_servers/origin_servers/private_ip/site_locator/virtual_site/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "origin_pools.pools.origin_servers.origin_servers.private_ip.site_locator.virtual_site",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -6671,14 +6671,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/origin_pools/pools/origin_servers/origin_servers/private_ip/snat_pool/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "SNAT Pool configuration.",
       "tasks": ["configuration"],
       "title": "origin_pools.pools.origin_servers.origin_servers.private_ip.snat_pool",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -6719,20 +6719,20 @@
       ],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/origin_pools/pools/origin_servers/origin_servers/private_ip/snat_pool/no_snat_pool/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "origin_pools.pools.origin_servers.origin_servers.private_ip.snat_pool.no_snat_pool",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
       "aliases": ["origin pools pools origin servers origin servers private ip snat pool snat pool"],
       "body_bytes": 3303,
-      "body_sha256": "sha256:58802baf99702884e9a78d7200302c47beba50a3d74ebd1d5a2730c2fdf78da0",
+      "body_sha256": "sha256:41b86d76724cff6091286144edadf32058980194f333ded221f63ba6528a075d",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -6793,20 +6793,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/origin_pools/pools/origin_servers/origin_servers/private_ip/snat_pool/snat_pool/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "List of IPv4 prefixes that represent an endpoint.",
       "tasks": ["configuration"],
       "title": "origin_pools.pools.origin_servers.origin_servers.private_ip.snat_pool.snat_pool",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
       "aliases": ["origin pools pools origin servers origin servers public ip"],
       "body_bytes": 2574,
-      "body_sha256": "sha256:acdec548dc40cdd4e319249e0c9697d802c796c00d94d51b3cac0de484426e27",
+      "body_sha256": "sha256:19b9f005596523d45467413783fc6b8c62113c29496fb6331110e5bf7a2dc3ca",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -6850,20 +6850,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/origin_pools/pools/origin_servers/origin_servers/public_ip/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "Specify origin server with public IP address.",
       "tasks": ["configuration"],
       "title": "origin_pools.pools.origin_servers.origin_servers.public_ip",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
       "aliases": ["origin pools pools origin servers origin servers public name"],
       "body_bytes": 4549,
-      "body_sha256": "sha256:cabedf663d0db79f909b23172e9fbeb9fe1ada937b020590f71fc8dada311b7c",
+      "body_sha256": "sha256:97dcb1e44fe2f2d4c88afe70e7784f3a00b82777f0812d93edc130052bc2a42d",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -6939,14 +6939,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/origin_pools/pools/origin_servers/origin_servers/public_name/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "Specify origin server with public DNS name.",
       "tasks": ["configuration"],
       "title": "origin_pools.pools.origin_servers.origin_servers.public_name",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -7041,14 +7041,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_advertisement/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "Proxy Advertisement Type.",
       "tasks": ["configuration"],
       "title": "proxy_advertisement",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -7606,20 +7606,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_advertisement/advertise_custom/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This defines a way to advertise a VIP on specific sites.",
       "tasks": ["configuration"],
       "title": "proxy_advertisement.advertise_custom",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
       "aliases": ["proxy advertisement advertise custom advertise where"],
       "body_bytes": 9593,
-      "body_sha256": "sha256:14757ce967edfdb65882cfffeec4e4f09e0df38307317d1b9566000864bc4548",
+      "body_sha256": "sha256:2e126260da0a9e025e3183ce4d3838c722c1c32c74ed2c6d55e8a516a94ce9b5",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [
@@ -8385,14 +8385,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_advertisement/advertise_custom/advertise_where/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "Where should this load balancer be available.",
       "tasks": ["configuration"],
       "title": "proxy_advertisement.advertise_custom.advertise_where",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -8459,20 +8459,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_advertisement/advertise_custom/advertise_where/advertise_dualstack_on_public/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This defines a way to advertise a load balancer on public. If optional public_ip is provided, it will only be advertised on RE sites where that public_ip is available.",
       "tasks": ["configuration"],
       "title": "proxy_advertisement.advertise_custom.advertise_where.advertise_dualstack_on_public",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
       "aliases": ["proxy advertisement advertise custom advertise where advertise dualstack on public public ip"],
       "body_bytes": 6246,
-      "body_sha256": "sha256:f9606bbf6e26c9b3340994ad707bb1159d3bbca3fc6b483678351ae0d391bf4d",
+      "body_sha256": "sha256:671a94cd2132bf752b246ec719da67d728b7b7b63ae6338f14893d051d621418",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -8629,14 +8629,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_advertisement/advertise_custom/advertise_where/advertise_dualstack_on_public/public_ip/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "proxy_advertisement.advertise_custom.advertise_where.advertise_dualstack_on_public.public_ip",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -8703,20 +8703,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_advertisement/advertise_custom/advertise_where/advertise_on_public/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This defines a way to advertise a load balancer on public. If optional public_ip is provided, it will only be advertised on RE sites where that public_ip is available.",
       "tasks": ["configuration"],
       "title": "proxy_advertisement.advertise_custom.advertise_where.advertise_on_public",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
       "aliases": ["proxy advertisement advertise custom advertise where advertise on public public ip"],
       "body_bytes": 6176,
-      "body_sha256": "sha256:d87060a0999c82801fbf8ed12495a8309c54521f3dbce39cb870aef9a44f3c94",
+      "body_sha256": "sha256:5b81beaefa8eef34dced30f174a289f42acf4acb215688e68c0bcb1b0ef67cc7",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -8861,14 +8861,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_advertisement/advertise_custom/advertise_where/advertise_on_public/public_ip/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "proxy_advertisement.advertise_custom.advertise_where.advertise_on_public.public_ip",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -8935,20 +8935,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_advertisement/advertise_custom/advertise_where/advertise_v6_on_public/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This defines a way to advertise a load balancer on public. If optional public_ip is provided, it will only be advertised on RE sites where that public_ip is available.",
       "tasks": ["configuration"],
       "title": "proxy_advertisement.advertise_custom.advertise_where.advertise_v6_on_public",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
       "aliases": ["proxy advertisement advertise custom advertise where advertise v6 on public public ip"],
       "body_bytes": 6197,
-      "body_sha256": "sha256:c8e12f7150d30a806c2f355aec08c47857e7c9f7ab20815d699f6834f268f653",
+      "body_sha256": "sha256:096bb0155fdb8e91133e5aa51dd30c8be40502f35a731de35e685a75bfc24fec",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -9101,20 +9101,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_advertisement/advertise_custom/advertise_where/advertise_v6_on_public/public_ip/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "proxy_advertisement.advertise_custom.advertise_where.advertise_v6_on_public.public_ip",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
       "aliases": ["proxy advertisement advertise custom advertise where site"],
       "body_bytes": 5291,
-      "body_sha256": "sha256:981a421af331db74670d82ed5b9063fa4f4ebc465657aaa00dcc65c52ad7f2b7",
+      "body_sha256": "sha256:e72d141b783b3bb654cfde00853429da5e734b8b6b79382229f3f7314cb60b0f",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [
@@ -9218,20 +9218,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_advertisement/advertise_custom/advertise_where/site/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This defines a reference to a CE site along with network type and an optional IP address where a load balancer could be advertised.",
       "tasks": ["configuration"],
       "title": "proxy_advertisement.advertise_custom.advertise_where.site",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
       "aliases": ["proxy advertisement advertise custom advertise where site site"],
       "body_bytes": 6041,
-      "body_sha256": "sha256:d6f9e7e4f24735a501c60aafbde5b38d57ce3fee1d0db78b5ffd086f130c23c0",
+      "body_sha256": "sha256:2b030f03053a369c62f338b453f2780c0b2f8d59b7d5401b1d611aca48463a54",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -9337,14 +9337,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_advertisement/advertise_custom/advertise_where/site/site/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "proxy_advertisement.advertise_custom.advertise_where.site.site",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -9377,20 +9377,20 @@
       "schema_path": ["proxy_advertisement", "advertise_custom", "advertise_where", "use_default_port"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_advertisement/advertise_custom/advertise_where/use_default_port/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "proxy_advertisement.advertise_custom.advertise_where.use_default_port",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
       "aliases": ["proxy advertisement advertise custom advertise where virtual network"],
       "body_bytes": 4712,
-      "body_sha256": "sha256:9cb165f60eee645072c9334f3b1995108d7b8f4c5fbda0d80328b2140147ac1c",
+      "body_sha256": "sha256:272139170d7455ccaeb0146dbd8a73fb04d0fbfa63a919617de6d1ac6d55b31d",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [
@@ -9574,14 +9574,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_advertisement/advertise_custom/advertise_where/virtual_network/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "Parameters to advertise on a given virtual network.",
       "tasks": ["configuration"],
       "title": "proxy_advertisement.advertise_custom.advertise_where.virtual_network",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -9620,14 +9620,14 @@
       ],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_advertisement/advertise_custom/advertise_where/virtual_network/default_v6_vip/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "proxy_advertisement.advertise_custom.advertise_where.virtual_network.default_v6_vip",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -9660,20 +9660,20 @@
       "schema_path": ["proxy_advertisement", "advertise_custom", "advertise_where", "virtual_network", "default_vip"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_advertisement/advertise_custom/advertise_where/virtual_network/default_vip/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "proxy_advertisement.advertise_custom.advertise_where.virtual_network.default_vip",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
       "aliases": ["proxy advertisement advertise custom advertise where virtual network virtual network"],
       "body_bytes": 6184,
-      "body_sha256": "sha256:87ef08d16e4a05836a459c063ebfd8255d7550ed05ede9d04f6515dd693c968b",
+      "body_sha256": "sha256:b599e5f46404f19683f69eaa9f19120a359a348dd60da0322818b5040385cbb3",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -9824,14 +9824,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_advertisement/advertise_custom/advertise_where/virtual_network/virtual_network/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "proxy_advertisement.advertise_custom.advertise_where.virtual_network.virtual_network",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -9925,20 +9925,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_advertisement/advertise_custom/advertise_where/virtual_site/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This defines a reference to a customer site virtual site along with network type where a load balancer could be advertised.",
       "tasks": ["configuration"],
       "title": "proxy_advertisement.advertise_custom.advertise_where.virtual_site",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
       "aliases": ["proxy advertisement advertise custom advertise where virtual site virtual site"],
       "body_bytes": 6145,
-      "body_sha256": "sha256:d4d3c7a257ee4f3312369ccf6172d5e91dd5e838229ed45a3e1167b40a62af73",
+      "body_sha256": "sha256:bd22de5a389d88894f7da5a61a3f57282ec81579a06af92a7de928b760e2000d",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -10083,20 +10083,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_advertisement/advertise_custom/advertise_where/virtual_site/virtual_site/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "proxy_advertisement.advertise_custom.advertise_where.virtual_site.virtual_site",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
       "aliases": ["proxy advertisement advertise custom advertise where virtual site with vip"],
       "body_bytes": 4264,
-      "body_sha256": "sha256:a6517c11f4559af9b070fa5c4c834217728d6ce057c77e10d0bfffc2569236a7",
+      "body_sha256": "sha256:a2755e2eaf8b843a1f85305bc85b6488c63c0f0b1b9ef2ba69519419b6f060df",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [
@@ -10204,20 +10204,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_advertisement/advertise_custom/advertise_where/virtual_site_with_vip/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This defines a reference to a customer site virtual site along with network type and IP where a load balancer could be advertised.",
       "tasks": ["configuration"],
       "title": "proxy_advertisement.advertise_custom.advertise_where.virtual_site_with_vip",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
       "aliases": ["proxy advertisement advertise custom advertise where virtual site with vip virtual site"],
       "body_bytes": 6208,
-      "body_sha256": "sha256:712aa400cbfa45678eb3ace423cafb1a8a6c26cdc15a30f9e732469e7415ee5d",
+      "body_sha256": "sha256:fb73ad7835cc213e144044addbf8c2456a9baf04d4d564ea7c869213f7d0b1c3",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -10370,14 +10370,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_advertisement/advertise_custom/advertise_where/virtual_site_with_vip/virtual_site/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "proxy_advertisement.advertise_custom.advertise_where.virtual_site_with_vip.virtual_site",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -10481,20 +10481,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_advertisement/advertise_custom/advertise_where/vk8s_service/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This defines a reference to a RE site or virtual site where a load balancer could be advertised in the vK8s service network.",
       "tasks": ["configuration"],
       "title": "proxy_advertisement.advertise_custom.advertise_where.vk8s_service",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
       "aliases": ["proxy advertisement advertise custom advertise where vk8s service site"],
       "body_bytes": 6097,
-      "body_sha256": "sha256:8f84af2372e67b23f68761e9ade9786fc69f5ea1939ede516bab458a061f4da9",
+      "body_sha256": "sha256:9fe0ee0f626d2c8b99b90c0f8befeba1e4a6ab9f1b54c0dd860cafdd91e6c88f",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -10614,20 +10614,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_advertisement/advertise_custom/advertise_where/vk8s_service/site/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "proxy_advertisement.advertise_custom.advertise_where.vk8s_service.site",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
       "aliases": ["proxy advertisement advertise custom advertise where vk8s service virtual site"],
       "body_bytes": 6145,
-      "body_sha256": "sha256:70ef25b3a6a2181285f1feb133428083a29f273a3438269749be9ebb4ee5bea5",
+      "body_sha256": "sha256:e93657f7c74ef71dda1e7a0fb60fd5ed499da6874e899b74a225eed0b7acca9d",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -10772,14 +10772,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_advertisement/advertise_custom/advertise_where/vk8s_service/virtual_site/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "proxy_advertisement.advertise_custom.advertise_where.vk8s_service.virtual_site",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -10812,20 +10812,20 @@
       "schema_path": ["proxy_advertisement", "do_not_advertise"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_advertisement/do_not_advertise/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "proxy_advertisement.do_not_advertise",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
       "aliases": ["proxy config"],
       "body_bytes": 4115,
-      "body_sha256": "sha256:52e978e5670b51cd58ea1978e0e1b32c542984672110c36aa83448818cf377a2",
+      "body_sha256": "sha256:aafb42c02339709778672298c820d74ff52e4b5b5581038c382ef3f423b4f988",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [
@@ -11322,20 +11322,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_config/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "HTTP/HTTPS Load balancer.",
       "tasks": ["configuration"],
       "title": "proxy_config",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
       "aliases": ["proxy config http"],
       "body_bytes": 4215,
-      "body_sha256": "sha256:13f1e0d99a31b2b1871b2c943ab0843417f0e33e4f70fdccfc1022d53afb9607",
+      "body_sha256": "sha256:dc64f7f0cb0394b2e9b458c7b950339774b02d9e1e985083d0775c061a72256c",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -11428,20 +11428,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_config/http/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "Choice for selecting HTTP proxy.",
       "tasks": ["configuration"],
       "title": "proxy_config.http",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
       "aliases": ["proxy config https"],
       "body_bytes": 10921,
-      "body_sha256": "sha256:e9ad2be4fc236d0012ba263007ec0b197490806ee261e1c7b6bbc6977ecbcdf2",
+      "body_sha256": "sha256:56af16c88918199265d3df3ded5e06fc2ff19d3a6a95dcab185fda804f724a84",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [
@@ -12029,14 +12029,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_config/https/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "Choice for selecting HTTP proxy with bring your own certificates.",
       "tasks": ["configuration"],
       "title": "proxy_config.https",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -12122,14 +12122,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_config/https/coalescing_options/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "TLS connection coalescing configuration (not compatible with mTLS)",
       "tasks": ["configuration"],
       "title": "proxy_config.https.coalescing_options",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -12162,14 +12162,14 @@
       "schema_path": ["proxy_config", "https", "coalescing_options", "default_coalescing"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_config/https/coalescing_options/default_coalescing/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "proxy_config.https.coalescing_options.default_coalescing",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -12202,14 +12202,14 @@
       "schema_path": ["proxy_config", "https", "coalescing_options", "strict_coalescing"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_config/https/coalescing_options/strict_coalescing/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "proxy_config.https.coalescing_options.strict_coalescing",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -12242,14 +12242,14 @@
       "schema_path": ["proxy_config", "https", "default_header"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_config/https/default_header/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "proxy_config.https.default_header",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -12282,14 +12282,14 @@
       "schema_path": ["proxy_config", "https", "default_loadbalancer"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_config/https/default_loadbalancer/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "proxy_config.https.default_loadbalancer",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -12322,14 +12322,14 @@
       "schema_path": ["proxy_config", "https", "disable_path_normalize"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_config/https/disable_path_normalize/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "proxy_config.https.disable_path_normalize",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -12362,14 +12362,14 @@
       "schema_path": ["proxy_config", "https", "enable_path_normalize"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_config/https/enable_path_normalize/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "proxy_config.https.enable_path_normalize",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -12504,14 +12504,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_config/https/http_protocol_options/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "HTTP protocol configuration OPTIONS for downstream connections.",
       "tasks": ["configuration"],
       "title": "proxy_config.https.http_protocol_options",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -12618,14 +12618,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_config/https/http_protocol_options/http_protocol_enable_v1_only/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "HTTP/1.1 Protocol OPTIONS for downstream connections.",
       "tasks": ["configuration"],
       "title": "proxy_config.https.http_protocol_options.http_protocol_enable_v1_only",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -12793,14 +12793,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_config/https/http_protocol_options/http_protocol_enable_v1_only/header_transformation/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "Header Transformation OPTIONS for HTTP/1.1 request/response headers.",
       "tasks": ["configuration"],
       "title": "proxy_config.https.http_protocol_options.http_protocol_enable_v1_only.header_transformation",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -12842,14 +12842,14 @@
       ],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_config/https/http_protocol_options/http_protocol_enable_v1_only/header_transformation/default_header_transformation/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "Use the platform's current default HTTP header transformation behavior.",
       "tasks": ["configuration"],
       "title": "proxy_config.https.http_protocol_options.http_protocol_enable_v1_only.header_transformation.default_header_transformation",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -12891,14 +12891,14 @@
       ],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_config/https/http_protocol_options/http_protocol_enable_v1_only/header_transformation/preserve_case_header_transformation/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "Preserve HTTP header-name case when upstream case must remain unchanged.",
       "tasks": ["configuration"],
       "title": "proxy_config.https.http_protocol_options.http_protocol_enable_v1_only.header_transformation.preserve_case_header_transformation",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -12940,14 +12940,14 @@
       ],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_config/https/http_protocol_options/http_protocol_enable_v1_only/header_transformation/proper_case_header_transformation/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "Transform HTTP header names to proper case when explicit transformation is required.",
       "tasks": ["configuration"],
       "title": "proxy_config.https.http_protocol_options.http_protocol_enable_v1_only.header_transformation.proper_case_header_transformation",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -12980,14 +12980,14 @@
       "schema_path": ["proxy_config", "https", "http_protocol_options", "http_protocol_enable_v1_v2"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_config/https/http_protocol_options/http_protocol_enable_v1_v2/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "proxy_config.https.http_protocol_options.http_protocol_enable_v1_v2",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -13020,14 +13020,14 @@
       "schema_path": ["proxy_config", "https", "http_protocol_options", "http_protocol_enable_v2_only"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_config/https/http_protocol_options/http_protocol_enable_v2_only/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "proxy_config.https.http_protocol_options.http_protocol_enable_v2_only",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -13060,14 +13060,14 @@
       "schema_path": ["proxy_config", "https", "non_default_loadbalancer"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_config/https/non_default_loadbalancer/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "proxy_config.https.non_default_loadbalancer",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -13100,14 +13100,14 @@
       "schema_path": ["proxy_config", "https", "pass_through"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_config/https/pass_through/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "proxy_config.https.pass_through",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -13396,14 +13396,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_config/https/tls_cert_params/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "Select TLS Parameters and Certificates.",
       "tasks": ["configuration"],
       "title": "proxy_config.https.tls_cert_params",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -13415,7 +13415,7 @@
         "tls certificates"
       ],
       "body_bytes": 6254,
-      "body_sha256": "sha256:c55c5490b80d80c2364b524d77d329505031927aaf6cb5be07be5abf58a27f0e",
+      "body_sha256": "sha256:4c0bb1aaf3bd8ee714b43e058752a817980246579e9bf5830d44de8d2e1cb0cc",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -13521,14 +13521,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_config/https/tls_cert_params/certificates/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "Select one or more certificates with any domain names.",
       "tasks": ["configuration"],
       "title": "proxy_config.https.tls_cert_params.certificates",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -13561,14 +13561,14 @@
       "schema_path": ["proxy_config", "https", "tls_cert_params", "no_mtls"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_config/https/tls_cert_params/no_mtls/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "proxy_config.https.tls_cert_params.no_mtls",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -13777,20 +13777,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_config/https/tls_cert_params/tls_config/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This defines various OPTIONS to configure TLS configuration parameters.",
       "tasks": ["configuration"],
       "title": "proxy_config.https.tls_cert_params.tls_config",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
       "aliases": ["proxy config https tls cert params tls config custom security"],
       "body_bytes": 6676,
-      "body_sha256": "sha256:035880ed2208b3989a80bbaec5eb10c740b946ad8e1c09c425d36241e6bc460c",
+      "body_sha256": "sha256:bad238ff5743c9d15db89fc69968117b21a5923c0d0baf83e31534a5500f83f5",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -13893,14 +13893,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_config/https/tls_cert_params/tls_config/custom_security/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This defines TLS protocol config including min/max versions and allowed ciphers.",
       "tasks": ["configuration"],
       "title": "proxy_config.https.tls_cert_params.tls_config.custom_security",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -13933,14 +13933,14 @@
       "schema_path": ["proxy_config", "https", "tls_cert_params", "tls_config", "default_security"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_config/https/tls_cert_params/tls_config/default_security/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "proxy_config.https.tls_cert_params.tls_config.default_security",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -13973,14 +13973,14 @@
       "schema_path": ["proxy_config", "https", "tls_cert_params", "tls_config", "low_security"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_config/https/tls_cert_params/tls_config/low_security/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "proxy_config.https.tls_cert_params.tls_config.low_security",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -14013,20 +14013,20 @@
       "schema_path": ["proxy_config", "https", "tls_cert_params", "tls_config", "medium_security"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_config/https/tls_cert_params/tls_config/medium_security/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "proxy_config.https.tls_cert_params.tls_config.medium_security",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
       "aliases": ["proxy config https tls cert params use mtls"],
       "body_bytes": 4806,
-      "body_sha256": "sha256:d9ca3ec24172bd634742a2115c7004019c9c2f02cb58a03c2cea13a42641365d",
+      "body_sha256": "sha256:c2e1efa4a6a8cf5361bcb7bf36af115abd36a229abc00a4cf5bb1ae630d77ddd",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [
@@ -14248,20 +14248,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_config/https/tls_cert_params/use_mtls/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "Validation context for downstream client TLS connections.",
       "tasks": ["configuration"],
       "title": "proxy_config.https.tls_cert_params.use_mtls",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
       "aliases": ["proxy config https tls cert params use mtls crl"],
       "body_bytes": 5851,
-      "body_sha256": "sha256:d6968314d681dbd909585474fc0f55312cac172c9b3b654c19d437a1f460e0f6",
+      "body_sha256": "sha256:49659e1f3c583e6cebe544171d7a2db08f5f993fa4a546151a56cb3dbc6b9472",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -14367,14 +14367,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_config/https/tls_cert_params/use_mtls/crl/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "proxy_config.https.tls_cert_params.use_mtls.crl",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -14407,20 +14407,20 @@
       "schema_path": ["proxy_config", "https", "tls_cert_params", "use_mtls", "no_crl"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_config/https/tls_cert_params/use_mtls/no_crl/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "proxy_config.https.tls_cert_params.use_mtls.no_crl",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
       "aliases": ["proxy config https tls cert params use mtls trusted ca"],
       "body_bytes": 5893,
-      "body_sha256": "sha256:c03f10b2409d7fb287123f853a2f9eab3034ed8c8393ccaa3f544fd1deaddca3",
+      "body_sha256": "sha256:a9c4d13b694ef37a2ba1e60e8580a661df8131789b8ee10f29193e17fbf7d2c0",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -14526,14 +14526,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_config/https/tls_cert_params/use_mtls/trusted_ca/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "proxy_config.https.tls_cert_params.use_mtls.trusted_ca",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -14566,14 +14566,14 @@
       "schema_path": ["proxy_config", "https", "tls_cert_params", "use_mtls", "xfcc_disabled"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_config/https/tls_cert_params/use_mtls/xfcc_disabled/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "proxy_config.https.tls_cert_params.use_mtls.xfcc_disabled",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -14639,14 +14639,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_config/https/tls_cert_params/use_mtls/xfcc_options/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "X-Forwarded-Client-Cert header elements to be added to requests.",
       "tasks": ["configuration"],
       "title": "proxy_config.https.tls_cert_params.use_mtls.xfcc_options",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -14983,14 +14983,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_config/https/tls_parameters/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "Inline TLS parameters.",
       "tasks": ["configuration"],
       "title": "proxy_config.https.tls_parameters",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -15023,14 +15023,14 @@
       "schema_path": ["proxy_config", "https", "tls_parameters", "no_mtls"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_config/https/tls_parameters/no_mtls/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "proxy_config.https.tls_parameters.no_mtls",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -15042,7 +15042,7 @@
         "tls certificates"
       ],
       "body_bytes": 5155,
-      "body_sha256": "sha256:26320b8fa31e54964dfe281f1788a8f5ea4a4a031aa41eba072cb5a836dc86bb",
+      "body_sha256": "sha256:1fd54dd4b6b69e047265203e4f7ec8ebb27e1002078811441cb8c8c5f1866514",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [
@@ -15260,20 +15260,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_config/https/tls_parameters/tls_certificates/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "Users can add one or more certificates that share the same set of domains. For example, domain.com and *.domain.com - but use different signature algorithms.",
       "tasks": ["configuration"],
       "title": "proxy_config.https.tls_parameters.tls_certificates",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
       "aliases": ["proxy config https tls parameters tls certificates custom hash algorithms"],
       "body_bytes": 3281,
-      "body_sha256": "sha256:2a355ca3877b664cfe7b7870b3e7dd98236730fba05ba8f1d73623b81518220c",
+      "body_sha256": "sha256:781545f3d42ed862f57df903ed7d48e3516d546b100fbb5acaaf3aafdedf1321",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -15333,14 +15333,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_config/https/tls_parameters/tls_certificates/custom_hash_algorithms/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "Specifies the hash algorithms to be used.",
       "tasks": ["configuration"],
       "title": "proxy_config.https.tls_parameters.tls_certificates.custom_hash_algorithms",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -15373,14 +15373,14 @@
       "schema_path": ["proxy_config", "https", "tls_parameters", "tls_certificates", "disable_ocsp_stapling"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_config/https/tls_parameters/tls_certificates/disable_ocsp_stapling/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "proxy_config.https.tls_parameters.tls_certificates.disable_ocsp_stapling",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -15498,20 +15498,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_config/https/tls_parameters/tls_certificates/private_key/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "SecretType is used in an object to indicate a sensitive/confidential field.",
       "tasks": ["configuration"],
       "title": "proxy_config.https.tls_parameters.tls_certificates.private_key",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
       "aliases": ["proxy config https tls parameters tls certificates private key blindfold secret info"],
       "body_bytes": 5075,
-      "body_sha256": "sha256:0d0dbf6a84c4889c78f26174e85d79b55048d75079a912e691a233c10c012149",
+      "body_sha256": "sha256:88a547d9ac10403c27be957d00c135129a68c23cb7faa8e88ccca4fab697f80a",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -15631,20 +15631,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_config/https/tls_parameters/tls_certificates/private_key/blindfold_secret_info/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
       "tasks": ["configuration"],
       "title": "proxy_config.https.tls_parameters.tls_certificates.private_key.blindfold_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
       "aliases": ["proxy config https tls parameters tls certificates private key clear secret info"],
       "body_bytes": 4054,
-      "body_sha256": "sha256:bbecaa37532bf1983891cb9f406f2cab8aa75ae564f2dc868b1a2a6120b3df85",
+      "body_sha256": "sha256:0240243edb5d2bbac6515e70915f164370eb9afe6d475e1fe03c80935c95f6cb",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -15736,14 +15736,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_config/https/tls_parameters/tls_certificates/private_key/clear_secret_info/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
       "tasks": ["configuration"],
       "title": "proxy_config.https.tls_parameters.tls_certificates.private_key.clear_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -15776,14 +15776,14 @@
       "schema_path": ["proxy_config", "https", "tls_parameters", "tls_certificates", "use_system_defaults"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_config/https/tls_parameters/tls_certificates/use_system_defaults/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "proxy_config.https.tls_parameters.tls_certificates.use_system_defaults",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -15992,20 +15992,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_config/https/tls_parameters/tls_config/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This defines various OPTIONS to configure TLS configuration parameters.",
       "tasks": ["configuration"],
       "title": "proxy_config.https.tls_parameters.tls_config",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
       "aliases": ["proxy config https tls parameters tls config custom security"],
       "body_bytes": 6667,
-      "body_sha256": "sha256:9b8388c38acced3b21d5221186744f3006e264a99efead32607569f0643b1013",
+      "body_sha256": "sha256:6566f9c9e657db5592e5761a5c6c455c622141559d4f08b00d0d5b08055f2575",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -16108,14 +16108,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_config/https/tls_parameters/tls_config/custom_security/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This defines TLS protocol config including min/max versions and allowed ciphers.",
       "tasks": ["configuration"],
       "title": "proxy_config.https.tls_parameters.tls_config.custom_security",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -16148,14 +16148,14 @@
       "schema_path": ["proxy_config", "https", "tls_parameters", "tls_config", "default_security"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_config/https/tls_parameters/tls_config/default_security/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "proxy_config.https.tls_parameters.tls_config.default_security",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -16188,14 +16188,14 @@
       "schema_path": ["proxy_config", "https", "tls_parameters", "tls_config", "low_security"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_config/https/tls_parameters/tls_config/low_security/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "proxy_config.https.tls_parameters.tls_config.low_security",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -16228,20 +16228,20 @@
       "schema_path": ["proxy_config", "https", "tls_parameters", "tls_config", "medium_security"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_config/https/tls_parameters/tls_config/medium_security/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "proxy_config.https.tls_parameters.tls_config.medium_security",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
       "aliases": ["proxy config https tls parameters use mtls"],
       "body_bytes": 4795,
-      "body_sha256": "sha256:46aa2b0733373e30a498e0996dc580ab74aac7c9920cc505fc90b76e49526b1b",
+      "body_sha256": "sha256:1328bde2180ec3f9a80f4fe71b79ad39d9284de4c616cf8c0873cf4d84f0403d",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [
@@ -16463,20 +16463,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_config/https/tls_parameters/use_mtls/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "Validation context for downstream client TLS connections.",
       "tasks": ["configuration"],
       "title": "proxy_config.https.tls_parameters.use_mtls",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
       "aliases": ["proxy config https tls parameters use mtls crl"],
       "body_bytes": 5842,
-      "body_sha256": "sha256:0375afbd8dadc2ccd464401b9e46cf2c76fdcf53ef65df2f1c2a50cb7d693f84",
+      "body_sha256": "sha256:f700de8c40376c8e1448ed246aa75158f9e227d545ffd96e3fdd3c5b441c309d",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -16582,14 +16582,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_config/https/tls_parameters/use_mtls/crl/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "proxy_config.https.tls_parameters.use_mtls.crl",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -16622,20 +16622,20 @@
       "schema_path": ["proxy_config", "https", "tls_parameters", "use_mtls", "no_crl"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_config/https/tls_parameters/use_mtls/no_crl/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "proxy_config.https.tls_parameters.use_mtls.no_crl",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
       "aliases": ["proxy config https tls parameters use mtls trusted ca"],
       "body_bytes": 5884,
-      "body_sha256": "sha256:036cd593a50d9d576d3e816eacd4c7930f62ebc265709a1f6874d85647231f6a",
+      "body_sha256": "sha256:d9767c75e161e36b8a3f6e19ce8169eab1ddbf72292994d6d4b3f2db3c962816",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -16741,14 +16741,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_config/https/tls_parameters/use_mtls/trusted_ca/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "proxy_config.https.tls_parameters.use_mtls.trusted_ca",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -16781,14 +16781,14 @@
       "schema_path": ["proxy_config", "https", "tls_parameters", "use_mtls", "xfcc_disabled"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_config/https/tls_parameters/use_mtls/xfcc_disabled/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "proxy_config.https.tls_parameters.use_mtls.xfcc_disabled",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -16854,14 +16854,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_config/https/tls_parameters/use_mtls/xfcc_options/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "X-Forwarded-Client-Cert header elements to be added to requests.",
       "tasks": ["configuration"],
       "title": "proxy_config.https.tls_parameters.use_mtls.xfcc_options",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -16872,7 +16872,7 @@
         "proxy config https auto cert"
       ],
       "body_bytes": 11237,
-      "body_sha256": "sha256:106420d6248673afd31d606292569eab99c1fec5959ab06d83a605bc4fab66ac",
+      "body_sha256": "sha256:efad3a2ff28bb4af60d001ba54e4160336b1ab7aa06128613538363c8c1f0191",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [
@@ -17573,14 +17573,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_config/https_auto_cert/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "Choice for selecting HTTP proxy with bring your own certificates.",
       "tasks": ["configuration"],
       "title": "proxy_config.https_auto_cert",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -17666,14 +17666,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_config/https_auto_cert/coalescing_options/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "TLS connection coalescing configuration (not compatible with mTLS)",
       "tasks": ["configuration"],
       "title": "proxy_config.https_auto_cert.coalescing_options",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -17706,14 +17706,14 @@
       "schema_path": ["proxy_config", "https_auto_cert", "coalescing_options", "default_coalescing"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_config/https_auto_cert/coalescing_options/default_coalescing/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "proxy_config.https_auto_cert.coalescing_options.default_coalescing",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -17746,14 +17746,14 @@
       "schema_path": ["proxy_config", "https_auto_cert", "coalescing_options", "strict_coalescing"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_config/https_auto_cert/coalescing_options/strict_coalescing/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "proxy_config.https_auto_cert.coalescing_options.strict_coalescing",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -17786,14 +17786,14 @@
       "schema_path": ["proxy_config", "https_auto_cert", "default_header"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_config/https_auto_cert/default_header/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "proxy_config.https_auto_cert.default_header",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -17826,14 +17826,14 @@
       "schema_path": ["proxy_config", "https_auto_cert", "default_loadbalancer"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_config/https_auto_cert/default_loadbalancer/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "proxy_config.https_auto_cert.default_loadbalancer",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -17866,14 +17866,14 @@
       "schema_path": ["proxy_config", "https_auto_cert", "disable_path_normalize"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_config/https_auto_cert/disable_path_normalize/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "proxy_config.https_auto_cert.disable_path_normalize",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -17906,14 +17906,14 @@
       "schema_path": ["proxy_config", "https_auto_cert", "enable_path_normalize"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_config/https_auto_cert/enable_path_normalize/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "proxy_config.https_auto_cert.enable_path_normalize",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -18048,14 +18048,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_config/https_auto_cert/http_protocol_options/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "HTTP protocol configuration OPTIONS for downstream connections.",
       "tasks": ["configuration"],
       "title": "proxy_config.https_auto_cert.http_protocol_options",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -18164,14 +18164,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_config/https_auto_cert/http_protocol_options/http_protocol_enable_v1_only/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "HTTP/1.1 Protocol OPTIONS for downstream connections.",
       "tasks": ["configuration"],
       "title": "proxy_config.https_auto_cert.http_protocol_options.http_protocol_enable_v1_only",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -18341,14 +18341,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_config/https_auto_cert/http_protocol_options/http_protocol_enable_v1_only/header_transformation/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "Header Transformation OPTIONS for HTTP/1.1 request/response headers.",
       "tasks": ["configuration"],
       "title": "proxy_config.https_auto_cert.http_protocol_options.http_protocol_enable_v1_only.header_transformation",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -18390,14 +18390,14 @@
       ],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_config/https_auto_cert/http_protocol_options/http_protocol_enable_v1_only/header_transformation/default_header_transformation/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "Use the platform's current default HTTP header transformation behavior.",
       "tasks": ["configuration"],
       "title": "proxy_config.https_auto_cert.http_protocol_options.http_protocol_enable_v1_only.header_transformation.default_header_transformation",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -18439,14 +18439,14 @@
       ],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_config/https_auto_cert/http_protocol_options/http_protocol_enable_v1_only/header_transformation/preserve_case_header_transformation/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "Preserve HTTP header-name case when upstream case must remain unchanged.",
       "tasks": ["configuration"],
       "title": "proxy_config.https_auto_cert.http_protocol_options.http_protocol_enable_v1_only.header_transformation.preserve_case_header_transformation",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -18488,14 +18488,14 @@
       ],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_config/https_auto_cert/http_protocol_options/http_protocol_enable_v1_only/header_transformation/proper_case_header_transformation/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "Transform HTTP header names to proper case when explicit transformation is required.",
       "tasks": ["configuration"],
       "title": "proxy_config.https_auto_cert.http_protocol_options.http_protocol_enable_v1_only.header_transformation.proper_case_header_transformation",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -18528,14 +18528,14 @@
       "schema_path": ["proxy_config", "https_auto_cert", "http_protocol_options", "http_protocol_enable_v1_v2"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_config/https_auto_cert/http_protocol_options/http_protocol_enable_v1_v2/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "proxy_config.https_auto_cert.http_protocol_options.http_protocol_enable_v1_v2",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -18568,14 +18568,14 @@
       "schema_path": ["proxy_config", "https_auto_cert", "http_protocol_options", "http_protocol_enable_v2_only"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_config/https_auto_cert/http_protocol_options/http_protocol_enable_v2_only/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "proxy_config.https_auto_cert.http_protocol_options.http_protocol_enable_v2_only",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -18608,14 +18608,14 @@
       "schema_path": ["proxy_config", "https_auto_cert", "no_mtls"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_config/https_auto_cert/no_mtls/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "proxy_config.https_auto_cert.no_mtls",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -18648,14 +18648,14 @@
       "schema_path": ["proxy_config", "https_auto_cert", "non_default_loadbalancer"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_config/https_auto_cert/non_default_loadbalancer/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "proxy_config.https_auto_cert.non_default_loadbalancer",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -18688,14 +18688,14 @@
       "schema_path": ["proxy_config", "https_auto_cert", "pass_through"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_config/https_auto_cert/pass_through/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "proxy_config.https_auto_cert.pass_through",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -18904,20 +18904,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_config/https_auto_cert/tls_config/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This defines various OPTIONS to configure TLS configuration parameters.",
       "tasks": ["configuration"],
       "title": "proxy_config.https_auto_cert.tls_config",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
       "aliases": ["proxy config https auto cert tls config custom security"],
       "body_bytes": 6481,
-      "body_sha256": "sha256:8682188814629f59d05f990405e86d1f943e4492e68b6ce2c16882ae28b2b85a",
+      "body_sha256": "sha256:34caea59531acf2c1cb1cc82bf244435224124da17a6493b3b322451bd670d4e",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -19020,14 +19020,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_config/https_auto_cert/tls_config/custom_security/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This defines TLS protocol config including min/max versions and allowed ciphers.",
       "tasks": ["configuration"],
       "title": "proxy_config.https_auto_cert.tls_config.custom_security",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -19060,14 +19060,14 @@
       "schema_path": ["proxy_config", "https_auto_cert", "tls_config", "default_security"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_config/https_auto_cert/tls_config/default_security/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "proxy_config.https_auto_cert.tls_config.default_security",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -19100,14 +19100,14 @@
       "schema_path": ["proxy_config", "https_auto_cert", "tls_config", "low_security"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_config/https_auto_cert/tls_config/low_security/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "proxy_config.https_auto_cert.tls_config.low_security",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -19140,20 +19140,20 @@
       "schema_path": ["proxy_config", "https_auto_cert", "tls_config", "medium_security"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_config/https_auto_cert/tls_config/medium_security/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "proxy_config.https_auto_cert.tls_config.medium_security",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
       "aliases": ["proxy config https auto cert use mtls"],
       "body_bytes": 4600,
-      "body_sha256": "sha256:cab6883efe84decc700087698555a711834108b96953c0b748929b663ddf7065",
+      "body_sha256": "sha256:27895d36df16d1b131b7f694f6b4f25b48a8002c917fe7c61e8991432b860b6f",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [
@@ -19375,20 +19375,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_config/https_auto_cert/use_mtls/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "Validation context for downstream client TLS connections.",
       "tasks": ["configuration"],
       "title": "proxy_config.https_auto_cert.use_mtls",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
       "aliases": ["proxy config https auto cert use mtls crl"],
       "body_bytes": 5656,
-      "body_sha256": "sha256:6458a25009f2a0b31b7f200d5b02ee6b71b61baf211c22b5e6cc209a7f03e6c3",
+      "body_sha256": "sha256:6079a4f418ec9a1fea181c012208085be6036fa3cce28fe4d0137574cdaad0d0",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -19494,14 +19494,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_config/https_auto_cert/use_mtls/crl/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "proxy_config.https_auto_cert.use_mtls.crl",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -19534,20 +19534,20 @@
       "schema_path": ["proxy_config", "https_auto_cert", "use_mtls", "no_crl"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_config/https_auto_cert/use_mtls/no_crl/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "proxy_config.https_auto_cert.use_mtls.no_crl",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
       "aliases": ["proxy config https auto cert use mtls trusted ca"],
       "body_bytes": 5698,
-      "body_sha256": "sha256:9be63ee90b6db5885608e095c5ccae1d89da85db032a7460497b930bc3b3cb06",
+      "body_sha256": "sha256:321eff546f409a089f3f3ccc75517624310c149ac74891bc24e328c8e8336412",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -19653,14 +19653,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_config/https_auto_cert/use_mtls/trusted_ca/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "proxy_config.https_auto_cert.use_mtls.trusted_ca",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -19693,14 +19693,14 @@
       "schema_path": ["proxy_config", "https_auto_cert", "use_mtls", "xfcc_disabled"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_config/https_auto_cert/use_mtls/xfcc_disabled/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "proxy_config.https_auto_cert.use_mtls.xfcc_disabled",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -19759,14 +19759,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/proxy_config/https_auto_cert/use_mtls/xfcc_options/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "X-Forwarded-Client-Cert header elements to be added to requests.",
       "tasks": ["configuration"],
       "title": "proxy_config.https_auto_cert.use_mtls.xfcc_options",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -19899,14 +19899,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/properties/timeouts/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "timeouts for xcsh_bigip_http_proxy.",
       "tasks": ["configuration"],
       "title": "timeouts",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -19939,14 +19939,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/examples/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "Examples for xcsh_bigip_http_proxy.",
       "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -19986,14 +19986,14 @@
       "schema_path": ["resource"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/examples/resource/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "Resource for xcsh_bigip_http_proxy.",
       "tasks": ["configuration"],
       "title": "Resource",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -20027,14 +20027,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/lifecycle/import/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "Import for xcsh_bigip_http_proxy.",
       "tasks": ["import"],
       "title": "Import",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -20067,14 +20067,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bigip_http_proxy/lifecycle/timeouts/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "Timeouts for xcsh_bigip_http_proxy.",
       "tasks": ["lifecycle"],
       "title": "Timeouts",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["bigip_http_proxyCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     }
   ],

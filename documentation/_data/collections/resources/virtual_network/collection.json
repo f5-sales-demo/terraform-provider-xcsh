@@ -197,21 +197,21 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/virtual_network/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "Manages virtual network in given namespace in F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_virtual_network",
       "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["virtual_networkCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
       "aliases": ["virtual network"],
       "body_bytes": 14186,
-      "body_sha256": "sha256:2ef8b23268381d551aeda56649733b774fff24925ea3d2bb58b9796d83a1c047",
+      "body_sha256": "sha256:7fd79429b82ee8b5d3c1c82b3c5d1dc7e84cee03bcdc877da91deb6d5fb1b96b",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -527,14 +527,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/virtual_network/properties/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "Property reference for xcsh_virtual_network.",
       "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["virtual_networkCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -567,14 +567,14 @@
       "schema_path": ["global_network"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/virtual_network/properties/global_network/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "Select the global virtual-network scope for connectivity across participating sites.",
       "tasks": ["configuration"],
       "title": "global_network",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["virtual_networkCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -607,14 +607,14 @@
       "schema_path": ["site_local_inside_network"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/virtual_network/properties/site_local_inside_network/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "Select the site-local inside network for site-internal connectivity.",
       "tasks": ["configuration"],
       "title": "site_local_inside_network",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["virtual_networkCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -647,20 +647,20 @@
       "schema_path": ["site_local_network"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/virtual_network/properties/site_local_network/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "Select a site-local virtual network when connectivity must remain within one site.",
       "tasks": ["configuration"],
       "title": "site_local_network",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["virtual_networkCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
       "aliases": ["static routes"],
       "body_bytes": 6412,
-      "body_sha256": "sha256:53452096ab98cdc90083148a2e8cf8af76c832e4daa0092ba8683581aa5c0e2a",
+      "body_sha256": "sha256:d71cca3e351228bf8488cb2fc070f8b146a175602f8e72609c0312c64d0cef60",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -852,14 +852,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/virtual_network/properties/static_routes/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "List of static routes on the virtual network.",
       "tasks": ["configuration"],
       "title": "static_routes",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["virtual_networkCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -892,14 +892,14 @@
       "schema_path": ["static_routes", "default_gateway"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/virtual_network/properties/static_routes/default_gateway/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "static_routes.default_gateway",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["virtual_networkCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -949,20 +949,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/virtual_network/properties/static_routes/node_interface/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "On multinode site, this type holds the information about per node interfaces.",
       "tasks": ["configuration"],
       "title": "static_routes.node_interface",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["virtual_networkCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
       "aliases": ["static routes node interface list"],
       "body_bytes": 2336,
-      "body_sha256": "sha256:81975a441f0d563d257a3ec2e246eb8ea62e12319f65af5bfa0e703548fc482f",
+      "body_sha256": "sha256:3fc9608ffb419b593dc57925dc4be8d3604d0eb0d6ee92963da08ad5aa9a0367",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": ["xcsh-docs:resources:virtual_network:properties:static_routes:node_interface:list:interface"],
@@ -1022,20 +1022,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/virtual_network/properties/static_routes/node_interface/list/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "On a multinode site, this list holds the nodes and corresponding networking_interface.",
       "tasks": ["configuration"],
       "title": "static_routes.node_interface.list",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["virtual_networkCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
       "aliases": ["static routes node interface list interface"],
       "body_bytes": 6074,
-      "body_sha256": "sha256:9620858836bb45585db852bb591aec6280d13a0ab9bb6bf938077c87a8b6ff50",
+      "body_sha256": "sha256:afea3713291740180ea5dc4d4a0ec2ff1f823f9ca68f8dfc6b034c0ba5e13753",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -1178,14 +1178,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/virtual_network/properties/static_routes/node_interface/list/interface/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "Interface reference on this node.",
       "tasks": ["configuration"],
       "title": "static_routes.node_interface.list.interface",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["virtual_networkCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -1318,14 +1318,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/virtual_network/properties/timeouts/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "timeouts for xcsh_virtual_network.",
       "tasks": ["configuration"],
       "title": "timeouts",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["virtual_networkCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -1358,14 +1358,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/virtual_network/examples/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "Examples for xcsh_virtual_network.",
       "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["virtual_networkCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -1405,14 +1405,14 @@
       "schema_path": ["resource"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/virtual_network/examples/resource/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "Resource for xcsh_virtual_network.",
       "tasks": ["configuration"],
       "title": "Resource",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["virtual_networkCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -1446,14 +1446,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/virtual_network/lifecycle/import/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "Import for xcsh_virtual_network.",
       "tasks": ["import"],
       "title": "Import",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["virtual_networkCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -1486,14 +1486,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/virtual_network/lifecycle/timeouts/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "Timeouts for xcsh_virtual_network.",
       "tasks": ["lifecycle"],
       "title": "Timeouts",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["virtual_networkCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     }
   ],

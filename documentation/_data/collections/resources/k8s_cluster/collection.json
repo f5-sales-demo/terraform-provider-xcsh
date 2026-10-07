@@ -438,21 +438,21 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/k8s_cluster/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "Manages k8s_cluster will create the object in the storage backend for namespace metadata.namespace in F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_k8s_cluster",
       "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["k8s_clusterCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
       "aliases": ["k8s cluster"],
       "body_bytes": 28363,
-      "body_sha256": "sha256:be281765d62e78f241f2784c14a94f09717059690809cb92c7e9a03cc27feae2",
+      "body_sha256": "sha256:1ffad09f6a1d4ba43e370f8f02494dc50543c84fe52c949c10f078f77dff46f6",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [
@@ -1038,14 +1038,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/k8s_cluster/properties/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "Property reference for xcsh_k8s_cluster.",
       "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["k8s_clusterCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -1078,14 +1078,14 @@
       "schema_path": ["cluster_scoped_access_deny"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/k8s_cluster/properties/cluster_scoped_access_deny/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "cluster_scoped_access_deny",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["k8s_clusterCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -1118,14 +1118,14 @@
       "schema_path": ["cluster_scoped_access_permit"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/k8s_cluster/properties/cluster_scoped_access_permit/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "cluster_scoped_access_permit",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["k8s_clusterCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -1281,20 +1281,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/k8s_cluster/properties/cluster_wide_app_list/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "List of cluster wide applications.",
       "tasks": ["configuration"],
       "title": "cluster_wide_app_list",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["k8s_clusterCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
       "aliases": ["cluster wide app list cluster wide apps"],
       "body_bytes": 3031,
-      "body_sha256": "sha256:962030de4b7e3d8d62123ca5bbddc9d9b40f581af67c12dc4dd896359e4262eb",
+      "body_sha256": "sha256:431c006676009afabaa38f289bb2630b3248879f4c1aad794f993af1f92267da",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [
@@ -1488,14 +1488,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/k8s_cluster/properties/cluster_wide_app_list/cluster_wide_apps/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "List of cluster wide applications.",
       "tasks": ["configuration"],
       "title": "cluster_wide_app_list.cluster_wide_apps",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["k8s_clusterCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -1572,20 +1572,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/k8s_cluster/properties/cluster_wide_app_list/cluster_wide_apps/argo_cd/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "Description Parameters for Argo Continuous Deployment(CD) application.",
       "tasks": ["configuration"],
       "title": "cluster_wide_app_list.cluster_wide_apps.argo_cd",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["k8s_clusterCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
       "aliases": ["cluster wide app list cluster wide apps argo cd local domain"],
       "body_bytes": 4858,
-      "body_sha256": "sha256:51ee50670c71b656e4ba1396c21ed35cc24a5db869f5a89c96bc05f00787877f",
+      "body_sha256": "sha256:4afa82446bbd60da9aa36d95d8eaddd388e21026d8e6c7f56ee1a009f02f02fe",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [
@@ -1722,14 +1722,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/k8s_cluster/properties/cluster_wide_app_list/cluster_wide_apps/argo_cd/local_domain/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "Parameters required to enable local access.",
       "tasks": ["configuration"],
       "title": "cluster_wide_app_list.cluster_wide_apps.argo_cd.local_domain",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["k8s_clusterCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -1762,14 +1762,14 @@
       "schema_path": ["cluster_wide_app_list", "cluster_wide_apps", "argo_cd", "local_domain", "default_port"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/k8s_cluster/properties/cluster_wide_app_list/cluster_wide_apps/argo_cd/local_domain/default_port/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "cluster_wide_app_list.cluster_wide_apps.argo_cd.local_domain.default_port",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["k8s_clusterCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -1887,20 +1887,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/k8s_cluster/properties/cluster_wide_app_list/cluster_wide_apps/argo_cd/local_domain/password/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "SecretType is used in an object to indicate a sensitive/confidential field.",
       "tasks": ["configuration"],
       "title": "cluster_wide_app_list.cluster_wide_apps.argo_cd.local_domain.password",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["k8s_clusterCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
       "aliases": ["cluster wide app list cluster wide apps argo cd local domain password blindfold secret info"],
       "body_bytes": 5192,
-      "body_sha256": "sha256:0481547cd9548706dc09c3597eed0281b22ecf2aec75f6aee06bed695b70f993",
+      "body_sha256": "sha256:0c60339b143c2da3e99f6adf01ef292b3547774de2e0c0dd8ebd3201622efa40",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],
@@ -2022,20 +2022,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/k8s_cluster/properties/cluster_wide_app_list/cluster_wide_apps/argo_cd/local_domain/password/blindfold_secret_info/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
       "tasks": ["configuration"],
       "title": "cluster_wide_app_list.cluster_wide_apps.argo_cd.local_domain.password.blindfold_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["k8s_clusterCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
       "aliases": ["cluster wide app list cluster wide apps argo cd local domain password clear secret info"],
       "body_bytes": 4164,
-      "body_sha256": "sha256:9e84b8dd0dfc365d012b038e0d9ea038f1a047b2faca4df67e7ce1559cf1b7bb",
+      "body_sha256": "sha256:b04b53db54743d9a982ccae623d03a6dbd46502eb5a1ebaff7df843c3d866da4",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],
@@ -2129,14 +2129,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/k8s_cluster/properties/cluster_wide_app_list/cluster_wide_apps/argo_cd/local_domain/password/clear_secret_info/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
       "tasks": ["configuration"],
       "title": "cluster_wide_app_list.cluster_wide_apps.argo_cd.local_domain.password.clear_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["k8s_clusterCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -2169,14 +2169,14 @@
       "schema_path": ["cluster_wide_app_list", "cluster_wide_apps", "dashboard"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/k8s_cluster/properties/cluster_wide_app_list/cluster_wide_apps/dashboard/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "Description Parameters for K8s dashboard.",
       "tasks": ["configuration"],
       "title": "cluster_wide_app_list.cluster_wide_apps.dashboard",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["k8s_clusterCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -2209,14 +2209,14 @@
       "schema_path": ["cluster_wide_app_list", "cluster_wide_apps", "metrics_server"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/k8s_cluster/properties/cluster_wide_app_list/cluster_wide_apps/metrics_server/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "Description Parameters for Kubernetes Metrics Server application.",
       "tasks": ["configuration"],
       "title": "cluster_wide_app_list.cluster_wide_apps.metrics_server",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["k8s_clusterCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -2249,14 +2249,14 @@
       "schema_path": ["cluster_wide_app_list", "cluster_wide_apps", "prometheus"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/k8s_cluster/properties/cluster_wide_app_list/cluster_wide_apps/prometheus/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "Description Parameters for Prometheus server access.",
       "tasks": ["configuration"],
       "title": "cluster_wide_app_list.cluster_wide_apps.prometheus",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["k8s_clusterCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -2289,20 +2289,20 @@
       "schema_path": ["global_access_enable"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/k8s_cluster/properties/global_access_enable/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "global_access_enable",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["k8s_clusterCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
       "aliases": ["insecure registry list"],
       "body_bytes": 3237,
-      "body_sha256": "sha256:77b013e5719f2f5b1f2af05b682b53a7a9b7c7841bff97423f6fbff7bd76c970",
+      "body_sha256": "sha256:b67b7da4c781e7026bfb1ec01dcee6a257d28d9a8798d49e56e8ae8709b453e2",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],
@@ -2355,20 +2355,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/k8s_cluster/properties/insecure_registry_list/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "List of docker insecure registries.",
       "tasks": ["configuration"],
       "title": "insecure_registry_list",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["k8s_clusterCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
       "aliases": ["local access config"],
       "body_bytes": 4432,
-      "body_sha256": "sha256:c40f942a85713e1fa57c45a99ccba11b1f4d81c4b61a5b710a618c3f9ec4feb1",
+      "body_sha256": "sha256:9ca81874f7b8f61464dbfad5c23ea9ab2a559cedce50e2ac6800a6fed5b129ae",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": ["xcsh-docs:resources:k8s_cluster:properties:local_access_config:default_port"],
@@ -2469,14 +2469,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/k8s_cluster/properties/local_access_config/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "Parameters required to enable local access.",
       "tasks": ["configuration"],
       "title": "local_access_config",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["k8s_clusterCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -2509,14 +2509,14 @@
       "schema_path": ["local_access_config", "default_port"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/k8s_cluster/properties/local_access_config/default_port/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "local_access_config.default_port",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["k8s_clusterCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -2549,14 +2549,14 @@
       "schema_path": ["no_cluster_wide_apps"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/k8s_cluster/properties/no_cluster_wide_apps/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "no_cluster_wide_apps",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["k8s_clusterCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -2589,14 +2589,14 @@
       "schema_path": ["no_global_access"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/k8s_cluster/properties/no_global_access/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "no_global_access",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["k8s_clusterCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -2629,14 +2629,14 @@
       "schema_path": ["no_insecure_registries"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/k8s_cluster/properties/no_insecure_registries/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "no_insecure_registries",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["k8s_clusterCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -2669,14 +2669,14 @@
       "schema_path": ["no_local_access"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/k8s_cluster/properties/no_local_access/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "no_local_access",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["k8s_clusterCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -2809,14 +2809,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/k8s_cluster/properties/timeouts/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "timeouts for xcsh_k8s_cluster.",
       "tasks": ["configuration"],
       "title": "timeouts",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["k8s_clusterCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -2886,20 +2886,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/k8s_cluster/properties/use_custom_cluster_role_bindings/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "List of active cluster role binding list for a K8s cluster.",
       "tasks": ["configuration"],
       "title": "use_custom_cluster_role_bindings",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["k8s_clusterCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
       "aliases": ["use custom cluster role bindings cluster role bindings"],
       "body_bytes": 6151,
-      "body_sha256": "sha256:6585c530831021c47cdf8b933a9b5008ef4582cffb1d9c46f22c4d20c2ebc0e9",
+      "body_sha256": "sha256:db8b326c26fce5c53c2578fe0f71bea7fe7252bd0cc3b78d64b3447884e2f765",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],
@@ -3005,14 +3005,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/k8s_cluster/properties/use_custom_cluster_role_bindings/cluster_role_bindings/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "List of active cluster role binding list for a K8s cluster.",
       "tasks": ["configuration"],
       "title": "use_custom_cluster_role_bindings.cluster_role_bindings",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["k8s_clusterCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -3080,20 +3080,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/k8s_cluster/properties/use_custom_cluster_role_list/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "List of active cluster role list for a K8s cluster.",
       "tasks": ["configuration"],
       "title": "use_custom_cluster_role_list",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["k8s_clusterCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
       "aliases": ["use custom cluster role list cluster roles"],
       "body_bytes": 6067,
-      "body_sha256": "sha256:a4d2378e097df65cbdc303b9ea510df51eba254a75b193fbabfe8cd484a729d8",
+      "body_sha256": "sha256:98a093a353590a9027748cda796c0fa94701f12eaec5cc4358e72d1bb8f1bda2",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],
@@ -3199,20 +3199,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/k8s_cluster/properties/use_custom_cluster_role_list/cluster_roles/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "List of active cluster role list for a K8s cluster.",
       "tasks": ["configuration"],
       "title": "use_custom_cluster_role_list.cluster_roles",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["k8s_clusterCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
       "aliases": ["use custom pod security admission"],
       "body_bytes": 5873,
-      "body_sha256": "sha256:8d2e1e7ea8575dc773f692b8a18e89bfbe4c99b74735cbaf5e41bde3cdaf0a6f",
+      "body_sha256": "sha256:0a6fbdaf02ece414a890f2229c4a5610ded76feae00e0c4c93f2f42798236f12",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],
@@ -3318,14 +3318,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/k8s_cluster/properties/use_custom_pod_security_admission/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "use_custom_pod_security_admission",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["k8s_clusterCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -3393,20 +3393,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/k8s_cluster/properties/use_custom_psp_list/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "List of active Pod security policies for a K8s cluster.",
       "tasks": ["configuration"],
       "title": "use_custom_psp_list",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["k8s_clusterCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
       "aliases": ["use custom psp list pod security policies"],
       "body_bytes": 6052,
-      "body_sha256": "sha256:72b48183eb43b1bd936f94feafdd76fa1313b8552146e6b0674397891daeeb56",
+      "body_sha256": "sha256:9ac0381f72f609c5d30cee1214744a9bf9c90380f8cbde8198b2a84fb16924a9",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],
@@ -3512,14 +3512,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/k8s_cluster/properties/use_custom_psp_list/pod_security_policies/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "List of active Pod security policies for a K8s cluster.",
       "tasks": ["configuration"],
       "title": "use_custom_psp_list.pod_security_policies",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["k8s_clusterCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -3552,14 +3552,14 @@
       "schema_path": ["use_default_cluster_role_bindings"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/k8s_cluster/properties/use_default_cluster_role_bindings/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "use_default_cluster_role_bindings",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["k8s_clusterCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -3592,14 +3592,14 @@
       "schema_path": ["use_default_cluster_roles"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/k8s_cluster/properties/use_default_cluster_roles/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "use_default_cluster_roles",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["k8s_clusterCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -3632,14 +3632,14 @@
       "schema_path": ["use_default_pod_security_admission"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/k8s_cluster/properties/use_default_pod_security_admission/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "use_default_pod_security_admission",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["k8s_clusterCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -3672,14 +3672,14 @@
       "schema_path": ["use_default_psp"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/k8s_cluster/properties/use_default_psp/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "use_default_psp",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["k8s_clusterCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -3712,14 +3712,14 @@
       "schema_path": ["vk8s_namespace_access_deny"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/k8s_cluster/properties/vk8s_namespace_access_deny/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "vk8s_namespace_access_deny",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["k8s_clusterCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -3752,14 +3752,14 @@
       "schema_path": ["vk8s_namespace_access_permit"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/k8s_cluster/properties/vk8s_namespace_access_permit/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "vk8s_namespace_access_permit",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["k8s_clusterCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -3792,14 +3792,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/k8s_cluster/examples/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "Examples for xcsh_k8s_cluster.",
       "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["k8s_clusterCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -3839,14 +3839,14 @@
       "schema_path": ["resource"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/k8s_cluster/examples/resource/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "Resource for xcsh_k8s_cluster.",
       "tasks": ["configuration"],
       "title": "Resource",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["k8s_clusterCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -3880,14 +3880,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/k8s_cluster/lifecycle/import/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "Import for xcsh_k8s_cluster.",
       "tasks": ["import"],
       "title": "Import",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["k8s_clusterCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     },
     {
@@ -3920,14 +3920,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/k8s_cluster/lifecycle/timeouts/index.txt",
-      "spec_pin_digest": "sha256:fb3399d426b86fc806bdce295180d1446d1c05db41b1ae48575b9b6c2409bc5e",
+      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
       "summary": "Timeouts for xcsh_k8s_cluster.",
       "tasks": ["lifecycle"],
       "title": "Timeouts",
       "upstream_identity": {
-        "release_tag": "v12.0.1",
+        "release_tag": "v12.0.2",
         "schema_components": ["k8s_clusterCreateRequest"],
-        "target_commit": "af922688a0dab75542a6bd0181ddd80fee4c8c2c"
+        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
       }
     }
   ],
