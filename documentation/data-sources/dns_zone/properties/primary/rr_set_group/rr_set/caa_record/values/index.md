@@ -2,7 +2,7 @@
 page_title: "primary.rr_set_group.rr_set.caa_record.values"
 subcategory: "DNS"
 description: "Configuration parameter for values"
-xcsh_docs: {"aliases": ["primary rr set group rr set caa record values"], "body_bytes": 4534, "body_sha256": "sha256:d136ba209cdf80e4eee40558420200443ebbc94a52953fd76dae9b285e98173e", "capabilities": ["dns"], "category": "dns", "child_ids": [], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:data-sources:dns_zone:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:dns_zone:properties:primary:rr_set_group:rr_set:caa_record:values", "parent_id": "xcsh-docs:data-sources:dns_zone:properties:primary:rr_set_group:rr_set:caa_record", "path": "documentation/data-sources/dns_zone/properties/primary/rr_set_group/rr_set/caa_record/values/index.md", "product": "distributed-cloud", "provider_name": "dns_zone", "provider_schema_digest": "sha256:5a7fb41daf7683904c87458d3d7c40e4f3e095bd9d9aff0ef4c2c67cb6c9a8b5", "provider_type": "data-sources", "registry_anchor": "canonical-2033002231100233-2130313021213102-0030032333030102-3301130122220233-0010121203021300-3101133012113020-1332312222131312-2301010021131131", "registry_path": "docs/guides/data-sources--dns_zone--reference--group-002.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["primary", "rr_set_group", "rr_set", "caa_record", "values"], "schema_version": 1, "sections": [{"aliases": ["primary rr set group rr set caa record values flags"], "anchor": "schema-primary--rr_set_group--rr_set--caa_record--values--flags", "description": "This flag should be an integer between 0 and 255.", "document_id": "xcsh-docs:data-sources:dns_zone:properties:primary:rr_set_group:rr_set:caa_record:values", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["primary", "rr_set_group", "rr_set", "caa_record", "values", "flags"], "syntax": "attribute", "type": "number"}, {"aliases": ["primary rr set group rr set caa record values tag"], "anchor": "schema-primary--rr_set_group--rr_set--caa_record--values--tag", "description": "Tag for categorization and filtering", "document_id": "xcsh-docs:data-sources:dns_zone:properties:primary:rr_set_group:rr_set:caa_record:values", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["primary", "rr_set_group", "rr_set", "caa_record", "values", "tag"], "syntax": "attribute", "type": "string"}, {"aliases": ["primary rr set group rr set caa record values value"], "anchor": "schema-primary--rr_set_group--rr_set--caa_record--values--value", "description": "Configuration parameter for value", "document_id": "xcsh-docs:data-sources:dns_zone:properties:primary:rr_set_group:rr_set:caa_record:values", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["primary", "rr_set_group", "rr_set", "caa_record", "values", "value"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/properties/primary/rr_set_group/rr_set/caa_record/values/index.txt", "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a", "summary": "Configuration parameter for values", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.2", "schema_components": ["dns_zoneCreateRequest"], "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"}}
+xcsh_docs: {"aliases": ["primary rr set group rr set caa record values"], "body_bytes": 4534, "body_sha256": "sha256:d59457aa4661123e0bce92c05c96a58323a9c81ccf09b55226cb913db6795563", "capabilities": ["dns"], "category": "dns", "child_ids": [], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:data-sources:dns_zone:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:dns_zone:properties:primary:rr_set_group:rr_set:caa_record:values", "parent_id": "xcsh-docs:data-sources:dns_zone:properties:primary:rr_set_group:rr_set:caa_record", "path": "documentation/data-sources/dns_zone/properties/primary/rr_set_group/rr_set/caa_record/values/index.md", "product": "distributed-cloud", "provider_name": "dns_zone", "provider_schema_digest": "sha256:5a7fb41daf7683904c87458d3d7c40e4f3e095bd9d9aff0ef4c2c67cb6c9a8b5", "provider_type": "data-sources", "registry_anchor": "canonical-2033002231100233-2130313021213102-0030032333030102-3301130122220233-0010121203021300-3101133012113020-1332312222131312-2301010021131131", "registry_path": "docs/guides/data-sources--dns_zone--reference--group-002.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["primary", "rr_set_group", "rr_set", "caa_record", "values"], "schema_version": 1, "sections": [{"aliases": ["primary rr set group rr set caa record values flags"], "anchor": "schema-primary--rr_set_group--rr_set--caa_record--values--flags", "description": "This flag should be an integer between 0 and 255.", "document_id": "xcsh-docs:data-sources:dns_zone:properties:primary:rr_set_group:rr_set:caa_record:values", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["primary", "rr_set_group", "rr_set", "caa_record", "values", "flags"], "syntax": "attribute", "type": "number"}, {"aliases": ["primary rr set group rr set caa record values tag"], "anchor": "schema-primary--rr_set_group--rr_set--caa_record--values--tag", "description": "Tag for categorization and filtering", "document_id": "xcsh-docs:data-sources:dns_zone:properties:primary:rr_set_group:rr_set:caa_record:values", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["primary", "rr_set_group", "rr_set", "caa_record", "values", "tag"], "syntax": "attribute", "type": "string"}, {"aliases": ["primary rr set group rr set caa record values value"], "anchor": "schema-primary--rr_set_group--rr_set--caa_record--values--value", "description": "Configuration parameter for value", "document_id": "xcsh-docs:data-sources:dns_zone:properties:primary:rr_set_group:rr_set:caa_record:values", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["primary", "rr_set_group", "rr_set", "caa_record", "values", "value"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/properties/primary/rr_set_group/rr_set/caa_record/values/index.txt", "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833", "summary": "Configuration parameter for values", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.3", "schema_components": ["dns_zoneCreateRequest"], "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -40,7 +40,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-07T18:46:18+00:00"
+      "validatedAt": "2026-10-08T03:45:36+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -80,7 +80,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "api-probed",
-      "validatedAt": "2026-10-07T18:46:18+00:00"
+      "validatedAt": "2026-10-08T03:45:36+00:00"
     },
     "minimum": 0
   },
@@ -126,7 +126,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-10-07T18:46:18+00:00"
+      "validatedAt": "2026-10-08T03:45:36+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -166,7 +166,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-07T18:46:18+00:00"
+      "validatedAt": "2026-10-08T03:45:36+00:00"
     },
     "minLength": 1
   },

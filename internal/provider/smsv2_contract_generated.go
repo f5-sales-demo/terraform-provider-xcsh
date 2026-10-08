@@ -1,12 +1,12 @@
-// Code generated from api-specs-enriched v12.0.2 smsv2-contract.json. DO NOT EDIT.
+// Code generated from api-specs-enriched v12.0.3 smsv2-contract.json. DO NOT EDIT.
 
 package provider
 
 const (
 	smsv2ContractID        = "f5xc-smsv2-api/v1"
 	smsv2ContractVersion   = "7.0.0"
-	smsv2APIReleaseTag     = "v12.0.2"
-	smsv2SourceCommit      = "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+	smsv2APIReleaseTag     = "v12.0.3"
+	smsv2SourceCommit      = "6e75ef52298b89a53124977b4ae265f8020a04a8"
 	smsv2TelemetrySchemaID = "f5xc-smsv2-aws-tgw-telemetry/v2"
 )
 
