@@ -991,21 +991,21 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "Reads DNS Proxy information from F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_dns_proxy",
       "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["dns_proxyCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
       "aliases": ["dns proxy"],
       "body_bytes": 56406,
-      "body_sha256": "sha256:f74b7f70bd28f3803b485a1d39beb1246408b23f336bb79ece2b122c7014c15a",
+      "body_sha256": "sha256:4f028a29beb8fe0dd4edfa96f99f40fefcbd23ceca361e433f5481d4fdd83b33",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [
@@ -1265,20 +1265,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "Property reference for xcsh_dns_proxy.",
       "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["dns_proxyCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
       "aliases": ["cache profile"],
       "body_bytes": 1792,
-      "body_sha256": "sha256:3d55990aee79fe40504de35122c7439124d171a99e3bcc8f2e9c3333c72c2bc5",
+      "body_sha256": "sha256:019e0b9eee9043748fe346af2bdc1f5b07e015ff021d8b42d2d863a8c0185015",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": ["xcsh-docs:data-sources:dns_proxy:properties:cache_profile:disable_cache_profile"],
@@ -1338,14 +1338,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/cache_profile/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "DNS Cache specifies cache configuration.",
       "tasks": ["configuration"],
       "title": "cache_profile",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["dns_proxyCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -1378,14 +1378,14 @@
       "schema_path": ["cache_profile", "disable_cache_profile"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/cache_profile/disable_cache_profile/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "cache_profile.disable_cache_profile",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["dns_proxyCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -1454,14 +1454,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/ddos_profile/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "DDoS Protection Rule for DNS.",
       "tasks": ["configuration"],
       "title": "ddos_profile",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["dns_proxyCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -1494,14 +1494,14 @@
       "schema_path": ["ddos_profile", "disable_ddos_mitigation"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/ddos_profile/disable_ddos_mitigation/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "ddos_profile.disable_ddos_mitigation",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["dns_proxyCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -1534,20 +1534,20 @@
       "schema_path": ["ddos_profile", "enable_ddos_mitigation"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/ddos_profile/enable_ddos_mitigation/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "ddos_profile.enable_ddos_mitigation",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["dns_proxyCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
       "aliases": ["irules"],
       "body_bytes": 4664,
-      "body_sha256": "sha256:b8c11b3ee7d479f7198e28745cdf8afaeb5ff101baf72acf8a224fd71988eea2",
+      "body_sha256": "sha256:ac281aa94722c26ae4e702f601fd450de4e24f1539615226feaf72ca5d93a755",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -1644,14 +1644,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/irules/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "OPTIONS for attaching iRules to DNS proxy.",
       "tasks": ["configuration"],
       "title": "irules",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["dns_proxyCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -1701,14 +1701,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/lb_algorithm/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "Load Balancing Algorithm Type.",
       "tasks": ["configuration"],
       "title": "lb_algorithm",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["dns_proxyCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -1741,14 +1741,14 @@
       "schema_path": ["lb_algorithm", "round_robin"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/lb_algorithm/round_robin/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "lb_algorithm.round_robin",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["dns_proxyCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -1817,20 +1817,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/origin_servers/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "List of origin Servers for the DNS proxy.",
       "tasks": ["configuration"],
       "title": "origin_servers",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["dns_proxyCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
       "aliases": ["origin servers health checks"],
       "body_bytes": 5614,
-      "body_sha256": "sha256:677a780a2086953f723302db58030db3f64ad02c938ce17a466fa41daebb2d5f",
+      "body_sha256": "sha256:f658554ad5bbc26a33083baecbdcc769adda6654400d8628d332ce1434b248e3",
       "capabilities": ["dns", "load-balancing.backend-servers"],
       "category": "dns",
       "child_ids": ["xcsh-docs:data-sources:dns_proxy:properties:origin_servers:health_checks:health_check"],
@@ -1938,20 +1938,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/origin_servers/health_checks/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "Origin Server Health Checks.",
       "tasks": ["configuration"],
       "title": "origin_servers.health_checks",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["dns_proxyCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
       "aliases": ["origin servers health checks health check"],
       "body_bytes": 2405,
-      "body_sha256": "sha256:40a1b40855a53442be5284a89534de7500dca831507a40e98389e8862b01421f",
+      "body_sha256": "sha256:01c71e7524598e89566b02d7bb1c562cbe12775365902479db5ea08a369272a5",
       "capabilities": ["dns", "load-balancing.backend-servers"],
       "category": "dns",
       "child_ids": [
@@ -2041,20 +2041,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/origin_servers/health_checks/health_check/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "List of Health Checks.",
       "tasks": ["configuration"],
       "title": "origin_servers.health_checks.health_check",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["dns_proxyCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
       "aliases": ["origin servers health checks health check dns health check", "succeeded", "success", "successful"],
       "body_bytes": 5928,
-      "body_sha256": "sha256:181edc8b4e16b09050d9ab12329dbe489663d39b8abf36adc0f275ca922e31b5",
+      "body_sha256": "sha256:29136f36d29431ad8ee251a52c951f370a5032b06f5f7eb277385b35bbd457a7",
       "capabilities": ["dns", "load-balancing.backend-servers"],
       "category": "dns",
       "child_ids": [],
@@ -2189,14 +2189,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/origin_servers/health_checks/health_check/dns_health_check/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "DNS health check reports healthy if DNS query is successful and response header and answer matches the given value.",
       "tasks": ["configuration"],
       "title": "origin_servers.health_checks.health_check.dns_health_check",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["dns_proxyCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -2229,20 +2229,20 @@
       "schema_path": ["origin_servers", "health_checks", "health_check", "icmp_health_check"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/origin_servers/health_checks/health_check/icmp_health_check/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "origin_servers.health_checks.health_check.icmp_health_check",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["dns_proxyCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
       "aliases": ["origin servers health checks health check tcp health check", "succeeded", "success", "successful"],
       "body_bytes": 3194,
-      "body_sha256": "sha256:8f993bb2fa465e118127df36151556c8d4c1ec8b292e880bd784c0a41e9b3404",
+      "body_sha256": "sha256:8d1f0226643f64270fe8d4913d452ae369c08482da11bbde2b38a61ba5535c7d",
       "capabilities": ["dns", "load-balancing.backend-servers"],
       "category": "dns",
       "child_ids": [],
@@ -2302,20 +2302,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/origin_servers/health_checks/health_check/tcp_health_check/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "Monitor reports healthy status if UDP connection is successful and response payload matches expected response pattern.",
       "tasks": ["configuration"],
       "title": "origin_servers.health_checks.health_check.tcp_health_check",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["dns_proxyCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
       "aliases": ["backend servers", "origin servers", "origin servers origin servers", "upstream servers"],
       "body_bytes": 2564,
-      "body_sha256": "sha256:64dd2b8e012f912f0d96751c048ef7fac1364ddde630edff5b9ea042b5c990b8",
+      "body_sha256": "sha256:6db18241038460558fbf4851664775669ceb08db430d2f23db4d14d25ba55dcc",
       "capabilities": ["dns", "load-balancing.backend-servers"],
       "category": "dns",
       "child_ids": [
@@ -2429,20 +2429,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/origin_servers/origin_servers/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "List of origin servers for Proxy.",
       "tasks": ["configuration"],
       "title": "origin_servers.origin_servers",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["dns_proxyCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
       "aliases": ["origin servers origin servers k8s service"],
       "body_bytes": 4077,
-      "body_sha256": "sha256:424005ac7f3fb036356b0cdfe70de0e0f29b3fa624a6fe4a49d40161fed2f342",
+      "body_sha256": "sha256:626e5e91bdfe087c7d28ecb740cf44890e8ef64d7cab876eda94e47b7c36b2d0",
       "capabilities": ["dns", "load-balancing.backend-servers"],
       "category": "dns",
       "child_ids": [
@@ -2588,14 +2588,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/origin_servers/origin_servers/k8s_service/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "Specify origin server with K8s service name and site information.",
       "tasks": ["configuration"],
       "title": "origin_servers.origin_servers.k8s_service",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["dns_proxyCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -2628,14 +2628,14 @@
       "schema_path": ["origin_servers", "origin_servers", "k8s_service", "inside_network"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/origin_servers/origin_servers/k8s_service/inside_network/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "origin_servers.origin_servers.k8s_service.inside_network",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["dns_proxyCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -2668,14 +2668,14 @@
       "schema_path": ["origin_servers", "origin_servers", "k8s_service", "outside_network"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/origin_servers/origin_servers/k8s_service/outside_network/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "origin_servers.origin_servers.k8s_service.outside_network",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["dns_proxyCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -2744,20 +2744,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/origin_servers/origin_servers/k8s_service/site_locator/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "This message defines a reference to a site or virtual site object.",
       "tasks": ["configuration"],
       "title": "origin_servers.origin_servers.k8s_service.site_locator",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["dns_proxyCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
       "aliases": ["origin servers origin servers k8s service site locator site"],
       "body_bytes": 5140,
-      "body_sha256": "sha256:008b8d13a3dbe83221cefe55abc84476fa53b2f222828225b2229f38df38ef2b",
+      "body_sha256": "sha256:339457b5e901c3b6cd978d33fc2fdb9c4973225cfbb69205362687d76a405eb6",
       "capabilities": ["dns", "load-balancing.backend-servers"],
       "category": "dns",
       "child_ids": [],
@@ -2854,20 +2854,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/origin_servers/origin_servers/k8s_service/site_locator/site/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "origin_servers.origin_servers.k8s_service.site_locator.site",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["dns_proxyCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
       "aliases": ["origin servers origin servers k8s service site locator virtual site"],
       "body_bytes": 5180,
-      "body_sha256": "sha256:4965c3afb7cacbd351d80e6497571f1ab9c7d146e4629babfbeaaed33f0894ee",
+      "body_sha256": "sha256:fad735dd27cf95c8bd61d8a70fc376897130811d562b29e53ee189f11c9e12b6",
       "capabilities": ["dns", "load-balancing.backend-servers"],
       "category": "dns",
       "child_ids": [],
@@ -2971,14 +2971,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/origin_servers/origin_servers/k8s_service/site_locator/virtual_site/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "origin_servers.origin_servers.k8s_service.site_locator.virtual_site",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["dns_proxyCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -3047,14 +3047,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/origin_servers/origin_servers/k8s_service/snat_pool/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "SNAT Pool configuration.",
       "tasks": ["configuration"],
       "title": "origin_servers.origin_servers.k8s_service.snat_pool",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["dns_proxyCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -3087,20 +3087,20 @@
       "schema_path": ["origin_servers", "origin_servers", "k8s_service", "snat_pool", "no_snat_pool"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/origin_servers/origin_servers/k8s_service/snat_pool/no_snat_pool/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "origin_servers.origin_servers.k8s_service.snat_pool.no_snat_pool",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["dns_proxyCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
       "aliases": ["origin servers origin servers k8s service snat pool snat pool"],
       "body_bytes": 2524,
-      "body_sha256": "sha256:821e292f2ae4de8c2a77a83ce66fcee153e268b1bfdc564b66e4199770669a11",
+      "body_sha256": "sha256:0de4d0c9271bba2cfbb593c8d7ad65cfc26e110062ada99dbc356263afd7a75f",
       "capabilities": ["dns", "load-balancing.backend-servers"],
       "category": "dns",
       "child_ids": [],
@@ -3144,14 +3144,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/origin_servers/origin_servers/k8s_service/snat_pool/snat_pool/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "List of IPv4 prefixes that represent an endpoint.",
       "tasks": ["configuration"],
       "title": "origin_servers.origin_servers.k8s_service.snat_pool.snat_pool",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["dns_proxyCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -3184,14 +3184,14 @@
       "schema_path": ["origin_servers", "origin_servers", "k8s_service", "vk8s_networks"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/origin_servers/origin_servers/k8s_service/vk8s_networks/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "origin_servers.origin_servers.k8s_service.vk8s_networks",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["dns_proxyCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -3224,20 +3224,20 @@
       "schema_path": ["origin_servers", "origin_servers", "no_preference"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/origin_servers/origin_servers/no_preference/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "origin_servers.origin_servers.no_preference",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["dns_proxyCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
       "aliases": ["origin servers origin servers public ip"],
       "body_bytes": 1835,
-      "body_sha256": "sha256:42c2b2f3ab349253e02cec3931f4287955c467af130f47c34a2f3f1617636f60",
+      "body_sha256": "sha256:a627bb0e051aee9f45f2411870e92284b702513e91ab51b0b5680ade3e50effa",
       "capabilities": ["dns", "load-balancing.backend-servers"],
       "category": "dns",
       "child_ids": [],
@@ -3281,20 +3281,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/origin_servers/origin_servers/public_ip/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "Specify origin server with public IP address.",
       "tasks": ["configuration"],
       "title": "origin_servers.origin_servers.public_ip",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["dns_proxyCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
       "aliases": ["origin servers origin servers public name"],
       "body_bytes": 3358,
-      "body_sha256": "sha256:2aa7493d0caa4aa33c38e9cd4e871a457aa13b24e4a20d10f5579c685a55322f",
+      "body_sha256": "sha256:853dca591d0db04de1af1cb5c8326a790a0c9a5e5db1080b1dab3ec9eacbde52",
       "capabilities": ["dns", "load-balancing.backend-servers"],
       "category": "dns",
       "child_ids": [],
@@ -3354,14 +3354,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/origin_servers/origin_servers/public_name/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "Specify origin server with public DNS name.",
       "tasks": ["configuration"],
       "title": "origin_servers.origin_servers.public_name",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["dns_proxyCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -3411,20 +3411,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/origin_servers/origin_servers/site_preferences/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "Carries the references to one or more sites.",
       "tasks": ["configuration"],
       "title": "origin_servers.origin_servers.site_preferences",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["dns_proxyCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
       "aliases": ["origin servers origin servers site preferences refs"],
       "body_bytes": 5249,
-      "body_sha256": "sha256:2bc53723aed7e3efdba4a0392bbca6b5a2979bdc992b9581f0013ba40f7fed13",
+      "body_sha256": "sha256:6616b08a6508051beebec716b6265539b3e6a774d95f46e127f66bfd1b564476",
       "capabilities": ["dns", "load-balancing.backend-servers"],
       "category": "dns",
       "child_ids": [],
@@ -3521,20 +3521,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/origin_servers/origin_servers/site_preferences/refs/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "Reference to one or more sites.",
       "tasks": ["configuration"],
       "title": "origin_servers.origin_servers.site_preferences.refs",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["dns_proxyCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
       "aliases": ["protocol inspection"],
       "body_bytes": 4260,
-      "body_sha256": "sha256:3df7c41b69acbb27f4a9cb7a91e4310300575c6163e571b9bd89aedc49b7f2b2",
+      "body_sha256": "sha256:f9c5cc705223d91a62ab93b2319a447ff57325317ea74d55145e0846e67578c4",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -3631,14 +3631,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/protocol_inspection/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "protocol_inspection",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["dns_proxyCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -3809,14 +3809,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/proxy_advertisement/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "Proxy Advertisement Type.",
       "tasks": ["configuration"],
       "title": "proxy_advertisement",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["dns_proxyCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -3866,20 +3866,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/proxy_advertisement/advertise_custom/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "This defines a way to advertise a VIP on specific sites.",
       "tasks": ["configuration"],
       "title": "proxy_advertisement.advertise_custom",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["dns_proxyCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
       "aliases": ["proxy advertisement advertise custom advertise where"],
       "body_bytes": 6151,
-      "body_sha256": "sha256:27cb01bbca1192637f54b21837c343d0b28a159924deac74838b8ef868ec5b78",
+      "body_sha256": "sha256:cf586918cc10b39d942d4f9f1bb98fb1655c497f102ade89da0783b343d10854",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [
@@ -4098,14 +4098,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/proxy_advertisement/advertise_custom/advertise_where/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "Where should this load balancer be available.",
       "tasks": ["configuration"],
       "title": "proxy_advertisement.advertise_custom.advertise_where",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["dns_proxyCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -4163,20 +4163,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/proxy_advertisement/advertise_custom/advertise_where/advertise_dualstack_on_public/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "This defines a way to advertise a load balancer on public. If optional public_ip is provided, it will only be advertised on RE sites where that public_ip is available.",
       "tasks": ["configuration"],
       "title": "proxy_advertisement.advertise_custom.advertise_where.advertise_dualstack_on_public",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["dns_proxyCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
       "aliases": ["proxy advertisement advertise custom advertise where advertise dualstack on public public ip"],
       "body_bytes": 5407,
-      "body_sha256": "sha256:17da4dc205a6ad6dd195ad07a5804943635a5fd829f3cf415e03fc1acedf9b0b",
+      "body_sha256": "sha256:36c8a585a12525d8c08ffff4a13173e30ac1bd4790144964831c4b7abb4be6ad",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -4324,14 +4324,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/proxy_advertisement/advertise_custom/advertise_where/advertise_dualstack_on_public/public_ip/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "proxy_advertisement.advertise_custom.advertise_where.advertise_dualstack_on_public.public_ip",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["dns_proxyCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -4389,20 +4389,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/proxy_advertisement/advertise_custom/advertise_where/advertise_on_public/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "This defines a way to advertise a load balancer on public. If optional public_ip is provided, it will only be advertised on RE sites where that public_ip is available.",
       "tasks": ["configuration"],
       "title": "proxy_advertisement.advertise_custom.advertise_where.advertise_on_public",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["dns_proxyCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
       "aliases": ["proxy advertisement advertise custom advertise where advertise on public public ip"],
       "body_bytes": 5337,
-      "body_sha256": "sha256:9e7e273286cde3ca9cfd60b2ea65cc09f129b7e65a3a8d10cbe452280b4389ef",
+      "body_sha256": "sha256:d4601c07da4433b573c6a98c8f390616a5c328d5ce869043f43af98f1ace5d8e",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -4538,14 +4538,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/proxy_advertisement/advertise_custom/advertise_where/advertise_on_public/public_ip/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "proxy_advertisement.advertise_custom.advertise_where.advertise_on_public.public_ip",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["dns_proxyCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -4603,20 +4603,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/proxy_advertisement/advertise_custom/advertise_where/advertise_v6_on_public/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "This defines a way to advertise a load balancer on public. If optional public_ip is provided, it will only be advertised on RE sites where that public_ip is available.",
       "tasks": ["configuration"],
       "title": "proxy_advertisement.advertise_custom.advertise_where.advertise_v6_on_public",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["dns_proxyCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
       "aliases": ["proxy advertisement advertise custom advertise where advertise v6 on public public ip"],
       "body_bytes": 5358,
-      "body_sha256": "sha256:dd2483e5b24b5589841b200783342c3e7f329feb772328a65a37e15787d3dcce",
+      "body_sha256": "sha256:ae1f7a3b95333d8f10c901ac055609a256529df7ca3d6d92fb6429866812c47f",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -4760,20 +4760,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/proxy_advertisement/advertise_custom/advertise_where/advertise_v6_on_public/public_ip/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "proxy_advertisement.advertise_custom.advertise_where.advertise_v6_on_public.public_ip",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["dns_proxyCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
       "aliases": ["proxy advertisement advertise custom advertise where site"],
       "body_bytes": 4115,
-      "body_sha256": "sha256:d26de0c9eb3830ca0b3d84b2570161a617dfaf5885d45484bd68536ae159dc5d",
+      "body_sha256": "sha256:7e56a498aeb1279348c4bba045b5d86608875accca1a9f40a9d0dbf435012594",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [
@@ -4851,20 +4851,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/proxy_advertisement/advertise_custom/advertise_where/site/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "This defines a reference to a CE site along with network type and an optional IP address where a load balancer could be advertised.",
       "tasks": ["configuration"],
       "title": "proxy_advertisement.advertise_custom.advertise_where.site",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["dns_proxyCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
       "aliases": ["proxy advertisement advertise custom advertise where site site"],
       "body_bytes": 5207,
-      "body_sha256": "sha256:2d402ab77e6ec1674c2da2f3849032e71d12da95ee8ce085418e1fd987e238c5",
+      "body_sha256": "sha256:a54eedf15d85dbf2faa3a15398d8bdef2a234d3721dbc17f7e1a83fdb9ccec0c",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -4961,14 +4961,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/proxy_advertisement/advertise_custom/advertise_where/site/site/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "proxy_advertisement.advertise_custom.advertise_where.site.site",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["dns_proxyCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -5001,20 +5001,20 @@
       "schema_path": ["proxy_advertisement", "advertise_custom", "advertise_where", "use_default_port"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/proxy_advertisement/advertise_custom/advertise_where/use_default_port/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "proxy_advertisement.advertise_custom.advertise_where.use_default_port",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["dns_proxyCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
       "aliases": ["proxy advertisement advertise custom advertise where virtual network"],
       "body_bytes": 3865,
-      "body_sha256": "sha256:a8f02aa69a616bcf715b2465329d6cf947757ac0a86c49f9841e03c70ded0cee",
+      "body_sha256": "sha256:d707b807522595b7abe78ca9b2244ec1c81ff20df07b0e3de933a7e737dd9aef",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [
@@ -5156,14 +5156,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/proxy_advertisement/advertise_custom/advertise_where/virtual_network/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "Parameters to advertise on a given virtual network.",
       "tasks": ["configuration"],
       "title": "proxy_advertisement.advertise_custom.advertise_where.virtual_network",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["dns_proxyCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -5202,14 +5202,14 @@
       ],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/proxy_advertisement/advertise_custom/advertise_where/virtual_network/default_v6_vip/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "proxy_advertisement.advertise_custom.advertise_where.virtual_network.default_v6_vip",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["dns_proxyCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -5242,20 +5242,20 @@
       "schema_path": ["proxy_advertisement", "advertise_custom", "advertise_where", "virtual_network", "default_vip"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/proxy_advertisement/advertise_custom/advertise_where/virtual_network/default_vip/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "proxy_advertisement.advertise_custom.advertise_where.virtual_network.default_vip",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["dns_proxyCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
       "aliases": ["proxy advertisement advertise custom advertise where virtual network virtual network"],
       "body_bytes": 5339,
-      "body_sha256": "sha256:46972969bbfadc44da151f42d49b030e395bed284de5c2782c884113aab499e1",
+      "body_sha256": "sha256:22ebd4e08e2f9c9c6968dda64d46208884f3fed443bc213d68459d888bd55996",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -5397,14 +5397,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/proxy_advertisement/advertise_custom/advertise_where/virtual_network/virtual_network/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "proxy_advertisement.advertise_custom.advertise_where.virtual_network.virtual_network",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["dns_proxyCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -5472,20 +5472,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/proxy_advertisement/advertise_custom/advertise_where/virtual_site/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "This defines a reference to a customer site virtual site along with network type where a load balancer could be advertised.",
       "tasks": ["configuration"],
       "title": "proxy_advertisement.advertise_custom.advertise_where.virtual_site",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["dns_proxyCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
       "aliases": ["proxy advertisement advertise custom advertise where virtual site virtual site"],
       "body_bytes": 5303,
-      "body_sha256": "sha256:6bc9d7cc1ec5fcb16b5cc6b292a46c6467d3dd611bb2dd758af903c1cafeb95a",
+      "body_sha256": "sha256:58b80069eb5544d003d0edc093c7e57722fe55e5d644fc48d06ebab30fc539ef",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -5621,20 +5621,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/proxy_advertisement/advertise_custom/advertise_where/virtual_site/virtual_site/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "proxy_advertisement.advertise_custom.advertise_where.virtual_site.virtual_site",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["dns_proxyCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
       "aliases": ["proxy advertisement advertise custom advertise where virtual site with vip"],
       "body_bytes": 3390,
-      "body_sha256": "sha256:01255aac406e684901578b627cee0142977c51605c6bba25e4385064d811fee1",
+      "body_sha256": "sha256:4b33cb5ffeaee40bd8fe5384d596f188b1956d9038538f838c043b653b710c19",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [
@@ -5724,20 +5724,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/proxy_advertisement/advertise_custom/advertise_where/virtual_site_with_vip/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "This defines a reference to a customer site virtual site along with network type and IP where a load balancer could be advertised.",
       "tasks": ["configuration"],
       "title": "proxy_advertisement.advertise_custom.advertise_where.virtual_site_with_vip",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["dns_proxyCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
       "aliases": ["proxy advertisement advertise custom advertise where virtual site with vip virtual site"],
       "body_bytes": 5366,
-      "body_sha256": "sha256:12f992356f8beece9efbe4f7484b07db1290f357b1d061124a1c63d118897d16",
+      "body_sha256": "sha256:bef06a5f5c3c4ae660754fd1bc222d5bea5ae2d876bd5ccad2c9a96864dc5d3f",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -5881,14 +5881,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/proxy_advertisement/advertise_custom/advertise_where/virtual_site_with_vip/virtual_site/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "proxy_advertisement.advertise_custom.advertise_where.virtual_site_with_vip.virtual_site",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["dns_proxyCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -5957,20 +5957,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/proxy_advertisement/advertise_custom/advertise_where/vk8s_service/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "This defines a reference to a RE site or virtual site where a load balancer could be advertised in the vK8s service network.",
       "tasks": ["configuration"],
       "title": "proxy_advertisement.advertise_custom.advertise_where.vk8s_service",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["dns_proxyCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
       "aliases": ["proxy advertisement advertise custom advertise where vk8s service site"],
       "body_bytes": 5263,
-      "body_sha256": "sha256:1b58c47e6417f3b158905a76e1048f90c04f0990a5168b2aa0be1e9387c3e7b9",
+      "body_sha256": "sha256:9ab6928336b0b23caa28b53750f7b41550960866a104b3ddb6e7ed66473e0921",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -6081,20 +6081,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/proxy_advertisement/advertise_custom/advertise_where/vk8s_service/site/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "proxy_advertisement.advertise_custom.advertise_where.vk8s_service.site",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["dns_proxyCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
       "aliases": ["proxy advertisement advertise custom advertise where vk8s service virtual site"],
       "body_bytes": 5303,
-      "body_sha256": "sha256:8ffc75d743fd9d49955f15e273553ef1f8ce66c03c48a471de8ebc030c8375aa",
+      "body_sha256": "sha256:565867716d76ee9dfa89a24be1430dc2592ec25ff3a3c4f03e6372828fb45895",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -6230,14 +6230,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/proxy_advertisement/advertise_custom/advertise_where/vk8s_service/virtual_site/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "proxy_advertisement.advertise_custom.advertise_where.vk8s_service.virtual_site",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["dns_proxyCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -6289,20 +6289,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/proxy_advertisement/advertise_dualstack_on_public/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "This defines a way to advertise a load balancer on public. If optional public_ip is provided, it will only be advertised on RE sites where that public_ip is available.",
       "tasks": ["configuration"],
       "title": "proxy_advertisement.advertise_dualstack_on_public",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["dns_proxyCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
       "aliases": ["proxy advertisement advertise dualstack on public public ip"],
       "body_bytes": 4798,
-      "body_sha256": "sha256:49385f70013b88f400b0d8551bfaded273ae96add3e319f4965589d7838a0bef",
+      "body_sha256": "sha256:07feb74e0592b81601c7475d5f3739ab3f3a965e2a56fb9dcc9b730bd35616bf",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -6399,14 +6399,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/proxy_advertisement/advertise_dualstack_on_public/public_ip/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "proxy_advertisement.advertise_dualstack_on_public.public_ip",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["dns_proxyCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -6456,20 +6456,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/proxy_advertisement/advertise_on_public/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "This defines a way to advertise a load balancer on public. If optional public_ip is provided, it will only be advertised on RE sites where that public_ip is available.",
       "tasks": ["configuration"],
       "title": "proxy_advertisement.advertise_on_public",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["dns_proxyCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
       "aliases": ["proxy advertisement advertise on public public ip"],
       "body_bytes": 4728,
-      "body_sha256": "sha256:fc243c22f7236b726cadfea48271b450fe2936765134cdb6f695a2a12216e684",
+      "body_sha256": "sha256:7a26264f736dab28a85b8ddbd92e6bc71ec6309530c8adf08f8da16e50b46316",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -6566,14 +6566,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/proxy_advertisement/advertise_on_public/public_ip/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "proxy_advertisement.advertise_on_public.public_ip",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["dns_proxyCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -6606,14 +6606,14 @@
       "schema_path": ["proxy_advertisement", "advertise_on_public_default_dualstack_vip"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/proxy_advertisement/advertise_on_public_default_dualstack_vip/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "proxy_advertisement.advertise_on_public_default_dualstack_vip",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["dns_proxyCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -6646,14 +6646,14 @@
       "schema_path": ["proxy_advertisement", "advertise_on_public_default_ipv6_vip"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/proxy_advertisement/advertise_on_public_default_ipv6_vip/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "proxy_advertisement.advertise_on_public_default_ipv6_vip",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["dns_proxyCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -6686,14 +6686,14 @@
       "schema_path": ["proxy_advertisement", "advertise_on_public_default_vip"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/proxy_advertisement/advertise_on_public_default_vip/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "proxy_advertisement.advertise_on_public_default_vip",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["dns_proxyCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -6743,20 +6743,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/proxy_advertisement/advertise_v6_on_public/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "This defines a way to advertise a load balancer on public. If optional public_ip is provided, it will only be advertised on RE sites where that public_ip is available.",
       "tasks": ["configuration"],
       "title": "proxy_advertisement.advertise_v6_on_public",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["dns_proxyCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
       "aliases": ["proxy advertisement advertise v6 on public public ip"],
       "body_bytes": 4749,
-      "body_sha256": "sha256:0a8486f81b5f449c7fdbbf4c1d793d1135d3b1910c2b00be6122160de52bc320",
+      "body_sha256": "sha256:82123a63a52519192b818a9ea0f583bf2c9a6cf7b1f57eec7d7c719d8391dae9",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -6853,14 +6853,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/proxy_advertisement/advertise_v6_on_public/public_ip/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "proxy_advertisement.advertise_v6_on_public.public_ip",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["dns_proxyCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -6893,14 +6893,14 @@
       "schema_path": ["proxy_advertisement", "do_not_advertise"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/properties/proxy_advertisement/do_not_advertise/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "proxy_advertisement.do_not_advertise",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["dns_proxyCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -6933,14 +6933,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/examples/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "Examples for xcsh_dns_proxy.",
       "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["dns_proxyCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -6980,14 +6980,14 @@
       "schema_path": ["data-source"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_proxy/examples/data-source/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "Data source for xcsh_dns_proxy.",
       "tasks": ["configuration"],
       "title": "Data source",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["dns_proxyCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     }
   ],

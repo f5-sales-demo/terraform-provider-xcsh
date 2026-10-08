@@ -3553,21 +3553,21 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "Manages fleet will create a fleet object in 'system' namespace of the user in F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_fleet",
       "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
       "aliases": ["fleet"],
       "body_bytes": 170676,
-      "body_sha256": "sha256:403e604e6db877b03fc8aa947c81fef2ca1c8960a21322b3172ad2247ba8e3ab",
+      "body_sha256": "sha256:53a5b5d7544f7603ef044d6dcedfdcb11fbc258bd220786da1d3a63c83f46297",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -4582,14 +4582,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "Property reference for xcsh_fleet.",
       "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -4622,20 +4622,20 @@
       "schema_path": ["allow_all_usb"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/allow_all_usb/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "allow_all_usb",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
       "aliases": ["blocked services"],
       "body_bytes": 8858,
-      "body_sha256": "sha256:5e42a1c19c4fbf735ac9ebad43e2b25e0273ebd06812c365a365eac9a28fe232",
+      "body_sha256": "sha256:e26f3a047a9efe112161375ca56f3e808cb65c9e32e2c252eeab856f42ce1461",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -4804,14 +4804,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/blocked_services/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "Disable node local services on this site.",
       "tasks": ["configuration"],
       "title": "blocked_services",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -4844,14 +4844,14 @@
       "schema_path": ["blocked_services", "dns"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/blocked_services/dns/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "blocked_services.dns",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -4884,14 +4884,14 @@
       "schema_path": ["blocked_services", "ssh"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/blocked_services/ssh/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "blocked_services.ssh",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -4924,14 +4924,14 @@
       "schema_path": ["blocked_services", "web_user_interface"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/blocked_services/web_user_interface/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "blocked_services.web_user_interface",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -5039,20 +5039,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/bond_device_list/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "List of bond devices for this fleet.",
       "tasks": ["configuration"],
       "title": "bond_device_list",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
       "aliases": ["bond device list bond devices"],
       "body_bytes": 7760,
-      "body_sha256": "sha256:bca6009bfbc3de892c02889b2536b20bb0f753f820a49c1bf53a8996159f0672",
+      "body_sha256": "sha256:b47eeee8db3567beeb4a2e5c81e2cb6b673e65fe94d721c32334c2adfa13c5d4",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -5237,14 +5237,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/bond_device_list/bond_devices/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "List of bond devices.",
       "tasks": ["configuration"],
       "title": "bond_device_list.bond_devices",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -5277,20 +5277,20 @@
       "schema_path": ["bond_device_list", "bond_devices", "active_backup"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/bond_device_list/bond_devices/active_backup/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "bond_device_list.bond_devices.active_backup",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
       "aliases": ["bond device list bond devices lacp"],
       "body_bytes": 2264,
-      "body_sha256": "sha256:dab9bda35cc0cce7355dec0f28ddb77ad5ae8b52ea2ea33b5c0863bae1a6dc0f",
+      "body_sha256": "sha256:5b8d68bee546f09cd3870ea333f095e41095ba82f76018915c24c78019884ba8",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -5343,20 +5343,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/bond_device_list/bond_devices/lacp/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "LACP parameters for the bond device.",
       "tasks": ["configuration"],
       "title": "bond_device_list.bond_devices.lacp",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
       "aliases": ["dc cluster group"],
       "body_bytes": 5799,
-      "body_sha256": "sha256:157010c04f897268d8b64c7f8f931ce34250ad4bacd2df6cadb6dc1512c77466",
+      "body_sha256": "sha256:81cfcef71b9d8c7782879591059454c7c015af4329c371541c4d0dc2e15b5227",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -5462,20 +5462,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/dc_cluster_group/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "dc_cluster_group",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
       "aliases": ["dc cluster group inside"],
       "body_bytes": 5084,
-      "body_sha256": "sha256:39eb090e5a59a56f031d2a8927bd5c3936ca699e99df8292c208fe3d937c6119",
+      "body_sha256": "sha256:4eaaaad7e8cadbf2ff0ed1a5dd8bd5b14e9ac092ccb5f5e39567642206fcbca5",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -5581,14 +5581,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/dc_cluster_group_inside/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "dc_cluster_group_inside",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -5621,14 +5621,14 @@
       "schema_path": ["default_config"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/default_config/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "default_config",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -5661,14 +5661,14 @@
       "schema_path": ["default_sriov_interface"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/default_sriov_interface/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "default_sriov_interface",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -5701,14 +5701,14 @@
       "schema_path": ["default_storage_class"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/default_storage_class/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "default_storage_class",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -5741,14 +5741,14 @@
       "schema_path": ["deny_all_usb"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/deny_all_usb/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "deny_all_usb",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -5798,20 +5798,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/device_list/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "Add device for all interfaces belonging to this fleet.",
       "tasks": ["configuration"],
       "title": "device_list",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
       "aliases": ["device list devices"],
       "body_bytes": 5158,
-      "body_sha256": "sha256:cd59470708b6f3c336c883d4ef9968b97ef33b46996c44b2ef446d8e962f89d4",
+      "body_sha256": "sha256:e8a24b46135657506e790b1a16078a10aaa3f7e40e905c5eea72838d642b9a84",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:resources:fleet:properties:device_list:devices:network_device"],
@@ -5910,14 +5910,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/device_list/devices/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "Configuration for all devices in the fleet. Examples of devices are - network interfaces, cameras, scanners etc. Configuration a device is applied on VER node if the VER node is member of this fleet and has an corresponding interface/device. The mapping from device configured in fleet with interface/device in VER node",
       "tasks": ["configuration"],
       "title": "device_list.devices",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -6005,20 +6005,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/device_list/devices/network_device/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "Represents physical network interface. The 'interface' reference points to a Network Interface object. Attributes such as Labels, MTU from Network Interface must be applied to the device. Device mapping to nodes A fleet can have many devices and nodes in VER customer edge site can have many interfaces. An interface in",
       "tasks": ["configuration"],
       "title": "device_list.devices.network_device",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
       "aliases": ["device list devices network device interface"],
       "body_bytes": 6763,
-      "body_sha256": "sha256:e96ff7eb4604496917fda6ad284db98e1ce6a697ea50e1d96e1f6029fa3ab0d3",
+      "body_sha256": "sha256:853d99e0bcfaad7b5ed6ac4318916754312daadb646729c32dec47b44c6422c9",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -6161,14 +6161,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/device_list/devices/network_device/interface/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "Network Interface attributes for the device. User network interface configuration for this network device. Attributes like labels, MTU from the 'interface' are applied to corresponding interface in VER node If network interface refers to a virtual-network, the virtual-netowrk type must be consistent with use attribute",
       "tasks": ["configuration"],
       "title": "device_list.devices.network_device.interface",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -6201,14 +6201,14 @@
       "schema_path": ["disable_gpu"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/disable_gpu/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "disable_gpu",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -6241,14 +6241,14 @@
       "schema_path": ["disable_log_anonymization"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/disable_log_anonymization/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "disable_log_anonymization",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -6281,14 +6281,14 @@
       "schema_path": ["disable_vm"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/disable_vm/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "disable_vm",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -6321,14 +6321,14 @@
       "schema_path": ["enable_gpu"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/enable_gpu/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "enable_gpu",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -6361,20 +6361,20 @@
       "schema_path": ["enable_log_anonymization"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/enable_log_anonymization/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "enable_log_anonymization",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
       "aliases": ["enable vgpu"],
       "body_bytes": 3819,
-      "body_sha256": "sha256:a51606edb3ccb376a1453a0d312adfc0d5985c40afd0817e5a0e37b71c879f6b",
+      "body_sha256": "sha256:caf9082b508803b7c67c84783cc5e0926a5023eb8bd13f1acaf29b4604a14358",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -6468,14 +6468,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/enable_vgpu/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "Licensing configuration for NVIDIA vGPU.",
       "tasks": ["configuration"],
       "title": "enable_vgpu",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -6508,20 +6508,20 @@
       "schema_path": ["enable_vm"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/enable_vm/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "VMs support configuration.",
       "tasks": ["configuration"],
       "title": "enable_vm",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
       "aliases": ["inside virtual network"],
       "body_bytes": 5458,
-      "body_sha256": "sha256:313c699ea11e82274e84e4e6abec32c98b317c8e1d724f2cd645d696e7224d1b",
+      "body_sha256": "sha256:32c29bb01603f765332d8c9e50f894f55c2f8420d9a534b0e7855c58c4932878",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -6664,14 +6664,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/inside_virtual_network/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "Default inside (site local) virtual network for the fleet.",
       "tasks": ["configuration"],
       "title": "inside_virtual_network",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -6739,20 +6739,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/interface_list/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "Add all interfaces belonging to this fleet.",
       "tasks": ["configuration"],
       "title": "interface_list",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
       "aliases": ["interface list interfaces"],
       "body_bytes": 5919,
-      "body_sha256": "sha256:b753e6c667cb32b2f42e32fc61fbbe8947513c4dd74a82c257e6361774a1e98d",
+      "body_sha256": "sha256:3143967a4c7612ff68bed4dc3ec60e90023faf454a4ee21d16ed505ab5592b63",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -6858,14 +6858,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/interface_list/interfaces/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "Add all interfaces belonging to this fleet.",
       "tasks": ["configuration"],
       "title": "interface_list.interfaces",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -6992,14 +6992,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/kubernetes_upgrade_drain/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "Specify how worker nodes within a site will be upgraded.",
       "tasks": ["configuration"],
       "title": "kubernetes_upgrade_drain",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -7032,20 +7032,20 @@
       "schema_path": ["kubernetes_upgrade_drain", "disable_upgrade_drain"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/kubernetes_upgrade_drain/disable_upgrade_drain/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "kubernetes_upgrade_drain.disable_upgrade_drain",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
       "aliases": ["kubernetes upgrade drain enable upgrade drain"],
       "body_bytes": 4889,
-      "body_sha256": "sha256:be8c1d862f72edd23282420f3cda62a1e4a591c6a80e68451492882215d6bce1",
+      "body_sha256": "sha256:bd60db62fd834d8b4262a478a03e6a8f5e934d6c6c8907da3715101dd9373468",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -7197,14 +7197,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/kubernetes_upgrade_drain/enable_upgrade_drain/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "Specify batch upgrade settings for worker nodes within a site.",
       "tasks": ["configuration"],
       "title": "kubernetes_upgrade_drain.enable_upgrade_drain",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -7237,14 +7237,14 @@
       "schema_path": ["kubernetes_upgrade_drain", "enable_upgrade_drain", "disable_vega_upgrade_mode"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/kubernetes_upgrade_drain/enable_upgrade_drain/disable_vega_upgrade_mode/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "kubernetes_upgrade_drain.enable_upgrade_drain.disable_vega_upgrade_mode",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -7277,20 +7277,20 @@
       "schema_path": ["kubernetes_upgrade_drain", "enable_upgrade_drain", "enable_vega_upgrade_mode"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/kubernetes_upgrade_drain/enable_upgrade_drain/enable_vega_upgrade_mode/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "kubernetes_upgrade_drain.enable_upgrade_drain.enable_vega_upgrade_mode",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
       "aliases": ["log receiver"],
       "body_bytes": 5567,
-      "body_sha256": "sha256:d9e81fdbe1c7bbfe7b76005ea59b05625dfb43d5e2e240010f6293a0f0f6be70",
+      "body_sha256": "sha256:77e4346e08bd7bac5fb9b06845320325b4621b0fbde0d40b199a45e162c68ee8",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -7396,14 +7396,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/log_receiver/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "log_receiver",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -7436,20 +7436,20 @@
       "schema_path": ["logs_streaming_disabled"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/logs_streaming_disabled/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "logs_streaming_disabled",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
       "aliases": ["network connectors"],
       "body_bytes": 5592,
-      "body_sha256": "sha256:7580d1ab30a31538d2fb55d93912aae6f4c34381674da6254092658f7f0a7d7f",
+      "body_sha256": "sha256:22803a8c699a608c221bac28e0b39be5bdfa5e83541255f48bf5c3a633f67a1b",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -7592,20 +7592,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/network_connectors/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "Network Connector defines connection between two virtual networks in a given site. Fleet defines one or more such network connectors. The network connectors configuration is applied on all sites that are member of the fleet.",
       "tasks": ["configuration"],
       "title": "network_connectors",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
       "aliases": ["network firewall"],
       "body_bytes": 5649,
-      "body_sha256": "sha256:e61f22685c34c38de2ba91875a2d1a348e2da180a34f62a4a4d565208decd96a",
+      "body_sha256": "sha256:5743f02a58fadc849afcdfd3ff5ac070e6a2f0c9b3c8a5410ac5021830f053d3",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -7748,14 +7748,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/network_firewall/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "Network Firewall defines firewall to be applied for the virtual networks in the fleet. The network firewall configuration is applied on all sites that are member of the fleet. Constraints The Network Firewall is applied on Virtual Networks of type site local network and site local inside network.",
       "tasks": ["configuration"],
       "title": "network_firewall",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -7788,14 +7788,14 @@
       "schema_path": ["no_bond_devices"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/no_bond_devices/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "no_bond_devices",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -7828,14 +7828,14 @@
       "schema_path": ["no_dc_cluster_group"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/no_dc_cluster_group/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "no_dc_cluster_group",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -7868,14 +7868,14 @@
       "schema_path": ["no_storage_device"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/no_storage_device/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "no_storage_device",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -7908,14 +7908,14 @@
       "schema_path": ["no_storage_interfaces"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/no_storage_interfaces/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "no_storage_interfaces",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -7948,20 +7948,20 @@
       "schema_path": ["no_storage_static_routes"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/no_storage_static_routes/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "no_storage_static_routes",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
       "aliases": ["outside virtual network"],
       "body_bytes": 5467,
-      "body_sha256": "sha256:f7556e76059030d4330ba5c02facbfab3d99e2b175de8b5fba20795b0c00942a",
+      "body_sha256": "sha256:5907fee640c3538350f1e7223f937e58483b0a4ca7bfdbf5538e4792cf935043",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -8104,14 +8104,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/outside_virtual_network/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "Default outside (site local) virtual network for the fleet.",
       "tasks": ["configuration"],
       "title": "outside_virtual_network",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -8231,14 +8231,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/performance_enhancement_mode/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "Optimize the site for L3 or L7 traffic processing. L7 optimized is the default.",
       "tasks": ["configuration"],
       "title": "performance_enhancement_mode",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -8324,14 +8324,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/performance_enhancement_mode/perf_mode_l3_enhanced/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "L3 enhanced performance mode OPTIONS.",
       "tasks": ["configuration"],
       "title": "performance_enhancement_mode.perf_mode_l3_enhanced",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -8364,14 +8364,14 @@
       "schema_path": ["performance_enhancement_mode", "perf_mode_l3_enhanced", "jumbo"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/performance_enhancement_mode/perf_mode_l3_enhanced/jumbo/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "performance_enhancement_mode.perf_mode_l3_enhanced.jumbo",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -8404,14 +8404,14 @@
       "schema_path": ["performance_enhancement_mode", "perf_mode_l3_enhanced", "no_jumbo"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/performance_enhancement_mode/perf_mode_l3_enhanced/no_jumbo/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "performance_enhancement_mode.perf_mode_l3_enhanced.no_jumbo",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -8497,14 +8497,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/performance_enhancement_mode/perf_mode_l7_enhanced/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "L7 enhanced performance mode OPTIONS.",
       "tasks": ["configuration"],
       "title": "performance_enhancement_mode.perf_mode_l7_enhanced",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -8537,14 +8537,14 @@
       "schema_path": ["performance_enhancement_mode", "perf_mode_l7_enhanced", "jumbo_disabled"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/performance_enhancement_mode/perf_mode_l7_enhanced/jumbo_disabled/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "performance_enhancement_mode.perf_mode_l7_enhanced.jumbo_disabled",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -8577,14 +8577,14 @@
       "schema_path": ["performance_enhancement_mode", "perf_mode_l7_enhanced", "jumbo_enabled"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/performance_enhancement_mode/perf_mode_l7_enhanced/jumbo_enabled/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "performance_enhancement_mode.perf_mode_l7_enhanced.jumbo_enabled",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -8651,20 +8651,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/sriov_interfaces/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "List of all custom SR-IOV interfaces configuration.",
       "tasks": ["configuration"],
       "title": "sriov_interfaces",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
       "aliases": ["sriov interfaces sriov interface"],
       "body_bytes": 3255,
-      "body_sha256": "sha256:48207ab3b34f67a2fd67bfba56873c9ed823f2e68a96ae83045bfa7647fc735c",
+      "body_sha256": "sha256:a8066c505498704ae03ecf54af287dc2fd8859f5da092129c34cd8efc82bcfce",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -8757,14 +8757,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/sriov_interfaces/sriov_interface/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "Use custom SR-IOV interfaces Configuration.",
       "tasks": ["configuration"],
       "title": "sriov_interfaces.sriov_interface",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -8927,20 +8927,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/storage_class_list/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "Add additional custom storage classes in Kubernetes for this fleet.",
       "tasks": ["configuration"],
       "title": "storage_class_list",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
       "aliases": ["storage class list storage classes"],
       "body_bytes": 10023,
-      "body_sha256": "sha256:e59174e39a66c067d0c4f2d46a83be71ffefe963383c20d26a13a6bb5eb63162",
+      "body_sha256": "sha256:2e5f0e336e0f2a1b648fe7ee4ea8cd98eb471ffedd2415fabfae17fe88fe7547",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -9262,20 +9262,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/storage_class_list/storage_classes/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "List of custom storage classes.",
       "tasks": ["configuration"],
       "title": "storage_class_list.storage_classes",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
       "aliases": ["storage class list storage classes custom storage"],
       "body_bytes": 2420,
-      "body_sha256": "sha256:681a8a8aaf980ae072427fa8fd935d43f90a458e839e85a4ddf36d5614b58cf9",
+      "body_sha256": "sha256:c741adccf6a63f191652951474d2da57f40b957547f193999d6f946ac41478ef",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -9319,20 +9319,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/storage_class_list/storage_classes/custom_storage/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "Custom Storage Class allows to insert Kubernetes storageclass definition which will be applied into given site.",
       "tasks": ["configuration"],
       "title": "storage_class_list.storage_classes.custom_storage",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
       "aliases": ["storage class list storage classes hpe storage"],
       "body_bytes": 12801,
-      "body_sha256": "sha256:11ba2c846d13d468473bb8ab2838c4f5a0bd87022462c242c3263ac3921b7614",
+      "body_sha256": "sha256:f32e29b2184cf8f6895f33aebfc9b457c903e21b3ffda223b294c7806fc8ff7a",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -9616,20 +9616,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/storage_class_list/storage_classes/hpe_storage/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "Storage class Device configuration for HPE Storage.",
       "tasks": ["configuration"],
       "title": "storage_class_list.storage_classes.hpe_storage",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
       "aliases": ["storage class list storage classes netapp trident"],
       "body_bytes": 2366,
-      "body_sha256": "sha256:d0f4d8d6f3f7d4808cea0dab8b81c27d257e5fd9f1110fe846446a22e0e88d47",
+      "body_sha256": "sha256:f8a30a09f2df55f8790d8140f8220d437ed8779eae34547510af5d5d574682d3",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:resources:fleet:properties:storage_class_list:storage_classes:netapp_trident:selector"],
@@ -9689,14 +9689,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/storage_class_list/storage_classes/netapp_trident/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "Storage class Device configuration for NetApp Trident.",
       "tasks": ["configuration"],
       "title": "storage_class_list.storage_classes.netapp_trident",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -9729,20 +9729,20 @@
       "schema_path": ["storage_class_list", "storage_classes", "netapp_trident", "selector"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/storage_class_list/storage_classes/netapp_trident/selector/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "Using the Selector field, each StorageClass calls out which virtual pool(s) may be used to host a volume. The volume will have the aspects defined in the chosen virtual pool.",
       "tasks": ["configuration"],
       "title": "storage_class_list.storage_classes.netapp_trident.selector",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
       "aliases": ["storage class list storage classes pure service orchestrator"],
       "body_bytes": 4889,
-      "body_sha256": "sha256:4e69bf39ca61eb3895f9f3262c8fd203fe3ef92834ccd2ac5b2e5b1c3dafd724",
+      "body_sha256": "sha256:93b49944386f359f7bada5d4a744c2c770e0192be52c5ca885e8195f4b0c4b58",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -9832,14 +9832,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/storage_class_list/storage_classes/pure_service_orchestrator/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "Storage class Device configuration for Pure Service Orchestrator.",
       "tasks": ["configuration"],
       "title": "storage_class_list.storage_classes.pure_service_orchestrator",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -9994,20 +9994,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/storage_device_list/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "Add additional custom storage classes in Kubernetes for this fleet.",
       "tasks": ["configuration"],
       "title": "storage_device_list",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
       "aliases": ["storage device list storage devices"],
       "body_bytes": 6483,
-      "body_sha256": "sha256:92afcbb3116c3ff5ad803c8737825b727d83e8393dc576658bdbcd28c96338f5",
+      "body_sha256": "sha256:4621b4b0557ba9398899773c6bce675ab0296c61968d31a7fb4c0670a4d4ee00",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -10284,14 +10284,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/storage_device_list/storage_devices/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "List of custom storage devices.",
       "tasks": ["configuration"],
       "title": "storage_device_list.storage_devices",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -10324,20 +10324,20 @@
       "schema_path": ["storage_device_list", "storage_devices", "custom_storage"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/storage_device_list/storage_devices/custom_storage/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "storage_device_list.storage_devices.custom_storage",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
       "aliases": ["storage device list storage devices hpe storage"],
       "body_bytes": 7279,
-      "body_sha256": "sha256:693836c7ae168c87ecb5ac109c966d7a29192c91ee9291fdbf918bfd5f9e44c0",
+      "body_sha256": "sha256:57fec21d89ba796b94f17619a2e4c103cebd8a5205d536d746b7fbb0bafb6c95",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -10531,14 +10531,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/storage_device_list/storage_devices/hpe_storage/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "Device configuration for HPE Storage.",
       "tasks": ["configuration"],
       "title": "storage_device_list.storage_devices.hpe_storage",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -10654,20 +10654,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/storage_device_list/storage_devices/hpe_storage/iscsi_chap_password/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "SecretType is used in an object to indicate a sensitive/confidential field.",
       "tasks": ["configuration"],
       "title": "storage_device_list.storage_devices.hpe_storage.iscsi_chap_password",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
       "aliases": ["storage device list storage devices hpe storage iscsi chap password blindfold secret info"],
       "body_bytes": 4904,
-      "body_sha256": "sha256:3f0eca9cde00ff04ce59b339ec13ab182aa26179e938fa20689f6ac98b814344",
+      "body_sha256": "sha256:eee7b4ce504af863f3cfd8a941915ba0512bdc33b24eff19c00c3b7e313bb249",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -10785,20 +10785,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/storage_device_list/storage_devices/hpe_storage/iscsi_chap_password/blindfold_secret_info/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
       "tasks": ["configuration"],
       "title": "storage_device_list.storage_devices.hpe_storage.iscsi_chap_password.blindfold_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
       "aliases": ["storage device list storage devices hpe storage iscsi chap password clear secret info"],
       "body_bytes": 3879,
-      "body_sha256": "sha256:cff56638915b0eb4f166bc1dbd76b6680a1996d795325203e1ae1088a6590d50",
+      "body_sha256": "sha256:d5924d98301a5be2e0ed76b960fcb5b52d494b6413dfb9a9b2ac73cbf3cf0219",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -10889,14 +10889,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/storage_device_list/storage_devices/hpe_storage/iscsi_chap_password/clear_secret_info/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
       "tasks": ["configuration"],
       "title": "storage_device_list.storage_devices.hpe_storage.iscsi_chap_password.clear_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -11000,20 +11000,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/storage_device_list/storage_devices/hpe_storage/password/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "SecretType is used in an object to indicate a sensitive/confidential field.",
       "tasks": ["configuration"],
       "title": "storage_device_list.storage_devices.hpe_storage.password",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
       "aliases": ["storage device list storage devices hpe storage password blindfold secret info"],
       "body_bytes": 4827,
-      "body_sha256": "sha256:2570c810436c8ac50d4f5bffdd61d7f57ad9a620c36c74df3736c1dbcbeff429",
+      "body_sha256": "sha256:ef73d356d6b33e497d81d62000c187db3ca0d0d8a462967191da2e7a67436259",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -11121,20 +11121,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/storage_device_list/storage_devices/hpe_storage/password/blindfold_secret_info/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
       "tasks": ["configuration"],
       "title": "storage_device_list.storage_devices.hpe_storage.password.blindfold_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
       "aliases": ["storage device list storage devices hpe storage password clear secret info"],
       "body_bytes": 3813,
-      "body_sha256": "sha256:183adea79683b4a13741547e77cc9f3633d140c607e0914bea72ac99c0fd3680",
+      "body_sha256": "sha256:bd635a74aa7af0dfde91137494436bdd9c0773d8a5d832efedb2dfca521a2f00",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -11217,14 +11217,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/storage_device_list/storage_devices/hpe_storage/password/clear_secret_info/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
       "tasks": ["configuration"],
       "title": "storage_device_list.storage_devices.hpe_storage.password.clear_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -11434,14 +11434,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/storage_device_list/storage_devices/netapp_trident/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "Device configuration for NetApp Trident Storage.",
       "tasks": ["configuration"],
       "title": "storage_device_list.storage_devices.netapp_trident",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -11452,7 +11452,7 @@
         "upstream servers"
       ],
       "body_bytes": 21778,
-      "body_sha256": "sha256:e95b9600015759ae89efa820d3bf8323c2fab6c9832a1252f7b209524f6056e6",
+      "body_sha256": "sha256:305f77198a5b3df0dfcd9a95d3e5490c9bbc97988ef42d11a6772a88d14b5247",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -12124,20 +12124,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/storage_device_list/storage_devices/netapp_trident/netapp_backend_ontap_nas/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "Configuration of storage backend for NetApp ONTAP NAS.",
       "tasks": ["configuration"],
       "title": "storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_nas",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
       "aliases": ["storage device list storage devices netapp trident netapp backend ontap nas auto export cidrs"],
       "body_bytes": 2950,
-      "body_sha256": "sha256:a3b6512a778b94824a33d169e51a63f72f771e3d35d54337e733c23a7d9ddbd7",
+      "body_sha256": "sha256:9e1f05d89b44144ce3ef77cdca510a03f23ee456417ee80f6cbfd3b8bfe84d58",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -12196,14 +12196,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/storage_device_list/storage_devices/netapp_trident/netapp_backend_ontap_nas/auto_export_cidrs/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "List of IPv4 prefixes that represent an endpoint.",
       "tasks": ["configuration"],
       "title": "storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_nas.auto_export_cidrs",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -12331,14 +12331,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/storage_device_list/storage_devices/netapp_trident/netapp_backend_ontap_nas/client_private_key/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "SecretType is used in an object to indicate a sensitive/confidential field.",
       "tasks": ["configuration"],
       "title": "storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_nas.client_private_key",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -12346,7 +12346,7 @@
         "storage device list storage devices netapp trident netapp backend ontap nas client private key blindfold secret info"
       ],
       "body_bytes": 5343,
-      "body_sha256": "sha256:d5c775c35289d684b6675b4dd75a88149ed9fd64479cdb4e42f16a7aff288c86",
+      "body_sha256": "sha256:b4370132e33894c426effde163f69264769ab2d810c0a41ff7fb5a0ce8a7dc01",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -12468,14 +12468,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/storage_device_list/storage_devices/netapp_trident/netapp_backend_ontap_nas/client_private_key/blindfold_secret_info/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
       "tasks": ["configuration"],
       "title": "storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_nas.client_private_key.blindfold_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -12483,7 +12483,7 @@
         "storage device list storage devices netapp trident netapp backend ontap nas client private key clear secret info"
       ],
       "body_bytes": 4290,
-      "body_sha256": "sha256:d4ce0450c9ca5d01a55a2f5304be9df448c62d8ffe7922efb6b0dfb8562106d9",
+      "body_sha256": "sha256:185aea67546c91b66e97bf28010fa0bc3ccbd978773e9f8cb7dd5282152f240e",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -12579,14 +12579,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/storage_device_list/storage_devices/netapp_trident/netapp_backend_ontap_nas/client_private_key/clear_secret_info/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
       "tasks": ["configuration"],
       "title": "storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_nas.client_private_key.clear_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -12714,14 +12714,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/storage_device_list/storage_devices/netapp_trident/netapp_backend_ontap_nas/password/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "SecretType is used in an object to indicate a sensitive/confidential field.",
       "tasks": ["configuration"],
       "title": "storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_nas.password",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -12729,7 +12729,7 @@
         "storage device list storage devices netapp trident netapp backend ontap nas password blindfold secret info"
       ],
       "body_bytes": 5273,
-      "body_sha256": "sha256:e5eaadcc1b3b5fcea9fbf97427e25c7cc04cb657c85b331b08f2010e890a08db",
+      "body_sha256": "sha256:e4c48ab8066889551c5356de399176e59d5d3d0ffa872386a2c74aee436dc4df",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -12851,14 +12851,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/storage_device_list/storage_devices/netapp_trident/netapp_backend_ontap_nas/password/blindfold_secret_info/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
       "tasks": ["configuration"],
       "title": "storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_nas.password.blindfold_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -12866,7 +12866,7 @@
         "storage device list storage devices netapp trident netapp backend ontap nas password clear secret info"
       ],
       "body_bytes": 4230,
-      "body_sha256": "sha256:bee63ddfbd8e27cf8585c559805a65cb7bd0e0d0dd52b8adc7118d6d9a4e9106",
+      "body_sha256": "sha256:8573e3359b9e514ad795ba7452899bf4718b57424dd046ed66be5ef75ccb8990",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -12962,20 +12962,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/storage_device_list/storage_devices/netapp_trident/netapp_backend_ontap_nas/password/clear_secret_info/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
       "tasks": ["configuration"],
       "title": "storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_nas.password.clear_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
       "aliases": ["storage device list storage devices netapp trident netapp backend ontap nas storage"],
       "body_bytes": 5576,
-      "body_sha256": "sha256:84a812bd298c4c247d0d95e1df3c1b675439bcec0582a7f7f796c34cea44b117",
+      "body_sha256": "sha256:9261ce924148566eca7c0deb19a49b26b815836c9edaae5541fd3cf5f48034d4",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -13131,14 +13131,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/storage_device_list/storage_devices/netapp_trident/netapp_backend_ontap_nas/storage/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "List of Virtual Storage Pool definitions which are referred back by Storage Class label match selection.",
       "tasks": ["configuration"],
       "title": "storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_nas.storage",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -13146,7 +13146,7 @@
         "storage device list storage devices netapp trident netapp backend ontap nas storage volume defaults"
       ],
       "body_bytes": 11946,
-      "body_sha256": "sha256:3823002091b4860fdc3af9188a0c130f15419af55bc54299f21b234ae81e11cc",
+      "body_sha256": "sha256:8732a9df6711020e8da5560eea19f08f26ccfd5ad5952d33049e2d2331615acb",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -13579,14 +13579,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/storage_device_list/storage_devices/netapp_trident/netapp_backend_ontap_nas/storage/volume_defaults/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "It controls how each volume is provisioned by default using these OPTIONS in a special section of the configuration.",
       "tasks": ["configuration"],
       "title": "storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_nas.storage.volume_defaults",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -13629,20 +13629,20 @@
       ],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/storage_device_list/storage_devices/netapp_trident/netapp_backend_ontap_nas/storage/volume_defaults/no_qos/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_nas.storage.volume_defaults.no_qos",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
       "aliases": ["storage device list storage devices netapp trident netapp backend ontap nas volume defaults"],
       "body_bytes": 11557,
-      "body_sha256": "sha256:4e65409223f2cf8c02ef1b1f998254faae27a15626c1329038d51a4a0ed305cb",
+      "body_sha256": "sha256:d2ee8b3b6288cdaaf0bdde91744806e0699a67fab2ee43056fd3d8682b47b187",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -14061,14 +14061,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/storage_device_list/storage_devices/netapp_trident/netapp_backend_ontap_nas/volume_defaults/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "It controls how each volume is provisioned by default using these OPTIONS in a special section of the configuration.",
       "tasks": ["configuration"],
       "title": "storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_nas.volume_defaults",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -14108,14 +14108,14 @@
       ],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/storage_device_list/storage_devices/netapp_trident/netapp_backend_ontap_nas/volume_defaults/no_qos/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_nas.volume_defaults.no_qos",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -14126,7 +14126,7 @@
         "upstream servers"
       ],
       "body_bytes": 21608,
-      "body_sha256": "sha256:b82e0ff7573cebb3aac41070695d8e9c96c726bbfbb6f5bbd30efeb724903b87",
+      "body_sha256": "sha256:60ecccf8966970dfc319d4a4757e41be554f51a1de7f4d3f12a9c83bbbb4f1ac",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -14788,14 +14788,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/storage_device_list/storage_devices/netapp_trident/netapp_backend_ontap_san/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "Configuration of storage backend for NetApp ONTAP SAN.",
       "tasks": ["configuration"],
       "title": "storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -14923,14 +14923,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/storage_device_list/storage_devices/netapp_trident/netapp_backend_ontap_san/client_private_key/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "SecretType is used in an object to indicate a sensitive/confidential field.",
       "tasks": ["configuration"],
       "title": "storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.client_private_key",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -14938,7 +14938,7 @@
         "storage device list storage devices netapp trident netapp backend ontap san client private key blindfold secret info"
       ],
       "body_bytes": 5343,
-      "body_sha256": "sha256:31270ad0682fbe0d490c17b8925f512a43fe7702487a78113a462b2544f55144",
+      "body_sha256": "sha256:a2a73853ec33a477a6069b478a08cfcbbc73e1c05f2f376aeb6c96e4c94c133b",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -15060,14 +15060,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/storage_device_list/storage_devices/netapp_trident/netapp_backend_ontap_san/client_private_key/blindfold_secret_info/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
       "tasks": ["configuration"],
       "title": "storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.client_private_key.blindfold_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -15075,7 +15075,7 @@
         "storage device list storage devices netapp trident netapp backend ontap san client private key clear secret info"
       ],
       "body_bytes": 4290,
-      "body_sha256": "sha256:fc729977fcf404f5d911572f66836537639a09773af6e62ac0e69b395be8a9e6",
+      "body_sha256": "sha256:d9685a883d19f36b0632f1872f4390dbc59527cdded25172efa81f82cffbba21",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -15171,14 +15171,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/storage_device_list/storage_devices/netapp_trident/netapp_backend_ontap_san/client_private_key/clear_secret_info/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
       "tasks": ["configuration"],
       "title": "storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.client_private_key.clear_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -15217,14 +15217,14 @@
       ],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/storage_device_list/storage_devices/netapp_trident/netapp_backend_ontap_san/no_chap/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.no_chap",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -15352,14 +15352,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/storage_device_list/storage_devices/netapp_trident/netapp_backend_ontap_san/password/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "SecretType is used in an object to indicate a sensitive/confidential field.",
       "tasks": ["configuration"],
       "title": "storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.password",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -15367,7 +15367,7 @@
         "storage device list storage devices netapp trident netapp backend ontap san password blindfold secret info"
       ],
       "body_bytes": 5273,
-      "body_sha256": "sha256:0d611ee845cd32be6f3b7773da85aa3c8c2b848c1c721317832f8a44097aaf3d",
+      "body_sha256": "sha256:c3e9000e603cb25028801dfc038630293a99f77b6702793998733dffc6bafd67",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -15489,14 +15489,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/storage_device_list/storage_devices/netapp_trident/netapp_backend_ontap_san/password/blindfold_secret_info/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
       "tasks": ["configuration"],
       "title": "storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.password.blindfold_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -15504,7 +15504,7 @@
         "storage device list storage devices netapp trident netapp backend ontap san password clear secret info"
       ],
       "body_bytes": 4230,
-      "body_sha256": "sha256:4c7f4505fa487d263f3cdd2653d24b74fe2e9ebca6560da5782a8d133fef5893",
+      "body_sha256": "sha256:7b0ff38695f72ce3bf3cd819330bff2045dd1bec2e166feb7d7c5f3528524e1c",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -15600,20 +15600,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/storage_device_list/storage_devices/netapp_trident/netapp_backend_ontap_san/password/clear_secret_info/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
       "tasks": ["configuration"],
       "title": "storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.password.clear_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
       "aliases": ["storage device list storage devices netapp trident netapp backend ontap san storage"],
       "body_bytes": 5576,
-      "body_sha256": "sha256:2450f1488f47f021cf951504caf08e2898ec745a4909be25b05d403f5799c349",
+      "body_sha256": "sha256:262970f5930962dfc7c0bb8052af2b6de432065d6495c833d3eba3cfbff6cc6b",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -15769,14 +15769,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/storage_device_list/storage_devices/netapp_trident/netapp_backend_ontap_san/storage/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "List of Virtual Storage Pool definitions which are referred back by Storage Class label match selection.",
       "tasks": ["configuration"],
       "title": "storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.storage",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -15784,7 +15784,7 @@
         "storage device list storage devices netapp trident netapp backend ontap san storage volume defaults"
       ],
       "body_bytes": 11946,
-      "body_sha256": "sha256:a786ad5051e2a35d4a2d598cbec17cb4c66e87b696e3b4b8e471002d463b0d54",
+      "body_sha256": "sha256:4c647bbb7a0f900cd86ffb4017ff4c8e4d87e071e6e856c345c4d4b472e18f3c",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -16217,14 +16217,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/storage_device_list/storage_devices/netapp_trident/netapp_backend_ontap_san/storage/volume_defaults/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "It controls how each volume is provisioned by default using these OPTIONS in a special section of the configuration.",
       "tasks": ["configuration"],
       "title": "storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.storage.volume_defaults",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -16267,20 +16267,20 @@
       ],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/storage_device_list/storage_devices/netapp_trident/netapp_backend_ontap_san/storage/volume_defaults/no_qos/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.storage.volume_defaults.no_qos",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
       "aliases": ["storage device list storage devices netapp trident netapp backend ontap san use chap"],
       "body_bytes": 4491,
-      "body_sha256": "sha256:a5180da2f2775b29fbdfca5b6f4d1662893100799265ee4b9636207639ab4108",
+      "body_sha256": "sha256:30e5b1fbed2e292ee58467385198fbcddb1869c362972f4f8705da3f210c7658",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -16451,14 +16451,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/storage_device_list/storage_devices/netapp_trident/netapp_backend_ontap_san/use_chap/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "Device NetApp Backend ONTAP SAN CHAP configuration OPTIONS for enabled CHAP.",
       "tasks": ["configuration"],
       "title": "storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.use_chap",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -16591,14 +16591,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/storage_device_list/storage_devices/netapp_trident/netapp_backend_ontap_san/use_chap/chap_initiator_secret/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "SecretType is used in an object to indicate a sensitive/confidential field.",
       "tasks": ["configuration"],
       "title": "storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.use_chap.chap_initiator_secret",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -16606,7 +16606,7 @@
         "storage device list storage devices netapp trident netapp backend ontap san use chap chap initiator secret blindfold secret info"
       ],
       "body_bytes": 5689,
-      "body_sha256": "sha256:def14511f63eb98ad9860e0811f29c4f0627711b10f5381ed62d991bb998e099",
+      "body_sha256": "sha256:4b68fec1d3e220da1e4bc06bb91fa95512ac71a698247655e4b73cd25d9093a7",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -16732,14 +16732,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/storage_device_list/storage_devices/netapp_trident/netapp_backend_ontap_san/use_chap/chap_initiator_secret/blindfold_secret_info/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
       "tasks": ["configuration"],
       "title": "storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.use_chap.chap_initiator_secret.blindfold_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -16747,7 +16747,7 @@
         "storage device list storage devices netapp trident netapp backend ontap san use chap chap initiator secret clear secret info"
       ],
       "body_bytes": 4623,
-      "body_sha256": "sha256:fc032ebbee1f58cee83c9d7759ebe1c0ad219e10770bd1621c3496b0526b802a",
+      "body_sha256": "sha256:e32953f1c25bc926f7803d21b48a225fe88ae1ce1cea032ee8c08c1162e90325",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -16846,14 +16846,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/storage_device_list/storage_devices/netapp_trident/netapp_backend_ontap_san/use_chap/chap_initiator_secret/clear_secret_info/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
       "tasks": ["configuration"],
       "title": "storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.use_chap.chap_initiator_secret.clear_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -16986,14 +16986,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/storage_device_list/storage_devices/netapp_trident/netapp_backend_ontap_san/use_chap/chap_target_initiator_secret/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "SecretType is used in an object to indicate a sensitive/confidential field.",
       "tasks": ["configuration"],
       "title": "storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.use_chap.chap_target_initiator_secret",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -17001,7 +17001,7 @@
         "storage device list storage devices netapp trident netapp backend ontap san use chap chap target initiator secret blindfold secret info"
       ],
       "body_bytes": 5738,
-      "body_sha256": "sha256:cebabb418fcf5ff78c9e1e220b70bd6e326d7331c0181d6ca2cbd8818a66a550",
+      "body_sha256": "sha256:a0d3d635fa0543153ea1b414d69e2db9908d6ad250c8b1eb6b10b58ac5ac38c5",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -17127,14 +17127,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/storage_device_list/storage_devices/netapp_trident/netapp_backend_ontap_san/use_chap/chap_target_initiator_secret/blindfold_secret_info/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
       "tasks": ["configuration"],
       "title": "storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.use_chap.chap_target_initiator_secret.blindfold_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -17142,7 +17142,7 @@
         "storage device list storage devices netapp trident netapp backend ontap san use chap chap target initiator secret clear secret info"
       ],
       "body_bytes": 4665,
-      "body_sha256": "sha256:91c27548c6ae2996b59405a2d41759c774ecd7957e84d91e26d715561f6263ec",
+      "body_sha256": "sha256:8f1d1acc282d1610c4c8410c602e63bfd08fbf512ed5849a4231e01b8a5168af",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -17241,20 +17241,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/storage_device_list/storage_devices/netapp_trident/netapp_backend_ontap_san/use_chap/chap_target_initiator_secret/clear_secret_info/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
       "tasks": ["configuration"],
       "title": "storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.use_chap.chap_target_initiator_secret.clear_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
       "aliases": ["storage device list storage devices netapp trident netapp backend ontap san volume defaults"],
       "body_bytes": 11557,
-      "body_sha256": "sha256:1b996de830689f3d48b84789a2e3595f5f817ce2ba84efeba2477fce4d35c1aa",
+      "body_sha256": "sha256:94c970a43e93aaa81576f27805182047e7f2c0a07a680e9abea6b10e7eb3e9e4",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -17673,14 +17673,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/storage_device_list/storage_devices/netapp_trident/netapp_backend_ontap_san/volume_defaults/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "It controls how each volume is provisioned by default using these OPTIONS in a special section of the configuration.",
       "tasks": ["configuration"],
       "title": "storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.volume_defaults",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -17720,20 +17720,20 @@
       ],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/storage_device_list/storage_devices/netapp_trident/netapp_backend_ontap_san/volume_defaults/no_qos/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.volume_defaults.no_qos",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
       "aliases": ["storage device list storage devices pure service orchestrator"],
       "body_bytes": 4026,
-      "body_sha256": "sha256:1006b900a55eb8670d7d371f4925a7fcb0816c65bf650aad41a97093a9dfadba",
+      "body_sha256": "sha256:e82cc6654e4ef9106aa724a1eefea5a6d994c6816edff4b85bbf6ea3e90e50bc",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -17846,14 +17846,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/storage_device_list/storage_devices/pure_service_orchestrator/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "Device configuration for Pure Storage Service Orchestrator.",
       "tasks": ["configuration"],
       "title": "storage_device_list.storage_devices.pure_service_orchestrator",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -17976,20 +17976,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/storage_device_list/storage_devices/pure_service_orchestrator/arrays/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "Device configuration for PSO Arrays.",
       "tasks": ["configuration"],
       "title": "storage_device_list.storage_devices.pure_service_orchestrator.arrays",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
       "aliases": ["storage device list storage devices pure service orchestrator arrays flash array"],
       "body_bytes": 9015,
-      "body_sha256": "sha256:9e25e4df798548787074c36380e36c53bf46bde9df1b633acc3e9df2dca5e125",
+      "body_sha256": "sha256:d17c8e4704137de3e2885a6f02e7b621d03679aa88afff4fe96271bd6dd91b97",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -18262,20 +18262,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/storage_device_list/storage_devices/pure_service_orchestrator/arrays/flash_array/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "Specify what storage flash arrays should be managed the plugin.",
       "tasks": ["configuration"],
       "title": "storage_device_list.storage_devices.pure_service_orchestrator.arrays.flash_array",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
       "aliases": ["storage device list storage devices pure service orchestrator arrays flash array flash arrays"],
       "body_bytes": 8213,
-      "body_sha256": "sha256:7e732ba2d553c82c9dc7c5626ad512d2659cbb0e08ae5e9491685730d0eec40f",
+      "body_sha256": "sha256:33f735b0e2769fb1ac2beb019a86ba0e5d87c03372b22dbb462d38c76ebc1cf9",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -18453,14 +18453,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/storage_device_list/storage_devices/pure_service_orchestrator/arrays/flash_array/flash_arrays/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "For FlashArrays you must set the \"mgmt_endpoint\" and \"api_token\"",
       "tasks": ["configuration"],
       "title": "storage_device_list.storage_devices.pure_service_orchestrator.arrays.flash_array.flash_arrays",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -18599,14 +18599,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/storage_device_list/storage_devices/pure_service_orchestrator/arrays/flash_array/flash_arrays/api_token/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "SecretType is used in an object to indicate a sensitive/confidential field.",
       "tasks": ["configuration"],
       "title": "storage_device_list.storage_devices.pure_service_orchestrator.arrays.flash_array.flash_arrays.api_token",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -18614,7 +18614,7 @@
         "storage device list storage devices pure service orchestrator arrays flash array flash arrays api token blindfold secret info"
       ],
       "body_bytes": 5948,
-      "body_sha256": "sha256:2f3c8b1beb0fcfcc4cff9fbd9fd0d50a4e2f940fe55748ed93db6ae0816908ca",
+      "body_sha256": "sha256:8b5ca88e113a7f92f38b29634c70e17453482a80bde640585b60bb507f8b00c0",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -18744,14 +18744,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/storage_device_list/storage_devices/pure_service_orchestrator/arrays/flash_array/flash_arrays/api_token/blindfold_secret_info/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
       "tasks": ["configuration"],
       "title": "storage_device_list.storage_devices.pure_service_orchestrator.arrays.flash_array.flash_arrays.api_token.blindfold_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -18759,7 +18759,7 @@
         "storage device list storage devices pure service orchestrator arrays flash array flash arrays api token clear secret info"
       ],
       "body_bytes": 4884,
-      "body_sha256": "sha256:ce31df021b87c9eb1446fd6b421e2a926fcfe280c55dca9182816579ac94d0f7",
+      "body_sha256": "sha256:e9c8d10655aede2c496acbcd381a813d196d5008f1a34960a2165340cb03f2cb",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -18861,20 +18861,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/storage_device_list/storage_devices/pure_service_orchestrator/arrays/flash_array/flash_arrays/api_token/clear_secret_info/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
       "tasks": ["configuration"],
       "title": "storage_device_list.storage_devices.pure_service_orchestrator.arrays.flash_array.flash_arrays.api_token.clear_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
       "aliases": ["storage device list storage devices pure service orchestrator arrays flash blade"],
       "body_bytes": 3632,
-      "body_sha256": "sha256:c3ea3d85eed3e0ef0cda273501da97c0a5e41e4114c050ff3690f30b960a4679",
+      "body_sha256": "sha256:630a2049f822bab55e5de6388129dc017857a0b495034b6cf7504b2f86ccb4a4",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -19017,20 +19017,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/storage_device_list/storage_devices/pure_service_orchestrator/arrays/flash_blade/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "Specify what storage flash blades should be managed the plugin.",
       "tasks": ["configuration"],
       "title": "storage_device_list.storage_devices.pure_service_orchestrator.arrays.flash_blade",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
       "aliases": ["storage device list storage devices pure service orchestrator arrays flash blade flash blades"],
       "body_bytes": 10724,
-      "body_sha256": "sha256:e6377452eb968e9258af3b0100957d1711f89052833d9f5a0c08a76294126fcc",
+      "body_sha256": "sha256:c6ac77b007c60a24c1865daa9b876dc74b0055fd7df64bb901b405a99f03fe64",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -19276,14 +19276,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/storage_device_list/storage_devices/pure_service_orchestrator/arrays/flash_blade/flash_blades/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "For FlashBlades you must set the \"mgmt_endpoint\", \"api_token\" and nfs_endpoint.",
       "tasks": ["configuration"],
       "title": "storage_device_list.storage_devices.pure_service_orchestrator.arrays.flash_blade.flash_blades",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -19422,14 +19422,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/storage_device_list/storage_devices/pure_service_orchestrator/arrays/flash_blade/flash_blades/api_token/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "SecretType is used in an object to indicate a sensitive/confidential field.",
       "tasks": ["configuration"],
       "title": "storage_device_list.storage_devices.pure_service_orchestrator.arrays.flash_blade.flash_blades.api_token",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -19437,7 +19437,7 @@
         "storage device list storage devices pure service orchestrator arrays flash blade flash blades api token blindfold secret info"
       ],
       "body_bytes": 5948,
-      "body_sha256": "sha256:3ecc325d26324712acddda3a1a7a29adc282d081e646c27399c3a2583f74402e",
+      "body_sha256": "sha256:c9d2d682fdffe2f4cc3eb5f35eb3de3b1fc9a10c1c6317fb4846fe22b0bc97c1",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -19567,14 +19567,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/storage_device_list/storage_devices/pure_service_orchestrator/arrays/flash_blade/flash_blades/api_token/blindfold_secret_info/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
       "tasks": ["configuration"],
       "title": "storage_device_list.storage_devices.pure_service_orchestrator.arrays.flash_blade.flash_blades.api_token.blindfold_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -19582,7 +19582,7 @@
         "storage device list storage devices pure service orchestrator arrays flash blade flash blades api token clear secret info"
       ],
       "body_bytes": 4884,
-      "body_sha256": "sha256:9e8c6b6f04a7a90abeaba334eba8ac74d792e5037c92424724f8ea6a3de71b18",
+      "body_sha256": "sha256:b7c86711182154b5c09479e51bf3a2f816446e8675b1d39f9175449c3c82a0ae",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -19684,14 +19684,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/storage_device_list/storage_devices/pure_service_orchestrator/arrays/flash_blade/flash_blades/api_token/clear_secret_info/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
       "tasks": ["configuration"],
       "title": "storage_device_list.storage_devices.pure_service_orchestrator.arrays.flash_blade.flash_blades.api_token.clear_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -19759,20 +19759,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/storage_interface_list/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "Add all interfaces belonging to this fleet.",
       "tasks": ["configuration"],
       "title": "storage_interface_list",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
       "aliases": ["storage interface list interfaces"],
       "body_bytes": 5975,
-      "body_sha256": "sha256:e9f6f8aa7e2d39f240e95abbb9a042cd619ed91b68003b6bb778614d79c95ff9",
+      "body_sha256": "sha256:4ef2957248d9b71d286bdc610da7b69d9964e6aaa82a0a1cb27981bd406885cf",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -19878,14 +19878,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/storage_interface_list/interfaces/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "Add all interfaces belonging to this fleet.",
       "tasks": ["configuration"],
       "title": "storage_interface_list.interfaces",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -19953,20 +19953,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/storage_static_routes/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "List of storage static routes.",
       "tasks": ["configuration"],
       "title": "storage_static_routes",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
       "aliases": ["storage static routes storage routes"],
       "body_bytes": 3778,
-      "body_sha256": "sha256:3b7e10db8ad5db7605427298db352b093d9660bcc797392a990ea83b63f83631",
+      "body_sha256": "sha256:ea991281cfcfb9f408b3afadf31739cebc7402bd6105b18f00ab1fad1e830326",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -20088,14 +20088,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/storage_static_routes/storage_routes/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "List of storage static routes.",
       "tasks": ["configuration"],
       "title": "storage_static_routes.storage_routes",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -20128,14 +20128,14 @@
       "schema_path": ["storage_static_routes", "storage_routes", "labels"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/storage_static_routes/storage_routes/labels/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "Add Labels for this Static Route, these labels can be used in network policy.",
       "tasks": ["configuration"],
       "title": "storage_static_routes.storage_routes.labels",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -20278,20 +20278,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/storage_static_routes/storage_routes/nexthop/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "Identifies the next-hop for a route.",
       "tasks": ["configuration"],
       "title": "storage_static_routes.storage_routes.nexthop",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
       "aliases": ["storage static routes storage routes nexthop interface"],
       "body_bytes": 6256,
-      "body_sha256": "sha256:7818dc9103a96df419d0e8ec98f240a34620d8ab0905d0fdefef2edc8d007b3a",
+      "body_sha256": "sha256:8c73a99ceddc6c796794606be3c5c36e137c560826c5155ff11676888fec974b",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -20434,14 +20434,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/storage_static_routes/storage_routes/nexthop/interface/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "Nexthop is network interface when type is \"Network-Interface\"",
       "tasks": ["configuration"],
       "title": "storage_static_routes.storage_routes.nexthop.interface",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -20576,14 +20576,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/storage_static_routes/storage_routes/nexthop/nexthop_address/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "IP Address used to specify an IPv4 or IPv6 address.",
       "tasks": ["configuration"],
       "title": "storage_static_routes.storage_routes.nexthop.nexthop_address",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -20666,20 +20666,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/storage_static_routes/storage_routes/nexthop/nexthop_address/dual_stack/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "DualStackAddressType represents both IPv4 and IPv6 together.",
       "tasks": ["configuration"],
       "title": "storage_static_routes.storage_routes.nexthop.nexthop_address.dual_stack",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
       "aliases": ["storage static routes storage routes nexthop nexthop address dual stack ipv4"],
       "body_bytes": 2915,
-      "body_sha256": "sha256:ee83a111d18b4523e664e14e581de493f18bd4bb1645698fe2bdfd99e29450a1",
+      "body_sha256": "sha256:877200336c012a1a5bc63b0262ea68c72826b41b66be2847620c7ce85fb08535",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -20731,20 +20731,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/storage_static_routes/storage_routes/nexthop/nexthop_address/dual_stack/ipv4/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "IPv4 Address in dot-decimal notation.",
       "tasks": ["configuration"],
       "title": "storage_static_routes.storage_routes.nexthop.nexthop_address.dual_stack.ipv4",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
       "aliases": ["storage static routes storage routes nexthop nexthop address dual stack ipv6"],
       "body_bytes": 3052,
-      "body_sha256": "sha256:7e6ec055526ea1eb46b6641154aaf0c40ce46e4507fd3ef08528af1c77aaa5cd",
+      "body_sha256": "sha256:2caa6d825134a99610d6a8b90c5bb6090b513f672b4cafc5b709851d6d6859db",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -20796,20 +20796,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/storage_static_routes/storage_routes/nexthop/nexthop_address/dual_stack/ipv6/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "IPv6 Address specified as hexadecimal numbers separated by ':'",
       "tasks": ["configuration"],
       "title": "storage_static_routes.storage_routes.nexthop.nexthop_address.dual_stack.ipv6",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
       "aliases": ["storage static routes storage routes nexthop nexthop address ipv4"],
       "body_bytes": 2648,
-      "body_sha256": "sha256:b7bb275d6a86d0c564189acc85617a9bddc20f3da3f0a1ae4e1667be23972b75",
+      "body_sha256": "sha256:34a9e85d6b6267d77d54ae8bd530f02b4cac652692969d7ce6813e07765fe460",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -20853,20 +20853,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/storage_static_routes/storage_routes/nexthop/nexthop_address/ipv4/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "IPv4 Address in dot-decimal notation.",
       "tasks": ["configuration"],
       "title": "storage_static_routes.storage_routes.nexthop.nexthop_address.ipv4",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
       "aliases": ["storage static routes storage routes nexthop nexthop address ipv6"],
       "body_bytes": 2785,
-      "body_sha256": "sha256:e6626517abd262472eefb54fd5d4b02609c0fcea9d3d4e58ad4619e42066b815",
+      "body_sha256": "sha256:adcf789fdb1a6d2028d7cc8e3942f03aeaafb3fa15cb516daf64993211fd191a",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -20910,20 +20910,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/storage_static_routes/storage_routes/nexthop/nexthop_address/ipv6/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "IPv6 Address specified as hexadecimal numbers separated by ':'",
       "tasks": ["configuration"],
       "title": "storage_static_routes.storage_routes.nexthop.nexthop_address.ipv6",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
       "aliases": ["storage static routes storage routes subnets"],
       "body_bytes": 2199,
-      "body_sha256": "sha256:4637ac72165417fb70f063e7d0cc61e68b546e9245c8f94276173a12542e2a6c",
+      "body_sha256": "sha256:6b193777a04b54477502523a6d93888c3ba55d92a6efc1ce01fee8fe156efa17",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -21003,20 +21003,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/storage_static_routes/storage_routes/subnets/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "List of route prefixes.",
       "tasks": ["configuration"],
       "title": "storage_static_routes.storage_routes.subnets",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
       "aliases": ["storage static routes storage routes subnets ipv4"],
       "body_bytes": 3300,
-      "body_sha256": "sha256:ba360133a2cd1f5f2d2175ab68b4c847ddb768f3039cc13752d4446bbd6d288f",
+      "body_sha256": "sha256:64ab8a65c8f36829bc5ebd40fe7115799f79c81211a41017cdbf5e5d94778c9e",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -21076,20 +21076,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/storage_static_routes/storage_routes/subnets/ipv4/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "IPv4 subnets specified as prefix and prefix-length. Prefix length must be <= 32.",
       "tasks": ["configuration"],
       "title": "storage_static_routes.storage_routes.subnets.ipv4",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
       "aliases": ["storage static routes storage routes subnets ipv6"],
       "body_bytes": 3661,
-      "body_sha256": "sha256:3fccc8576060d77c0a67f09a338005308ff07b58a9a324684fb0ba73f8ecccb9",
+      "body_sha256": "sha256:05a1900de5a41a7b25bb977f7a92f6f8c9ab44927c1e6fe2793f77249b72492d",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -21149,14 +21149,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/storage_static_routes/storage_routes/subnets/ipv6/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "IPv6 subnets specified as prefix and prefix-length. Prefix-legnth must be <= 128.",
       "tasks": ["configuration"],
       "title": "storage_static_routes.storage_routes.subnets.ipv6",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -21289,20 +21289,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/timeouts/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "timeouts for xcsh_fleet.",
       "tasks": ["configuration"],
       "title": "timeouts",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
       "aliases": ["usb policy"],
       "body_bytes": 5006,
-      "body_sha256": "sha256:e2291a98accc8fab61531d7966076975d04261415b5862f2f58963460b026708",
+      "body_sha256": "sha256:1114589b7842ed8c3d7a4f637a0423d29be7619b719672d6849c89b7f0c7ea47",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -21408,14 +21408,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/properties/usb_policy/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "usb_policy",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -21448,14 +21448,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/examples/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "Examples for xcsh_fleet.",
       "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -21495,14 +21495,14 @@
       "schema_path": ["resource"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/examples/resource/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "Resource for xcsh_fleet.",
       "tasks": ["configuration"],
       "title": "Resource",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -21536,14 +21536,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/lifecycle/import/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "Import for xcsh_fleet.",
       "tasks": ["import"],
       "title": "Import",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -21576,14 +21576,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/fleet/lifecycle/timeouts/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "Timeouts for xcsh_fleet.",
       "tasks": ["lifecycle"],
       "title": "Timeouts",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["fleetCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     }
   ],

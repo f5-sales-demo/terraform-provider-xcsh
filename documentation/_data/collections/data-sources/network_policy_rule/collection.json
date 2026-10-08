@@ -162,21 +162,21 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_policy_rule/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "Reads Network Policy Rule information from F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_network_policy_rule",
       "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["network_policy_ruleCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
       "aliases": ["network policy rule"],
       "body_bytes": 13949,
-      "body_sha256": "sha256:46b4ebb07f0e4d8914fa9feff402136aa09418b078af59c0ea38c1bc759acb28",
+      "body_sha256": "sha256:870cb6620d107696c593fba79f8d8358345535175d47661891b5e7a5fd48ecad",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -434,14 +434,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_policy_rule/properties/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "Property reference for xcsh_network_policy_rule.",
       "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["network_policy_ruleCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -491,14 +491,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_policy_rule/properties/advanced_action/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "Network Policy Rule Advanced Action provides additional OPTIONS along with RuleAction and PBRRuleAction.",
       "tasks": ["configuration"],
       "title": "advanced_action",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["network_policy_ruleCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -548,20 +548,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_policy_rule/properties/ip_prefix_set/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "A list of references to ip_prefix_set objects.",
       "tasks": ["configuration"],
       "title": "ip_prefix_set",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["network_policy_ruleCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
       "aliases": ["ip prefix set ref"],
       "body_bytes": 5196,
-      "body_sha256": "sha256:9451b9ad3c448bdca1fcc5f25ff59a46df715eb77fcab0985affe3149a9f2a4a",
+      "body_sha256": "sha256:99aa31fd3d6462736a4559d551e0de6b7a48a2b630b280e945092b03f7ebd363",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -704,20 +704,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_policy_rule/properties/ip_prefix_set/ref/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "A list of references to ip_prefix_set objects.",
       "tasks": ["configuration"],
       "title": "ip_prefix_set.ref",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["network_policy_ruleCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
       "aliases": ["label matcher"],
       "body_bytes": 2043,
-      "body_sha256": "sha256:53f8de778bc29413844cb525296e243eb6d06fc27991624a03942feb4023b3a1",
+      "body_sha256": "sha256:e4a52918d150204c8a6aaa4aca3eaa240247608d8471dec0f14400b94ece186f",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -761,20 +761,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_policy_rule/properties/label_matcher/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "A label matcher specifies a list of label keys whose values need to match for source/client and destination/server. Note that the actual label values are not specified and do not matter. This allows an ability to scope grouping by the label key name.",
       "tasks": ["configuration"],
       "title": "label_matcher",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["network_policy_ruleCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
       "aliases": ["prefix"],
       "body_bytes": 1715,
-      "body_sha256": "sha256:2a7db1fdb7ca97e7852590c9218965fad4e0ffd14f7ea4fd7ee6ea7cc5452de4",
+      "body_sha256": "sha256:e51d04262214786650a4cc45c7f92bc1ad6ac825a0f77905ff3eec2acb71407b",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -818,20 +818,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_policy_rule/properties/prefix/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "List of IP Address prefixes. Prefix must contain both prefix and prefix-length The list can contain mix of both IPv4 and IPv6 prefixes.",
       "tasks": ["configuration"],
       "title": "prefix",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["network_policy_ruleCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
       "aliases": ["prefix selector"],
       "body_bytes": 3067,
-      "body_sha256": "sha256:27d79cf36fffd34ff5df89711c8fe40bff20a2bc74aa0e71cf6e98f4bb939446",
+      "body_sha256": "sha256:c6befa23b84ea4ba578c473176b870efe8acc671f279c3c91b28c08df201437c",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -875,14 +875,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_policy_rule/properties/prefix_selector/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "This type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects. A null label selector matches no objects.",
       "tasks": ["configuration"],
       "title": "prefix_selector",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["network_policy_ruleCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -915,14 +915,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_policy_rule/examples/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "Examples for xcsh_network_policy_rule.",
       "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["network_policy_ruleCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -962,14 +962,14 @@
       "schema_path": ["data-source"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_policy_rule/examples/data-source/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "Data source for xcsh_network_policy_rule.",
       "tasks": ["configuration"],
       "title": "Data source",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["network_policy_ruleCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     }
   ],

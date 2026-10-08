@@ -139,21 +139,21 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/sensitive_data_policy/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "Manages sensitive_data_policy creates a new object in the storage backend for metadata.namespace in F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_sensitive_data_policy",
       "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["sensitive_data_policyCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
       "aliases": ["sensitive data policy"],
       "body_bytes": 14351,
-      "body_sha256": "sha256:9e826f3df13bada79682b85433f3609c22b60cb330f92a711855dd0cea5c6cf1",
+      "body_sha256": "sha256:0e973c27c90b1eca1e77d601a0f14c2e96ec4cd419a0a952f8bd8cbcc51af2eb",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -360,20 +360,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/sensitive_data_policy/properties/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "Property reference for xcsh_sensitive_data_policy.",
       "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["sensitive_data_policyCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
       "aliases": ["custom data types"],
       "body_bytes": 1534,
-      "body_sha256": "sha256:e59fe824d3fcfb5c9bffe2a604eb42398cf44f68fad14c04f007b536c75d46c7",
+      "body_sha256": "sha256:5946414a2dd299254c9e12b7d5bbaee49ef8a2de457ee144ca7fc464095224d2",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": ["xcsh-docs:resources:sensitive_data_policy:properties:custom_data_types:custom_data_type_ref"],
@@ -426,20 +426,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/sensitive_data_policy/properties/custom_data_types/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "Select your custom data types to be monitored in the API discovery.",
       "tasks": ["configuration"],
       "title": "custom_data_types",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["sensitive_data_policyCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
       "aliases": ["custom data types custom data type ref"],
       "body_bytes": 5348,
-      "body_sha256": "sha256:fc17125c13dbc34f1fec1ef5e600dc94d8930dc28ad55b4e9b9641056fc0ff0c",
+      "body_sha256": "sha256:a9ef2afcb236b8a83659e32d8399aaa9075774b1bfe2c798d9355de1d62d3d04",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -545,14 +545,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/sensitive_data_policy/properties/custom_data_types/custom_data_type_ref/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "custom_data_types.custom_data_type_ref",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["sensitive_data_policyCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -685,14 +685,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/sensitive_data_policy/properties/timeouts/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "timeouts for xcsh_sensitive_data_policy.",
       "tasks": ["configuration"],
       "title": "timeouts",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["sensitive_data_policyCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -725,14 +725,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/sensitive_data_policy/examples/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "Examples for xcsh_sensitive_data_policy.",
       "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["sensitive_data_policyCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -772,14 +772,14 @@
       "schema_path": ["resource"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/sensitive_data_policy/examples/resource/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "Resource for xcsh_sensitive_data_policy.",
       "tasks": ["configuration"],
       "title": "Resource",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["sensitive_data_policyCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -813,14 +813,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/sensitive_data_policy/lifecycle/import/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "Import for xcsh_sensitive_data_policy.",
       "tasks": ["import"],
       "title": "Import",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["sensitive_data_policyCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     },
     {
@@ -853,14 +853,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/sensitive_data_policy/lifecycle/timeouts/index.txt",
-      "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a",
+      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
       "summary": "Timeouts for xcsh_sensitive_data_policy.",
       "tasks": ["lifecycle"],
       "title": "Timeouts",
       "upstream_identity": {
-        "release_tag": "v12.0.2",
+        "release_tag": "v12.0.3",
         "schema_components": ["sensitive_data_policyCreateRequest"],
-        "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"
+        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
       }
     }
   ],

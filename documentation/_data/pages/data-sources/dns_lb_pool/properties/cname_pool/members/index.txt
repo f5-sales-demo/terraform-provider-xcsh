@@ -2,7 +2,7 @@
 page_title: "cname_pool.members"
 subcategory: ""
 description: "Configuration parameter for members"
-xcsh_docs: {"aliases": ["cname pool members"], "body_bytes": 6108, "body_sha256": "sha256:45165e2b98147ab1fa64778d5654db6d08d34deb083aeefd1c540438f4599515", "capabilities": ["dns"], "category": "dns", "child_ids": [], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:data-sources:dns_lb_pool:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:dns_lb_pool:properties:cname_pool:members", "parent_id": "xcsh-docs:data-sources:dns_lb_pool:properties:cname_pool", "path": "documentation/data-sources/dns_lb_pool/properties/cname_pool/members/index.md", "product": "distributed-cloud", "provider_name": "dns_lb_pool", "provider_schema_digest": "sha256:5a7fb41daf7683904c87458d3d7c40e4f3e095bd9d9aff0ef4c2c67cb6c9a8b5", "provider_type": "data-sources", "registry_anchor": "canonical-0000213312220302-1011113232232320-0133221000321100-0121330130211212-0322202131221000-2013230022132131-1000102103303232-3021200300131033", "registry_path": "docs/guides/data-sources--dns_lb_pool--reference--group-001.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["cname_pool", "members"], "schema_version": 1, "sections": [{"aliases": ["cname pool members domain"], "anchor": "schema-cname_pool--members--domain", "description": "Specifies the fully qualified domain name.", "document_id": "xcsh-docs:data-sources:dns_lb_pool:properties:cname_pool:members", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["cname_pool", "members", "domain"], "syntax": "attribute", "type": "string"}, {"aliases": ["cname pool members final translation"], "anchor": "schema-cname_pool--members--final_translation", "description": "If this flag is true, the CNAME record will not be translated further.", "document_id": "xcsh-docs:data-sources:dns_lb_pool:properties:cname_pool:members", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["cname_pool", "members", "final_translation"], "syntax": "attribute", "type": "bool"}, {"aliases": ["cname pool members name"], "anchor": "schema-cname_pool--members--name", "description": "Pool member name.", "document_id": "xcsh-docs:data-sources:dns_lb_pool:properties:cname_pool:members", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["cname_pool", "members", "name"], "syntax": "attribute", "type": "string"}, {"aliases": ["cname pool members priority"], "anchor": "schema-cname_pool--members--priority", "description": "Used if the pool’s load balancing mode is set to Priority. Determines the order in which traffic is routed to pool members. The lower the number, the higher the priority, making those members active while higher-numbered members act as backups.", "document_id": "xcsh-docs:data-sources:dns_lb_pool:properties:cname_pool:members", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["cname_pool", "members", "priority"], "syntax": "attribute", "type": "number"}, {"aliases": ["cname pool members ratio"], "anchor": "schema-cname_pool--members--ratio", "description": "Used if the pool’s load balancing mode is set to Ratio-Member.", "document_id": "xcsh-docs:data-sources:dns_lb_pool:properties:cname_pool:members", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["cname_pool", "members", "ratio"], "syntax": "attribute", "type": "number"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_lb_pool/properties/cname_pool/members/index.txt", "spec_pin_digest": "sha256:01157ff3cd6b7e1eaa3fb1bc73d0758e089e0e3bcf6e3d9957ada629b777809a", "summary": "Configuration parameter for members", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.2", "schema_components": ["dns_lb_poolCreateRequest"], "target_commit": "4ee07ee75928a56fa7c8eb6603482f21b8472d1d"}}
+xcsh_docs: {"aliases": ["cname pool members"], "body_bytes": 6108, "body_sha256": "sha256:690bf716b26ffec86e1004ae650b3360613bf8810e8c6fd2193a155b0dea0c86", "capabilities": ["dns"], "category": "dns", "child_ids": [], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:data-sources:dns_lb_pool:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:dns_lb_pool:properties:cname_pool:members", "parent_id": "xcsh-docs:data-sources:dns_lb_pool:properties:cname_pool", "path": "documentation/data-sources/dns_lb_pool/properties/cname_pool/members/index.md", "product": "distributed-cloud", "provider_name": "dns_lb_pool", "provider_schema_digest": "sha256:5a7fb41daf7683904c87458d3d7c40e4f3e095bd9d9aff0ef4c2c67cb6c9a8b5", "provider_type": "data-sources", "registry_anchor": "canonical-0000213312220302-1011113232232320-0133221000321100-0121330130211212-0322202131221000-2013230022132131-1000102103303232-3021200300131033", "registry_path": "docs/guides/data-sources--dns_lb_pool--reference--group-001.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["cname_pool", "members"], "schema_version": 1, "sections": [{"aliases": ["cname pool members domain"], "anchor": "schema-cname_pool--members--domain", "description": "Specifies the fully qualified domain name.", "document_id": "xcsh-docs:data-sources:dns_lb_pool:properties:cname_pool:members", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["cname_pool", "members", "domain"], "syntax": "attribute", "type": "string"}, {"aliases": ["cname pool members final translation"], "anchor": "schema-cname_pool--members--final_translation", "description": "If this flag is true, the CNAME record will not be translated further.", "document_id": "xcsh-docs:data-sources:dns_lb_pool:properties:cname_pool:members", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["cname_pool", "members", "final_translation"], "syntax": "attribute", "type": "bool"}, {"aliases": ["cname pool members name"], "anchor": "schema-cname_pool--members--name", "description": "Pool member name.", "document_id": "xcsh-docs:data-sources:dns_lb_pool:properties:cname_pool:members", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["cname_pool", "members", "name"], "syntax": "attribute", "type": "string"}, {"aliases": ["cname pool members priority"], "anchor": "schema-cname_pool--members--priority", "description": "Used if the pool’s load balancing mode is set to Priority. Determines the order in which traffic is routed to pool members. The lower the number, the higher the priority, making those members active while higher-numbered members act as backups.", "document_id": "xcsh-docs:data-sources:dns_lb_pool:properties:cname_pool:members", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["cname_pool", "members", "priority"], "syntax": "attribute", "type": "number"}, {"aliases": ["cname pool members ratio"], "anchor": "schema-cname_pool--members--ratio", "description": "Used if the pool’s load balancing mode is set to Ratio-Member.", "document_id": "xcsh-docs:data-sources:dns_lb_pool:properties:cname_pool:members", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["cname_pool", "members", "ratio"], "syntax": "attribute", "type": "number"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_lb_pool/properties/cname_pool/members/index.txt", "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833", "summary": "Configuration parameter for members", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.3", "schema_components": ["dns_lb_poolCreateRequest"], "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -38,7 +38,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-07T18:46:18+00:00"
+      "validatedAt": "2026-10-08T03:45:36+00:00"
     },
     "minItems": 1,
     "uniqueItems": true
@@ -87,7 +87,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-07T18:46:18+00:00"
+      "validatedAt": "2026-10-08T03:45:36+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -157,7 +157,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-07T18:46:18+00:00"
+      "validatedAt": "2026-10-08T03:45:36+00:00"
     },
     "minLength": 1,
     "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
@@ -203,7 +203,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "api-probed",
-      "validatedAt": "2026-10-07T18:46:18+00:00"
+      "validatedAt": "2026-10-08T03:45:36+00:00"
     },
     "minimum": 0,
     "multipleOf": 1
@@ -245,7 +245,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "api-probed",
-      "validatedAt": "2026-10-07T18:46:18+00:00"
+      "validatedAt": "2026-10-08T03:45:36+00:00"
     },
     "minimum": 0
   },
