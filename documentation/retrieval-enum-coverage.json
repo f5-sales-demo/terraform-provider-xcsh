@@ -4,7 +4,7 @@
   "enum_fields": 576,
   "installed_fields": 34610,
   "runtime_registration_verified": false,
-  "schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+  "schema_digest": "sha256:5a7fb41daf7683904c87458d3d7c40e4f3e095bd9d9aff0ef4c2c67cb6c9a8b5",
   "unresolved": [
     {
       "reason": "coverage-not-exported",

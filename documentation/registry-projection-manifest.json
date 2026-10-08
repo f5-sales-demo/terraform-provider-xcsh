@@ -4885,16 +4885,16 @@
       "sha256": "sha256:0d1af29757d75202a0117814dbcfc9d887a4d0b85c719a055d24f4caa3f489aa"
     },
     "docs/guides/resources--swagger_object--examples--group-001.md": {
-      "bytes": 2716,
-      "sha256": "sha256:5b16c7d4d38452c64d2c4b8cba5165c1c80dbdad8e0ff2f726b0eacb573fb625"
+      "bytes": 2564,
+      "sha256": "sha256:72f14cf72f10f943ad755cb684188421f8bce301f2d6af2441d7f017709e2b6a"
     },
     "docs/guides/resources--swagger_object--lifecycle--group-001.md": {
       "bytes": 823,
       "sha256": "sha256:fa86fa489f26e72d9dc38ea22852d09c99bad8d60043624474f13a38167c9c11"
     },
     "docs/guides/resources--swagger_object--reference--group-001.md": {
-      "bytes": 5770,
-      "sha256": "sha256:61719fdd477eec623ef0468d8f10e5cd4c80c4f30c8f2565c4fed9b39682a8d9"
+      "bytes": 5656,
+      "sha256": "sha256:77e7a5d21113994557a4fd09d0cc80bb0041ea8de35d2967079c29fa6c19bf78"
     },
     "docs/guides/resources--tcp_loadbalancer--examples--group-001.md": {
       "bytes": 16510,
@@ -5657,8 +5657,8 @@
       "sha256": "sha256:6c074e6445f976387199101610bd769077806ca46da361808736e911c324ebb3"
     },
     "docs/resources/swagger_object.md": {
-      "bytes": 3320,
-      "sha256": "sha256:c9e4f5d30413f3e11cd67d38254bf64a3b38f8c6fc7488aaf90e2bc24ffef53a"
+      "bytes": 3031,
+      "sha256": "sha256:6f6fd8ee6647a2088a747b2a67c707fd05089a856597b571552659b147e8fbf2"
     },
     "docs/resources/tcp_loadbalancer.md": {
       "bytes": 3397,
@@ -5722,7 +5722,7 @@
     }
   },
   "limit_bytes": 500000,
-  "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+  "provider_schema_digest": "sha256:5a7fb41daf7683904c87458d3d7c40e4f3e095bd9d9aff0ef4c2c67cb6c9a8b5",
   "schema_version": 1,
   "section_manifests": [
     { "path": "documentation/registry-projection/sections-0001.json", "section_count": 535 },
