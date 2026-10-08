@@ -165,3 +165,60 @@ func TestSwaggerFailedUploadNotReplayed(t *testing.T) {
 		t.Fatalf("ambiguous PUT calls=%d diagnostics=%v", puts, resp.Diagnostics)
 	}
 }
+
+func TestSwaggerContentReplacementRequiresNewIdentity(t *testing.T) {
+	ctx := context.Background()
+	r := &SwaggerObjectResource{}
+	state := swaggerState(t, r, "v1", swaggerFixture)
+	tests := []struct {
+		name     string
+		change   func(*SwaggerObjectResourceModel)
+		rejected bool
+	}{
+		{"same-name changed bytes", func(d *SwaggerObjectResourceModel) { d.Content = types.StringValue(swaggerFixture + " ") }, true},
+		{"unchanged import", func(d *SwaggerObjectResourceModel) {}, false},
+		{"new content-addressed name", func(d *SwaggerObjectResourceModel) {
+			d.Content = types.StringValue(swaggerFixture + " ")
+			d.Name = types.StringValue("fixture-new-digest")
+		}, false},
+		{"new namespace", func(d *SwaggerObjectResourceModel) {
+			d.Content = types.StringValue(swaggerFixture + " ")
+			d.Namespace = types.StringValue("other")
+		}, false},
+		{"unknown future name", func(d *SwaggerObjectResourceModel) {
+			d.Content = types.StringValue(swaggerFixture + " ")
+			d.Name = types.StringUnknown()
+		}, false},
+		{"unknown initial content", func(d *SwaggerObjectResourceModel) { d.Content = types.StringUnknown() }, false},
+	}
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			var d SwaggerObjectResourceModel
+			if diagnostics := state.Get(ctx, &d); diagnostics.HasError() {
+				t.Fatal(diagnostics)
+			}
+			test.change(&d)
+			plan := tfsdk.Plan{Schema: state.Schema}
+			if diagnostics := plan.Set(ctx, &d); diagnostics.HasError() {
+				t.Fatal(diagnostics)
+			}
+			response := resource.ModifyPlanResponse{Plan: plan}
+			r.ModifyPlan(ctx, resource.ModifyPlanRequest{State: state, Plan: plan}, &response)
+			if response.Diagnostics.HasError() != test.rejected {
+				t.Fatal(response.Diagnostics)
+			}
+		})
+	}
+	t.Run("destroy", func(t *testing.T) {
+		plan := tfsdk.Plan(state)
+		var value *SwaggerObjectResourceModel
+		if diagnostics := plan.Set(ctx, value); diagnostics.HasError() {
+			t.Fatal(diagnostics)
+		}
+		response := resource.ModifyPlanResponse{Plan: plan}
+		r.ModifyPlan(ctx, resource.ModifyPlanRequest{State: state, Plan: plan}, &response)
+		if response.Diagnostics.HasError() {
+			t.Fatal(response.Diagnostics)
+		}
+	})
+}

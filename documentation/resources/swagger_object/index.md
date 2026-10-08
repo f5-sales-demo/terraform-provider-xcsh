@@ -1,8 +1,8 @@
 ---
 page_title: "xcsh_swagger_object"
 subcategory: ""
-description: "Owns one immutable, content-verified Swagger object version. Content changes replace only the owned version. Import uses namespace/name/version; latest and external presigned URLs are prohibited. State contains the complete document."
-xcsh_docs: {"aliases": ["adopt existing object", "import existing resource", "swagger object"], "body_bytes": 1637, "body_sha256": "sha256:89d3999b5828e281bb2b538f82cffca57d9ce65102c91867011804e7c5c9f8c6", "capabilities": [], "category": null, "child_ids": ["xcsh-docs:resources:swagger_object:reference", "xcsh-docs:resources:swagger_object:examples", "xcsh-docs:resources:swagger_object:import"], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": [], "status": "unresolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:resources:swagger_object:collection", "completeness": "complete", "id": "xcsh-docs:resources:swagger_object:fundamentals", "parent_id": "xcsh-docs:resources:xcsh:navigation", "path": "documentation/resources/swagger_object/index.md", "product": "distributed-cloud", "provider_name": "swagger_object", "provider_schema_digest": "sha256:5a7fb41daf7683904c87458d3d7c40e4f3e095bd9d9aff0ef4c2c67cb6c9a8b5", "provider_type": "resources", "registry_anchor": "canonical-0113122122131303-3312011120012020-2331301002012223-3033302331132230-0311201302013200-2313211231330002-3123103203213300-2123202121003133", "registry_path": "docs/resources/swagger_object.md", "relationships": [], "retrieval_version": 1, "role": "fundamentals", "schema_path": [], "schema_version": 1, "sections": [], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/swagger_object/index.txt", "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833", "summary": "Owns one immutable, content-verified Swagger object version. Content changes replace only the owned version. Import uses namespace/name/version; latest and external presigned URLs are prohibited. State contains the complete document.", "tasks": ["configuration"], "unresolved_relationships": [], "upstream_identity": {"release_tag": "v12.0.3", "schema_components": [], "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"}}
+description: "Owns one immutable, content-verified Swagger object version. Use a content-addressed name: content changes require a new name and replace only the owned version. XC may reuse a deleted version label, so same-name content replacement is rejected. Import uses namespace/name/version; latest and external presigned URLs"
+xcsh_docs: {"aliases": ["adopt existing object", "import existing resource", "swagger object"], "body_bytes": 1926, "body_sha256": "sha256:08a7e2b6a7545fca8004218cafbeb20c80f9949bc7143293c6d75caf1f9f84bb", "capabilities": [], "category": null, "child_ids": ["xcsh-docs:resources:swagger_object:reference", "xcsh-docs:resources:swagger_object:examples", "xcsh-docs:resources:swagger_object:import"], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": [], "status": "unresolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:resources:swagger_object:collection", "completeness": "complete", "id": "xcsh-docs:resources:swagger_object:fundamentals", "parent_id": "xcsh-docs:resources:xcsh:navigation", "path": "documentation/resources/swagger_object/index.md", "product": "distributed-cloud", "provider_name": "swagger_object", "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429", "provider_type": "resources", "registry_anchor": "canonical-0113122122131303-3312011120012020-2331301002012223-3033302331132230-0311201302013200-2313211231330002-3123103203213300-2123202121003133", "registry_path": "docs/resources/swagger_object.md", "relationships": [], "retrieval_version": 1, "role": "fundamentals", "schema_path": [], "schema_version": 1, "sections": [], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/swagger_object/index.txt", "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833", "summary": "Owns one immutable, content-verified Swagger object version. Use a content-addressed name: content changes require a new name and replace only the owned version. XC may reuse a deleted version label, so same-name content replacement is rejected. Import uses namespace/name/version; latest and external presigned URLs", "tasks": ["configuration"], "unresolved_relationships": [], "upstream_identity": {"release_tag": "v12.0.3", "schema_components": [], "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -15,9 +15,10 @@ Breadcrumbs:
 
 - xcsh_swagger_object
 
-Owns one immutable, content-verified Swagger object version. Content changes replace only the owned
-version. Import uses namespace/name/version; latest and external presigned URLs are prohibited.
-State contains the complete document.
+Owns one immutable, content-verified Swagger object version. Use a content-addressed name: content
+changes require a new name and replace only the owned version. XC may reuse a deleted version label,
+so same-name content replacement is rejected. Import uses namespace/name/version; latest and
+external presigned URLs are prohibited. State contains the complete document.
 
 ## Prerequisites
 
@@ -35,14 +36,21 @@ terraform {
   }
 }
 
-resource "xcsh_swagger_object" "example" {
-  namespace = "demo"
-  name      = "schema"
-  content = jsonencode({
+locals {
+  schema_content = jsonencode({
     openapi = "3.0.3"
     info    = { title = "Synthetic demo", version = "1" }
     paths   = {}
   })
+}
+
+resource "xcsh_swagger_object" "example" {
+  namespace = "demo"
+  name      = "schema-${substr(sha256(local.schema_content), 0, 32)}"
+  content   = local.schema_content
+  lifecycle {
+    create_before_destroy = true
+  }
 }
 
 output "swagger_path" {

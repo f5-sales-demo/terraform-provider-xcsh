@@ -18,9 +18,10 @@ Breadcrumbs:
 
 - xcsh_swagger_object
 
-Owns one immutable, content-verified Swagger object version. Content changes replace only the owned
-version. Import uses namespace/name/version; latest and external presigned URLs are prohibited.
-State contains the complete document.
+Owns one immutable, content-verified Swagger object version. Use a content-addressed name: content
+changes require a new name and replace only the owned version. XC may reuse a deleted version label,
+so same-name content replacement is rejected. Import uses namespace/name/version; latest and
+external presigned URLs are prohibited. State contains the complete document.
 
 <a id="canonical-0022001003321211-0100123123132032-1233230321332313-0020103132121311-3030021030103012-0312233302111333-1001201013000310-3213131321222002"></a>
 
@@ -42,14 +43,21 @@ terraform {
   }
 }
 
-resource "xcsh_swagger_object" "example" {
-  namespace = "demo"
-  name      = "schema"
-  content = jsonencode({
+locals {
+  schema_content = jsonencode({
     openapi = "3.0.3"
     info    = { title = "Synthetic demo", version = "1" }
     paths   = {}
   })
+}
+
+resource "xcsh_swagger_object" "example" {
+  namespace = "demo"
+  name      = "schema-${substr(sha256(local.schema_content), 0, 32)}"
+  content   = local.schema_content
+  lifecycle {
+    create_before_destroy = true
+  }
 }
 
 output "swagger_path" {

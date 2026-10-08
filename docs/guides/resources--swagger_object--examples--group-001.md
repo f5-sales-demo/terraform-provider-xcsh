@@ -43,7 +43,7 @@ Schema-derived minimal configuration validated with the checked-out provider.
 
 Expected outcome: **valid configuration**.
 
-Source: `examples/resources/xcsh_swagger_object/resource.tf`; digest `sha256:ac6ca388f618a440a05eeef1c5d8d8a3ed3b1914604de5ad200997bcadce42a7`.
+Source: `examples/resources/xcsh_swagger_object/resource.tf`; digest `sha256:3e856ac623c4fd62ed456c51c40b6d7398bf0e4040635eb274d1802a30e02ed2`.
 
 ```terraform
 terraform {
@@ -53,14 +53,21 @@ terraform {
   }
 }
 
-resource "xcsh_swagger_object" "example" {
-  namespace = "demo"
-  name      = "schema"
-  content = jsonencode({
+locals {
+  schema_content = jsonencode({
     openapi = "3.0.3"
     info    = { title = "Synthetic demo", version = "1" }
     paths   = {}
   })
+}
+
+resource "xcsh_swagger_object" "example" {
+  namespace = "demo"
+  name      = "schema-${substr(sha256(local.schema_content), 0, 32)}"
+  content   = local.schema_content
+  lifecycle {
+    create_before_destroy = true
+  }
 }
 
 output "swagger_path" {

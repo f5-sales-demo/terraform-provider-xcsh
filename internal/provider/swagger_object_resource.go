@@ -23,6 +23,7 @@ var (
 	_ resource.ResourceWithConfigure      = &SwaggerObjectResource{}
 	_ resource.ResourceWithImportState    = &SwaggerObjectResource{}
 	_ resource.ResourceWithValidateConfig = &SwaggerObjectResource{}
+	_ resource.ResourceWithModifyPlan     = &SwaggerObjectResource{}
 )
 
 type SwaggerObjectResource struct{ client *client.Client }
@@ -42,10 +43,10 @@ func (r *SwaggerObjectResource) Metadata(_ context.Context, req resource.Metadat
 }
 func (r *SwaggerObjectResource) Schema(_ context.Context, _ resource.SchemaRequest, resp *resource.SchemaResponse) {
 	replace := []planmodifier.String{stringplanmodifier.RequiresReplace()}
-	resp.Schema = schema.Schema{MarkdownDescription: "Owns one immutable, content-verified Swagger object version. Content changes replace only the owned version. Import uses namespace/name/version; latest and external presigned URLs are prohibited. State contains the complete document.", Attributes: map[string]schema.Attribute{
-		"name":      schema.StringAttribute{Required: true, MarkdownDescription: "Object DNS label.", PlanModifiers: replace},
+	resp.Schema = schema.Schema{MarkdownDescription: "Owns one immutable, content-verified Swagger object version. Use a content-addressed name: content changes require a new name and replace only the owned version. XC may reuse a deleted version label, so same-name content replacement is rejected. Import uses namespace/name/version; latest and external presigned URLs are prohibited. State contains the complete document.", Attributes: map[string]schema.Attribute{
+		"name":      schema.StringAttribute{Required: true, MarkdownDescription: "Object DNS label. Include a content digest so changed content has a distinct immutable path.", PlanModifiers: replace},
 		"namespace": schema.StringAttribute{Required: true, MarkdownDescription: "Owning namespace DNS label.", PlanModifiers: replace},
-		"content":   schema.StringAttribute{Required: true, MarkdownDescription: "Exact UTF-8 OpenAPI 3.0/3.1 or Swagger 2.0 JSON bytes. Use file(). Changes require replacement.", PlanModifiers: replace},
+		"content":   schema.StringAttribute{Required: true, MarkdownDescription: "Exact UTF-8 OpenAPI 3.0/3.1 or Swagger 2.0 JSON bytes. Use file(). Changed bytes require a new object name and a reviewed replacement.", PlanModifiers: replace},
 		"version":   schema.StringAttribute{Computed: true, MarkdownDescription: "Exact server-issued immutable version."},
 		"id":        schema.StringAttribute{Computed: true, MarkdownDescription: "Import identity: namespace/name/version."},
 		"path":      schema.StringAttribute{Computed: true, MarkdownDescription: "Immutable object-store path for API definition swagger_specs."},
@@ -79,6 +80,26 @@ func (r *SwaggerObjectResource) ValidateConfig(ctx context.Context, req resource
 		}
 	}
 }
+
+// ModifyPlan prevents XC from reusing a deleted version label for different bytes.
+func (r *SwaggerObjectResource) ModifyPlan(ctx context.Context, req resource.ModifyPlanRequest, resp *resource.ModifyPlanResponse) {
+	if req.State.Raw.IsNull() || req.Plan.Raw.IsNull() {
+		return
+	}
+	var before, after SwaggerObjectResourceModel
+	resp.Diagnostics.Append(req.State.Get(ctx, &before)...)
+	resp.Diagnostics.Append(req.Plan.Get(ctx, &after)...)
+	if resp.Diagnostics.HasError() {
+		return
+	}
+	if before.Content.IsUnknown() || before.Content.IsNull() || after.Content.IsUnknown() || after.Content.IsNull() || before.Name.IsUnknown() || after.Name.IsUnknown() || before.Namespace.IsUnknown() || after.Namespace.IsUnknown() {
+		return
+	}
+	if before.Content.ValueString() != after.Content.ValueString() && before.Name.Equal(after.Name) && before.Namespace.Equal(after.Namespace) {
+		resp.Diagnostics.AddAttributeError(path.Root("name"), "New Swagger Name Required", "XC may reuse a deleted version label. Changed content must use a new content-addressed object name so its immutable path cannot identify different bytes. Review the replacement before applying it.")
+	}
+}
+
 func swaggerModel(d *SwaggerObjectResourceModel, version, content string) {
 	d.Version = types.StringValue(version)
 	d.Content = types.StringValue(content)
