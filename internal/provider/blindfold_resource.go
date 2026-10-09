@@ -223,7 +223,7 @@ func editValue(v tftypes.Value, p []any, fn func(map[string]tftypes.Value)) tfty
 }
 func (r *blindfoldResource) context(c context.Context, policy string) (blindfold.Context, error) {
 	if r.client == nil {
-		return blindfold.Context{}, errors.New("Blindfold provider is not configured")
+		return blindfold.Context{}, errors.New("blindfold provider is not configured")
 	}
 	if policy == "" {
 		policy = "shared/ves-io-allow-volterra"
@@ -442,11 +442,11 @@ func (r *blindfoldResource) nodes(c context.Context, config, plan, state tftypes
 		}
 		ids[id] = true
 		if v := parent["certificate_url"]; v.IsKnown() && !v.IsNull() {
-			failure = errors.New("Blindfold conflicts with supplied certificate_url")
+			failure = errors.New("blindfold conflicts with supplied certificate_url")
 			return
 		}
 		if v := parent["private_key"]; v.Type() != nil && v.IsKnown() && !v.IsNull() {
-			failure = errors.New("Blindfold conflicts with supplied private_key")
+			failure = errors.New("blindfold conflicts with supplied private_key")
 			return
 		}
 		policy := textValue(input["policy"])
@@ -527,12 +527,12 @@ func (r *blindfoldResource) nodes(c context.Context, config, plan, state tftypes
 		}
 		if apply {
 			if expectedContext := textValue(planned["context_digest"]); expectedContext != "" && expectedContext != context.Digest {
-				failure = errors.New("Blindfold encryption context changed after planning; create a new plan")
+				failure = errors.New("blindfold encryption context changed after planning; create a new plan")
 				return
 			}
 			expected := textValue(planned["prepared_identity"])
 			if expected != "" && expected != node.identity && (!wo || textValue(planned["chain_identity"]) != "") {
-				failure = errors.New("Blindfold material or encryption context changed after planning; create a new plan")
+				failure = errors.New("blindfold material or encryption context changed after planning; create a new plan")
 				return
 			}
 			if node.rotate {
