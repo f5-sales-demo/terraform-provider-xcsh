@@ -35,7 +35,10 @@
     "strict_trust_hostname_fingerprint_https": true,
     "renewal_propagation": true,
     "plaintext_scans": true,
-    "cleanup_named_inline_and_macos": true
+    "cleanup_named_inline_and_macos": true,
+    "all_node_serialization_and_write_only_stripping": true,
+    "final_committed_linux_harness": true,
+    "source_go_vet": true
   },
   "unqualified": [
     "all remaining inline configuration surfaces live",
