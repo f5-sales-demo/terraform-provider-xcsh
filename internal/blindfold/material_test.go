@@ -7,6 +7,7 @@ import (
 	"crypto/rand"
 	"crypto/x509"
 	"crypto/x509/pkix"
+	"encoding/json"
 	"encoding/pem"
 	"math/big"
 	"testing"
@@ -100,5 +101,15 @@ func TestStrictDocuments(t *testing.T) {
 	v, err := ParseDocument([]byte(`{"data":{"keyVersion":4294967295,"policyId":"18446744073709551615"}}`))
 	if err != nil || v == nil {
 		t.Fatal(err)
+	}
+}
+
+func TestPublicContextDigestCanonicalization(t *testing.T) {
+	a, err := CanonicalJSON(map[string]any{"z": "<policy>&", "a": json.Number("18446744073709551615")})
+	if err != nil {
+		t.Fatal(err)
+	}
+	if string(a) != `{"a":18446744073709551615,"z":"<policy>&"}` {
+		t.Fatal("context canonicalization changed", string(a))
 	}
 }

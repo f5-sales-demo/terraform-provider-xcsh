@@ -43,7 +43,11 @@ func ReadFile(name string) ([]byte, error) {
 	return b, nil
 }
 func parseKey(b, password []byte) (crypto.Signer, error) {
-	block, rest := pem.Decode(bytes.TrimSpace(b))
+	b = bytes.TrimSpace(b)
+	if !bytes.HasPrefix(b, []byte("-----BEGIN ")) {
+		return nil, errors.New("invalid private key PEM prefix")
+	}
+	block, rest := pem.Decode(b)
 	if block == nil || len(bytes.TrimSpace(rest)) != 0 {
 		return nil, errors.New("PEM input must contain exactly one private key")
 	}
