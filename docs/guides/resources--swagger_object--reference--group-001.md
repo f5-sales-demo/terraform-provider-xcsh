@@ -29,7 +29,8 @@ Breadcrumbs:
 
 Type: `"string"`. Required.
 
-Exact UTF-8 OpenAPI 3.0/3.1 or Swagger 2.0 JSON bytes. Use file(). Changes require replacement.
+Exact UTF-8 OpenAPI 3.0/3.1 or Swagger 2.0 JSON bytes. Use file(). Changed bytes require a new
+object name and a reviewed replacement.
 
 <a id="canonical-0203003320312232-3132030113133033-3212120223212023-2212301302232123-0111101013102203-2303311212110320-2100211132021211-2200012232030200"></a>
 
@@ -49,7 +50,7 @@ Import identity: namespace/name/version.
 
 Type: `"string"`. Required.
 
-Object DNS label.
+Object DNS label. Include a content digest so changed content has a distinct immutable path.
 
 <a id="canonical-3011320023021200-0132330101103013-0211331330211321-2212123003103210-0022132003133301-3222113013010302-2233321301222123-3332030123030023"></a>
 
