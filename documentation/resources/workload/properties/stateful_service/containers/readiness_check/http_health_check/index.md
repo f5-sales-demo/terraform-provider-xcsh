@@ -2,7 +2,7 @@
 page_title: "stateful_service.containers.readiness_check.http_health_check"
 subcategory: "Container"
 description: "HTTPHealthCheckType describes a health check based on HTTP GET requests."
-xcsh_docs: {"aliases": ["stateful service containers readiness check http health check"], "body_bytes": 6562, "body_sha256": "sha256:75c011afdb5055bc93d9cdfc7afa7a87b39648f12c94794763a580d30d1ce01b", "capabilities": ["container"], "category": "container", "child_ids": ["xcsh-docs:resources:workload:properties:stateful_service:containers:readiness_check:http_health_check:port"], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:resources:workload:collection", "completeness": "complete", "id": "xcsh-docs:resources:workload:properties:stateful_service:containers:readiness_check:http_health_check", "parent_id": "xcsh-docs:resources:workload:properties:stateful_service:containers:readiness_check", "path": "documentation/resources/workload/properties/stateful_service/containers/readiness_check/http_health_check/index.md", "product": "distributed-cloud", "provider_name": "workload", "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429", "provider_type": "resources", "registry_anchor": "canonical-3103313332112223-2130033020321112-0322301232002211-2223322202123210-2331330121022122-1311321200133031-0301021310022213-3322311200230001", "registry_path": "docs/guides/resources--workload--reference--group-028.md", "relationships": [{"anchor": "schema-stateful_service--containers--readiness_check--http_health_check--path", "enforcement": "provider-schema", "group": "stateful_service.containers.readiness_check.http_health_check:RequiredObjectAttributes:path", "source": "ast-validator:RequiredObjectAttributes", "target_id": "xcsh-docs:resources:workload:properties:stateful_service:containers:readiness_check:http_health_check", "type": "requires"}], "retrieval_version": 1, "role": "properties", "schema_path": ["stateful_service", "containers", "readiness_check", "http_health_check"], "schema_version": 1, "sections": [{"aliases": ["stateful service containers readiness check http health check headers"], "anchor": "schema-stateful_service--containers--readiness_check--http_health_check--headers", "description": "Specifies a list of HTTP headers that should be added to each request that is sent to the health checked container. This is a list of key-value pairs.", "document_id": "xcsh-docs:resources:workload:properties:stateful_service:containers:readiness_check:http_health_check", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["stateful_service", "containers", "readiness_check", "http_health_check", "headers"], "syntax": "attribute", "type": "map"}, {"aliases": ["stateful service containers readiness check http health check host header"], "anchor": "schema-stateful_service--containers--readiness_check--http_health_check--host_header", "description": "The value of the host header in the HTTP health check request.", "document_id": "xcsh-docs:resources:workload:properties:stateful_service:containers:readiness_check:http_health_check", "enum_extraction_complete": true, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["stateful_service", "containers", "readiness_check", "http_health_check", "host_header"], "syntax": "attribute", "type": "string"}, {"aliases": ["stateful service containers readiness check http health check path"], "anchor": "schema-stateful_service--containers--readiness_check--http_health_check--path", "description": "Path to access on the HTTP server.", "document_id": "xcsh-docs:resources:workload:properties:stateful_service:containers:readiness_check:http_health_check", "enum_extraction_complete": true, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["stateful_service", "containers", "readiness_check", "http_health_check", "path"], "syntax": "attribute", "type": "string"}, {"aliases": ["stateful service containers readiness check http health check port"], "anchor": "section", "description": "Port", "document_id": "xcsh-docs:resources:workload:properties:stateful_service:containers:readiness_check:http_health_check:port", "enum_extraction_complete": false, "enum_validators": [], "flags": [], "max_items": null, "min_items": null, "nesting": "single", "relationships": [{"anchor": "schema-stateful_service--containers--readiness_check--http_health_check--port--name", "enforcement": "provider-schema", "group": "stateful_service.containers.readiness_check.http_health_check.port:ConflictingObjectAttributes:name,num", "source": "ast-validator:ConflictingObjectAttributes", "target_id": "xcsh-docs:resources:workload:properties:stateful_service:containers:readiness_check:http_health_check:port", "type": "conflicts"}, {"anchor": "schema-stateful_service--containers--readiness_check--http_health_check--port--num", "enforcement": "provider-schema", "group": "stateful_service.containers.readiness_check.http_health_check.port:ConflictingObjectAttributes:name,num", "source": "ast-validator:ConflictingObjectAttributes", "target_id": "xcsh-docs:resources:workload:properties:stateful_service:containers:readiness_check:http_health_check:port", "type": "conflicts"}], "schema_path": ["stateful_service", "containers", "readiness_check", "http_health_check", "port"], "syntax": "block", "type": "object"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/workload/properties/stateful_service/containers/readiness_check/http_health_check/index.txt", "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833", "summary": "HTTPHealthCheckType describes a health check based on HTTP GET requests.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.3", "schema_components": ["workloadCreateRequest"], "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"}}
+xcsh_docs: {"aliases": ["stateful service containers readiness check http health check"], "body_bytes": 5345, "body_sha256": "sha256:b7cac389f905de22425231ff916bb1db238140c2c66abe9274e8efd28167abc7", "capabilities": ["container"], "category": "container", "child_ids": ["xcsh-docs:resources:workload:properties:stateful_service:containers:readiness_check:http_health_check:port"], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:resources:workload:collection", "completeness": "complete", "id": "xcsh-docs:resources:workload:properties:stateful_service:containers:readiness_check:http_health_check", "parent_id": "xcsh-docs:resources:workload:properties:stateful_service:containers:readiness_check", "path": "documentation/resources/workload/properties/stateful_service/containers/readiness_check/http_health_check/index.md", "product": "distributed-cloud", "provider_name": "workload", "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829", "provider_type": "resources", "registry_anchor": "canonical-3103313332112223-2130033020321112-0322301232002211-2223322202123210-2331330121022122-1311321200133031-0301021310022213-3322311200230001", "registry_path": "docs/guides/resources--workload--reference--group-029.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["stateful_service", "containers", "readiness_check", "http_health_check"], "schema_version": 1, "sections": [{"aliases": ["stateful service containers readiness check http health check headers"], "anchor": "schema-stateful_service--containers--readiness_check--http_health_check--headers", "description": "Specifies a list of HTTP headers that should be added to each request that is sent to the health checked container. This is a list of key-value pairs.", "document_id": "xcsh-docs:resources:workload:properties:stateful_service:containers:readiness_check:http_health_check", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["stateful_service", "containers", "readiness_check", "http_health_check", "headers"], "syntax": "attribute", "type": "map"}, {"aliases": ["stateful service containers readiness check http health check host header"], "anchor": "schema-stateful_service--containers--readiness_check--http_health_check--host_header", "description": "The value of the host header in the HTTP health check request.", "document_id": "xcsh-docs:resources:workload:properties:stateful_service:containers:readiness_check:http_health_check", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["stateful_service", "containers", "readiness_check", "http_health_check", "host_header"], "syntax": "attribute", "type": "string"}, {"aliases": ["stateful service containers readiness check http health check path"], "anchor": "schema-stateful_service--containers--readiness_check--http_health_check--path", "description": "Path to access on the HTTP server.", "document_id": "xcsh-docs:resources:workload:properties:stateful_service:containers:readiness_check:http_health_check", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["stateful_service", "containers", "readiness_check", "http_health_check", "path"], "syntax": "attribute", "type": "string"}, {"aliases": ["stateful service containers readiness check http health check port"], "anchor": "section", "description": "Port", "document_id": "xcsh-docs:resources:workload:properties:stateful_service:containers:readiness_check:http_health_check:port", "enum_extraction_complete": false, "enum_validators": [], "flags": [], "max_items": null, "min_items": null, "nesting": "single", "relationships": [], "schema_path": ["stateful_service", "containers", "readiness_check", "http_health_check", "port"], "syntax": "block", "type": "object"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/workload/properties/stateful_service/containers/readiness_check/http_health_check/index.txt", "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1", "summary": "HTTPHealthCheckType describes a health check based on HTTP GET requests.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.4", "schema_components": ["workloadCreateRequest"], "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -25,13 +25,6 @@ Breadcrumbs:
 Type: `"object"`. single nested block, Optional.
 
 HTTPHealthCheckType describes a health check based on HTTP GET requests.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("path")}
-```
 
 Receipt-pinned upstream constraints:
 
@@ -64,13 +57,6 @@ Type: `["map", "string"]`. Optional.
 
 Specifies a list of HTTP headers that should be added to each request that is sent to the health
 checked container. This is a list of key-value pairs.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Map{validators.MapConstraintsValidator("{\"cardinality\":{\"maxProperties\":16},\"category\":\"discovery\",\"constraintType\":\"map\",\"deterministic\":true,\"keys\":{\"maxLength\":256,\"minLength\":1,\"type\":\"string\"},\"originalRules\":{\"ves.io.schema.rules.map.keys.string.max_len\":\"256\",\"ves.io.schema.rules.map.keys.string.min_len\":\"1\",\"ves.io.schema.rules.map.max_pairs\":\"16\",\"ves.io.schema.rules.map.values.string.max_len\":\"2048\",\"ves.io.schema.rules.map.values.string.min_len\":\"1\"},\"values\":{\"maxLength\":2048,\"minLength\":1,\"type\":\"string\"}}")}
-```
 
 Receipt-pinned upstream constraints:
 
@@ -132,15 +118,6 @@ Type: `"string"`. Optional.
 
 The value of the host header in the HTTP health check request.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthAtMost(262),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -154,7 +131,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -182,15 +159,6 @@ Type: `"string"`. Optional.
 
 Path. Path to access on the HTTP server.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 2048),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -204,7 +172,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1,
     "pattern": "^[/a-zA-Z0-9._-]+$"

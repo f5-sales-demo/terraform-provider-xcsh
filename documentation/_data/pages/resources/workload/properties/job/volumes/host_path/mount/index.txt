@@ -2,7 +2,7 @@
 page_title: "job.volumes.host_path.mount"
 subcategory: "Container"
 description: "Volume mount describes how volume is mounted inside a workload."
-xcsh_docs: {"aliases": ["job volumes host path mount"], "body_bytes": 4925, "body_sha256": "sha256:394feb68d8062ff9da4ac63cea27875b70936bc97e38b20eadc8f9c631be2812", "capabilities": ["container"], "category": "container", "child_ids": [], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:resources:workload:collection", "completeness": "complete", "id": "xcsh-docs:resources:workload:properties:job:volumes:host_path:mount", "parent_id": "xcsh-docs:resources:workload:properties:job:volumes:host_path", "path": "documentation/resources/workload/properties/job/volumes/host_path/mount/index.md", "product": "distributed-cloud", "provider_name": "workload", "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429", "provider_type": "resources", "registry_anchor": "canonical-0120233102003331-3110220213311222-0201010013211013-0313133003021232-2201212223230113-0022201212002011-0130031223322301-2100303001311123", "registry_path": "docs/guides/resources--workload--reference--group-005.md", "relationships": [{"anchor": "schema-job--volumes--host_path--mount--mount_path", "enforcement": "provider-schema", "group": "job.volumes.host_path.mount:RequiredObjectAttributes:mount_path", "source": "ast-validator:RequiredObjectAttributes", "target_id": "xcsh-docs:resources:workload:properties:job:volumes:host_path:mount", "type": "requires"}], "retrieval_version": 1, "role": "properties", "schema_path": ["job", "volumes", "host_path", "mount"], "schema_version": 1, "sections": [{"aliases": ["job volumes host path mount mode"], "anchor": "schema-job--volumes--host_path--mount--mode", "description": "Mode in which the volume should be mounted to the workload - VOLUME_MOUNT_READ_ONLY: ReadOnly Mount the volume in read-only mode - VOLUME_MOUNT_READ_WRITE: Read Write Mount the volume in read-write mode.", "document_id": "xcsh-docs:resources:workload:properties:job:volumes:host_path:mount", "enum_extraction_complete": true, "enum_validators": [{"case_sensitive": true, "complete": true, "source": "ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf", "validator": "OneOf", "values": ["VOLUME_MOUNT_READ_ONLY", "VOLUME_MOUNT_READ_WRITE"], "version": 1}], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["job", "volumes", "host_path", "mount", "mode"], "syntax": "attribute", "type": "string"}, {"aliases": ["job volumes host path mount mount path"], "anchor": "schema-job--volumes--host_path--mount--mount_path", "description": "Path within the workload container at which the volume should be mounted. Must not contain ':'.", "document_id": "xcsh-docs:resources:workload:properties:job:volumes:host_path:mount", "enum_extraction_complete": true, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["job", "volumes", "host_path", "mount", "mount_path"], "syntax": "attribute", "type": "string"}, {"aliases": ["job volumes host path mount sub path"], "anchor": "schema-job--volumes--host_path--mount--sub_path", "description": "Path within the volume from which the workload's volume should be mounted. Defaults to \"\" (volume's root).", "document_id": "xcsh-docs:resources:workload:properties:job:volumes:host_path:mount", "enum_extraction_complete": true, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["job", "volumes", "host_path", "mount", "sub_path"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/workload/properties/job/volumes/host_path/mount/index.txt", "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833", "summary": "Volume mount describes how volume is mounted inside a workload.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.3", "schema_components": ["workloadCreateRequest"], "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"}}
+xcsh_docs: {"aliases": ["job volumes host path mount"], "body_bytes": 3942, "body_sha256": "sha256:a4dce0716dd66f432e7572228486056c085610609ed040eaec3a6f80261d8f9f", "capabilities": ["container"], "category": "container", "child_ids": [], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:resources:workload:collection", "completeness": "complete", "id": "xcsh-docs:resources:workload:properties:job:volumes:host_path:mount", "parent_id": "xcsh-docs:resources:workload:properties:job:volumes:host_path", "path": "documentation/resources/workload/properties/job/volumes/host_path/mount/index.md", "product": "distributed-cloud", "provider_name": "workload", "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829", "provider_type": "resources", "registry_anchor": "canonical-0120233102003331-3110220213311222-0201010013211013-0313133003021232-2201212223230113-0022201212002011-0130031223322301-2100303001311123", "registry_path": "docs/guides/resources--workload--reference--group-006.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["job", "volumes", "host_path", "mount"], "schema_version": 1, "sections": [{"aliases": ["job volumes host path mount mode"], "anchor": "schema-job--volumes--host_path--mount--mode", "description": "Mode in which the volume should be mounted to the workload - VOLUME_MOUNT_READ_ONLY: ReadOnly Mount the volume in read-only mode - VOLUME_MOUNT_READ_WRITE: Read Write Mount the volume in read-write mode.", "document_id": "xcsh-docs:resources:workload:properties:job:volumes:host_path:mount", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["job", "volumes", "host_path", "mount", "mode"], "syntax": "attribute", "type": "string"}, {"aliases": ["job volumes host path mount mount path"], "anchor": "schema-job--volumes--host_path--mount--mount_path", "description": "Path within the workload container at which the volume should be mounted. Must not contain ':'.", "document_id": "xcsh-docs:resources:workload:properties:job:volumes:host_path:mount", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["job", "volumes", "host_path", "mount", "mount_path"], "syntax": "attribute", "type": "string"}, {"aliases": ["job volumes host path mount sub path"], "anchor": "schema-job--volumes--host_path--mount--sub_path", "description": "Path within the volume from which the workload's volume should be mounted. Defaults to \"\" (volume's root).", "document_id": "xcsh-docs:resources:workload:properties:job:volumes:host_path:mount", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["job", "volumes", "host_path", "mount", "sub_path"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/workload/properties/job/volumes/host_path/mount/index.txt", "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1", "summary": "Volume mount describes how volume is mounted inside a workload.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.4", "schema_components": ["workloadCreateRequest"], "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -25,13 +25,6 @@ Breadcrumbs:
 Type: `"object"`. single nested block, Optional.
 
 Volume mount describes how volume is mounted inside a workload.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("mount_path")}
-```
 
 Receipt-pinned upstream constraints:
 
@@ -68,17 +61,6 @@ VOLUME\_MOUNT\_READ\_WRITE: Read Write Mount the volume in read-write mode. Poss
 \`VOLUME\_MOUNT\_READ\_ONLY\`, \`VOLUME\_MOUNT\_READ\_WRITE\`. Defaults to
 \`VOLUME\_MOUNT\_READ\_ONLY\`.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-EnumValidators: [{"version":1,"validator":"OneOf","values":["VOLUME_MOUNT_READ_ONLY","VOLUME_MOUNT_READ_WRITE"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
-Validators: []validator.String{
-  stringvalidator.OneOf("VOLUME_MOUNT_READ_ONLY",
-    "VOLUME_MOUNT_READ_WRITE"),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -105,15 +87,6 @@ Type: `"string"`. Optional.
 
 Path within the workload container at which the volume should be mounted. Must not contain ':'.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthAtMost(256),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -127,7 +100,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "pattern": "^[^:]*$"
   },
@@ -163,15 +136,6 @@ Additional upstream details:
 
 Defaults to "" (volume's root).
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthAtMost(256),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -185,7 +149,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {

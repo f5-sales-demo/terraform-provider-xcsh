@@ -8,6 +8,106 @@
         "document_id": "xcsh-docs:resources:certificate:reference",
         "schema_path": ["annotations"]
       },
+      "blindfold": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:certificate:properties:blindfold",
+        "schema_path": ["blindfold"]
+      },
+      "blindfold.algorithm": {
+        "anchor": "schema-blindfold--algorithm",
+        "document_id": "xcsh-docs:resources:certificate:properties:blindfold",
+        "schema_path": ["blindfold", "algorithm"]
+      },
+      "blindfold.certificate_file": {
+        "anchor": "schema-blindfold--certificate_file",
+        "document_id": "xcsh-docs:resources:certificate:properties:blindfold",
+        "schema_path": ["blindfold", "certificate_file"]
+      },
+      "blindfold.certificate_pem": {
+        "anchor": "schema-blindfold--certificate_pem",
+        "document_id": "xcsh-docs:resources:certificate:properties:blindfold",
+        "schema_path": ["blindfold", "certificate_pem"]
+      },
+      "blindfold.chain_identity": {
+        "anchor": "schema-blindfold--chain_identity",
+        "document_id": "xcsh-docs:resources:certificate:properties:blindfold",
+        "schema_path": ["blindfold", "chain_identity"]
+      },
+      "blindfold.context_digest": {
+        "anchor": "schema-blindfold--context_digest",
+        "document_id": "xcsh-docs:resources:certificate:properties:blindfold",
+        "schema_path": ["blindfold", "context_digest"]
+      },
+      "blindfold.encrypted_location": {
+        "anchor": "schema-blindfold--encrypted_location",
+        "document_id": "xcsh-docs:resources:certificate:properties:blindfold",
+        "schema_path": ["blindfold", "encrypted_location"]
+      },
+      "blindfold.expires_at": {
+        "anchor": "schema-blindfold--expires_at",
+        "document_id": "xcsh-docs:resources:certificate:properties:blindfold",
+        "schema_path": ["blindfold", "expires_at"]
+      },
+      "blindfold.fingerprint": {
+        "anchor": "schema-blindfold--fingerprint",
+        "document_id": "xcsh-docs:resources:certificate:properties:blindfold",
+        "schema_path": ["blindfold", "fingerprint"]
+      },
+      "blindfold.id": {
+        "anchor": "schema-blindfold--id",
+        "document_id": "xcsh-docs:resources:certificate:properties:blindfold",
+        "schema_path": ["blindfold", "id"]
+      },
+      "blindfold.material_version": {
+        "anchor": "schema-blindfold--material_version",
+        "document_id": "xcsh-docs:resources:certificate:properties:blindfold",
+        "schema_path": ["blindfold", "material_version"]
+      },
+      "blindfold.passphrase_env": {
+        "anchor": "schema-blindfold--passphrase_env",
+        "document_id": "xcsh-docs:resources:certificate:properties:blindfold",
+        "schema_path": ["blindfold", "passphrase_env"]
+      },
+      "blindfold.passphrase_wo": {
+        "anchor": "schema-blindfold--passphrase_wo",
+        "document_id": "xcsh-docs:resources:certificate:properties:blindfold",
+        "schema_path": ["blindfold", "passphrase_wo"]
+      },
+      "blindfold.pkcs12_file": {
+        "anchor": "schema-blindfold--pkcs12_file",
+        "document_id": "xcsh-docs:resources:certificate:properties:blindfold",
+        "schema_path": ["blindfold", "pkcs12_file"]
+      },
+      "blindfold.pkcs12_wo": {
+        "anchor": "schema-blindfold--pkcs12_wo",
+        "document_id": "xcsh-docs:resources:certificate:properties:blindfold",
+        "schema_path": ["blindfold", "pkcs12_wo"]
+      },
+      "blindfold.policy": {
+        "anchor": "schema-blindfold--policy",
+        "document_id": "xcsh-docs:resources:certificate:properties:blindfold",
+        "schema_path": ["blindfold", "policy"]
+      },
+      "blindfold.prepared_identity": {
+        "anchor": "schema-blindfold--prepared_identity",
+        "document_id": "xcsh-docs:resources:certificate:properties:blindfold",
+        "schema_path": ["blindfold", "prepared_identity"]
+      },
+      "blindfold.private_key_file": {
+        "anchor": "schema-blindfold--private_key_file",
+        "document_id": "xcsh-docs:resources:certificate:properties:blindfold",
+        "schema_path": ["blindfold", "private_key_file"]
+      },
+      "blindfold.private_key_wo": {
+        "anchor": "schema-blindfold--private_key_wo",
+        "document_id": "xcsh-docs:resources:certificate:properties:blindfold",
+        "schema_path": ["blindfold", "private_key_wo"]
+      },
+      "blindfold.spki_identity": {
+        "anchor": "schema-blindfold--spki_identity",
+        "document_id": "xcsh-docs:resources:certificate:properties:blindfold",
+        "schema_path": ["blindfold", "spki_identity"]
+      },
       "certificate_chain": {
         "anchor": "section",
         "document_id": "xcsh-docs:resources:certificate:properties:certificate_chain",
@@ -156,8 +256,8 @@
   "pages": [
     {
       "aliases": ["certificate"],
-      "body_bytes": 1637,
-      "body_sha256": "sha256:0bbce061fad78de3de9d362e6828e92f9e265165e5bb5636e3deb164f1002ccd",
+      "body_bytes": 1618,
+      "body_sha256": "sha256:38216359f3f1271e398f1a5fef6ab4b24b0185f84a556a640076bae086093c67",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -179,7 +279,7 @@
       "path": "documentation/resources/certificate/index.md",
       "product": "distributed-cloud",
       "provider_name": "certificate",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-2010033013323302-3111123220113301-2322122303101210-2003020210333032-0232021333220031-3000020103303100-3202112103030121-1013321102200130",
       "registry_path": "docs/resources/certificate.md",
@@ -189,24 +289,25 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/certificate/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Manages a Certificate resource in F5 Distributed Cloud for certificate. configuration.",
       "tasks": ["configuration"],
       "title": "xcsh_certificate",
       "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["certificateCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["certificate"],
-      "body_bytes": 14971,
-      "body_sha256": "sha256:15802e587f2560c98c23add3fce73b88e4b4153dd197a7fe9aab5a6ee653ef05",
+      "body_bytes": 18369,
+      "body_sha256": "sha256:2a70a2b1bf9e820e53ecd4e24222151ada76094450b49a8e1a1583bd2fc4f107",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
+        "xcsh-docs:resources:certificate:properties:blindfold",
         "xcsh-docs:resources:certificate:properties:certificate_chain",
         "xcsh-docs:resources:certificate:properties:custom_hash_algorithms",
         "xcsh-docs:resources:certificate:properties:disable_ocsp_stapling",
@@ -227,7 +328,7 @@
       "path": "documentation/resources/certificate/properties/index.md",
       "product": "distributed-cloud",
       "provider_name": "certificate",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-1232012101321203-0232010211323212-3033033201203103-3213030001121213-1213230323110200-2223013311301231-0110133211131133-3323323132201330",
       "registry_path": "docs/guides/resources--certificate--reference--group-001.md",
@@ -253,6 +354,22 @@
           "type": "map"
         },
         {
+          "aliases": ["blindfold"],
+          "anchor": "section",
+          "description": "Native certificate preparation. Use PEM files or a P12 file, or write-only key/bundle values with material_version (Terraform 1.11+). Defaults to shared/ves-io-allow-volterra. Inline certificates require unique IDs. Private inputs are never stored.",
+          "document_id": "xcsh-docs:resources:certificate:properties:blindfold",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "single",
+          "relationships": [],
+          "schema_path": ["blindfold"],
+          "syntax": "attribute",
+          "type": "object"
+        },
+        {
           "aliases": ["cert", "certificate", "certificate chain", "existing certificates", "tls certificates"],
           "anchor": "section",
           "description": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
@@ -263,16 +380,7 @@
           "max_items": null,
           "min_items": null,
           "nesting": "single",
-          "relationships": [
-            {
-              "anchor": "schema-certificate_chain--name",
-              "enforcement": "provider-schema",
-              "group": "certificate_chain:RequiredObjectAttributes:name",
-              "source": "ast-validator:RequiredObjectAttributes",
-              "target_id": "xcsh-docs:resources:certificate:properties:certificate_chain",
-              "type": "requires"
-            }
-          ],
+          "relationships": [],
           "schema_path": ["certificate_chain"],
           "syntax": "block",
           "type": "object"
@@ -282,9 +390,9 @@
           "anchor": "schema-certificate_url",
           "description": "Certificate. Certificate or certificate chain in PEM format including the PEM headers.",
           "document_id": "xcsh-docs:resources:certificate:reference",
-          "enum_extraction_complete": true,
+          "enum_extraction_complete": false,
           "enum_validators": [],
-          "flags": ["required"],
+          "flags": ["optional", "computed"],
           "max_items": null,
           "min_items": null,
           "nesting": null,
@@ -304,16 +412,7 @@
           "max_items": null,
           "min_items": null,
           "nesting": "single",
-          "relationships": [
-            {
-              "anchor": "schema-custom_hash_algorithms--hash_algorithms",
-              "enforcement": "provider-schema",
-              "group": "custom_hash_algorithms:RequiredObjectAttributes:hash_algorithms",
-              "source": "ast-validator:RequiredObjectAttributes",
-              "target_id": "xcsh-docs:resources:certificate:properties:custom_hash_algorithms",
-              "type": "requires"
-            }
-          ],
+          "relationships": [],
           "schema_path": ["custom_hash_algorithms"],
           "syntax": "block",
           "type": "object"
@@ -441,24 +540,7 @@
           "max_items": null,
           "min_items": null,
           "nesting": "single",
-          "relationships": [
-            {
-              "anchor": "section",
-              "enforcement": "provider-schema",
-              "group": "private_key:ConflictingObjectAttributes:blindfold_secret_info,clear_secret_info",
-              "source": "ast-validator:ConflictingObjectAttributes",
-              "target_id": "xcsh-docs:resources:certificate:properties:private_key:blindfold_secret_info",
-              "type": "conflicts"
-            },
-            {
-              "anchor": "section",
-              "enforcement": "provider-schema",
-              "group": "private_key:ConflictingObjectAttributes:blindfold_secret_info,clear_secret_info",
-              "source": "ast-validator:ConflictingObjectAttributes",
-              "target_id": "xcsh-docs:resources:certificate:properties:private_key:clear_secret_info",
-              "type": "conflicts"
-            }
-          ],
+          "relationships": [],
           "schema_path": ["private_key"],
           "syntax": "block",
           "type": "object"
@@ -497,20 +579,365 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/certificate/properties/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Property reference for xcsh_certificate.",
       "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["certificateCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
+      }
+    },
+    {
+      "aliases": ["blindfold"],
+      "body_bytes": 2696,
+      "body_sha256": "sha256:ffd4caa5ca6b59283d4484983879650d224e3585a33147840f5e40259e68bfeb",
+      "capabilities": ["security"],
+      "category": "security",
+      "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
+        "sources": ["receipt-pinned-upstream", "reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-resource"
+      },
+      "collection_id": "xcsh-docs:resources:certificate:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:certificate:properties:blindfold",
+      "parent_id": "xcsh-docs:resources:certificate:reference",
+      "path": "documentation/resources/certificate/properties/blindfold/index.md",
+      "product": "distributed-cloud",
+      "provider_name": "certificate",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
+      "provider_type": "resources",
+      "registry_anchor": "canonical-1133330130112321-1330211011221231-3112320213031213-1000313300133122-1013102303022130-2300232200213211-0121031230120100-0201032002231233",
+      "registry_path": "docs/guides/resources--certificate--reference--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
+      "role": "properties",
+      "schema_path": ["blindfold"],
+      "sections": [
+        {
+          "aliases": ["blindfold algorithm"],
+          "anchor": "schema-blindfold--algorithm",
+          "description": "algorithm",
+          "document_id": "xcsh-docs:resources:certificate:properties:blindfold",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
+          "flags": ["computed"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["blindfold", "algorithm"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["blindfold certificate file"],
+          "anchor": "schema-blindfold--certificate_file",
+          "description": "certificate file",
+          "document_id": "xcsh-docs:resources:certificate:properties:blindfold",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["blindfold", "certificate_file"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["blindfold certificate pem"],
+          "anchor": "schema-blindfold--certificate_pem",
+          "description": "certificate pem",
+          "document_id": "xcsh-docs:resources:certificate:properties:blindfold",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["blindfold", "certificate_pem"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["blindfold chain identity"],
+          "anchor": "schema-blindfold--chain_identity",
+          "description": "chain identity",
+          "document_id": "xcsh-docs:resources:certificate:properties:blindfold",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
+          "flags": ["computed"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["blindfold", "chain_identity"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["blindfold context digest"],
+          "anchor": "schema-blindfold--context_digest",
+          "description": "context digest",
+          "document_id": "xcsh-docs:resources:certificate:properties:blindfold",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
+          "flags": ["computed"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["blindfold", "context_digest"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["blindfold encrypted location"],
+          "anchor": "schema-blindfold--encrypted_location",
+          "description": "encrypted location",
+          "document_id": "xcsh-docs:resources:certificate:properties:blindfold",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
+          "flags": ["computed", "sensitive"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["blindfold", "encrypted_location"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["blindfold expires at"],
+          "anchor": "schema-blindfold--expires_at",
+          "description": "expires at",
+          "document_id": "xcsh-docs:resources:certificate:properties:blindfold",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
+          "flags": ["computed"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["blindfold", "expires_at"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["blindfold fingerprint"],
+          "anchor": "schema-blindfold--fingerprint",
+          "description": "fingerprint",
+          "document_id": "xcsh-docs:resources:certificate:properties:blindfold",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
+          "flags": ["computed"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["blindfold", "fingerprint"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["blindfold id"],
+          "anchor": "schema-blindfold--id",
+          "description": "id",
+          "document_id": "xcsh-docs:resources:certificate:properties:blindfold",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["blindfold", "id"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["blindfold material version"],
+          "anchor": "schema-blindfold--material_version",
+          "description": "material version",
+          "document_id": "xcsh-docs:resources:certificate:properties:blindfold",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["blindfold", "material_version"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["blindfold passphrase env"],
+          "anchor": "schema-blindfold--passphrase_env",
+          "description": "passphrase env",
+          "document_id": "xcsh-docs:resources:certificate:properties:blindfold",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["blindfold", "passphrase_env"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["blindfold passphrase wo"],
+          "anchor": "schema-blindfold--passphrase_wo",
+          "description": "passphrase wo",
+          "document_id": "xcsh-docs:resources:certificate:properties:blindfold",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
+          "flags": ["optional", "sensitive", "write_only"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["blindfold", "passphrase_wo"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["blindfold pkcs12 file"],
+          "anchor": "schema-blindfold--pkcs12_file",
+          "description": "pkcs12 file",
+          "document_id": "xcsh-docs:resources:certificate:properties:blindfold",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["blindfold", "pkcs12_file"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["blindfold pkcs12 wo"],
+          "anchor": "schema-blindfold--pkcs12_wo",
+          "description": "pkcs12 wo",
+          "document_id": "xcsh-docs:resources:certificate:properties:blindfold",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
+          "flags": ["optional", "sensitive", "write_only"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["blindfold", "pkcs12_wo"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["blindfold policy"],
+          "anchor": "schema-blindfold--policy",
+          "description": "policy",
+          "document_id": "xcsh-docs:resources:certificate:properties:blindfold",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["blindfold", "policy"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["blindfold prepared identity"],
+          "anchor": "schema-blindfold--prepared_identity",
+          "description": "prepared identity",
+          "document_id": "xcsh-docs:resources:certificate:properties:blindfold",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
+          "flags": ["computed"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["blindfold", "prepared_identity"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["blindfold private key file"],
+          "anchor": "schema-blindfold--private_key_file",
+          "description": "private key file",
+          "document_id": "xcsh-docs:resources:certificate:properties:blindfold",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["blindfold", "private_key_file"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["blindfold private key wo"],
+          "anchor": "schema-blindfold--private_key_wo",
+          "description": "private key wo",
+          "document_id": "xcsh-docs:resources:certificate:properties:blindfold",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
+          "flags": ["optional", "sensitive", "write_only"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["blindfold", "private_key_wo"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["blindfold spki identity"],
+          "anchor": "schema-blindfold--spki_identity",
+          "description": "spki identity",
+          "document_id": "xcsh-docs:resources:certificate:properties:blindfold",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
+          "flags": ["computed"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["blindfold", "spki_identity"],
+          "syntax": "attribute",
+          "type": "string"
+        }
+      ],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/certificate/properties/blindfold/index.txt",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
+      "summary": "Native certificate preparation. Use PEM files or a P12 file, or write-only key/bundle values with material_version (Terraform 1.11+). Defaults to shared/ves-io-allow-volterra. Inline certificates require unique IDs. Private inputs are never stored.",
+      "tasks": ["configuration"],
+      "title": "blindfold",
+      "upstream_identity": {
+        "release_tag": "v12.0.4",
+        "schema_components": ["certificateCreateRequest"],
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["cert", "certificate", "certificate chain", "existing certificates", "tls certificates"],
-      "body_bytes": 5066,
-      "body_sha256": "sha256:c68cb0e42034ebc3fee1ff59e5b0ba930b7b352493938b81b73e7b53c739f90c",
+      "body_bytes": 4386,
+      "body_sha256": "sha256:9d0edb76663f7653f52d7604f1107b14e8e95fb16e564271006fd402a0edd4a8",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -527,20 +954,11 @@
       "path": "documentation/resources/certificate/properties/certificate_chain/index.md",
       "product": "distributed-cloud",
       "provider_name": "certificate",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-1030320000233232-2232302213110323-3310002333011103-3020003203301303-3332202000210013-1213222102122030-2002010110130123-2123301311203302",
       "registry_path": "docs/guides/resources--certificate--reference--group-001.md",
-      "relationships": [
-        {
-          "anchor": "schema-certificate_chain--name",
-          "enforcement": "provider-schema",
-          "group": "certificate_chain:RequiredObjectAttributes:name",
-          "source": "ast-validator:RequiredObjectAttributes",
-          "target_id": "xcsh-docs:resources:certificate:properties:certificate_chain",
-          "type": "requires"
-        }
-      ],
+      "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["certificate_chain"],
@@ -550,7 +968,7 @@
           "anchor": "schema-certificate_chain--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:resources:certificate:properties:certificate_chain",
-          "enum_extraction_complete": true,
+          "enum_extraction_complete": false,
           "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
@@ -573,7 +991,7 @@
           "anchor": "schema-certificate_chain--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:resources:certificate:properties:certificate_chain",
-          "enum_extraction_complete": true,
+          "enum_extraction_complete": false,
           "enum_validators": [],
           "flags": ["optional", "computed"],
           "max_items": null,
@@ -596,7 +1014,7 @@
           "anchor": "schema-certificate_chain--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:resources:certificate:properties:certificate_chain",
-          "enum_extraction_complete": true,
+          "enum_extraction_complete": false,
           "enum_validators": [],
           "flags": ["computed"],
           "max_items": null,
@@ -616,20 +1034,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/certificate/properties/certificate_chain/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "certificate_chain",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["certificateCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["custom hash algorithms"],
-      "body_bytes": 3136,
-      "body_sha256": "sha256:e14f1995f84127a6515efa08efc0ac3088dcea4ba06f1f7722f81ef8c6b93967",
+      "body_bytes": 2788,
+      "body_sha256": "sha256:6f6bc70ee1c945d711180e18db8955ed8b5eec18c4e7ff396cbe6d546b5302dc",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -646,20 +1064,11 @@
       "path": "documentation/resources/certificate/properties/custom_hash_algorithms/index.md",
       "product": "distributed-cloud",
       "provider_name": "certificate",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-3131031131220113-3330221330321201-1023222220022220-0312222333120011-2110302312132303-2122013133211112-3110020100032323-3230021122333211",
       "registry_path": "docs/guides/resources--certificate--reference--group-001.md",
-      "relationships": [
-        {
-          "anchor": "schema-custom_hash_algorithms--hash_algorithms",
-          "enforcement": "provider-schema",
-          "group": "custom_hash_algorithms:RequiredObjectAttributes:hash_algorithms",
-          "source": "ast-validator:RequiredObjectAttributes",
-          "target_id": "xcsh-docs:resources:certificate:properties:custom_hash_algorithms",
-          "type": "requires"
-        }
-      ],
+      "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["custom_hash_algorithms"],
@@ -682,14 +1091,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/certificate/properties/custom_hash_algorithms/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Specifies the hash algorithms to be used.",
       "tasks": ["configuration"],
       "title": "custom_hash_algorithms",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["certificateCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -712,7 +1121,7 @@
       "path": "documentation/resources/certificate/properties/disable_ocsp_stapling/index.md",
       "product": "distributed-cloud",
       "provider_name": "certificate",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-3232212033302331-1222133011022110-3212321322101213-0313001110013132-0330213212211122-0302330121213011-1313201320102231-0233302020223133",
       "registry_path": "docs/guides/resources--certificate--reference--group-001.md",
@@ -722,20 +1131,20 @@
       "schema_path": ["disable_ocsp_stapling"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/certificate/properties/disable_ocsp_stapling/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "disable_ocsp_stapling",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["certificateCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["private key"],
-      "body_bytes": 1474,
-      "body_sha256": "sha256:c9311d02cfd3e7af72264e3b003f8d9f304d0bad599e5b41b16736e45b513e8e",
+      "body_bytes": 1256,
+      "body_sha256": "sha256:733bd6b316826b4482775a44e65bc391799edba8022727004dd53f418f2dd104",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -755,28 +1164,11 @@
       "path": "documentation/resources/certificate/properties/private_key/index.md",
       "product": "distributed-cloud",
       "provider_name": "certificate",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-2032012232223302-3313110001002321-0100312230130202-0202320002311022-3233121322320013-0213333220230021-1223231110210112-2132120202111322",
       "registry_path": "docs/guides/resources--certificate--reference--group-001.md",
-      "relationships": [
-        {
-          "anchor": "section",
-          "enforcement": "provider-schema",
-          "group": "private_key:ConflictingObjectAttributes:blindfold_secret_info,clear_secret_info",
-          "source": "ast-validator:ConflictingObjectAttributes",
-          "target_id": "xcsh-docs:resources:certificate:properties:private_key:blindfold_secret_info",
-          "type": "conflicts"
-        },
-        {
-          "anchor": "section",
-          "enforcement": "provider-schema",
-          "group": "private_key:ConflictingObjectAttributes:blindfold_secret_info,clear_secret_info",
-          "source": "ast-validator:ConflictingObjectAttributes",
-          "target_id": "xcsh-docs:resources:certificate:properties:private_key:clear_secret_info",
-          "type": "conflicts"
-        }
-      ],
+      "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["private_key"],
@@ -792,16 +1184,7 @@
           "max_items": null,
           "min_items": null,
           "nesting": "single",
-          "relationships": [
-            {
-              "anchor": "schema-private_key--blindfold_secret_info--location",
-              "enforcement": "provider-schema",
-              "group": "private_key.blindfold_secret_info:RequiredObjectAttributes:location",
-              "source": "ast-validator:RequiredObjectAttributes",
-              "target_id": "xcsh-docs:resources:certificate:properties:private_key:blindfold_secret_info",
-              "type": "requires"
-            }
-          ],
+          "relationships": [],
           "schema_path": ["private_key", "blindfold_secret_info"],
           "syntax": "block",
           "type": "object"
@@ -817,36 +1200,27 @@
           "max_items": null,
           "min_items": null,
           "nesting": "single",
-          "relationships": [
-            {
-              "anchor": "schema-private_key--clear_secret_info--url",
-              "enforcement": "provider-schema",
-              "group": "private_key.clear_secret_info:RequiredObjectAttributes:url",
-              "source": "ast-validator:RequiredObjectAttributes",
-              "target_id": "xcsh-docs:resources:certificate:properties:private_key:clear_secret_info",
-              "type": "requires"
-            }
-          ],
+          "relationships": [],
           "schema_path": ["private_key", "clear_secret_info"],
           "syntax": "block",
           "type": "object"
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/certificate/properties/private_key/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "SecretType is used in an object to indicate a sensitive/confidential field.",
       "tasks": ["configuration"],
       "title": "private_key",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["certificateCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["private key blindfold secret info"],
-      "body_bytes": 4052,
-      "body_sha256": "sha256:f5cd0fa33751b6518c3a2933f87f7e4b095610526c5c722f1d5a68f894b62eea",
+      "body_bytes": 3701,
+      "body_sha256": "sha256:9fad831535f214f42c16ed1960dbde1936f02ab45eec6f5499a31707f275cd2c",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -863,20 +1237,11 @@
       "path": "documentation/resources/certificate/properties/private_key/blindfold_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "certificate",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-1212130133113120-3213313012221220-1110001201213313-2131112331202231-2020230313231212-0330310130022011-1120030320133221-3001003323101233",
       "registry_path": "docs/guides/resources--certificate--reference--group-001.md",
-      "relationships": [
-        {
-          "anchor": "schema-private_key--blindfold_secret_info--location",
-          "enforcement": "provider-schema",
-          "group": "private_key.blindfold_secret_info:RequiredObjectAttributes:location",
-          "source": "ast-validator:RequiredObjectAttributes",
-          "target_id": "xcsh-docs:resources:certificate:properties:private_key:blindfold_secret_info",
-          "type": "requires"
-        }
-      ],
+      "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["private_key", "blindfold_secret_info"],
@@ -902,7 +1267,7 @@
           "anchor": "schema-private_key--blindfold_secret_info--location",
           "description": "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
           "document_id": "xcsh-docs:resources:certificate:properties:private_key:blindfold_secret_info",
-          "enum_extraction_complete": true,
+          "enum_extraction_complete": false,
           "enum_validators": [],
           "flags": ["optional", "sensitive"],
           "max_items": null,
@@ -931,20 +1296,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/certificate/properties/private_key/blindfold_secret_info/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
       "tasks": ["configuration"],
       "title": "private_key.blindfold_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["certificateCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["private key clear secret info"],
-      "body_bytes": 3086,
-      "body_sha256": "sha256:d54901c80003fbe03f3ba40b8cdcbb9a06ea71cfb4459aa383dd350c32175a36",
+      "body_bytes": 2740,
+      "body_sha256": "sha256:525d5346ed97a1650759b1c842ca51b7853631d92e5759a73d8114fab6f52b7f",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -961,20 +1326,11 @@
       "path": "documentation/resources/certificate/properties/private_key/clear_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "certificate",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-3002130021002013-0003231011201212-2110203232203110-2331222133010022-1020311000320201-2113111203202220-1313300012200102-2201233122303102",
       "registry_path": "docs/guides/resources--certificate--reference--group-001.md",
-      "relationships": [
-        {
-          "anchor": "schema-private_key--clear_secret_info--url",
-          "enforcement": "provider-schema",
-          "group": "private_key.clear_secret_info:RequiredObjectAttributes:url",
-          "source": "ast-validator:RequiredObjectAttributes",
-          "target_id": "xcsh-docs:resources:certificate:properties:private_key:clear_secret_info",
-          "type": "requires"
-        }
-      ],
+      "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["private_key", "clear_secret_info"],
@@ -1000,7 +1356,7 @@
           "anchor": "schema-private_key--clear_secret_info--url",
           "description": "URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding.",
           "document_id": "xcsh-docs:resources:certificate:properties:private_key:clear_secret_info",
-          "enum_extraction_complete": true,
+          "enum_extraction_complete": false,
           "enum_validators": [],
           "flags": ["optional", "sensitive"],
           "max_items": null,
@@ -1013,14 +1369,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/certificate/properties/private_key/clear_secret_info/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
       "tasks": ["configuration"],
       "title": "private_key.clear_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["certificateCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -1043,7 +1399,7 @@
       "path": "documentation/resources/certificate/properties/timeouts/index.md",
       "product": "distributed-cloud",
       "provider_name": "certificate",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-0022303111210311-0212221001121021-2111110133110332-1103310031101303-1020011013221332-0130113102021020-1110332113310011-1103211100200222",
       "registry_path": "docs/guides/resources--certificate--reference--group-001.md",
@@ -1153,14 +1509,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/certificate/properties/timeouts/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "timeouts for xcsh_certificate.",
       "tasks": ["configuration"],
       "title": "timeouts",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["certificateCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -1183,7 +1539,7 @@
       "path": "documentation/resources/certificate/properties/use_system_defaults/index.md",
       "product": "distributed-cloud",
       "provider_name": "certificate",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-1011132030030013-2320300233313232-2321133121131212-2123120301103000-1003011033212130-0213210031100131-0330120313310313-1100200323301322",
       "registry_path": "docs/guides/resources--certificate--reference--group-001.md",
@@ -1193,14 +1549,14 @@
       "schema_path": ["use_system_defaults"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/certificate/properties/use_system_defaults/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "use_system_defaults",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["certificateCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -1223,7 +1579,7 @@
       "path": "documentation/resources/certificate/examples/index.md",
       "product": "distributed-cloud",
       "provider_name": "certificate",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-3322313303332131-0131020110320022-1221212301120013-2231031201130012-3302302113112112-3032012230000112-3133333123033310-0120311001333332",
       "registry_path": "docs/guides/resources--certificate--examples--group-001.md",
@@ -1233,14 +1589,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/certificate/examples/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Examples for xcsh_certificate.",
       "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["certificateCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -1270,7 +1626,7 @@
       "path": "documentation/resources/certificate/examples/resource/index.md",
       "product": "distributed-cloud",
       "provider_name": "certificate",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-1112221302211031-2031103122010300-1001020001123022-3203200030003230-3021230330303200-2232230301223022-2311312301202222-1003332233301021",
       "registry_path": "docs/guides/resources--certificate--examples--group-001.md",
@@ -1280,14 +1636,14 @@
       "schema_path": ["resource"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/certificate/examples/resource/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Resource for xcsh_certificate.",
       "tasks": ["configuration"],
       "title": "Resource",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["certificateCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -1311,7 +1667,7 @@
       "path": "documentation/resources/certificate/lifecycle/import/index.md",
       "product": "distributed-cloud",
       "provider_name": "certificate",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-1101233031133031-3130000233121232-3102010323131202-3101303002132031-0012011222011220-2110202303020302-1303110123110020-3321102223002210",
       "registry_path": "docs/guides/resources--certificate--lifecycle--group-001.md",
@@ -1321,14 +1677,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/certificate/lifecycle/import/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Import for xcsh_certificate.",
       "tasks": ["import"],
       "title": "Import",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["certificateCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -1351,7 +1707,7 @@
       "path": "documentation/resources/certificate/lifecycle/timeouts/index.md",
       "product": "distributed-cloud",
       "provider_name": "certificate",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-0021002331222221-2202012001000222-0130003010031112-3300032011101212-2300113311022110-0103203002230210-2110030210003323-2031130021232311",
       "registry_path": "docs/guides/resources--certificate--lifecycle--group-001.md",
@@ -1361,14 +1717,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/certificate/lifecycle/timeouts/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Timeouts for xcsh_certificate.",
       "tasks": ["lifecycle"],
       "title": "Timeouts",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["certificateCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     }
   ],

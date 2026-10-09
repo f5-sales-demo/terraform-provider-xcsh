@@ -108,7 +108,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 0
   },
@@ -162,7 +162,7 @@ Receipt-pinned upstream constraints:
 
 - [f5_big_ip_aws_service](resources--nfv_service--reference--group-001.md#canonical-2203212022212003-2212301132213201-2010231030110211-3120210322102100-3130230103331230-0332101002301003-2302320031110011-3121121001302210): complete subsection reference.
 
-- [https_management](resources--nfv_service--reference--group-001.md#canonical-2012312013030011-0102312120121131-2122112110311110-1102330303132211-1031011331133302-3311032130133131-3022001211230302-3310030220221101): complete subsection reference.
+- [https_management](resources--nfv_service--reference--group-002.md#canonical-2012312013030011-0102312120121131-2122112110311110-1102330303132211-1031011331133302-3311032130133131-3022001211230302-3310030220221101): complete subsection reference.
 
 <a id="canonical-2202210003230021-2123331330221213-2220013231110122-0233313101232312-2132301010233111-3331221220311002-3100330200012101-3230310003211130"></a>
 
@@ -219,15 +219,6 @@ This is the name of configuration object. It has to be unique within the namespa
 specified during create API and cannot be changed during replace API. The value of name has to
 follow DNS-1035 format.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.String{
-  validators.NameValidator(),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -248,7 +239,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "inferred",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1,
     "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
@@ -287,15 +278,6 @@ Additional upstream details:
 This defines the workspace within which each the configuration object is to be created. Must be a
 DNS\_LABEL format. For a namespace object itself, namespace value will be ""
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.String{
-  validators.NamespaceValidator(),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -316,7 +298,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "inferred",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1,
     "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
@@ -386,26 +368,26 @@ Each exact path has one authoritative reference destination. Collection element 
 | `f5_big_ip_aws_service.endpoint_service.default_tcp_ports` | [f5_big_ip_aws_service.endpoint_service.default_tcp_ports](resources--nfv_service--reference--group-001.md#canonical-2030023210312113-2001323312121333-0012220033200223-2333130023110002-3232001113122221-1121001322301002-2030311213033313-0221213301302220) |
 | `f5_big_ip_aws_service.endpoint_service.disable_advertise_on_slo_ip` | [f5_big_ip_aws_service.endpoint_service.disable_advertise_on_slo_ip](resources--nfv_service--reference--group-001.md#canonical-3102223111322131-1130121300023132-2000322232100321-1131123113213121-0302333021013002-0012023130133023-3321221211133301-3101120031020230) |
 | `f5_big_ip_aws_service.endpoint_service.http_port` | [f5_big_ip_aws_service.endpoint_service.http_port](resources--nfv_service--reference--group-001.md#canonical-0122010213002333-2131130211001233-2002311002230223-3322212201210133-2002012110231301-1023101000231223-2331131302102202-0230022101212003) |
-| `f5_big_ip_aws_service.endpoint_service.https_port` | [f5_big_ip_aws_service.endpoint_service.https_port](resources--nfv_service--reference--group-001.md#canonical-3213200002230332-1112000033222310-2121220020110031-0313333130213222-1320131011223201-1113022013000112-2032221032220100-2322323031100132) |
-| `f5_big_ip_aws_service.endpoint_service.no_tcp_ports` | [f5_big_ip_aws_service.endpoint_service.no_tcp_ports](resources--nfv_service--reference--group-001.md#canonical-0031203113313320-2000021332233113-0133122032103002-0021122020111311-3132031120321221-2031132223103012-0313332012111212-3032122211300012) |
-| `f5_big_ip_aws_service.endpoint_service.no_udp_ports` | [f5_big_ip_aws_service.endpoint_service.no_udp_ports](resources--nfv_service--reference--group-001.md#canonical-2302111331330122-3120022132102213-2012020331132031-3101313032303321-3300210000112122-1320123212313210-0132221032312033-3012022030210131) |
-| `f5_big_ip_aws_service.market_place_image` | [f5_big_ip_aws_service.market_place_image](resources--nfv_service--reference--group-001.md#canonical-0130301203100302-3320011222113103-2233202312103233-1121212120332021-0100201102103322-1132210222233310-0300113210112121-3300112100033101) |
-| `f5_big_ip_aws_service.market_place_image.awafpay_g200_mbps` | [f5_big_ip_aws_service.market_place_image.awafpay_g200_mbps](resources--nfv_service--reference--group-001.md#canonical-3013002010302031-0223121012302313-0203311033210231-0012031111210212-1332120130131022-3313200110102232-1112000311101220-1320102333212013) |
-| `f5_big_ip_aws_service.market_place_image.awafpay_g3_gbps` | [f5_big_ip_aws_service.market_place_image.awafpay_g3_gbps](resources--nfv_service--reference--group-001.md#canonical-0313103233111113-1301101000002302-0010330233101313-3303031321330022-0101012032023131-0103211222203211-1110103303020001-3311121303001011) |
-| `f5_big_ip_aws_service.nodes` | [f5_big_ip_aws_service.nodes](resources--nfv_service--reference--group-001.md#canonical-3322312331030022-2323331220311230-3322211311333031-1010031133322100-2101112112010002-0032031213032211-3121323132132102-3000001312210133) |
-| `f5_big_ip_aws_service.nodes.automatic_prefix` | [f5_big_ip_aws_service.nodes.automatic_prefix](resources--nfv_service--reference--group-001.md#canonical-0321222210300212-1313321302213310-3212131023020201-1313312203001232-0200011011002330-1023311023023001-0020023023022302-3030031332331323) |
-| `f5_big_ip_aws_service.nodes.aws_az_name` | [f5_big_ip_aws_service.nodes.aws_az_name](resources--nfv_service--reference--group-001.md#canonical-2130312031100011-1223332112201300-2232111031010121-0102002030201230-3022331220301002-3230220001312022-0333100301020311-0321233203103222) |
-| `f5_big_ip_aws_service.nodes.mgmt_subnet` | [f5_big_ip_aws_service.nodes.mgmt_subnet](resources--nfv_service--reference--group-001.md#canonical-0122002030110001-1122012022001111-3131220223022030-3231330121100020-3323322303220102-3000332012003230-1021003002122212-2221213011232103) |
-| `f5_big_ip_aws_service.nodes.mgmt_subnet.existing_subnet_id` | [f5_big_ip_aws_service.nodes.mgmt_subnet.existing_subnet_id](resources--nfv_service--reference--group-001.md#canonical-3211101130211131-0011331031322321-1102023110023331-2320001321303010-1322301000133102-3222220110020013-2202030032131113-2320311021011230) |
-| `f5_big_ip_aws_service.nodes.mgmt_subnet.subnet_param` | [f5_big_ip_aws_service.nodes.mgmt_subnet.subnet_param](resources--nfv_service--reference--group-001.md#canonical-0113312113022013-3003211103033221-1310021323023311-2200310023003223-2012100212032013-2112223103022220-0232031203002222-1203331022030101) |
-| `f5_big_ip_aws_service.nodes.mgmt_subnet.subnet_param.ipv4` | [f5_big_ip_aws_service.nodes.mgmt_subnet.subnet_param.ipv4](resources--nfv_service--reference--group-001.md#canonical-0331210223320322-1033003000220102-1110333302210302-1230232212022133-1302201122121312-0112330333310301-2323120322002131-1103222113112102) |
-| `f5_big_ip_aws_service.nodes.node_name` | [f5_big_ip_aws_service.nodes.node_name](resources--nfv_service--reference--group-001.md#canonical-3023030020220322-0212220021110223-3203030132120230-0101321102012132-1013312033222321-3010320102301120-0233313212112212-1323233123113323) |
-| `f5_big_ip_aws_service.nodes.reserved_mgmt_subnet` | [f5_big_ip_aws_service.nodes.reserved_mgmt_subnet](resources--nfv_service--reference--group-001.md#canonical-0311323132002111-2221023212113103-2131311303120213-3121302331113023-3333100003322230-2013133111321133-0132131002331333-1010312031103321) |
-| `f5_big_ip_aws_service.nodes.tunnel_prefix` | [f5_big_ip_aws_service.nodes.tunnel_prefix](resources--nfv_service--reference--group-001.md#canonical-1003211130213231-3220103110102213-1102323030303311-2220213012301221-2230111303001031-3030120113021321-2130203330023333-1333212311302120) |
+| `f5_big_ip_aws_service.endpoint_service.https_port` | [f5_big_ip_aws_service.endpoint_service.https_port](resources--nfv_service--reference--group-002.md#canonical-3213200002230332-1112000033222310-2121220020110031-0313333130213222-1320131011223201-1113022013000112-2032221032220100-2322323031100132) |
+| `f5_big_ip_aws_service.endpoint_service.no_tcp_ports` | [f5_big_ip_aws_service.endpoint_service.no_tcp_ports](resources--nfv_service--reference--group-002.md#canonical-0031203113313320-2000021332233113-0133122032103002-0021122020111311-3132031120321221-2031132223103012-0313332012111212-3032122211300012) |
+| `f5_big_ip_aws_service.endpoint_service.no_udp_ports` | [f5_big_ip_aws_service.endpoint_service.no_udp_ports](resources--nfv_service--reference--group-002.md#canonical-2302111331330122-3120022132102213-2012020331132031-3101313032303321-3300210000112122-1320123212313210-0132221032312033-3012022030210131) |
+| `f5_big_ip_aws_service.market_place_image` | [f5_big_ip_aws_service.market_place_image](resources--nfv_service--reference--group-002.md#canonical-0130301203100302-3320011222113103-2233202312103233-1121212120332021-0100201102103322-1132210222233310-0300113210112121-3300112100033101) |
+| `f5_big_ip_aws_service.market_place_image.awafpay_g200_mbps` | [f5_big_ip_aws_service.market_place_image.awafpay_g200_mbps](resources--nfv_service--reference--group-002.md#canonical-3013002010302031-0223121012302313-0203311033210231-0012031111210212-1332120130131022-3313200110102232-1112000311101220-1320102333212013) |
+| `f5_big_ip_aws_service.market_place_image.awafpay_g3_gbps` | [f5_big_ip_aws_service.market_place_image.awafpay_g3_gbps](resources--nfv_service--reference--group-002.md#canonical-0313103233111113-1301101000002302-0010330233101313-3303031321330022-0101012032023131-0103211222203211-1110103303020001-3311121303001011) |
+| `f5_big_ip_aws_service.nodes` | [f5_big_ip_aws_service.nodes](resources--nfv_service--reference--group-002.md#canonical-3322312331030022-2323331220311230-3322211311333031-1010031133322100-2101112112010002-0032031213032211-3121323132132102-3000001312210133) |
+| `f5_big_ip_aws_service.nodes.automatic_prefix` | [f5_big_ip_aws_service.nodes.automatic_prefix](resources--nfv_service--reference--group-002.md#canonical-0321222210300212-1313321302213310-3212131023020201-1313312203001232-0200011011002330-1023311023023001-0020023023022302-3030031332331323) |
+| `f5_big_ip_aws_service.nodes.aws_az_name` | [f5_big_ip_aws_service.nodes.aws_az_name](resources--nfv_service--reference--group-002.md#canonical-2130312031100011-1223332112201300-2232111031010121-0102002030201230-3022331220301002-3230220001312022-0333100301020311-0321233203103222) |
+| `f5_big_ip_aws_service.nodes.mgmt_subnet` | [f5_big_ip_aws_service.nodes.mgmt_subnet](resources--nfv_service--reference--group-002.md#canonical-0122002030110001-1122012022001111-3131220223022030-3231330121100020-3323322303220102-3000332012003230-1021003002122212-2221213011232103) |
+| `f5_big_ip_aws_service.nodes.mgmt_subnet.existing_subnet_id` | [f5_big_ip_aws_service.nodes.mgmt_subnet.existing_subnet_id](resources--nfv_service--reference--group-002.md#canonical-3211101130211131-0011331031322321-1102023110023331-2320001321303010-1322301000133102-3222220110020013-2202030032131113-2320311021011230) |
+| `f5_big_ip_aws_service.nodes.mgmt_subnet.subnet_param` | [f5_big_ip_aws_service.nodes.mgmt_subnet.subnet_param](resources--nfv_service--reference--group-002.md#canonical-0113312113022013-3003211103033221-1310021323023311-2200310023003223-2012100212032013-2112223103022220-0232031203002222-1203331022030101) |
+| `f5_big_ip_aws_service.nodes.mgmt_subnet.subnet_param.ipv4` | [f5_big_ip_aws_service.nodes.mgmt_subnet.subnet_param.ipv4](resources--nfv_service--reference--group-002.md#canonical-0331210223320322-1033003000220102-1110333302210302-1230232212022133-1302201122121312-0112330333310301-2323120322002131-1103222113112102) |
+| `f5_big_ip_aws_service.nodes.node_name` | [f5_big_ip_aws_service.nodes.node_name](resources--nfv_service--reference--group-002.md#canonical-3023030020220322-0212220021110223-3203030132120230-0101321102012132-1013312033222321-3010320102301120-0233313212112212-1323233123113323) |
+| `f5_big_ip_aws_service.nodes.reserved_mgmt_subnet` | [f5_big_ip_aws_service.nodes.reserved_mgmt_subnet](resources--nfv_service--reference--group-002.md#canonical-0311323132002111-2221023212113103-2131311303120213-3121302331113023-3333100003322230-2013133111321133-0132131002331333-1010312031103321) |
+| `f5_big_ip_aws_service.nodes.tunnel_prefix` | [f5_big_ip_aws_service.nodes.tunnel_prefix](resources--nfv_service--reference--group-002.md#canonical-1003211130213231-3220103110102213-1102323030303311-2220213012301221-2230111303001031-3030120113021321-2130203330023333-1333212311302120) |
 | `f5_big_ip_aws_service.ssh_key` | [f5_big_ip_aws_service.ssh_key](resources--nfv_service--reference--group-001.md#canonical-2122322100020010-0233231112003322-1100330013212030-1031310200022000-0023300112302121-3230133231122000-3021020020303103-3002313323100011) |
 | `f5_big_ip_aws_service.tags` | [f5_big_ip_aws_service.tags](resources--nfv_service--reference--group-001.md#canonical-2300122213223130-2322121232230202-1121102110030323-0233022121232321-3120330012222113-2201303223211330-2200201322003010-1322232110123021) |
-| `https_management` | [https_management](resources--nfv_service--reference--group-001.md#canonical-2310110120210321-0011122021130100-1020101231210333-1001101201002320-3213323313112230-0312000102310210-1113012113122222-1223202310021130) |
-| `https_management.advertise_on_internet` | [https_management.advertise_on_internet](resources--nfv_service--reference--group-001.md#canonical-0323010000210110-1011321220101213-3302313013003100-3101320312130203-3020110132002010-2121301212013103-3112021220132330-0311003300231200) |
+| `https_management` | [https_management](resources--nfv_service--reference--group-002.md#canonical-2310110120210321-0011122021130100-1020101231210333-1001101201002320-3213323313112230-0312000102310210-1113012113122222-1223202310021130) |
+| `https_management.advertise_on_internet` | [https_management.advertise_on_internet](resources--nfv_service--reference--group-002.md#canonical-0323010000210110-1011321220101213-3302313013003100-3101320312130203-3020110132002010-2121301212013103-3112021220132330-0311003300231200) |
 | `https_management.advertise_on_internet.public_ip` | [https_management.advertise_on_internet.public_ip](resources--nfv_service--reference--group-002.md#canonical-1320022302320301-0301323112111020-0012221032212033-1121313221310031-3111210222023102-1211122200200303-0212322333301221-2200310112030020) |
 | `https_management.advertise_on_internet.public_ip.name` | [https_management.advertise_on_internet.public_ip.name](resources--nfv_service--reference--group-002.md#canonical-2102211110131331-0031231300331000-3223132133302211-0121311233011100-2333023102113303-0023202021210101-0203210322121200-3020031011101323) |
 | `https_management.advertise_on_internet.public_ip.namespace` | [https_management.advertise_on_internet.public_ip.namespace](resources--nfv_service--reference--group-002.md#canonical-3103012222010303-3300122000000203-0133133311121300-1133132131331110-3310310002212023-2330130111330012-2221002133313223-2001011220220002) |
@@ -414,6 +396,26 @@ Each exact path has one authoritative reference destination. Collection element 
 | `https_management.advertise_on_sli_vip` | [https_management.advertise_on_sli_vip](resources--nfv_service--reference--group-002.md#canonical-0333202002211320-0113013211010133-1020230123220300-1113103313110221-3232301101001323-3011223320210101-2332032320313031-2300121003201333) |
 | `https_management.advertise_on_sli_vip.no_mtls` | [https_management.advertise_on_sli_vip.no_mtls](resources--nfv_service--reference--group-002.md#canonical-1230321233200133-1223000200333331-0303021322210113-3221332003310323-3002313011001201-2232201012122103-0023230322332200-1133302133100111) |
 | `https_management.advertise_on_sli_vip.tls_certificates` | [https_management.advertise_on_sli_vip.tls_certificates](resources--nfv_service--reference--group-002.md#canonical-0331213303111210-0202201333130133-3210033310113312-1210101222131032-1311310100111103-0033303013311223-3222200011211033-1110223202033333) |
+| `https_management.advertise_on_sli_vip.tls_certificates.blindfold` | [https_management.advertise_on_sli_vip.tls_certificates.blindfold](resources--nfv_service--reference--group-002.md#canonical-1303300220233002-1131012132323222-3222301132332323-1011222111211021-1101311312302300-1211303110223131-1121123110230203-2320300212120102) |
+| `https_management.advertise_on_sli_vip.tls_certificates.blindfold.algorithm` | [https_management.advertise_on_sli_vip.tls_certificates.blindfold.algorithm](resources--nfv_service--reference--group-002.md#canonical-1123031101302320-1221333022220333-3000322031113101-0320321323220001-0130101121210232-1311133100001021-0322200112221012-1101310303010100) |
+| `https_management.advertise_on_sli_vip.tls_certificates.blindfold.certificate_file` | [https_management.advertise_on_sli_vip.tls_certificates.blindfold.certificate_file](resources--nfv_service--reference--group-002.md#canonical-1212203010203300-2133200123122103-1031020211102303-3202010010113111-0032302012033012-3013300100101210-3303230122203131-3203120303012231) |
+| `https_management.advertise_on_sli_vip.tls_certificates.blindfold.certificate_pem` | [https_management.advertise_on_sli_vip.tls_certificates.blindfold.certificate_pem](resources--nfv_service--reference--group-002.md#canonical-3112010001002020-3331131123031302-0132100233020230-3210023103320112-0003223210021210-0111202320111223-1012331130120200-0013022300101321) |
+| `https_management.advertise_on_sli_vip.tls_certificates.blindfold.chain_identity` | [https_management.advertise_on_sli_vip.tls_certificates.blindfold.chain_identity](resources--nfv_service--reference--group-002.md#canonical-2312233030201011-2121310220333231-3223030030320311-3321220100121313-2312320332121231-0123123303221121-0300302000120121-0102213120132110) |
+| `https_management.advertise_on_sli_vip.tls_certificates.blindfold.context_digest` | [https_management.advertise_on_sli_vip.tls_certificates.blindfold.context_digest](resources--nfv_service--reference--group-002.md#canonical-0201300010123120-2323002011133311-0311220002101003-1211100110130111-0233120033231023-1101213330232100-2031113323121022-0310121200012133) |
+| `https_management.advertise_on_sli_vip.tls_certificates.blindfold.encrypted_location` | [https_management.advertise_on_sli_vip.tls_certificates.blindfold.encrypted_location](resources--nfv_service--reference--group-002.md#canonical-1331330213303310-2020023023012032-1012132231003333-3020220230122002-1132231121212223-0332232131011321-3132111011031221-2030210330330311) |
+| `https_management.advertise_on_sli_vip.tls_certificates.blindfold.expires_at` | [https_management.advertise_on_sli_vip.tls_certificates.blindfold.expires_at](resources--nfv_service--reference--group-002.md#canonical-2211101020303230-2310123211300310-2020030001321120-3013321011211002-3200000332213312-3202221232220200-3011332002111230-1121300223321111) |
+| `https_management.advertise_on_sli_vip.tls_certificates.blindfold.fingerprint` | [https_management.advertise_on_sli_vip.tls_certificates.blindfold.fingerprint](resources--nfv_service--reference--group-002.md#canonical-2020301202301220-2232032021002312-1021010301113323-2020312001230131-3330111333231323-3230013323132111-1122222231122333-2010010022001212) |
+| `https_management.advertise_on_sli_vip.tls_certificates.blindfold.id` | [https_management.advertise_on_sli_vip.tls_certificates.blindfold.id](resources--nfv_service--reference--group-002.md#canonical-3013300013130212-3222111011100303-0100033003112300-0110120011000130-2122333023311023-2030022013321213-0302023212232202-3223011031322231) |
+| `https_management.advertise_on_sli_vip.tls_certificates.blindfold.material_version` | [https_management.advertise_on_sli_vip.tls_certificates.blindfold.material_version](resources--nfv_service--reference--group-002.md#canonical-3300012003101122-3131202021123310-3210330001103132-3023021201213312-1110002330120302-2122303100100311-0113130321010033-0312020100121011) |
+| `https_management.advertise_on_sli_vip.tls_certificates.blindfold.passphrase_env` | [https_management.advertise_on_sli_vip.tls_certificates.blindfold.passphrase_env](resources--nfv_service--reference--group-002.md#canonical-3333033000303201-3212113233233301-3031323021112031-3231230300312331-0320323133333120-3103301333110233-2223002031303223-2300111301323323) |
+| `https_management.advertise_on_sli_vip.tls_certificates.blindfold.passphrase_wo` | [https_management.advertise_on_sli_vip.tls_certificates.blindfold.passphrase_wo](resources--nfv_service--reference--group-002.md#canonical-3100001302020122-3201202012222122-0310232031002232-1322011010121223-0311310233120303-3111333311013201-2130331011012311-3333322300232121) |
+| `https_management.advertise_on_sli_vip.tls_certificates.blindfold.pkcs12_file` | [https_management.advertise_on_sli_vip.tls_certificates.blindfold.pkcs12_file](resources--nfv_service--reference--group-002.md#canonical-3312233133030201-0121303331003213-1212013133302112-0030123213201010-0123010110131112-3232122030102003-3012023011001020-0131101121331000) |
+| `https_management.advertise_on_sli_vip.tls_certificates.blindfold.pkcs12_wo` | [https_management.advertise_on_sli_vip.tls_certificates.blindfold.pkcs12_wo](resources--nfv_service--reference--group-002.md#canonical-3323113231233001-3120111020232322-2210121333123321-3112200211210102-3312330210302201-0122200213333330-2311111132121113-3300010210121123) |
+| `https_management.advertise_on_sli_vip.tls_certificates.blindfold.policy` | [https_management.advertise_on_sli_vip.tls_certificates.blindfold.policy](resources--nfv_service--reference--group-002.md#canonical-1302122312221200-1030112220032002-3001203210303030-0113100312203112-0300303333230310-0131112001300021-1210230301231131-0022102130301312) |
+| `https_management.advertise_on_sli_vip.tls_certificates.blindfold.prepared_identity` | [https_management.advertise_on_sli_vip.tls_certificates.blindfold.prepared_identity](resources--nfv_service--reference--group-002.md#canonical-3003203231200120-1102013011310230-0232221132333203-1221033233230021-1000322213033223-1232021002222211-0201200120230131-3300122303020022) |
+| `https_management.advertise_on_sli_vip.tls_certificates.blindfold.private_key_file` | [https_management.advertise_on_sli_vip.tls_certificates.blindfold.private_key_file](resources--nfv_service--reference--group-002.md#canonical-0120320112003021-2312220113332022-1221112322231223-2203123021122330-2310312021221012-0231200331233011-0110311031211220-0113220211011233) |
+| `https_management.advertise_on_sli_vip.tls_certificates.blindfold.private_key_wo` | [https_management.advertise_on_sli_vip.tls_certificates.blindfold.private_key_wo](resources--nfv_service--reference--group-002.md#canonical-0223313202133300-1130002210212312-3110231103133333-0331201113103223-3302320322311201-3010211332000003-2321023333021133-2112121322222023) |
+| `https_management.advertise_on_sli_vip.tls_certificates.blindfold.spki_identity` | [https_management.advertise_on_sli_vip.tls_certificates.blindfold.spki_identity](resources--nfv_service--reference--group-002.md#canonical-1032120120003223-2021023232123333-1113302123321230-3102302323101010-2121133121003312-0211221132310322-1230101110321213-0302031233312332) |
 | `https_management.advertise_on_sli_vip.tls_certificates.certificate_url` | [https_management.advertise_on_sli_vip.tls_certificates.certificate_url](resources--nfv_service--reference--group-002.md#canonical-2301110001001230-3133131001202021-2012133312201011-3202313010100031-2321133201333031-1032300322103120-2231320233131020-1103033230311302) |
 | `https_management.advertise_on_sli_vip.tls_certificates.custom_hash_algorithms` | [https_management.advertise_on_sli_vip.tls_certificates.custom_hash_algorithms](resources--nfv_service--reference--group-002.md#canonical-0232220321113212-1020220210130310-2101311322011200-1200222003133021-0323332113113120-2101113331022333-1233333012312012-1131131310000331) |
 | `https_management.advertise_on_sli_vip.tls_certificates.custom_hash_algorithms.hash_algorithms` | [https_management.advertise_on_sli_vip.tls_certificates.custom_hash_algorithms.hash_algorithms](resources--nfv_service--reference--group-002.md#canonical-0102031113100312-1201113023103131-1021123223001021-1022111213330321-2132023302032030-3110311100132010-3122001011002320-0101010303013200) |
@@ -454,24 +456,44 @@ Each exact path has one authoritative reference destination. Collection element 
 | `https_management.advertise_on_slo_internet_vip` | [https_management.advertise_on_slo_internet_vip](resources--nfv_service--reference--group-002.md#canonical-0000003311331222-2311113333311103-2302132333030302-2232121322202323-0000303312213300-1103320133323031-0001022212013022-3312312223201311) |
 | `https_management.advertise_on_slo_internet_vip.no_mtls` | [https_management.advertise_on_slo_internet_vip.no_mtls](resources--nfv_service--reference--group-002.md#canonical-3211330323003300-0001210121130010-2300102110102023-0232132200231300-1213310012120311-2032311322110110-3221130220001220-1303022023222221) |
 | `https_management.advertise_on_slo_internet_vip.tls_certificates` | [https_management.advertise_on_slo_internet_vip.tls_certificates](resources--nfv_service--reference--group-002.md#canonical-0333211320302231-1312120110133003-2220203102020210-0120232121231203-2233023003030033-3211033022122212-0310100101221103-3123121320130033) |
+| `https_management.advertise_on_slo_internet_vip.tls_certificates.blindfold` | [https_management.advertise_on_slo_internet_vip.tls_certificates.blindfold](resources--nfv_service--reference--group-002.md#canonical-3012113311001130-0301123020321322-0001223331230302-1021121213311020-1320323132331331-2030020213313321-1323320030322321-3011101213130313) |
+| `https_management.advertise_on_slo_internet_vip.tls_certificates.blindfold.algorithm` | [https_management.advertise_on_slo_internet_vip.tls_certificates.blindfold.algorithm](resources--nfv_service--reference--group-003.md#canonical-1202110222032323-0301002212312331-0230200112023003-2211303003000001-0223202022003111-1001112330201031-1203322213301313-1321222003302031) |
+| `https_management.advertise_on_slo_internet_vip.tls_certificates.blindfold.certificate_file` | [https_management.advertise_on_slo_internet_vip.tls_certificates.blindfold.certificate_file](resources--nfv_service--reference--group-003.md#canonical-0321020010033233-0033030103300121-2230112331332121-3010322331010101-0222312232213231-3120223120222032-0312321001003113-3213221113311311) |
+| `https_management.advertise_on_slo_internet_vip.tls_certificates.blindfold.certificate_pem` | [https_management.advertise_on_slo_internet_vip.tls_certificates.blindfold.certificate_pem](resources--nfv_service--reference--group-003.md#canonical-3221021212110211-3101131333000313-2231322101020110-3101233230301031-2303021021131300-0021310121132232-3132000021013203-2330133121211111) |
+| `https_management.advertise_on_slo_internet_vip.tls_certificates.blindfold.chain_identity` | [https_management.advertise_on_slo_internet_vip.tls_certificates.blindfold.chain_identity](resources--nfv_service--reference--group-003.md#canonical-2313302203212111-2033220201302130-2302113203231301-0202331311102310-2123312010200331-0222131223213312-0100103303023003-3003330022112113) |
+| `https_management.advertise_on_slo_internet_vip.tls_certificates.blindfold.context_digest` | [https_management.advertise_on_slo_internet_vip.tls_certificates.blindfold.context_digest](resources--nfv_service--reference--group-003.md#canonical-3322211121220302-0101233212230202-1122103030210310-3111300133010330-3213222012300303-3200122002233332-0233122332110032-2222220201011123) |
+| `https_management.advertise_on_slo_internet_vip.tls_certificates.blindfold.encrypted_location` | [https_management.advertise_on_slo_internet_vip.tls_certificates.blindfold.encrypted_location](resources--nfv_service--reference--group-003.md#canonical-3323223132113111-1303003121020332-1303011010121013-3022231122332013-3022201102012123-3131300123133312-1020121013103123-2132123000113330) |
+| `https_management.advertise_on_slo_internet_vip.tls_certificates.blindfold.expires_at` | [https_management.advertise_on_slo_internet_vip.tls_certificates.blindfold.expires_at](resources--nfv_service--reference--group-003.md#canonical-1010111202003330-2333301332020033-3312313030003322-0201113100121220-2122033120110020-2320133112130231-3010332232221222-3120223321122222) |
+| `https_management.advertise_on_slo_internet_vip.tls_certificates.blindfold.fingerprint` | [https_management.advertise_on_slo_internet_vip.tls_certificates.blindfold.fingerprint](resources--nfv_service--reference--group-003.md#canonical-3003002200133231-1321212020213313-2032333020300000-3001021030212020-2022031011320130-0303032203023103-1113211332031000-1100202312002201) |
+| `https_management.advertise_on_slo_internet_vip.tls_certificates.blindfold.id` | [https_management.advertise_on_slo_internet_vip.tls_certificates.blindfold.id](resources--nfv_service--reference--group-003.md#canonical-1323331022202323-3210123231301022-1100120101102311-3310233101322001-3230233333112022-3203132033100222-2021230212212022-3100301111230321) |
+| `https_management.advertise_on_slo_internet_vip.tls_certificates.blindfold.material_version` | [https_management.advertise_on_slo_internet_vip.tls_certificates.blindfold.material_version](resources--nfv_service--reference--group-003.md#canonical-3321220030032103-0313101020213102-1213132121321323-0312303011112132-1221302212000132-0220110023203332-0021200100030202-2310013132210320) |
+| `https_management.advertise_on_slo_internet_vip.tls_certificates.blindfold.passphrase_env` | [https_management.advertise_on_slo_internet_vip.tls_certificates.blindfold.passphrase_env](resources--nfv_service--reference--group-003.md#canonical-1223301203112010-2022033000101303-0122200102321302-3131122232223322-0002003323211212-2232133233001333-1312133111212111-2311211022001032) |
+| `https_management.advertise_on_slo_internet_vip.tls_certificates.blindfold.passphrase_wo` | [https_management.advertise_on_slo_internet_vip.tls_certificates.blindfold.passphrase_wo](resources--nfv_service--reference--group-003.md#canonical-1101102331021131-3021001323231023-3202232303120303-3222301111323100-3333133023023223-3312102221113313-1023332233330031-2122203322111013) |
+| `https_management.advertise_on_slo_internet_vip.tls_certificates.blindfold.pkcs12_file` | [https_management.advertise_on_slo_internet_vip.tls_certificates.blindfold.pkcs12_file](resources--nfv_service--reference--group-003.md#canonical-2321123331131203-2003033011320310-3321232000330230-0021311112231013-3202303032122201-0330000222010303-0230221333113212-0102311333202032) |
+| `https_management.advertise_on_slo_internet_vip.tls_certificates.blindfold.pkcs12_wo` | [https_management.advertise_on_slo_internet_vip.tls_certificates.blindfold.pkcs12_wo](resources--nfv_service--reference--group-003.md#canonical-1313220033332300-3031131311211111-3323131002022131-2231321003301032-2123123323223322-3122202020010322-0312030213300032-2001021303331333) |
+| `https_management.advertise_on_slo_internet_vip.tls_certificates.blindfold.policy` | [https_management.advertise_on_slo_internet_vip.tls_certificates.blindfold.policy](resources--nfv_service--reference--group-003.md#canonical-3030332330202020-0032332011322012-1323330321213133-2310322102210232-2113210130330003-3322113023200120-0201300312302211-1233032301221023) |
+| `https_management.advertise_on_slo_internet_vip.tls_certificates.blindfold.prepared_identity` | [https_management.advertise_on_slo_internet_vip.tls_certificates.blindfold.prepared_identity](resources--nfv_service--reference--group-003.md#canonical-3033233102312122-2203113111121311-2022011000231230-2133130122300113-1323221021201020-0322111013323312-3030133001233131-3123010003301012) |
+| `https_management.advertise_on_slo_internet_vip.tls_certificates.blindfold.private_key_file` | [https_management.advertise_on_slo_internet_vip.tls_certificates.blindfold.private_key_file](resources--nfv_service--reference--group-003.md#canonical-2323110233011012-2301211010121111-0122203002010000-2101120011122122-0303123033012031-2300010303110003-0200330123002210-1123222100300312) |
+| `https_management.advertise_on_slo_internet_vip.tls_certificates.blindfold.private_key_wo` | [https_management.advertise_on_slo_internet_vip.tls_certificates.blindfold.private_key_wo](resources--nfv_service--reference--group-003.md#canonical-0010032310131212-2232210320213231-3032302013030132-2200001200323013-3222020200121211-2001130031130120-1331213002120010-0233303120121013) |
+| `https_management.advertise_on_slo_internet_vip.tls_certificates.blindfold.spki_identity` | [https_management.advertise_on_slo_internet_vip.tls_certificates.blindfold.spki_identity](resources--nfv_service--reference--group-003.md#canonical-3102002100021031-2211321231232123-2110120211130120-1210103011322033-3001130202101221-0220331033002213-0313120310321322-0212321230022323) |
 | `https_management.advertise_on_slo_internet_vip.tls_certificates.certificate_url` | [https_management.advertise_on_slo_internet_vip.tls_certificates.certificate_url](resources--nfv_service--reference--group-002.md#canonical-0233103230320023-3013012130111110-0122001211003201-0212103023231110-2332230010120200-0320303300202230-0221332000013012-2333231313230310) |
-| `https_management.advertise_on_slo_internet_vip.tls_certificates.custom_hash_algorithms` | [https_management.advertise_on_slo_internet_vip.tls_certificates.custom_hash_algorithms](resources--nfv_service--reference--group-002.md#canonical-1301221302130022-3100011012233003-1220310300032131-1131311020200322-1033101233020303-2133333122320312-3312133031100300-2131003031032121) |
-| `https_management.advertise_on_slo_internet_vip.tls_certificates.custom_hash_algorithms.hash_algorithms` | [https_management.advertise_on_slo_internet_vip.tls_certificates.custom_hash_algorithms.hash_algorithms](resources--nfv_service--reference--group-002.md#canonical-0202120302110320-0010312022111110-3332133320230302-1033221223123011-2032311300011030-0323211332013030-2312322301221122-3121301130003300) |
+| `https_management.advertise_on_slo_internet_vip.tls_certificates.custom_hash_algorithms` | [https_management.advertise_on_slo_internet_vip.tls_certificates.custom_hash_algorithms](resources--nfv_service--reference--group-003.md#canonical-1301221302130022-3100011012233003-1220310300032131-1131311020200322-1033101233020303-2133333122320312-3312133031100300-2131003031032121) |
+| `https_management.advertise_on_slo_internet_vip.tls_certificates.custom_hash_algorithms.hash_algorithms` | [https_management.advertise_on_slo_internet_vip.tls_certificates.custom_hash_algorithms.hash_algorithms](resources--nfv_service--reference--group-003.md#canonical-0202120302110320-0010312022111110-3332133320230302-1033221223123011-2032311300011030-0323211332013030-2312322301221122-3121301130003300) |
 | `https_management.advertise_on_slo_internet_vip.tls_certificates.description_spec` | [https_management.advertise_on_slo_internet_vip.tls_certificates.description_spec](resources--nfv_service--reference--group-002.md#canonical-0322331323100131-2031010003002123-0213202102023122-0303102333133232-0032013001000333-2122001023113002-0201320002312232-0130031013103033) |
-| `https_management.advertise_on_slo_internet_vip.tls_certificates.disable_ocsp_stapling` | [https_management.advertise_on_slo_internet_vip.tls_certificates.disable_ocsp_stapling](resources--nfv_service--reference--group-002.md#canonical-0003003331023023-0133102022030100-2320312311111100-1310021121102013-3133032212102321-3102102302031132-3301330333032221-2103102231230031) |
-| `https_management.advertise_on_slo_internet_vip.tls_certificates.private_key` | [https_management.advertise_on_slo_internet_vip.tls_certificates.private_key](resources--nfv_service--reference--group-002.md#canonical-3031210022033230-0321121201200100-3300323103310220-0202123202113101-2333210112103113-2203301202312220-0220001102123121-1313213131030031) |
-| `https_management.advertise_on_slo_internet_vip.tls_certificates.private_key.blindfold_secret_info` | [https_management.advertise_on_slo_internet_vip.tls_certificates.private_key.blindfold_secret_info](resources--nfv_service--reference--group-002.md#canonical-2323130220122302-0232133013002203-1132201012120133-3310301102012210-1210301031311222-3211022110131203-0203130020001130-2333321320111003) |
-| `https_management.advertise_on_slo_internet_vip.tls_certificates.private_key.blindfold_secret_info.decryption_provider` | [https_management.advertise_on_slo_internet_vip.tls_certificates.private_key.blindfold_secret_info.decryption_provider](resources--nfv_service--reference--group-002.md#canonical-2333201221322033-1010132232002223-3221103023330130-2332132120102311-3220023202020021-1302010303022003-2203310030112331-2031213003110012) |
-| `https_management.advertise_on_slo_internet_vip.tls_certificates.private_key.blindfold_secret_info.location` | [https_management.advertise_on_slo_internet_vip.tls_certificates.private_key.blindfold_secret_info.location](resources--nfv_service--reference--group-002.md#canonical-2312202201302310-1120101031023022-0332012122103321-2110221332310300-3311203110302331-3321001001012030-2301332000112331-0333311132031321) |
-| `https_management.advertise_on_slo_internet_vip.tls_certificates.private_key.blindfold_secret_info.store_provider` | [https_management.advertise_on_slo_internet_vip.tls_certificates.private_key.blindfold_secret_info.store_provider](resources--nfv_service--reference--group-002.md#canonical-2123330132300230-1202230302201303-2012203023201221-0221002002022330-1320123210130001-3211230233122202-0330013332032300-0011313033202331) |
-| `https_management.advertise_on_slo_internet_vip.tls_certificates.private_key.clear_secret_info` | [https_management.advertise_on_slo_internet_vip.tls_certificates.private_key.clear_secret_info](resources--nfv_service--reference--group-002.md#canonical-3020222030301022-1301031200022110-2023131313131010-1313030000200200-2111220233122110-2033232230312121-1030123003313101-1202330012010121) |
-| `https_management.advertise_on_slo_internet_vip.tls_certificates.private_key.clear_secret_info.provider_ref` | [https_management.advertise_on_slo_internet_vip.tls_certificates.private_key.clear_secret_info.provider_ref](resources--nfv_service--reference--group-002.md#canonical-0321332312131111-1121220202230233-0222212113113201-2121211322321030-2232232011332311-3132212221111030-2200123231330201-2230032113101100) |
-| `https_management.advertise_on_slo_internet_vip.tls_certificates.private_key.clear_secret_info.url` | [https_management.advertise_on_slo_internet_vip.tls_certificates.private_key.clear_secret_info.url](resources--nfv_service--reference--group-002.md#canonical-2100131110232100-2221301100222003-3111202002031020-2013031210220012-2102011303101230-3210230313222103-1130132231022202-3223232321022111) |
-| `https_management.advertise_on_slo_internet_vip.tls_certificates.use_system_defaults` | [https_management.advertise_on_slo_internet_vip.tls_certificates.use_system_defaults](resources--nfv_service--reference--group-002.md#canonical-0220112311302233-2122212113132013-0233231201302101-1112223231301202-2032011311001030-2231333111130113-2110312212213220-2312301001110300) |
-| `https_management.advertise_on_slo_internet_vip.tls_config` | [https_management.advertise_on_slo_internet_vip.tls_config](resources--nfv_service--reference--group-002.md#canonical-1322100212101002-2101201122301130-2332320101220302-2230332100223301-0223311132320010-0212111220032220-1311113301100321-1331322031222320) |
-| `https_management.advertise_on_slo_internet_vip.tls_config.custom_security` | [https_management.advertise_on_slo_internet_vip.tls_config.custom_security](resources--nfv_service--reference--group-002.md#canonical-1110212103322000-1013330322012313-3323120112303113-3222010211200331-2120231300311131-1311311201123032-1122221212131220-1121013123212233) |
-| `https_management.advertise_on_slo_internet_vip.tls_config.custom_security.cipher_suites` | [https_management.advertise_on_slo_internet_vip.tls_config.custom_security.cipher_suites](resources--nfv_service--reference--group-002.md#canonical-2201132011011232-3111211002233201-3223300323000121-2131002003333323-3102222211110231-0021023210023032-1330032300233203-2131220120110021) |
-| `https_management.advertise_on_slo_internet_vip.tls_config.custom_security.max_version` | [https_management.advertise_on_slo_internet_vip.tls_config.custom_security.max_version](resources--nfv_service--reference--group-002.md#canonical-0101023300312311-1303202012010120-2101231121302302-0323233113221003-2121003121210320-0003012333002322-2302232210003302-0321212222021103) |
+| `https_management.advertise_on_slo_internet_vip.tls_certificates.disable_ocsp_stapling` | [https_management.advertise_on_slo_internet_vip.tls_certificates.disable_ocsp_stapling](resources--nfv_service--reference--group-003.md#canonical-0003003331023023-0133102022030100-2320312311111100-1310021121102013-3133032212102321-3102102302031132-3301330333032221-2103102231230031) |
+| `https_management.advertise_on_slo_internet_vip.tls_certificates.private_key` | [https_management.advertise_on_slo_internet_vip.tls_certificates.private_key](resources--nfv_service--reference--group-003.md#canonical-3031210022033230-0321121201200100-3300323103310220-0202123202113101-2333210112103113-2203301202312220-0220001102123121-1313213131030031) |
+| `https_management.advertise_on_slo_internet_vip.tls_certificates.private_key.blindfold_secret_info` | [https_management.advertise_on_slo_internet_vip.tls_certificates.private_key.blindfold_secret_info](resources--nfv_service--reference--group-003.md#canonical-2323130220122302-0232133013002203-1132201012120133-3310301102012210-1210301031311222-3211022110131203-0203130020001130-2333321320111003) |
+| `https_management.advertise_on_slo_internet_vip.tls_certificates.private_key.blindfold_secret_info.decryption_provider` | [https_management.advertise_on_slo_internet_vip.tls_certificates.private_key.blindfold_secret_info.decryption_provider](resources--nfv_service--reference--group-003.md#canonical-2333201221322033-1010132232002223-3221103023330130-2332132120102311-3220023202020021-1302010303022003-2203310030112331-2031213003110012) |
+| `https_management.advertise_on_slo_internet_vip.tls_certificates.private_key.blindfold_secret_info.location` | [https_management.advertise_on_slo_internet_vip.tls_certificates.private_key.blindfold_secret_info.location](resources--nfv_service--reference--group-003.md#canonical-2312202201302310-1120101031023022-0332012122103321-2110221332310300-3311203110302331-3321001001012030-2301332000112331-0333311132031321) |
+| `https_management.advertise_on_slo_internet_vip.tls_certificates.private_key.blindfold_secret_info.store_provider` | [https_management.advertise_on_slo_internet_vip.tls_certificates.private_key.blindfold_secret_info.store_provider](resources--nfv_service--reference--group-003.md#canonical-2123330132300230-1202230302201303-2012203023201221-0221002002022330-1320123210130001-3211230233122202-0330013332032300-0011313033202331) |
+| `https_management.advertise_on_slo_internet_vip.tls_certificates.private_key.clear_secret_info` | [https_management.advertise_on_slo_internet_vip.tls_certificates.private_key.clear_secret_info](resources--nfv_service--reference--group-003.md#canonical-3020222030301022-1301031200022110-2023131313131010-1313030000200200-2111220233122110-2033232230312121-1030123003313101-1202330012010121) |
+| `https_management.advertise_on_slo_internet_vip.tls_certificates.private_key.clear_secret_info.provider_ref` | [https_management.advertise_on_slo_internet_vip.tls_certificates.private_key.clear_secret_info.provider_ref](resources--nfv_service--reference--group-003.md#canonical-0321332312131111-1121220202230233-0222212113113201-2121211322321030-2232232011332311-3132212221111030-2200123231330201-2230032113101100) |
+| `https_management.advertise_on_slo_internet_vip.tls_certificates.private_key.clear_secret_info.url` | [https_management.advertise_on_slo_internet_vip.tls_certificates.private_key.clear_secret_info.url](resources--nfv_service--reference--group-003.md#canonical-2100131110232100-2221301100222003-3111202002031020-2013031210220012-2102011303101230-3210230313222103-1130132231022202-3223232321022111) |
+| `https_management.advertise_on_slo_internet_vip.tls_certificates.use_system_defaults` | [https_management.advertise_on_slo_internet_vip.tls_certificates.use_system_defaults](resources--nfv_service--reference--group-003.md#canonical-0220112311302233-2122212113132013-0233231201302101-1112223231301202-2032011311001030-2231333111130113-2110312212213220-2312301001110300) |
+| `https_management.advertise_on_slo_internet_vip.tls_config` | [https_management.advertise_on_slo_internet_vip.tls_config](resources--nfv_service--reference--group-003.md#canonical-1322100212101002-2101201122301130-2332320101220302-2230332100223301-0223311132320010-0212111220032220-1311113301100321-1331322031222320) |
+| `https_management.advertise_on_slo_internet_vip.tls_config.custom_security` | [https_management.advertise_on_slo_internet_vip.tls_config.custom_security](resources--nfv_service--reference--group-003.md#canonical-1110212103322000-1013330322012313-3323120112303113-3222010211200331-2120231300311131-1311311201123032-1122221212131220-1121013123212233) |
+| `https_management.advertise_on_slo_internet_vip.tls_config.custom_security.cipher_suites` | [https_management.advertise_on_slo_internet_vip.tls_config.custom_security.cipher_suites](resources--nfv_service--reference--group-003.md#canonical-2201132011011232-3111211002233201-3223300323000121-2131002003333323-3102222211110231-0021023210023032-1330032300233203-2131220120110021) |
+| `https_management.advertise_on_slo_internet_vip.tls_config.custom_security.max_version` | [https_management.advertise_on_slo_internet_vip.tls_config.custom_security.max_version](resources--nfv_service--reference--group-003.md#canonical-0101023300312311-1303202012010120-2101231121302302-0323233113221003-2121003121210320-0003012333002322-2302232210003302-0321212222021103) |
 | `https_management.advertise_on_slo_internet_vip.tls_config.custom_security.min_version` | [https_management.advertise_on_slo_internet_vip.tls_config.custom_security.min_version](resources--nfv_service--reference--group-003.md#canonical-1030303032300000-2113132130001330-2110210002203021-0102132031212110-2222130101203120-3032320030232212-3301331330010330-2200332131330003) |
 | `https_management.advertise_on_slo_internet_vip.tls_config.default_security` | [https_management.advertise_on_slo_internet_vip.tls_config.default_security](resources--nfv_service--reference--group-003.md#canonical-2111021302020010-1212233132030233-3033202030220223-1123310233232202-2133023300010023-0233111032020020-3212130022102102-0220103103013121) |
 | `https_management.advertise_on_slo_internet_vip.tls_config.low_security` | [https_management.advertise_on_slo_internet_vip.tls_config.low_security](resources--nfv_service--reference--group-003.md#canonical-1233103000320302-0301003332100021-2000232131123320-3333132020020002-3221202311310333-3002301221010220-0303103131123132-0311321102000223) |
@@ -494,6 +516,26 @@ Each exact path has one authoritative reference destination. Collection element 
 | `https_management.advertise_on_slo_sli` | [https_management.advertise_on_slo_sli](resources--nfv_service--reference--group-003.md#canonical-1222310230103003-2030221101312331-3000330233111031-2200303020312322-0110001110321021-2333201123200123-1332223311201110-2330030101210230) |
 | `https_management.advertise_on_slo_sli.no_mtls` | [https_management.advertise_on_slo_sli.no_mtls](resources--nfv_service--reference--group-003.md#canonical-0322033010311130-0022320003121201-3113011020223313-3232231003321320-0300230030123202-2203122112030232-0323133000022110-0022203221323023) |
 | `https_management.advertise_on_slo_sli.tls_certificates` | [https_management.advertise_on_slo_sli.tls_certificates](resources--nfv_service--reference--group-003.md#canonical-2222132112223302-0332312122221233-0320110121020203-1031001022030002-3123021201112213-3020300223003103-0003103121332201-1223202131101201) |
+| `https_management.advertise_on_slo_sli.tls_certificates.blindfold` | [https_management.advertise_on_slo_sli.tls_certificates.blindfold](resources--nfv_service--reference--group-003.md#canonical-1033112023221022-3210300330010000-0301302200012331-3120331130002310-1311212112101212-2013213212010301-2203213011113200-0133323010321203) |
+| `https_management.advertise_on_slo_sli.tls_certificates.blindfold.algorithm` | [https_management.advertise_on_slo_sli.tls_certificates.blindfold.algorithm](resources--nfv_service--reference--group-003.md#canonical-2323213030201302-2213301110312313-2100210323100102-2113302201010330-3030322100112221-1203022103301220-1003323021011232-3232023302200111) |
+| `https_management.advertise_on_slo_sli.tls_certificates.blindfold.certificate_file` | [https_management.advertise_on_slo_sli.tls_certificates.blindfold.certificate_file](resources--nfv_service--reference--group-003.md#canonical-3132022013010100-1120102120101321-0131311111311301-0211011201333120-3100320111121333-3300130320223321-3130123303120022-3320031303032110) |
+| `https_management.advertise_on_slo_sli.tls_certificates.blindfold.certificate_pem` | [https_management.advertise_on_slo_sli.tls_certificates.blindfold.certificate_pem](resources--nfv_service--reference--group-003.md#canonical-1310201101010212-3231330133101333-1211020311210023-2330202232121100-0102310332022103-0212111302102001-3220122312023102-1211330123030130) |
+| `https_management.advertise_on_slo_sli.tls_certificates.blindfold.chain_identity` | [https_management.advertise_on_slo_sli.tls_certificates.blindfold.chain_identity](resources--nfv_service--reference--group-003.md#canonical-1010331003303320-0101112301220202-0003012101213211-2002333111002030-2031311132123101-1020311032133012-1221313101030312-3111221222031133) |
+| `https_management.advertise_on_slo_sli.tls_certificates.blindfold.context_digest` | [https_management.advertise_on_slo_sli.tls_certificates.blindfold.context_digest](resources--nfv_service--reference--group-003.md#canonical-0011033110303102-2120200112031102-1000031322132122-1020033300200112-0221231121121330-0203102201213102-2101300100121031-3323100312320221) |
+| `https_management.advertise_on_slo_sli.tls_certificates.blindfold.encrypted_location` | [https_management.advertise_on_slo_sli.tls_certificates.blindfold.encrypted_location](resources--nfv_service--reference--group-003.md#canonical-3000331222310230-1220131020013000-3331012332100102-2331212020310111-2121223301320031-1133002132333013-1312312221023200-1222200321222320) |
+| `https_management.advertise_on_slo_sli.tls_certificates.blindfold.expires_at` | [https_management.advertise_on_slo_sli.tls_certificates.blindfold.expires_at](resources--nfv_service--reference--group-003.md#canonical-1013023111300230-0323102210322310-0230312113300202-3331022213310013-0020322022212303-2111110333012212-1001203202103020-1102110033220230) |
+| `https_management.advertise_on_slo_sli.tls_certificates.blindfold.fingerprint` | [https_management.advertise_on_slo_sli.tls_certificates.blindfold.fingerprint](resources--nfv_service--reference--group-003.md#canonical-0203223022003222-1103233121122210-3133121210020220-3100101333023302-2001201321020320-1211323231211300-3200111200103313-2132323213330201) |
+| `https_management.advertise_on_slo_sli.tls_certificates.blindfold.id` | [https_management.advertise_on_slo_sli.tls_certificates.blindfold.id](resources--nfv_service--reference--group-003.md#canonical-2112002200302221-0313130002201033-1023132001332301-0300333113330330-3010303010221323-3000231202013103-2220303000201331-3010311031121311) |
+| `https_management.advertise_on_slo_sli.tls_certificates.blindfold.material_version` | [https_management.advertise_on_slo_sli.tls_certificates.blindfold.material_version](resources--nfv_service--reference--group-003.md#canonical-3221121120131301-0101000111323002-2101210033100310-2031003301121221-2221211210230230-1010230333222330-3201300100213000-3322033002012331) |
+| `https_management.advertise_on_slo_sli.tls_certificates.blindfold.passphrase_env` | [https_management.advertise_on_slo_sli.tls_certificates.blindfold.passphrase_env](resources--nfv_service--reference--group-003.md#canonical-0221010111332231-0000301211330130-1113323322210232-3202311203202001-2300302222112001-1103113203210212-1130330122111001-3332221231330232) |
+| `https_management.advertise_on_slo_sli.tls_certificates.blindfold.passphrase_wo` | [https_management.advertise_on_slo_sli.tls_certificates.blindfold.passphrase_wo](resources--nfv_service--reference--group-003.md#canonical-3103100333101321-3122103120032111-3100202231212330-0002221212001300-1100102122020002-2030212011011230-3322021112321112-0113232230223033) |
+| `https_management.advertise_on_slo_sli.tls_certificates.blindfold.pkcs12_file` | [https_management.advertise_on_slo_sli.tls_certificates.blindfold.pkcs12_file](resources--nfv_service--reference--group-003.md#canonical-1223333230232033-1002121302131310-2011110330332232-2212101003123210-3311310000103313-1321022121232233-3110222322221002-2011203303330322) |
+| `https_management.advertise_on_slo_sli.tls_certificates.blindfold.pkcs12_wo` | [https_management.advertise_on_slo_sli.tls_certificates.blindfold.pkcs12_wo](resources--nfv_service--reference--group-003.md#canonical-1111212231022031-1312003330033312-0012200102010212-3131320213302223-2112120033310123-1121211020322212-0001313133330132-1203032113231002) |
+| `https_management.advertise_on_slo_sli.tls_certificates.blindfold.policy` | [https_management.advertise_on_slo_sli.tls_certificates.blindfold.policy](resources--nfv_service--reference--group-003.md#canonical-1221022101330200-1310012210323031-0321232332110031-1200201203302110-0131113211002331-1212212103003120-3133231020321132-3311112211313112) |
+| `https_management.advertise_on_slo_sli.tls_certificates.blindfold.prepared_identity` | [https_management.advertise_on_slo_sli.tls_certificates.blindfold.prepared_identity](resources--nfv_service--reference--group-003.md#canonical-1231120311000101-1123201321113110-3100301330220323-3101231031023011-2032232132032101-0333212201100120-3133333323233111-2220302121323302) |
+| `https_management.advertise_on_slo_sli.tls_certificates.blindfold.private_key_file` | [https_management.advertise_on_slo_sli.tls_certificates.blindfold.private_key_file](resources--nfv_service--reference--group-003.md#canonical-2332333133330202-0131310113302333-2012130013000102-1022220211120230-1130232120211223-1111110311132333-2012210230330213-2333012122000103) |
+| `https_management.advertise_on_slo_sli.tls_certificates.blindfold.private_key_wo` | [https_management.advertise_on_slo_sli.tls_certificates.blindfold.private_key_wo](resources--nfv_service--reference--group-003.md#canonical-1010210203200330-3302102332222030-1001231311100130-0302102130030012-3212132022213221-3332222213301330-2313301323212013-2010103010211313) |
+| `https_management.advertise_on_slo_sli.tls_certificates.blindfold.spki_identity` | [https_management.advertise_on_slo_sli.tls_certificates.blindfold.spki_identity](resources--nfv_service--reference--group-003.md#canonical-1031312031233300-1030103003110133-2213212301232001-2232110020130332-3100133330120310-0200222213320121-1230000332000303-1131000122121013) |
 | `https_management.advertise_on_slo_sli.tls_certificates.certificate_url` | [https_management.advertise_on_slo_sli.tls_certificates.certificate_url](resources--nfv_service--reference--group-003.md#canonical-0110213100123121-1000322120212120-0321033020211011-2203113110023200-3003321002200333-3012330102212333-1000121101130321-0330221303001100) |
 | `https_management.advertise_on_slo_sli.tls_certificates.custom_hash_algorithms` | [https_management.advertise_on_slo_sli.tls_certificates.custom_hash_algorithms](resources--nfv_service--reference--group-003.md#canonical-0023013102032200-0233131301222211-1200232321210020-1320032131133020-2133332103012210-1200220200200212-0122333030002123-2030200312110010) |
 | `https_management.advertise_on_slo_sli.tls_certificates.custom_hash_algorithms.hash_algorithms` | [https_management.advertise_on_slo_sli.tls_certificates.custom_hash_algorithms.hash_algorithms](resources--nfv_service--reference--group-003.md#canonical-1003032001010322-2110330013122202-2113312222103000-1321220133331130-3013311000212331-1020122231221201-0113000212023313-3131301132321233) |
@@ -513,32 +555,52 @@ Each exact path has one authoritative reference destination. Collection element 
 | `https_management.advertise_on_slo_sli.tls_config.custom_security.cipher_suites` | [https_management.advertise_on_slo_sli.tls_config.custom_security.cipher_suites](resources--nfv_service--reference--group-003.md#canonical-1302021011020110-0121132011323321-0203323033133333-0102003022301201-2231021221111012-1030210210300110-3121213131013310-0320332220322223) |
 | `https_management.advertise_on_slo_sli.tls_config.custom_security.max_version` | [https_management.advertise_on_slo_sli.tls_config.custom_security.max_version](resources--nfv_service--reference--group-003.md#canonical-2023000203003103-0230132300331311-3001013112300212-3110031132030132-2223123101301031-3221220223300210-1210013303311131-3131121331103132) |
 | `https_management.advertise_on_slo_sli.tls_config.custom_security.min_version` | [https_management.advertise_on_slo_sli.tls_config.custom_security.min_version](resources--nfv_service--reference--group-003.md#canonical-2331130001230231-0001212313112222-0302001110322100-1200121003210133-1313133012113233-0303313010133222-3122221313111200-3000320023131321) |
-| `https_management.advertise_on_slo_sli.tls_config.default_security` | [https_management.advertise_on_slo_sli.tls_config.default_security](resources--nfv_service--reference--group-003.md#canonical-2211111111233321-0331013132321302-3320211030003020-1223022020000203-1100120100000120-0123112203222110-0332211033110130-2103220123030321) |
-| `https_management.advertise_on_slo_sli.tls_config.low_security` | [https_management.advertise_on_slo_sli.tls_config.low_security](resources--nfv_service--reference--group-003.md#canonical-3011310322301103-3000300013103011-3101221220033103-3223112202023023-3322113113133100-0211312112220302-0131210110130212-1033311012332032) |
-| `https_management.advertise_on_slo_sli.tls_config.medium_security` | [https_management.advertise_on_slo_sli.tls_config.medium_security](resources--nfv_service--reference--group-003.md#canonical-2022100312330102-2103131100103111-2202030202121132-2303013301020101-1311101102203012-2122011310111232-1013212131110203-3332011332302023) |
-| `https_management.advertise_on_slo_sli.use_mtls` | [https_management.advertise_on_slo_sli.use_mtls](resources--nfv_service--reference--group-003.md#canonical-0101002012210331-3130133103321132-0122211223123002-3131001203213102-0123232111233223-0032233021132033-1101330321232312-3321311203121303) |
-| `https_management.advertise_on_slo_sli.use_mtls.client_certificate_optional` | [https_management.advertise_on_slo_sli.use_mtls.client_certificate_optional](resources--nfv_service--reference--group-003.md#canonical-1202210002310331-1110132200031013-2021320321222332-1300301232123000-0022022022230212-0311032010312010-0003130130122203-3231223002012032) |
-| `https_management.advertise_on_slo_sli.use_mtls.crl` | [https_management.advertise_on_slo_sli.use_mtls.crl](resources--nfv_service--reference--group-003.md#canonical-2102223303121033-3003323311233023-1310300103003310-2311001233230132-0333231323232111-1102111212221010-1130033012313322-2222002311022231) |
-| `https_management.advertise_on_slo_sli.use_mtls.crl.name` | [https_management.advertise_on_slo_sli.use_mtls.crl.name](resources--nfv_service--reference--group-003.md#canonical-3011022203222132-1132111132033011-1130022201303223-2331312302203300-2313023311231233-2320012223203120-1331203130111020-2300131302121003) |
-| `https_management.advertise_on_slo_sli.use_mtls.crl.namespace` | [https_management.advertise_on_slo_sli.use_mtls.crl.namespace](resources--nfv_service--reference--group-003.md#canonical-2230033001232033-2120033231223231-3332201020213230-3332311002030110-3002310202032301-3332100332320202-0133302222320203-3330031322301103) |
-| `https_management.advertise_on_slo_sli.use_mtls.crl.tenant` | [https_management.advertise_on_slo_sli.use_mtls.crl.tenant](resources--nfv_service--reference--group-003.md#canonical-0332303302220003-0332222112201002-2310131133010221-2302103302302223-2301223300013003-3233013122002010-2221310212032123-2103302300030311) |
-| `https_management.advertise_on_slo_sli.use_mtls.no_crl` | [https_management.advertise_on_slo_sli.use_mtls.no_crl](resources--nfv_service--reference--group-003.md#canonical-0030012230222331-2002311130032222-0011012220130033-1030323331011220-0223000113223232-2231303130322210-3201213101333312-2220132130033011) |
-| `https_management.advertise_on_slo_sli.use_mtls.trusted_ca` | [https_management.advertise_on_slo_sli.use_mtls.trusted_ca](resources--nfv_service--reference--group-003.md#canonical-3131023010230002-0231002203322301-1132012311333303-1310010312023212-0320131120220230-2221212300110100-3011231323110122-1312223033212110) |
-| `https_management.advertise_on_slo_sli.use_mtls.trusted_ca.name` | [https_management.advertise_on_slo_sli.use_mtls.trusted_ca.name](resources--nfv_service--reference--group-003.md#canonical-1301301030001303-0020323202023312-1313333113033231-2110323101021310-3022100012321201-1322201303111133-1231030012311131-0123301111030233) |
-| `https_management.advertise_on_slo_sli.use_mtls.trusted_ca.namespace` | [https_management.advertise_on_slo_sli.use_mtls.trusted_ca.namespace](resources--nfv_service--reference--group-003.md#canonical-1302130320313333-2012313032001211-1200221321210311-2102031331103321-0213303110013013-1203310110112031-3220120122320332-3312200113132232) |
-| `https_management.advertise_on_slo_sli.use_mtls.trusted_ca.tenant` | [https_management.advertise_on_slo_sli.use_mtls.trusted_ca.tenant](resources--nfv_service--reference--group-003.md#canonical-0221210212212310-2103332213201110-3032201023222313-3030120103322020-2110210300201123-0013123203310002-0003223203322030-0111101023331002) |
-| `https_management.advertise_on_slo_sli.use_mtls.trusted_ca_url` | [https_management.advertise_on_slo_sli.use_mtls.trusted_ca_url](resources--nfv_service--reference--group-003.md#canonical-0300102112310320-0012011321030133-2103130122102211-1002202332202301-2121321330312133-3323213030132013-0221200312122120-3010221100103013) |
-| `https_management.advertise_on_slo_sli.use_mtls.xfcc_disabled` | [https_management.advertise_on_slo_sli.use_mtls.xfcc_disabled](resources--nfv_service--reference--group-003.md#canonical-0230021031001003-3311031210100201-2100011213310322-2032231013301012-3033303313211333-0113110111312300-1030312301333101-1132202020211222) |
-| `https_management.advertise_on_slo_sli.use_mtls.xfcc_options` | [https_management.advertise_on_slo_sli.use_mtls.xfcc_options](resources--nfv_service--reference--group-003.md#canonical-0320223201130322-1301030333320222-2120313130300112-2112210121030100-0321020002131301-1311112010311130-3323330122211021-2111211212202230) |
-| `https_management.advertise_on_slo_sli.use_mtls.xfcc_options.xfcc_header_elements` | [https_management.advertise_on_slo_sli.use_mtls.xfcc_options.xfcc_header_elements](resources--nfv_service--reference--group-003.md#canonical-1232002303002201-3220113203023223-3122213121331031-3021320312302003-3121131223011212-1222310221312021-1103200021011313-1201031011203021) |
-| `https_management.advertise_on_slo_vip` | [https_management.advertise_on_slo_vip](resources--nfv_service--reference--group-003.md#canonical-0311030123113020-0310323023030223-2132032033103233-3000210331321312-1131200021222000-1232022213100001-1221331332332222-3313121002001232) |
-| `https_management.advertise_on_slo_vip.no_mtls` | [https_management.advertise_on_slo_vip.no_mtls](resources--nfv_service--reference--group-003.md#canonical-0223102102213323-3120131112012331-2011112320231311-1021011120131321-0223330102011211-1303132001130100-2120020021323301-0033120103310330) |
-| `https_management.advertise_on_slo_vip.tls_certificates` | [https_management.advertise_on_slo_vip.tls_certificates](resources--nfv_service--reference--group-003.md#canonical-2033311030122032-3110102122003230-0011002203212233-1032211121000322-2122131133333230-0200313213020211-1202331022100100-3301023220233000) |
-| `https_management.advertise_on_slo_vip.tls_certificates.certificate_url` | [https_management.advertise_on_slo_vip.tls_certificates.certificate_url](resources--nfv_service--reference--group-003.md#canonical-1120032033333030-3203101020110111-2300121111222022-0213213231333133-3222331220330300-2303112003300321-1310021131201312-1200123211122223) |
-| `https_management.advertise_on_slo_vip.tls_certificates.custom_hash_algorithms` | [https_management.advertise_on_slo_vip.tls_certificates.custom_hash_algorithms](resources--nfv_service--reference--group-003.md#canonical-1123112301132312-1301222223010313-1013321112310331-2130133001312332-2332222000032303-1301231010301310-3120203211332011-2231222100321310) |
-| `https_management.advertise_on_slo_vip.tls_certificates.custom_hash_algorithms.hash_algorithms` | [https_management.advertise_on_slo_vip.tls_certificates.custom_hash_algorithms.hash_algorithms](resources--nfv_service--reference--group-003.md#canonical-3213230122223201-0300123032111130-1022332131222302-0101131123311331-1302131210333213-2031331003312132-1220010222210302-1032110020322333) |
-| `https_management.advertise_on_slo_vip.tls_certificates.description_spec` | [https_management.advertise_on_slo_vip.tls_certificates.description_spec](resources--nfv_service--reference--group-003.md#canonical-1301110230122310-3000311233031332-3121111031002000-3010230001301101-1101203131321121-0213110012203131-2323323311220321-3023322223020220) |
-| `https_management.advertise_on_slo_vip.tls_certificates.disable_ocsp_stapling` | [https_management.advertise_on_slo_vip.tls_certificates.disable_ocsp_stapling](resources--nfv_service--reference--group-003.md#canonical-0221121130213003-0221302100231011-1332330232032013-0000321233021313-2212103103133210-1013212211333213-1330112012111233-0323300330223112) |
+| `https_management.advertise_on_slo_sli.tls_config.default_security` | [https_management.advertise_on_slo_sli.tls_config.default_security](resources--nfv_service--reference--group-004.md#canonical-2211111111233321-0331013132321302-3320211030003020-1223022020000203-1100120100000120-0123112203222110-0332211033110130-2103220123030321) |
+| `https_management.advertise_on_slo_sli.tls_config.low_security` | [https_management.advertise_on_slo_sli.tls_config.low_security](resources--nfv_service--reference--group-004.md#canonical-3011310322301103-3000300013103011-3101221220033103-3223112202023023-3322113113133100-0211312112220302-0131210110130212-1033311012332032) |
+| `https_management.advertise_on_slo_sli.tls_config.medium_security` | [https_management.advertise_on_slo_sli.tls_config.medium_security](resources--nfv_service--reference--group-004.md#canonical-2022100312330102-2103131100103111-2202030202121132-2303013301020101-1311101102203012-2122011310111232-1013212131110203-3332011332302023) |
+| `https_management.advertise_on_slo_sli.use_mtls` | [https_management.advertise_on_slo_sli.use_mtls](resources--nfv_service--reference--group-004.md#canonical-0101002012210331-3130133103321132-0122211223123002-3131001203213102-0123232111233223-0032233021132033-1101330321232312-3321311203121303) |
+| `https_management.advertise_on_slo_sli.use_mtls.client_certificate_optional` | [https_management.advertise_on_slo_sli.use_mtls.client_certificate_optional](resources--nfv_service--reference--group-004.md#canonical-1202210002310331-1110132200031013-2021320321222332-1300301232123000-0022022022230212-0311032010312010-0003130130122203-3231223002012032) |
+| `https_management.advertise_on_slo_sli.use_mtls.crl` | [https_management.advertise_on_slo_sli.use_mtls.crl](resources--nfv_service--reference--group-004.md#canonical-2102223303121033-3003323311233023-1310300103003310-2311001233230132-0333231323232111-1102111212221010-1130033012313322-2222002311022231) |
+| `https_management.advertise_on_slo_sli.use_mtls.crl.name` | [https_management.advertise_on_slo_sli.use_mtls.crl.name](resources--nfv_service--reference--group-004.md#canonical-3011022203222132-1132111132033011-1130022201303223-2331312302203300-2313023311231233-2320012223203120-1331203130111020-2300131302121003) |
+| `https_management.advertise_on_slo_sli.use_mtls.crl.namespace` | [https_management.advertise_on_slo_sli.use_mtls.crl.namespace](resources--nfv_service--reference--group-004.md#canonical-2230033001232033-2120033231223231-3332201020213230-3332311002030110-3002310202032301-3332100332320202-0133302222320203-3330031322301103) |
+| `https_management.advertise_on_slo_sli.use_mtls.crl.tenant` | [https_management.advertise_on_slo_sli.use_mtls.crl.tenant](resources--nfv_service--reference--group-004.md#canonical-0332303302220003-0332222112201002-2310131133010221-2302103302302223-2301223300013003-3233013122002010-2221310212032123-2103302300030311) |
+| `https_management.advertise_on_slo_sli.use_mtls.no_crl` | [https_management.advertise_on_slo_sli.use_mtls.no_crl](resources--nfv_service--reference--group-004.md#canonical-0030012230222331-2002311130032222-0011012220130033-1030323331011220-0223000113223232-2231303130322210-3201213101333312-2220132130033011) |
+| `https_management.advertise_on_slo_sli.use_mtls.trusted_ca` | [https_management.advertise_on_slo_sli.use_mtls.trusted_ca](resources--nfv_service--reference--group-004.md#canonical-3131023010230002-0231002203322301-1132012311333303-1310010312023212-0320131120220230-2221212300110100-3011231323110122-1312223033212110) |
+| `https_management.advertise_on_slo_sli.use_mtls.trusted_ca.name` | [https_management.advertise_on_slo_sli.use_mtls.trusted_ca.name](resources--nfv_service--reference--group-004.md#canonical-1301301030001303-0020323202023312-1313333113033231-2110323101021310-3022100012321201-1322201303111133-1231030012311131-0123301111030233) |
+| `https_management.advertise_on_slo_sli.use_mtls.trusted_ca.namespace` | [https_management.advertise_on_slo_sli.use_mtls.trusted_ca.namespace](resources--nfv_service--reference--group-004.md#canonical-1302130320313333-2012313032001211-1200221321210311-2102031331103321-0213303110013013-1203310110112031-3220120122320332-3312200113132232) |
+| `https_management.advertise_on_slo_sli.use_mtls.trusted_ca.tenant` | [https_management.advertise_on_slo_sli.use_mtls.trusted_ca.tenant](resources--nfv_service--reference--group-004.md#canonical-0221210212212310-2103332213201110-3032201023222313-3030120103322020-2110210300201123-0013123203310002-0003223203322030-0111101023331002) |
+| `https_management.advertise_on_slo_sli.use_mtls.trusted_ca_url` | [https_management.advertise_on_slo_sli.use_mtls.trusted_ca_url](resources--nfv_service--reference--group-004.md#canonical-0300102112310320-0012011321030133-2103130122102211-1002202332202301-2121321330312133-3323213030132013-0221200312122120-3010221100103013) |
+| `https_management.advertise_on_slo_sli.use_mtls.xfcc_disabled` | [https_management.advertise_on_slo_sli.use_mtls.xfcc_disabled](resources--nfv_service--reference--group-004.md#canonical-0230021031001003-3311031210100201-2100011213310322-2032231013301012-3033303313211333-0113110111312300-1030312301333101-1132202020211222) |
+| `https_management.advertise_on_slo_sli.use_mtls.xfcc_options` | [https_management.advertise_on_slo_sli.use_mtls.xfcc_options](resources--nfv_service--reference--group-004.md#canonical-0320223201130322-1301030333320222-2120313130300112-2112210121030100-0321020002131301-1311112010311130-3323330122211021-2111211212202230) |
+| `https_management.advertise_on_slo_sli.use_mtls.xfcc_options.xfcc_header_elements` | [https_management.advertise_on_slo_sli.use_mtls.xfcc_options.xfcc_header_elements](resources--nfv_service--reference--group-004.md#canonical-1232002303002201-3220113203023223-3122213121331031-3021320312302003-3121131223011212-1222310221312021-1103200021011313-1201031011203021) |
+| `https_management.advertise_on_slo_vip` | [https_management.advertise_on_slo_vip](resources--nfv_service--reference--group-004.md#canonical-0311030123113020-0310323023030223-2132032033103233-3000210331321312-1131200021222000-1232022213100001-1221331332332222-3313121002001232) |
+| `https_management.advertise_on_slo_vip.no_mtls` | [https_management.advertise_on_slo_vip.no_mtls](resources--nfv_service--reference--group-004.md#canonical-0223102102213323-3120131112012331-2011112320231311-1021011120131321-0223330102011211-1303132001130100-2120020021323301-0033120103310330) |
+| `https_management.advertise_on_slo_vip.tls_certificates` | [https_management.advertise_on_slo_vip.tls_certificates](resources--nfv_service--reference--group-004.md#canonical-2033311030122032-3110102122003230-0011002203212233-1032211121000322-2122131133333230-0200313213020211-1202331022100100-3301023220233000) |
+| `https_management.advertise_on_slo_vip.tls_certificates.blindfold` | [https_management.advertise_on_slo_vip.tls_certificates.blindfold](resources--nfv_service--reference--group-004.md#canonical-1302112220121322-3001022300213131-2323031101332113-3100232002201121-2200211323122202-2300302220111222-2113122223113130-0301311301030102) |
+| `https_management.advertise_on_slo_vip.tls_certificates.blindfold.algorithm` | [https_management.advertise_on_slo_vip.tls_certificates.blindfold.algorithm](resources--nfv_service--reference--group-004.md#canonical-2022000111000223-1000103202213233-0303201101122100-1001302223332032-0002302222013012-0321321230331221-1322120102201013-1033032331233220) |
+| `https_management.advertise_on_slo_vip.tls_certificates.blindfold.certificate_file` | [https_management.advertise_on_slo_vip.tls_certificates.blindfold.certificate_file](resources--nfv_service--reference--group-004.md#canonical-0131233111303100-1221230310130231-1000122122102013-2311323302121112-0132003111112003-0303202110020101-2110000113332320-3212311121020300) |
+| `https_management.advertise_on_slo_vip.tls_certificates.blindfold.certificate_pem` | [https_management.advertise_on_slo_vip.tls_certificates.blindfold.certificate_pem](resources--nfv_service--reference--group-004.md#canonical-0220323011111012-1030123102003100-0002203121100012-3312010230000111-1100230111001213-0223023110330311-3011332011312321-1030020300030011) |
+| `https_management.advertise_on_slo_vip.tls_certificates.blindfold.chain_identity` | [https_management.advertise_on_slo_vip.tls_certificates.blindfold.chain_identity](resources--nfv_service--reference--group-004.md#canonical-0110011102203323-2002301022302013-2213223112032300-3023233023113023-3132032001232000-1131201023122100-0123311010333332-0212011212233132) |
+| `https_management.advertise_on_slo_vip.tls_certificates.blindfold.context_digest` | [https_management.advertise_on_slo_vip.tls_certificates.blindfold.context_digest](resources--nfv_service--reference--group-004.md#canonical-2120012212231101-0131000031333122-1303201230003023-3120332000320123-2013133332320012-2203201301022211-2210231303221100-3213132313102123) |
+| `https_management.advertise_on_slo_vip.tls_certificates.blindfold.encrypted_location` | [https_management.advertise_on_slo_vip.tls_certificates.blindfold.encrypted_location](resources--nfv_service--reference--group-004.md#canonical-2331130312032211-0301121323010130-0110202122212023-0023020321112102-2231130123300121-3010022330202021-1221210022222333-2233112211201023) |
+| `https_management.advertise_on_slo_vip.tls_certificates.blindfold.expires_at` | [https_management.advertise_on_slo_vip.tls_certificates.blindfold.expires_at](resources--nfv_service--reference--group-004.md#canonical-3130311011302221-3100220300222020-0331003110203210-3221302301231212-3233031201333230-2302212101022033-1313203223111312-0332011002330002) |
+| `https_management.advertise_on_slo_vip.tls_certificates.blindfold.fingerprint` | [https_management.advertise_on_slo_vip.tls_certificates.blindfold.fingerprint](resources--nfv_service--reference--group-004.md#canonical-2113311010213032-1103133100121003-1120303232221223-2110202300101212-3222001311022030-2300101201120023-1311120313323200-3003120230030221) |
+| `https_management.advertise_on_slo_vip.tls_certificates.blindfold.id` | [https_management.advertise_on_slo_vip.tls_certificates.blindfold.id](resources--nfv_service--reference--group-004.md#canonical-1002331220321031-2033213202033210-3212101311203031-1100003230022300-0020333211303310-3020303010011003-0233233131030103-0103201132013310) |
+| `https_management.advertise_on_slo_vip.tls_certificates.blindfold.material_version` | [https_management.advertise_on_slo_vip.tls_certificates.blindfold.material_version](resources--nfv_service--reference--group-004.md#canonical-1112231311121130-0220300203113030-0122012121033003-0013033302112201-3003122123212002-1313222033332300-3113031133133123-3110010300010101) |
+| `https_management.advertise_on_slo_vip.tls_certificates.blindfold.passphrase_env` | [https_management.advertise_on_slo_vip.tls_certificates.blindfold.passphrase_env](resources--nfv_service--reference--group-004.md#canonical-1332113131333313-3002122010313210-1302331311303220-2231303320123333-0221330001121330-3211032312031212-0230111120113121-0330320321131031) |
+| `https_management.advertise_on_slo_vip.tls_certificates.blindfold.passphrase_wo` | [https_management.advertise_on_slo_vip.tls_certificates.blindfold.passphrase_wo](resources--nfv_service--reference--group-004.md#canonical-1112032212120220-3330003220200030-1100302333313020-0303120133303301-0032313233232231-1310330002123000-3100020131323100-2323333102131113) |
+| `https_management.advertise_on_slo_vip.tls_certificates.blindfold.pkcs12_file` | [https_management.advertise_on_slo_vip.tls_certificates.blindfold.pkcs12_file](resources--nfv_service--reference--group-004.md#canonical-0133320133123222-2331202100103320-1111022202313031-1210213332323111-2122010332100321-1310222003120221-2031303100032321-0330313012133211) |
+| `https_management.advertise_on_slo_vip.tls_certificates.blindfold.pkcs12_wo` | [https_management.advertise_on_slo_vip.tls_certificates.blindfold.pkcs12_wo](resources--nfv_service--reference--group-004.md#canonical-3332120102130120-2313313112203031-3122321313322111-2211303302313000-0031210101132212-2112131231333011-0122123230111210-3023320022301020) |
+| `https_management.advertise_on_slo_vip.tls_certificates.blindfold.policy` | [https_management.advertise_on_slo_vip.tls_certificates.blindfold.policy](resources--nfv_service--reference--group-004.md#canonical-1131223112120032-0201203303010231-1321212330212111-3120221020301010-0023210012113002-1110003301223202-3212200123100023-2203031100102111) |
+| `https_management.advertise_on_slo_vip.tls_certificates.blindfold.prepared_identity` | [https_management.advertise_on_slo_vip.tls_certificates.blindfold.prepared_identity](resources--nfv_service--reference--group-004.md#canonical-1111000203331321-3023133002233230-0311030112003113-3111100102321021-2312000223222230-0103030120323210-3300013102102023-3003200230302002) |
+| `https_management.advertise_on_slo_vip.tls_certificates.blindfold.private_key_file` | [https_management.advertise_on_slo_vip.tls_certificates.blindfold.private_key_file](resources--nfv_service--reference--group-004.md#canonical-2020130202023132-3112123303110211-0332332133210132-2310333222013102-2312013013000021-0330301302232231-1133203010100331-3320132232132221) |
+| `https_management.advertise_on_slo_vip.tls_certificates.blindfold.private_key_wo` | [https_management.advertise_on_slo_vip.tls_certificates.blindfold.private_key_wo](resources--nfv_service--reference--group-004.md#canonical-3330022333310123-0000110331320333-2112012231321003-2221113313221020-0131323301230203-3203030223211230-3121101231221033-0212302322221322) |
+| `https_management.advertise_on_slo_vip.tls_certificates.blindfold.spki_identity` | [https_management.advertise_on_slo_vip.tls_certificates.blindfold.spki_identity](resources--nfv_service--reference--group-004.md#canonical-3032201320223031-0321112222303011-2100123321132110-2211111210222133-1122313312312221-3100220222030100-2012201321313203-0302312103322133) |
+| `https_management.advertise_on_slo_vip.tls_certificates.certificate_url` | [https_management.advertise_on_slo_vip.tls_certificates.certificate_url](resources--nfv_service--reference--group-004.md#canonical-1120032033333030-3203101020110111-2300121111222022-0213213231333133-3222331220330300-2303112003300321-1310021131201312-1200123211122223) |
+| `https_management.advertise_on_slo_vip.tls_certificates.custom_hash_algorithms` | [https_management.advertise_on_slo_vip.tls_certificates.custom_hash_algorithms](resources--nfv_service--reference--group-004.md#canonical-1123112301132312-1301222223010313-1013321112310331-2130133001312332-2332222000032303-1301231010301310-3120203211332011-2231222100321310) |
+| `https_management.advertise_on_slo_vip.tls_certificates.custom_hash_algorithms.hash_algorithms` | [https_management.advertise_on_slo_vip.tls_certificates.custom_hash_algorithms.hash_algorithms](resources--nfv_service--reference--group-004.md#canonical-3213230122223201-0300123032111130-1022332131222302-0101131123311331-1302131210333213-2031331003312132-1220010222210302-1032110020322333) |
+| `https_management.advertise_on_slo_vip.tls_certificates.description_spec` | [https_management.advertise_on_slo_vip.tls_certificates.description_spec](resources--nfv_service--reference--group-004.md#canonical-1301110230122310-3000311233031332-3121111031002000-3010230001301101-1101203131321121-0213110012203131-2323323311220321-3023322223020220) |
+| `https_management.advertise_on_slo_vip.tls_certificates.disable_ocsp_stapling` | [https_management.advertise_on_slo_vip.tls_certificates.disable_ocsp_stapling](resources--nfv_service--reference--group-004.md#canonical-0221121130213003-0221302100231011-1332330232032013-0000321233021313-2212103103133210-1013212211333213-1330112012111233-0323300330223112) |
 | `https_management.advertise_on_slo_vip.tls_certificates.private_key` | [https_management.advertise_on_slo_vip.tls_certificates.private_key](resources--nfv_service--reference--group-004.md#canonical-2123010121130221-0131130220001200-3011012221222210-1103000020112311-0111030031330223-0332201202131330-1311331301232212-1201221111331100) |
 | `https_management.advertise_on_slo_vip.tls_certificates.private_key.blindfold_secret_info` | [https_management.advertise_on_slo_vip.tls_certificates.private_key.blindfold_secret_info](resources--nfv_service--reference--group-004.md#canonical-1331111321322033-3212131212031310-2231023021332322-3333003101202020-1330132302130321-1120321003203012-2230023111111213-3203033111022323) |
 | `https_management.advertise_on_slo_vip.tls_certificates.private_key.blindfold_secret_info.decryption_provider` | [https_management.advertise_on_slo_vip.tls_certificates.private_key.blindfold_secret_info.decryption_provider](resources--nfv_service--reference--group-004.md#canonical-3211033203210233-3021100103321211-0113213303233220-2003022202221211-0131122331222331-0001221303201332-1211021233013131-0331103213300132) |
@@ -572,8 +634,8 @@ Each exact path has one authoritative reference destination. Collection element 
 | `https_management.advertise_on_slo_vip.use_mtls.xfcc_options` | [https_management.advertise_on_slo_vip.use_mtls.xfcc_options](resources--nfv_service--reference--group-004.md#canonical-2333231231323323-2133022210030203-3003200312100312-3300210313131010-2220111223223331-3213223302002320-1123000021321320-1010110330311303) |
 | `https_management.advertise_on_slo_vip.use_mtls.xfcc_options.xfcc_header_elements` | [https_management.advertise_on_slo_vip.use_mtls.xfcc_options.xfcc_header_elements](resources--nfv_service--reference--group-004.md#canonical-2233231322021022-3003020210323122-3331331121100030-0211132331301002-0203020201333001-0201010101210222-1110113202032020-2000010000132101) |
 | `https_management.default_https_port` | [https_management.default_https_port](resources--nfv_service--reference--group-004.md#canonical-0320211030330020-2221000001121023-2100203330232133-3311230331201001-0322003221233200-2022031033323333-0112023223112111-3022322032020002) |
-| `https_management.domain_suffix` | [https_management.domain_suffix](resources--nfv_service--reference--group-001.md#canonical-3131321201111130-3033222200321231-1201202313023231-1333112310130303-0322120131011100-3120231222222200-3012213001122230-2023330133221023) |
-| `https_management.https_port` | [https_management.https_port](resources--nfv_service--reference--group-001.md#canonical-0123023032232303-0323211001202133-2013003322001322-1032312221231232-2112222313233021-0230202320231133-3133101222220000-2000332000110001) |
+| `https_management.domain_suffix` | [https_management.domain_suffix](resources--nfv_service--reference--group-002.md#canonical-3131321201111130-3033222200321231-1201202313023231-1333112310130303-0322120131011100-3120231222222200-3012213001122230-2023330133221023) |
+| `https_management.https_port` | [https_management.https_port](resources--nfv_service--reference--group-002.md#canonical-0123023032232303-0323211001202133-2013003322001322-1032312221231232-2112222313233021-0230202320231133-3133101222220000-2000332000110001) |
 | `id` | [ID](resources--nfv_service--reference--group-001.md#canonical-2202210003230021-2123331330221213-2220013231110122-0233313101232312-2132301010233111-3331221220311002-3100330200012101-3230310003211130) |
 | `labels` | [labels](resources--nfv_service--reference--group-001.md#canonical-3123203312302020-1021113033213221-3110100013022111-1202032011011331-1202010201312110-3011233013030200-1102102033300321-0130311301000210) |
 | `name` | [name](resources--nfv_service--reference--group-001.md#canonical-0113312013100323-3001203330313203-2130221120123200-2133232231013333-2131013222231223-0001230333223222-1113001322233220-3311213231123230) |
@@ -678,7 +740,7 @@ Receipt-pinned upstream constraints:
 OneOf alternatives in this subsection:
 
 - [disable_https_management](resources--nfv_service--reference--group-001.md#canonical-3112312130013010-0213122301312322-1233230202121013-2232313130212030-0022130101301033-0101103110230133-2130301211211102-1301123223121110)
-- [https_management](resources--nfv_service--reference--group-001.md#canonical-2310110120210321-0011122021130100-1020101231210333-1001101201002320-3213323313112230-0312000102310210-1113012113122222-1223202310021130)
+- [https_management](resources--nfv_service--reference--group-002.md#canonical-2310110120210321-0011122021130100-1020101231210333-1001101201002320-3213323313112230-0312000102310210-1113012113122222-1223202310021130)
 
 Select alternatives according to the provider validators above.
 
@@ -767,20 +829,6 @@ Additional upstream details:
 
 SSH based configuration.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("domain_suffix",
-    "node_ssh_ports"),
-  validators.ConflictingObjectAttributes("advertise_on_sli",
-    "advertise_on_slo"),
-  validators.ConflictingObjectAttributes("advertise_on_sli",
-    "advertise_on_slo_sli"),
-  validators.ConflictingObjectAttributes("advertise_on_slo",
-    "advertise_on_slo_sli")}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -823,15 +871,6 @@ Type: `"string"`. Optional.
 
 Domain suffix will be used along with node name to form the hostname for SSH node management.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthAtMost(1024),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -845,7 +884,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -1026,14 +1065,6 @@ Type: `"object"`. list nested block, Optional.
 
 Management Node SSH Port. Enter TCP port and node name per node.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.List{validators.RequiredListObjectAttributes("node_name",
-    "ssh_port")}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -1047,7 +1078,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -1087,15 +1118,6 @@ Type: `"string"`. Optional.
 
 Node name will be used to match a particular node with the desired TCP port.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 256),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -1111,7 +1133,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1
   },
@@ -1146,15 +1168,6 @@ Type: `"number"`. Optional.
 
 SSH Port. Enter TCP port per node.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Int64{
-  int64validator.Between(1024, 65535),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -1167,7 +1180,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "api-probed",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minimum": 1024
   },
@@ -1210,15 +1223,6 @@ Type: `"object"`. single nested block, Optional.
 
 \[OneOf: f5\_big\_ip\_aws\_service, palo\_alto\_fw\_service\] Virtual BIG-IP AWS. Virtual BIG-IP
 specification for AWS.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("admin_username",
-    "nodes",
-    "ssh_key")}
-```
 
 Receipt-pinned upstream constraints:
 
@@ -1266,15 +1270,6 @@ Type: `"string"`. Optional.
 
 Admin Username. Admin Username for BIG-IP.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthAtMost(256),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -1288,7 +1283,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -1312,9 +1307,9 @@ Receipt-pinned upstream constraints:
 
 - [endpoint_service](resources--nfv_service--reference--group-001.md#canonical-1010032200210212-2313121332112310-0110323222301213-2211012302000323-2311222030300112-0122023013313002-3223113221233302-2201323331331100): complete subsection reference.
 
-- [market_place_image](resources--nfv_service--reference--group-001.md#canonical-3121221100302221-2312112212213100-2300030203321033-0023133210013231-0322231123223011-1213333100111231-1001202332212022-3001113302213202): complete subsection reference.
+- [market_place_image](resources--nfv_service--reference--group-002.md#canonical-3121221100302221-2312112212213100-2300030203321033-0023133210013231-0322231123223011-1213333100111231-1001202332212022-3001113302213202): complete subsection reference.
 
-- [nodes](resources--nfv_service--reference--group-001.md#canonical-0303213133011232-0201322132022131-1321023330330310-0032213003120332-3011101310033312-2030333102020323-2111032131310203-3332013322121201): complete subsection reference.
+- [nodes](resources--nfv_service--reference--group-002.md#canonical-0303213133011232-0201322132022131-1321023330330310-0032213003120332-3011101310033312-2030333102020323-2111032131310203-3332013322121201): complete subsection reference.
 
 <a id="canonical-2122322100020010-0233231112003322-1100330013212030-1031310200022000-0023300112302121-3230133231122000-3021020020303103-3002313323100011"></a>
 
@@ -1325,15 +1320,6 @@ Receipt-pinned upstream constraints:
 Type: `"string"`. Optional.
 
 Public SSH key for accessing the Big IP nodes.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 8192),
-}
-```
 
 Receipt-pinned upstream constraints:
 
@@ -1349,7 +1335,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1
   },
@@ -1382,13 +1368,6 @@ Type: `["map", "string"]`. Optional.
 
 AWS Tags is a label consisting of a user-defined key and value. It helps to manage, identify,
 organize, search for, and filter resources in AWS console.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Map{validators.MapConstraintsValidator("{\"cardinality\":{\"maxProperties\":40},\"category\":\"discovery\",\"constraintType\":\"map\",\"deterministic\":true,\"keys\":{\"maxLength\":127,\"type\":\"string\"},\"originalRules\":{\"ves.io.schema.rules.map.keys.string.max_len\":\"127\",\"ves.io.schema.rules.map.max_pairs\":\"40\",\"ves.io.schema.rules.map.values.string.max_len\":\"255\"},\"values\":{\"maxLength\":255,\"type\":\"string\"}}")}
-```
 
 Receipt-pinned upstream constraints:
 
@@ -1455,14 +1434,6 @@ Type: `"object"`. single nested block, Optional.
 
 SecretType is used in an object to indicate a sensitive/confidential field.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info",
-    "clear_secret_info")}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -1515,13 +1486,6 @@ Type: `"object"`. single nested block, Optional.
 
 BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("location")}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -1567,7 +1531,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -1590,15 +1554,6 @@ Type: `"string"`. Optional, Sensitive.
 Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(4, 131072),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -1614,7 +1569,7 @@ Receipt-pinned upstream constraints:
       "confidence": 1.0,
       "note": "Blindfold envelope encryption (AES-256-GCM + RSA-OAEP) of an RSA-2048 TLS private key produces ~3700 char string:/// URL. 128KB max secret size = ~175KB base64. Discovery reported 1024 which is incorrect.",
       "source": "manual-override",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 4
   },
@@ -1658,7 +1613,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -1691,13 +1646,6 @@ Breadcrumbs:
 Type: `"object"`. single nested block, Optional.
 
 ClearSecretInfoType specifies information about the Secret that is not encrypted.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("url")}
-```
 
 Receipt-pinned upstream constraints:
 
@@ -1745,15 +1693,6 @@ URL of the secret. Currently supported URL schemes is string:///. For string:///
 needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
 base64 decoding.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 131072),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -1772,7 +1711,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1,
     "pattern": "^(https?|ftp)://[^\\s/$.?#].[^\\s]*$",
@@ -1871,13 +1810,6 @@ Type: `"object"`. single nested block, Optional.
 This type establishes a direct reference from one object(the referrer) to another(the referred).
 Such a reference is in form of tenant/namespace/name.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -1912,15 +1844,6 @@ Type: `"string"`. Optional.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
 referred object's(e.g. Route's) name.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 128),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -1939,7 +1862,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1
   },
@@ -1973,15 +1896,6 @@ Type: `"string"`. Optional, Computed.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
 hold the referred object's(e.g. Route's) namespace.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 63),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -2006,7 +1920,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1,
     "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
@@ -2041,15 +1955,6 @@ Type: `"string"`. Computed.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
 the referred object's(e.g. Route's) tenant.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthAtMost(64),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -2066,7 +1971,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -2105,42 +2010,6 @@ Type: `"object"`. single nested block, Optional.
 
 Endpoint Service is a type of NFV service where the packets are destined to NFV and service modifies
 the destination with a new destination address.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.ConflictingObjectAttributes("advertise_on_slo_ip",
-    "advertise_on_slo_ip_external"),
-  validators.ConflictingObjectAttributes("advertise_on_slo_ip",
-    "disable_advertise_on_slo_ip"),
-  validators.ConflictingObjectAttributes("advertise_on_slo_ip_external",
-    "disable_advertise_on_slo_ip"),
-  validators.ConflictingObjectAttributes("automatic_vip",
-    "configured_vip"),
-  validators.ConflictingObjectAttributes("custom_tcp_ports",
-    "default_tcp_ports"),
-  validators.ConflictingObjectAttributes("custom_tcp_ports",
-    "http_port"),
-  validators.ConflictingObjectAttributes("custom_tcp_ports",
-    "https_port"),
-  validators.ConflictingObjectAttributes("custom_tcp_ports",
-    "no_tcp_ports"),
-  validators.ConflictingObjectAttributes("custom_udp_ports",
-    "no_udp_ports"),
-  validators.ConflictingObjectAttributes("default_tcp_ports",
-    "http_port"),
-  validators.ConflictingObjectAttributes("default_tcp_ports",
-    "https_port"),
-  validators.ConflictingObjectAttributes("default_tcp_ports",
-    "no_tcp_ports"),
-  validators.ConflictingObjectAttributes("http_port",
-    "https_port"),
-  validators.ConflictingObjectAttributes("http_port",
-    "no_tcp_ports"),
-  validators.ConflictingObjectAttributes("https_port",
-    "no_tcp_ports")}
-```
 
 Receipt-pinned upstream constraints:
 
@@ -2187,16 +2056,6 @@ Type: `"string"`. Optional.
 
 Exclusive with \[automatic\_vip\] Enter IP address for the default VIP.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.String{
-  stringvalidator.LengthAtMost(1024),
-  validators.IPValidator(),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -2210,7 +2069,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -2240,11 +2099,11 @@ Receipt-pinned upstream constraints:
 
 - [http_port](resources--nfv_service--reference--group-001.md#canonical-3320223321311023-3330032333213303-2231201320223001-2111101011102332-0131203102203200-0221001032103310-0112313113120020-2120000231003131): complete subsection reference.
 
-- [https_port](resources--nfv_service--reference--group-001.md#canonical-1113221322000011-1313031012002033-2123303222033131-1023101101330233-1222020101023123-2130012102302313-0302322023032013-3110122331011130): complete subsection reference.
+- [https_port](resources--nfv_service--reference--group-002.md#canonical-1113221322000011-1313031012002033-2123303222033131-1023101101330233-1222020101023123-2130012102302313-0302322023032013-3110122331011130): complete subsection reference.
 
-- [no_tcp_ports](resources--nfv_service--reference--group-001.md#canonical-2323230322303213-2133022201311333-0013103330033033-3122301030103131-2303322233110330-3002113230113033-0230331312202212-1232301203313133): complete subsection reference.
+- [no_tcp_ports](resources--nfv_service--reference--group-002.md#canonical-2323230322303213-2133022201311333-0013103330033033-3122301030103131-2303322233110330-3002113230113033-0230331312202212-1232301203313133): complete subsection reference.
 
-- [no_udp_ports](resources--nfv_service--reference--group-001.md#canonical-0032211122030020-3003323212002133-2120003300011011-1012223010030013-1022302100113132-3330231031213131-3320022302013010-0110001302110001): complete subsection reference.
+- [no_udp_ports](resources--nfv_service--reference--group-002.md#canonical-0032211122030020-3003323212002133-2120003300011011-1012223010030013-1022302100113132-3330231031213131-3320022302013010-0110001302110001): complete subsection reference.
 
 <a id="canonical-2002023200130011-3221031100321323-1023033331122313-3230213010102032-2121211120330320-2103303103132200-3323232000311320-1022321130223012"></a>
 
@@ -2409,13 +2268,6 @@ Type: `"object"`. single nested block, Optional.
 
 Port Range List. List of port ranges.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("ports")}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -2449,15 +2301,6 @@ Type: `["list", "string"]`. Optional.
 
 List of port ranges. Each range is a single port or a pair of start and end ports e.g. 8080-8192.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.List{
-  listvalidator.SizeAtMost(128),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -2471,7 +2314,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -2515,13 +2358,6 @@ Type: `"object"`. single nested block, Optional.
 
 Port Range List. List of port ranges.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("ports")}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -2555,15 +2391,6 @@ Type: `["list", "string"]`. Optional.
 
 List of port ranges. Each range is a single port or a pair of start and end ports e.g. 8080-8192.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.List{
-  listvalidator.SizeAtMost(128),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -2577,7 +2404,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -2739,1064 +2566,3 @@ http_port = {}
 ```
 
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-1113221322000011-1313031012002033-2123303222033131-1023101101330233-1222020101023123-2130012102302313-0302322023032013-3110122331011130"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-## `f5_big_ip_aws_service.endpoint_service.https_port` properties
-
-Breadcrumbs:
-
-- [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
-- [Property reference](resources--nfv_service--reference--group-001.md#canonical-1033200313012130-2303320020000220-3032203302003212-3030323031320111-0322032022323123-0203102131300133-1232321110231101-1022222010201320)
-- [f5_big_ip_aws_service](resources--nfv_service--reference--group-001.md#canonical-2203212022212003-2212301132213201-2010231030110211-3120210322102100-3130230103331230-0332101002301003-2302320031110011-3121121001302210)
-- [f5_big_ip_aws_service.endpoint_service](resources--nfv_service--reference--group-001.md#canonical-1010032200210212-2313121332112310-0110323222301213-2211012302000323-2311222030300112-0122023013313002-3223113221233302-2201323331331100)
-- f5_big_ip_aws_service.endpoint_service.https_port
-
-<a id="canonical-3213200002230332-1112000033222310-2121220020110031-0313333130213222-1320131011223201-1113022013000112-2032221032220100-2322323031100132"></a>
-
-Type: `["object", {}]`. Optional.
-
-Enable this option
-
-Additional upstream details:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-https_port = {}
-```
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-2323230322303213-2133022201311333-0013103330033033-3122301030103131-2303322233110330-3002113230113033-0230331312202212-1232301203313133"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-## `f5_big_ip_aws_service.endpoint_service.no_tcp_ports` properties
-
-Breadcrumbs:
-
-- [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
-- [Property reference](resources--nfv_service--reference--group-001.md#canonical-1033200313012130-2303320020000220-3032203302003212-3030323031320111-0322032022323123-0203102131300133-1232321110231101-1022222010201320)
-- [f5_big_ip_aws_service](resources--nfv_service--reference--group-001.md#canonical-2203212022212003-2212301132213201-2010231030110211-3120210322102100-3130230103331230-0332101002301003-2302320031110011-3121121001302210)
-- [f5_big_ip_aws_service.endpoint_service](resources--nfv_service--reference--group-001.md#canonical-1010032200210212-2313121332112310-0110323222301213-2211012302000323-2311222030300112-0122023013313002-3223113221233302-2201323331331100)
-- f5_big_ip_aws_service.endpoint_service.no_tcp_ports
-
-<a id="canonical-0031203113313320-2000021332233113-0133122032103002-0021122020111311-3132031120321221-2031132223103012-0313332012111212-3032122211300012"></a>
-
-Type: `["object", {}]`. Optional.
-
-Enable this option
-
-Additional upstream details:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-no_tcp_ports = {}
-```
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-0032211122030020-3003323212002133-2120003300011011-1012223010030013-1022302100113132-3330231031213131-3320022302013010-0110001302110001"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-## `f5_big_ip_aws_service.endpoint_service.no_udp_ports` properties
-
-Breadcrumbs:
-
-- [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
-- [Property reference](resources--nfv_service--reference--group-001.md#canonical-1033200313012130-2303320020000220-3032203302003212-3030323031320111-0322032022323123-0203102131300133-1232321110231101-1022222010201320)
-- [f5_big_ip_aws_service](resources--nfv_service--reference--group-001.md#canonical-2203212022212003-2212301132213201-2010231030110211-3120210322102100-3130230103331230-0332101002301003-2302320031110011-3121121001302210)
-- [f5_big_ip_aws_service.endpoint_service](resources--nfv_service--reference--group-001.md#canonical-1010032200210212-2313121332112310-0110323222301213-2211012302000323-2311222030300112-0122023013313002-3223113221233302-2201323331331100)
-- f5_big_ip_aws_service.endpoint_service.no_udp_ports
-
-<a id="canonical-2302111331330122-3120022132102213-2012020331132031-3101313032303321-3300210000112122-1320123212313210-0132221032312033-3012022030210131"></a>
-
-Type: `["object", {}]`. Optional.
-
-Enable this option
-
-Additional upstream details:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-no_udp_ports = {}
-```
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-3121221100302221-2312112212213100-2300030203321033-0023133210013231-0322231123223011-1213333100111231-1001202332212022-3001113302213202"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-## `f5_big_ip_aws_service.market_place_image` properties
-
-Breadcrumbs:
-
-- [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
-- [Property reference](resources--nfv_service--reference--group-001.md#canonical-1033200313012130-2303320020000220-3032203302003212-3030323031320111-0322032022323123-0203102131300133-1232321110231101-1022222010201320)
-- [f5_big_ip_aws_service](resources--nfv_service--reference--group-001.md#canonical-2203212022212003-2212301132213201-2010231030110211-3120210322102100-3130230103331230-0332101002301003-2302320031110011-3121121001302210)
-- f5_big_ip_aws_service.market_place_image
-
-<a id="canonical-0130301203100302-3320011222113103-2233202312103233-1121212120332021-0100201102103322-1132210222233310-0300113210112121-3300112100033101"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-BIG-IP AWS Pay as You Go Image Selection.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.ConflictingObjectAttributes("awafpay_g200_mbps",
-    "awafpay_g3_gbps")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-ves-oneof-field-ami_choice": "[\"AWAFPayG200Mbps\",\"AWAFPayG3Gbps\",\"BestPlusPayG200Mbps\",\"best_plus_payg_1gbps\"]"
-}
-```
-
-Terraform syntax:
-
-```terraform
-market_place_image {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-2110211022210013-0330012110213003-0221330111013110-0311321031333123-0111031220322322-1203000212132210-3023112233323003-2232222333020001"></a>
-
-### Direct properties for `f5_big_ip_aws_service.market_place_image`
-
-- [awafpay_g200_mbps](resources--nfv_service--reference--group-001.md#canonical-3311231311003000-2031121323311100-0331220313322022-1203201010200030-0232111332331122-2002302212312010-1321212203111331-0002303130000202): complete subsection reference.
-
-- [awafpay_g3_gbps](resources--nfv_service--reference--group-001.md#canonical-3303221122123120-0330230111223322-1021231332330022-3313202301212031-0201230313031302-1121133212211002-0312013330003213-2112113330311011): complete subsection reference.
-
-<a id="canonical-3311231311003000-2031121323311100-0331220313322022-1203201010200030-0232111332331122-2002302212312010-1321212203111331-0002303130000202"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-## `f5_big_ip_aws_service.market_place_image.awafpay_g200_mbps` properties
-
-Breadcrumbs:
-
-- [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
-- [Property reference](resources--nfv_service--reference--group-001.md#canonical-1033200313012130-2303320020000220-3032203302003212-3030323031320111-0322032022323123-0203102131300133-1232321110231101-1022222010201320)
-- [f5_big_ip_aws_service](resources--nfv_service--reference--group-001.md#canonical-2203212022212003-2212301132213201-2010231030110211-3120210322102100-3130230103331230-0332101002301003-2302320031110011-3121121001302210)
-- [f5_big_ip_aws_service.market_place_image](resources--nfv_service--reference--group-001.md#canonical-3121221100302221-2312112212213100-2300030203321033-0023133210013231-0322231123223011-1213333100111231-1001202332212022-3001113302213202)
-- f5_big_ip_aws_service.market_place_image.awafpay_g200_mbps
-
-<a id="canonical-3013002010302031-0223121012302313-0203311033210231-0012031111210212-1332120130131022-3313200110102232-1112000311101220-1320102333212013"></a>
-
-Type: `["object", {}]`. Optional.
-
-Configuration parameter for AWAFPayG200Mbps.
-
-Terraform syntax:
-
-```terraform
-awafpay_g200_mbps = {}
-```
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-3303221122123120-0330230111223322-1021231332330022-3313202301212031-0201230313031302-1121133212211002-0312013330003213-2112113330311011"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-## `f5_big_ip_aws_service.market_place_image.awafpay_g3_gbps` properties
-
-Breadcrumbs:
-
-- [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
-- [Property reference](resources--nfv_service--reference--group-001.md#canonical-1033200313012130-2303320020000220-3032203302003212-3030323031320111-0322032022323123-0203102131300133-1232321110231101-1022222010201320)
-- [f5_big_ip_aws_service](resources--nfv_service--reference--group-001.md#canonical-2203212022212003-2212301132213201-2010231030110211-3120210322102100-3130230103331230-0332101002301003-2302320031110011-3121121001302210)
-- [f5_big_ip_aws_service.market_place_image](resources--nfv_service--reference--group-001.md#canonical-3121221100302221-2312112212213100-2300030203321033-0023133210013231-0322231123223011-1213333100111231-1001202332212022-3001113302213202)
-- f5_big_ip_aws_service.market_place_image.awafpay_g3_gbps
-
-<a id="canonical-0313103233111113-1301101000002302-0010330233101313-3303031321330022-0101012032023131-0103211222203211-1110103303020001-3311121303001011"></a>
-
-Type: `["object", {}]`. Optional.
-
-Configuration parameter for AWAFPayG3Gbps.
-
-Terraform syntax:
-
-```terraform
-awafpay_g3_gbps = {}
-```
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-0303213133011232-0201322132022131-1321023330330310-0032213003120332-3011101310033312-2030333102020323-2111032131310203-3332013322121201"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-## `f5_big_ip_aws_service.nodes` properties
-
-Breadcrumbs:
-
-- [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
-- [Property reference](resources--nfv_service--reference--group-001.md#canonical-1033200313012130-2303320020000220-3032203302003212-3030323031320111-0322032022323123-0203102131300133-1232321110231101-1022222010201320)
-- [f5_big_ip_aws_service](resources--nfv_service--reference--group-001.md#canonical-2203212022212003-2212301132213201-2010231030110211-3120210322102100-3130230103331230-0332101002301003-2302320031110011-3121121001302210)
-- f5_big_ip_aws_service.nodes
-
-<a id="canonical-3322312331030022-2323331220311230-3322211311333031-1010031133322100-2101112112010002-0032031213032211-3121323132132102-3000001312210133"></a>
-
-Type: `"object"`. list nested block, Optional.
-
-Specify how and where the service nodes are spawned.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.List{validators.RequiredListObjectAttributes("aws_az_name",
-    "node_name"),
-  validators.ConflictingListObjectAttributes("automatic_prefix",
-    "tunnel_prefix"),
-  validators.ConflictingListObjectAttributes("mgmt_subnet",
-    "reserved_mgmt_subnet")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxItems": 2,
-  "minItems": 1,
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "array",
-    "deterministic": true,
-    "maxItems": 2,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
-    },
-    "minItems": 1
-  },
-  "x-f5xc-required-for": {
-    "create": true,
-    "minimum_config": true,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.repeated.max_items": "2",
-    "ves.io.schema.rules.repeated.min_items": "1"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.repeated.max_items": "2",
-    "ves.io.schema.rules.repeated.min_items": "1"
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-nodes {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-0203312102031122-3212331322210213-1020321130000311-1232311330302003-1212203102010110-1311000300023312-1110021113030100-0100331120213111"></a>
-
-### Direct properties for `f5_big_ip_aws_service.nodes`
-
-- [automatic_prefix](resources--nfv_service--reference--group-001.md#canonical-1001003122322020-2222302032321213-3021110030120031-2311010120113300-0121000200200303-3230122300122323-3003212023130110-2203011222202223): complete subsection reference.
-
-<a id="canonical-2130312031100011-1223332112201300-2232111031010121-0102002030201230-3022331220301002-3230220001312022-0333100301020311-0321233203103222"></a>
-
-<a id="canonical-3311231320101120-0002020012123033-2212212231303001-2020230330122220-0332011200203022-3000203121312303-3312331221302011-3302113111121300"></a>
-
-#### `f5_big_ip_aws_service.nodes.aws_az_name` property
-
-Type: `"string"`. Optional.
-
-The AWS Availability Zone must be consistent with the AWS Region chosen. Please select an AZ in the
-same Region as your TGW Site.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthAtMost(1024),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "maxLength": 1024,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
-    },
-    "pattern": "^([a-z]{2})-([a-z0-9]{4,20})-([a-z0-9]{2})$"
-  },
-  "x-f5xc-required-for": {
-    "create": true,
-    "minimum_config": true,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.pattern": "^([a-z]{2})-([a-z0-9]{4,20})-([a-z0-9]{2})$"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.pattern": "^([a-z]{2})-([a-z0-9]{4,20})-([a-z0-9]{2})$"
-  }
-}
-```
-
-- [mgmt_subnet](resources--nfv_service--reference--group-001.md#canonical-1133221000222000-2213120123130103-0130203310131333-2133112220333331-0003003001130320-0222323310321220-1321013301112222-3310100211322021): complete subsection reference.
-
-<a id="canonical-3023030020220322-0212220021110223-3203030132120230-0101321102012132-1013312033222321-3010320102301120-0233313212112212-1323233123113323"></a>
-
-<a id="canonical-1221112313212332-1102323132113103-1123213000131300-2230301101030312-3121220220002103-1330002131033103-0021030102212133-3030132202001133"></a>
-
-#### `f5_big_ip_aws_service.nodes.node_name` property
-
-Type: `"string"`. Optional.
-
-Node Name will be used to assign as hostname to the service.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 256),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxLength": 256,
-  "minLength": 1,
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "format": "hostname",
-    "maxLength": 256,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
-    },
-    "minLength": 1
-  },
-  "x-f5xc-required-for": {
-    "create": true,
-    "minimum_config": true,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.hostname": "true",
-    "ves.io.schema.rules.string.max_len": "256",
-    "ves.io.schema.rules.string.min_len": "1"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.hostname": "true",
-    "ves.io.schema.rules.string.max_len": "256",
-    "ves.io.schema.rules.string.min_len": "1"
-  }
-}
-```
-
-- [reserved_mgmt_subnet](resources--nfv_service--reference--group-001.md#canonical-2010110231023102-2320103003311321-1331301001120003-0133203323300021-2331102311120021-1311331010010103-1221300133122101-2113331113111133): complete subsection reference.
-
-<a id="canonical-1003211130213231-3220103110102213-1102323030303311-2220213012301221-2230111303001031-3030120113021321-2130203330023333-1333212311302120"></a>
-
-<a id="canonical-2330211020220300-3230223320001230-1120112301010332-3112212321112233-0323021122013102-2012230203222331-3021121333300333-1223020123120312"></a>
-
-#### `f5_big_ip_aws_service.nodes.tunnel_prefix` property
-
-Type: `"string"`. Optional.
-
-Exclusive with \[automatic\_prefix\] Enter IP prefix for the tunnel, it has to be /30.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "string",
-    "maxLength": 1024,
-    "metadata": {
-      "confidence": 0.85,
-      "source": "inferred",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.string.ipv4_prefix": "true"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.string.ipv4_prefix": "true"
-  }
-}
-```
-
-<a id="canonical-1001003122322020-2222302032321213-3021110030120031-2311010120113300-0121000200200303-3230122300122323-3003212023130110-2203011222202223"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-## `f5_big_ip_aws_service.nodes.automatic_prefix` properties
-
-Breadcrumbs:
-
-- [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
-- [Property reference](resources--nfv_service--reference--group-001.md#canonical-1033200313012130-2303320020000220-3032203302003212-3030323031320111-0322032022323123-0203102131300133-1232321110231101-1022222010201320)
-- [f5_big_ip_aws_service](resources--nfv_service--reference--group-001.md#canonical-2203212022212003-2212301132213201-2010231030110211-3120210322102100-3130230103331230-0332101002301003-2302320031110011-3121121001302210)
-- [f5_big_ip_aws_service.nodes](resources--nfv_service--reference--group-001.md#canonical-0303213133011232-0201322132022131-1321023330330310-0032213003120332-3011101310033312-2030333102020323-2111032131310203-3332013322121201)
-- f5_big_ip_aws_service.nodes.automatic_prefix
-
-<a id="canonical-0321222210300212-1313321302213310-3212131023020201-1313312203001232-0200011011002330-1023311023023001-0020023023022302-3030031332331323"></a>
-
-Type: `["object", {}]`. Optional.
-
-Configuration parameter for automatic prefix.
-
-Additional upstream details:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-automatic_prefix = {}
-```
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-1133221000222000-2213120123130103-0130203310131333-2133112220333331-0003003001130320-0222323310321220-1321013301112222-3310100211322021"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-## `f5_big_ip_aws_service.nodes.mgmt_subnet` properties
-
-Breadcrumbs:
-
-- [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
-- [Property reference](resources--nfv_service--reference--group-001.md#canonical-1033200313012130-2303320020000220-3032203302003212-3030323031320111-0322032022323123-0203102131300133-1232321110231101-1022222010201320)
-- [f5_big_ip_aws_service](resources--nfv_service--reference--group-001.md#canonical-2203212022212003-2212301132213201-2010231030110211-3120210322102100-3130230103331230-0332101002301003-2302320031110011-3121121001302210)
-- [f5_big_ip_aws_service.nodes](resources--nfv_service--reference--group-001.md#canonical-0303213133011232-0201322132022131-1321023330330310-0032213003120332-3011101310033312-2030333102020323-2111032131310203-3332013322121201)
-- f5_big_ip_aws_service.nodes.mgmt_subnet
-
-<a id="canonical-0122002030110001-1122012022001111-3131220223022030-3231330121100020-3323322303220102-3000332012003230-1021003002122212-2221213011232103"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-Configuration parameter for mgmt subnet.
-
-Additional upstream details:
-
-Parameters for AWS subnet.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.ConflictingObjectAttributes("existing_subnet_id",
-    "subnet_param")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-ves-oneof-field-choice": "[\"existing_subnet_id\",\"subnet_param\"]"
-}
-```
-
-Terraform syntax:
-
-```terraform
-mgmt_subnet {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-1320031022301112-2103201200330021-3013020002222102-0101122323232103-1332211021233303-0220211123223232-2001113332020010-0122133013120302"></a>
-
-### Direct properties for `f5_big_ip_aws_service.nodes.mgmt_subnet`
-
-<a id="canonical-3211101130211131-0011331031322321-1102023110023331-2320001321303010-1322301000133102-3222220110020013-2202030032131113-2320311021011230"></a>
-
-#### `f5_big_ip_aws_service.nodes.mgmt_subnet.existing_subnet_id` property
-
-Type: `"string"`. Optional.
-
-Exclusive with \[subnet\_param\] Information about existing subnet ID.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthAtMost(64),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxLength": 64,
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "maxLength": 64,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
-    },
-    "pattern": "^(subnet-)([a-z0-9]{8}|[a-z0-9]{17})$"
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.string.max_len": "64",
-    "ves.io.schema.rules.string.pattern": "^(subnet-)([a-z0-9]{8}|[a-z0-9]{17})$"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.string.max_len": "64",
-    "ves.io.schema.rules.string.pattern": "^(subnet-)([a-z0-9]{8}|[a-z0-9]{17})$"
-  }
-}
-```
-
-- [subnet_param](resources--nfv_service--reference--group-001.md#canonical-2300131333210103-3201113223231000-2311112203311130-1011120033203123-1233123133122113-3101002102330100-0002233130122002-0312232221033011): complete subsection reference.
-
-<a id="canonical-2300131333210103-3201113223231000-2311112203311130-1011120033203123-1233123133122113-3101002102330100-0002233130122002-0312232221033011"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-## `f5_big_ip_aws_service.nodes.mgmt_subnet.subnet_param` properties
-
-Breadcrumbs:
-
-- [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
-- [Property reference](resources--nfv_service--reference--group-001.md#canonical-1033200313012130-2303320020000220-3032203302003212-3030323031320111-0322032022323123-0203102131300133-1232321110231101-1022222010201320)
-- [f5_big_ip_aws_service](resources--nfv_service--reference--group-001.md#canonical-2203212022212003-2212301132213201-2010231030110211-3120210322102100-3130230103331230-0332101002301003-2302320031110011-3121121001302210)
-- [f5_big_ip_aws_service.nodes](resources--nfv_service--reference--group-001.md#canonical-0303213133011232-0201322132022131-1321023330330310-0032213003120332-3011101310033312-2030333102020323-2111032131310203-3332013322121201)
-- [f5_big_ip_aws_service.nodes.mgmt_subnet](resources--nfv_service--reference--group-001.md#canonical-1133221000222000-2213120123130103-0130203310131333-2133112220333331-0003003001130320-0222323310321220-1321013301112222-3310100211322021)
-- f5_big_ip_aws_service.nodes.mgmt_subnet.subnet_param
-
-<a id="canonical-0113312113022013-3003211103033221-1310021323023311-2200310023003223-2012100212032013-2112223103022220-0232031203002222-1203331022030101"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-Parameters for creating a new cloud subnet.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("ipv4")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-subnet_param {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-1232222212203203-3030213313202120-3230130032110202-1003200021021113-1312230221122222-3023321023121213-0011020103201231-3230030201132302"></a>
-
-### Direct properties for `f5_big_ip_aws_service.nodes.mgmt_subnet.subnet_param`
-
-<a id="canonical-0331210223320322-1033003000220102-1110333302210302-1230232212022133-1302201122121312-0112330333310301-2323120322002131-1103222113112102"></a>
-
-#### `f5_big_ip_aws_service.nodes.mgmt_subnet.subnet_param.ipv4` property
-
-Type: `"string"`. Optional.
-
-IPv4 Subnet. IPv4 subnet prefix for this subnet.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "string",
-    "format": "ipv4",
-    "maxLength": 1024,
-    "metadata": {
-      "confidence": 0.85,
-      "source": "inferred",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": true,
-    "minimum_config": true,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.ipv4_prefix": "true",
-    "ves.io.schema.rules.string.max_ip_prefix_length": "28"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.ipv4_prefix": "true",
-    "ves.io.schema.rules.string.max_ip_prefix_length": "28"
-  }
-}
-```
-
-<a id="canonical-2010110231023102-2320103003311321-1331301001120003-0133203323300021-2331102311120021-1311331010010103-1221300133122101-2113331113111133"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-## `f5_big_ip_aws_service.nodes.reserved_mgmt_subnet` properties
-
-Breadcrumbs:
-
-- [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
-- [Property reference](resources--nfv_service--reference--group-001.md#canonical-1033200313012130-2303320020000220-3032203302003212-3030323031320111-0322032022323123-0203102131300133-1232321110231101-1022222010201320)
-- [f5_big_ip_aws_service](resources--nfv_service--reference--group-001.md#canonical-2203212022212003-2212301132213201-2010231030110211-3120210322102100-3130230103331230-0332101002301003-2302320031110011-3121121001302210)
-- [f5_big_ip_aws_service.nodes](resources--nfv_service--reference--group-001.md#canonical-0303213133011232-0201322132022131-1321023330330310-0032213003120332-3011101310033312-2030333102020323-2111032131310203-3332013322121201)
-- f5_big_ip_aws_service.nodes.reserved_mgmt_subnet
-
-<a id="canonical-0311323132002111-2221023212113103-2131311303120213-3121302331113023-3333100003322230-2013133111321133-0132131002331333-1010312031103321"></a>
-
-Type: `["object", {}]`. Optional.
-
-Configuration parameter for reserved mgmt subnet.
-
-Additional upstream details:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-reserved_mgmt_subnet = {}
-```
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-2012312013030011-0102312120121131-2122112110311110-1102330303132211-1031011331133302-3311032130133131-3022001211230302-3310030220221101"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-## `https_management` properties
-
-Breadcrumbs:
-
-- [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
-- [Property reference](resources--nfv_service--reference--group-001.md#canonical-1033200313012130-2303320020000220-3032203302003212-3030323031320111-0322032022323123-0203102131300133-1232321110231101-1022222010201320)
-- https_management
-
-<a id="canonical-2310110120210321-0011122021130100-1020101231210333-1001101201002320-3213323313112230-0312000102310210-1113012113122222-1223202310021130"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-Configuration parameter for https management.
-
-Additional upstream details:
-
-HTTPS based configuration.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("domain_suffix"),
-  validators.ConflictingObjectAttributes("advertise_on_internet",
-    "advertise_on_internet_default_vip"),
-  validators.ConflictingObjectAttributes("advertise_on_internet",
-    "advertise_on_sli_vip"),
-  validators.ConflictingObjectAttributes("advertise_on_internet",
-    "advertise_on_slo_internet_vip"),
-  validators.ConflictingObjectAttributes("advertise_on_internet",
-    "advertise_on_slo_sli"),
-  validators.ConflictingObjectAttributes("advertise_on_internet",
-    "advertise_on_slo_vip"),
-  validators.ConflictingObjectAttributes("advertise_on_internet_default_vip",
-    "advertise_on_sli_vip"),
-  validators.ConflictingObjectAttributes("advertise_on_internet_default_vip",
-    "advertise_on_slo_internet_vip"),
-  validators.ConflictingObjectAttributes("advertise_on_internet_default_vip",
-    "advertise_on_slo_sli"),
-  validators.ConflictingObjectAttributes("advertise_on_internet_default_vip",
-    "advertise_on_slo_vip"),
-  validators.ConflictingObjectAttributes("advertise_on_sli_vip",
-    "advertise_on_slo_internet_vip"),
-  validators.ConflictingObjectAttributes("advertise_on_sli_vip",
-    "advertise_on_slo_sli"),
-  validators.ConflictingObjectAttributes("advertise_on_sli_vip",
-    "advertise_on_slo_vip"),
-  validators.ConflictingObjectAttributes("advertise_on_slo_internet_vip",
-    "advertise_on_slo_sli"),
-  validators.ConflictingObjectAttributes("advertise_on_slo_internet_vip",
-    "advertise_on_slo_vip"),
-  validators.ConflictingObjectAttributes("advertise_on_slo_sli",
-    "advertise_on_slo_vip"),
-  validators.ConflictingObjectAttributes("default_https_port",
-    "https_port")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-ves-oneof-field-advertise_choice": "[\"advertise_on_internet\",\"advertise_on_internet_default_vip\",\"advertise_on_sli_vip\",\"advertise_on_slo_internet_vip\",\"advertise_on_slo_sli\",\"advertise_on_slo_vip\"]",
-  "x-ves-oneof-field-internet_choice": "[]",
-  "x-ves-oneof-field-port_choice": "[\"default_https_port\",\"https_port\"]"
-}
-```
-
-Terraform syntax:
-
-```terraform
-https_management {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-0021330103130213-0200330132132022-2303311233300030-1303030132222023-2220111102013313-1213212010130220-0312120323033112-2102020230020020"></a>
-
-### Direct properties for `https_management`
-
-- [advertise_on_internet](resources--nfv_service--reference--group-001.md#canonical-0120200112111003-3331321000320321-3001301020110212-2233312213000030-3121001203022212-2312200333022211-2120220200002130-3331131211211023): complete subsection reference.
-
-- [advertise_on_internet_default_vip](resources--nfv_service--reference--group-002.md#canonical-2111023221103101-0221221100321122-1133132330200200-2021112233223332-3131313223011311-3201013031123012-2130013033112113-0311013010100122): complete subsection reference.
-
-- [advertise_on_sli_vip](resources--nfv_service--reference--group-002.md#canonical-0331000010312010-2210033023202103-2113002300230301-3022110023310301-2232203113103003-1020202001202210-3321212230202210-0102133323033302): complete subsection reference.
-
-- [advertise_on_slo_internet_vip](resources--nfv_service--reference--group-002.md#canonical-3031132200011022-1313221310121032-3200012331302121-0120313212301311-1101211132233033-2113333100000023-0121110203223213-0303202010232130): complete subsection reference.
-
-- [advertise_on_slo_sli](resources--nfv_service--reference--group-003.md#canonical-0300000202230320-1330311113123300-3013200231333023-2210113332222133-1202010133200331-1103103321101332-1311010232212102-3002120020221012): complete subsection reference.
-
-- [advertise_on_slo_vip](resources--nfv_service--reference--group-003.md#canonical-3123232331313231-1003300030030012-0013233023203203-0221011121303133-2002120310330210-0313012223300221-2030131203030100-3230303033112000): complete subsection reference.
-
-- [default_https_port](resources--nfv_service--reference--group-004.md#canonical-1031033213022103-1023333001002003-1001122010332122-2120200101013131-3210333031311132-3130212220330310-3120322302022212-0102303131310332): complete subsection reference.
-
-<a id="canonical-3131321201111130-3033222200321231-1201202313023231-1333112310130303-0322120131011100-3120231222222200-3012213001122230-2023330133221023"></a>
-
-<a id="canonical-1001013303213100-2110310031313302-3123031003030023-1223233200012010-3321331133003111-3320332300212013-1123212313330201-2323321131301012"></a>
-
-#### `https_management.domain_suffix` property
-
-Type: `"string"`. Optional.
-
-Domain suffix will be used along with node name to form URL to access node management.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthAtMost(1024),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "format": "hostname",
-    "maxLength": 1024,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": true,
-    "minimum_config": true,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.hostname": "true"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.hostname": "true"
-  }
-}
-```
-
-<a id="canonical-0123023032232303-0323211001202133-2013003322001322-1032312221231232-2112222313233021-0230202320231133-3133101222220000-2000332000110001"></a>
-
-<a id="canonical-2120300001113211-1132320000001200-3310032301121002-0001003100203103-2100002023030221-2311101221111120-3022303323120301-3301131231323130"></a>
-
-#### `https_management.https_port` property
-
-Type: `"number"`. Optional.
-
-Exclusive with \[default\_https\_port\] Enter TCP port number.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Int64{
-  int64validator.Between(1, 65535),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "number",
-    "deterministic": true,
-    "maximum": 65535,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "api-probed",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
-    },
-    "minimum": 1
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.uint32.gte": "1",
-    "ves.io.schema.rules.uint32.lte": "65535"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.uint32.gte": "1",
-    "ves.io.schema.rules.uint32.lte": "65535"
-  }
-}
-```
-
-<a id="canonical-0120200112111003-3331321000320321-3001301020110212-2233312213000030-3121001203022212-2312200333022211-2120220200002130-3331131211211023"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-## `https_management.advertise_on_internet` properties
-
-Breadcrumbs:
-
-- [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
-- [Property reference](resources--nfv_service--reference--group-001.md#canonical-1033200313012130-2303320020000220-3032203302003212-3030323031320111-0322032022323123-0203102131300133-1232321110231101-1022222010201320)
-- [https_management](resources--nfv_service--reference--group-001.md#canonical-2012312013030011-0102312120121131-2122112110311110-1102330303132211-1031011331133302-3311032130133131-3022001211230302-3310030220221101)
-- https_management.advertise_on_internet
-
-<a id="canonical-0323010000210110-1011321220101213-3302313013003100-3101320312130203-3020110132002010-2121301212013103-3112021220132330-0311003300231200"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-This defines a way to advertise a load balancer on public. If optional public\_ip is provided, it
-will only be advertised on RE sites where that public\_ip is available.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-advertise_on_internet {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-2330300311000311-3031023210321000-1132002313112231-1201131303003223-2300310031302001-2100121020022202-3300301323212311-1130110313212231"></a>
-
-### Direct properties for `https_management.advertise_on_internet`
-
-- [public_ip](resources--nfv_service--reference--group-002.md#canonical-0100132113311101-3231330300000220-3223211013111100-1133012230033333-3131132022031312-0023012203321222-1010313330223321-3220232020001122): complete subsection reference.

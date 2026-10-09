@@ -1140,7 +1140,7 @@
       "path": "documentation/data-sources/route/index.md",
       "product": "distributed-cloud",
       "provider_name": "route",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3222100232013222-1030330100002202-0031320130331110-1011111201002221-2030012120011111-3301321100122112-3131030011011213-1132121023303013",
       "registry_path": "docs/data-sources/route.md",
@@ -1150,21 +1150,21 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Reads route rules that match incoming requests and select the corresponding actions.",
       "tasks": ["configuration"],
       "title": "xcsh_route",
       "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["route"],
       "body_bytes": 64435,
-      "body_sha256": "sha256:19e977f444f5ed783dfda1f6425652c44cc35504f3046fe5eaff4c6e584bd6c0",
+      "body_sha256": "sha256:7e17beaa65ab21656e24533598cea7088279b2c3b8dbd55cd0252c6efd39fad2",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": ["xcsh-docs:data-sources:route:properties:routes"],
@@ -1181,7 +1181,7 @@
       "path": "documentation/data-sources/route/properties/index.md",
       "product": "distributed-cloud",
       "provider_name": "route",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2212301313311221-2313200310322120-2131100211322003-0220011200012202-1102120133130302-0220302222322112-3232312213201301-3123012131332333",
       "registry_path": "docs/guides/data-sources--route--reference--group-001.md",
@@ -1304,20 +1304,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Property reference for xcsh_route.",
       "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["routes"],
       "body_bytes": 8848,
-      "body_sha256": "sha256:c9b74a1e99e38b32a13108a0e0afdd2b8263f1b4ccd10b5dece2ba90c3ed230c",
+      "body_sha256": "sha256:1ee08661f98f1260d08edd0438f2f510fd86e42e96d28bb86791a42ad5e20f8a",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -1349,7 +1349,7 @@
       "path": "documentation/data-sources/route/properties/routes/index.md",
       "product": "distributed-cloud",
       "provider_name": "route",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0121210202130211-2311023332311110-1102321013231023-2132030003031313-1021032033031212-3122211102213330-2203313311310212-3201022220331021",
       "registry_path": "docs/guides/data-sources--route--reference--group-001.md",
@@ -1664,14 +1664,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "List of routes to match for incoming request.",
       "tasks": ["configuration"],
       "title": "routes",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -1694,7 +1694,7 @@
       "path": "documentation/data-sources/route/properties/routes/bot_defense_javascript_injection/index.md",
       "product": "distributed-cloud",
       "provider_name": "route",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3002323020322233-1130103332320120-0230113310310331-0300223313301321-1303010011012203-1121121321123311-1013021211210002-2213313033310202",
       "registry_path": "docs/guides/data-sources--route--reference--group-001.md",
@@ -1737,20 +1737,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/bot_defense_javascript_injection/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Bot Defense Javascript Injection Configuration for inline bot defense deployments.",
       "tasks": ["configuration"],
       "title": "routes.bot_defense_javascript_injection",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["routes bot defense javascript injection javascript tags"],
       "body_bytes": 3268,
-      "body_sha256": "sha256:288cb3f97e493532d36df0789ee0746e056b24f812718f9a92c859f3982adeba",
+      "body_sha256": "sha256:142d8995ee839aad4b8e59b601f167f42ef387532dc13bcfb93fa2898c0abcac",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -1769,7 +1769,7 @@
       "path": "documentation/data-sources/route/properties/routes/bot_defense_javascript_injection/javascript_tags/index.md",
       "product": "distributed-cloud",
       "provider_name": "route",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0032020112201122-1012130210333101-0230310321112302-3001301011031320-1330333031033033-3002212331120302-3202100220110013-3210300021012002",
       "registry_path": "docs/guides/data-sources--route--reference--group-001.md",
@@ -1812,20 +1812,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/bot_defense_javascript_injection/javascript_tags/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Select Add item to configure your javascript tag. If adding both Bot Adv and Fraud, the Bot Javascript should be added first.",
       "tasks": ["configuration"],
       "title": "routes.bot_defense_javascript_injection.javascript_tags",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["routes bot defense javascript injection javascript tags tag attributes"],
       "body_bytes": 3683,
-      "body_sha256": "sha256:362885dcaee6371cf50e41cc88ffca4d9ef16181ac3e04a2c39ba7377fc3fe66",
+      "body_sha256": "sha256:aca6bf497098b7bd678d9106abcf6173e532170ce68cb713083c269720375012",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -1842,7 +1842,7 @@
       "path": "documentation/data-sources/route/properties/routes/bot_defense_javascript_injection/javascript_tags/tag_attributes/index.md",
       "product": "distributed-cloud",
       "provider_name": "route",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2131210232233001-0332212010223020-3103022313003020-1331311221202031-3330101313013002-3231212212132323-0330203211012311-0321003012023313",
       "registry_path": "docs/guides/data-sources--route--reference--group-001.md",
@@ -1897,14 +1897,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/bot_defense_javascript_injection/javascript_tags/tag_attributes/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Add the tag attributes you want to include in your Javascript tag.",
       "tasks": ["configuration"],
       "title": "routes.bot_defense_javascript_injection.javascript_tags.tag_attributes",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -1927,7 +1927,7 @@
       "path": "documentation/data-sources/route/properties/routes/inherited_bot_defense_javascript_injection/index.md",
       "product": "distributed-cloud",
       "provider_name": "route",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1303022010313313-2131031121103111-3323301113200323-0102212203023013-3110203122223210-0333010332212223-0310130110332311-0220100331322200",
       "registry_path": "docs/guides/data-sources--route--reference--group-001.md",
@@ -1937,14 +1937,14 @@
       "schema_path": ["routes", "inherited_bot_defense_javascript_injection"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/inherited_bot_defense_javascript_injection/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "routes.inherited_bot_defense_javascript_injection",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -1967,7 +1967,7 @@
       "path": "documentation/data-sources/route/properties/routes/inherited_waf_exclusion/index.md",
       "product": "distributed-cloud",
       "provider_name": "route",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3020000312033221-3002122322300202-2223000211301020-3123013233103202-3302221323011013-0200312133131211-1323123201303312-1120301031010313",
       "registry_path": "docs/guides/data-sources--route--reference--group-001.md",
@@ -1977,20 +1977,20 @@
       "schema_path": ["routes", "inherited_waf_exclusion"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/inherited_waf_exclusion/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "routes.inherited_waf_exclusion",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["routes match"],
       "body_bytes": 2568,
-      "body_sha256": "sha256:4f0a80e8e54ab831a9cf116fa2f7e4eb25f62cab8012ce5951781c068eb40fce",
+      "body_sha256": "sha256:51d251d14139109bfc8512187cf164bfe231b45e87fca65b7365d726db6808e4",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -2012,7 +2012,7 @@
       "path": "documentation/data-sources/route/properties/routes/match/index.md",
       "product": "distributed-cloud",
       "provider_name": "route",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2202021113211000-0321023232131332-0023133030000100-0113121112201031-1323001231200003-1323310313022102-0010110103313023-3023113002113312",
       "registry_path": "docs/guides/data-sources--route--reference--group-001.md",
@@ -2103,20 +2103,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/match/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Route match condition.",
       "tasks": ["configuration"],
       "title": "routes.match",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["routes match headers"],
       "body_bytes": 5820,
-      "body_sha256": "sha256:c8ba43c15255ee87eba5cc8264b7a6a3735920200aecbd40337f626ae4e04b5c",
+      "body_sha256": "sha256:40b7a43229aa4e4a6cf6385b94c091aff8963a8fcf4fbf307fe9645825ad6df8",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -2133,7 +2133,7 @@
       "path": "documentation/data-sources/route/properties/routes/match/headers/index.md",
       "product": "distributed-cloud",
       "provider_name": "route",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2321232120032120-0200213000010321-2133321111300200-0223030102012020-2300113333311221-0110102303332033-3320223203213001-3322020331231112",
       "registry_path": "docs/guides/data-sources--route--reference--group-001.md",
@@ -2224,20 +2224,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/match/headers/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "List of (key, value) headers.",
       "tasks": ["configuration"],
       "title": "routes.match.headers",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["routes match incoming port"],
       "body_bytes": 3027,
-      "body_sha256": "sha256:7ef2043c2053c9cacd8265cbe9fa16cf61f2fedc24b82221febec7af2bf5f254",
+      "body_sha256": "sha256:ef574b99e037fe7be9eb38387fef511f1bb23644ca09037f8e8dc8ed975ca7ea",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": ["xcsh-docs:data-sources:route:properties:routes:match:incoming_port:no_port_match"],
@@ -2254,7 +2254,7 @@
       "path": "documentation/data-sources/route/properties/routes/match/incoming_port/index.md",
       "product": "distributed-cloud",
       "provider_name": "route",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2031100000103321-3333121232221220-1220133121020202-2312110311203103-0020033033301030-0122103313301203-1003020212133202-1011022320213220",
       "registry_path": "docs/guides/data-sources--route--reference--group-001.md",
@@ -2313,14 +2313,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/match/incoming_port/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Port match of the request can be a range or a specific port.",
       "tasks": ["configuration"],
       "title": "routes.match.incoming_port",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -2343,7 +2343,7 @@
       "path": "documentation/data-sources/route/properties/routes/match/incoming_port/no_port_match/index.md",
       "product": "distributed-cloud",
       "provider_name": "route",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2302301103330013-2212011312320322-1020111103202001-1033011310200011-3233232132213100-3211022203102002-0113030120322330-1122302321131330",
       "registry_path": "docs/guides/data-sources--route--reference--group-001.md",
@@ -2353,20 +2353,20 @@
       "schema_path": ["routes", "match", "incoming_port", "no_port_match"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/match/incoming_port/no_port_match/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "routes.match.incoming_port.no_port_match",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["routes match path"],
       "body_bytes": 3992,
-      "body_sha256": "sha256:0c4e367e3596e8d6df89d2fcd302ed825a1adf6684040799c950bff3bae6cc4f",
+      "body_sha256": "sha256:b70b31febb18d8469de234b0051cc22bffb6ac06b5ad484391f5c4c8240261fa",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -2383,7 +2383,7 @@
       "path": "documentation/data-sources/route/properties/routes/match/path/index.md",
       "product": "distributed-cloud",
       "provider_name": "route",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1301102313212233-1120200113202122-3202022223333200-2310300311201032-0021311002021121-3033220033232211-2230212033100002-0132103320200311",
       "registry_path": "docs/guides/data-sources--route--reference--group-001.md",
@@ -2442,20 +2442,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/match/path/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Path match of the URI can be either be, Prefix match or exact match or regular expression match.",
       "tasks": ["configuration"],
       "title": "routes.match.path",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["routes match query params"],
       "body_bytes": 4276,
-      "body_sha256": "sha256:cd0f709ec9567c4f036dd59ba0b0b53a1b269f63da0ef430d67ce8d9c32567ea",
+      "body_sha256": "sha256:4cd739e91e18dfe9b8f004ebe4900a0943f5e2f0f0be84710e9b7ea33f41847e",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -2472,7 +2472,7 @@
       "path": "documentation/data-sources/route/properties/routes/match/query_params/index.md",
       "product": "distributed-cloud",
       "provider_name": "route",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0213023313013322-0311023222011020-1120220323022332-3230323100313320-3202111122112100-2322331010113121-1301202323012023-3233012302120223",
       "registry_path": "docs/guides/data-sources--route--reference--group-001.md",
@@ -2531,20 +2531,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/match/query_params/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "List of (key, value) query parameters.",
       "tasks": ["configuration"],
       "title": "routes.match.query_params",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["routes request cookies to add"],
       "body_bytes": 4463,
-      "body_sha256": "sha256:ff3982e2e67afc3c7bd3040732fdbad6282853cbaba15dffaee7f6e425906770",
+      "body_sha256": "sha256:abccc0982e6f6c62cad10107925afc35d30f3011d34bf10f981477485481b89d",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": ["xcsh-docs:data-sources:route:properties:routes:request_cookies_to_add:secret_value"],
@@ -2561,7 +2561,7 @@
       "path": "documentation/data-sources/route/properties/routes/request_cookies_to_add/index.md",
       "product": "distributed-cloud",
       "provider_name": "route",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3332003033002121-1112131201111132-3001303023032232-2113101310100210-2012310213112313-1121123203013213-1000102220303021-3230333330312222",
       "registry_path": "docs/guides/data-sources--route--reference--group-001.md",
@@ -2636,14 +2636,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/request_cookies_to_add/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Cookies are key-value pairs to be added to HTTP request being routed towards upstream.",
       "tasks": ["configuration"],
       "title": "routes.request_cookies_to_add",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -2669,7 +2669,7 @@
       "path": "documentation/data-sources/route/properties/routes/request_cookies_to_add/secret_value/index.md",
       "product": "distributed-cloud",
       "provider_name": "route",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3202123231212200-3302310010022300-2221120133320331-1121100201331312-1311331222331110-0220110130212213-2203001222221120-3100023020210120",
       "registry_path": "docs/guides/data-sources--route--reference--group-001.md",
@@ -2712,20 +2712,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/request_cookies_to_add/secret_value/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "SecretType is used in an object to indicate a sensitive/confidential field.",
       "tasks": ["configuration"],
       "title": "routes.request_cookies_to_add.secret_value",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["routes request cookies to add secret value blindfold secret info"],
       "body_bytes": 4037,
-      "body_sha256": "sha256:d39b89f6d8a95f49bf7d3bc69cd23e880351fa586ffb883cbc95b9672be76422",
+      "body_sha256": "sha256:88e593dd0e65031c12124c00bf2f231d5c8caf0740c088966eb59757737600b5",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -2742,7 +2742,7 @@
       "path": "documentation/data-sources/route/properties/routes/request_cookies_to_add/secret_value/blindfold_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "route",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0023311012200030-2113331020223133-3013122100331220-3131312122013123-3100031111201123-1100110123022300-3231032302311103-2210332100132110",
       "registry_path": "docs/guides/data-sources--route--reference--group-001.md",
@@ -2813,20 +2813,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/request_cookies_to_add/secret_value/blindfold_secret_info/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
       "tasks": ["configuration"],
       "title": "routes.request_cookies_to_add.secret_value.blindfold_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["routes request cookies to add secret value clear secret info"],
       "body_bytes": 3047,
-      "body_sha256": "sha256:721a01750b5f9964b1a8a32de0164e36b435b382569a2a390215c7520d44b5b3",
+      "body_sha256": "sha256:784ef42a889bbbb7d9d8e4c4d95d3e03716039192ddcca910066595b8c116639",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -2843,7 +2843,7 @@
       "path": "documentation/data-sources/route/properties/routes/request_cookies_to_add/secret_value/clear_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "route",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3211112030130310-3323201221232121-0300123002000220-1032023320120033-1032012323002333-3201312003232221-2013312112123011-2022200030312312",
       "registry_path": "docs/guides/data-sources--route--reference--group-001.md",
@@ -2886,20 +2886,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/request_cookies_to_add/secret_value/clear_secret_info/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
       "tasks": ["configuration"],
       "title": "routes.request_cookies_to_add.secret_value.clear_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["routes request headers to add"],
       "body_bytes": 4296,
-      "body_sha256": "sha256:cb7b290bd5c55afbdeb946878a66b0c886397659096e679dc2a3a2607866b17a",
+      "body_sha256": "sha256:ea0308de4f70cc60463c972b039f8cf4ee4e9d6d221af37060e0533e1be0436e",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": ["xcsh-docs:data-sources:route:properties:routes:request_headers_to_add:secret_value"],
@@ -2916,7 +2916,7 @@
       "path": "documentation/data-sources/route/properties/routes/request_headers_to_add/index.md",
       "product": "distributed-cloud",
       "provider_name": "route",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0020121133012230-3021000322312112-2000301212110101-0232120123123121-1233000233203221-2213312130233232-3120100112111032-1021020312231033",
       "registry_path": "docs/guides/data-sources--route--reference--group-002.md",
@@ -2991,14 +2991,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/request_headers_to_add/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Headers are key-value pairs to be added to HTTP requests being sent towards upstream. Headers specified at this level are applied before headers from the enclosing VirtualHost object level.",
       "tasks": ["configuration"],
       "title": "routes.request_headers_to_add",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -3024,7 +3024,7 @@
       "path": "documentation/data-sources/route/properties/routes/request_headers_to_add/secret_value/index.md",
       "product": "distributed-cloud",
       "provider_name": "route",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0211000021002133-2200333200112330-1003321112000133-3112000303313301-1022100211101110-1233121020213122-0231032100231211-3133302022010000",
       "registry_path": "docs/guides/data-sources--route--reference--group-002.md",
@@ -3067,20 +3067,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/request_headers_to_add/secret_value/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "SecretType is used in an object to indicate a sensitive/confidential field.",
       "tasks": ["configuration"],
       "title": "routes.request_headers_to_add.secret_value",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["routes request headers to add secret value blindfold secret info"],
       "body_bytes": 4037,
-      "body_sha256": "sha256:98922cf71c853cc632e3435ab68d22d389917ffe384820ffb153f4cc541599df",
+      "body_sha256": "sha256:680e1ab0145f73b86375ce1f4cdccdfcbee57d773911f16b97736ad74dd21bcc",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -3097,7 +3097,7 @@
       "path": "documentation/data-sources/route/properties/routes/request_headers_to_add/secret_value/blindfold_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "route",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2321012022211010-1002212103223111-1332213023212032-2302313123022102-2301312233302130-2000301000110111-3223312210201011-3131203121132331",
       "registry_path": "docs/guides/data-sources--route--reference--group-002.md",
@@ -3168,20 +3168,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/request_headers_to_add/secret_value/blindfold_secret_info/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
       "tasks": ["configuration"],
       "title": "routes.request_headers_to_add.secret_value.blindfold_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["routes request headers to add secret value clear secret info"],
       "body_bytes": 3047,
-      "body_sha256": "sha256:9a66ab3e03300e272229dd8d036f62e4d21c83a6a4e2a9978f50b536ad222afd",
+      "body_sha256": "sha256:044d9de24d78fc4407e5a46af42e49cb45e47ad52fbd62fd33dfb32e82f484e4",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -3198,7 +3198,7 @@
       "path": "documentation/data-sources/route/properties/routes/request_headers_to_add/secret_value/clear_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "route",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3031111202131023-1231111311220330-2001103301321201-1221233120030321-0311210111021012-3110110022002023-0322221213312323-2120102002120003",
       "registry_path": "docs/guides/data-sources--route--reference--group-002.md",
@@ -3241,20 +3241,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/request_headers_to_add/secret_value/clear_secret_info/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
       "tasks": ["configuration"],
       "title": "routes.request_headers_to_add.secret_value.clear_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["routes response cookies to add"],
       "body_bytes": 10857,
-      "body_sha256": "sha256:1e0b11930637fb1f57d31099554f5c0694043803ed69ba495e996826142dc44d",
+      "body_sha256": "sha256:5b06e4fe2597a4f75324337d847b917ff23c1c3cca2138e49cd292d283434558",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -3288,7 +3288,7 @@
       "path": "documentation/data-sources/route/properties/routes/response_cookies_to_add/index.md",
       "product": "distributed-cloud",
       "provider_name": "route",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3200032101012132-0202320312021201-2130132030201331-2222113332221302-3301232301021101-3303122120113233-1331330031110220-2203203221211031",
       "registry_path": "docs/guides/data-sources--route--reference--group-002.md",
@@ -3667,14 +3667,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/response_cookies_to_add/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Cookies are name-value pairs along with optional attribute parameters to be added to HTTP response being sent towards downstream.",
       "tasks": ["configuration"],
       "title": "routes.response_cookies_to_add",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -3697,7 +3697,7 @@
       "path": "documentation/data-sources/route/properties/routes/response_cookies_to_add/add_httponly/index.md",
       "product": "distributed-cloud",
       "provider_name": "route",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1202211010312303-2310011020212210-1121312302220221-0233303200310102-0103231322322102-1030032301312300-3323011213010123-1111310203312203",
       "registry_path": "docs/guides/data-sources--route--reference--group-002.md",
@@ -3707,14 +3707,14 @@
       "schema_path": ["routes", "response_cookies_to_add", "add_httponly"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/response_cookies_to_add/add_httponly/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "routes.response_cookies_to_add.add_httponly",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -3737,7 +3737,7 @@
       "path": "documentation/data-sources/route/properties/routes/response_cookies_to_add/add_partitioned/index.md",
       "product": "distributed-cloud",
       "provider_name": "route",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3121111210011022-0323101203033301-2313313320030121-0312231112012203-1200021000210222-2232000320211032-1303022212013221-0320210111111302",
       "registry_path": "docs/guides/data-sources--route--reference--group-002.md",
@@ -3747,14 +3747,14 @@
       "schema_path": ["routes", "response_cookies_to_add", "add_partitioned"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/response_cookies_to_add/add_partitioned/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "routes.response_cookies_to_add.add_partitioned",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -3777,7 +3777,7 @@
       "path": "documentation/data-sources/route/properties/routes/response_cookies_to_add/add_secure/index.md",
       "product": "distributed-cloud",
       "provider_name": "route",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2002130122230223-1111011302313321-0031223100321013-0202210322332230-0110103312323113-0120233231133221-2330201321220300-2013033023003311",
       "registry_path": "docs/guides/data-sources--route--reference--group-002.md",
@@ -3787,14 +3787,14 @@
       "schema_path": ["routes", "response_cookies_to_add", "add_secure"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/response_cookies_to_add/add_secure/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "routes.response_cookies_to_add.add_secure",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -3817,7 +3817,7 @@
       "path": "documentation/data-sources/route/properties/routes/response_cookies_to_add/ignore_domain/index.md",
       "product": "distributed-cloud",
       "provider_name": "route",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3102121031321222-0031131130021121-0220220103100321-3020331110020031-2220032130312103-0223112133213303-0310110301120102-3031132001212001",
       "registry_path": "docs/guides/data-sources--route--reference--group-002.md",
@@ -3827,14 +3827,14 @@
       "schema_path": ["routes", "response_cookies_to_add", "ignore_domain"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/response_cookies_to_add/ignore_domain/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "routes.response_cookies_to_add.ignore_domain",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -3857,7 +3857,7 @@
       "path": "documentation/data-sources/route/properties/routes/response_cookies_to_add/ignore_expiry/index.md",
       "product": "distributed-cloud",
       "provider_name": "route",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0220313101112103-2211213002100113-2130031103211303-1301111003312123-1002101322300332-3113320230220223-1330212013331022-1131311133131321",
       "registry_path": "docs/guides/data-sources--route--reference--group-002.md",
@@ -3867,14 +3867,14 @@
       "schema_path": ["routes", "response_cookies_to_add", "ignore_expiry"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/response_cookies_to_add/ignore_expiry/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "routes.response_cookies_to_add.ignore_expiry",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -3897,7 +3897,7 @@
       "path": "documentation/data-sources/route/properties/routes/response_cookies_to_add/ignore_httponly/index.md",
       "product": "distributed-cloud",
       "provider_name": "route",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0013022112323203-0331000012320222-1230131310223302-1201121001001320-1202012012123203-3123220310001200-1011210313111203-1133001113223013",
       "registry_path": "docs/guides/data-sources--route--reference--group-002.md",
@@ -3907,14 +3907,14 @@
       "schema_path": ["routes", "response_cookies_to_add", "ignore_httponly"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/response_cookies_to_add/ignore_httponly/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "routes.response_cookies_to_add.ignore_httponly",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -3937,7 +3937,7 @@
       "path": "documentation/data-sources/route/properties/routes/response_cookies_to_add/ignore_max_age/index.md",
       "product": "distributed-cloud",
       "provider_name": "route",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3203321220330020-3321221220310032-2112023333110120-1101313311220321-2003021111332311-3022201023110223-3111122330310223-1003131111021331",
       "registry_path": "docs/guides/data-sources--route--reference--group-002.md",
@@ -3947,14 +3947,14 @@
       "schema_path": ["routes", "response_cookies_to_add", "ignore_max_age"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/response_cookies_to_add/ignore_max_age/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "routes.response_cookies_to_add.ignore_max_age",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -3977,7 +3977,7 @@
       "path": "documentation/data-sources/route/properties/routes/response_cookies_to_add/ignore_partitioned/index.md",
       "product": "distributed-cloud",
       "provider_name": "route",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2232021210122201-3001033322020112-0012331323102112-0320100003303321-3120321011132331-2300023111320100-3303132020123023-0123132031312313",
       "registry_path": "docs/guides/data-sources--route--reference--group-002.md",
@@ -3987,14 +3987,14 @@
       "schema_path": ["routes", "response_cookies_to_add", "ignore_partitioned"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/response_cookies_to_add/ignore_partitioned/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "routes.response_cookies_to_add.ignore_partitioned",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -4017,7 +4017,7 @@
       "path": "documentation/data-sources/route/properties/routes/response_cookies_to_add/ignore_path/index.md",
       "product": "distributed-cloud",
       "provider_name": "route",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3030211112231030-1032002301101013-1303313212112233-2121233022022030-0301230032313231-3321201202120032-1211013133013121-1020000021320211",
       "registry_path": "docs/guides/data-sources--route--reference--group-002.md",
@@ -4027,14 +4027,14 @@
       "schema_path": ["routes", "response_cookies_to_add", "ignore_path"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/response_cookies_to_add/ignore_path/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "routes.response_cookies_to_add.ignore_path",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -4057,7 +4057,7 @@
       "path": "documentation/data-sources/route/properties/routes/response_cookies_to_add/ignore_samesite/index.md",
       "product": "distributed-cloud",
       "provider_name": "route",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1222213112100231-2323103213120232-3023321021200220-3321120212331022-0323111231110312-3300130122321012-3312302232010013-2132133200002103",
       "registry_path": "docs/guides/data-sources--route--reference--group-002.md",
@@ -4067,14 +4067,14 @@
       "schema_path": ["routes", "response_cookies_to_add", "ignore_samesite"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/response_cookies_to_add/ignore_samesite/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "routes.response_cookies_to_add.ignore_samesite",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -4097,7 +4097,7 @@
       "path": "documentation/data-sources/route/properties/routes/response_cookies_to_add/ignore_secure/index.md",
       "product": "distributed-cloud",
       "provider_name": "route",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1302031231221032-1123331002113303-1332232132323311-0212132211211133-2020111320200020-1220121320013321-2020133210111320-2223121003022201",
       "registry_path": "docs/guides/data-sources--route--reference--group-002.md",
@@ -4107,14 +4107,14 @@
       "schema_path": ["routes", "response_cookies_to_add", "ignore_secure"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/response_cookies_to_add/ignore_secure/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "routes.response_cookies_to_add.ignore_secure",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -4137,7 +4137,7 @@
       "path": "documentation/data-sources/route/properties/routes/response_cookies_to_add/ignore_value/index.md",
       "product": "distributed-cloud",
       "provider_name": "route",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3333332022113210-2132312032332302-0233013330212002-0312323211020302-0200300330010301-3121031233332210-2300333112313120-3013202132032220",
       "registry_path": "docs/guides/data-sources--route--reference--group-002.md",
@@ -4147,14 +4147,14 @@
       "schema_path": ["routes", "response_cookies_to_add", "ignore_value"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/response_cookies_to_add/ignore_value/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "routes.response_cookies_to_add.ignore_value",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -4177,7 +4177,7 @@
       "path": "documentation/data-sources/route/properties/routes/response_cookies_to_add/samesite_lax/index.md",
       "product": "distributed-cloud",
       "provider_name": "route",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1201102313111332-0020133130332023-3213221030323222-0211230312232331-2121211031000210-1002203131321103-0200213021322202-3103123122011101",
       "registry_path": "docs/guides/data-sources--route--reference--group-002.md",
@@ -4187,14 +4187,14 @@
       "schema_path": ["routes", "response_cookies_to_add", "samesite_lax"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/response_cookies_to_add/samesite_lax/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "routes.response_cookies_to_add.samesite_lax",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -4217,7 +4217,7 @@
       "path": "documentation/data-sources/route/properties/routes/response_cookies_to_add/samesite_none/index.md",
       "product": "distributed-cloud",
       "provider_name": "route",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0333103202002222-3323120112303010-0101013322233220-3300312020020112-2030103021200220-2132300320210120-0231033210001212-3003001132120121",
       "registry_path": "docs/guides/data-sources--route--reference--group-002.md",
@@ -4227,14 +4227,14 @@
       "schema_path": ["routes", "response_cookies_to_add", "samesite_none"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/response_cookies_to_add/samesite_none/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "routes.response_cookies_to_add.samesite_none",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -4257,7 +4257,7 @@
       "path": "documentation/data-sources/route/properties/routes/response_cookies_to_add/samesite_strict/index.md",
       "product": "distributed-cloud",
       "provider_name": "route",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0003213132003311-1021100110210010-0103303303031320-0312022121102112-0011221132333111-3233032331112032-3001001322203222-1011300000231100",
       "registry_path": "docs/guides/data-sources--route--reference--group-002.md",
@@ -4267,14 +4267,14 @@
       "schema_path": ["routes", "response_cookies_to_add", "samesite_strict"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/response_cookies_to_add/samesite_strict/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "routes.response_cookies_to_add.samesite_strict",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -4300,7 +4300,7 @@
       "path": "documentation/data-sources/route/properties/routes/response_cookies_to_add/secret_value/index.md",
       "product": "distributed-cloud",
       "provider_name": "route",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0332003212021212-3110133212331132-2321222001321322-3111222103011113-1101031321312032-2021110110231013-3121220001233302-0020013302332222",
       "registry_path": "docs/guides/data-sources--route--reference--group-002.md",
@@ -4343,20 +4343,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/response_cookies_to_add/secret_value/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "SecretType is used in an object to indicate a sensitive/confidential field.",
       "tasks": ["configuration"],
       "title": "routes.response_cookies_to_add.secret_value",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["routes response cookies to add secret value blindfold secret info"],
       "body_bytes": 4046,
-      "body_sha256": "sha256:893541c5b666064868a13e782d39a4b3adcd59eb33a68edb81088877c22dbf5b",
+      "body_sha256": "sha256:a3f00b27de10305e999717591a7f171b7a53e8683e92cbfe8044aa33ac49ffce",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -4373,7 +4373,7 @@
       "path": "documentation/data-sources/route/properties/routes/response_cookies_to_add/secret_value/blindfold_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "route",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0012213111332130-3110303133200103-2011000133333223-3321111032213110-0330032233023313-1301013011203013-3331200211322022-2020122013103232",
       "registry_path": "docs/guides/data-sources--route--reference--group-002.md",
@@ -4444,20 +4444,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/response_cookies_to_add/secret_value/blindfold_secret_info/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
       "tasks": ["configuration"],
       "title": "routes.response_cookies_to_add.secret_value.blindfold_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["routes response cookies to add secret value clear secret info"],
       "body_bytes": 3055,
-      "body_sha256": "sha256:918daf0054fd2fccb6f5d647199cdadf3388a097ce4f105d50bdbdc6a401875f",
+      "body_sha256": "sha256:a5752598c4ae15368c7ca9e27a969b7a948000ac2eda81b3aa2d89aecf879445",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -4474,7 +4474,7 @@
       "path": "documentation/data-sources/route/properties/routes/response_cookies_to_add/secret_value/clear_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "route",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0202212013331133-3031103330131320-0110023102313333-1030001003001313-3120102001300002-0223132000321002-1211323311003120-3332310132203312",
       "registry_path": "docs/guides/data-sources--route--reference--group-002.md",
@@ -4517,20 +4517,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/response_cookies_to_add/secret_value/clear_secret_info/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
       "tasks": ["configuration"],
       "title": "routes.response_cookies_to_add.secret_value.clear_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["routes response headers to add"],
       "body_bytes": 4304,
-      "body_sha256": "sha256:91f2c71bbcbb47a982bcfa37dd098cd8f215cd83099761806184d0f7512c37c2",
+      "body_sha256": "sha256:794836bffdbf50a40b9e6d34c7575d4d3e09611783299898e59ecfc02af79d63",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": ["xcsh-docs:data-sources:route:properties:routes:response_headers_to_add:secret_value"],
@@ -4547,7 +4547,7 @@
       "path": "documentation/data-sources/route/properties/routes/response_headers_to_add/index.md",
       "product": "distributed-cloud",
       "provider_name": "route",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2031132012221313-2231011210002013-3003320011222122-2113303301333231-3130312023212100-1221120320210322-1210200320102232-3230120313103301",
       "registry_path": "docs/guides/data-sources--route--reference--group-002.md",
@@ -4622,14 +4622,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/response_headers_to_add/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Headers are key-value pairs to be added to HTTP response being sent towards downstream. Headers specified at this level are applied before headers from the enclosing VirtualHost object level.",
       "tasks": ["configuration"],
       "title": "routes.response_headers_to_add",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -4655,7 +4655,7 @@
       "path": "documentation/data-sources/route/properties/routes/response_headers_to_add/secret_value/index.md",
       "product": "distributed-cloud",
       "provider_name": "route",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1320012322111033-0033000321210120-2210011202301233-2221013023232001-0000100313113020-0200222322232033-0203213003003031-0000021000001212",
       "registry_path": "docs/guides/data-sources--route--reference--group-002.md",
@@ -4698,20 +4698,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/response_headers_to_add/secret_value/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "SecretType is used in an object to indicate a sensitive/confidential field.",
       "tasks": ["configuration"],
       "title": "routes.response_headers_to_add.secret_value",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["routes response headers to add secret value blindfold secret info"],
       "body_bytes": 4046,
-      "body_sha256": "sha256:818807d6db22de3c2a71c899b58fed7d319a82150a5b72bfb007c4de386e9311",
+      "body_sha256": "sha256:e310b6cd1aef06917fe4ae4263d51c7875649bc71c8bc15f45b487930adafa7b",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -4728,7 +4728,7 @@
       "path": "documentation/data-sources/route/properties/routes/response_headers_to_add/secret_value/blindfold_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "route",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2102121132131333-3203301320001120-2032223231130211-1312230300023122-3322013112201320-0231331013301100-3011021331333221-0123321232010301",
       "registry_path": "docs/guides/data-sources--route--reference--group-002.md",
@@ -4799,20 +4799,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/response_headers_to_add/secret_value/blindfold_secret_info/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
       "tasks": ["configuration"],
       "title": "routes.response_headers_to_add.secret_value.blindfold_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["routes response headers to add secret value clear secret info"],
       "body_bytes": 3055,
-      "body_sha256": "sha256:4ff3cfda9b293f1b368bc24ae6fdc5c892f98e1ee39906e54a8107fe54d7d43c",
+      "body_sha256": "sha256:7612e834bb06a76b13797ed4907bd1691520ff7acc9038c48d4be3428a25a05f",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -4829,7 +4829,7 @@
       "path": "documentation/data-sources/route/properties/routes/response_headers_to_add/secret_value/clear_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "route",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3002302100123031-0333211013120001-3320001321213032-2120030111132102-0210222020323003-2301110211131232-0212001131122133-0330110011201221",
       "registry_path": "docs/guides/data-sources--route--reference--group-002.md",
@@ -4872,20 +4872,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/response_headers_to_add/secret_value/clear_secret_info/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
       "tasks": ["configuration"],
       "title": "routes.response_headers_to_add.secret_value.clear_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["routes route destination"],
       "body_bytes": 8431,
-      "body_sha256": "sha256:a87844da3193cae7c35d2102dd5e827b3248fe4b042481792b78c07f36a547d2",
+      "body_sha256": "sha256:9a4216df8d3445d1352443c71cf6575d8ce2f66b8aed3698d6d763e3dbd4890d",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -4917,7 +4917,7 @@
       "path": "documentation/data-sources/route/properties/routes/route_destination/index.md",
       "product": "distributed-cloud",
       "provider_name": "route",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1202012112011321-0121001021100300-0222122031112103-2301031033232202-2111211202231213-2113103132202333-3320120123000013-2322213321313230",
       "registry_path": "docs/guides/data-sources--route--reference--group-002.md",
@@ -5232,20 +5232,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/route_destination/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "List of destination to choose if the route is match.",
       "tasks": ["configuration"],
       "title": "routes.route_destination",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["routes route destination buffer policy"],
       "body_bytes": 2651,
-      "body_sha256": "sha256:5c9b86bef9303b629f1d3ecd8c03638ec89f74d1bbf5125f7089bbaeee0b06dc",
+      "body_sha256": "sha256:38e39d5cbd3c17eb778a5b0772d209bdc58b416ddccefcaecb56b11a87ad3c27",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -5262,7 +5262,7 @@
       "path": "documentation/data-sources/route/properties/routes/route_destination/buffer_policy/index.md",
       "product": "distributed-cloud",
       "provider_name": "route",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2103102023331100-0133321201022320-1222313312300110-1131311133202030-1302332312131033-2321021222020322-3133223311131013-0100021223021211",
       "registry_path": "docs/guides/data-sources--route--reference--group-003.md",
@@ -5305,20 +5305,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/route_destination/buffer_policy/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Some upstream applications are not capable of handling streamed data. This config enables buffering the entire request before sending to upstream application. We can specify the maximum buffer size and buffer interval with this config. Buffering can be enabled and disabled at VirtualHost and Route levels Route level",
       "tasks": ["configuration"],
       "title": "routes.route_destination.buffer_policy",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["duration", "routes route destination cors policy"],
       "body_bytes": 9405,
-      "body_sha256": "sha256:7b65e0c51e2c023e7dda5978a8f3937145427645b1362935f7e30fd9160200a6",
+      "body_sha256": "sha256:17c0e1c5ddce27b9a6063ee94faa43f7f4c6371d8ba7d2defe23229e09e46866",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -5335,7 +5335,7 @@
       "path": "documentation/data-sources/route/properties/routes/route_destination/cors_policy/index.md",
       "product": "distributed-cloud",
       "provider_name": "route",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0201000211112222-3333031213200101-3213222110323103-3321222303012132-0231301210223203-0130303132302021-2221211112123311-2330112332213030",
       "registry_path": "docs/guides/data-sources--route--reference--group-003.md",
@@ -5489,14 +5489,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/route_destination/cors_policy/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Cross-Origin Resource Sharing requests configuration specified at Virtual-host or Route level. Route level configuration takes precedence. An example of an Cross origin HTTP request GET /resources/public-data/ HTTP/1.1 Host: bar.other User-Agent: Mozilla/5.0 (Macintosh; U; Intel MAC OS X 10.5; en-US; rv:1.9.1b3pre)",
       "tasks": ["configuration"],
       "title": "routes.route_destination.cors_policy",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -5523,7 +5523,7 @@
       "path": "documentation/data-sources/route/properties/routes/route_destination/csrf_policy/index.md",
       "product": "distributed-cloud",
       "provider_name": "route",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3022102001211100-2313000310321230-1003303001311110-2021313112020011-0200313211131120-1330122223032323-1321033100202233-3221011110001113",
       "registry_path": "docs/guides/data-sources--route--reference--group-003.md",
@@ -5582,14 +5582,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/route_destination/csrf_policy/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "To mitigate CSRF attack , the policy checks where a request is coming from to determine if the request's origin is the same as its destination.the policy relies on two pieces of information used in determining if a request originated from the same host. 1. The origin that caused the user agent to issue the request",
       "tasks": ["configuration"],
       "title": "routes.route_destination.csrf_policy",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -5612,7 +5612,7 @@
       "path": "documentation/data-sources/route/properties/routes/route_destination/csrf_policy/all_load_balancer_domains/index.md",
       "product": "distributed-cloud",
       "provider_name": "route",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3031030203000011-0302032033023211-0322022113010301-0113030322221212-2001101312021103-0311330221100012-3022003011322302-2231313232300133",
       "registry_path": "docs/guides/data-sources--route--reference--group-003.md",
@@ -5622,20 +5622,20 @@
       "schema_path": ["routes", "route_destination", "csrf_policy", "all_load_balancer_domains"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/route_destination/csrf_policy/all_load_balancer_domains/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "routes.route_destination.csrf_policy.all_load_balancer_domains",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["routes route destination csrf policy custom domain list"],
       "body_bytes": 2841,
-      "body_sha256": "sha256:75cb41f0436e82a564d02292d0ca88b4e9be888ef837f9cd3af82247a9c83fdb",
+      "body_sha256": "sha256:d85e711538d8b7ef48607aa2669cee46da7100e978de9dd9edec3ea54f3ad333",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -5652,7 +5652,7 @@
       "path": "documentation/data-sources/route/properties/routes/route_destination/csrf_policy/custom_domain_list/index.md",
       "product": "distributed-cloud",
       "provider_name": "route",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1133000222330111-2230111330210321-0331311220112133-2211133101103300-3330003213200321-2131103130033111-2230021010213203-3020030120332331",
       "registry_path": "docs/guides/data-sources--route--reference--group-003.md",
@@ -5679,14 +5679,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/route_destination/csrf_policy/custom_domain_list/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "List of domain names used for Host header matching.",
       "tasks": ["configuration"],
       "title": "routes.route_destination.csrf_policy.custom_domain_list",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -5709,7 +5709,7 @@
       "path": "documentation/data-sources/route/properties/routes/route_destination/csrf_policy/disabled/index.md",
       "product": "distributed-cloud",
       "provider_name": "route",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2230130112002001-3000102303210012-0331233023230202-3023111112322312-0303201003101223-0010222201130030-3302333310333232-2132202331131223",
       "registry_path": "docs/guides/data-sources--route--reference--group-003.md",
@@ -5719,20 +5719,20 @@
       "schema_path": ["routes", "route_destination", "csrf_policy", "disabled"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/route_destination/csrf_policy/disabled/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "routes.route_destination.csrf_policy.disabled",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["routes route destination destinations"],
       "body_bytes": 5172,
-      "body_sha256": "sha256:5779c468e2d3c10e1f387fb02b91bfdc846889bff23b5effca7ff85e6743d573",
+      "body_sha256": "sha256:47ccd496af5a0367adf54d71d64e0212744de083c53f7cab852aad02c6222775",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -5752,7 +5752,7 @@
       "path": "documentation/data-sources/route/properties/routes/route_destination/destinations/index.md",
       "product": "distributed-cloud",
       "provider_name": "route",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0030003212020121-1223121010102011-2322312132003222-2210220313332211-1221133210032101-1103010232121021-2321313022100233-2111112303331310",
       "registry_path": "docs/guides/data-sources--route--reference--group-003.md",
@@ -5827,20 +5827,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/route_destination/destinations/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "When requests have to distributed among multiple upstream clusters, multiple destinations are configured, each having its own cluster and weight. Traffic is distributed among clusters based on the weight configured. Example: destinations: - cluster: - kind: F5 xc.vega.cfg.adc.cluster.object uid: cluster-1 weight: 20 -",
       "tasks": ["configuration"],
       "title": "routes.route_destination.destinations",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["routes route destination destinations cluster"],
       "body_bytes": 5835,
-      "body_sha256": "sha256:1a2569c25785cf6d52e98040a8868753d6df1a904cf353a1c256ff22772e2e3c",
+      "body_sha256": "sha256:a565e425e67bad60a7fdac3833735fff2188700caffe84d1b5db9c81bc43f68a",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -5857,7 +5857,7 @@
       "path": "documentation/data-sources/route/properties/routes/route_destination/destinations/cluster/index.md",
       "product": "distributed-cloud",
       "provider_name": "route",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2133112322322321-1020122202303100-0222323122300210-1100320200322330-3123031102133302-1232023333133303-1212033032300201-3122121212223210",
       "registry_path": "docs/guides/data-sources--route--reference--group-003.md",
@@ -5983,14 +5983,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/route_destination/destinations/cluster/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Indicates the upstream cluster to which the request should be sent. If the cluster does not exist ServiceUnavailable response will be sent.",
       "tasks": ["configuration"],
       "title": "routes.route_destination.destinations.cluster",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -6013,7 +6013,7 @@
       "path": "documentation/data-sources/route/properties/routes/route_destination/destinations/endpoint_subsets/index.md",
       "product": "distributed-cloud",
       "provider_name": "route",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1312330300302211-0331122033121010-0110312211112133-3130111000103233-1303311322212122-3331120300002312-0102002021301102-0321122312100103",
       "registry_path": "docs/guides/data-sources--route--reference--group-003.md",
@@ -6023,14 +6023,14 @@
       "schema_path": ["routes", "route_destination", "destinations", "endpoint_subsets"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/route_destination/destinations/endpoint_subsets/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Upstream cluster may be configured to divide its endpoints into subsets based on metadata attached to the endpoints. Routes may then specify the metadata that a endpoint must match in order to be selected by the load balancer Labels field of endpoint object's metadata is used for subset matching. For endpoints which",
       "tasks": ["configuration"],
       "title": "routes.route_destination.destinations.endpoint_subsets",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -6053,7 +6053,7 @@
       "path": "documentation/data-sources/route/properties/routes/route_destination/do_not_retract_cluster/index.md",
       "product": "distributed-cloud",
       "provider_name": "route",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2100002123202302-1001312313130222-1330132031031321-1032102030233001-3312231122101202-3323222210331211-0032010132120022-1311033101330202",
       "registry_path": "docs/guides/data-sources--route--reference--group-003.md",
@@ -6063,14 +6063,14 @@
       "schema_path": ["routes", "route_destination", "do_not_retract_cluster"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/route_destination/do_not_retract_cluster/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "routes.route_destination.do_not_retract_cluster",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -6093,7 +6093,7 @@
       "path": "documentation/data-sources/route/properties/routes/route_destination/endpoint_subsets/index.md",
       "product": "distributed-cloud",
       "provider_name": "route",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2013022110111230-1123202020123012-1102201000122011-1313332231301300-0203301231132222-3220230221020003-1003012020313203-3102133133012031",
       "registry_path": "docs/guides/data-sources--route--reference--group-003.md",
@@ -6103,20 +6103,20 @@
       "schema_path": ["routes", "route_destination", "endpoint_subsets"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/route_destination/endpoint_subsets/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Upstream cluster may be configured to divide its endpoints into subsets based on metadata attached to the endpoints. Routes may then specify the metadata that a endpoint must match in order to be selected by the load balancer Labels field of endpoint object's metadata is used for subset matching. For endpoint's which",
       "tasks": ["configuration"],
       "title": "routes.route_destination.endpoint_subsets",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["routes route destination hash policy"],
       "body_bytes": 3396,
-      "body_sha256": "sha256:b589ee63a1329970934d3055c1a2a1faa19c89edbcf43be27269226c4da26e21",
+      "body_sha256": "sha256:b933c0196ca59546971c6af9ff43fb0e1662e4e48a97dac6883fc1b7fd5bbaf5",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": ["xcsh-docs:data-sources:route:properties:routes:route_destination:hash_policy:cookie"],
@@ -6133,7 +6133,7 @@
       "path": "documentation/data-sources/route/properties/routes/route_destination/hash_policy/index.md",
       "product": "distributed-cloud",
       "provider_name": "route",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0011101332313032-0313133311230002-0012013103021233-0323013133332212-2021120323022222-3130333332220130-3001323200020210-3320100123102320",
       "registry_path": "docs/guides/data-sources--route--reference--group-003.md",
@@ -6208,20 +6208,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/route_destination/hash_policy/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Specifies a list of hash policies to use for ring hash load balancing. Each hash policy is evaluated individually and the combined result is used to route the request.",
       "tasks": ["configuration"],
       "title": "routes.route_destination.hash_policy",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["routes route destination hash policy cookie"],
       "body_bytes": 6467,
-      "body_sha256": "sha256:d9a8cfe85bcc1d6a43ba7bfa1f894afaed1b61f2ffcfd878e158eb366ebcf0b4",
+      "body_sha256": "sha256:07a5e1e24bfa7f2c4e1597e6bf35d61c2e98788b509d2d11fb32aa7eb9318445",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -6247,7 +6247,7 @@
       "path": "documentation/data-sources/route/properties/routes/route_destination/hash_policy/cookie/index.md",
       "product": "distributed-cloud",
       "provider_name": "route",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3300222200100202-2221333320332130-2220132213300033-3113023022203311-1103220320113033-3021320101300123-2103000333122303-1032032230202231",
       "registry_path": "docs/guides/data-sources--route--reference--group-003.md",
@@ -6434,14 +6434,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/route_destination/hash_policy/cookie/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Two types of cookie affinity: 1. Passive. Takes a cookie that's present in the cookies header and hashes on its value. 2. Generated. Generates and sets a cookie with an expiration (TTL) on the first request from the client in its response to the client, based on the endpoint the request gets sent to. The client then",
       "tasks": ["configuration"],
       "title": "routes.route_destination.hash_policy.cookie",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -6464,7 +6464,7 @@
       "path": "documentation/data-sources/route/properties/routes/route_destination/hash_policy/cookie/add_httponly/index.md",
       "product": "distributed-cloud",
       "provider_name": "route",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2210031120100201-1123003101233220-3012030030123323-1030111321211022-2120022222112201-3211120031102202-3312110131100023-3113010021222013",
       "registry_path": "docs/guides/data-sources--route--reference--group-003.md",
@@ -6474,14 +6474,14 @@
       "schema_path": ["routes", "route_destination", "hash_policy", "cookie", "add_httponly"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/route_destination/hash_policy/cookie/add_httponly/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "routes.route_destination.hash_policy.cookie.add_httponly",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -6504,7 +6504,7 @@
       "path": "documentation/data-sources/route/properties/routes/route_destination/hash_policy/cookie/add_secure/index.md",
       "product": "distributed-cloud",
       "provider_name": "route",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3310202200022303-1223213133123021-0313300220212020-3023211223102202-0220022030223313-2312213011103313-1120333121123113-0321231310200122",
       "registry_path": "docs/guides/data-sources--route--reference--group-003.md",
@@ -6514,14 +6514,14 @@
       "schema_path": ["routes", "route_destination", "hash_policy", "cookie", "add_secure"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/route_destination/hash_policy/cookie/add_secure/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "routes.route_destination.hash_policy.cookie.add_secure",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -6544,7 +6544,7 @@
       "path": "documentation/data-sources/route/properties/routes/route_destination/hash_policy/cookie/ignore_httponly/index.md",
       "product": "distributed-cloud",
       "provider_name": "route",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1303023312321011-3231003113210112-2030010023112332-2332222213211120-1300012332302013-1110011012132002-2231321103121000-3321313120103123",
       "registry_path": "docs/guides/data-sources--route--reference--group-003.md",
@@ -6554,14 +6554,14 @@
       "schema_path": ["routes", "route_destination", "hash_policy", "cookie", "ignore_httponly"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/route_destination/hash_policy/cookie/ignore_httponly/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "routes.route_destination.hash_policy.cookie.ignore_httponly",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -6584,7 +6584,7 @@
       "path": "documentation/data-sources/route/properties/routes/route_destination/hash_policy/cookie/ignore_samesite/index.md",
       "product": "distributed-cloud",
       "provider_name": "route",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3303032121231010-3330103001112203-3322012020233202-2010230033121312-2001110022110302-2030301333021310-3003333203232201-0003212311222111",
       "registry_path": "docs/guides/data-sources--route--reference--group-003.md",
@@ -6594,14 +6594,14 @@
       "schema_path": ["routes", "route_destination", "hash_policy", "cookie", "ignore_samesite"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/route_destination/hash_policy/cookie/ignore_samesite/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "routes.route_destination.hash_policy.cookie.ignore_samesite",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -6624,7 +6624,7 @@
       "path": "documentation/data-sources/route/properties/routes/route_destination/hash_policy/cookie/ignore_secure/index.md",
       "product": "distributed-cloud",
       "provider_name": "route",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0102221013313302-0300302121323301-0323201021100223-3020011121333013-1001031232202010-2103311103020132-1131002111330000-0101202030120322",
       "registry_path": "docs/guides/data-sources--route--reference--group-003.md",
@@ -6634,14 +6634,14 @@
       "schema_path": ["routes", "route_destination", "hash_policy", "cookie", "ignore_secure"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/route_destination/hash_policy/cookie/ignore_secure/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "routes.route_destination.hash_policy.cookie.ignore_secure",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -6664,7 +6664,7 @@
       "path": "documentation/data-sources/route/properties/routes/route_destination/hash_policy/cookie/samesite_lax/index.md",
       "product": "distributed-cloud",
       "provider_name": "route",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3003001102112303-0130003230103331-1322300120200110-1311012323131203-2321130320302313-1222202021223110-0310030022332110-2221303100020233",
       "registry_path": "docs/guides/data-sources--route--reference--group-003.md",
@@ -6674,14 +6674,14 @@
       "schema_path": ["routes", "route_destination", "hash_policy", "cookie", "samesite_lax"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/route_destination/hash_policy/cookie/samesite_lax/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "routes.route_destination.hash_policy.cookie.samesite_lax",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -6704,7 +6704,7 @@
       "path": "documentation/data-sources/route/properties/routes/route_destination/hash_policy/cookie/samesite_none/index.md",
       "product": "distributed-cloud",
       "provider_name": "route",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0123000331001201-0301000122102120-2231332102112002-3023120321101322-0223023002113320-3323030203233312-0201120302020300-3102333120130030",
       "registry_path": "docs/guides/data-sources--route--reference--group-003.md",
@@ -6714,14 +6714,14 @@
       "schema_path": ["routes", "route_destination", "hash_policy", "cookie", "samesite_none"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/route_destination/hash_policy/cookie/samesite_none/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "routes.route_destination.hash_policy.cookie.samesite_none",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -6744,7 +6744,7 @@
       "path": "documentation/data-sources/route/properties/routes/route_destination/hash_policy/cookie/samesite_strict/index.md",
       "product": "distributed-cloud",
       "provider_name": "route",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0102231000000212-1310032220210123-1230321000003123-3133312001210101-0310300033132311-3121020023323212-0011003002221310-0102312032032201",
       "registry_path": "docs/guides/data-sources--route--reference--group-003.md",
@@ -6754,14 +6754,14 @@
       "schema_path": ["routes", "route_destination", "hash_policy", "cookie", "samesite_strict"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/route_destination/hash_policy/cookie/samesite_strict/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "routes.route_destination.hash_policy.cookie.samesite_strict",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -6787,7 +6787,7 @@
       "path": "documentation/data-sources/route/properties/routes/route_destination/mirror_policy/index.md",
       "product": "distributed-cloud",
       "provider_name": "route",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3102020312000110-0133212131123210-2001013313121121-0310130120100121-2021031311110033-1002330012133302-0123002120221110-1203302331112303",
       "registry_path": "docs/guides/data-sources--route--reference--group-003.md",
@@ -6830,20 +6830,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/route_destination/mirror_policy/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "MirrorPolicy is used for shadowing traffic from one cluster to another. The approach used is \"fire and forget\", meaning it will not wait for the shadow cluster to respond before returning the response from the primary cluster. All normal statistics are collected for the shadow cluster making this feature useful for",
       "tasks": ["configuration"],
       "title": "routes.route_destination.mirror_policy",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["routes route destination mirror policy cluster"],
       "body_bytes": 5816,
-      "body_sha256": "sha256:002b4bd751139ffceafdc3dc1d0c478d411344a282a8c36abb8aa765a54e8de0",
+      "body_sha256": "sha256:9b11cbbec08c754e5632e47b71a40a76e951ac17a77e887b9a13d89d2b144487",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -6860,7 +6860,7 @@
       "path": "documentation/data-sources/route/properties/routes/route_destination/mirror_policy/cluster/index.md",
       "product": "distributed-cloud",
       "provider_name": "route",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2130110203200021-1301131010012213-3300021201303223-1301300320233211-3302110001022322-2302133100121120-1201102223121220-0021102033201011",
       "registry_path": "docs/guides/data-sources--route--reference--group-003.md",
@@ -6986,14 +6986,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/route_destination/mirror_policy/cluster/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Specifies the cluster to which the requests will be mirrored. The cluster object referred here must be present.",
       "tasks": ["configuration"],
       "title": "routes.route_destination.mirror_policy.cluster",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -7016,7 +7016,7 @@
       "path": "documentation/data-sources/route/properties/routes/route_destination/mirror_policy/percent/index.md",
       "product": "distributed-cloud",
       "provider_name": "route",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2033102300222201-1130002321303102-0113123131212000-3012011131223313-0112000033320223-3120011322233132-2113120310210211-1113023103311022",
       "registry_path": "docs/guides/data-sources--route--reference--group-003.md",
@@ -7059,20 +7059,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/route_destination/mirror_policy/percent/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Fraction used where sampling percentages are needed. Example sampled requests.",
       "tasks": ["configuration"],
       "title": "routes.route_destination.mirror_policy.percent",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["routes route destination query params"],
       "body_bytes": 2405,
-      "body_sha256": "sha256:5e206ae09648043217f2fb49f90b615463b9ec636a0b625c0c114566762c2860",
+      "body_sha256": "sha256:3e676cbaf908cb86a6b2dfac63253c3f6885abef1252ba72e68b75a5f0dbd21f",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -7092,7 +7092,7 @@
       "path": "documentation/data-sources/route/properties/routes/route_destination/query_params/index.md",
       "product": "distributed-cloud",
       "provider_name": "route",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3322110030332211-3202003113030013-3113001312131212-3012021332111102-2300201312101321-1100011310013321-1323001321020110-1023331130200203",
       "registry_path": "docs/guides/data-sources--route--reference--group-003.md",
@@ -7151,14 +7151,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/route_destination/query_params/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Handling of incoming query parameters in simple route.",
       "tasks": ["configuration"],
       "title": "routes.route_destination.query_params",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -7181,7 +7181,7 @@
       "path": "documentation/data-sources/route/properties/routes/route_destination/query_params/remove_all_params/index.md",
       "product": "distributed-cloud",
       "provider_name": "route",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2012021100101312-0311203230112022-3323123003000302-1220000122002233-0332302020132302-0223302122113012-1112032032132131-1213012230111020",
       "registry_path": "docs/guides/data-sources--route--reference--group-003.md",
@@ -7191,14 +7191,14 @@
       "schema_path": ["routes", "route_destination", "query_params", "remove_all_params"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/route_destination/query_params/remove_all_params/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "routes.route_destination.query_params.remove_all_params",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -7221,7 +7221,7 @@
       "path": "documentation/data-sources/route/properties/routes/route_destination/query_params/retain_all_params/index.md",
       "product": "distributed-cloud",
       "provider_name": "route",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2310031100113112-2202002021110101-2203032230232112-0020233202030223-1223003300311131-0103111101222033-3110222120333300-2103122222020010",
       "registry_path": "docs/guides/data-sources--route--reference--group-003.md",
@@ -7231,20 +7231,20 @@
       "schema_path": ["routes", "route_destination", "query_params", "retain_all_params"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/route_destination/query_params/retain_all_params/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "routes.route_destination.query_params.retain_all_params",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["routes route destination regex rewrite"],
       "body_bytes": 2988,
-      "body_sha256": "sha256:bd40139fb63a15cce9b006be46d12896ff6ca3e5078b133999c48e086975c156",
+      "body_sha256": "sha256:85ec37961b18887c1a6e95010ff77e70d8c694c64cffebd7d1438e7c31d716f7",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -7261,7 +7261,7 @@
       "path": "documentation/data-sources/route/properties/routes/route_destination/regex_rewrite/index.md",
       "product": "distributed-cloud",
       "provider_name": "route",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1320330021331332-2111003023320303-0233313332222330-1002220332210022-0332130010123020-0021220321311000-2110022123211121-0220012110133301",
       "registry_path": "docs/guides/data-sources--route--reference--group-003.md",
@@ -7304,14 +7304,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/route_destination/regex_rewrite/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "RegexMatchRewrite describes how to match a string and then produce a new string using a regular expression and a substitution string.",
       "tasks": ["configuration"],
       "title": "routes.route_destination.regex_rewrite",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -7334,7 +7334,7 @@
       "path": "documentation/data-sources/route/properties/routes/route_destination/retract_cluster/index.md",
       "product": "distributed-cloud",
       "provider_name": "route",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3230120011210302-2102003303223110-3332103110331023-2033311110132002-2022330313021210-1321212023122331-1101031131301232-3203333300023131",
       "registry_path": "docs/guides/data-sources--route--reference--group-003.md",
@@ -7344,20 +7344,20 @@
       "schema_path": ["routes", "route_destination", "retract_cluster"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/route_destination/retract_cluster/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "routes.route_destination.retract_cluster",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["routes route destination retry policy"],
       "body_bytes": 6834,
-      "body_sha256": "sha256:b50f526c0d3b59e5cdffc8cedfa0ddc43886f28b322b4c3c770ba6100e0e0d8f",
+      "body_sha256": "sha256:c85c115186c772f7dfe78e9e8e8ac729591eec0105da83711f24af4248300524",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": ["xcsh-docs:data-sources:route:properties:routes:route_destination:retry_policy:back_off"],
@@ -7374,7 +7374,7 @@
       "path": "documentation/data-sources/route/properties/routes/route_destination/retry_policy/index.md",
       "product": "distributed-cloud",
       "provider_name": "route",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3113132130203033-3133232023221222-1012202110032132-2201200132220010-1230031332210222-3010022000320131-3323310030230202-1033112331331111",
       "registry_path": "docs/guides/data-sources--route--reference--group-003.md",
@@ -7465,20 +7465,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/route_destination/retry_policy/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Retry policy configuration for route destination.",
       "tasks": ["configuration"],
       "title": "routes.route_destination.retry_policy",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["routes route destination retry policy back off"],
       "body_bytes": 2522,
-      "body_sha256": "sha256:69c72b637d70cd5047660302bfbc50e5fbc1e2ae4b113362938b217da5ea61c7",
+      "body_sha256": "sha256:6988121d0ea579055c189c1f7196f05d05befe747fe9c7e3c163f929db0a9225",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -7495,7 +7495,7 @@
       "path": "documentation/data-sources/route/properties/routes/route_destination/retry_policy/back_off/index.md",
       "product": "distributed-cloud",
       "provider_name": "route",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3102121022302111-0213310320213223-3302022031001103-0002012330323031-3203310302312010-0223223000221300-0112101003313012-3310120012220312",
       "registry_path": "docs/guides/data-sources--route--reference--group-003.md",
@@ -7538,14 +7538,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/route_destination/retry_policy/back_off/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Specifies parameters that control retry back off.",
       "tasks": ["configuration"],
       "title": "routes.route_destination.retry_policy.back_off",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -7568,7 +7568,7 @@
       "path": "documentation/data-sources/route/properties/routes/route_destination/spdy_config/index.md",
       "product": "distributed-cloud",
       "provider_name": "route",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2033321310103033-0133103213233310-2321121102310112-0031320012321002-3003013021300212-0111211013213310-0120322130212131-2220332212000120",
       "registry_path": "docs/guides/data-sources--route--reference--group-003.md",
@@ -7595,14 +7595,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/route_destination/spdy_config/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Request headers of such upgrade looks like below 'connection', 'Upgrade' 'upgrade', 'SPDY/3.1' Configuration to allow UPGRADE of connection to SPDY and any additional tuning With configuration to allow SPDY upgrade, ADC will produce following response 'HTTP/1.1 101 Switching Protocols 'Upgrade': 'SPDY/3.1'",
       "tasks": ["configuration"],
       "title": "routes.route_destination.spdy_config",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -7625,7 +7625,7 @@
       "path": "documentation/data-sources/route/properties/routes/route_destination/web_socket_config/index.md",
       "product": "distributed-cloud",
       "provider_name": "route",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2220023021332222-0321110302230020-3013022312112230-1000032111332113-1232203003003021-1212100001333133-2322110231321100-1312103000111302",
       "registry_path": "docs/guides/data-sources--route--reference--group-003.md",
@@ -7652,20 +7652,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/route_destination/web_socket_config/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Configuration to allow Websocket Request headers of such upgrade looks like below 'connection', 'Upgrade' 'upgrade', 'websocket' With configuration to allow websocket upgrade, ADC will produce following response 'HTTP/1.1 101 Switching Protocols 'Upgrade': 'websocket' 'Connection': 'Upgrade'",
       "tasks": ["configuration"],
       "title": "routes.route_destination.web_socket_config",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["routes route direct response"],
       "body_bytes": 2916,
-      "body_sha256": "sha256:574bf9aa561e46e02004371d942b15883d4f9cdccf1028a2321cfbba9dc09c59",
+      "body_sha256": "sha256:60fc75897c3fc43f78bd38beb16e568ba78fef5b80d9b205ae7526911e908b7a",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -7682,7 +7682,7 @@
       "path": "documentation/data-sources/route/properties/routes/route_direct_response/index.md",
       "product": "distributed-cloud",
       "provider_name": "route",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1120103010111221-1131011202033302-3012012120230213-0222131120131102-2101233332131203-3211033100232203-0013202020220303-2233021120011122",
       "registry_path": "docs/guides/data-sources--route--reference--group-003.md",
@@ -7725,20 +7725,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/route_direct_response/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Send this direct response in case of route match action is direct response.",
       "tasks": ["configuration"],
       "title": "routes.route_direct_response",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["routes route redirect"],
       "body_bytes": 6717,
-      "body_sha256": "sha256:c3939a0aabd3adcf6f10ed61ddd83cfef83b0e0926e68135a59de5bc4ca53016",
+      "body_sha256": "sha256:bcf6e7a8fed1fa6bcb6e6e5d673a7e7fd45f3f98e09815aa5e9ad5c68473a3d8",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -7758,7 +7758,7 @@
       "path": "documentation/data-sources/route/properties/routes/route_redirect/index.md",
       "product": "distributed-cloud",
       "provider_name": "route",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3031003311233213-2113111021311003-2111031332300130-1111311130312100-2120221111012231-3331330300223001-2023020031123100-0201231213001103",
       "registry_path": "docs/guides/data-sources--route--reference--group-003.md",
@@ -7897,14 +7897,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/route_redirect/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Route redirect parameters when match action is redirect.",
       "tasks": ["configuration"],
       "title": "routes.route_redirect",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -7927,7 +7927,7 @@
       "path": "documentation/data-sources/route/properties/routes/route_redirect/remove_all_params/index.md",
       "product": "distributed-cloud",
       "provider_name": "route",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3212312301222212-3230213212111021-2210000103300211-2132001001121130-0122030121113210-2220232312012230-0232002211300323-3033133132030320",
       "registry_path": "docs/guides/data-sources--route--reference--group-003.md",
@@ -7937,14 +7937,14 @@
       "schema_path": ["routes", "route_redirect", "remove_all_params"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/route_redirect/remove_all_params/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "routes.route_redirect.remove_all_params",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -7967,7 +7967,7 @@
       "path": "documentation/data-sources/route/properties/routes/route_redirect/retain_all_params/index.md",
       "product": "distributed-cloud",
       "provider_name": "route",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3001133033010312-3112110313130000-0103031123012010-2010002101212033-1201320120320022-3223103111033311-0023212131113320-3031130220030310",
       "registry_path": "docs/guides/data-sources--route--reference--group-003.md",
@@ -7977,14 +7977,14 @@
       "schema_path": ["routes", "route_redirect", "retain_all_params"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/route_redirect/retain_all_params/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "routes.route_redirect.retain_all_params",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -8007,7 +8007,7 @@
       "path": "documentation/data-sources/route/properties/routes/service_policy/index.md",
       "product": "distributed-cloud",
       "provider_name": "route",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0122003031122022-2312121320313011-3232203000312111-2300213223121003-3333300031112101-3031102112131312-1230313311203332-3230301311131320",
       "registry_path": "docs/guides/data-sources--route--reference--group-003.md",
@@ -8034,20 +8034,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/service_policy/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "ServicePolicy configuration details at route level.",
       "tasks": ["configuration"],
       "title": "routes.service_policy",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["routes waf exclusion policy"],
       "body_bytes": 4397,
-      "body_sha256": "sha256:3938bdba2e90ac1cdccd669f02f615388fc45835fd85efbc3890cbcdcedd618b",
+      "body_sha256": "sha256:63a0b5e9b8f06ea4978524dd0695c9f8475efcb4ac3f908249add89ed0fd43e1",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -8064,7 +8064,7 @@
       "path": "documentation/data-sources/route/properties/routes/waf_exclusion_policy/index.md",
       "product": "distributed-cloud",
       "provider_name": "route",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2130023122111302-3312131310223330-3111030320001222-1300131123332221-1300033010300132-3331301213032123-3013023033221232-0223231010031303",
       "registry_path": "docs/guides/data-sources--route--reference--group-003.md",
@@ -8144,14 +8144,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/waf_exclusion_policy/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "routes.waf_exclusion_policy",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -8178,7 +8178,7 @@
       "path": "documentation/data-sources/route/properties/routes/waf_type/index.md",
       "product": "distributed-cloud",
       "provider_name": "route",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1303120232330332-3020313221101000-0130321002101012-1313102131100000-3013131220122231-1130022213201220-0013210022302201-0010200133301120",
       "registry_path": "docs/guides/data-sources--route--reference--group-003.md",
@@ -8237,14 +8237,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/waf_type/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "WAF instance will be pointing to an app_firewall object.",
       "tasks": ["configuration"],
       "title": "routes.waf_type",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -8267,7 +8267,7 @@
       "path": "documentation/data-sources/route/properties/routes/waf_type/app_firewall/index.md",
       "product": "distributed-cloud",
       "provider_name": "route",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2020000300332202-2313022220012333-0031313002211002-1203003321210130-2133210011020131-2022331332130112-3122033002213300-3020310233103332",
       "registry_path": "docs/guides/data-sources--route--reference--group-003.md",
@@ -8294,20 +8294,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/waf_type/app_firewall/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "A list of references to the app_firewall configuration objects.",
       "tasks": ["configuration"],
       "title": "routes.waf_type.app_firewall",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["routes waf type app firewall app firewall"],
       "body_bytes": 5409,
-      "body_sha256": "sha256:4841341b78780bd819fa6ba24284cd2438677ae2dfffee516b3ef22f0138c719",
+      "body_sha256": "sha256:610518b208f756b2019bc3d63242c70b30dadcd3c79ba44df3b2061ce65dc42b",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -8324,7 +8324,7 @@
       "path": "documentation/data-sources/route/properties/routes/waf_type/app_firewall/app_firewall/index.md",
       "product": "distributed-cloud",
       "provider_name": "route",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1131313111311232-3120310130010230-3312112323200010-3011033332233100-0032331002023211-0101101233000110-0120203210121320-0222031013231001",
       "registry_path": "docs/guides/data-sources--route--reference--group-003.md",
@@ -8450,14 +8450,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/waf_type/app_firewall/app_firewall/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "References to an Application Firewall configuration object.",
       "tasks": ["configuration"],
       "title": "routes.waf_type.app_firewall.app_firewall",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -8480,7 +8480,7 @@
       "path": "documentation/data-sources/route/properties/routes/waf_type/disable_waf/index.md",
       "product": "distributed-cloud",
       "provider_name": "route",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1320201023113001-3121120311102013-3030312122111212-1202223212111100-3103200212220332-1223330020120011-3320011033130113-2103131322333023",
       "registry_path": "docs/guides/data-sources--route--reference--group-003.md",
@@ -8490,14 +8490,14 @@
       "schema_path": ["routes", "waf_type", "disable_waf"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/waf_type/disable_waf/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "routes.waf_type.disable_waf",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -8520,7 +8520,7 @@
       "path": "documentation/data-sources/route/properties/routes/waf_type/inherit_waf/index.md",
       "product": "distributed-cloud",
       "provider_name": "route",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2101320330322032-3311333110132211-3223101103110030-0020132323000112-0110211120000303-3223313302010332-2211030221221303-2131323020032203",
       "registry_path": "docs/guides/data-sources--route--reference--group-003.md",
@@ -8530,14 +8530,14 @@
       "schema_path": ["routes", "waf_type", "inherit_waf"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/waf_type/inherit_waf/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "routes.waf_type.inherit_waf",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -8560,7 +8560,7 @@
       "path": "documentation/data-sources/route/examples/index.md",
       "product": "distributed-cloud",
       "provider_name": "route",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2103210131020030-3332100111120032-0121012330312101-3320321023201002-0230023100223111-1033211232100203-1122111100333010-3310033010101013",
       "registry_path": "docs/guides/data-sources--route--examples--group-001.md",
@@ -8570,14 +8570,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/examples/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Examples for xcsh_route.",
       "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -8607,7 +8607,7 @@
       "path": "documentation/data-sources/route/examples/data-source/index.md",
       "product": "distributed-cloud",
       "provider_name": "route",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2111001110122330-3313200121202320-1032123300123212-3030231013303020-2311021122201333-1201002113331113-2200322112201000-2203220100210013",
       "registry_path": "docs/guides/data-sources--route--examples--group-001.md",
@@ -8617,14 +8617,14 @@
       "schema_path": ["data-source"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/examples/data-source/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Data source for xcsh_route.",
       "tasks": ["configuration"],
       "title": "Data source",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     }
   ],
