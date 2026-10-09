@@ -27,7 +27,7 @@ func (c *Client) CreateProxy(ctx context.Context, resource *Proxy) (*Proxy, erro
 func (c *Client) GetProxy(ctx context.Context, namespace, name string) (*Proxy, error) {
 	var result Proxy
 	path := fmt.Sprintf("/api/config/namespaces/%s/proxys/%s", namespace, name)
-	err := c.Get(ctx, path, &result)
+	err := c.GetReplaceForm(ctx, path, &result)
 	return &result, err
 }
 

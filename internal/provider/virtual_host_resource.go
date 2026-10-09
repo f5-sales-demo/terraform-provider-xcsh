@@ -43,7 +43,7 @@ var (
 )
 
 func NewVirtualHostResource() resource.Resource {
-	return &VirtualHostResource{}
+	return newBlindfoldResource(&VirtualHostResource{}, "/api/config/namespaces/%s/virtual_hosts", "/api/config/namespaces/%s/virtual_hosts/%s", false)
 }
 
 type VirtualHostResource struct {
@@ -6272,9 +6272,6 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 												if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
 													return &VirtualHostTLSParametersCommonParamsTLSCertificatesPrivateKeyModel{
 														BlindfoldSecretInfo: func() *VirtualHostTLSParametersCommonParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
-															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo != nil {
-																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo
-															}
 															if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 																return &VirtualHostTLSParametersCommonParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
 																	DecryptionProvider: func() types.String {
@@ -6300,9 +6297,6 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 															return nil
 														}(),
 														ClearSecretInfo: func() *VirtualHostTLSParametersCommonParamsTLSCertificatesPrivateKeyClearSecretInfoModel {
-															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo != nil {
-																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo
-															}
 															if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 																return &VirtualHostTLSParametersCommonParamsTLSCertificatesPrivateKeyClearSecretInfoModel{
 																	Provider: func() types.String {
@@ -8810,9 +8804,6 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 												if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
 													return &VirtualHostTLSParametersCommonParamsTLSCertificatesPrivateKeyModel{
 														BlindfoldSecretInfo: func() *VirtualHostTLSParametersCommonParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
-															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo != nil {
-																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo
-															}
 															if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 																return &VirtualHostTLSParametersCommonParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
 																	DecryptionProvider: func() types.String {
@@ -8838,9 +8829,6 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 															return nil
 														}(),
 														ClearSecretInfo: func() *VirtualHostTLSParametersCommonParamsTLSCertificatesPrivateKeyClearSecretInfoModel {
-															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo != nil {
-																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo
-															}
 															if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 																return &VirtualHostTLSParametersCommonParamsTLSCertificatesPrivateKeyClearSecretInfoModel{
 																	Provider: func() types.String {
@@ -12509,9 +12497,6 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 												if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
 													return &VirtualHostTLSParametersCommonParamsTLSCertificatesPrivateKeyModel{
 														BlindfoldSecretInfo: func() *VirtualHostTLSParametersCommonParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
-															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo != nil {
-																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo
-															}
 															if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 																return &VirtualHostTLSParametersCommonParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
 																	DecryptionProvider: func() types.String {
@@ -12537,9 +12522,6 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 															return nil
 														}(),
 														ClearSecretInfo: func() *VirtualHostTLSParametersCommonParamsTLSCertificatesPrivateKeyClearSecretInfoModel {
-															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo != nil {
-																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo
-															}
 															if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 																return &VirtualHostTLSParametersCommonParamsTLSCertificatesPrivateKeyClearSecretInfoModel{
 																	Provider: func() types.String {

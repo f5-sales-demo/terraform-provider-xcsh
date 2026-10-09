@@ -40,7 +40,7 @@ var (
 )
 
 func NewNfvServiceResource() resource.Resource {
-	return &NfvServiceResource{}
+	return newBlindfoldResource(&NfvServiceResource{}, "/api/config/namespaces/%s/nfv_services", "/api/config/namespaces/%s/nfv_services/%s", false)
 }
 
 type NfvServiceResource struct {
@@ -4890,9 +4890,6 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 												if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
 													return &NfvServiceHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesPrivateKeyModel{
 														BlindfoldSecretInfo: func() *NfvServiceHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
-															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo != nil {
-																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo
-															}
 															if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 																return &NfvServiceHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
 																	DecryptionProvider: func() types.String {
@@ -4918,9 +4915,6 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 															return nil
 														}(),
 														ClearSecretInfo: func() *NfvServiceHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesPrivateKeyClearSecretInfoModel {
-															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo != nil {
-																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo
-															}
 															if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 																return &NfvServiceHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesPrivateKeyClearSecretInfoModel{
 																	Provider: func() types.String {
@@ -5223,9 +5217,6 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 												if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
 													return &NfvServiceHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesPrivateKeyModel{
 														BlindfoldSecretInfo: func() *NfvServiceHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
-															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo != nil {
-																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo
-															}
 															if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 																return &NfvServiceHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
 																	DecryptionProvider: func() types.String {
@@ -5251,9 +5242,6 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 															return nil
 														}(),
 														ClearSecretInfo: func() *NfvServiceHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesPrivateKeyClearSecretInfoModel {
-															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo != nil {
-																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo
-															}
 															if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 																return &NfvServiceHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesPrivateKeyClearSecretInfoModel{
 																	Provider: func() types.String {
@@ -5556,9 +5544,6 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 												if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
 													return &NfvServiceHTTPSManagementAdvertiseOnSloSLITLSCertificatesPrivateKeyModel{
 														BlindfoldSecretInfo: func() *NfvServiceHTTPSManagementAdvertiseOnSloSLITLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
-															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo != nil {
-																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo
-															}
 															if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 																return &NfvServiceHTTPSManagementAdvertiseOnSloSLITLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
 																	DecryptionProvider: func() types.String {
@@ -5584,9 +5569,6 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 															return nil
 														}(),
 														ClearSecretInfo: func() *NfvServiceHTTPSManagementAdvertiseOnSloSLITLSCertificatesPrivateKeyClearSecretInfoModel {
-															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo != nil {
-																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo
-															}
 															if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 																return &NfvServiceHTTPSManagementAdvertiseOnSloSLITLSCertificatesPrivateKeyClearSecretInfoModel{
 																	Provider: func() types.String {
@@ -5889,9 +5871,6 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 												if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
 													return &NfvServiceHTTPSManagementAdvertiseOnSloVIPTLSCertificatesPrivateKeyModel{
 														BlindfoldSecretInfo: func() *NfvServiceHTTPSManagementAdvertiseOnSloVIPTLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
-															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo != nil {
-																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo
-															}
 															if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 																return &NfvServiceHTTPSManagementAdvertiseOnSloVIPTLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
 																	DecryptionProvider: func() types.String {
@@ -5917,9 +5896,6 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 															return nil
 														}(),
 														ClearSecretInfo: func() *NfvServiceHTTPSManagementAdvertiseOnSloVIPTLSCertificatesPrivateKeyClearSecretInfoModel {
-															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo != nil {
-																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo
-															}
 															if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 																return &NfvServiceHTTPSManagementAdvertiseOnSloVIPTLSCertificatesPrivateKeyClearSecretInfoModel{
 																	Provider: func() types.String {
@@ -6257,15 +6233,9 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 							if ManualSSHKeysData, ok := AutoSetupData["manual_ssh_keys"].(map[string]interface{}); ok {
 								return &NfvServicePaloAltoFwServiceAutoSetupManualSSHKeysModel{
 									PrivateKey: func() *NfvServicePaloAltoFwServiceAutoSetupManualSSHKeysPrivateKeyModel {
-										if !isImport && data.PaloAltoFwService != nil && data.PaloAltoFwService.AutoSetup != nil && data.PaloAltoFwService.AutoSetup.ManualSSHKeys != nil && data.PaloAltoFwService.AutoSetup.ManualSSHKeys.PrivateKey != nil {
-											return data.PaloAltoFwService.AutoSetup.ManualSSHKeys.PrivateKey
-										}
 										if PrivateKeyData, ok := ManualSSHKeysData["private_key"].(map[string]interface{}); ok {
 											return &NfvServicePaloAltoFwServiceAutoSetupManualSSHKeysPrivateKeyModel{
 												BlindfoldSecretInfo: func() *NfvServicePaloAltoFwServiceAutoSetupManualSSHKeysPrivateKeyBlindfoldSecretInfoModel {
-													if !isImport && data.PaloAltoFwService != nil && data.PaloAltoFwService.AutoSetup != nil && data.PaloAltoFwService.AutoSetup.ManualSSHKeys != nil && data.PaloAltoFwService.AutoSetup.ManualSSHKeys.PrivateKey != nil && data.PaloAltoFwService.AutoSetup.ManualSSHKeys.PrivateKey.BlindfoldSecretInfo != nil {
-														return data.PaloAltoFwService.AutoSetup.ManualSSHKeys.PrivateKey.BlindfoldSecretInfo
-													}
 													if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 														return &NfvServicePaloAltoFwServiceAutoSetupManualSSHKeysPrivateKeyBlindfoldSecretInfoModel{
 															DecryptionProvider: func() types.String {
@@ -6291,9 +6261,6 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 													return nil
 												}(),
 												ClearSecretInfo: func() *NfvServicePaloAltoFwServiceAutoSetupManualSSHKeysPrivateKeyClearSecretInfoModel {
-													if !isImport && data.PaloAltoFwService != nil && data.PaloAltoFwService.AutoSetup != nil && data.PaloAltoFwService.AutoSetup.ManualSSHKeys != nil && data.PaloAltoFwService.AutoSetup.ManualSSHKeys.PrivateKey != nil && data.PaloAltoFwService.AutoSetup.ManualSSHKeys.PrivateKey.ClearSecretInfo != nil {
-														return data.PaloAltoFwService.AutoSetup.ManualSSHKeys.PrivateKey.ClearSecretInfo
-													}
 													if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 														return &NfvServicePaloAltoFwServiceAutoSetupManualSSHKeysPrivateKeyClearSecretInfoModel{
 															Provider: func() types.String {
@@ -7283,9 +7250,6 @@ func (r *NfvServiceResource) Read(ctx context.Context, req resource.ReadRequest,
 												if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
 													return &NfvServiceHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesPrivateKeyModel{
 														BlindfoldSecretInfo: func() *NfvServiceHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
-															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo != nil {
-																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo
-															}
 															if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 																return &NfvServiceHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
 																	DecryptionProvider: func() types.String {
@@ -7311,9 +7275,6 @@ func (r *NfvServiceResource) Read(ctx context.Context, req resource.ReadRequest,
 															return nil
 														}(),
 														ClearSecretInfo: func() *NfvServiceHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesPrivateKeyClearSecretInfoModel {
-															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo != nil {
-																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo
-															}
 															if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 																return &NfvServiceHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesPrivateKeyClearSecretInfoModel{
 																	Provider: func() types.String {
@@ -7616,9 +7577,6 @@ func (r *NfvServiceResource) Read(ctx context.Context, req resource.ReadRequest,
 												if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
 													return &NfvServiceHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesPrivateKeyModel{
 														BlindfoldSecretInfo: func() *NfvServiceHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
-															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo != nil {
-																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo
-															}
 															if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 																return &NfvServiceHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
 																	DecryptionProvider: func() types.String {
@@ -7644,9 +7602,6 @@ func (r *NfvServiceResource) Read(ctx context.Context, req resource.ReadRequest,
 															return nil
 														}(),
 														ClearSecretInfo: func() *NfvServiceHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesPrivateKeyClearSecretInfoModel {
-															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo != nil {
-																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo
-															}
 															if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 																return &NfvServiceHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesPrivateKeyClearSecretInfoModel{
 																	Provider: func() types.String {
@@ -7949,9 +7904,6 @@ func (r *NfvServiceResource) Read(ctx context.Context, req resource.ReadRequest,
 												if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
 													return &NfvServiceHTTPSManagementAdvertiseOnSloSLITLSCertificatesPrivateKeyModel{
 														BlindfoldSecretInfo: func() *NfvServiceHTTPSManagementAdvertiseOnSloSLITLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
-															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo != nil {
-																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo
-															}
 															if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 																return &NfvServiceHTTPSManagementAdvertiseOnSloSLITLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
 																	DecryptionProvider: func() types.String {
@@ -7977,9 +7929,6 @@ func (r *NfvServiceResource) Read(ctx context.Context, req resource.ReadRequest,
 															return nil
 														}(),
 														ClearSecretInfo: func() *NfvServiceHTTPSManagementAdvertiseOnSloSLITLSCertificatesPrivateKeyClearSecretInfoModel {
-															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo != nil {
-																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo
-															}
 															if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 																return &NfvServiceHTTPSManagementAdvertiseOnSloSLITLSCertificatesPrivateKeyClearSecretInfoModel{
 																	Provider: func() types.String {
@@ -8282,9 +8231,6 @@ func (r *NfvServiceResource) Read(ctx context.Context, req resource.ReadRequest,
 												if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
 													return &NfvServiceHTTPSManagementAdvertiseOnSloVIPTLSCertificatesPrivateKeyModel{
 														BlindfoldSecretInfo: func() *NfvServiceHTTPSManagementAdvertiseOnSloVIPTLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
-															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo != nil {
-																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo
-															}
 															if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 																return &NfvServiceHTTPSManagementAdvertiseOnSloVIPTLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
 																	DecryptionProvider: func() types.String {
@@ -8310,9 +8256,6 @@ func (r *NfvServiceResource) Read(ctx context.Context, req resource.ReadRequest,
 															return nil
 														}(),
 														ClearSecretInfo: func() *NfvServiceHTTPSManagementAdvertiseOnSloVIPTLSCertificatesPrivateKeyClearSecretInfoModel {
-															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo != nil {
-																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo
-															}
 															if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 																return &NfvServiceHTTPSManagementAdvertiseOnSloVIPTLSCertificatesPrivateKeyClearSecretInfoModel{
 																	Provider: func() types.String {
@@ -8650,15 +8593,9 @@ func (r *NfvServiceResource) Read(ctx context.Context, req resource.ReadRequest,
 							if ManualSSHKeysData, ok := AutoSetupData["manual_ssh_keys"].(map[string]interface{}); ok {
 								return &NfvServicePaloAltoFwServiceAutoSetupManualSSHKeysModel{
 									PrivateKey: func() *NfvServicePaloAltoFwServiceAutoSetupManualSSHKeysPrivateKeyModel {
-										if !isImport && data.PaloAltoFwService != nil && data.PaloAltoFwService.AutoSetup != nil && data.PaloAltoFwService.AutoSetup.ManualSSHKeys != nil && data.PaloAltoFwService.AutoSetup.ManualSSHKeys.PrivateKey != nil {
-											return data.PaloAltoFwService.AutoSetup.ManualSSHKeys.PrivateKey
-										}
 										if PrivateKeyData, ok := ManualSSHKeysData["private_key"].(map[string]interface{}); ok {
 											return &NfvServicePaloAltoFwServiceAutoSetupManualSSHKeysPrivateKeyModel{
 												BlindfoldSecretInfo: func() *NfvServicePaloAltoFwServiceAutoSetupManualSSHKeysPrivateKeyBlindfoldSecretInfoModel {
-													if !isImport && data.PaloAltoFwService != nil && data.PaloAltoFwService.AutoSetup != nil && data.PaloAltoFwService.AutoSetup.ManualSSHKeys != nil && data.PaloAltoFwService.AutoSetup.ManualSSHKeys.PrivateKey != nil && data.PaloAltoFwService.AutoSetup.ManualSSHKeys.PrivateKey.BlindfoldSecretInfo != nil {
-														return data.PaloAltoFwService.AutoSetup.ManualSSHKeys.PrivateKey.BlindfoldSecretInfo
-													}
 													if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 														return &NfvServicePaloAltoFwServiceAutoSetupManualSSHKeysPrivateKeyBlindfoldSecretInfoModel{
 															DecryptionProvider: func() types.String {
@@ -8684,9 +8621,6 @@ func (r *NfvServiceResource) Read(ctx context.Context, req resource.ReadRequest,
 													return nil
 												}(),
 												ClearSecretInfo: func() *NfvServicePaloAltoFwServiceAutoSetupManualSSHKeysPrivateKeyClearSecretInfoModel {
-													if !isImport && data.PaloAltoFwService != nil && data.PaloAltoFwService.AutoSetup != nil && data.PaloAltoFwService.AutoSetup.ManualSSHKeys != nil && data.PaloAltoFwService.AutoSetup.ManualSSHKeys.PrivateKey != nil && data.PaloAltoFwService.AutoSetup.ManualSSHKeys.PrivateKey.ClearSecretInfo != nil {
-														return data.PaloAltoFwService.AutoSetup.ManualSSHKeys.PrivateKey.ClearSecretInfo
-													}
 													if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 														return &NfvServicePaloAltoFwServiceAutoSetupManualSSHKeysPrivateKeyClearSecretInfoModel{
 															Provider: func() types.String {
@@ -10726,9 +10660,6 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 												if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
 													return &NfvServiceHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesPrivateKeyModel{
 														BlindfoldSecretInfo: func() *NfvServiceHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
-															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo != nil {
-																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo
-															}
 															if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 																return &NfvServiceHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
 																	DecryptionProvider: func() types.String {
@@ -10754,9 +10685,6 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 															return nil
 														}(),
 														ClearSecretInfo: func() *NfvServiceHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesPrivateKeyClearSecretInfoModel {
-															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo != nil {
-																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo
-															}
 															if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 																return &NfvServiceHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesPrivateKeyClearSecretInfoModel{
 																	Provider: func() types.String {
@@ -11059,9 +10987,6 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 												if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
 													return &NfvServiceHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesPrivateKeyModel{
 														BlindfoldSecretInfo: func() *NfvServiceHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
-															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo != nil {
-																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo
-															}
 															if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 																return &NfvServiceHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
 																	DecryptionProvider: func() types.String {
@@ -11087,9 +11012,6 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 															return nil
 														}(),
 														ClearSecretInfo: func() *NfvServiceHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesPrivateKeyClearSecretInfoModel {
-															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo != nil {
-																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo
-															}
 															if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 																return &NfvServiceHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesPrivateKeyClearSecretInfoModel{
 																	Provider: func() types.String {
@@ -11392,9 +11314,6 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 												if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
 													return &NfvServiceHTTPSManagementAdvertiseOnSloSLITLSCertificatesPrivateKeyModel{
 														BlindfoldSecretInfo: func() *NfvServiceHTTPSManagementAdvertiseOnSloSLITLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
-															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo != nil {
-																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo
-															}
 															if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 																return &NfvServiceHTTPSManagementAdvertiseOnSloSLITLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
 																	DecryptionProvider: func() types.String {
@@ -11420,9 +11339,6 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 															return nil
 														}(),
 														ClearSecretInfo: func() *NfvServiceHTTPSManagementAdvertiseOnSloSLITLSCertificatesPrivateKeyClearSecretInfoModel {
-															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo != nil {
-																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo
-															}
 															if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 																return &NfvServiceHTTPSManagementAdvertiseOnSloSLITLSCertificatesPrivateKeyClearSecretInfoModel{
 																	Provider: func() types.String {
@@ -11725,9 +11641,6 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 												if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
 													return &NfvServiceHTTPSManagementAdvertiseOnSloVIPTLSCertificatesPrivateKeyModel{
 														BlindfoldSecretInfo: func() *NfvServiceHTTPSManagementAdvertiseOnSloVIPTLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
-															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo != nil {
-																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo
-															}
 															if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 																return &NfvServiceHTTPSManagementAdvertiseOnSloVIPTLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
 																	DecryptionProvider: func() types.String {
@@ -11753,9 +11666,6 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 															return nil
 														}(),
 														ClearSecretInfo: func() *NfvServiceHTTPSManagementAdvertiseOnSloVIPTLSCertificatesPrivateKeyClearSecretInfoModel {
-															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo != nil {
-																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo
-															}
 															if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 																return &NfvServiceHTTPSManagementAdvertiseOnSloVIPTLSCertificatesPrivateKeyClearSecretInfoModel{
 																	Provider: func() types.String {
@@ -12093,15 +12003,9 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 							if ManualSSHKeysData, ok := AutoSetupData["manual_ssh_keys"].(map[string]interface{}); ok {
 								return &NfvServicePaloAltoFwServiceAutoSetupManualSSHKeysModel{
 									PrivateKey: func() *NfvServicePaloAltoFwServiceAutoSetupManualSSHKeysPrivateKeyModel {
-										if !isImport && data.PaloAltoFwService != nil && data.PaloAltoFwService.AutoSetup != nil && data.PaloAltoFwService.AutoSetup.ManualSSHKeys != nil && data.PaloAltoFwService.AutoSetup.ManualSSHKeys.PrivateKey != nil {
-											return data.PaloAltoFwService.AutoSetup.ManualSSHKeys.PrivateKey
-										}
 										if PrivateKeyData, ok := ManualSSHKeysData["private_key"].(map[string]interface{}); ok {
 											return &NfvServicePaloAltoFwServiceAutoSetupManualSSHKeysPrivateKeyModel{
 												BlindfoldSecretInfo: func() *NfvServicePaloAltoFwServiceAutoSetupManualSSHKeysPrivateKeyBlindfoldSecretInfoModel {
-													if !isImport && data.PaloAltoFwService != nil && data.PaloAltoFwService.AutoSetup != nil && data.PaloAltoFwService.AutoSetup.ManualSSHKeys != nil && data.PaloAltoFwService.AutoSetup.ManualSSHKeys.PrivateKey != nil && data.PaloAltoFwService.AutoSetup.ManualSSHKeys.PrivateKey.BlindfoldSecretInfo != nil {
-														return data.PaloAltoFwService.AutoSetup.ManualSSHKeys.PrivateKey.BlindfoldSecretInfo
-													}
 													if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 														return &NfvServicePaloAltoFwServiceAutoSetupManualSSHKeysPrivateKeyBlindfoldSecretInfoModel{
 															DecryptionProvider: func() types.String {
@@ -12127,9 +12031,6 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 													return nil
 												}(),
 												ClearSecretInfo: func() *NfvServicePaloAltoFwServiceAutoSetupManualSSHKeysPrivateKeyClearSecretInfoModel {
-													if !isImport && data.PaloAltoFwService != nil && data.PaloAltoFwService.AutoSetup != nil && data.PaloAltoFwService.AutoSetup.ManualSSHKeys != nil && data.PaloAltoFwService.AutoSetup.ManualSSHKeys.PrivateKey != nil && data.PaloAltoFwService.AutoSetup.ManualSSHKeys.PrivateKey.ClearSecretInfo != nil {
-														return data.PaloAltoFwService.AutoSetup.ManualSSHKeys.PrivateKey.ClearSecretInfo
-													}
 													if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 														return &NfvServicePaloAltoFwServiceAutoSetupManualSSHKeysPrivateKeyClearSecretInfoModel{
 															Provider: func() types.String {

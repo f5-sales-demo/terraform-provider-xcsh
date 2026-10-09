@@ -45,7 +45,7 @@ var (
 )
 
 func NewHTTPLoadBalancerResource() resource.Resource {
-	return &HTTPLoadBalancerResource{}
+	return newBlindfoldResource(&HTTPLoadBalancerResource{}, "/api/config/namespaces/%s/http_loadbalancers", "/api/config/namespaces/%s/http_loadbalancers/%s", false)
 }
 
 type HTTPLoadBalancerResource struct {
@@ -45694,9 +45694,6 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 															if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
 																return &HTTPLoadBalancerDefaultPoolUseTLSUseMtlsTLSCertificatesPrivateKeyModel{
 																	BlindfoldSecretInfo: func() *HTTPLoadBalancerDefaultPoolUseTLSUseMtlsTLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
-																		if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo != nil {
-																			return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo
-																		}
 																		if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 																			return &HTTPLoadBalancerDefaultPoolUseTLSUseMtlsTLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
 																				DecryptionProvider: func() types.String {
@@ -45722,9 +45719,6 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																		return nil
 																	}(),
 																	ClearSecretInfo: func() *HTTPLoadBalancerDefaultPoolUseTLSUseMtlsTLSCertificatesPrivateKeyClearSecretInfoModel {
-																		if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo != nil {
-																			return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo
-																		}
 																		if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 																			return &HTTPLoadBalancerDefaultPoolUseTLSUseMtlsTLSCertificatesPrivateKeyClearSecretInfoModel{
 																				Provider: func() types.String {
@@ -47248,9 +47242,6 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 												if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
 													return &HTTPLoadBalancerHTTPSTLSParametersTLSCertificatesPrivateKeyModel{
 														BlindfoldSecretInfo: func() *HTTPLoadBalancerHTTPSTLSParametersTLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
-															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo != nil {
-																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo
-															}
 															if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 																return &HTTPLoadBalancerHTTPSTLSParametersTLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
 																	DecryptionProvider: func() types.String {
@@ -47276,9 +47267,6 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 															return nil
 														}(),
 														ClearSecretInfo: func() *HTTPLoadBalancerHTTPSTLSParametersTLSCertificatesPrivateKeyClearSecretInfoModel {
-															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo != nil {
-																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo
-															}
 															if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 																return &HTTPLoadBalancerHTTPSTLSParametersTLSCertificatesPrivateKeyClearSecretInfoModel{
 																	Provider: func() types.String {
@@ -66002,9 +65990,6 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 															if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
 																return &HTTPLoadBalancerDefaultPoolUseTLSUseMtlsTLSCertificatesPrivateKeyModel{
 																	BlindfoldSecretInfo: func() *HTTPLoadBalancerDefaultPoolUseTLSUseMtlsTLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
-																		if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo != nil {
-																			return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo
-																		}
 																		if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 																			return &HTTPLoadBalancerDefaultPoolUseTLSUseMtlsTLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
 																				DecryptionProvider: func() types.String {
@@ -66030,9 +66015,6 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																		return nil
 																	}(),
 																	ClearSecretInfo: func() *HTTPLoadBalancerDefaultPoolUseTLSUseMtlsTLSCertificatesPrivateKeyClearSecretInfoModel {
-																		if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo != nil {
-																			return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo
-																		}
 																		if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 																			return &HTTPLoadBalancerDefaultPoolUseTLSUseMtlsTLSCertificatesPrivateKeyClearSecretInfoModel{
 																				Provider: func() types.String {
@@ -67556,9 +67538,6 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 												if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
 													return &HTTPLoadBalancerHTTPSTLSParametersTLSCertificatesPrivateKeyModel{
 														BlindfoldSecretInfo: func() *HTTPLoadBalancerHTTPSTLSParametersTLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
-															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo != nil {
-																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo
-															}
 															if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 																return &HTTPLoadBalancerHTTPSTLSParametersTLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
 																	DecryptionProvider: func() types.String {
@@ -67584,9 +67563,6 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 															return nil
 														}(),
 														ClearSecretInfo: func() *HTTPLoadBalancerHTTPSTLSParametersTLSCertificatesPrivateKeyClearSecretInfoModel {
-															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo != nil {
-																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo
-															}
 															if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 																return &HTTPLoadBalancerHTTPSTLSParametersTLSCertificatesPrivateKeyClearSecretInfoModel{
 																	Provider: func() types.String {
@@ -95692,9 +95668,6 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 															if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
 																return &HTTPLoadBalancerDefaultPoolUseTLSUseMtlsTLSCertificatesPrivateKeyModel{
 																	BlindfoldSecretInfo: func() *HTTPLoadBalancerDefaultPoolUseTLSUseMtlsTLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
-																		if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo != nil {
-																			return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo
-																		}
 																		if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 																			return &HTTPLoadBalancerDefaultPoolUseTLSUseMtlsTLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
 																				DecryptionProvider: func() types.String {
@@ -95720,9 +95693,6 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																		return nil
 																	}(),
 																	ClearSecretInfo: func() *HTTPLoadBalancerDefaultPoolUseTLSUseMtlsTLSCertificatesPrivateKeyClearSecretInfoModel {
-																		if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo != nil {
-																			return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo
-																		}
 																		if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 																			return &HTTPLoadBalancerDefaultPoolUseTLSUseMtlsTLSCertificatesPrivateKeyClearSecretInfoModel{
 																				Provider: func() types.String {
@@ -97246,9 +97216,6 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 												if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
 													return &HTTPLoadBalancerHTTPSTLSParametersTLSCertificatesPrivateKeyModel{
 														BlindfoldSecretInfo: func() *HTTPLoadBalancerHTTPSTLSParametersTLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
-															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo != nil {
-																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo
-															}
 															if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 																return &HTTPLoadBalancerHTTPSTLSParametersTLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
 																	DecryptionProvider: func() types.String {
@@ -97274,9 +97241,6 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 															return nil
 														}(),
 														ClearSecretInfo: func() *HTTPLoadBalancerHTTPSTLSParametersTLSCertificatesPrivateKeyClearSecretInfoModel {
-															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo != nil {
-																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo
-															}
 															if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 																return &HTTPLoadBalancerHTTPSTLSParametersTLSCertificatesPrivateKeyClearSecretInfoModel{
 																	Provider: func() types.String {

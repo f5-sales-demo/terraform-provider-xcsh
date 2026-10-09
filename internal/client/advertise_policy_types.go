@@ -27,7 +27,7 @@ func (c *Client) CreateAdvertisePolicy(ctx context.Context, resource *AdvertiseP
 func (c *Client) GetAdvertisePolicy(ctx context.Context, namespace, name string) (*AdvertisePolicy, error) {
 	var result AdvertisePolicy
 	path := fmt.Sprintf("/api/config/namespaces/%s/advertise_policys/%s", namespace, name)
-	err := c.Get(ctx, path, &result)
+	err := c.GetReplaceForm(ctx, path, &result)
 	return &result, err
 }
 

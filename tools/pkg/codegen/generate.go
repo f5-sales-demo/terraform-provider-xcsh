@@ -202,7 +202,7 @@ func GenerateResourceFile(resource *openapi.ResourceTemplate, outputDir string) 
 	}
 
 	// Format the generated code with gofmt
-	formatted, err := formatGeneratedSource(outputPath, buf.Bytes())
+	formatted, err := formatGeneratedSource(outputPath, decorateBlindfoldConstructor(resource, buf.Bytes()))
 	if err != nil {
 		// If formatting fails, write unformatted code with warning
 		fmt.Printf("Warning: gofmt failed for %s: %v (writing unformatted)\n", outputPath, err)
@@ -231,6 +231,7 @@ func GenerateClientTypes(resource *openapi.ResourceTemplate, clientDir string) e
 
 	// Create template with custom functions for spec field generation
 	funcMap := template.FuncMap{
+		"hasBlindfoldNodes": hasBlindfoldNodes,
 		"renderSpecStructFields": func(attrs []openapi.TerraformAttribute) string {
 			return RenderSpecStructFields(attrs, "\t")
 		},

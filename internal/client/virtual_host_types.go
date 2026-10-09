@@ -27,7 +27,7 @@ func (c *Client) CreateVirtualHost(ctx context.Context, resource *VirtualHost) (
 func (c *Client) GetVirtualHost(ctx context.Context, namespace, name string) (*VirtualHost, error) {
 	var result VirtualHost
 	path := fmt.Sprintf("/api/config/namespaces/%s/virtual_hosts/%s", namespace, name)
-	err := c.Get(ctx, path, &result)
+	err := c.GetReplaceForm(ctx, path, &result)
 	return &result, err
 }
 

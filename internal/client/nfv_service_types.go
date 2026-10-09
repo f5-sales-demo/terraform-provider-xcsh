@@ -27,7 +27,7 @@ func (c *Client) CreateNfvService(ctx context.Context, resource *NfvService) (*N
 func (c *Client) GetNfvService(ctx context.Context, namespace, name string) (*NfvService, error) {
 	var result NfvService
 	path := fmt.Sprintf("/api/config/namespaces/%s/nfv_services/%s", namespace, name)
-	err := c.Get(ctx, path, &result)
+	err := c.GetReplaceForm(ctx, path, &result)
 	return &result, err
 }
 

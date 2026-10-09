@@ -7210,15 +7210,9 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 															return types.StringNull()
 														}(),
 														ClientPrivateKey: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyModel {
-															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey != nil {
-																return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey
-															}
 															if ClientPrivateKeyData, ok := NetappBackendOntapNasData["client_private_key"].(map[string]interface{}); ok {
 																return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyModel{
 																	BlindfoldSecretInfo: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyBlindfoldSecretInfoModel {
-																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfo != nil {
-																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfo
-																		}
 																		if BlindfoldSecretInfoData, ok := ClientPrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 																			return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyBlindfoldSecretInfoModel{
 																				DecryptionProvider: func() types.String {
@@ -7244,9 +7238,6 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 																		return nil
 																	}(),
 																	ClearSecretInfo: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyClearSecretInfoModel {
-																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey.ClearSecretInfo != nil {
-																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey.ClearSecretInfo
-																		}
 																		if ClearSecretInfoData, ok := ClientPrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 																			return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyClearSecretInfoModel{
 																				Provider: func() types.String {
@@ -7667,15 +7658,9 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 															return types.StringNull()
 														}(),
 														ClientPrivateKey: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyModel {
-															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey != nil {
-																return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey
-															}
 															if ClientPrivateKeyData, ok := NetappBackendOntapSanData["client_private_key"].(map[string]interface{}); ok {
 																return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyModel{
 																	BlindfoldSecretInfo: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyBlindfoldSecretInfoModel {
-																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfo != nil {
-																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfo
-																		}
 																		if BlindfoldSecretInfoData, ok := ClientPrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 																			return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyBlindfoldSecretInfoModel{
 																				DecryptionProvider: func() types.String {
@@ -7701,9 +7686,6 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 																		return nil
 																	}(),
 																	ClearSecretInfo: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyClearSecretInfoModel {
-																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey.ClearSecretInfo != nil {
-																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey.ClearSecretInfo
-																		}
 																		if ClearSecretInfoData, ok := ClientPrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 																			return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyClearSecretInfoModel{
 																				Provider: func() types.String {
@@ -10481,15 +10463,9 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 															return types.StringNull()
 														}(),
 														ClientPrivateKey: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyModel {
-															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey != nil {
-																return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey
-															}
 															if ClientPrivateKeyData, ok := NetappBackendOntapNasData["client_private_key"].(map[string]interface{}); ok {
 																return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyModel{
 																	BlindfoldSecretInfo: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyBlindfoldSecretInfoModel {
-																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfo != nil {
-																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfo
-																		}
 																		if BlindfoldSecretInfoData, ok := ClientPrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 																			return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyBlindfoldSecretInfoModel{
 																				DecryptionProvider: func() types.String {
@@ -10515,9 +10491,6 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 																		return nil
 																	}(),
 																	ClearSecretInfo: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyClearSecretInfoModel {
-																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey.ClearSecretInfo != nil {
-																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey.ClearSecretInfo
-																		}
 																		if ClearSecretInfoData, ok := ClientPrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 																			return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyClearSecretInfoModel{
 																				Provider: func() types.String {
@@ -10938,15 +10911,9 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 															return types.StringNull()
 														}(),
 														ClientPrivateKey: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyModel {
-															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey != nil {
-																return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey
-															}
 															if ClientPrivateKeyData, ok := NetappBackendOntapSanData["client_private_key"].(map[string]interface{}); ok {
 																return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyModel{
 																	BlindfoldSecretInfo: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyBlindfoldSecretInfoModel {
-																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfo != nil {
-																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfo
-																		}
 																		if BlindfoldSecretInfoData, ok := ClientPrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 																			return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyBlindfoldSecretInfoModel{
 																				DecryptionProvider: func() types.String {
@@ -10972,9 +10939,6 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 																		return nil
 																	}(),
 																	ClearSecretInfo: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyClearSecretInfoModel {
-																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey.ClearSecretInfo != nil {
-																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey.ClearSecretInfo
-																		}
 																		if ClearSecretInfoData, ok := ClientPrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 																			return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyClearSecretInfoModel{
 																				Provider: func() types.String {
@@ -15272,15 +15236,9 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 															return types.StringNull()
 														}(),
 														ClientPrivateKey: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyModel {
-															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey != nil {
-																return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey
-															}
 															if ClientPrivateKeyData, ok := NetappBackendOntapNasData["client_private_key"].(map[string]interface{}); ok {
 																return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyModel{
 																	BlindfoldSecretInfo: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyBlindfoldSecretInfoModel {
-																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfo != nil {
-																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfo
-																		}
 																		if BlindfoldSecretInfoData, ok := ClientPrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 																			return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyBlindfoldSecretInfoModel{
 																				DecryptionProvider: func() types.String {
@@ -15306,9 +15264,6 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 																		return nil
 																	}(),
 																	ClearSecretInfo: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyClearSecretInfoModel {
-																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey.ClearSecretInfo != nil {
-																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey.ClearSecretInfo
-																		}
 																		if ClearSecretInfoData, ok := ClientPrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 																			return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyClearSecretInfoModel{
 																				Provider: func() types.String {
@@ -15729,15 +15684,9 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 															return types.StringNull()
 														}(),
 														ClientPrivateKey: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyModel {
-															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey != nil {
-																return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey
-															}
 															if ClientPrivateKeyData, ok := NetappBackendOntapSanData["client_private_key"].(map[string]interface{}); ok {
 																return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyModel{
 																	BlindfoldSecretInfo: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyBlindfoldSecretInfoModel {
-																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfo != nil {
-																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfo
-																		}
 																		if BlindfoldSecretInfoData, ok := ClientPrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 																			return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyBlindfoldSecretInfoModel{
 																				DecryptionProvider: func() types.String {
@@ -15763,9 +15712,6 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 																		return nil
 																	}(),
 																	ClearSecretInfo: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyClearSecretInfoModel {
-																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey.ClearSecretInfo != nil {
-																			return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey.ClearSecretInfo
-																		}
 																		if ClearSecretInfoData, ok := ClientPrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 																			return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyClearSecretInfoModel{
 																				Provider: func() types.String {

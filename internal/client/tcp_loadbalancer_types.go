@@ -27,7 +27,7 @@ func (c *Client) CreateTCPLoadBalancer(ctx context.Context, resource *TCPLoadBal
 func (c *Client) GetTCPLoadBalancer(ctx context.Context, namespace, name string) (*TCPLoadBalancer, error) {
 	var result TCPLoadBalancer
 	path := fmt.Sprintf("/api/config/namespaces/%s/tcp_loadbalancers/%s", namespace, name)
-	err := c.Get(ctx, path, &result)
+	err := c.GetReplaceForm(ctx, path, &result)
 	return &result, err
 }
 

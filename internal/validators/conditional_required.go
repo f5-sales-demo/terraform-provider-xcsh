@@ -69,6 +69,11 @@ func (v requiredListObjectAttributesValidator) ValidateList(ctx context.Context,
 func validateRequiredObjectAttributes(object types.Object, objectPath path.Path, names []string, resp *validator.ObjectResponse) {
 	attributes := object.Attributes()
 	for _, name := range names {
+		if name == "certificate_url" {
+			if native, ok := attributes["blindfold"]; ok && (!native.IsNull() || native.IsUnknown()) {
+				continue
+			}
+		}
 		value, ok := attributes[name]
 		if ok && (!value.IsNull() || value.IsUnknown()) {
 			continue

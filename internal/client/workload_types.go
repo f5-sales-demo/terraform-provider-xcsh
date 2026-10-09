@@ -27,7 +27,7 @@ func (c *Client) CreateWorkload(ctx context.Context, resource *Workload) (*Workl
 func (c *Client) GetWorkload(ctx context.Context, namespace, name string) (*Workload, error) {
 	var result Workload
 	path := fmt.Sprintf("/api/config/namespaces/%s/workloads/%s", namespace, name)
-	err := c.Get(ctx, path, &result)
+	err := c.GetReplaceForm(ctx, path, &result)
 	return &result, err
 }
 

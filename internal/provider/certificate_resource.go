@@ -39,7 +39,7 @@ var (
 )
 
 func NewCertificateResource() resource.Resource {
-	return &CertificateResource{}
+	return newBlindfoldResource(&CertificateResource{}, "/api/config/namespaces/%s/certificates", "/api/config/namespaces/%s/certificates/%s", true)
 }
 
 type CertificateResource struct {
@@ -588,9 +588,6 @@ func (r *CertificateResource) Create(ctx context.Context, req resource.CreateReq
 	if blockData, ok := apiResource.Spec["private_key"].(map[string]interface{}); ok && (isImport || data.PrivateKey != nil) {
 		data.PrivateKey = &CertificatePrivateKeyModel{
 			BlindfoldSecretInfo: func() *CertificatePrivateKeyBlindfoldSecretInfoModel {
-				if !isImport && data.PrivateKey != nil && data.PrivateKey.BlindfoldSecretInfo != nil {
-					return data.PrivateKey.BlindfoldSecretInfo
-				}
 				if BlindfoldSecretInfoData, ok := blockData["blindfold_secret_info"].(map[string]interface{}); ok {
 					return &CertificatePrivateKeyBlindfoldSecretInfoModel{
 						DecryptionProvider: func() types.String {
@@ -616,9 +613,6 @@ func (r *CertificateResource) Create(ctx context.Context, req resource.CreateReq
 				return nil
 			}(),
 			ClearSecretInfo: func() *CertificatePrivateKeyClearSecretInfoModel {
-				if !isImport && data.PrivateKey != nil && data.PrivateKey.ClearSecretInfo != nil {
-					return data.PrivateKey.ClearSecretInfo
-				}
 				if ClearSecretInfoData, ok := blockData["clear_secret_info"].(map[string]interface{}); ok {
 					return &CertificatePrivateKeyClearSecretInfoModel{
 						Provider: func() types.String {
@@ -832,9 +826,6 @@ func (r *CertificateResource) Read(ctx context.Context, req resource.ReadRequest
 	if blockData, ok := apiResource.Spec["private_key"].(map[string]interface{}); ok && (isImport || data.PrivateKey != nil) {
 		data.PrivateKey = &CertificatePrivateKeyModel{
 			BlindfoldSecretInfo: func() *CertificatePrivateKeyBlindfoldSecretInfoModel {
-				if !isImport && data.PrivateKey != nil && data.PrivateKey.BlindfoldSecretInfo != nil {
-					return data.PrivateKey.BlindfoldSecretInfo
-				}
 				if BlindfoldSecretInfoData, ok := blockData["blindfold_secret_info"].(map[string]interface{}); ok {
 					return &CertificatePrivateKeyBlindfoldSecretInfoModel{
 						DecryptionProvider: func() types.String {
@@ -860,9 +851,6 @@ func (r *CertificateResource) Read(ctx context.Context, req resource.ReadRequest
 				return nil
 			}(),
 			ClearSecretInfo: func() *CertificatePrivateKeyClearSecretInfoModel {
-				if !isImport && data.PrivateKey != nil && data.PrivateKey.ClearSecretInfo != nil {
-					return data.PrivateKey.ClearSecretInfo
-				}
 				if ClearSecretInfoData, ok := blockData["clear_secret_info"].(map[string]interface{}); ok {
 					return &CertificatePrivateKeyClearSecretInfoModel{
 						Provider: func() types.String {
@@ -1156,9 +1144,6 @@ func (r *CertificateResource) Update(ctx context.Context, req resource.UpdateReq
 	if blockData, ok := apiResource.Spec["private_key"].(map[string]interface{}); ok && (isImport || data.PrivateKey != nil) {
 		data.PrivateKey = &CertificatePrivateKeyModel{
 			BlindfoldSecretInfo: func() *CertificatePrivateKeyBlindfoldSecretInfoModel {
-				if !isImport && data.PrivateKey != nil && data.PrivateKey.BlindfoldSecretInfo != nil {
-					return data.PrivateKey.BlindfoldSecretInfo
-				}
 				if BlindfoldSecretInfoData, ok := blockData["blindfold_secret_info"].(map[string]interface{}); ok {
 					return &CertificatePrivateKeyBlindfoldSecretInfoModel{
 						DecryptionProvider: func() types.String {
@@ -1184,9 +1169,6 @@ func (r *CertificateResource) Update(ctx context.Context, req resource.UpdateReq
 				return nil
 			}(),
 			ClearSecretInfo: func() *CertificatePrivateKeyClearSecretInfoModel {
-				if !isImport && data.PrivateKey != nil && data.PrivateKey.ClearSecretInfo != nil {
-					return data.PrivateKey.ClearSecretInfo
-				}
 				if ClearSecretInfoData, ok := blockData["clear_secret_info"].(map[string]interface{}); ok {
 					return &CertificatePrivateKeyClearSecretInfoModel{
 						Provider: func() types.String {

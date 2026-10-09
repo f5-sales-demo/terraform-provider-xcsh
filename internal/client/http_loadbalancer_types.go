@@ -27,7 +27,7 @@ func (c *Client) CreateHTTPLoadBalancer(ctx context.Context, resource *HTTPLoadB
 func (c *Client) GetHTTPLoadBalancer(ctx context.Context, namespace, name string) (*HTTPLoadBalancer, error) {
 	var result HTTPLoadBalancer
 	path := fmt.Sprintf("/api/config/namespaces/%s/http_loadbalancers/%s", namespace, name)
-	err := c.Get(ctx, path, &result)
+	err := c.GetReplaceForm(ctx, path, &result)
 	return &result, err
 }
 

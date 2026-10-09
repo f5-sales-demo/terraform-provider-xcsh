@@ -27,7 +27,7 @@ func (c *Client) CreateNetworkConnector(ctx context.Context, resource *NetworkCo
 func (c *Client) GetNetworkConnector(ctx context.Context, namespace, name string) (*NetworkConnector, error) {
 	var result NetworkConnector
 	path := fmt.Sprintf("/api/config/namespaces/%s/network_connectors/%s", namespace, name)
-	err := c.Get(ctx, path, &result)
+	err := c.GetReplaceForm(ctx, path, &result)
 	return &result, err
 }
 

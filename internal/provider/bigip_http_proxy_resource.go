@@ -42,7 +42,7 @@ var (
 )
 
 func NewBigIPHTTPProxyResource() resource.Resource {
-	return &BigIPHTTPProxyResource{}
+	return newBlindfoldResource(&BigIPHTTPProxyResource{}, "/api/config/namespaces/%s/bigip_http_proxys", "/api/config/namespaces/%s/bigip_http_proxys/%s", false)
 }
 
 type BigIPHTTPProxyResource struct {
@@ -6069,9 +6069,6 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 															if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
 																return &BigIPHTTPProxyProxyConfigHTTPSTLSParametersTLSCertificatesPrivateKeyModel{
 																	BlindfoldSecretInfo: func() *BigIPHTTPProxyProxyConfigHTTPSTLSParametersTLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
-																		if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo != nil {
-																			return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo
-																		}
 																		if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 																			return &BigIPHTTPProxyProxyConfigHTTPSTLSParametersTLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
 																				DecryptionProvider: func() types.String {
@@ -6097,9 +6094,6 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 																		return nil
 																	}(),
 																	ClearSecretInfo: func() *BigIPHTTPProxyProxyConfigHTTPSTLSParametersTLSCertificatesPrivateKeyClearSecretInfoModel {
-																		if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo != nil {
-																			return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo
-																		}
 																		if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 																			return &BigIPHTTPProxyProxyConfigHTTPSTLSParametersTLSCertificatesPrivateKeyClearSecretInfoModel{
 																				Provider: func() types.String {
@@ -8498,9 +8492,6 @@ func (r *BigIPHTTPProxyResource) Read(ctx context.Context, req resource.ReadRequ
 															if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
 																return &BigIPHTTPProxyProxyConfigHTTPSTLSParametersTLSCertificatesPrivateKeyModel{
 																	BlindfoldSecretInfo: func() *BigIPHTTPProxyProxyConfigHTTPSTLSParametersTLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
-																		if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo != nil {
-																			return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo
-																		}
 																		if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 																			return &BigIPHTTPProxyProxyConfigHTTPSTLSParametersTLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
 																				DecryptionProvider: func() types.String {
@@ -8526,9 +8517,6 @@ func (r *BigIPHTTPProxyResource) Read(ctx context.Context, req resource.ReadRequ
 																		return nil
 																	}(),
 																	ClearSecretInfo: func() *BigIPHTTPProxyProxyConfigHTTPSTLSParametersTLSCertificatesPrivateKeyClearSecretInfoModel {
-																		if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo != nil {
-																			return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo
-																		}
 																		if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 																			return &BigIPHTTPProxyProxyConfigHTTPSTLSParametersTLSCertificatesPrivateKeyClearSecretInfoModel{
 																				Provider: func() types.String {
@@ -11942,9 +11930,6 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 															if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
 																return &BigIPHTTPProxyProxyConfigHTTPSTLSParametersTLSCertificatesPrivateKeyModel{
 																	BlindfoldSecretInfo: func() *BigIPHTTPProxyProxyConfigHTTPSTLSParametersTLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
-																		if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo != nil {
-																			return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo
-																		}
 																		if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 																			return &BigIPHTTPProxyProxyConfigHTTPSTLSParametersTLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
 																				DecryptionProvider: func() types.String {
@@ -11970,9 +11955,6 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 																		return nil
 																	}(),
 																	ClearSecretInfo: func() *BigIPHTTPProxyProxyConfigHTTPSTLSParametersTLSCertificatesPrivateKeyClearSecretInfoModel {
-																		if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo != nil {
-																			return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo
-																		}
 																		if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 																			return &BigIPHTTPProxyProxyConfigHTTPSTLSParametersTLSCertificatesPrivateKeyClearSecretInfoModel{
 																				Provider: func() types.String {
