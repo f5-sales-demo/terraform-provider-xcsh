@@ -1,0 +1,11 @@
+# Immutable public synthetic Blindfold conformance fixture; no live credential is included.
+internal/blindfold/contract/blindfold-contract-v1.txt:private-key:1
+/github/workspace/internal/blindfold/contract/blindfold-contract-v1.txt:private-key:1
+internal/blindfold/contract/synthetic.json:private-key:3
+internal/blindfold/contract/synthetic.json:private-key:4
+internal/blindfold/contract/synthetic.json:private-key:8
+internal/blindfold/contract/synthetic.json:private-key:9
+/github/workspace/internal/blindfold/contract/synthetic.json:private-key:3
+/github/workspace/internal/blindfold/contract/synthetic.json:private-key:4
+/github/workspace/internal/blindfold/contract/synthetic.json:private-key:8
+/github/workspace/internal/blindfold/contract/synthetic.json:private-key:9
