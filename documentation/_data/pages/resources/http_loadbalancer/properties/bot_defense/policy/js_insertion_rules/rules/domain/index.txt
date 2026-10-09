@@ -2,7 +2,7 @@
 page_title: "bot_defense.policy.js_insertion_rules.rules.domain"
 subcategory: "Load Balancing"
 description: "Domains names."
-xcsh_docs: {"aliases": ["bot defense policy js insertion rules rules domain"], "body_bytes": 5987, "body_sha256": "sha256:b3bc6d8430b68ff7062f46e8d53b5a447718ff4beb728cb499cbd1651b8a336f", "capabilities": ["load-balancing", "security.bot-defense"], "category": "load-balancing", "child_ids": [], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:resources:http_loadbalancer:collection", "completeness": "complete", "id": "xcsh-docs:resources:http_loadbalancer:properties:bot_defense:policy:js_insertion_rules:rules:domain", "parent_id": "xcsh-docs:resources:http_loadbalancer:properties:bot_defense:policy:js_insertion_rules:rules", "path": "documentation/resources/http_loadbalancer/properties/bot_defense/policy/js_insertion_rules/rules/domain/index.md", "product": "distributed-cloud", "provider_name": "http_loadbalancer", "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429", "provider_type": "resources", "registry_anchor": "canonical-2000321122000302-3110033333020130-1111013102331231-3013331112111232-3111201332210213-3130000122022333-2331111321011221-2030120200221031", "registry_path": "docs/guides/resources--http_loadbalancer--reference--group-010.md", "relationships": [{"anchor": "schema-bot_defense--policy--js_insertion_rules--rules--domain--exact_value", "enforcement": "provider-schema", "group": "bot_defense.policy.js_insertion_rules.rules.domain:ConflictingObjectAttributes:exact_value,regex_value", "source": "ast-validator:ConflictingObjectAttributes", "target_id": "xcsh-docs:resources:http_loadbalancer:properties:bot_defense:policy:js_insertion_rules:rules:domain", "type": "conflicts"}, {"anchor": "schema-bot_defense--policy--js_insertion_rules--rules--domain--exact_value", "enforcement": "provider-schema", "group": "bot_defense.policy.js_insertion_rules.rules.domain:ConflictingObjectAttributes:exact_value,suffix_value", "source": "ast-validator:ConflictingObjectAttributes", "target_id": "xcsh-docs:resources:http_loadbalancer:properties:bot_defense:policy:js_insertion_rules:rules:domain", "type": "conflicts"}, {"anchor": "schema-bot_defense--policy--js_insertion_rules--rules--domain--regex_value", "enforcement": "provider-schema", "group": "bot_defense.policy.js_insertion_rules.rules.domain:ConflictingObjectAttributes:exact_value,regex_value", "source": "ast-validator:ConflictingObjectAttributes", "target_id": "xcsh-docs:resources:http_loadbalancer:properties:bot_defense:policy:js_insertion_rules:rules:domain", "type": "conflicts"}, {"anchor": "schema-bot_defense--policy--js_insertion_rules--rules--domain--regex_value", "enforcement": "provider-schema", "group": "bot_defense.policy.js_insertion_rules.rules.domain:ConflictingObjectAttributes:regex_value,suffix_value", "source": "ast-validator:ConflictingObjectAttributes", "target_id": "xcsh-docs:resources:http_loadbalancer:properties:bot_defense:policy:js_insertion_rules:rules:domain", "type": "conflicts"}, {"anchor": "schema-bot_defense--policy--js_insertion_rules--rules--domain--suffix_value", "enforcement": "provider-schema", "group": "bot_defense.policy.js_insertion_rules.rules.domain:ConflictingObjectAttributes:exact_value,suffix_value", "source": "ast-validator:ConflictingObjectAttributes", "target_id": "xcsh-docs:resources:http_loadbalancer:properties:bot_defense:policy:js_insertion_rules:rules:domain", "type": "conflicts"}, {"anchor": "schema-bot_defense--policy--js_insertion_rules--rules--domain--suffix_value", "enforcement": "provider-schema", "group": "bot_defense.policy.js_insertion_rules.rules.domain:ConflictingObjectAttributes:regex_value,suffix_value", "source": "ast-validator:ConflictingObjectAttributes", "target_id": "xcsh-docs:resources:http_loadbalancer:properties:bot_defense:policy:js_insertion_rules:rules:domain", "type": "conflicts"}], "retrieval_version": 1, "role": "properties", "schema_path": ["bot_defense", "policy", "js_insertion_rules", "rules", "domain"], "schema_version": 1, "sections": [{"aliases": ["bot defense policy js insertion rules rules domain exact value"], "anchor": "schema-bot_defense--policy--js_insertion_rules--rules--domain--exact_value", "description": "Exclusive with Exact domain name.", "document_id": "xcsh-docs:resources:http_loadbalancer:properties:bot_defense:policy:js_insertion_rules:rules:domain", "enum_extraction_complete": true, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["bot_defense", "policy", "js_insertion_rules", "rules", "domain", "exact_value"], "syntax": "attribute", "type": "string"}, {"aliases": ["bot defense policy js insertion rules rules domain regex value"], "anchor": "schema-bot_defense--policy--js_insertion_rules--rules--domain--regex_value", "description": "Exclusive with Regular Expression value for the domain name.", "document_id": "xcsh-docs:resources:http_loadbalancer:properties:bot_defense:policy:js_insertion_rules:rules:domain", "enum_extraction_complete": true, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["bot_defense", "policy", "js_insertion_rules", "rules", "domain", "regex_value"], "syntax": "attribute", "type": "string"}, {"aliases": ["bot defense policy js insertion rules rules domain suffix value"], "anchor": "schema-bot_defense--policy--js_insertion_rules--rules--domain--suffix_value", "description": "Exclusive with Suffix of domain name e.g \"xyz.com\" will match \"*.xyz.com\" and \"xyz.com\"", "document_id": "xcsh-docs:resources:http_loadbalancer:properties:bot_defense:policy:js_insertion_rules:rules:domain", "enum_extraction_complete": true, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["bot_defense", "policy", "js_insertion_rules", "rules", "domain", "suffix_value"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/http_loadbalancer/properties/bot_defense/policy/js_insertion_rules/rules/domain/index.txt", "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833", "summary": "Domains names.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.3", "schema_components": ["http_loadbalancerCreateRequest"], "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"}}
+xcsh_docs: {"aliases": ["bot defense policy js insertion rules rules domain"], "body_bytes": 5118, "body_sha256": "sha256:738d6e414bf4e6fcbd5e753a699072c986a337974e323b68b0c9d0a57e5d7821", "capabilities": ["load-balancing", "security.bot-defense"], "category": "load-balancing", "child_ids": [], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:resources:http_loadbalancer:collection", "completeness": "complete", "id": "xcsh-docs:resources:http_loadbalancer:properties:bot_defense:policy:js_insertion_rules:rules:domain", "parent_id": "xcsh-docs:resources:http_loadbalancer:properties:bot_defense:policy:js_insertion_rules:rules", "path": "documentation/resources/http_loadbalancer/properties/bot_defense/policy/js_insertion_rules/rules/domain/index.md", "product": "distributed-cloud", "provider_name": "http_loadbalancer", "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829", "provider_type": "resources", "registry_anchor": "canonical-2000321122000302-3110033333020130-1111013102331231-3013331112111232-3111201332210213-3130000122022333-2331111321011221-2030120200221031", "registry_path": "docs/guides/resources--http_loadbalancer--reference--group-012.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["bot_defense", "policy", "js_insertion_rules", "rules", "domain"], "schema_version": 1, "sections": [{"aliases": ["bot defense policy js insertion rules rules domain exact value"], "anchor": "schema-bot_defense--policy--js_insertion_rules--rules--domain--exact_value", "description": "Exclusive with Exact domain name.", "document_id": "xcsh-docs:resources:http_loadbalancer:properties:bot_defense:policy:js_insertion_rules:rules:domain", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["bot_defense", "policy", "js_insertion_rules", "rules", "domain", "exact_value"], "syntax": "attribute", "type": "string"}, {"aliases": ["bot defense policy js insertion rules rules domain regex value"], "anchor": "schema-bot_defense--policy--js_insertion_rules--rules--domain--regex_value", "description": "Exclusive with Regular Expression value for the domain name.", "document_id": "xcsh-docs:resources:http_loadbalancer:properties:bot_defense:policy:js_insertion_rules:rules:domain", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["bot_defense", "policy", "js_insertion_rules", "rules", "domain", "regex_value"], "syntax": "attribute", "type": "string"}, {"aliases": ["bot defense policy js insertion rules rules domain suffix value"], "anchor": "schema-bot_defense--policy--js_insertion_rules--rules--domain--suffix_value", "description": "Exclusive with Suffix of domain name e.g \"xyz.com\" will match \"*.xyz.com\" and \"xyz.com\"", "document_id": "xcsh-docs:resources:http_loadbalancer:properties:bot_defense:policy:js_insertion_rules:rules:domain", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["bot_defense", "policy", "js_insertion_rules", "rules", "domain", "suffix_value"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/http_loadbalancer/properties/bot_defense/policy/js_insertion_rules/rules/domain/index.txt", "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1", "summary": "Domains names.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.4", "schema_components": ["http_loadbalancerCreateRequest"], "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -30,18 +30,6 @@ Domain name for routing and identification.
 Additional upstream details:
 
 Domains names.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.ConflictingObjectAttributes("exact_value",
-    "regex_value"),
-  validators.ConflictingObjectAttributes("exact_value",
-    "suffix_value"),
-  validators.ConflictingObjectAttributes("regex_value",
-    "suffix_value")}
-```
 
 Receipt-pinned upstream constraints:
 
@@ -75,15 +63,6 @@ Type: `"string"`. Optional.
 
 Exclusive with \[regex\_value suffix\_value\] Exact domain name.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 256),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -99,7 +78,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1
   },
@@ -130,15 +109,6 @@ Type: `"string"`. Optional.
 
 Exclusive with \[exact\_value suffix\_value\] Regular Expression value for the domain name.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 256),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -153,7 +123,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1
   },
@@ -190,15 +160,6 @@ Additional upstream details:
 Exclusive with \[exact\_value regex\_value\] Suffix of domain name e.g "xyz.com" will match
 "\*.xyz.com" and "xyz.com"
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 256),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -214,7 +175,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1
   },

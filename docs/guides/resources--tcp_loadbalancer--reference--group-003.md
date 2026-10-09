@@ -97,13 +97,6 @@ Type: `"object"`. single nested block, Optional.
 This type establishes a direct reference from one object(the referrer) to another(the referred).
 Such a reference is in form of tenant/namespace/name.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -138,15 +131,6 @@ Type: `"string"`. Optional.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
 referred object's(e.g. Route's) name.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 128),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -165,7 +149,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1
   },
@@ -199,15 +183,6 @@ Type: `"string"`. Optional, Computed.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
 hold the referred object's(e.g. Route's) namespace.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 63),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -232,7 +207,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1,
     "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
@@ -267,15 +242,6 @@ Type: `"string"`. Computed.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
 the referred object's(e.g. Route's) tenant.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthAtMost(64),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -292,7 +258,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -597,14 +563,6 @@ Type: `"object"`. single nested block, Optional.
 
 Choice for selecting TLS over TCP proxy with bring your own certificates.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.ConflictingObjectAttributes("tls_cert_params",
-    "tls_parameters")}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -659,15 +617,6 @@ Configuration parameter for tls cert params.
 Additional upstream details:
 
 Select TLS Parameters and Certificates.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("certificates"),
-  validators.ConflictingObjectAttributes("no_mtls",
-    "use_mtls")}
-```
 
 Receipt-pinned upstream constraints:
 
@@ -725,13 +674,6 @@ Type: `"object"`. list nested block, Optional.
 
 Select one or more certificates with any domain names.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.List{validators.RequiredListObjectAttributes("name")}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -745,7 +687,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "uniqueItems": true
   },
@@ -789,15 +731,6 @@ Type: `"string"`. Optional.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
 referred object's(e.g. Route's) name.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 128),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -816,7 +749,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1
   },
@@ -850,15 +783,6 @@ Type: `"string"`. Optional, Computed.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
 hold the referred object's(e.g. Route's) namespace.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 63),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -883,7 +807,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1,
     "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
@@ -918,15 +842,6 @@ Type: `"string"`. Computed.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
 the referred object's(e.g. Route's) tenant.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthAtMost(64),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -943,7 +858,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -1030,24 +945,6 @@ Type: `"object"`. single nested block, Optional.
 
 This defines various OPTIONS to configure TLS configuration parameters.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.ConflictingObjectAttributes("custom_security",
-    "default_security"),
-  validators.ConflictingObjectAttributes("custom_security",
-    "low_security"),
-  validators.ConflictingObjectAttributes("custom_security",
-    "medium_security"),
-  validators.ConflictingObjectAttributes("default_security",
-    "low_security"),
-  validators.ConflictingObjectAttributes("default_security",
-    "medium_security"),
-  validators.ConflictingObjectAttributes("low_security",
-    "medium_security")}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -1105,13 +1002,6 @@ Type: `"object"`. single nested block, Optional.
 
 This defines TLS protocol config including min/max versions and allowed ciphers.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("cipher_suites")}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -1156,7 +1046,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "uniqueItems": true
   },
@@ -1191,20 +1081,6 @@ Type: `"string"`. Optional.
 versions F5 Distributed Cloud will choose the optimal TLS version. Possible values are
 \`TLS\_AUTO\`, \`TLSv1\_0\`, \`TLSv1\_1\`, \`TLSv1\_2\`, \`TLSv1\_3\`. Defaults to \`TLS\_AUTO\`.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-EnumValidators: [{"version":1,"validator":"OneOf","values":["TLS_AUTO","TLSv1_0","TLSv1_1","TLSv1_2","TLSv1_3"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
-Validators: []validator.String{
-  stringvalidator.OneOf("TLS_AUTO",
-    "TLSv1_0",
-    "TLSv1_1",
-    "TLSv1_2",
-    "TLSv1_3"),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -1237,20 +1113,6 @@ Type: `"string"`. Optional.
 \[Enum: TLS\_AUTO|TLSv1\_0|TLSv1\_1|TLSv1\_2|TLSv1\_3\] TlsProtocol is enumeration of supported TLS
 versions F5 Distributed Cloud will choose the optimal TLS version. Possible values are
 \`TLS\_AUTO\`, \`TLSv1\_0\`, \`TLSv1\_1\`, \`TLSv1\_2\`, \`TLSv1\_3\`. Defaults to \`TLS\_AUTO\`.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-EnumValidators: [{"version":1,"validator":"OneOf","values":["TLS_AUTO","TLSv1_0","TLSv1_1","TLSv1_2","TLSv1_3"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
-Validators: []validator.String{
-  stringvalidator.OneOf("TLS_AUTO",
-    "TLSv1_0",
-    "TLSv1_1",
-    "TLSv1_2",
-    "TLSv1_3"),
-}
-```
 
 Receipt-pinned upstream constraints:
 
@@ -1439,18 +1301,6 @@ Type: `"object"`. single nested block, Optional.
 
 Validation context for downstream client TLS connections.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.ConflictingObjectAttributes("crl",
-    "no_crl"),
-  validators.ConflictingObjectAttributes("trusted_ca",
-    "trusted_ca_url"),
-  validators.ConflictingObjectAttributes("xfcc_disabled",
-    "xfcc_options")}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -1518,15 +1368,6 @@ Type: `"string"`. Optional.
 
 Exclusive with \[trusted\_ca\] Upload a Root CA Certificate specifically for this Load Balancer.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 131072),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -1545,7 +1386,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1
   },
@@ -1596,13 +1437,6 @@ Type: `"object"`. single nested block, Optional.
 This type establishes a direct reference from one object(the referrer) to another(the referred).
 Such a reference is in form of tenant/namespace/name.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -1637,15 +1471,6 @@ Type: `"string"`. Optional.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
 referred object's(e.g. Route's) name.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 128),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -1664,7 +1489,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1
   },
@@ -1698,15 +1523,6 @@ Type: `"string"`. Optional, Computed.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
 hold the referred object's(e.g. Route's) namespace.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 63),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -1731,7 +1547,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1,
     "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
@@ -1766,15 +1582,6 @@ Type: `"string"`. Computed.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
 the referred object's(e.g. Route's) tenant.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthAtMost(64),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -1791,7 +1598,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -1881,13 +1688,6 @@ Type: `"object"`. single nested block, Optional.
 This type establishes a direct reference from one object(the referrer) to another(the referred).
 Such a reference is in form of tenant/namespace/name.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -1922,15 +1722,6 @@ Type: `"string"`. Optional.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
 referred object's(e.g. Route's) name.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 128),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -1949,7 +1740,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1
   },
@@ -1983,15 +1774,6 @@ Type: `"string"`. Optional, Computed.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
 hold the referred object's(e.g. Route's) namespace.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 63),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -2016,7 +1798,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1,
     "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
@@ -2051,15 +1833,6 @@ Type: `"string"`. Computed.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
 the referred object's(e.g. Route's) tenant.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthAtMost(64),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -2076,7 +1849,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -2165,13 +1938,6 @@ Type: `"object"`. single nested block, Optional.
 
 X-Forwarded-Client-Cert header elements to be added to requests.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("xfcc_header_elements")}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -2255,15 +2021,6 @@ Configuration parameter for tls parameters.
 Additional upstream details:
 
 Inline TLS parameters.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("tls_certificates"),
-  validators.ConflictingObjectAttributes("no_mtls",
-    "use_mtls")}
-```
 
 Receipt-pinned upstream constraints:
 
@@ -2369,19 +2126,6 @@ Type: `"object"`. list nested block, Optional.
 Users can add one or more certificates that share the same set of domains. For example, domain.com
 and \*.domain.com - but use different signature algorithms.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.List{validators.RequiredListObjectAttributes("certificate_url"),
-  validators.ConflictingListObjectAttributes("custom_hash_algorithms",
-    "disable_ocsp_stapling"),
-  validators.ConflictingListObjectAttributes("custom_hash_algorithms",
-    "use_system_defaults"),
-  validators.ConflictingListObjectAttributes("disable_ocsp_stapling",
-    "use_system_defaults")}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -2396,7 +2140,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minItems": 1
   },
@@ -2431,22 +2175,17 @@ tls_certificates {
 
 ### Direct properties for `tls_tcp.tls_parameters.tls_certificates`
 
+- [blindfold](resources--tcp_loadbalancer--reference--group-003.md#canonical-0131210121222222-0221023212310113-3310003331313320-3133010103122132-0111131221312000-1321111232110022-1201313003103332-1201311011302332): complete subsection reference.
+
 <a id="canonical-3323312300322303-0101303101133320-0113031230010102-0112102212033023-1100213323020213-0233230302230231-2031210032231230-3001200130112212"></a>
+
+<a id="canonical-0100023133333322-2113003030103310-1120233210023100-3012231123010123-2100312213313321-2030302320201203-2332101110011303-1033131231302111"></a>
 
 #### `tls_tcp.tls_parameters.tls_certificates.certificate_url` property
 
-Type: `"string"`. Optional.
+Type: `"string"`. Optional, Computed.
 
 TLS certificate. Certificate or certificate chain in PEM format including the PEM headers.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 131072),
-}
-```
 
 Receipt-pinned upstream constraints:
 
@@ -2466,7 +2205,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1
   },
@@ -2495,7 +2234,7 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-2213300101033130-3302203302213113-0322332331210012-0201321200032210-3020333310031000-0133011302021313-1233002210320112-3113323033122330"></a>
 
-<a id="canonical-0100023133333322-2113003030103310-1120233210023100-3012231123010123-2100312213313321-2030302320201203-2332101110011303-1033131231302111"></a>
+<a id="canonical-2221302132200103-1303000122031332-2223131333302131-1103120112033330-1030231131210011-3011211003331200-3103100301322230-0333330211210302"></a>
 
 #### `tls_tcp.tls_parameters.tls_certificates.description_spec` property
 
@@ -2508,6 +2247,185 @@ Description. Description for the certificate.
 - [private_key](resources--tcp_loadbalancer--reference--group-003.md#canonical-0100333102101300-3220200132001223-0030120230300122-3331201232232302-1232301113321120-0330221011030203-2110332331210010-2021112323003013): complete subsection reference.
 
 - [use_system_defaults](resources--tcp_loadbalancer--reference--group-003.md#canonical-0102010120213331-3223223023110201-0122232110302212-0323110331103310-3031012201011103-1013011002200011-3202010123303321-1231222302131132): complete subsection reference.
+
+<a id="canonical-0131210121222222-0221023212310113-3310003331313320-3133010103122132-0111131221312000-1321111232110022-1201313003103332-1201311011302332"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `tls_tcp.tls_parameters.tls_certificates.blindfold` properties
+
+Breadcrumbs:
+
+- [xcsh_tcp_loadbalancer](../resources/tcp_loadbalancer.md#canonical-3323211002020332-1021200301211012-2311222223233022-1102201001122211-1023322232300130-0300323320330112-1021022331100101-3210113012102001)
+- [Property reference](resources--tcp_loadbalancer--reference--group-001.md#canonical-2012213313231232-3113222123311030-1312023102102220-1333030303022022-3132112211312313-0310133313220331-3313212213313330-2132122131111001)
+- [tls_tcp](resources--tcp_loadbalancer--reference--group-003.md#canonical-3202033002211233-1301122221120120-1033012321102210-2321013132013033-0311312210012210-2023111231301233-1132102221100102-1112232122033120)
+- [tls_tcp.tls_parameters](resources--tcp_loadbalancer--reference--group-003.md#canonical-0121111300120302-2230031133133130-2123131213221130-1002012101111221-2123331230122003-0131120123223023-3320211032330010-1110023113101132)
+- [tls_tcp.tls_parameters.tls_certificates](resources--tcp_loadbalancer--reference--group-003.md#canonical-0002320022201130-0310033133223112-1210131011131021-0233000132012002-0030201320130223-3020131322232320-1330011330112100-0231301213311120)
+- tls_tcp.tls_parameters.tls_certificates.blindfold
+
+<a id="canonical-2000130330312033-3220121003000323-2122003300123031-3230032212233233-3333132000233313-3300203231103023-3323320201233021-2003101130202300"></a>
+
+Type: `"single"`. Optional.
+
+Native certificate preparation. Use PEM files or a P12 file, or write-only key/bundle values with
+material\_version (Terraform 1.11+). Defaults to shared/ves-io-allow-volterra. Inline certificates
+require unique IDs. Private inputs are never stored.
+
+<a id="canonical-3100222321003203-1212220030232311-3131102112321032-0023300220013102-0313300302221103-3133312121100302-0333303220012332-1320011303113313"></a>
+
+### Direct properties for `tls_tcp.tls_parameters.tls_certificates.blindfold`
+
+<a id="canonical-0111212221020332-3033021322321210-1110100023031112-2132203130321321-3320030133213012-0233223330020320-1100211323331000-1130131132000222"></a>
+
+#### `tls_tcp.tls_parameters.tls_certificates.blindfold.algorithm` property
+
+Type: `"string"`. Computed.
+
+<a id="canonical-1333321012323031-1211122332003213-1112303221012203-0102230211010020-1322233013022303-0322201101131110-0020232102130110-3300311323303110"></a>
+
+<a id="canonical-2303211103020200-0013122103133131-1032221111132313-2112111020130320-0022123203312023-1111032022220012-3101311003302033-1210220032013110"></a>
+
+#### `tls_tcp.tls_parameters.tls_certificates.blindfold.certificate_file` property
+
+Type: `"string"`. Optional.
+
+<a id="canonical-0133231131302231-3121201331013101-0101221033010230-3221031021233220-2220011120331312-0100220023012000-1331033200201333-3202220010103220"></a>
+
+<a id="canonical-1321111221111101-2210100011130222-3213222221321022-3322021322013300-2311131012212120-2201103223100103-1001230220023123-3030310323202130"></a>
+
+#### `tls_tcp.tls_parameters.tls_certificates.blindfold.certificate_pem` property
+
+Type: `"string"`. Optional.
+
+<a id="canonical-0111000303120012-2231103010303232-1200132130320222-2021013333233111-1320033020030222-1100021132331333-3331013310030232-3300212313220133"></a>
+
+<a id="canonical-1330012003333230-0032100120330021-1000233001302033-2102121002000023-0020213112101023-3212122030230321-0310003002312031-0033233003232221"></a>
+
+#### `tls_tcp.tls_parameters.tls_certificates.blindfold.chain_identity` property
+
+Type: `"string"`. Computed.
+
+<a id="canonical-3021302021330110-2020311323003203-0233210302020032-3112303310001312-3103323220230023-0033033133023000-2223020301320212-3331132211303011"></a>
+
+<a id="canonical-1311013233322102-2022112231110032-3033113132031233-0032030202033333-2320033301310232-1131331323010311-2321101312011210-2132212111222330"></a>
+
+#### `tls_tcp.tls_parameters.tls_certificates.blindfold.context_digest` property
+
+Type: `"string"`. Computed.
+
+<a id="canonical-1231311212312221-3112221122203032-1110323313111111-1011233330332220-2102202212223332-1032331333302313-1331031010030021-2111133222001022"></a>
+
+<a id="canonical-0012103311020100-1010123102233023-1313021300323102-3111112212020230-0033121131132213-3131132210300302-1302220021120203-1132221332322003"></a>
+
+#### `tls_tcp.tls_parameters.tls_certificates.blindfold.encrypted_location` property
+
+Type: `"string"`. Computed, Sensitive.
+
+<a id="canonical-0310030100212201-1213033101230232-1312033201132122-3123311023101122-0323131032103331-0313122101220031-3231210023222021-2111013032030003"></a>
+
+<a id="canonical-1233031103113221-0203132112010122-3013021203212130-0132301131020101-3210320113333300-3023101332010121-3130330023132123-3202233202231332"></a>
+
+#### `tls_tcp.tls_parameters.tls_certificates.blindfold.expires_at` property
+
+Type: `"string"`. Computed.
+
+<a id="canonical-0031121221213132-3333022303102202-2110333120312101-1033301011301330-2131002112301213-0203233001301330-0312121013312310-2310200320222212"></a>
+
+<a id="canonical-0113112332100301-3000000010300300-2122033201101230-3132113020121001-0311122333010321-0013321112310131-3120213032133131-2112230312233123"></a>
+
+#### `tls_tcp.tls_parameters.tls_certificates.blindfold.fingerprint` property
+
+Type: `"string"`. Computed.
+
+<a id="canonical-0021000231032301-0101013012332001-2313130122233100-1122332013101010-1213101103100101-1032201113021320-0312221123002110-0002331022110103"></a>
+
+<a id="canonical-3103320201213100-2301101110320312-2123332103013321-2103022011033003-1332133100313231-2310111320233121-1330031232211000-1211202132011033"></a>
+
+#### `tls_tcp.tls_parameters.tls_certificates.blindfold.id` property
+
+Type: `"string"`. Optional.
+
+<a id="canonical-2302311230031133-2010020310113020-1321333113112003-2003303320333202-3321123012021130-3013320331023120-3323232313123221-2132020003311131"></a>
+
+<a id="canonical-1132112313033002-2021113221320032-2000013213102313-2023100023201331-2021100303211002-3112133131001131-1323131220310331-1320130301030231"></a>
+
+#### `tls_tcp.tls_parameters.tls_certificates.blindfold.material_version` property
+
+Type: `"string"`. Optional.
+
+<a id="canonical-1313110130322302-2113113132032132-3220031220023113-0331332223000200-0221301033201211-0311031130321311-3001103330131103-2200311201222332"></a>
+
+<a id="canonical-1032210011323222-2232122123231220-2033202113111210-2223320102313201-3223321210210020-1300132131001023-1030303331000023-1010001332113223"></a>
+
+#### `tls_tcp.tls_parameters.tls_certificates.blindfold.passphrase_env` property
+
+Type: `"string"`. Optional.
+
+<a id="canonical-3103122130332200-2113310132210121-0111310120013213-0321130020321233-0021030103123033-2203110200212213-3202022123221113-2021010333003323"></a>
+
+<a id="canonical-2210002323010313-3110012121301323-0301003312232202-2012133300003110-2133103312030002-3203230230123013-1331130022023130-1030232123120122"></a>
+
+#### `tls_tcp.tls_parameters.tls_certificates.blindfold.passphrase_wo` property
+
+Type: `"string"`. Optional, Sensitive, Write_only.
+
+<a id="canonical-1103013322302033-0310023012002103-1331111313130220-0310013323301333-0101213321113120-1211023033032030-1222200112132231-2120112123023010"></a>
+
+<a id="canonical-1033331223230112-1120012112132023-0222131113331131-3013233113120001-2010201101211230-2320123111120030-2210000200303003-1001222113101221"></a>
+
+#### `tls_tcp.tls_parameters.tls_certificates.blindfold.pkcs12_file` property
+
+Type: `"string"`. Optional.
+
+<a id="canonical-0322111033102113-2031332323310130-3310103112202111-2321232022102330-3102112010123312-3000022010311122-0002131012021230-1330223020123020"></a>
+
+<a id="canonical-2312020321112201-1220033112211111-2000033000100312-3010330131223202-2322210021000313-2112103222233301-2131312130023320-0200220301031013"></a>
+
+#### `tls_tcp.tls_parameters.tls_certificates.blindfold.pkcs12_wo` property
+
+Type: `"string"`. Optional, Sensitive, Write_only.
+
+<a id="canonical-2123333002011103-0120130202032002-1031120103021211-3313132213202313-1100201032212211-2211321203300022-1303223302230300-3330101203100313"></a>
+
+<a id="canonical-1010123111131321-0332300113220001-3303233022031301-2133311003131232-0032202000321033-1100123333232331-2213122330110222-0231033013103212"></a>
+
+#### `tls_tcp.tls_parameters.tls_certificates.blindfold.policy` property
+
+Type: `"string"`. Optional.
+
+<a id="canonical-0222332220013201-2312301313213312-3100121112031220-0103323200232133-1231213213013102-1232302130331120-3133333230213322-2032022002012201"></a>
+
+<a id="canonical-2222332002222310-2331023223301013-0213233323020333-1131132332103301-1302213212101120-1132110021233331-2221313310101101-3031103301020300"></a>
+
+#### `tls_tcp.tls_parameters.tls_certificates.blindfold.prepared_identity` property
+
+Type: `"string"`. Computed.
+
+<a id="canonical-2320110223102101-1313213310213202-1213220211332021-2031301121221321-1113230311332013-1201102122133323-1221123202120132-2001011021121021"></a>
+
+<a id="canonical-3331212311030312-1022111133010321-2223101120110320-3233301033220130-1023332000120212-1320320312112211-1212003222011221-1213200111322200"></a>
+
+#### `tls_tcp.tls_parameters.tls_certificates.blindfold.private_key_file` property
+
+Type: `"string"`. Optional.
+
+<a id="canonical-2031012221223203-0313100313000122-1223101121323330-0131002220322332-3331003111101202-1213013300202312-2023311130031101-3111130130030300"></a>
+
+<a id="canonical-3023030310302210-0302110133200003-0133200031200100-0010102232112111-3110101311233113-2310223202221202-1313223022222123-0221020233110130"></a>
+
+#### `tls_tcp.tls_parameters.tls_certificates.blindfold.private_key_wo` property
+
+Type: `"string"`. Optional, Sensitive, Write_only.
+
+<a id="canonical-1332330323332233-3232203122120321-2101200001221201-0302210322122300-3110220313200003-1100203233001102-1003023313131212-3221013003013333"></a>
+
+<a id="canonical-2220312112220301-3122330300202120-3010232302233200-1300220300303120-0313310231031312-0002010303321331-1131230233133200-2231023320311002"></a>
+
+#### `tls_tcp.tls_parameters.tls_certificates.blindfold.spki_identity` property
+
+Type: `"string"`. Computed.
 
 <a id="canonical-3301303122202032-0100230000013222-3021011212311010-0230130121121012-1321031020230022-2221312323210312-2333010103101231-0313112121312113"></a>
 
@@ -2531,13 +2449,6 @@ Breadcrumbs:
 Type: `"object"`. single nested block, Optional.
 
 Specifies the hash algorithms to be used.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("hash_algorithms")}
-```
 
 Receipt-pinned upstream constraints:
 
@@ -2574,15 +2485,6 @@ Type: `["list", "string"]`. Optional.
 values are \`INVALID\_HASH\_ALGORITHM\`, \`SHA256\`, \`SHA1\`. Defaults to
 \`INVALID\_HASH\_ALGORITHM\`.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.List{
-  listvalidator.SizeBetween(1, 4),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -2597,7 +2499,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minItems": 1,
     "uniqueItems": true
@@ -2694,14 +2596,6 @@ Type: `"object"`. single nested block, Optional.
 
 SecretType is used in an object to indicate a sensitive/confidential field.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info",
-    "clear_secret_info")}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -2756,13 +2650,6 @@ Type: `"object"`. single nested block, Optional.
 
 BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("location")}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -2808,7 +2695,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -2831,15 +2718,6 @@ Type: `"string"`. Optional, Sensitive.
 Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(4, 131072),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -2855,7 +2733,7 @@ Receipt-pinned upstream constraints:
       "confidence": 1.0,
       "note": "Blindfold envelope encryption (AES-256-GCM + RSA-OAEP) of an RSA-2048 TLS private key produces ~3700 char string:/// URL. 128KB max secret size = ~175KB base64. Discovery reported 1024 which is incorrect.",
       "source": "manual-override",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 4
   },
@@ -2899,7 +2777,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -2934,13 +2812,6 @@ Breadcrumbs:
 Type: `"object"`. single nested block, Optional.
 
 ClearSecretInfoType specifies information about the Secret that is not encrypted.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("url")}
-```
 
 Receipt-pinned upstream constraints:
 
@@ -2988,15 +2859,6 @@ URL of the secret. Currently supported URL schemes is string:///. For string:///
 needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
 base64 decoding.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 131072),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -3015,7 +2877,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1,
     "pattern": "^(https?|ftp)://[^\\s/$.?#].[^\\s]*$",
@@ -3113,24 +2975,6 @@ Type: `"object"`. single nested block, Optional.
 
 This defines various OPTIONS to configure TLS configuration parameters.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.ConflictingObjectAttributes("custom_security",
-    "default_security"),
-  validators.ConflictingObjectAttributes("custom_security",
-    "low_security"),
-  validators.ConflictingObjectAttributes("custom_security",
-    "medium_security"),
-  validators.ConflictingObjectAttributes("default_security",
-    "low_security"),
-  validators.ConflictingObjectAttributes("default_security",
-    "medium_security"),
-  validators.ConflictingObjectAttributes("low_security",
-    "medium_security")}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -3188,13 +3032,6 @@ Type: `"object"`. single nested block, Optional.
 
 This defines TLS protocol config including min/max versions and allowed ciphers.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("cipher_suites")}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -3239,7 +3076,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "uniqueItems": true
   },
@@ -3274,20 +3111,6 @@ Type: `"string"`. Optional.
 versions F5 Distributed Cloud will choose the optimal TLS version. Possible values are
 \`TLS\_AUTO\`, \`TLSv1\_0\`, \`TLSv1\_1\`, \`TLSv1\_2\`, \`TLSv1\_3\`. Defaults to \`TLS\_AUTO\`.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-EnumValidators: [{"version":1,"validator":"OneOf","values":["TLS_AUTO","TLSv1_0","TLSv1_1","TLSv1_2","TLSv1_3"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
-Validators: []validator.String{
-  stringvalidator.OneOf("TLS_AUTO",
-    "TLSv1_0",
-    "TLSv1_1",
-    "TLSv1_2",
-    "TLSv1_3"),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -3320,20 +3143,6 @@ Type: `"string"`. Optional.
 \[Enum: TLS\_AUTO|TLSv1\_0|TLSv1\_1|TLSv1\_2|TLSv1\_3\] TlsProtocol is enumeration of supported TLS
 versions F5 Distributed Cloud will choose the optimal TLS version. Possible values are
 \`TLS\_AUTO\`, \`TLSv1\_0\`, \`TLSv1\_1\`, \`TLSv1\_2\`, \`TLSv1\_3\`. Defaults to \`TLS\_AUTO\`.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-EnumValidators: [{"version":1,"validator":"OneOf","values":["TLS_AUTO","TLSv1_0","TLSv1_1","TLSv1_2","TLSv1_3"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
-Validators: []validator.String{
-  stringvalidator.OneOf("TLS_AUTO",
-    "TLSv1_0",
-    "TLSv1_1",
-    "TLSv1_2",
-    "TLSv1_3"),
-}
-```
 
 Receipt-pinned upstream constraints:
 
@@ -3522,18 +3331,6 @@ Type: `"object"`. single nested block, Optional.
 
 Validation context for downstream client TLS connections.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.ConflictingObjectAttributes("crl",
-    "no_crl"),
-  validators.ConflictingObjectAttributes("trusted_ca",
-    "trusted_ca_url"),
-  validators.ConflictingObjectAttributes("xfcc_disabled",
-    "xfcc_options")}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -3601,15 +3398,6 @@ Type: `"string"`. Optional.
 
 Exclusive with \[trusted\_ca\] Upload a Root CA Certificate specifically for this Load Balancer.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 131072),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -3628,7 +3416,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1
   },
@@ -3679,13 +3467,6 @@ Type: `"object"`. single nested block, Optional.
 This type establishes a direct reference from one object(the referrer) to another(the referred).
 Such a reference is in form of tenant/namespace/name.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -3720,15 +3501,6 @@ Type: `"string"`. Optional.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
 referred object's(e.g. Route's) name.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 128),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -3747,7 +3519,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1
   },
@@ -3781,15 +3553,6 @@ Type: `"string"`. Optional, Computed.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
 hold the referred object's(e.g. Route's) namespace.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 63),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -3814,7 +3577,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1,
     "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
@@ -3849,15 +3612,6 @@ Type: `"string"`. Computed.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
 the referred object's(e.g. Route's) tenant.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthAtMost(64),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -3874,7 +3628,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -3964,13 +3718,6 @@ Type: `"object"`. single nested block, Optional.
 This type establishes a direct reference from one object(the referrer) to another(the referred).
 Such a reference is in form of tenant/namespace/name.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -4005,15 +3752,6 @@ Type: `"string"`. Optional.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
 referred object's(e.g. Route's) name.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 128),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -4032,7 +3770,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1
   },
@@ -4066,15 +3804,6 @@ Type: `"string"`. Optional, Computed.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
 hold the referred object's(e.g. Route's) namespace.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 63),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -4099,7 +3828,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1,
     "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
@@ -4134,15 +3863,6 @@ Type: `"string"`. Computed.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
 the referred object's(e.g. Route's) tenant.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthAtMost(64),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -4159,7 +3879,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -4248,13 +3968,6 @@ Type: `"object"`. single nested block, Optional.
 
 X-Forwarded-Client-Cert header elements to be added to requests.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("xfcc_header_elements")}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -4333,14 +4046,6 @@ Breadcrumbs:
 Type: `"object"`. single nested block, Optional.
 
 Choice for selecting TLS over TCP proxy with automatic certificates.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.ConflictingObjectAttributes("no_mtls",
-    "use_mtls")}
-```
 
 Receipt-pinned upstream constraints:
 
@@ -4441,24 +4146,6 @@ Type: `"object"`. single nested block, Optional.
 
 This defines various OPTIONS to configure TLS configuration parameters.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.ConflictingObjectAttributes("custom_security",
-    "default_security"),
-  validators.ConflictingObjectAttributes("custom_security",
-    "low_security"),
-  validators.ConflictingObjectAttributes("custom_security",
-    "medium_security"),
-  validators.ConflictingObjectAttributes("default_security",
-    "low_security"),
-  validators.ConflictingObjectAttributes("default_security",
-    "medium_security"),
-  validators.ConflictingObjectAttributes("low_security",
-    "medium_security")}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -4515,13 +4202,6 @@ Type: `"object"`. single nested block, Optional.
 
 This defines TLS protocol config including min/max versions and allowed ciphers.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("cipher_suites")}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -4566,7 +4246,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "uniqueItems": true
   },
@@ -4601,20 +4281,6 @@ Type: `"string"`. Optional.
 versions F5 Distributed Cloud will choose the optimal TLS version. Possible values are
 \`TLS\_AUTO\`, \`TLSv1\_0\`, \`TLSv1\_1\`, \`TLSv1\_2\`, \`TLSv1\_3\`. Defaults to \`TLS\_AUTO\`.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-EnumValidators: [{"version":1,"validator":"OneOf","values":["TLS_AUTO","TLSv1_0","TLSv1_1","TLSv1_2","TLSv1_3"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
-Validators: []validator.String{
-  stringvalidator.OneOf("TLS_AUTO",
-    "TLSv1_0",
-    "TLSv1_1",
-    "TLSv1_2",
-    "TLSv1_3"),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -4647,20 +4313,6 @@ Type: `"string"`. Optional.
 \[Enum: TLS\_AUTO|TLSv1\_0|TLSv1\_1|TLSv1\_2|TLSv1\_3\] TlsProtocol is enumeration of supported TLS
 versions F5 Distributed Cloud will choose the optimal TLS version. Possible values are
 \`TLS\_AUTO\`, \`TLSv1\_0\`, \`TLSv1\_1\`, \`TLSv1\_2\`, \`TLSv1\_3\`. Defaults to \`TLS\_AUTO\`.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-EnumValidators: [{"version":1,"validator":"OneOf","values":["TLS_AUTO","TLSv1_0","TLSv1_1","TLSv1_2","TLSv1_3"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
-Validators: []validator.String{
-  stringvalidator.OneOf("TLS_AUTO",
-    "TLSv1_0",
-    "TLSv1_1",
-    "TLSv1_2",
-    "TLSv1_3"),
-}
-```
 
 Receipt-pinned upstream constraints:
 
@@ -4845,18 +4497,6 @@ Type: `"object"`. single nested block, Optional.
 
 Validation context for downstream client TLS connections.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.ConflictingObjectAttributes("crl",
-    "no_crl"),
-  validators.ConflictingObjectAttributes("trusted_ca",
-    "trusted_ca_url"),
-  validators.ConflictingObjectAttributes("xfcc_disabled",
-    "xfcc_options")}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -4924,15 +4564,6 @@ Type: `"string"`. Optional.
 
 Exclusive with \[trusted\_ca\] Upload a Root CA Certificate specifically for this Load Balancer.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 131072),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -4951,7 +4582,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1
   },
@@ -5001,13 +4632,6 @@ Type: `"object"`. single nested block, Optional.
 This type establishes a direct reference from one object(the referrer) to another(the referred).
 Such a reference is in form of tenant/namespace/name.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -5042,15 +4666,6 @@ Type: `"string"`. Optional.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
 referred object's(e.g. Route's) name.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 128),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -5069,7 +4684,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1
   },
@@ -5103,15 +4718,6 @@ Type: `"string"`. Optional, Computed.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
 hold the referred object's(e.g. Route's) namespace.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 63),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -5136,7 +4742,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1,
     "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
@@ -5171,15 +4777,6 @@ Type: `"string"`. Computed.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
 the referred object's(e.g. Route's) tenant.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthAtMost(64),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -5196,7 +4793,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -5284,13 +4881,6 @@ Type: `"object"`. single nested block, Optional.
 This type establishes a direct reference from one object(the referrer) to another(the referred).
 Such a reference is in form of tenant/namespace/name.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -5325,15 +4915,6 @@ Type: `"string"`. Optional.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
 referred object's(e.g. Route's) name.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 128),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -5352,7 +4933,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1
   },
@@ -5386,15 +4967,6 @@ Type: `"string"`. Optional, Computed.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
 hold the referred object's(e.g. Route's) namespace.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 63),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -5419,7 +4991,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1,
     "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
@@ -5454,15 +5026,6 @@ Type: `"string"`. Computed.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
 the referred object's(e.g. Route's) tenant.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthAtMost(64),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -5479,7 +5042,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -5565,13 +5128,6 @@ Breadcrumbs:
 Type: `"object"`. single nested block, Optional.
 
 X-Forwarded-Client-Cert header elements to be added to requests.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("xfcc_header_elements")}
-```
 
 Receipt-pinned upstream constraints:
 

@@ -474,6 +474,106 @@
         "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates",
         "schema_path": ["tls_parameters", "common_params", "tls_certificates"]
       },
+      "tls_parameters.common_params.tls_certificates.blindfold": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:blindfold",
+        "schema_path": ["tls_parameters", "common_params", "tls_certificates", "blindfold"]
+      },
+      "tls_parameters.common_params.tls_certificates.blindfold.algorithm": {
+        "anchor": "schema-tls_parameters--common_params--tls_certificates--blindfold--algorithm",
+        "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:blindfold",
+        "schema_path": ["tls_parameters", "common_params", "tls_certificates", "blindfold", "algorithm"]
+      },
+      "tls_parameters.common_params.tls_certificates.blindfold.certificate_file": {
+        "anchor": "schema-tls_parameters--common_params--tls_certificates--blindfold--certificate_file",
+        "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:blindfold",
+        "schema_path": ["tls_parameters", "common_params", "tls_certificates", "blindfold", "certificate_file"]
+      },
+      "tls_parameters.common_params.tls_certificates.blindfold.certificate_pem": {
+        "anchor": "schema-tls_parameters--common_params--tls_certificates--blindfold--certificate_pem",
+        "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:blindfold",
+        "schema_path": ["tls_parameters", "common_params", "tls_certificates", "blindfold", "certificate_pem"]
+      },
+      "tls_parameters.common_params.tls_certificates.blindfold.chain_identity": {
+        "anchor": "schema-tls_parameters--common_params--tls_certificates--blindfold--chain_identity",
+        "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:blindfold",
+        "schema_path": ["tls_parameters", "common_params", "tls_certificates", "blindfold", "chain_identity"]
+      },
+      "tls_parameters.common_params.tls_certificates.blindfold.context_digest": {
+        "anchor": "schema-tls_parameters--common_params--tls_certificates--blindfold--context_digest",
+        "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:blindfold",
+        "schema_path": ["tls_parameters", "common_params", "tls_certificates", "blindfold", "context_digest"]
+      },
+      "tls_parameters.common_params.tls_certificates.blindfold.encrypted_location": {
+        "anchor": "schema-tls_parameters--common_params--tls_certificates--blindfold--encrypted_location",
+        "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:blindfold",
+        "schema_path": ["tls_parameters", "common_params", "tls_certificates", "blindfold", "encrypted_location"]
+      },
+      "tls_parameters.common_params.tls_certificates.blindfold.expires_at": {
+        "anchor": "schema-tls_parameters--common_params--tls_certificates--blindfold--expires_at",
+        "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:blindfold",
+        "schema_path": ["tls_parameters", "common_params", "tls_certificates", "blindfold", "expires_at"]
+      },
+      "tls_parameters.common_params.tls_certificates.blindfold.fingerprint": {
+        "anchor": "schema-tls_parameters--common_params--tls_certificates--blindfold--fingerprint",
+        "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:blindfold",
+        "schema_path": ["tls_parameters", "common_params", "tls_certificates", "blindfold", "fingerprint"]
+      },
+      "tls_parameters.common_params.tls_certificates.blindfold.id": {
+        "anchor": "schema-tls_parameters--common_params--tls_certificates--blindfold--id",
+        "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:blindfold",
+        "schema_path": ["tls_parameters", "common_params", "tls_certificates", "blindfold", "id"]
+      },
+      "tls_parameters.common_params.tls_certificates.blindfold.material_version": {
+        "anchor": "schema-tls_parameters--common_params--tls_certificates--blindfold--material_version",
+        "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:blindfold",
+        "schema_path": ["tls_parameters", "common_params", "tls_certificates", "blindfold", "material_version"]
+      },
+      "tls_parameters.common_params.tls_certificates.blindfold.passphrase_env": {
+        "anchor": "schema-tls_parameters--common_params--tls_certificates--blindfold--passphrase_env",
+        "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:blindfold",
+        "schema_path": ["tls_parameters", "common_params", "tls_certificates", "blindfold", "passphrase_env"]
+      },
+      "tls_parameters.common_params.tls_certificates.blindfold.passphrase_wo": {
+        "anchor": "schema-tls_parameters--common_params--tls_certificates--blindfold--passphrase_wo",
+        "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:blindfold",
+        "schema_path": ["tls_parameters", "common_params", "tls_certificates", "blindfold", "passphrase_wo"]
+      },
+      "tls_parameters.common_params.tls_certificates.blindfold.pkcs12_file": {
+        "anchor": "schema-tls_parameters--common_params--tls_certificates--blindfold--pkcs12_file",
+        "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:blindfold",
+        "schema_path": ["tls_parameters", "common_params", "tls_certificates", "blindfold", "pkcs12_file"]
+      },
+      "tls_parameters.common_params.tls_certificates.blindfold.pkcs12_wo": {
+        "anchor": "schema-tls_parameters--common_params--tls_certificates--blindfold--pkcs12_wo",
+        "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:blindfold",
+        "schema_path": ["tls_parameters", "common_params", "tls_certificates", "blindfold", "pkcs12_wo"]
+      },
+      "tls_parameters.common_params.tls_certificates.blindfold.policy": {
+        "anchor": "schema-tls_parameters--common_params--tls_certificates--blindfold--policy",
+        "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:blindfold",
+        "schema_path": ["tls_parameters", "common_params", "tls_certificates", "blindfold", "policy"]
+      },
+      "tls_parameters.common_params.tls_certificates.blindfold.prepared_identity": {
+        "anchor": "schema-tls_parameters--common_params--tls_certificates--blindfold--prepared_identity",
+        "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:blindfold",
+        "schema_path": ["tls_parameters", "common_params", "tls_certificates", "blindfold", "prepared_identity"]
+      },
+      "tls_parameters.common_params.tls_certificates.blindfold.private_key_file": {
+        "anchor": "schema-tls_parameters--common_params--tls_certificates--blindfold--private_key_file",
+        "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:blindfold",
+        "schema_path": ["tls_parameters", "common_params", "tls_certificates", "blindfold", "private_key_file"]
+      },
+      "tls_parameters.common_params.tls_certificates.blindfold.private_key_wo": {
+        "anchor": "schema-tls_parameters--common_params--tls_certificates--blindfold--private_key_wo",
+        "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:blindfold",
+        "schema_path": ["tls_parameters", "common_params", "tls_certificates", "blindfold", "private_key_wo"]
+      },
+      "tls_parameters.common_params.tls_certificates.blindfold.spki_identity": {
+        "anchor": "schema-tls_parameters--common_params--tls_certificates--blindfold--spki_identity",
+        "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:blindfold",
+        "schema_path": ["tls_parameters", "common_params", "tls_certificates", "blindfold", "spki_identity"]
+      },
       "tls_parameters.common_params.tls_certificates.certificate_url": {
         "anchor": "schema-tls_parameters--common_params--tls_certificates--certificate_url",
         "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates",
@@ -730,7 +830,7 @@
       "path": "documentation/resources/cluster/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-0200232312311331-3030233031121222-1103023001033003-2132323312102233-3022210011323301-1323303310030333-2031301002313333-2332312221310003",
       "registry_path": "docs/resources/cluster.md",
@@ -740,21 +840,21 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Manages cluster will create the object in the storage backend for namespace metadata.namespace in F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_cluster",
       "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["cluster"],
-      "body_bytes": 52119,
-      "body_sha256": "sha256:d5553a9053f4f017dd982558a0dffb236d748df4d0b5f6377e4629de5bd48162",
+      "body_bytes": 57058,
+      "body_sha256": "sha256:c35d14bc162be5e0ac807bc15c6b5be41e5d3cee5286a851adafe5db9b3a4d86",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -789,7 +889,7 @@
       "path": "documentation/resources/cluster/properties/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-3101131133022110-3312300202101321-1032132322320210-3102023201100003-0111113110022121-3023312323003101-2100300213113301-3113003202303321",
       "registry_path": "docs/guides/resources--cluster--reference--group-001.md",
@@ -931,17 +1031,8 @@
           "anchor": "schema-endpoint_selection",
           "description": "Policy for selection of endpoints from local site/remote site/both Consider both remote and local endpoints for load balancing LOCAL_ONLY: Consider only local endpoints for load balancing Enable this policy to load balance ONLY among locally discovered endpoints Prefer the local endpoints for load balancing. If local",
           "document_id": "xcsh-docs:resources:cluster:reference",
-          "enum_extraction_complete": true,
-          "enum_validators": [
-            {
-              "case_sensitive": true,
-              "complete": true,
-              "source": "ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf",
-              "validator": "OneOf",
-              "values": ["DISTRIBUTED", "LOCAL_ONLY", "LOCAL_PREFERRED"],
-              "version": 1
-            }
-          ],
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional", "computed"],
           "max_items": null,
           "min_items": null,
@@ -962,16 +1053,7 @@
           "max_items": null,
           "min_items": null,
           "nesting": "list",
-          "relationships": [
-            {
-              "anchor": "schema-endpoint_subsets--keys",
-              "enforcement": "provider-schema",
-              "group": "endpoint_subsets:RequiredListObjectAttributes:keys",
-              "source": "ast-validator:RequiredListObjectAttributes",
-              "target_id": "xcsh-docs:resources:cluster:properties:endpoint_subsets",
-              "type": "requires"
-            }
-          ],
+          "relationships": [],
           "schema_path": ["endpoint_subsets"],
           "syntax": "block",
           "type": "object"
@@ -997,17 +1079,8 @@
           "anchor": "schema-fallback_policy",
           "description": "Enumeration for SubsetFallbackPolicy if subset match is not found. The request fails as if the cluster had no endpoint matching the subset policy Any cluster endpoint may be selected if the cluster had no endpoint matching the subset policy Load balancing is done over endpoints matching default_subset if the cluster",
           "document_id": "xcsh-docs:resources:cluster:reference",
-          "enum_extraction_complete": true,
-          "enum_validators": [
-            {
-              "case_sensitive": true,
-              "complete": true,
-              "source": "ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf",
-              "validator": "OneOf",
-              "values": ["ANY_ENDPOINT", "DEFAULT_SUBSET", "NO_FALLBACK"],
-              "version": 1
-            }
-          ],
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional", "computed"],
           "max_items": null,
           "min_items": null,
@@ -1118,17 +1191,8 @@
           "anchor": "schema-loadbalancer_algorithm",
           "description": "Different load balancing algorithms supported When a connection to a endpoint in an upstream cluster is required, the load balancer uses loadbalancer_algorithm to determine which host is selected. - ROUND_ROBIN: ROUND_ROBIN Policy in which each healthy/available upstream endpoint is selected in round robin order. -",
           "document_id": "xcsh-docs:resources:cluster:reference",
-          "enum_extraction_complete": true,
-          "enum_validators": [
-            {
-              "case_sensitive": true,
-              "complete": true,
-              "source": "ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf",
-              "validator": "OneOf",
-              "values": ["LB_OVERRIDE", "LEAST_REQUEST", "RANDOM", "RING_HASH", "ROUND_ROBIN"],
-              "version": 1
-            }
-          ],
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional", "computed"],
           "max_items": null,
           "min_items": null,
@@ -1309,120 +1373,7 @@
           "max_items": null,
           "min_items": null,
           "nesting": "single",
-          "relationships": [
-            {
-              "anchor": "schema-tls_parameters--max_session_keys",
-              "enforcement": "provider-schema",
-              "group": "tls_parameters:ConflictingObjectAttributes:default_session_key_caching,max_session_keys",
-              "source": "ast-validator:ConflictingObjectAttributes",
-              "target_id": "xcsh-docs:resources:cluster:properties:tls_parameters",
-              "type": "conflicts"
-            },
-            {
-              "anchor": "schema-tls_parameters--max_session_keys",
-              "enforcement": "provider-schema",
-              "group": "tls_parameters:ConflictingObjectAttributes:disable_session_key_caching,max_session_keys",
-              "source": "ast-validator:ConflictingObjectAttributes",
-              "target_id": "xcsh-docs:resources:cluster:properties:tls_parameters",
-              "type": "conflicts"
-            },
-            {
-              "anchor": "schema-tls_parameters--sni",
-              "enforcement": "provider-schema",
-              "group": "tls_parameters:ConflictingObjectAttributes:disable_sni,sni",
-              "source": "ast-validator:ConflictingObjectAttributes",
-              "target_id": "xcsh-docs:resources:cluster:properties:tls_parameters",
-              "type": "conflicts"
-            },
-            {
-              "anchor": "schema-tls_parameters--sni",
-              "enforcement": "provider-schema",
-              "group": "tls_parameters:ConflictingObjectAttributes:sni,use_host_header_as_sni",
-              "source": "ast-validator:ConflictingObjectAttributes",
-              "target_id": "xcsh-docs:resources:cluster:properties:tls_parameters",
-              "type": "conflicts"
-            },
-            {
-              "anchor": "section",
-              "enforcement": "provider-schema",
-              "group": "tls_parameters:ConflictingObjectAttributes:cert_params,common_params",
-              "source": "ast-validator:ConflictingObjectAttributes",
-              "target_id": "xcsh-docs:resources:cluster:properties:tls_parameters:cert_params",
-              "type": "conflicts"
-            },
-            {
-              "anchor": "section",
-              "enforcement": "provider-schema",
-              "group": "tls_parameters:ConflictingObjectAttributes:cert_params,common_params",
-              "source": "ast-validator:ConflictingObjectAttributes",
-              "target_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params",
-              "type": "conflicts"
-            },
-            {
-              "anchor": "section",
-              "enforcement": "provider-schema",
-              "group": "tls_parameters:ConflictingObjectAttributes:default_session_key_caching,disable_session_key_caching",
-              "source": "ast-validator:ConflictingObjectAttributes",
-              "target_id": "xcsh-docs:resources:cluster:properties:tls_parameters:default_session_key_caching",
-              "type": "conflicts"
-            },
-            {
-              "anchor": "section",
-              "enforcement": "provider-schema",
-              "group": "tls_parameters:ConflictingObjectAttributes:default_session_key_caching,max_session_keys",
-              "source": "ast-validator:ConflictingObjectAttributes",
-              "target_id": "xcsh-docs:resources:cluster:properties:tls_parameters:default_session_key_caching",
-              "type": "conflicts"
-            },
-            {
-              "anchor": "section",
-              "enforcement": "provider-schema",
-              "group": "tls_parameters:ConflictingObjectAttributes:default_session_key_caching,disable_session_key_caching",
-              "source": "ast-validator:ConflictingObjectAttributes",
-              "target_id": "xcsh-docs:resources:cluster:properties:tls_parameters:disable_session_key_caching",
-              "type": "conflicts"
-            },
-            {
-              "anchor": "section",
-              "enforcement": "provider-schema",
-              "group": "tls_parameters:ConflictingObjectAttributes:disable_session_key_caching,max_session_keys",
-              "source": "ast-validator:ConflictingObjectAttributes",
-              "target_id": "xcsh-docs:resources:cluster:properties:tls_parameters:disable_session_key_caching",
-              "type": "conflicts"
-            },
-            {
-              "anchor": "section",
-              "enforcement": "provider-schema",
-              "group": "tls_parameters:ConflictingObjectAttributes:disable_sni,sni",
-              "source": "ast-validator:ConflictingObjectAttributes",
-              "target_id": "xcsh-docs:resources:cluster:properties:tls_parameters:disable_sni",
-              "type": "conflicts"
-            },
-            {
-              "anchor": "section",
-              "enforcement": "provider-schema",
-              "group": "tls_parameters:ConflictingObjectAttributes:disable_sni,use_host_header_as_sni",
-              "source": "ast-validator:ConflictingObjectAttributes",
-              "target_id": "xcsh-docs:resources:cluster:properties:tls_parameters:disable_sni",
-              "type": "conflicts"
-            },
-            {
-              "anchor": "section",
-              "enforcement": "provider-schema",
-              "group": "tls_parameters:ConflictingObjectAttributes:disable_sni,use_host_header_as_sni",
-              "source": "ast-validator:ConflictingObjectAttributes",
-              "target_id": "xcsh-docs:resources:cluster:properties:tls_parameters:use_host_header_as_sni",
-              "type": "conflicts"
-            },
-            {
-              "anchor": "section",
-              "enforcement": "provider-schema",
-              "group": "tls_parameters:ConflictingObjectAttributes:sni,use_host_header_as_sni",
-              "source": "ast-validator:ConflictingObjectAttributes",
-              "target_id": "xcsh-docs:resources:cluster:properties:tls_parameters:use_host_header_as_sni",
-              "type": "conflicts"
-            }
-          ],
+          "relationships": [],
           "schema_path": ["tls_parameters"],
           "syntax": "block",
           "type": "object"
@@ -1438,38 +1389,21 @@
           "max_items": null,
           "min_items": null,
           "nesting": "single",
-          "relationships": [
-            {
-              "anchor": "section",
-              "enforcement": "provider-schema",
-              "group": "upstream_conn_pool_reuse_type:ConflictingObjectAttributes:disable_conn_pool_reuse,enable_conn_pool_reuse",
-              "source": "ast-validator:ConflictingObjectAttributes",
-              "target_id": "xcsh-docs:resources:cluster:properties:upstream_conn_pool_reuse_type:disable_conn_pool_reuse",
-              "type": "conflicts"
-            },
-            {
-              "anchor": "section",
-              "enforcement": "provider-schema",
-              "group": "upstream_conn_pool_reuse_type:ConflictingObjectAttributes:disable_conn_pool_reuse,enable_conn_pool_reuse",
-              "source": "ast-validator:ConflictingObjectAttributes",
-              "target_id": "xcsh-docs:resources:cluster:properties:upstream_conn_pool_reuse_type:enable_conn_pool_reuse",
-              "type": "conflicts"
-            }
-          ],
+          "relationships": [],
           "schema_path": ["upstream_conn_pool_reuse_type"],
           "syntax": "block",
           "type": "object"
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Property reference for xcsh_cluster.",
       "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -1492,7 +1426,7 @@
       "path": "documentation/resources/cluster/properties/auto_http_config/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-2322231020220022-3201131011222101-3111130311210132-1100300313031231-3130321322022012-1103100132333333-0022230220220021-1222033112300230",
       "registry_path": "docs/guides/resources--cluster--reference--group-001.md",
@@ -1502,20 +1436,20 @@
       "schema_path": ["auto_http_config"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/auto_http_config/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "auto_http_config",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["circuit breaker"],
-      "body_bytes": 7133,
-      "body_sha256": "sha256:50278a238c9a3018a1a438fdf7f11dcc46fdbad6286c2001a981c728875dd17d",
+      "body_bytes": 6079,
+      "body_sha256": "sha256:f099efcf3eaa6718668388c2b8effd59f8ab9e730ab551f0b4a3bcd7ce3273fd",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -1532,7 +1466,7 @@
       "path": "documentation/resources/cluster/properties/circuit_breaker/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-2221020232120031-3001013211111132-1121322102221222-0312203310302010-0011203101220332-1323012230031023-2230330130032331-3233102132202313",
       "registry_path": "docs/guides/resources--cluster--reference--group-001.md",
@@ -1594,17 +1528,8 @@
           "anchor": "schema-circuit_breaker--priority",
           "description": "Priority routing for each request. Different connection pools are used based on the priority selected for the request. Also, circuit-breaker configuration at destination cluster is chosen based on selected priority. Default routing mechanism High-Priority routing mechanism.",
           "document_id": "xcsh-docs:resources:cluster:properties:circuit_breaker",
-          "enum_extraction_complete": true,
-          "enum_validators": [
-            {
-              "case_sensitive": true,
-              "complete": true,
-              "source": "ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf",
-              "validator": "OneOf",
-              "values": ["DEFAULT", "HIGH"],
-              "version": 1
-            }
-          ],
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -1632,14 +1557,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/circuit_breaker/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "CircuitBreaker provides a mechanism for watching failures in upstream connections or requests and if the failures reach a certain threshold, automatically fail subsequent requests which allows to apply back pressure on downstream quickly.",
       "tasks": ["configuration"],
       "title": "circuit_breaker",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -1662,7 +1587,7 @@
       "path": "documentation/resources/cluster/properties/default_subset/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-2203130112112230-2033101230311313-1232010302031100-1220213120323211-1000330212310013-1123310312113230-2123012021101121-1101210100101030",
       "registry_path": "docs/guides/resources--cluster--reference--group-001.md",
@@ -1672,14 +1597,14 @@
       "schema_path": ["default_subset"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/default_subset/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "List of key-value pairs that define default subset. This subset can be referred in fallback_policy which gets used when route specifies no metadata or no subset matching the metadata exists.",
       "tasks": ["configuration"],
       "title": "default_subset",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -1702,7 +1627,7 @@
       "path": "documentation/resources/cluster/properties/disable_proxy_protocol/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-1332231121213303-0300331221322310-1213312031322122-0103330310021233-0230233100333021-3101001230012121-0312003112200120-0231110302130011",
       "registry_path": "docs/guides/resources--cluster--reference--group-001.md",
@@ -1712,20 +1637,20 @@
       "schema_path": ["disable_proxy_protocol"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/disable_proxy_protocol/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "disable_proxy_protocol",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["endpoint subsets"],
-      "body_bytes": 4818,
-      "body_sha256": "sha256:bf709e66660eff10c1f68ddd9add3c05e32f11272c8aa33dc8d43feccc8417f4",
+      "body_bytes": 4482,
+      "body_sha256": "sha256:7e20ab0161a02ec736109dad1e361441c10db7ed1bd27738cffda015e73571a3",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -1742,20 +1667,11 @@
       "path": "documentation/resources/cluster/properties/endpoint_subsets/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-0130002222020001-0232133310310030-3303113101232230-1302101000000023-2102221011311020-3031020222211032-2220002000132123-3001122011123303",
       "registry_path": "docs/guides/resources--cluster--reference--group-001.md",
-      "relationships": [
-        {
-          "anchor": "schema-endpoint_subsets--keys",
-          "enforcement": "provider-schema",
-          "group": "endpoint_subsets:RequiredListObjectAttributes:keys",
-          "source": "ast-validator:RequiredListObjectAttributes",
-          "target_id": "xcsh-docs:resources:cluster:properties:endpoint_subsets",
-          "type": "requires"
-        }
-      ],
+      "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["endpoint_subsets"],
@@ -1778,20 +1694,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/endpoint_subsets/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Cluster may be configured to divide its endpoints into subsets based on metadata attached to the endpoints. Routes may then specify the metadata that a endpoint must match in order to be selected by the load balancer. Endpoint_subsets is list of subsets for this cluster. Each entry in this list has definition for a",
       "tasks": ["configuration"],
       "title": "endpoint_subsets",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["endpoints"],
-      "body_bytes": 5489,
-      "body_sha256": "sha256:b79bec1d06bdf390b2700a5674a051b9bcc9ad57f46c78517c40cde279d31e73",
+      "body_bytes": 5226,
+      "body_sha256": "sha256:ea277e8a20078d1861d38bef47b1a79df87684604ac7365c96f4edd920df24d0",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -1808,7 +1724,7 @@
       "path": "documentation/resources/cluster/properties/endpoints/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-1122033200033300-2212233112332301-0113231231121220-3011100310230301-2211231323321310-2322020033013220-2001321233013220-1011003202200223",
       "registry_path": "docs/guides/resources--cluster--reference--group-001.md",
@@ -1934,20 +1850,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/endpoints/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "List of references to all endpoint objects that belong to this cluster.",
       "tasks": ["configuration"],
       "title": "endpoints",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["health checks"],
-      "body_bytes": 5474,
-      "body_sha256": "sha256:dca059d3576eddf5d072cc51636fd3af841a93c73e6235433eae0963b749876d",
+      "body_bytes": 5211,
+      "body_sha256": "sha256:4f49e1843da086115de6e5481eba12df5d2a75ed5aee820a1c4b88c5f3c8d051",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -1964,7 +1880,7 @@
       "path": "documentation/resources/cluster/properties/health_checks/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-3333112022010122-1123221201321130-3332220012202132-3212101010213330-3221010130203101-2233333323313123-3210103231011213-1002123323200100",
       "registry_path": "docs/guides/resources--cluster--reference--group-001.md",
@@ -2090,14 +2006,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/health_checks/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "List of references to healthcheck object for this cluster.",
       "tasks": ["configuration"],
       "title": "health_checks",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -2120,7 +2036,7 @@
       "path": "documentation/resources/cluster/properties/http1_config/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-0212332320322030-3122311023101131-3132013323032230-0111223003223223-2130302302311213-0223311332033230-1210013301010022-2212200332003133",
       "registry_path": "docs/guides/resources--cluster--reference--group-001.md",
@@ -2140,76 +2056,27 @@
           "max_items": null,
           "min_items": null,
           "nesting": "single",
-          "relationships": [
-            {
-              "anchor": "section",
-              "enforcement": "provider-schema",
-              "group": "http1_config.header_transformation:ConflictingObjectAttributes:default_header_transformation,preserve_case_header_transformation",
-              "source": "ast-validator:ConflictingObjectAttributes",
-              "target_id": "xcsh-docs:resources:cluster:properties:http1_config:header_transformation:default_header_transformation",
-              "type": "conflicts"
-            },
-            {
-              "anchor": "section",
-              "enforcement": "provider-schema",
-              "group": "http1_config.header_transformation:ConflictingObjectAttributes:default_header_transformation,proper_case_header_transformation",
-              "source": "ast-validator:ConflictingObjectAttributes",
-              "target_id": "xcsh-docs:resources:cluster:properties:http1_config:header_transformation:default_header_transformation",
-              "type": "conflicts"
-            },
-            {
-              "anchor": "section",
-              "enforcement": "provider-schema",
-              "group": "http1_config.header_transformation:ConflictingObjectAttributes:default_header_transformation,preserve_case_header_transformation",
-              "source": "ast-validator:ConflictingObjectAttributes",
-              "target_id": "xcsh-docs:resources:cluster:properties:http1_config:header_transformation:preserve_case_header_transformation",
-              "type": "conflicts"
-            },
-            {
-              "anchor": "section",
-              "enforcement": "provider-schema",
-              "group": "http1_config.header_transformation:ConflictingObjectAttributes:preserve_case_header_transformation,proper_case_header_transformation",
-              "source": "ast-validator:ConflictingObjectAttributes",
-              "target_id": "xcsh-docs:resources:cluster:properties:http1_config:header_transformation:preserve_case_header_transformation",
-              "type": "conflicts"
-            },
-            {
-              "anchor": "section",
-              "enforcement": "provider-schema",
-              "group": "http1_config.header_transformation:ConflictingObjectAttributes:default_header_transformation,proper_case_header_transformation",
-              "source": "ast-validator:ConflictingObjectAttributes",
-              "target_id": "xcsh-docs:resources:cluster:properties:http1_config:header_transformation:proper_case_header_transformation",
-              "type": "conflicts"
-            },
-            {
-              "anchor": "section",
-              "enforcement": "provider-schema",
-              "group": "http1_config.header_transformation:ConflictingObjectAttributes:preserve_case_header_transformation,proper_case_header_transformation",
-              "source": "ast-validator:ConflictingObjectAttributes",
-              "target_id": "xcsh-docs:resources:cluster:properties:http1_config:header_transformation:proper_case_header_transformation",
-              "type": "conflicts"
-            }
-          ],
+          "relationships": [],
           "schema_path": ["http1_config", "header_transformation"],
           "syntax": "block",
           "type": "object"
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/http1_config/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "HTTP/1.1 Protocol OPTIONS for upstream connections.",
       "tasks": ["configuration"],
       "title": "http1_config",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["http1 config header transformation"],
-      "body_bytes": 2284,
-      "body_sha256": "sha256:809897b9a9491093fe197d26c7d43abf86a3439866880cc7c461d171a12709cf",
+      "body_bytes": 1802,
+      "body_sha256": "sha256:7783e0f008c60d81f6837f78c34f5e42d61b11dacf795bb6ce7f370b2e67e712",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -2230,60 +2097,11 @@
       "path": "documentation/resources/cluster/properties/http1_config/header_transformation/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-3203221021123323-3232201000310320-1220303231330220-2221303021202311-1322120131023313-3223020332000123-3210030230131311-2303313021022011",
       "registry_path": "docs/guides/resources--cluster--reference--group-001.md",
-      "relationships": [
-        {
-          "anchor": "section",
-          "enforcement": "provider-schema",
-          "group": "http1_config.header_transformation:ConflictingObjectAttributes:default_header_transformation,preserve_case_header_transformation",
-          "source": "ast-validator:ConflictingObjectAttributes",
-          "target_id": "xcsh-docs:resources:cluster:properties:http1_config:header_transformation:default_header_transformation",
-          "type": "conflicts"
-        },
-        {
-          "anchor": "section",
-          "enforcement": "provider-schema",
-          "group": "http1_config.header_transformation:ConflictingObjectAttributes:default_header_transformation,proper_case_header_transformation",
-          "source": "ast-validator:ConflictingObjectAttributes",
-          "target_id": "xcsh-docs:resources:cluster:properties:http1_config:header_transformation:default_header_transformation",
-          "type": "conflicts"
-        },
-        {
-          "anchor": "section",
-          "enforcement": "provider-schema",
-          "group": "http1_config.header_transformation:ConflictingObjectAttributes:default_header_transformation,preserve_case_header_transformation",
-          "source": "ast-validator:ConflictingObjectAttributes",
-          "target_id": "xcsh-docs:resources:cluster:properties:http1_config:header_transformation:preserve_case_header_transformation",
-          "type": "conflicts"
-        },
-        {
-          "anchor": "section",
-          "enforcement": "provider-schema",
-          "group": "http1_config.header_transformation:ConflictingObjectAttributes:preserve_case_header_transformation,proper_case_header_transformation",
-          "source": "ast-validator:ConflictingObjectAttributes",
-          "target_id": "xcsh-docs:resources:cluster:properties:http1_config:header_transformation:preserve_case_header_transformation",
-          "type": "conflicts"
-        },
-        {
-          "anchor": "section",
-          "enforcement": "provider-schema",
-          "group": "http1_config.header_transformation:ConflictingObjectAttributes:default_header_transformation,proper_case_header_transformation",
-          "source": "ast-validator:ConflictingObjectAttributes",
-          "target_id": "xcsh-docs:resources:cluster:properties:http1_config:header_transformation:proper_case_header_transformation",
-          "type": "conflicts"
-        },
-        {
-          "anchor": "section",
-          "enforcement": "provider-schema",
-          "group": "http1_config.header_transformation:ConflictingObjectAttributes:preserve_case_header_transformation,proper_case_header_transformation",
-          "source": "ast-validator:ConflictingObjectAttributes",
-          "target_id": "xcsh-docs:resources:cluster:properties:http1_config:header_transformation:proper_case_header_transformation",
-          "type": "conflicts"
-        }
-      ],
+      "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["http1_config", "header_transformation"],
@@ -2338,14 +2156,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/http1_config/header_transformation/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Header Transformation OPTIONS for HTTP/1.1 request/response headers.",
       "tasks": ["configuration"],
       "title": "http1_config.header_transformation",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -2368,7 +2186,7 @@
       "path": "documentation/resources/cluster/properties/http1_config/header_transformation/default_header_transformation/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-3210111201011333-3303233101013001-1220302301313223-2002332233223022-0331321212130333-2311311023333103-3300021323021322-0323322311021201",
       "registry_path": "docs/guides/resources--cluster--reference--group-001.md",
@@ -2378,14 +2196,14 @@
       "schema_path": ["http1_config", "header_transformation", "default_header_transformation"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/http1_config/header_transformation/default_header_transformation/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Use the platform's current default HTTP header transformation behavior.",
       "tasks": ["configuration"],
       "title": "http1_config.header_transformation.default_header_transformation",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -2408,7 +2226,7 @@
       "path": "documentation/resources/cluster/properties/http1_config/header_transformation/preserve_case_header_transformation/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-2233030001120322-0200313113322200-1313032121203330-2322320303213222-1213122030323010-1013033223110220-0331000121023311-1202330301032131",
       "registry_path": "docs/guides/resources--cluster--reference--group-001.md",
@@ -2418,14 +2236,14 @@
       "schema_path": ["http1_config", "header_transformation", "preserve_case_header_transformation"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/http1_config/header_transformation/preserve_case_header_transformation/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Preserve HTTP header-name case when upstream case must remain unchanged.",
       "tasks": ["configuration"],
       "title": "http1_config.header_transformation.preserve_case_header_transformation",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -2448,7 +2266,7 @@
       "path": "documentation/resources/cluster/properties/http1_config/header_transformation/proper_case_header_transformation/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-2231100321330203-1210202101302300-1303003222032121-0312313011333021-3211020021011222-2122211033331200-2002101332232122-1202020021103120",
       "registry_path": "docs/guides/resources--cluster--reference--group-001.md",
@@ -2458,14 +2276,14 @@
       "schema_path": ["http1_config", "header_transformation", "proper_case_header_transformation"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/http1_config/header_transformation/proper_case_header_transformation/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Transform HTTP header names to proper case when explicit transformation is required.",
       "tasks": ["configuration"],
       "title": "http1_config.header_transformation.proper_case_header_transformation",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -2488,7 +2306,7 @@
       "path": "documentation/resources/cluster/properties/http2_options/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-1122100310003003-3113331120023312-1013121113333323-1300201130311202-1110110033320221-1200012120120123-3131112312310130-0313133200131313",
       "registry_path": "docs/guides/resources--cluster--reference--group-001.md",
@@ -2515,14 +2333,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/http2_options/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Http2 Protocol OPTIONS for upstream connections.",
       "tasks": ["configuration"],
       "title": "http2_options",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -2545,7 +2363,7 @@
       "path": "documentation/resources/cluster/properties/no_panic_threshold/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-3003220312211122-0130132300200133-0003203213303111-3231033101300201-1323232130312102-0321223312002221-2012322311301030-2120333223120322",
       "registry_path": "docs/guides/resources--cluster--reference--group-001.md",
@@ -2555,14 +2373,14 @@
       "schema_path": ["no_panic_threshold"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/no_panic_threshold/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "no_panic_threshold",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -2585,7 +2403,7 @@
       "path": "documentation/resources/cluster/properties/no_request_limit_per_connection/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-1222033230013012-0003313031123021-2201020000223133-2130312313211123-2000222100123110-2213333002013013-2112332102110013-3113022211303122",
       "registry_path": "docs/guides/resources--cluster--reference--group-001.md",
@@ -2595,20 +2413,20 @@
       "schema_path": ["no_request_limit_per_connection"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/no_request_limit_per_connection/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "no_request_limit_per_connection",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["outlier detection"],
-      "body_bytes": 8068,
-      "body_sha256": "sha256:88bbeef223126a51710b2d4a66898c9778fd86539315a64f23d9152c41bc01a4",
+      "body_bytes": 7255,
+      "body_sha256": "sha256:997321716e5e3d7a34e46041909354ffa0977870d2164595bd81ddfb0bb68300",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -2625,7 +2443,7 @@
       "path": "documentation/resources/cluster/properties/outlier_detection/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-1332022310131110-0010322311202313-0132333220211213-1222030130221111-1133102220330211-3122120000022131-3202112111002123-3313332331030110",
       "registry_path": "docs/guides/resources--cluster--reference--group-001.md",
@@ -2716,14 +2534,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/outlier_detection/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Outlier detection and ejection is the process of dynamically determining whether some number of hosts in an upstream cluster are performing unlike the others and removing them from the healthy load balancing set. Outlier detection is a form of passive health checking. Algorithm 1. A endpoint is determined to be an",
       "tasks": ["configuration"],
       "title": "outlier_detection",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -2746,7 +2564,7 @@
       "path": "documentation/resources/cluster/properties/proxy_protocol_v1/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-0033223222002132-3130113312332000-3110121121032222-0311212300220331-2111030221111102-1103202003220133-3230012120130011-3222201230122200",
       "registry_path": "docs/guides/resources--cluster--reference--group-001.md",
@@ -2756,14 +2574,14 @@
       "schema_path": ["proxy_protocol_v1"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/proxy_protocol_v1/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "proxy_protocol_v1",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -2786,7 +2604,7 @@
       "path": "documentation/resources/cluster/properties/proxy_protocol_v2/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-1030230022303201-0210032031113222-1010300000311002-1033013033031211-1231331022232311-0022211013203320-1012130030000133-0133112211302022",
       "registry_path": "docs/guides/resources--cluster--reference--group-001.md",
@@ -2796,14 +2614,14 @@
       "schema_path": ["proxy_protocol_v2"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/proxy_protocol_v2/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "proxy_protocol_v2",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -2826,7 +2644,7 @@
       "path": "documentation/resources/cluster/properties/timeouts/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-2330030023321302-2111121231202211-3222113200022000-2010222000312212-1332323122330130-1131000321201000-2221222311312130-0300331200322010",
       "registry_path": "docs/guides/resources--cluster--reference--group-001.md",
@@ -2936,20 +2754,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/timeouts/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "timeouts for xcsh_cluster.",
       "tasks": ["configuration"],
       "title": "timeouts",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["tls parameters"],
-      "body_bytes": 5068,
-      "body_sha256": "sha256:304e9c19817d61c8f633bd75ee7f369f043e5aa0c82dcc8d4d8444b85721bc9a",
+      "body_bytes": 3998,
+      "body_sha256": "sha256:df696c53cd47d7e2622b232353583be6cd43fa89bfbf6de319e641c86e729b21",
       "capabilities": ["load-balancing.tls"],
       "category": null,
       "child_ids": [
@@ -2973,124 +2791,11 @@
       "path": "documentation/resources/cluster/properties/tls_parameters/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-3220210122031322-3121113012222331-0213030232301003-2002100301202230-1030100031230032-2222122001310100-2022213213020103-1031100333310031",
       "registry_path": "docs/guides/resources--cluster--reference--group-001.md",
-      "relationships": [
-        {
-          "anchor": "schema-tls_parameters--max_session_keys",
-          "enforcement": "provider-schema",
-          "group": "tls_parameters:ConflictingObjectAttributes:default_session_key_caching,max_session_keys",
-          "source": "ast-validator:ConflictingObjectAttributes",
-          "target_id": "xcsh-docs:resources:cluster:properties:tls_parameters",
-          "type": "conflicts"
-        },
-        {
-          "anchor": "schema-tls_parameters--max_session_keys",
-          "enforcement": "provider-schema",
-          "group": "tls_parameters:ConflictingObjectAttributes:disable_session_key_caching,max_session_keys",
-          "source": "ast-validator:ConflictingObjectAttributes",
-          "target_id": "xcsh-docs:resources:cluster:properties:tls_parameters",
-          "type": "conflicts"
-        },
-        {
-          "anchor": "schema-tls_parameters--sni",
-          "enforcement": "provider-schema",
-          "group": "tls_parameters:ConflictingObjectAttributes:disable_sni,sni",
-          "source": "ast-validator:ConflictingObjectAttributes",
-          "target_id": "xcsh-docs:resources:cluster:properties:tls_parameters",
-          "type": "conflicts"
-        },
-        {
-          "anchor": "schema-tls_parameters--sni",
-          "enforcement": "provider-schema",
-          "group": "tls_parameters:ConflictingObjectAttributes:sni,use_host_header_as_sni",
-          "source": "ast-validator:ConflictingObjectAttributes",
-          "target_id": "xcsh-docs:resources:cluster:properties:tls_parameters",
-          "type": "conflicts"
-        },
-        {
-          "anchor": "section",
-          "enforcement": "provider-schema",
-          "group": "tls_parameters:ConflictingObjectAttributes:cert_params,common_params",
-          "source": "ast-validator:ConflictingObjectAttributes",
-          "target_id": "xcsh-docs:resources:cluster:properties:tls_parameters:cert_params",
-          "type": "conflicts"
-        },
-        {
-          "anchor": "section",
-          "enforcement": "provider-schema",
-          "group": "tls_parameters:ConflictingObjectAttributes:cert_params,common_params",
-          "source": "ast-validator:ConflictingObjectAttributes",
-          "target_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params",
-          "type": "conflicts"
-        },
-        {
-          "anchor": "section",
-          "enforcement": "provider-schema",
-          "group": "tls_parameters:ConflictingObjectAttributes:default_session_key_caching,disable_session_key_caching",
-          "source": "ast-validator:ConflictingObjectAttributes",
-          "target_id": "xcsh-docs:resources:cluster:properties:tls_parameters:default_session_key_caching",
-          "type": "conflicts"
-        },
-        {
-          "anchor": "section",
-          "enforcement": "provider-schema",
-          "group": "tls_parameters:ConflictingObjectAttributes:default_session_key_caching,max_session_keys",
-          "source": "ast-validator:ConflictingObjectAttributes",
-          "target_id": "xcsh-docs:resources:cluster:properties:tls_parameters:default_session_key_caching",
-          "type": "conflicts"
-        },
-        {
-          "anchor": "section",
-          "enforcement": "provider-schema",
-          "group": "tls_parameters:ConflictingObjectAttributes:default_session_key_caching,disable_session_key_caching",
-          "source": "ast-validator:ConflictingObjectAttributes",
-          "target_id": "xcsh-docs:resources:cluster:properties:tls_parameters:disable_session_key_caching",
-          "type": "conflicts"
-        },
-        {
-          "anchor": "section",
-          "enforcement": "provider-schema",
-          "group": "tls_parameters:ConflictingObjectAttributes:disable_session_key_caching,max_session_keys",
-          "source": "ast-validator:ConflictingObjectAttributes",
-          "target_id": "xcsh-docs:resources:cluster:properties:tls_parameters:disable_session_key_caching",
-          "type": "conflicts"
-        },
-        {
-          "anchor": "section",
-          "enforcement": "provider-schema",
-          "group": "tls_parameters:ConflictingObjectAttributes:disable_sni,sni",
-          "source": "ast-validator:ConflictingObjectAttributes",
-          "target_id": "xcsh-docs:resources:cluster:properties:tls_parameters:disable_sni",
-          "type": "conflicts"
-        },
-        {
-          "anchor": "section",
-          "enforcement": "provider-schema",
-          "group": "tls_parameters:ConflictingObjectAttributes:disable_sni,use_host_header_as_sni",
-          "source": "ast-validator:ConflictingObjectAttributes",
-          "target_id": "xcsh-docs:resources:cluster:properties:tls_parameters:disable_sni",
-          "type": "conflicts"
-        },
-        {
-          "anchor": "section",
-          "enforcement": "provider-schema",
-          "group": "tls_parameters:ConflictingObjectAttributes:disable_sni,use_host_header_as_sni",
-          "source": "ast-validator:ConflictingObjectAttributes",
-          "target_id": "xcsh-docs:resources:cluster:properties:tls_parameters:use_host_header_as_sni",
-          "type": "conflicts"
-        },
-        {
-          "anchor": "section",
-          "enforcement": "provider-schema",
-          "group": "tls_parameters:ConflictingObjectAttributes:sni,use_host_header_as_sni",
-          "source": "ast-validator:ConflictingObjectAttributes",
-          "target_id": "xcsh-docs:resources:cluster:properties:tls_parameters:use_host_header_as_sni",
-          "type": "conflicts"
-        }
-      ],
+      "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["tls_parameters"],
@@ -3106,64 +2811,7 @@
           "max_items": null,
           "min_items": null,
           "nesting": "single",
-          "relationships": [
-            {
-              "anchor": "section",
-              "enforcement": "provider-schema",
-              "group": "tls_parameters.cert_params:ConflictingObjectAttributes:skip_server_verification,tls_validation_params",
-              "source": "ast-validator:ConflictingObjectAttributes",
-              "target_id": "xcsh-docs:resources:cluster:properties:tls_parameters:cert_params:skip_server_verification",
-              "type": "conflicts"
-            },
-            {
-              "anchor": "section",
-              "enforcement": "provider-schema",
-              "group": "tls_parameters.cert_params:ConflictingObjectAttributes:skip_server_verification,volterra_trusted_ca",
-              "source": "ast-validator:ConflictingObjectAttributes",
-              "target_id": "xcsh-docs:resources:cluster:properties:tls_parameters:cert_params:skip_server_verification",
-              "type": "conflicts"
-            },
-            {
-              "anchor": "section",
-              "enforcement": "provider-schema",
-              "group": "tls_parameters.cert_params:ConflictingObjectAttributes:skip_server_verification,tls_validation_params",
-              "source": "ast-validator:ConflictingObjectAttributes",
-              "target_id": "xcsh-docs:resources:cluster:properties:tls_parameters:cert_params:tls_validation_params",
-              "type": "conflicts"
-            },
-            {
-              "anchor": "section",
-              "enforcement": "provider-schema",
-              "group": "tls_parameters.cert_params:ConflictingObjectAttributes:tls_validation_params,volterra_trusted_ca",
-              "source": "ast-validator:ConflictingObjectAttributes",
-              "target_id": "xcsh-docs:resources:cluster:properties:tls_parameters:cert_params:tls_validation_params",
-              "type": "conflicts"
-            },
-            {
-              "anchor": "section",
-              "enforcement": "provider-schema",
-              "group": "tls_parameters.cert_params:ConflictingObjectAttributes:skip_server_verification,volterra_trusted_ca",
-              "source": "ast-validator:ConflictingObjectAttributes",
-              "target_id": "xcsh-docs:resources:cluster:properties:tls_parameters:cert_params:volterra_trusted_ca",
-              "type": "conflicts"
-            },
-            {
-              "anchor": "section",
-              "enforcement": "provider-schema",
-              "group": "tls_parameters.cert_params:ConflictingObjectAttributes:tls_validation_params,volterra_trusted_ca",
-              "source": "ast-validator:ConflictingObjectAttributes",
-              "target_id": "xcsh-docs:resources:cluster:properties:tls_parameters:cert_params:volterra_trusted_ca",
-              "type": "conflicts"
-            },
-            {
-              "anchor": "section",
-              "enforcement": "provider-schema",
-              "group": "tls_parameters.cert_params:RequiredObjectAttributes:certificates",
-              "source": "ast-validator:RequiredObjectAttributes",
-              "target_id": "xcsh-docs:resources:cluster:properties:tls_parameters:cert_params:certificates",
-              "type": "requires"
-            }
-          ],
+          "relationships": [],
           "schema_path": ["tls_parameters", "cert_params"],
           "syntax": "block",
           "type": "object"
@@ -3253,7 +2901,7 @@
           "anchor": "schema-tls_parameters--sni",
           "description": "Exclusive with SNI value to be used.",
           "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters",
-          "enum_extraction_complete": true,
+          "enum_extraction_complete": false,
           "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
@@ -3282,20 +2930,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/tls_parameters/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "TLS configuration for upstream connections.",
       "tasks": ["configuration"],
       "title": "tls_parameters",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["tls parameters cert params"],
-      "body_bytes": 8104,
-      "body_sha256": "sha256:d44e1e5626464d860a782394201c0802af03eb1cfc89070a3228986d77aa9d90",
+      "body_bytes": 6663,
+      "body_sha256": "sha256:e185a7efe6b1e3527f7790371d0b7853bb4f460416e7b7264a921873c6d3e96a",
       "capabilities": ["load-balancing.tls"],
       "category": null,
       "child_ids": [
@@ -3317,68 +2965,11 @@
       "path": "documentation/resources/cluster/properties/tls_parameters/cert_params/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-1100203002130122-0022303002220133-3103111323222000-2330331223110031-2130313221330022-3031012100210311-2322023011022002-1201200201010022",
-      "registry_path": "docs/guides/resources--cluster--reference--group-002.md",
-      "relationships": [
-        {
-          "anchor": "section",
-          "enforcement": "provider-schema",
-          "group": "tls_parameters.cert_params:ConflictingObjectAttributes:skip_server_verification,tls_validation_params",
-          "source": "ast-validator:ConflictingObjectAttributes",
-          "target_id": "xcsh-docs:resources:cluster:properties:tls_parameters:cert_params:skip_server_verification",
-          "type": "conflicts"
-        },
-        {
-          "anchor": "section",
-          "enforcement": "provider-schema",
-          "group": "tls_parameters.cert_params:ConflictingObjectAttributes:skip_server_verification,volterra_trusted_ca",
-          "source": "ast-validator:ConflictingObjectAttributes",
-          "target_id": "xcsh-docs:resources:cluster:properties:tls_parameters:cert_params:skip_server_verification",
-          "type": "conflicts"
-        },
-        {
-          "anchor": "section",
-          "enforcement": "provider-schema",
-          "group": "tls_parameters.cert_params:ConflictingObjectAttributes:skip_server_verification,tls_validation_params",
-          "source": "ast-validator:ConflictingObjectAttributes",
-          "target_id": "xcsh-docs:resources:cluster:properties:tls_parameters:cert_params:tls_validation_params",
-          "type": "conflicts"
-        },
-        {
-          "anchor": "section",
-          "enforcement": "provider-schema",
-          "group": "tls_parameters.cert_params:ConflictingObjectAttributes:tls_validation_params,volterra_trusted_ca",
-          "source": "ast-validator:ConflictingObjectAttributes",
-          "target_id": "xcsh-docs:resources:cluster:properties:tls_parameters:cert_params:tls_validation_params",
-          "type": "conflicts"
-        },
-        {
-          "anchor": "section",
-          "enforcement": "provider-schema",
-          "group": "tls_parameters.cert_params:ConflictingObjectAttributes:skip_server_verification,volterra_trusted_ca",
-          "source": "ast-validator:ConflictingObjectAttributes",
-          "target_id": "xcsh-docs:resources:cluster:properties:tls_parameters:cert_params:volterra_trusted_ca",
-          "type": "conflicts"
-        },
-        {
-          "anchor": "section",
-          "enforcement": "provider-schema",
-          "group": "tls_parameters.cert_params:ConflictingObjectAttributes:tls_validation_params,volterra_trusted_ca",
-          "source": "ast-validator:ConflictingObjectAttributes",
-          "target_id": "xcsh-docs:resources:cluster:properties:tls_parameters:cert_params:volterra_trusted_ca",
-          "type": "conflicts"
-        },
-        {
-          "anchor": "section",
-          "enforcement": "provider-schema",
-          "group": "tls_parameters.cert_params:RequiredObjectAttributes:certificates",
-          "source": "ast-validator:RequiredObjectAttributes",
-          "target_id": "xcsh-docs:resources:cluster:properties:tls_parameters:cert_params:certificates",
-          "type": "requires"
-        }
-      ],
+      "registry_path": "docs/guides/resources--cluster--reference--group-001.md",
+      "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["tls_parameters", "cert_params"],
@@ -3426,17 +3017,8 @@
           "anchor": "schema-tls_parameters--cert_params--maximum_protocol_version",
           "description": "TlsProtocol is enumeration of supported TLS versions F5 Distributed Cloud will choose the optimal TLS version.",
           "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:cert_params",
-          "enum_extraction_complete": true,
-          "enum_validators": [
-            {
-              "case_sensitive": true,
-              "complete": true,
-              "source": "ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf",
-              "validator": "OneOf",
-              "values": ["TLS_AUTO", "TLSv1_0", "TLSv1_1", "TLSv1_2", "TLSv1_3"],
-              "version": 1
-            }
-          ],
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -3451,17 +3033,8 @@
           "anchor": "schema-tls_parameters--cert_params--minimum_protocol_version",
           "description": "TlsProtocol is enumeration of supported TLS versions F5 Distributed Cloud will choose the optimal TLS version.",
           "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:cert_params",
-          "enum_extraction_complete": true,
-          "enum_validators": [
-            {
-              "case_sensitive": true,
-              "complete": true,
-              "source": "ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf",
-              "validator": "OneOf",
-              "values": ["TLS_AUTO", "TLSv1_0", "TLSv1_1", "TLSv1_2", "TLSv1_3"],
-              "version": 1
-            }
-          ],
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -3498,24 +3071,7 @@
           "max_items": null,
           "min_items": null,
           "nesting": "single",
-          "relationships": [
-            {
-              "anchor": "schema-tls_parameters--cert_params--tls_validation_params--trusted_ca_url",
-              "enforcement": "provider-schema",
-              "group": "tls_parameters.cert_params.tls_validation_params:ConflictingObjectAttributes:trusted_ca,trusted_ca_url",
-              "source": "ast-validator:ConflictingObjectAttributes",
-              "target_id": "xcsh-docs:resources:cluster:properties:tls_parameters:cert_params:tls_validation_params",
-              "type": "conflicts"
-            },
-            {
-              "anchor": "section",
-              "enforcement": "provider-schema",
-              "group": "tls_parameters.cert_params.tls_validation_params:ConflictingObjectAttributes:trusted_ca,trusted_ca_url",
-              "source": "ast-validator:ConflictingObjectAttributes",
-              "target_id": "xcsh-docs:resources:cluster:properties:tls_parameters:cert_params:tls_validation_params:trusted_ca",
-              "type": "conflicts"
-            }
-          ],
+          "relationships": [],
           "schema_path": ["tls_parameters", "cert_params", "tls_validation_params"],
           "syntax": "block",
           "type": "object"
@@ -3538,14 +3094,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/tls_parameters/cert_params/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Certificate Parameters for authentication, TLS ciphers, and trust store.",
       "tasks": ["configuration"],
       "title": "tls_parameters.cert_params",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -3556,8 +3112,8 @@
         "tls certificates",
         "tls parameters cert params certificates"
       ],
-      "body_bytes": 5753,
-      "body_sha256": "sha256:0f373ffdda11cb78eadec4e882f268d10b4fb134e45d22585e4f8a3db4be4afa",
+      "body_bytes": 5490,
+      "body_sha256": "sha256:ed8d5b0b96eb3f98d9570149e70061df9b106f52553977674b3d77c9a9e1a3cd",
       "capabilities": ["load-balancing.tls"],
       "category": null,
       "child_ids": [],
@@ -3574,10 +3130,10 @@
       "path": "documentation/resources/cluster/properties/tls_parameters/cert_params/certificates/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-3231221112110221-2222223230122221-0123030212331110-3102133330132221-1323200221220213-2331121203031321-2322013132001213-1231033011033303",
-      "registry_path": "docs/guides/resources--cluster--reference--group-002.md",
+      "registry_path": "docs/guides/resources--cluster--reference--group-001.md",
       "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
@@ -3700,14 +3256,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/tls_parameters/cert_params/certificates/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Client TLS Certificate required for mTLS authentication.",
       "tasks": ["configuration"],
       "title": "tls_parameters.cert_params.certificates",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -3730,7 +3286,7 @@
       "path": "documentation/resources/cluster/properties/tls_parameters/cert_params/skip_server_verification/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-3230113212220110-1311312112103302-1122313301110122-2300101023102300-2311300223331201-3302320331023023-1100030020113322-2020202131030311",
       "registry_path": "docs/guides/resources--cluster--reference--group-002.md",
@@ -3740,20 +3296,20 @@
       "schema_path": ["tls_parameters", "cert_params", "skip_server_verification"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/tls_parameters/cert_params/skip_server_verification/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "tls_parameters.cert_params.skip_server_verification",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["tls parameters cert params tls validation params"],
-      "body_bytes": 3905,
-      "body_sha256": "sha256:671e8024516a44baaba8d50591419f501140f6596bd01a54f06c8d879baa4c6c",
+      "body_bytes": 3531,
+      "body_sha256": "sha256:c122b2b5824d5e10a448c911b7d79f8768d6293624bb710a1f9352c23515b48e",
       "capabilities": ["load-balancing.tls"],
       "category": null,
       "child_ids": [
@@ -3772,28 +3328,11 @@
       "path": "documentation/resources/cluster/properties/tls_parameters/cert_params/tls_validation_params/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-2101011001120302-3311230102233231-2123132022111332-1330332321231133-2303000103200231-1130103300133322-3102220332233122-0200233112023111",
       "registry_path": "docs/guides/resources--cluster--reference--group-002.md",
-      "relationships": [
-        {
-          "anchor": "schema-tls_parameters--cert_params--tls_validation_params--trusted_ca_url",
-          "enforcement": "provider-schema",
-          "group": "tls_parameters.cert_params.tls_validation_params:ConflictingObjectAttributes:trusted_ca,trusted_ca_url",
-          "source": "ast-validator:ConflictingObjectAttributes",
-          "target_id": "xcsh-docs:resources:cluster:properties:tls_parameters:cert_params:tls_validation_params",
-          "type": "conflicts"
-        },
-        {
-          "anchor": "section",
-          "enforcement": "provider-schema",
-          "group": "tls_parameters.cert_params.tls_validation_params:ConflictingObjectAttributes:trusted_ca,trusted_ca_url",
-          "source": "ast-validator:ConflictingObjectAttributes",
-          "target_id": "xcsh-docs:resources:cluster:properties:tls_parameters:cert_params:tls_validation_params:trusted_ca",
-          "type": "conflicts"
-        }
-      ],
+      "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["tls_parameters", "cert_params", "tls_validation_params"],
@@ -3835,7 +3374,7 @@
           "anchor": "schema-tls_parameters--cert_params--tls_validation_params--trusted_ca_url",
           "description": "Exclusive with Inline Root CA Certificate.",
           "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:cert_params:tls_validation_params",
-          "enum_extraction_complete": true,
+          "enum_extraction_complete": false,
           "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
@@ -3864,14 +3403,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/tls_parameters/cert_params/tls_validation_params/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "This includes URL for a trust store, whether SAN verification is required and list of Subject Alt Names for verification.",
       "tasks": ["configuration"],
       "title": "tls_parameters.cert_params.tls_validation_params",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -3896,7 +3435,7 @@
       "path": "documentation/resources/cluster/properties/tls_parameters/cert_params/tls_validation_params/trusted_ca/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-2021030210210031-1231023013013102-0122320101032012-2302332333111113-0333210230330213-3302100001131133-3133303313021330-3103133220131322",
       "registry_path": "docs/guides/resources--cluster--reference--group-002.md",
@@ -3923,20 +3462,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/tls_parameters/cert_params/tls_validation_params/trusted_ca/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Reference to Root CA Certificate.",
       "tasks": ["configuration"],
       "title": "tls_parameters.cert_params.tls_validation_params.trusted_ca",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["tls parameters cert params tls validation params trusted ca trusted ca list"],
-      "body_bytes": 6520,
-      "body_sha256": "sha256:e9cbdc2f3b25e3202e3256605dfd83d0e34d4412bba319838522016de8ff93cd",
+      "body_bytes": 6257,
+      "body_sha256": "sha256:0b5cb2bf6c83bd871808dd001f720af11ad2ede83c01fcf57e244f324a79fdd4",
       "capabilities": ["load-balancing.tls"],
       "category": null,
       "child_ids": [],
@@ -3953,7 +3492,7 @@
       "path": "documentation/resources/cluster/properties/tls_parameters/cert_params/tls_validation_params/trusted_ca/trusted_ca_list/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-3210202012233222-2222111012311100-0302200210313202-1110231121211201-2133310310320312-1123123022220111-1311011101003222-2302030122313211",
       "registry_path": "docs/guides/resources--cluster--reference--group-002.md",
@@ -4114,14 +3653,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/tls_parameters/cert_params/tls_validation_params/trusted_ca/trusted_ca_list/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Reference to Root CA Certificate.",
       "tasks": ["configuration"],
       "title": "tls_parameters.cert_params.tls_validation_params.trusted_ca.trusted_ca_list",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -4144,7 +3683,7 @@
       "path": "documentation/resources/cluster/properties/tls_parameters/cert_params/volterra_trusted_ca/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-0232001101331213-3011133133010213-0313330030310323-1311002133300112-1300011211333120-3323002231113130-0300100332301033-0311100310121120",
       "registry_path": "docs/guides/resources--cluster--reference--group-002.md",
@@ -4154,20 +3693,20 @@
       "schema_path": ["tls_parameters", "cert_params", "volterra_trusted_ca"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/tls_parameters/cert_params/volterra_trusted_ca/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "tls_parameters.cert_params.volterra_trusted_ca",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["tls parameters common params"],
-      "body_bytes": 7158,
-      "body_sha256": "sha256:74b3ad7e2fc5211ad4e45538125d649efe5891d5d87a093bf7892c58365a5f23",
+      "body_bytes": 6188,
+      "body_sha256": "sha256:e79e280fc2266c8d3eff41d488f16f2f95e6591d5faa771c3e8b2ef197a30285",
       "capabilities": ["load-balancing.tls"],
       "category": null,
       "child_ids": [
@@ -4187,7 +3726,7 @@
       "path": "documentation/resources/cluster/properties/tls_parameters/common_params/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-3000332102231031-2232112022123031-0211133232202112-0032122020002033-2212122300111002-2302023030003012-0222333220103023-0320013312123031",
       "registry_path": "docs/guides/resources--cluster--reference--group-002.md",
@@ -4217,17 +3756,8 @@
           "anchor": "schema-tls_parameters--common_params--maximum_protocol_version",
           "description": "TlsProtocol is enumeration of supported TLS versions F5 Distributed Cloud will choose the optimal TLS version.",
           "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params",
-          "enum_extraction_complete": true,
-          "enum_validators": [
-            {
-              "case_sensitive": true,
-              "complete": true,
-              "source": "ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf",
-              "validator": "OneOf",
-              "values": ["TLS_AUTO", "TLSv1_0", "TLSv1_1", "TLSv1_2", "TLSv1_3"],
-              "version": 1
-            }
-          ],
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -4242,17 +3772,8 @@
           "anchor": "schema-tls_parameters--common_params--minimum_protocol_version",
           "description": "TlsProtocol is enumeration of supported TLS versions F5 Distributed Cloud will choose the optimal TLS version.",
           "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params",
-          "enum_extraction_complete": true,
-          "enum_validators": [
-            {
-              "case_sensitive": true,
-              "complete": true,
-              "source": "ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf",
-              "validator": "OneOf",
-              "values": ["TLS_AUTO", "TLSv1_0", "TLSv1_1", "TLSv1_2", "TLSv1_3"],
-              "version": 1
-            }
-          ],
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -4279,64 +3800,7 @@
           "max_items": null,
           "min_items": null,
           "nesting": "list",
-          "relationships": [
-            {
-              "anchor": "section",
-              "enforcement": "provider-schema",
-              "group": "tls_parameters.common_params.tls_certificates:ConflictingListObjectAttributes:custom_hash_algorithms,disable_ocsp_stapling",
-              "source": "ast-validator:ConflictingListObjectAttributes",
-              "target_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:custom_hash_algorithms",
-              "type": "conflicts"
-            },
-            {
-              "anchor": "section",
-              "enforcement": "provider-schema",
-              "group": "tls_parameters.common_params.tls_certificates:ConflictingListObjectAttributes:custom_hash_algorithms,use_system_defaults",
-              "source": "ast-validator:ConflictingListObjectAttributes",
-              "target_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:custom_hash_algorithms",
-              "type": "conflicts"
-            },
-            {
-              "anchor": "section",
-              "enforcement": "provider-schema",
-              "group": "tls_parameters.common_params.tls_certificates:ConflictingListObjectAttributes:custom_hash_algorithms,disable_ocsp_stapling",
-              "source": "ast-validator:ConflictingListObjectAttributes",
-              "target_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:disable_ocsp_stapling",
-              "type": "conflicts"
-            },
-            {
-              "anchor": "section",
-              "enforcement": "provider-schema",
-              "group": "tls_parameters.common_params.tls_certificates:ConflictingListObjectAttributes:disable_ocsp_stapling,use_system_defaults",
-              "source": "ast-validator:ConflictingListObjectAttributes",
-              "target_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:disable_ocsp_stapling",
-              "type": "conflicts"
-            },
-            {
-              "anchor": "section",
-              "enforcement": "provider-schema",
-              "group": "tls_parameters.common_params.tls_certificates:ConflictingListObjectAttributes:custom_hash_algorithms,use_system_defaults",
-              "source": "ast-validator:ConflictingListObjectAttributes",
-              "target_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:use_system_defaults",
-              "type": "conflicts"
-            },
-            {
-              "anchor": "section",
-              "enforcement": "provider-schema",
-              "group": "tls_parameters.common_params.tls_certificates:ConflictingListObjectAttributes:disable_ocsp_stapling,use_system_defaults",
-              "source": "ast-validator:ConflictingListObjectAttributes",
-              "target_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:use_system_defaults",
-              "type": "conflicts"
-            },
-            {
-              "anchor": "schema-tls_parameters--common_params--tls_certificates--certificate_url",
-              "enforcement": "provider-schema",
-              "group": "tls_parameters.common_params.tls_certificates:RequiredListObjectAttributes:certificate_url",
-              "source": "ast-validator:RequiredListObjectAttributes",
-              "target_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates",
-              "type": "requires"
-            }
-          ],
+          "relationships": [],
           "schema_path": ["tls_parameters", "common_params", "tls_certificates"],
           "syntax": "block",
           "type": "object"
@@ -4352,38 +3816,21 @@
           "max_items": null,
           "min_items": null,
           "nesting": "single",
-          "relationships": [
-            {
-              "anchor": "schema-tls_parameters--common_params--validation_params--trusted_ca_url",
-              "enforcement": "provider-schema",
-              "group": "tls_parameters.common_params.validation_params:ConflictingObjectAttributes:trusted_ca,trusted_ca_url",
-              "source": "ast-validator:ConflictingObjectAttributes",
-              "target_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:validation_params",
-              "type": "conflicts"
-            },
-            {
-              "anchor": "section",
-              "enforcement": "provider-schema",
-              "group": "tls_parameters.common_params.validation_params:ConflictingObjectAttributes:trusted_ca,trusted_ca_url",
-              "source": "ast-validator:ConflictingObjectAttributes",
-              "target_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:validation_params:trusted_ca",
-              "type": "conflicts"
-            }
-          ],
+          "relationships": [],
           "schema_path": ["tls_parameters", "common_params", "validation_params"],
           "syntax": "block",
           "type": "object"
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/tls_parameters/common_params/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Information of different aspects for TLS authentication related to ciphers, certificates and trust store.",
       "tasks": ["configuration"],
       "title": "tls_parameters.common_params",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -4394,11 +3841,12 @@
         "tls certificates",
         "tls parameters common params tls certificates"
       ],
-      "body_bytes": 4080,
-      "body_sha256": "sha256:a8f1b40ab1e6ba4166fc15cb3d66138dec0ac4c1e170e2ca35aef2655b39707c",
+      "body_bytes": 3622,
+      "body_sha256": "sha256:2fc84b9f43a287569f70e8fe2de111503f5200716066eab035b8889556372bd3",
       "capabilities": ["load-balancing.tls"],
       "category": null,
       "child_ids": [
+        "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:blindfold",
         "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:custom_hash_algorithms",
         "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:disable_ocsp_stapling",
         "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:private_key",
@@ -4417,72 +3865,31 @@
       "path": "documentation/resources/cluster/properties/tls_parameters/common_params/tls_certificates/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-0131010103112232-3231212333021030-2003223122303221-0310132121203233-1133132000120130-0020110303123221-1122130221010233-3121233100221002",
       "registry_path": "docs/guides/resources--cluster--reference--group-002.md",
-      "relationships": [
-        {
-          "anchor": "section",
-          "enforcement": "provider-schema",
-          "group": "tls_parameters.common_params.tls_certificates:ConflictingListObjectAttributes:custom_hash_algorithms,disable_ocsp_stapling",
-          "source": "ast-validator:ConflictingListObjectAttributes",
-          "target_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:custom_hash_algorithms",
-          "type": "conflicts"
-        },
-        {
-          "anchor": "section",
-          "enforcement": "provider-schema",
-          "group": "tls_parameters.common_params.tls_certificates:ConflictingListObjectAttributes:custom_hash_algorithms,use_system_defaults",
-          "source": "ast-validator:ConflictingListObjectAttributes",
-          "target_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:custom_hash_algorithms",
-          "type": "conflicts"
-        },
-        {
-          "anchor": "section",
-          "enforcement": "provider-schema",
-          "group": "tls_parameters.common_params.tls_certificates:ConflictingListObjectAttributes:custom_hash_algorithms,disable_ocsp_stapling",
-          "source": "ast-validator:ConflictingListObjectAttributes",
-          "target_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:disable_ocsp_stapling",
-          "type": "conflicts"
-        },
-        {
-          "anchor": "section",
-          "enforcement": "provider-schema",
-          "group": "tls_parameters.common_params.tls_certificates:ConflictingListObjectAttributes:disable_ocsp_stapling,use_system_defaults",
-          "source": "ast-validator:ConflictingListObjectAttributes",
-          "target_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:disable_ocsp_stapling",
-          "type": "conflicts"
-        },
-        {
-          "anchor": "section",
-          "enforcement": "provider-schema",
-          "group": "tls_parameters.common_params.tls_certificates:ConflictingListObjectAttributes:custom_hash_algorithms,use_system_defaults",
-          "source": "ast-validator:ConflictingListObjectAttributes",
-          "target_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:use_system_defaults",
-          "type": "conflicts"
-        },
-        {
-          "anchor": "section",
-          "enforcement": "provider-schema",
-          "group": "tls_parameters.common_params.tls_certificates:ConflictingListObjectAttributes:disable_ocsp_stapling,use_system_defaults",
-          "source": "ast-validator:ConflictingListObjectAttributes",
-          "target_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:use_system_defaults",
-          "type": "conflicts"
-        },
-        {
-          "anchor": "schema-tls_parameters--common_params--tls_certificates--certificate_url",
-          "enforcement": "provider-schema",
-          "group": "tls_parameters.common_params.tls_certificates:RequiredListObjectAttributes:certificate_url",
-          "source": "ast-validator:RequiredListObjectAttributes",
-          "target_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates",
-          "type": "requires"
-        }
-      ],
+      "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["tls_parameters", "common_params", "tls_certificates"],
       "sections": [
+        {
+          "aliases": ["tls parameters common params tls certificates blindfold"],
+          "anchor": "section",
+          "description": "Native certificate preparation. Use PEM files or a P12 file, or write-only key/bundle values with material_version (Terraform 1.11+). Defaults to shared/ves-io-allow-volterra. Inline certificates require unique IDs. Private inputs are never stored.",
+          "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:blindfold",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "single",
+          "relationships": [],
+          "schema_path": ["tls_parameters", "common_params", "tls_certificates", "blindfold"],
+          "syntax": "attribute",
+          "type": "object"
+        },
         {
           "aliases": [
             "cert",
@@ -4494,9 +3901,9 @@
           "anchor": "schema-tls_parameters--common_params--tls_certificates--certificate_url",
           "description": "TLS certificate. Certificate or certificate chain in PEM format including the PEM headers.",
           "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates",
-          "enum_extraction_complete": true,
+          "enum_extraction_complete": false,
           "enum_validators": [],
-          "flags": ["optional"],
+          "flags": ["optional", "computed"],
           "max_items": null,
           "min_items": null,
           "nesting": null,
@@ -4516,16 +3923,7 @@
           "max_items": null,
           "min_items": null,
           "nesting": "single",
-          "relationships": [
-            {
-              "anchor": "schema-tls_parameters--common_params--tls_certificates--custom_hash_algorithms--hash_algorithms",
-              "enforcement": "provider-schema",
-              "group": "tls_parameters.common_params.tls_certificates.custom_hash_algorithms:RequiredObjectAttributes:hash_algorithms",
-              "source": "ast-validator:RequiredObjectAttributes",
-              "target_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:custom_hash_algorithms",
-              "type": "requires"
-            }
-          ],
+          "relationships": [],
           "schema_path": ["tls_parameters", "common_params", "tls_certificates", "custom_hash_algorithms"],
           "syntax": "block",
           "type": "object"
@@ -4573,24 +3971,7 @@
           "max_items": null,
           "min_items": null,
           "nesting": "single",
-          "relationships": [
-            {
-              "anchor": "section",
-              "enforcement": "provider-schema",
-              "group": "tls_parameters.common_params.tls_certificates.private_key:ConflictingObjectAttributes:blindfold_secret_info,clear_secret_info",
-              "source": "ast-validator:ConflictingObjectAttributes",
-              "target_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:private_key:blindfold_secret_info",
-              "type": "conflicts"
-            },
-            {
-              "anchor": "section",
-              "enforcement": "provider-schema",
-              "group": "tls_parameters.common_params.tls_certificates.private_key:ConflictingObjectAttributes:blindfold_secret_info,clear_secret_info",
-              "source": "ast-validator:ConflictingObjectAttributes",
-              "target_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:private_key:clear_secret_info",
-              "type": "conflicts"
-            }
-          ],
+          "relationships": [],
           "schema_path": ["tls_parameters", "common_params", "tls_certificates", "private_key"],
           "syntax": "block",
           "type": "object"
@@ -4613,20 +3994,365 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/tls_parameters/common_params/tls_certificates/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Set of TLS certificates.",
       "tasks": ["configuration"],
       "title": "tls_parameters.common_params.tls_certificates",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
+      }
+    },
+    {
+      "aliases": ["tls parameters common params tls certificates blindfold"],
+      "body_bytes": 4160,
+      "body_sha256": "sha256:2780d3e04c27c12e760e8f33a4a996e47e3225848d019aa61649c5cc94585697",
+      "capabilities": ["load-balancing.tls"],
+      "category": null,
+      "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
+        "sources": ["reviewed-rule"],
+        "status": "unresolved",
+        "upstream_category_source": "receipt-pinned-domain"
+      },
+      "collection_id": "xcsh-docs:resources:cluster:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:blindfold",
+      "parent_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates",
+      "path": "documentation/resources/cluster/properties/tls_parameters/common_params/tls_certificates/blindfold/index.md",
+      "product": "distributed-cloud",
+      "provider_name": "cluster",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
+      "provider_type": "resources",
+      "registry_anchor": "canonical-2201320202330010-0321030202210222-3230232012101332-2321110023300031-2032133332320203-2121203123330312-1203132001101223-0131202003122023",
+      "registry_path": "docs/guides/resources--cluster--reference--group-002.md",
+      "relationships": [],
+      "retrieval_version": 1,
+      "role": "properties",
+      "schema_path": ["tls_parameters", "common_params", "tls_certificates", "blindfold"],
+      "sections": [
+        {
+          "aliases": ["tls parameters common params tls certificates blindfold algorithm"],
+          "anchor": "schema-tls_parameters--common_params--tls_certificates--blindfold--algorithm",
+          "description": "algorithm",
+          "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:blindfold",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
+          "flags": ["computed"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["tls_parameters", "common_params", "tls_certificates", "blindfold", "algorithm"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["tls parameters common params tls certificates blindfold certificate file"],
+          "anchor": "schema-tls_parameters--common_params--tls_certificates--blindfold--certificate_file",
+          "description": "certificate file",
+          "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:blindfold",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["tls_parameters", "common_params", "tls_certificates", "blindfold", "certificate_file"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["tls parameters common params tls certificates blindfold certificate pem"],
+          "anchor": "schema-tls_parameters--common_params--tls_certificates--blindfold--certificate_pem",
+          "description": "certificate pem",
+          "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:blindfold",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["tls_parameters", "common_params", "tls_certificates", "blindfold", "certificate_pem"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["tls parameters common params tls certificates blindfold chain identity"],
+          "anchor": "schema-tls_parameters--common_params--tls_certificates--blindfold--chain_identity",
+          "description": "chain identity",
+          "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:blindfold",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
+          "flags": ["computed"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["tls_parameters", "common_params", "tls_certificates", "blindfold", "chain_identity"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["tls parameters common params tls certificates blindfold context digest"],
+          "anchor": "schema-tls_parameters--common_params--tls_certificates--blindfold--context_digest",
+          "description": "context digest",
+          "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:blindfold",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
+          "flags": ["computed"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["tls_parameters", "common_params", "tls_certificates", "blindfold", "context_digest"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["tls parameters common params tls certificates blindfold encrypted location"],
+          "anchor": "schema-tls_parameters--common_params--tls_certificates--blindfold--encrypted_location",
+          "description": "encrypted location",
+          "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:blindfold",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
+          "flags": ["computed", "sensitive"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["tls_parameters", "common_params", "tls_certificates", "blindfold", "encrypted_location"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["tls parameters common params tls certificates blindfold expires at"],
+          "anchor": "schema-tls_parameters--common_params--tls_certificates--blindfold--expires_at",
+          "description": "expires at",
+          "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:blindfold",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
+          "flags": ["computed"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["tls_parameters", "common_params", "tls_certificates", "blindfold", "expires_at"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["tls parameters common params tls certificates blindfold fingerprint"],
+          "anchor": "schema-tls_parameters--common_params--tls_certificates--blindfold--fingerprint",
+          "description": "fingerprint",
+          "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:blindfold",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
+          "flags": ["computed"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["tls_parameters", "common_params", "tls_certificates", "blindfold", "fingerprint"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["tls parameters common params tls certificates blindfold id"],
+          "anchor": "schema-tls_parameters--common_params--tls_certificates--blindfold--id",
+          "description": "id",
+          "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:blindfold",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["tls_parameters", "common_params", "tls_certificates", "blindfold", "id"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["tls parameters common params tls certificates blindfold material version"],
+          "anchor": "schema-tls_parameters--common_params--tls_certificates--blindfold--material_version",
+          "description": "material version",
+          "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:blindfold",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["tls_parameters", "common_params", "tls_certificates", "blindfold", "material_version"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["tls parameters common params tls certificates blindfold passphrase env"],
+          "anchor": "schema-tls_parameters--common_params--tls_certificates--blindfold--passphrase_env",
+          "description": "passphrase env",
+          "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:blindfold",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["tls_parameters", "common_params", "tls_certificates", "blindfold", "passphrase_env"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["tls parameters common params tls certificates blindfold passphrase wo"],
+          "anchor": "schema-tls_parameters--common_params--tls_certificates--blindfold--passphrase_wo",
+          "description": "passphrase wo",
+          "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:blindfold",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
+          "flags": ["optional", "sensitive", "write_only"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["tls_parameters", "common_params", "tls_certificates", "blindfold", "passphrase_wo"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["tls parameters common params tls certificates blindfold pkcs12 file"],
+          "anchor": "schema-tls_parameters--common_params--tls_certificates--blindfold--pkcs12_file",
+          "description": "pkcs12 file",
+          "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:blindfold",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["tls_parameters", "common_params", "tls_certificates", "blindfold", "pkcs12_file"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["tls parameters common params tls certificates blindfold pkcs12 wo"],
+          "anchor": "schema-tls_parameters--common_params--tls_certificates--blindfold--pkcs12_wo",
+          "description": "pkcs12 wo",
+          "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:blindfold",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
+          "flags": ["optional", "sensitive", "write_only"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["tls_parameters", "common_params", "tls_certificates", "blindfold", "pkcs12_wo"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["tls parameters common params tls certificates blindfold policy"],
+          "anchor": "schema-tls_parameters--common_params--tls_certificates--blindfold--policy",
+          "description": "policy",
+          "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:blindfold",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["tls_parameters", "common_params", "tls_certificates", "blindfold", "policy"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["tls parameters common params tls certificates blindfold prepared identity"],
+          "anchor": "schema-tls_parameters--common_params--tls_certificates--blindfold--prepared_identity",
+          "description": "prepared identity",
+          "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:blindfold",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
+          "flags": ["computed"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["tls_parameters", "common_params", "tls_certificates", "blindfold", "prepared_identity"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["tls parameters common params tls certificates blindfold private key file"],
+          "anchor": "schema-tls_parameters--common_params--tls_certificates--blindfold--private_key_file",
+          "description": "private key file",
+          "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:blindfold",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["tls_parameters", "common_params", "tls_certificates", "blindfold", "private_key_file"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["tls parameters common params tls certificates blindfold private key wo"],
+          "anchor": "schema-tls_parameters--common_params--tls_certificates--blindfold--private_key_wo",
+          "description": "private key wo",
+          "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:blindfold",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
+          "flags": ["optional", "sensitive", "write_only"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["tls_parameters", "common_params", "tls_certificates", "blindfold", "private_key_wo"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["tls parameters common params tls certificates blindfold spki identity"],
+          "anchor": "schema-tls_parameters--common_params--tls_certificates--blindfold--spki_identity",
+          "description": "spki identity",
+          "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:blindfold",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
+          "flags": ["computed"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["tls_parameters", "common_params", "tls_certificates", "blindfold", "spki_identity"],
+          "syntax": "attribute",
+          "type": "string"
+        }
+      ],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/tls_parameters/common_params/tls_certificates/blindfold/index.txt",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
+      "summary": "Native certificate preparation. Use PEM files or a P12 file, or write-only key/bundle values with material_version (Terraform 1.11+). Defaults to shared/ves-io-allow-volterra. Inline certificates require unique IDs. Private inputs are never stored.",
+      "tasks": ["configuration"],
+      "title": "tls_parameters.common_params.tls_certificates.blindfold",
+      "upstream_identity": {
+        "release_tag": "v12.0.4",
+        "schema_components": ["clusterCreateRequest"],
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["tls parameters common params tls certificates custom hash algorithms"],
-      "body_bytes": 3057,
-      "body_sha256": "sha256:44b3381fce2f3f94109a364bd88fa82e3517790a5363f85419b8dd099dba2f47",
+      "body_bytes": 2709,
+      "body_sha256": "sha256:d7093b9100629610dd3005bf550a532cd15b6807e29b3eb6c8212497a82d71d8",
       "capabilities": ["load-balancing.tls"],
       "category": null,
       "child_ids": [],
@@ -4643,20 +4369,11 @@
       "path": "documentation/resources/cluster/properties/tls_parameters/common_params/tls_certificates/custom_hash_algorithms/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-3100030202202023-3332102123210012-3211221011112033-1010201322312023-3201300103121021-3032033210313123-1010332231032003-2220333022212312",
       "registry_path": "docs/guides/resources--cluster--reference--group-002.md",
-      "relationships": [
-        {
-          "anchor": "schema-tls_parameters--common_params--tls_certificates--custom_hash_algorithms--hash_algorithms",
-          "enforcement": "provider-schema",
-          "group": "tls_parameters.common_params.tls_certificates.custom_hash_algorithms:RequiredObjectAttributes:hash_algorithms",
-          "source": "ast-validator:RequiredObjectAttributes",
-          "target_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:custom_hash_algorithms",
-          "type": "requires"
-        }
-      ],
+      "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["tls_parameters", "common_params", "tls_certificates", "custom_hash_algorithms"],
@@ -4685,14 +4402,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/tls_parameters/common_params/tls_certificates/custom_hash_algorithms/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Specifies the hash algorithms to be used.",
       "tasks": ["configuration"],
       "title": "tls_parameters.common_params.tls_certificates.custom_hash_algorithms",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -4715,7 +4432,7 @@
       "path": "documentation/resources/cluster/properties/tls_parameters/common_params/tls_certificates/disable_ocsp_stapling/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-1113012131322320-0302131123233120-3101220102133203-2113133101130003-2232130312102120-0013123302000011-3200201321123120-3032320120001011",
       "registry_path": "docs/guides/resources--cluster--reference--group-002.md",
@@ -4725,20 +4442,20 @@
       "schema_path": ["tls_parameters", "common_params", "tls_certificates", "disable_ocsp_stapling"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/tls_parameters/common_params/tls_certificates/disable_ocsp_stapling/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "tls_parameters.common_params.tls_certificates.disable_ocsp_stapling",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["tls parameters common params tls certificates private key"],
-      "body_bytes": 2091,
-      "body_sha256": "sha256:35d0926108e870b9b323ade7efb5363f033232d61a9bda32dca4dddb6b001598",
+      "body_bytes": 1873,
+      "body_sha256": "sha256:bf9c462f9cd672d7f25eb98bd4b99ba5db156e50c6f4cec3d1422dbc033b8d27",
       "capabilities": ["load-balancing.tls"],
       "category": null,
       "child_ids": [
@@ -4758,28 +4475,11 @@
       "path": "documentation/resources/cluster/properties/tls_parameters/common_params/tls_certificates/private_key/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-0112322121010113-2232031323011101-1331110203332032-1103021020010321-1303003331100031-1100121002230200-0112002301111132-2220220321333331",
       "registry_path": "docs/guides/resources--cluster--reference--group-002.md",
-      "relationships": [
-        {
-          "anchor": "section",
-          "enforcement": "provider-schema",
-          "group": "tls_parameters.common_params.tls_certificates.private_key:ConflictingObjectAttributes:blindfold_secret_info,clear_secret_info",
-          "source": "ast-validator:ConflictingObjectAttributes",
-          "target_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:private_key:blindfold_secret_info",
-          "type": "conflicts"
-        },
-        {
-          "anchor": "section",
-          "enforcement": "provider-schema",
-          "group": "tls_parameters.common_params.tls_certificates.private_key:ConflictingObjectAttributes:blindfold_secret_info,clear_secret_info",
-          "source": "ast-validator:ConflictingObjectAttributes",
-          "target_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:private_key:clear_secret_info",
-          "type": "conflicts"
-        }
-      ],
+      "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["tls_parameters", "common_params", "tls_certificates", "private_key"],
@@ -4795,16 +4495,7 @@
           "max_items": null,
           "min_items": null,
           "nesting": "single",
-          "relationships": [
-            {
-              "anchor": "schema-tls_parameters--common_params--tls_certificates--private_key--blindfold_secret_info--location",
-              "enforcement": "provider-schema",
-              "group": "tls_parameters.common_params.tls_certificates.private_key.blindfold_secret_info:RequiredObjectAttributes:location",
-              "source": "ast-validator:RequiredObjectAttributes",
-              "target_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:private_key:blindfold_secret_info",
-              "type": "requires"
-            }
-          ],
+          "relationships": [],
           "schema_path": [
             "tls_parameters",
             "common_params",
@@ -4826,36 +4517,27 @@
           "max_items": null,
           "min_items": null,
           "nesting": "single",
-          "relationships": [
-            {
-              "anchor": "schema-tls_parameters--common_params--tls_certificates--private_key--clear_secret_info--url",
-              "enforcement": "provider-schema",
-              "group": "tls_parameters.common_params.tls_certificates.private_key.clear_secret_info:RequiredObjectAttributes:url",
-              "source": "ast-validator:RequiredObjectAttributes",
-              "target_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:private_key:clear_secret_info",
-              "type": "requires"
-            }
-          ],
+          "relationships": [],
           "schema_path": ["tls_parameters", "common_params", "tls_certificates", "private_key", "clear_secret_info"],
           "syntax": "block",
           "type": "object"
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/tls_parameters/common_params/tls_certificates/private_key/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "SecretType is used in an object to indicate a sensitive/confidential field.",
       "tasks": ["configuration"],
       "title": "tls_parameters.common_params.tls_certificates.private_key",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["tls parameters common params tls certificates private key blindfold secret info"],
-      "body_bytes": 4820,
-      "body_sha256": "sha256:a158c9ea877a8d05c2b6586e21e97d4bf94e5667e059fb46ad4744c7241e1230",
+      "body_bytes": 4469,
+      "body_sha256": "sha256:a6ef2c8d069df06ebc4a8a2da72d04e72efec8000ed1307f653889029848f1f2",
       "capabilities": ["load-balancing.tls"],
       "category": null,
       "child_ids": [],
@@ -4872,20 +4554,11 @@
       "path": "documentation/resources/cluster/properties/tls_parameters/common_params/tls_certificates/private_key/blindfold_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-1111201001212120-2100030320133102-3113220213330111-2312322131330022-1100301011312201-0210323001212333-3322202132011012-0132330022213300",
       "registry_path": "docs/guides/resources--cluster--reference--group-002.md",
-      "relationships": [
-        {
-          "anchor": "schema-tls_parameters--common_params--tls_certificates--private_key--blindfold_secret_info--location",
-          "enforcement": "provider-schema",
-          "group": "tls_parameters.common_params.tls_certificates.private_key.blindfold_secret_info:RequiredObjectAttributes:location",
-          "source": "ast-validator:RequiredObjectAttributes",
-          "target_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:private_key:blindfold_secret_info",
-          "type": "requires"
-        }
-      ],
+      "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["tls_parameters", "common_params", "tls_certificates", "private_key", "blindfold_secret_info"],
@@ -4920,7 +4593,7 @@
           "anchor": "schema-tls_parameters--common_params--tls_certificates--private_key--blindfold_secret_info--location",
           "description": "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
           "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:private_key:blindfold_secret_info",
-          "enum_extraction_complete": true,
+          "enum_extraction_complete": false,
           "enum_validators": [],
           "flags": ["optional", "sensitive"],
           "max_items": null,
@@ -4963,20 +4636,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/tls_parameters/common_params/tls_certificates/private_key/blindfold_secret_info/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
       "tasks": ["configuration"],
       "title": "tls_parameters.common_params.tls_certificates.private_key.blindfold_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["tls parameters common params tls certificates private key clear secret info"],
-      "body_bytes": 3805,
-      "body_sha256": "sha256:a092b031ce4ee604a5d8ea657c95915070d8a83edc65b14e26b83f655ce2d41c",
+      "body_bytes": 3459,
+      "body_sha256": "sha256:ac0991bd2bb6327a44846d4a61a78069a49787132679a71af8a9d53bd716f7cc",
       "capabilities": ["load-balancing.tls"],
       "category": null,
       "child_ids": [],
@@ -4993,20 +4666,11 @@
       "path": "documentation/resources/cluster/properties/tls_parameters/common_params/tls_certificates/private_key/clear_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-1003030120101221-1132033110233013-2333213312110121-0201233200102312-3032112003002113-2132331313311002-2101032023032311-3121200103302010",
       "registry_path": "docs/guides/resources--cluster--reference--group-002.md",
-      "relationships": [
-        {
-          "anchor": "schema-tls_parameters--common_params--tls_certificates--private_key--clear_secret_info--url",
-          "enforcement": "provider-schema",
-          "group": "tls_parameters.common_params.tls_certificates.private_key.clear_secret_info:RequiredObjectAttributes:url",
-          "source": "ast-validator:RequiredObjectAttributes",
-          "target_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:private_key:clear_secret_info",
-          "type": "requires"
-        }
-      ],
+      "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["tls_parameters", "common_params", "tls_certificates", "private_key", "clear_secret_info"],
@@ -5039,7 +4703,7 @@
           "anchor": "schema-tls_parameters--common_params--tls_certificates--private_key--clear_secret_info--url",
           "description": "URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding.",
           "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:private_key:clear_secret_info",
-          "enum_extraction_complete": true,
+          "enum_extraction_complete": false,
           "enum_validators": [],
           "flags": ["optional", "sensitive"],
           "max_items": null,
@@ -5059,14 +4723,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/tls_parameters/common_params/tls_certificates/private_key/clear_secret_info/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
       "tasks": ["configuration"],
       "title": "tls_parameters.common_params.tls_certificates.private_key.clear_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -5089,7 +4753,7 @@
       "path": "documentation/resources/cluster/properties/tls_parameters/common_params/tls_certificates/use_system_defaults/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-3312123133213002-2033110322000311-1233120302113100-3332231330331002-2223313020333233-3322023210233300-1001131001321311-3210320211002102",
       "registry_path": "docs/guides/resources--cluster--reference--group-002.md",
@@ -5099,20 +4763,20 @@
       "schema_path": ["tls_parameters", "common_params", "tls_certificates", "use_system_defaults"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/tls_parameters/common_params/tls_certificates/use_system_defaults/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "tls_parameters.common_params.tls_certificates.use_system_defaults",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["tls parameters common params validation params"],
-      "body_bytes": 3893,
-      "body_sha256": "sha256:692f4b87930082bd9023e558cafd2f65b79705207965bed3ecce30afcf5e8d54",
+      "body_bytes": 3519,
+      "body_sha256": "sha256:6a0fcbe2e2301d015a2c0efcf53e8faeafabc8e75c18f43aa8d3860799e7823f",
       "capabilities": ["load-balancing.tls"],
       "category": null,
       "child_ids": ["xcsh-docs:resources:cluster:properties:tls_parameters:common_params:validation_params:trusted_ca"],
@@ -5129,28 +4793,11 @@
       "path": "documentation/resources/cluster/properties/tls_parameters/common_params/validation_params/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-1131330230312303-0310300220320222-1103213131021110-2122322113313130-2030303111023121-0130120220032310-3333210220201121-3331003030302103",
       "registry_path": "docs/guides/resources--cluster--reference--group-002.md",
-      "relationships": [
-        {
-          "anchor": "schema-tls_parameters--common_params--validation_params--trusted_ca_url",
-          "enforcement": "provider-schema",
-          "group": "tls_parameters.common_params.validation_params:ConflictingObjectAttributes:trusted_ca,trusted_ca_url",
-          "source": "ast-validator:ConflictingObjectAttributes",
-          "target_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:validation_params",
-          "type": "conflicts"
-        },
-        {
-          "anchor": "section",
-          "enforcement": "provider-schema",
-          "group": "tls_parameters.common_params.validation_params:ConflictingObjectAttributes:trusted_ca,trusted_ca_url",
-          "source": "ast-validator:ConflictingObjectAttributes",
-          "target_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:validation_params:trusted_ca",
-          "type": "conflicts"
-        }
-      ],
+      "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["tls_parameters", "common_params", "validation_params"],
@@ -5192,7 +4839,7 @@
           "anchor": "schema-tls_parameters--common_params--validation_params--trusted_ca_url",
           "description": "Exclusive with Inline Root CA Certificate.",
           "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:validation_params",
-          "enum_extraction_complete": true,
+          "enum_extraction_complete": false,
           "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
@@ -5221,14 +4868,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/tls_parameters/common_params/validation_params/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "This includes URL for a trust store, whether SAN verification is required and list of Subject Alt Names for verification.",
       "tasks": ["configuration"],
       "title": "tls_parameters.common_params.validation_params",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -5253,7 +4900,7 @@
       "path": "documentation/resources/cluster/properties/tls_parameters/common_params/validation_params/trusted_ca/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-2123020121303021-2110101300212030-3021001233002120-3111103121230120-2023100101002103-1211222000220210-2232311111312300-2313222211011230",
       "registry_path": "docs/guides/resources--cluster--reference--group-002.md",
@@ -5280,20 +4927,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/tls_parameters/common_params/validation_params/trusted_ca/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Reference to Root CA Certificate.",
       "tasks": ["configuration"],
       "title": "tls_parameters.common_params.validation_params.trusted_ca",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["tls parameters common params validation params trusted ca trusted ca list"],
-      "body_bytes": 6502,
-      "body_sha256": "sha256:a363cf68fbb24fb5d4e0444ee8c1f14b478f9c53443cdd9a112fb1ef9098f466",
+      "body_bytes": 6239,
+      "body_sha256": "sha256:536787d9aa36683ea300f6c2960f081d5ca41163765d8a51f39796d72556a5e5",
       "capabilities": ["load-balancing.tls"],
       "category": null,
       "child_ids": [],
@@ -5310,7 +4957,7 @@
       "path": "documentation/resources/cluster/properties/tls_parameters/common_params/validation_params/trusted_ca/trusted_ca_list/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-2031332030331232-1103121133023121-1011133313302011-2210130002320220-3121303200312203-2233202100102010-1012212230111202-0333000000121000",
       "registry_path": "docs/guides/resources--cluster--reference--group-002.md",
@@ -5471,14 +5118,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/tls_parameters/common_params/validation_params/trusted_ca/trusted_ca_list/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Reference to Root CA Certificate.",
       "tasks": ["configuration"],
       "title": "tls_parameters.common_params.validation_params.trusted_ca.trusted_ca_list",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -5501,7 +5148,7 @@
       "path": "documentation/resources/cluster/properties/tls_parameters/default_session_key_caching/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-3111210320132103-3023301033212102-3010212200103223-1330312002311102-2203031033111312-1310030010122203-0223131200231111-2130111222200133",
       "registry_path": "docs/guides/resources--cluster--reference--group-002.md",
@@ -5511,14 +5158,14 @@
       "schema_path": ["tls_parameters", "default_session_key_caching"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/tls_parameters/default_session_key_caching/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "tls_parameters.default_session_key_caching",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -5541,7 +5188,7 @@
       "path": "documentation/resources/cluster/properties/tls_parameters/disable_session_key_caching/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-2102323013232123-2122130023210330-2223011133213113-3010120223212310-3033220231110101-2003103300202020-3311031203312302-0210012033113310",
       "registry_path": "docs/guides/resources--cluster--reference--group-002.md",
@@ -5551,14 +5198,14 @@
       "schema_path": ["tls_parameters", "disable_session_key_caching"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/tls_parameters/disable_session_key_caching/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "tls_parameters.disable_session_key_caching",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -5581,7 +5228,7 @@
       "path": "documentation/resources/cluster/properties/tls_parameters/disable_sni/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-1231201030310032-2232133130332230-3102203310013132-0231112133233202-2112002222030130-0312121223003313-1302023203330231-0310011232322132",
       "registry_path": "docs/guides/resources--cluster--reference--group-002.md",
@@ -5591,14 +5238,14 @@
       "schema_path": ["tls_parameters", "disable_sni"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/tls_parameters/disable_sni/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "tls_parameters.disable_sni",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -5621,7 +5268,7 @@
       "path": "documentation/resources/cluster/properties/tls_parameters/use_host_header_as_sni/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-3303030113320302-0313223030232122-1230002312320323-0112201033032021-3032303300003222-3030123202200331-3032022101232333-0330331332030030",
       "registry_path": "docs/guides/resources--cluster--reference--group-002.md",
@@ -5631,20 +5278,20 @@
       "schema_path": ["tls_parameters", "use_host_header_as_sni"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/tls_parameters/use_host_header_as_sni/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "tls_parameters.use_host_header_as_sni",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["upstream conn pool reuse type"],
-      "body_bytes": 1647,
-      "body_sha256": "sha256:39d07a505eb7915a06ed80c45a96bfbc7688f450c0d35038c127481ffdc6f41f",
+      "body_bytes": 1422,
+      "body_sha256": "sha256:619892779175dff7c4e034ddebe942ad8d797dcb6eb70441dc45fafa34b7d4df",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -5664,28 +5311,11 @@
       "path": "documentation/resources/cluster/properties/upstream_conn_pool_reuse_type/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-2112130020110230-3121122220021332-0102101233321233-3011130330023132-3123211112301313-2313230113011333-2220110203131001-2022033121110202",
       "registry_path": "docs/guides/resources--cluster--reference--group-002.md",
-      "relationships": [
-        {
-          "anchor": "section",
-          "enforcement": "provider-schema",
-          "group": "upstream_conn_pool_reuse_type:ConflictingObjectAttributes:disable_conn_pool_reuse,enable_conn_pool_reuse",
-          "source": "ast-validator:ConflictingObjectAttributes",
-          "target_id": "xcsh-docs:resources:cluster:properties:upstream_conn_pool_reuse_type:disable_conn_pool_reuse",
-          "type": "conflicts"
-        },
-        {
-          "anchor": "section",
-          "enforcement": "provider-schema",
-          "group": "upstream_conn_pool_reuse_type:ConflictingObjectAttributes:disable_conn_pool_reuse,enable_conn_pool_reuse",
-          "source": "ast-validator:ConflictingObjectAttributes",
-          "target_id": "xcsh-docs:resources:cluster:properties:upstream_conn_pool_reuse_type:enable_conn_pool_reuse",
-          "type": "conflicts"
-        }
-      ],
+      "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["upstream_conn_pool_reuse_type"],
@@ -5724,14 +5354,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/upstream_conn_pool_reuse_type/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Select upstream connection pool reuse state for every downstream connection. This configuration choice is for HTTP(S) LB only.",
       "tasks": ["configuration"],
       "title": "upstream_conn_pool_reuse_type",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -5754,7 +5384,7 @@
       "path": "documentation/resources/cluster/properties/upstream_conn_pool_reuse_type/disable_conn_pool_reuse/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-3323023220002122-1301220010310231-1031013200230113-2100310231030123-2113121100122000-2033203013032233-0220222232110011-1222231110321022",
       "registry_path": "docs/guides/resources--cluster--reference--group-002.md",
@@ -5764,14 +5394,14 @@
       "schema_path": ["upstream_conn_pool_reuse_type", "disable_conn_pool_reuse"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/upstream_conn_pool_reuse_type/disable_conn_pool_reuse/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "upstream_conn_pool_reuse_type.disable_conn_pool_reuse",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -5794,7 +5424,7 @@
       "path": "documentation/resources/cluster/properties/upstream_conn_pool_reuse_type/enable_conn_pool_reuse/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-2303230031132101-0221312032202231-3131333202122000-0321210220013310-2012022020012310-2203211202111212-1223313210332112-0131300233211203",
       "registry_path": "docs/guides/resources--cluster--reference--group-002.md",
@@ -5804,14 +5434,14 @@
       "schema_path": ["upstream_conn_pool_reuse_type", "enable_conn_pool_reuse"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/properties/upstream_conn_pool_reuse_type/enable_conn_pool_reuse/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "upstream_conn_pool_reuse_type.enable_conn_pool_reuse",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -5834,7 +5464,7 @@
       "path": "documentation/resources/cluster/examples/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-0222121032033202-3301310203120212-3210221131013113-2100232232000123-2211032310121200-0300120221121213-0032213223032312-0220012231030221",
       "registry_path": "docs/guides/resources--cluster--examples--group-001.md",
@@ -5844,14 +5474,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/examples/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Examples for xcsh_cluster.",
       "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -5881,7 +5511,7 @@
       "path": "documentation/resources/cluster/examples/resource/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-0331332022232123-1322210312322323-3011020222012033-3110310002112202-1232010201201122-0302122102013332-0301020330012110-0312002302322022",
       "registry_path": "docs/guides/resources--cluster--examples--group-001.md",
@@ -5891,14 +5521,14 @@
       "schema_path": ["resource"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/examples/resource/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Resource for xcsh_cluster.",
       "tasks": ["configuration"],
       "title": "Resource",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -5922,7 +5552,7 @@
       "path": "documentation/resources/cluster/lifecycle/import/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-3011110330023100-0223201213132312-2223331123111022-2211103133210212-2200320323320003-1013331133211300-1201233201011103-3013233120010320",
       "registry_path": "docs/guides/resources--cluster--lifecycle--group-001.md",
@@ -5932,14 +5562,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/lifecycle/import/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Import for xcsh_cluster.",
       "tasks": ["import"],
       "title": "Import",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -5962,7 +5592,7 @@
       "path": "documentation/resources/cluster/lifecycle/timeouts/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-0021032101101013-2210121022021022-3201022301002222-2301132131010212-3233110020013030-0332301123112101-2021310313310022-3333302023300312",
       "registry_path": "docs/guides/resources--cluster--lifecycle--group-001.md",
@@ -5972,14 +5602,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cluster/lifecycle/timeouts/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Timeouts for xcsh_cluster.",
       "tasks": ["lifecycle"],
       "title": "Timeouts",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["clusterCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     }
   ],

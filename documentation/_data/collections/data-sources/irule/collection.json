@@ -65,7 +65,7 @@
       "path": "documentation/data-sources/irule/index.md",
       "product": "distributed-cloud",
       "provider_name": "irule",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0231101210120303-0011000002331110-3333032201223210-2323130033302300-2222120120302330-2301200112302321-0023231230022212-3231111021211202",
       "registry_path": "docs/data-sources/irule.md",
@@ -75,21 +75,21 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/irule/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Reads Irule information from F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_irule",
       "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["iruleCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["irule"],
       "body_bytes": 8706,
-      "body_sha256": "sha256:610d9fb33e5a6a84f6b1279b5d7386c6078431693dcb3390aae70aeb5a7b79c4",
+      "body_sha256": "sha256:503f61d66055208da3867681fa9748b40418dd14441b74c05b633e12d515931d",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -106,7 +106,7 @@
       "path": "documentation/data-sources/irule/properties/index.md",
       "product": "distributed-cloud",
       "provider_name": "irule",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2012220332011020-0110013123030123-1221233222021110-1212001032200110-0201033020011033-3011302200213220-2332100202322100-1123030132312010",
       "registry_path": "docs/guides/data-sources--irule--reference--group-001.md",
@@ -245,14 +245,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/irule/properties/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Property reference for xcsh_irule.",
       "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["iruleCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -275,7 +275,7 @@
       "path": "documentation/data-sources/irule/examples/index.md",
       "product": "distributed-cloud",
       "provider_name": "irule",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0231321322321101-3311033202102201-0101010112300100-0023333101212212-0010201023102311-0133032231011313-2323121302103201-0202212122221131",
       "registry_path": "docs/guides/data-sources--irule--examples--group-001.md",
@@ -285,14 +285,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/irule/examples/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Examples for xcsh_irule.",
       "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["iruleCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -322,7 +322,7 @@
       "path": "documentation/data-sources/irule/examples/data-source/index.md",
       "product": "distributed-cloud",
       "provider_name": "irule",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2020310331322123-1231313213032103-0220130101121132-0211022211302012-0201022123222333-2021200303030110-1320322300330203-2303102002211031",
       "registry_path": "docs/guides/data-sources--irule--examples--group-001.md",
@@ -332,14 +332,14 @@
       "schema_path": ["data-source"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/irule/examples/data-source/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Data source for xcsh_irule.",
       "tasks": ["configuration"],
       "title": "Data source",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["iruleCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     }
   ],

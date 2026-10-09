@@ -6,6 +6,65 @@ description: "Complete grouped canonical reference for xcsh_bigip_http_proxy ref
 
 # xcsh_bigip_http_proxy reference
 
+<a id="canonical-2203113031322030-2330022102103202-0211000330230112-2321023021232000-2132221020212300-2323003202003223-1033331032231323-1223000222120121"></a>
+
+## Direct properties for `origin_pools.pools.origin_servers.origin_servers.k8s_service.snat_pool`
+
+- [no_snat_pool](resources--bigip_http_proxy--reference--group-002.md#canonical-1120300203220233-1323222220312211-0331031300103232-1032020031220021-0122233111303312-2300212310302333-1111201311313111-3122313000013000): complete subsection reference.
+
+- [snat_pool](resources--bigip_http_proxy--reference--group-002.md#canonical-0032212100033122-2311302103202323-1103111310103113-0223312130120302-3012020303232232-2120331002202032-0233210232332320-1011300123211203): complete subsection reference.
+
+<a id="canonical-1120300203220233-1323222220312211-0331031300103232-1032020031220021-0122233111303312-2300212310302333-1111201311313111-3122313000013000"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `origin_pools.pools.origin_servers.origin_servers.k8s_service.snat_pool.no_snat_pool` properties
+
+Breadcrumbs:
+
+- [xcsh_bigip_http_proxy](../resources/bigip_http_proxy.md#canonical-1032100020020330-1220313211200112-1331211020131131-0320101130102310-2022002330330313-3011010123201310-3333021132203201-3110113102200111)
+- [Property reference](resources--bigip_http_proxy--reference--group-001.md#canonical-0101201332222201-3302033021001322-1302101210311331-2210333210320003-0002033231003211-1133020003110203-0200133113131131-0101001111122000)
+- [origin_pools](resources--bigip_http_proxy--reference--group-001.md#canonical-3130302100213032-1133033213001002-2331132101322013-0203331122233331-3021113033330230-2313122333001332-0303103133232110-2002132020103202)
+- [origin_pools.pools](resources--bigip_http_proxy--reference--group-001.md#canonical-1023031131101223-0333002000010022-2011021202323002-2121003101012320-0131313002113130-0302023223110202-2203300233110313-3320003203232022)
+- [origin_pools.pools.origin_servers](resources--bigip_http_proxy--reference--group-001.md#canonical-1312222213103100-0321300110133131-3312031033013332-1010303313020221-3311012303023212-1010020102000132-3130213301103033-0122010331103022)
+- [origin_pools.pools.origin_servers.origin_servers](resources--bigip_http_proxy--reference--group-001.md#canonical-3122233331022000-3130002202110102-2203300321323221-1321111230302130-2010113302011332-2020303212023012-2310303023303012-3120020110120320)
+- [origin_pools.pools.origin_servers.origin_servers.k8s_service](resources--bigip_http_proxy--reference--group-001.md#canonical-0211202201221121-3001000133010112-1131111200013313-3122130332300332-1020212223330013-1311100313303320-2312112110031023-1120330330033233)
+- [origin_pools.pools.origin_servers.origin_servers.k8s_service.snat_pool](resources--bigip_http_proxy--reference--group-001.md#canonical-1311211321313201-3321333332130333-1111232100201310-0132003101311310-2303103123122102-2211202330330320-0120121003102110-0330330133201010)
+- origin_pools.pools.origin_servers.origin_servers.k8s_service.snat_pool.no_snat_pool
+
+<a id="canonical-2123321133201330-1101022110010022-2212000130131300-3133310211302131-0030133321202301-2022230213131132-0120023221132230-3102120020000311"></a>
+
+Type: `["object", {}]`. Optional.
+
+Configuration parameter for no snat pool.
+
+Additional upstream details:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+no_snat_pool = {}
+```
+
+This is an empty object or choice marker. It has no direct properties.
+
 <a id="canonical-0032212100033122-2311302103202323-1103111310103113-0223312130120302-3012020303232232-2120331002202032-0233210232332320-1011300123211203"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -65,15 +124,6 @@ Type: `["list", "string"]`. Optional.
 
 List of IPv4 prefixes that represent an endpoint.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.List{
-  listvalidator.SizeAtMost(128),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -87,7 +137,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "uniqueItems": true
   },
@@ -184,18 +234,6 @@ Type: `"object"`. single nested block, Optional.
 
 Specify origin server with private or public IP address and site information.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.ConflictingObjectAttributes("inside_network",
-    "outside_network"),
-  validators.ConflictingObjectAttributes("inside_network",
-    "segment"),
-  validators.ConflictingObjectAttributes("outside_network",
-    "segment")}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -235,16 +273,6 @@ Type: `"string"`. Optional.
 
 IP. Exclusive with \[\] Private IPv4 address.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.String{
-  stringvalidator.LengthAtMost(1024),
-  validators.IPv4Validator(),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -258,7 +286,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -410,13 +438,6 @@ Type: `"object"`. single nested block, Optional.
 This type establishes a direct reference from one object(the referrer) to another(the referred).
 Such a reference is in form of tenant/namespace/name.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -451,15 +472,6 @@ Type: `"string"`. Optional.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
 referred object's(e.g. Route's) name.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 128),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -478,7 +490,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1
   },
@@ -512,15 +524,6 @@ Type: `"string"`. Optional, Computed.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
 hold the referred object's(e.g. Route's) namespace.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 63),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -545,7 +548,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1,
     "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
@@ -580,15 +583,6 @@ Type: `"string"`. Computed.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
 the referred object's(e.g. Route's) tenant.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthAtMost(64),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -605,7 +599,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -647,14 +641,6 @@ Breadcrumbs:
 Type: `"object"`. single nested block, Optional.
 
 This message defines a reference to a site or virtual site object.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.ConflictingObjectAttributes("site",
-    "virtual_site")}
-```
 
 Receipt-pinned upstream constraints:
 
@@ -713,13 +699,6 @@ Type: `"object"`. single nested block, Optional.
 This type establishes a direct reference from one object(the referrer) to another(the referred).
 Such a reference is in form of tenant/namespace/name.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -754,15 +733,6 @@ Type: `"string"`. Optional.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
 referred object's(e.g. Route's) name.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 128),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -781,7 +751,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1
   },
@@ -815,15 +785,6 @@ Type: `"string"`. Optional, Computed.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
 hold the referred object's(e.g. Route's) namespace.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 63),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -848,7 +809,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1,
     "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
@@ -883,15 +844,6 @@ Type: `"string"`. Computed.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
 the referred object's(e.g. Route's) tenant.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthAtMost(64),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -908,7 +860,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -953,13 +905,6 @@ Type: `"object"`. single nested block, Optional.
 This type establishes a direct reference from one object(the referrer) to another(the referred).
 Such a reference is in form of tenant/namespace/name.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -994,15 +939,6 @@ Type: `"string"`. Optional.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
 referred object's(e.g. Route's) name.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 128),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -1021,7 +957,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1
   },
@@ -1055,15 +991,6 @@ Type: `"string"`. Optional, Computed.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
 hold the referred object's(e.g. Route's) namespace.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 63),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -1088,7 +1015,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1,
     "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
@@ -1123,15 +1050,6 @@ Type: `"string"`. Computed.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
 the referred object's(e.g. Route's) tenant.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthAtMost(64),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -1148,7 +1066,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -1190,14 +1108,6 @@ Breadcrumbs:
 Type: `"object"`. single nested block, Optional.
 
 SNAT Pool. SNAT Pool configuration.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.ConflictingObjectAttributes("no_snat_pool",
-    "snat_pool")}
-```
 
 Receipt-pinned upstream constraints:
 
@@ -1339,15 +1249,6 @@ Type: `["list", "string"]`. Optional.
 
 List of IPv4 prefixes that represent an endpoint.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.List{
-  listvalidator.SizeAtMost(128),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -1361,7 +1262,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "uniqueItems": true
   },
@@ -1442,16 +1343,6 @@ Type: `"string"`. Optional.
 
 Public IPv4. Exclusive with \[\] Public IPv4 address.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.String{
-  stringvalidator.LengthAtMost(1024),
-  validators.IPv4Validator(),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -1465,7 +1356,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -1507,13 +1398,6 @@ Type: `"object"`. single nested block, Optional.
 
 Specify origin server with public DNS name.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("dns_name")}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -1547,15 +1431,6 @@ Type: `"string"`. Optional.
 
 DNS Name. DNS Name
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 256),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -1576,7 +1451,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1,
     "pattern": "^([a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?\\.)*[a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?$",
@@ -1616,18 +1491,6 @@ Type: `"number"`. Optional.
 Interval for DNS refresh in seconds. Max value is 7 days as per
 https&#58;//datatracker.ietf.org/doc/HTML/rfc8767.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Int64{
-  validators.Int64RangeSetValidator(
-    validators.Int64Range{Minimum: 0, Maximum: 0},
-    validators.Int64Range{Minimum: 10, Maximum: 604800},
-  ),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -1640,7 +1503,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "api-probed",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -1681,14 +1544,6 @@ Configuration parameter for proxy advertisement.
 Additional upstream details:
 
 Proxy Advertisement Type.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.ConflictingObjectAttributes("advertise_custom",
-    "do_not_advertise")}
-```
 
 Receipt-pinned upstream constraints:
 
@@ -1741,13 +1596,6 @@ Type: `"object"`. single nested block, Optional.
 
 This defines a way to advertise a VIP on specific sites.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("advertise_where")}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -1797,74 +1645,6 @@ Type: `"object"`. list nested block, Optional.
 
 Where should this load balancer be available.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.List{validators.ConflictingListObjectAttributes("advertise_dualstack_on_public",
-    "advertise_on_public"),
-  validators.ConflictingListObjectAttributes("advertise_dualstack_on_public",
-    "advertise_v6_on_public"),
-  validators.ConflictingListObjectAttributes("advertise_dualstack_on_public",
-    "site"),
-  validators.ConflictingListObjectAttributes("advertise_dualstack_on_public",
-    "virtual_network"),
-  validators.ConflictingListObjectAttributes("advertise_dualstack_on_public",
-    "virtual_site"),
-  validators.ConflictingListObjectAttributes("advertise_dualstack_on_public",
-    "virtual_site_with_vip"),
-  validators.ConflictingListObjectAttributes("advertise_dualstack_on_public",
-    "vk8s_service"),
-  validators.ConflictingListObjectAttributes("advertise_on_public",
-    "advertise_v6_on_public"),
-  validators.ConflictingListObjectAttributes("advertise_on_public",
-    "site"),
-  validators.ConflictingListObjectAttributes("advertise_on_public",
-    "virtual_network"),
-  validators.ConflictingListObjectAttributes("advertise_on_public",
-    "virtual_site"),
-  validators.ConflictingListObjectAttributes("advertise_on_public",
-    "virtual_site_with_vip"),
-  validators.ConflictingListObjectAttributes("advertise_on_public",
-    "vk8s_service"),
-  validators.ConflictingListObjectAttributes("advertise_v6_on_public",
-    "site"),
-  validators.ConflictingListObjectAttributes("advertise_v6_on_public",
-    "virtual_network"),
-  validators.ConflictingListObjectAttributes("advertise_v6_on_public",
-    "virtual_site"),
-  validators.ConflictingListObjectAttributes("advertise_v6_on_public",
-    "virtual_site_with_vip"),
-  validators.ConflictingListObjectAttributes("advertise_v6_on_public",
-    "vk8s_service"),
-  validators.ConflictingListObjectAttributes("port",
-    "port_ranges"),
-  validators.ConflictingListObjectAttributes("port",
-    "use_default_port"),
-  validators.ConflictingListObjectAttributes("port_ranges",
-    "use_default_port"),
-  validators.ConflictingListObjectAttributes("site",
-    "virtual_network"),
-  validators.ConflictingListObjectAttributes("site",
-    "virtual_site"),
-  validators.ConflictingListObjectAttributes("site",
-    "virtual_site_with_vip"),
-  validators.ConflictingListObjectAttributes("site",
-    "vk8s_service"),
-  validators.ConflictingListObjectAttributes("virtual_network",
-    "virtual_site"),
-  validators.ConflictingListObjectAttributes("virtual_network",
-    "virtual_site_with_vip"),
-  validators.ConflictingListObjectAttributes("virtual_network",
-    "vk8s_service"),
-  validators.ConflictingListObjectAttributes("virtual_site",
-    "virtual_site_with_vip"),
-  validators.ConflictingListObjectAttributes("virtual_site",
-    "vk8s_service"),
-  validators.ConflictingListObjectAttributes("virtual_site_with_vip",
-    "vk8s_service")}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -1879,7 +1659,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minItems": 1,
     "uniqueItems": true
@@ -1933,15 +1713,6 @@ Type: `"number"`. Optional.
 
 Exclusive with \[port\_ranges use\_default\_port\] Port to Listen.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Int64{
-  int64validator.Between(1, 65535),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -1954,7 +1725,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "api-probed",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minimum": 1,
     "multipleOf": 1
@@ -1991,15 +1762,6 @@ Additional upstream details:
 
 Each port range consists of a single port or two ports separated by "-".
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 512),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -2014,7 +1776,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1
   },
@@ -2127,13 +1889,6 @@ Type: `"object"`. single nested block, Optional.
 This type establishes a direct reference from one object(the referrer) to another(the referred).
 Such a reference is in form of tenant/namespace/name.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -2168,15 +1923,6 @@ Type: `"string"`. Optional.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
 referred object's(e.g. Route's) name.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 128),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -2195,7 +1941,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1
   },
@@ -2229,15 +1975,6 @@ Type: `"string"`. Optional, Computed.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
 hold the referred object's(e.g. Route's) namespace.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 63),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -2262,7 +1999,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1,
     "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
@@ -2297,15 +2034,6 @@ Type: `"string"`. Computed.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
 the referred object's(e.g. Route's) tenant.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthAtMost(64),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -2322,7 +2050,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -2416,13 +2144,6 @@ Type: `"object"`. single nested block, Optional.
 This type establishes a direct reference from one object(the referrer) to another(the referred).
 Such a reference is in form of tenant/namespace/name.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -2457,15 +2178,6 @@ Type: `"string"`. Optional.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
 referred object's(e.g. Route's) name.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 128),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -2484,7 +2196,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1
   },
@@ -2518,15 +2230,6 @@ Type: `"string"`. Optional, Computed.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
 hold the referred object's(e.g. Route's) namespace.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 63),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -2551,7 +2254,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1,
     "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
@@ -2586,15 +2289,6 @@ Type: `"string"`. Computed.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
 the referred object's(e.g. Route's) tenant.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthAtMost(64),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -2611,7 +2305,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -2705,13 +2399,6 @@ Type: `"object"`. single nested block, Optional.
 This type establishes a direct reference from one object(the referrer) to another(the referred).
 Such a reference is in form of tenant/namespace/name.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -2746,15 +2433,6 @@ Type: `"string"`. Optional.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
 referred object's(e.g. Route's) name.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 128),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -2773,7 +2451,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1
   },
@@ -2807,15 +2485,6 @@ Type: `"string"`. Optional, Computed.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
 hold the referred object's(e.g. Route's) namespace.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 63),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -2840,7 +2509,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1,
     "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
@@ -2875,15 +2544,6 @@ Type: `"string"`. Computed.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
 the referred object's(e.g. Route's) tenant.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthAtMost(64),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -2900,7 +2560,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -2975,16 +2635,6 @@ Type: `"string"`. Optional.
 
 Use given IP address as VIP on the site.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.String{
-  stringvalidator.LengthAtMost(1024),
-  validators.IPv4Validator(),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -2998,7 +2648,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -3043,22 +2693,6 @@ site
 
 This Virtual network type is used for exposing virtual host on IP Fabric network on the VER site or
 for endpoint in IP Fabric network.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-EnumValidators: [{"version":1,"validator":"OneOf","values":["SITE_NETWORK_INSIDE","SITE_NETWORK_INSIDE_AND_OUTSIDE","SITE_NETWORK_INSIDE_AND_OUTSIDE_WITH_INTERNET_VIP","SITE_NETWORK_IP_FABRIC","SITE_NETWORK_OUTSIDE","SITE_NETWORK_OUTSIDE_WITH_INTERNET_VIP","SITE_NETWORK_SERVICE"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
-Validators: []validator.String{
-  stringvalidator.OneOf("SITE_NETWORK_INSIDE_AND_OUTSIDE",
-    "SITE_NETWORK_INSIDE",
-    "SITE_NETWORK_OUTSIDE",
-    "SITE_NETWORK_SERVICE",
-    "SITE_NETWORK_OUTSIDE_WITH_INTERNET_VIP",
-    "SITE_NETWORK_INSIDE_AND_OUTSIDE_WITH_INTERNET_VIP",
-    "SITE_NETWORK_IP_FABRIC"),
-}
-```
 
 Receipt-pinned upstream constraints:
 
@@ -3110,13 +2744,6 @@ Type: `"object"`. single nested block, Optional.
 This type establishes a direct reference from one object(the referrer) to another(the referred).
 Such a reference is in form of tenant/namespace/name.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -3151,15 +2778,6 @@ Type: `"string"`. Optional.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
 referred object's(e.g. Route's) name.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 128),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -3178,7 +2796,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1
   },
@@ -3212,15 +2830,6 @@ Type: `"string"`. Optional, Computed.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
 hold the referred object's(e.g. Route's) namespace.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 63),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -3245,7 +2854,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1,
     "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
@@ -3280,15 +2889,6 @@ Type: `"string"`. Computed.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
 the referred object's(e.g. Route's) tenant.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthAtMost(64),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -3305,7 +2905,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -3394,16 +2994,6 @@ Type: `"object"`. single nested block, Optional.
 
 Parameters to advertise on a given virtual network.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.ConflictingObjectAttributes("default_v6_vip",
-    "specific_v6_vip"),
-  validators.ConflictingObjectAttributes("default_vip",
-    "specific_vip")}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -3431,7 +3021,7 @@ virtual_network {
 
 ### Direct properties for `proxy_advertisement.advertise_custom.advertise_where.virtual_network`
 
-- [default_v6_vip](resources--bigip_http_proxy--reference--group-003.md#canonical-2232132011202230-0011020032122231-2322101110210313-2213210330131212-3213102111002233-0023310113202322-0112000111002302-2120310221102111): complete subsection reference.
+- [default_v6_vip](resources--bigip_http_proxy--reference--group-002.md#canonical-2232132011202230-0011020032122231-2322101110210313-2213210330131212-3213102111002233-0023310113202322-0112000111002302-2120310221102111): complete subsection reference.
 
 - [default_vip](resources--bigip_http_proxy--reference--group-003.md#canonical-3020010230021021-3130200302202230-0313320010003112-3211122021202113-3033220110320231-3023202202311100-3303230112201010-2123122113332211): complete subsection reference.
 
@@ -3444,16 +3034,6 @@ virtual_network {
 Type: `"string"`. Optional.
 
 Exclusive with \[default\_v6\_vip\] Use given IPv6 address as VIP on virtual Network.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.String{
-  stringvalidator.LengthAtMost(1024),
-  validators.IPv6Validator(),
-}
-```
 
 Receipt-pinned upstream constraints:
 
@@ -3468,7 +3048,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -3487,3 +3067,93 @@ Receipt-pinned upstream constraints:
 ```
 
 <a id="canonical-0310203013301232-0022102032113130-3300123120231130-0320021010210123-0231122000222022-2021233021330332-1120211123232010-0020111021223012"></a>
+
+<a id="canonical-0000021310102303-2201201300103032-3133321003021010-0301210023122001-2003320011023003-0102210320130331-3020230030232112-0211223310330021"></a>
+
+#### `proxy_advertisement.advertise_custom.advertise_where.virtual_network.specific_vip` property
+
+Type: `"string"`. Optional.
+
+Exclusive with \[default\_vip\] Use given IPv4 address as VIP on virtual Network.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "ipv4",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-09T12:34:59+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.ipv4": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.ipv4": "true"
+  }
+}
+```
+
+- [virtual_network](resources--bigip_http_proxy--reference--group-003.md#canonical-3222021333132003-2333132213331001-3133203331320301-0111213323031103-2331130213031223-3120230321300133-1220111302102031-3002001333122330): complete subsection reference.
+
+<a id="canonical-2232132011202230-0011020032122231-2322101110210313-2213210330131212-3213102111002233-0023310113202322-0112000111002302-2120310221102111"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `proxy_advertisement.advertise_custom.advertise_where.virtual_network.default_v6_vip` properties
+
+Breadcrumbs:
+
+- [xcsh_bigip_http_proxy](../resources/bigip_http_proxy.md#canonical-1032100020020330-1220313211200112-1331211020131131-0320101130102310-2022002330330313-3011010123201310-3333021132203201-3110113102200111)
+- [Property reference](resources--bigip_http_proxy--reference--group-001.md#canonical-0101201332222201-3302033021001322-1302101210311331-2210333210320003-0002033231003211-1133020003110203-0200133113131131-0101001111122000)
+- [proxy_advertisement](resources--bigip_http_proxy--reference--group-002.md#canonical-0222202123223213-1021332332331003-3333013231022023-1200013112100010-3021102122231210-1210031321121132-3303131312332322-2002012022311122)
+- [proxy_advertisement.advertise_custom](resources--bigip_http_proxy--reference--group-002.md#canonical-0003302100123003-0120302302033120-2033221231301030-1321310211301112-2322203120001123-1230320101110131-1230033322322311-2022333113123330)
+- [proxy_advertisement.advertise_custom.advertise_where](resources--bigip_http_proxy--reference--group-002.md#canonical-0110333311321122-0102322332130222-0013022122311102-0030130031302023-0132011232311101-1023102213023221-2123002103132132-1010332102003033)
+- [proxy_advertisement.advertise_custom.advertise_where.virtual_network](resources--bigip_http_proxy--reference--group-002.md#canonical-0303023203101011-3310022012313303-0310200232211333-2320120210030203-3001331213320020-1120321132301203-0320311000020123-1101213123321031)
+- proxy_advertisement.advertise_custom.advertise_where.virtual_network.default_v6_vip
+
+<a id="canonical-3031102321023301-0003233200231212-2100221311200220-1021002103112311-2121132033022033-1101123331113010-3202012121110012-3213323011331103"></a>
+
+Type: `["object", {}]`. Optional.
+
+Enable this option
+
+Additional upstream details:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+default_v6_vip = {}
+```
+
+This is an empty object or choice marker. It has no direct properties.

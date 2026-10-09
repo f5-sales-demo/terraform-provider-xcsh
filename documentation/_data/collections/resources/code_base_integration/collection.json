@@ -543,7 +543,7 @@
       "path": "documentation/resources/code_base_integration/index.md",
       "product": "distributed-cloud",
       "provider_name": "code_base_integration",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-3210121110030031-0102101131101010-3032112220130303-0002122112230220-1300100012102310-1322031221321203-3201301222000010-1330202211303002",
       "registry_path": "docs/resources/code_base_integration.md",
@@ -553,21 +553,21 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/code_base_integration/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Manages integration details in F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_code_base_integration",
       "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["code_base_integrationCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["code base integration"],
       "body_bytes": 34885,
-      "body_sha256": "sha256:6fe2f2cb06ea771130c66b59f3dd189020badb726d50c60ff944aa9d72bdca93",
+      "body_sha256": "sha256:7b7a616e1f4cd48c2d0114f0aba5787f58572fcc0e001fd5d9a93fc22d26fbc8",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -587,7 +587,7 @@
       "path": "documentation/resources/code_base_integration/properties/index.md",
       "product": "distributed-cloud",
       "provider_name": "code_base_integration",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-3201211231020022-1303102222210030-3112011321321210-1331302320202012-1010230332303213-3001110101231222-2201322210333200-0201300000023201",
       "registry_path": "docs/guides/resources--code_base_integration--reference--group-001.md",
@@ -1079,14 +1079,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/code_base_integration/properties/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Property reference for xcsh_code_base_integration.",
       "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["code_base_integrationCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -1117,7 +1117,7 @@
       "path": "documentation/resources/code_base_integration/properties/code_base_integration/index.md",
       "product": "distributed-cloud",
       "provider_name": "code_base_integration",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-3112030122221330-0102012211000202-0010312121312200-0332112011122310-3223232312303223-2221012322320200-0333301332013311-3112322220223001",
       "registry_path": "docs/guides/resources--code_base_integration--reference--group-001.md",
@@ -1638,14 +1638,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/code_base_integration/properties/code_base_integration/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Choose your code base (e.g. GitHub, GitLab, Bitbucket, Azure) and provide credentials and connection details.",
       "tasks": ["configuration"],
       "title": "code_base_integration",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["code_base_integrationCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -1670,7 +1670,7 @@
       "path": "documentation/resources/code_base_integration/properties/code_base_integration/azure_repos/index.md",
       "product": "distributed-cloud",
       "provider_name": "code_base_integration",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-3201011132331200-1130220300313200-1031001232220211-3122301211033132-1132033001110210-1120032113203100-0101321313202112-1220222110032100",
       "registry_path": "docs/guides/resources--code_base_integration--reference--group-001.md",
@@ -1714,14 +1714,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/code_base_integration/properties/code_base_integration/azure_repos/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Configuration parameter for azure repos.",
       "tasks": ["configuration"],
       "title": "code_base_integration.azure_repos",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["code_base_integrationCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -1747,7 +1747,7 @@
       "path": "documentation/resources/code_base_integration/properties/code_base_integration/azure_repos/access_token/index.md",
       "product": "distributed-cloud",
       "provider_name": "code_base_integration",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-1233003213210212-3323013131003222-3221203232232021-3210320021330021-2013102310332030-2001133031213302-0222133013312000-3100210022010210",
       "registry_path": "docs/guides/resources--code_base_integration--reference--group-001.md",
@@ -1825,20 +1825,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/code_base_integration/properties/code_base_integration/azure_repos/access_token/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "SecretType is used in an object to indicate a sensitive/confidential field.",
       "tasks": ["configuration"],
       "title": "code_base_integration.azure_repos.access_token",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["code_base_integrationCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["code base integration azure repos access token blindfold secret info"],
       "body_bytes": 4665,
-      "body_sha256": "sha256:220e719b5613eea4a531d961d2ceeacbeede6bff3f0bf9389f2610fb3a4a8937",
+      "body_sha256": "sha256:9e628c27c1aabb8eb6edfd6d97953d94fa29c6901b4a786f3066ccc1b6b2fcd7",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -1855,7 +1855,7 @@
       "path": "documentation/resources/code_base_integration/properties/code_base_integration/azure_repos/access_token/blindfold_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "code_base_integration",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-3002133311102322-1310110210003011-2212130313033222-1022332223312031-3323210231331233-0122103312001310-2003021202222032-1220111331333123",
       "registry_path": "docs/guides/resources--code_base_integration--reference--group-001.md",
@@ -1935,20 +1935,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/code_base_integration/properties/code_base_integration/azure_repos/access_token/blindfold_secret_info/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
       "tasks": ["configuration"],
       "title": "code_base_integration.azure_repos.access_token.blindfold_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["code_base_integrationCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["code base integration azure repos access token clear secret info"],
       "body_bytes": 3662,
-      "body_sha256": "sha256:d17549c23c558d3ed3003cfd9075b95696fe1f8d42da4f81da4e24ae2bf3431d",
+      "body_sha256": "sha256:52fab97c4337df9de727155b4ace1a48b5b6f51bfe1ddc54847bc8d0cbe85020",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -1965,7 +1965,7 @@
       "path": "documentation/resources/code_base_integration/properties/code_base_integration/azure_repos/access_token/clear_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "code_base_integration",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-3323010223310032-1331233001013122-0202123111302331-1330312320022321-3312231032331001-2101331312221322-1212130320102233-2112010031031110",
       "registry_path": "docs/guides/resources--code_base_integration--reference--group-001.md",
@@ -2017,20 +2017,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/code_base_integration/properties/code_base_integration/azure_repos/access_token/clear_secret_info/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
       "tasks": ["configuration"],
       "title": "code_base_integration.azure_repos.access_token.clear_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["code_base_integrationCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["code base integration bitbucket"],
       "body_bytes": 2277,
-      "body_sha256": "sha256:7fc52e2c5f046ea1477f9201ef2d44c81f50e09df914387f1b6cdf2ee21bdc8e",
+      "body_sha256": "sha256:ebf4f8fcf7220b890dfb08877cd7ba4f1c2d1bd2f19d5b8e0c3b280e2e89902d",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:resources:code_base_integration:properties:code_base_integration:bitbucket:passwd"],
@@ -2047,7 +2047,7 @@
       "path": "documentation/resources/code_base_integration/properties/code_base_integration/bitbucket/index.md",
       "product": "distributed-cloud",
       "provider_name": "code_base_integration",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-3331021320323120-0021121133102300-3331011033013300-0131212023232003-3131102311220212-2030030132023320-0333230023300002-0133212120120111",
       "registry_path": "docs/guides/resources--code_base_integration--reference--group-001.md",
@@ -2116,14 +2116,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/code_base_integration/properties/code_base_integration/bitbucket/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "BitBucket Cloud Integration.",
       "tasks": ["configuration"],
       "title": "code_base_integration.bitbucket",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["code_base_integrationCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -2149,7 +2149,7 @@
       "path": "documentation/resources/code_base_integration/properties/code_base_integration/bitbucket/passwd/index.md",
       "product": "distributed-cloud",
       "provider_name": "code_base_integration",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-3232102310003100-2120310013221103-2132231301203010-2123133130031211-1021101010231323-1101013323031311-2320111220003000-1233311102331303",
       "registry_path": "docs/guides/resources--code_base_integration--reference--group-001.md",
@@ -2227,20 +2227,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/code_base_integration/properties/code_base_integration/bitbucket/passwd/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "SecretType is used in an object to indicate a sensitive/confidential field.",
       "tasks": ["configuration"],
       "title": "code_base_integration.bitbucket.passwd",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["code_base_integrationCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["code base integration bitbucket passwd blindfold secret info"],
       "body_bytes": 4605,
-      "body_sha256": "sha256:40b30526ce36b03ebc549bf8e06839e5c23c6c4524a6b495de8f9cfec0c6ffcf",
+      "body_sha256": "sha256:0e3063443d53b5eb2ce19a438cdad83d63de92d79f0055cd89213055b776c5b1",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -2257,7 +2257,7 @@
       "path": "documentation/resources/code_base_integration/properties/code_base_integration/bitbucket/passwd/blindfold_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "code_base_integration",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-2121221120313202-2112023210102302-3203133031200310-3321021313123010-1233222101102321-0022322300113001-0211031320323131-0022102222123300",
       "registry_path": "docs/guides/resources--code_base_integration--reference--group-001.md",
@@ -2331,20 +2331,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/code_base_integration/properties/code_base_integration/bitbucket/passwd/blindfold_secret_info/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
       "tasks": ["configuration"],
       "title": "code_base_integration.bitbucket.passwd.blindfold_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["code_base_integrationCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["code base integration bitbucket passwd clear secret info"],
       "body_bytes": 3610,
-      "body_sha256": "sha256:bf96a6000cc82e1f7b491a01dac7ea3ad0d6505c74b72cd3774e53c33a2bd3d7",
+      "body_sha256": "sha256:6f0b26324b59d48e36bd976cfde8e89972a29f4c4b2bbe07a340f53f2cbde85f",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -2361,7 +2361,7 @@
       "path": "documentation/resources/code_base_integration/properties/code_base_integration/bitbucket/passwd/clear_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "code_base_integration",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-1300102200222013-0002221311113131-3230110012110010-3300330111111001-0200222122031020-0102130321102013-1233003231102302-0012100221002012",
       "registry_path": "docs/guides/resources--code_base_integration--reference--group-001.md",
@@ -2413,20 +2413,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/code_base_integration/properties/code_base_integration/bitbucket/passwd/clear_secret_info/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
       "tasks": ["configuration"],
       "title": "code_base_integration.bitbucket.passwd.clear_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["code_base_integrationCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["code base integration bitbucket server"],
       "body_bytes": 3953,
-      "body_sha256": "sha256:475a27d0570a94d6507ac262451593f869e9fe0b96136f404835f1149b749939",
+      "body_sha256": "sha256:7de69a9e7d5c9e5f3d4cc269938341b58cec224e667d7b393cf9a21891130eb5",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -2445,7 +2445,7 @@
       "path": "documentation/resources/code_base_integration/properties/code_base_integration/bitbucket_server/index.md",
       "product": "distributed-cloud",
       "provider_name": "code_base_integration",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-1120030323021110-3332221313312113-1230210301103113-2030303033132103-2032321200333101-0031322133320210-3300211013200001-0300233133212230",
       "registry_path": "docs/guides/resources--code_base_integration--reference--group-001.md",
@@ -2554,14 +2554,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/code_base_integration/properties/code_base_integration/bitbucket_server/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Configuration parameter for bitbucket server.",
       "tasks": ["configuration"],
       "title": "code_base_integration.bitbucket_server",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["code_base_integrationCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -2587,7 +2587,7 @@
       "path": "documentation/resources/code_base_integration/properties/code_base_integration/bitbucket_server/passwd/index.md",
       "product": "distributed-cloud",
       "provider_name": "code_base_integration",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-3002010221033221-3132231131213233-2221012010023021-3311213313100101-0010330212023132-1131003000230033-3112322211213313-0032002333000300",
       "registry_path": "docs/guides/resources--code_base_integration--reference--group-001.md",
@@ -2665,20 +2665,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/code_base_integration/properties/code_base_integration/bitbucket_server/passwd/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "SecretType is used in an object to indicate a sensitive/confidential field.",
       "tasks": ["configuration"],
       "title": "code_base_integration.bitbucket_server.passwd",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["code_base_integrationCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["code base integration bitbucket server passwd blindfold secret info"],
       "body_bytes": 4668,
-      "body_sha256": "sha256:afc66cb517d7e08cde5764d07b2b4e86bdb528c0214e4fbe730be6c9c018db31",
+      "body_sha256": "sha256:43dd087833120d6ecda11d57474fd7aa2546f2c722041fb1d2eff2e68c3e22d3",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -2695,7 +2695,7 @@
       "path": "documentation/resources/code_base_integration/properties/code_base_integration/bitbucket_server/passwd/blindfold_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "code_base_integration",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-1213022333031213-2201103002302131-1001231222122010-1131302013031122-3100032320233001-3000123202301321-3131301031220210-3023301103332031",
       "registry_path": "docs/guides/resources--code_base_integration--reference--group-001.md",
@@ -2775,20 +2775,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/code_base_integration/properties/code_base_integration/bitbucket_server/passwd/blindfold_secret_info/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
       "tasks": ["configuration"],
       "title": "code_base_integration.bitbucket_server.passwd.blindfold_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["code_base_integrationCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["code base integration bitbucket server passwd clear secret info"],
       "body_bytes": 3666,
-      "body_sha256": "sha256:d9156ccdccac7803c5bfad1146cdfd19452a493ab7b3ecd608387789abbc6625",
+      "body_sha256": "sha256:adef8820b3467e7c5eeada33a4211b57c4942d8d78a975b402761c0afffb5f62",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -2805,7 +2805,7 @@
       "path": "documentation/resources/code_base_integration/properties/code_base_integration/bitbucket_server/passwd/clear_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "code_base_integration",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-3331131030010030-2030230102131110-2100321000303020-2303012012022233-0020313213010032-0020233212130133-2300322002113001-2223311021321321",
       "registry_path": "docs/guides/resources--code_base_integration--reference--group-001.md",
@@ -2857,20 +2857,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/code_base_integration/properties/code_base_integration/bitbucket_server/passwd/clear_secret_info/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
       "tasks": ["configuration"],
       "title": "code_base_integration.bitbucket_server.passwd.clear_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["code_base_integrationCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["code base integration github"],
       "body_bytes": 2611,
-      "body_sha256": "sha256:2d409c32c8bb5e653b082abccb7b463605b63297cf293f2215fcc58c1d6d1139",
+      "body_sha256": "sha256:c7a20819a959896cb01a32ae83d509bb58ee9fa3e97389995b7bf2dee1844ba8",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:resources:code_base_integration:properties:code_base_integration:github:access_token"],
@@ -2887,7 +2887,7 @@
       "path": "documentation/resources/code_base_integration/properties/code_base_integration/github/index.md",
       "product": "distributed-cloud",
       "provider_name": "code_base_integration",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-0120221310020322-3030103310232300-0032130112020031-0033101303023130-0200232032210221-2113122232123220-3121000201013200-1022232122022023",
       "registry_path": "docs/guides/resources--code_base_integration--reference--group-001.md",
@@ -2972,14 +2972,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/code_base_integration/properties/code_base_integration/github/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Github Integration.",
       "tasks": ["configuration"],
       "title": "code_base_integration.github",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["code_base_integrationCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -3005,7 +3005,7 @@
       "path": "documentation/resources/code_base_integration/properties/code_base_integration/github/access_token/index.md",
       "product": "distributed-cloud",
       "provider_name": "code_base_integration",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-0113123002131103-3101203021030002-1221123322121031-3332233121211221-0031222322333230-1130221000013320-0333200010220010-3223023122332120",
       "registry_path": "docs/guides/resources--code_base_integration--reference--group-001.md",
@@ -3083,20 +3083,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/code_base_integration/properties/code_base_integration/github/access_token/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "SecretType is used in an object to indicate a sensitive/confidential field.",
       "tasks": ["configuration"],
       "title": "code_base_integration.github.access_token",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["code_base_integrationCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["code base integration github access token blindfold secret info"],
       "body_bytes": 4620,
-      "body_sha256": "sha256:d575ebee2d8c800ca1f70990bd431da369bdde0b7a43c7c5242d703cf492846a",
+      "body_sha256": "sha256:d20d1d3f4cde88b3960d12b77524c0a0cd10c37f5f99eeee6eda3aac466e8b11",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -3113,7 +3113,7 @@
       "path": "documentation/resources/code_base_integration/properties/code_base_integration/github/access_token/blindfold_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "code_base_integration",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-0311120023132301-3323032100203223-0120322122003230-2323012001212002-1013112133033313-1300011332133121-2233023213330203-2311333310303312",
       "registry_path": "docs/guides/resources--code_base_integration--reference--group-001.md",
@@ -3187,20 +3187,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/code_base_integration/properties/code_base_integration/github/access_token/blindfold_secret_info/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
       "tasks": ["configuration"],
       "title": "code_base_integration.github.access_token.blindfold_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["code_base_integrationCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["code base integration github access token clear secret info"],
       "body_bytes": 3622,
-      "body_sha256": "sha256:7d96bb1001234c82fd6e2f3061d7ddb7f3f3500f73b885d2c17688dcf28f4b53",
+      "body_sha256": "sha256:a572286ef1e9343dfdad98a12675bae530af17b9c62779ccab5cf60c119a1394",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -3217,7 +3217,7 @@
       "path": "documentation/resources/code_base_integration/properties/code_base_integration/github/access_token/clear_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "code_base_integration",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-1313232102321211-3100022211301122-2020003032233231-2222212022310331-2122121112000013-0012110301030233-3201331300110320-0002001323131023",
       "registry_path": "docs/guides/resources--code_base_integration--reference--group-001.md",
@@ -3269,20 +3269,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/code_base_integration/properties/code_base_integration/github/access_token/clear_secret_info/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
       "tasks": ["configuration"],
       "title": "code_base_integration.github.access_token.clear_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["code_base_integrationCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["code base integration github enterprise"],
       "body_bytes": 3647,
-      "body_sha256": "sha256:bd8465e963dc713a1873a4b222a0488e298bd8fae260a873c9dc975ff283958b",
+      "body_sha256": "sha256:8cc3905f9e5222d2fea6f74da72adf8a616f63ffff32fbcb52a52be3e7fb9167",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -3301,7 +3301,7 @@
       "path": "documentation/resources/code_base_integration/properties/code_base_integration/github_enterprise/index.md",
       "product": "distributed-cloud",
       "provider_name": "code_base_integration",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-1232323021020220-2213003210330030-2202310102321311-2102032013032021-2112021221021322-1202203303201020-1122202103122132-0312100133211130",
       "registry_path": "docs/guides/resources--code_base_integration--reference--group-001.md",
@@ -3394,14 +3394,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/code_base_integration/properties/code_base_integration/github_enterprise/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Configuration parameter for github enterprise.",
       "tasks": ["configuration"],
       "title": "code_base_integration.github_enterprise",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["code_base_integrationCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -3427,7 +3427,7 @@
       "path": "documentation/resources/code_base_integration/properties/code_base_integration/github_enterprise/access_token/index.md",
       "product": "distributed-cloud",
       "provider_name": "code_base_integration",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-1100111033010231-2311210212133223-0101312322321320-3323203311102011-3301201030211232-3001030010111320-2332022303302311-3330120332132203",
       "registry_path": "docs/guides/resources--code_base_integration--reference--group-001.md",
@@ -3505,20 +3505,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/code_base_integration/properties/code_base_integration/github_enterprise/access_token/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "SecretType is used in an object to indicate a sensitive/confidential field.",
       "tasks": ["configuration"],
       "title": "code_base_integration.github_enterprise.access_token",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["code_base_integrationCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["code base integration github enterprise access token blindfold secret info"],
       "body_bytes": 4719,
-      "body_sha256": "sha256:92a2f7ee216ea292bb412cc51fc098e6c637d1978b3e4a2f3303a8e01f51412c",
+      "body_sha256": "sha256:28a5bd52ea43758ff34a3e7bf3b9e4d56067d22986257d8491be9fe318bcae56",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -3535,7 +3535,7 @@
       "path": "documentation/resources/code_base_integration/properties/code_base_integration/github_enterprise/access_token/blindfold_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "code_base_integration",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-1113113221100221-2213113212013130-3012001213323111-0130111110031130-2123223122231013-2120232001113201-0133011212003102-0000213321313222",
       "registry_path": "docs/guides/resources--code_base_integration--reference--group-001.md",
@@ -3621,20 +3621,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/code_base_integration/properties/code_base_integration/github_enterprise/access_token/blindfold_secret_info/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
       "tasks": ["configuration"],
       "title": "code_base_integration.github_enterprise.access_token.blindfold_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["code_base_integrationCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["code base integration github enterprise access token clear secret info"],
       "body_bytes": 3710,
-      "body_sha256": "sha256:2c184c42873c3f46a8cffe16100ac9c7de11fc3bdc2d0253fe18105d145aa36f",
+      "body_sha256": "sha256:c26c8629fbfb042044745a9e0629888758b18ddc995d93321c3d8278dc5f7f7e",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -3651,7 +3651,7 @@
       "path": "documentation/resources/code_base_integration/properties/code_base_integration/github_enterprise/access_token/clear_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "code_base_integration",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-2012031101223122-1331032131303033-2101001211303010-3313012223211323-2311332013002123-3001233100010110-0300232103102200-0111332311232132",
       "registry_path": "docs/guides/resources--code_base_integration--reference--group-001.md",
@@ -3709,14 +3709,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/code_base_integration/properties/code_base_integration/github_enterprise/access_token/clear_secret_info/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
       "tasks": ["configuration"],
       "title": "code_base_integration.github_enterprise.access_token.clear_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["code_base_integrationCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -3739,7 +3739,7 @@
       "path": "documentation/resources/code_base_integration/properties/code_base_integration/gitlab/index.md",
       "product": "distributed-cloud",
       "provider_name": "code_base_integration",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-2021200022200103-1003301322023302-2022313230222201-2101232003211313-1001233301102023-1203233330221213-2310133231313303-3121331302210300",
       "registry_path": "docs/guides/resources--code_base_integration--reference--group-001.md",
@@ -3783,14 +3783,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/code_base_integration/properties/code_base_integration/gitlab/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "GitLab Cloud Integration.",
       "tasks": ["configuration"],
       "title": "code_base_integration.gitlab",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["code_base_integrationCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -3816,7 +3816,7 @@
       "path": "documentation/resources/code_base_integration/properties/code_base_integration/gitlab/access_token/index.md",
       "product": "distributed-cloud",
       "provider_name": "code_base_integration",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-0011110102122312-0110133233221113-0102333102211311-1301310303221123-1003313123003032-3012123110212312-1231113013331131-3233203333010233",
       "registry_path": "docs/guides/resources--code_base_integration--reference--group-001.md",
@@ -3894,20 +3894,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/code_base_integration/properties/code_base_integration/gitlab/access_token/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "SecretType is used in an object to indicate a sensitive/confidential field.",
       "tasks": ["configuration"],
       "title": "code_base_integration.gitlab.access_token",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["code_base_integrationCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["code base integration gitlab access token blindfold secret info"],
       "body_bytes": 4620,
-      "body_sha256": "sha256:b9e2ab7337e45472b7582f43c4c52aa07da6951425e359e7b40b925d502fc243",
+      "body_sha256": "sha256:d8fa081374ec990a4b9d4bbccf59438788cdc5be5c5c022f0e4ae623815f7968",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -3924,7 +3924,7 @@
       "path": "documentation/resources/code_base_integration/properties/code_base_integration/gitlab/access_token/blindfold_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "code_base_integration",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-1123300331120212-3233312211331132-2312231131023030-1321332220201022-1321130300212203-3121030311231301-1020123210131322-3213000002020002",
       "registry_path": "docs/guides/resources--code_base_integration--reference--group-001.md",
@@ -3998,20 +3998,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/code_base_integration/properties/code_base_integration/gitlab/access_token/blindfold_secret_info/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
       "tasks": ["configuration"],
       "title": "code_base_integration.gitlab.access_token.blindfold_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["code_base_integrationCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["code base integration gitlab access token clear secret info"],
       "body_bytes": 3622,
-      "body_sha256": "sha256:fda3e71e856553480484a01807c0a0c49a785f51f43f10efdc1c286b703d49f6",
+      "body_sha256": "sha256:5d27bd494516d3eabd6bf4bbec81511006c1377c93a3084988a776cf2e68c41f",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -4028,7 +4028,7 @@
       "path": "documentation/resources/code_base_integration/properties/code_base_integration/gitlab/access_token/clear_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "code_base_integration",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-2223230232231002-3032022213200021-2132231111330302-0320121033112201-3033300002311300-2120331312020102-0021320010011031-2012010120001333",
       "registry_path": "docs/guides/resources--code_base_integration--reference--group-001.md",
@@ -4080,20 +4080,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/code_base_integration/properties/code_base_integration/gitlab/access_token/clear_secret_info/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
       "tasks": ["configuration"],
       "title": "code_base_integration.gitlab.access_token.clear_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["code_base_integrationCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["code base integration gitlab enterprise"],
       "body_bytes": 2635,
-      "body_sha256": "sha256:bcab6c8ec47269c65f624f65f50e0a550b19ad32bb58f8378ae22b263a23cd17",
+      "body_sha256": "sha256:d05a2d8255e0a343eaced89f8f0f63352e3b135b70914c722eac831edc6a4167",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -4112,7 +4112,7 @@
       "path": "documentation/resources/code_base_integration/properties/code_base_integration/gitlab_enterprise/index.md",
       "product": "distributed-cloud",
       "provider_name": "code_base_integration",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-2300101201031033-0233121100211322-0323002120210212-3020213213320323-2323322312133130-2103132210131111-2130333232002130-1220301121211123",
       "registry_path": "docs/guides/resources--code_base_integration--reference--group-001.md",
@@ -4181,14 +4181,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/code_base_integration/properties/code_base_integration/gitlab_enterprise/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Configuration parameter for gitlab enterprise.",
       "tasks": ["configuration"],
       "title": "code_base_integration.gitlab_enterprise",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["code_base_integrationCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -4214,7 +4214,7 @@
       "path": "documentation/resources/code_base_integration/properties/code_base_integration/gitlab_enterprise/access_token/index.md",
       "product": "distributed-cloud",
       "provider_name": "code_base_integration",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-3212032121013322-0112030301122103-3330010000103200-1013100110132233-2322022303312123-1230311212332232-3222301012303332-1021320033031032",
       "registry_path": "docs/guides/resources--code_base_integration--reference--group-001.md",
@@ -4292,20 +4292,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/code_base_integration/properties/code_base_integration/gitlab_enterprise/access_token/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "SecretType is used in an object to indicate a sensitive/confidential field.",
       "tasks": ["configuration"],
       "title": "code_base_integration.gitlab_enterprise.access_token",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["code_base_integrationCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["code base integration gitlab enterprise access token blindfold secret info"],
       "body_bytes": 4719,
-      "body_sha256": "sha256:0783577567dfa4722b84b4e274984280924996111f14fff145482e2bc8bd11bd",
+      "body_sha256": "sha256:ff0f5569d78c88724efd17d6100b5db8deea8cd064942cf7837e2930bb28ec5d",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -4322,7 +4322,7 @@
       "path": "documentation/resources/code_base_integration/properties/code_base_integration/gitlab_enterprise/access_token/blindfold_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "code_base_integration",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-2032122221103120-3320113330102331-2101200303022232-1132323223101012-1002331331223032-2221321120203103-0031121033233001-0123101002231211",
       "registry_path": "docs/guides/resources--code_base_integration--reference--group-001.md",
@@ -4408,20 +4408,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/code_base_integration/properties/code_base_integration/gitlab_enterprise/access_token/blindfold_secret_info/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
       "tasks": ["configuration"],
       "title": "code_base_integration.gitlab_enterprise.access_token.blindfold_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["code_base_integrationCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["code base integration gitlab enterprise access token clear secret info"],
       "body_bytes": 3710,
-      "body_sha256": "sha256:7a67b40f5acbfa520f595f0fa50d8e49a897448a0f0f4d072e6d51a4bd04dff7",
+      "body_sha256": "sha256:b70922697c80051493512612aa04bb42994880f2600bb7b9238fbe07cea31071",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -4438,7 +4438,7 @@
       "path": "documentation/resources/code_base_integration/properties/code_base_integration/gitlab_enterprise/access_token/clear_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "code_base_integration",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-2222200310110312-3132032101123132-1212021103230303-3002210311032302-3103331110202311-3002112103002221-1310212122013301-3022001003030321",
       "registry_path": "docs/guides/resources--code_base_integration--reference--group-001.md",
@@ -4496,14 +4496,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/code_base_integration/properties/code_base_integration/gitlab_enterprise/access_token/clear_secret_info/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
       "tasks": ["configuration"],
       "title": "code_base_integration.gitlab_enterprise.access_token.clear_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["code_base_integrationCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -4526,7 +4526,7 @@
       "path": "documentation/resources/code_base_integration/properties/timeouts/index.md",
       "product": "distributed-cloud",
       "provider_name": "code_base_integration",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-1001330330201111-0023201102213331-2220222121001222-0223210221230112-1120101313111223-3303312223222112-0220130220213110-0330212303030203",
       "registry_path": "docs/guides/resources--code_base_integration--reference--group-001.md",
@@ -4636,14 +4636,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/code_base_integration/properties/timeouts/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "timeouts for xcsh_code_base_integration.",
       "tasks": ["configuration"],
       "title": "timeouts",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["code_base_integrationCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -4666,7 +4666,7 @@
       "path": "documentation/resources/code_base_integration/examples/index.md",
       "product": "distributed-cloud",
       "provider_name": "code_base_integration",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-3223311312113011-0300001102331331-3332332231201211-3013102320020123-3131313102303221-3001032000113130-3330213021233132-2201232013021000",
       "registry_path": "docs/guides/resources--code_base_integration--examples--group-001.md",
@@ -4676,14 +4676,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/code_base_integration/examples/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Examples for xcsh_code_base_integration.",
       "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["code_base_integrationCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -4713,7 +4713,7 @@
       "path": "documentation/resources/code_base_integration/examples/resource/index.md",
       "product": "distributed-cloud",
       "provider_name": "code_base_integration",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-0302131003030332-2210232300310230-2102122221132322-3031133031321130-3332332002121301-0322313030311313-3101101132020113-2300310303302110",
       "registry_path": "docs/guides/resources--code_base_integration--examples--group-001.md",
@@ -4723,14 +4723,14 @@
       "schema_path": ["resource"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/code_base_integration/examples/resource/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Resource for xcsh_code_base_integration.",
       "tasks": ["configuration"],
       "title": "Resource",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["code_base_integrationCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -4754,7 +4754,7 @@
       "path": "documentation/resources/code_base_integration/lifecycle/import/index.md",
       "product": "distributed-cloud",
       "provider_name": "code_base_integration",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-3221201113223001-3231030320310302-0302020203002021-2300323111020211-1313111010003203-1011012213310200-0203213003300121-0032101100122213",
       "registry_path": "docs/guides/resources--code_base_integration--lifecycle--group-001.md",
@@ -4764,14 +4764,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/code_base_integration/lifecycle/import/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Import for xcsh_code_base_integration.",
       "tasks": ["import"],
       "title": "Import",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["code_base_integrationCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -4794,7 +4794,7 @@
       "path": "documentation/resources/code_base_integration/lifecycle/timeouts/index.md",
       "product": "distributed-cloud",
       "provider_name": "code_base_integration",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-0222111310312010-2131330212103322-1120331221020202-1131312111120123-3021321201202020-2232121111320023-3023033102222302-1220123101101220",
       "registry_path": "docs/guides/resources--code_base_integration--lifecycle--group-001.md",
@@ -4804,14 +4804,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/code_base_integration/lifecycle/timeouts/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Timeouts for xcsh_code_base_integration.",
       "tasks": ["lifecycle"],
       "title": "Timeouts",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["code_base_integrationCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     }
   ],

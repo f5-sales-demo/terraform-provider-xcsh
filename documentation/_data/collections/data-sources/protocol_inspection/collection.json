@@ -112,7 +112,7 @@
       "path": "documentation/data-sources/protocol_inspection/index.md",
       "product": "distributed-cloud",
       "provider_name": "protocol_inspection",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1313301302113001-0102313332203012-2202123331012332-2332033323132031-2332220030232012-3021230003332301-2212111100302303-0210333132120310",
       "registry_path": "docs/data-sources/protocol_inspection.md",
@@ -122,21 +122,21 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/protocol_inspection/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Reads an existing Protocol Inspection configuration in its namespace.",
       "tasks": ["configuration"],
       "title": "xcsh_protocol_inspection",
       "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["protocol_inspectionCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["protocol inspection"],
       "body_bytes": 11203,
-      "body_sha256": "sha256:dcfe22449272d2039e0c92dbc4bbc4f446bf7fce1023c7f7c490f0ea8015550e",
+      "body_sha256": "sha256:9843fd7f30a0f2a9627e0766bfd464602f5b0232861f2e3e95c191fed4003e4d",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -156,7 +156,7 @@
       "path": "documentation/data-sources/protocol_inspection/properties/index.md",
       "product": "distributed-cloud",
       "provider_name": "protocol_inspection",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2031133223011203-2331031213330110-1111011320132233-1130032201323122-3030112030303121-2231033112022021-0213331300320023-3130013121123023",
       "registry_path": "docs/guides/data-sources--protocol_inspection--reference--group-001.md",
@@ -311,14 +311,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/protocol_inspection/properties/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Property reference for xcsh_protocol_inspection.",
       "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["protocol_inspectionCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -344,7 +344,7 @@
       "path": "documentation/data-sources/protocol_inspection/properties/enable_disable_compliance_checks/index.md",
       "product": "distributed-cloud",
       "provider_name": "protocol_inspection",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1223020321120303-0303012222310120-1230131211300021-2121032111222012-3110102121333010-2132331121321033-0210312231020030-0323222302001133",
       "registry_path": "docs/guides/data-sources--protocol_inspection--reference--group-001.md",
@@ -387,14 +387,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/protocol_inspection/properties/enable_disable_compliance_checks/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Enable Disable Compliance Checks Choice.",
       "tasks": ["configuration"],
       "title": "enable_disable_compliance_checks",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["protocol_inspectionCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -417,7 +417,7 @@
       "path": "documentation/data-sources/protocol_inspection/properties/enable_disable_compliance_checks/disable_compliance_checks/index.md",
       "product": "distributed-cloud",
       "provider_name": "protocol_inspection",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2223121201201321-0110330133221330-1011320123000001-3032210122202023-0331311301322320-2221030020301103-2210000322000332-1203203331310030",
       "registry_path": "docs/guides/data-sources--protocol_inspection--reference--group-001.md",
@@ -427,20 +427,20 @@
       "schema_path": ["enable_disable_compliance_checks", "disable_compliance_checks"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/protocol_inspection/properties/enable_disable_compliance_checks/disable_compliance_checks/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "enable_disable_compliance_checks.disable_compliance_checks",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["protocol_inspectionCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["enable disable compliance checks enable compliance checks"],
       "body_bytes": 4655,
-      "body_sha256": "sha256:fb6b82f556f169124ef292810438ad446fe06971031d68ed30cb330ce6b6c60d",
+      "body_sha256": "sha256:0e271afb53c28510a57b082ce2f399ab9c1160d53491dc1474fa12b69689f892",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -457,7 +457,7 @@
       "path": "documentation/data-sources/protocol_inspection/properties/enable_disable_compliance_checks/enable_compliance_checks/index.md",
       "product": "distributed-cloud",
       "provider_name": "protocol_inspection",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2011013222100102-2111123223313133-0312322310132200-2121210001003311-3231202300303102-2233011021321103-1220320211211222-3232113100331312",
       "registry_path": "docs/guides/data-sources--protocol_inspection--reference--group-001.md",
@@ -537,14 +537,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/protocol_inspection/properties/enable_disable_compliance_checks/enable_compliance_checks/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "enable_disable_compliance_checks.enable_compliance_checks",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["protocol_inspectionCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -570,7 +570,7 @@
       "path": "documentation/data-sources/protocol_inspection/properties/enable_disable_signatures/index.md",
       "product": "distributed-cloud",
       "provider_name": "protocol_inspection",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0102233113110032-1023220020302113-3101333100212310-2100211003310220-1111303010230120-2221223002230211-2333033021220230-1231021303030220",
       "registry_path": "docs/guides/data-sources--protocol_inspection--reference--group-001.md",
@@ -613,14 +613,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/protocol_inspection/properties/enable_disable_signatures/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Enable Disable Signature Choice.",
       "tasks": ["configuration"],
       "title": "enable_disable_signatures",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["protocol_inspectionCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -643,7 +643,7 @@
       "path": "documentation/data-sources/protocol_inspection/properties/enable_disable_signatures/disable_signature/index.md",
       "product": "distributed-cloud",
       "provider_name": "protocol_inspection",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1301321210100300-0112022030021332-1221212023303210-0100002023122113-3112022003132131-0031110211122122-0333020101001233-0013102311111200",
       "registry_path": "docs/guides/data-sources--protocol_inspection--reference--group-001.md",
@@ -653,14 +653,14 @@
       "schema_path": ["enable_disable_signatures", "disable_signature"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/protocol_inspection/properties/enable_disable_signatures/disable_signature/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "enable_disable_signatures.disable_signature",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["protocol_inspectionCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -683,7 +683,7 @@
       "path": "documentation/data-sources/protocol_inspection/properties/enable_disable_signatures/enable_signature/index.md",
       "product": "distributed-cloud",
       "provider_name": "protocol_inspection",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3310301221322010-0202003312123020-3301312302320100-2331022203021113-3212123131210323-2030133132330212-1010000100132123-0000130213333321",
       "registry_path": "docs/guides/data-sources--protocol_inspection--reference--group-001.md",
@@ -693,14 +693,14 @@
       "schema_path": ["enable_disable_signatures", "enable_signature"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/protocol_inspection/properties/enable_disable_signatures/enable_signature/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "enable_disable_signatures.enable_signature",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["protocol_inspectionCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -723,7 +723,7 @@
       "path": "documentation/data-sources/protocol_inspection/examples/index.md",
       "product": "distributed-cloud",
       "provider_name": "protocol_inspection",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2222200023121001-2120130320002212-3002302310233020-3021231113212123-3120033122221302-2013033122021310-1313023233113113-1023111323332123",
       "registry_path": "docs/guides/data-sources--protocol_inspection--examples--group-001.md",
@@ -733,14 +733,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/protocol_inspection/examples/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Examples for xcsh_protocol_inspection.",
       "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["protocol_inspectionCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -770,7 +770,7 @@
       "path": "documentation/data-sources/protocol_inspection/examples/data-source/index.md",
       "product": "distributed-cloud",
       "provider_name": "protocol_inspection",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2321033120121020-3101302133330101-2131210100112013-1223322021203030-3211213013202023-3112213231210012-2132113032320231-1203012130102321",
       "registry_path": "docs/guides/data-sources--protocol_inspection--examples--group-001.md",
@@ -780,14 +780,14 @@
       "schema_path": ["data-source"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/protocol_inspection/examples/data-source/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Data source for xcsh_protocol_inspection.",
       "tasks": ["configuration"],
       "title": "Data source",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["protocol_inspectionCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     }
   ],

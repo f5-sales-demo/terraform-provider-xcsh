@@ -2,7 +2,7 @@
 page_title: "default_pool.advanced_options.circuit_breaker"
 subcategory: "Load Balancing"
 description: "CircuitBreaker provides a mechanism for watching failures in upstream connections or requests and if the failures reach a certain threshold, automatically fail subsequent requests which allows to apply back pressure on downstream quickly."
-xcsh_docs: {"aliases": ["default pool advanced options circuit breaker"], "body_bytes": 7671, "body_sha256": "sha256:899645cd6826aad919d7f2cad59cea2050a5f71370269fa0d92be8dc7692e19a", "capabilities": ["load-balancing"], "category": "load-balancing", "child_ids": [], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:resources:http_loadbalancer:collection", "completeness": "complete", "id": "xcsh-docs:resources:http_loadbalancer:properties:default_pool:advanced_options:circuit_breaker", "parent_id": "xcsh-docs:resources:http_loadbalancer:properties:default_pool:advanced_options", "path": "documentation/resources/http_loadbalancer/properties/default_pool/advanced_options/circuit_breaker/index.md", "product": "distributed-cloud", "provider_name": "http_loadbalancer", "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429", "provider_type": "resources", "registry_anchor": "canonical-1031212032101202-3130331233121230-1022333233112301-0011311210120111-0130221013310320-2201133030023101-1021133320211103-0302331222320211", "registry_path": "docs/guides/resources--http_loadbalancer--reference--group-015.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["default_pool", "advanced_options", "circuit_breaker"], "schema_version": 1, "sections": [{"aliases": ["default pool advanced options circuit breaker connection limit"], "anchor": "schema-default_pool--advanced_options--circuit_breaker--connection_limit", "description": "The maximum number of connections that loadbalancer will establish to all hosts in an upstream cluster. In practice this is only applicable to TCP and HTTP/1.1 clusters since HTTP/2 uses a single connection to each host. Remove endpoint out of load balancing decision, if number of connections reach connection limit.", "document_id": "xcsh-docs:resources:http_loadbalancer:properties:default_pool:advanced_options:circuit_breaker", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["default_pool", "advanced_options", "circuit_breaker", "connection_limit"], "syntax": "attribute", "type": "number"}, {"aliases": ["default pool advanced options circuit breaker max requests"], "anchor": "schema-default_pool--advanced_options--circuit_breaker--max_requests", "description": "The maximum number of requests that can be outstanding to all hosts in a cluster at any given time. In practice this is applicable to HTTP/2 clusters since HTTP/1.1 clusters are governed by the maximum connections (connection_limit). Remove endpoint out of load balancing decision, if requests exceed this count.", "document_id": "xcsh-docs:resources:http_loadbalancer:properties:default_pool:advanced_options:circuit_breaker", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["default_pool", "advanced_options", "circuit_breaker", "max_requests"], "syntax": "attribute", "type": "number"}, {"aliases": ["default pool advanced options circuit breaker pending requests"], "anchor": "schema-default_pool--advanced_options--circuit_breaker--pending_requests", "description": "The maximum number of requests that will be queued while waiting for a ready connection pool connection. Since HTTP/2 requests are sent over a single connection, this circuit breaker only comes into play as the initial connection is created, as requests will be multiplexed immediately afterwards. For HTTP/1.1,", "document_id": "xcsh-docs:resources:http_loadbalancer:properties:default_pool:advanced_options:circuit_breaker", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["default_pool", "advanced_options", "circuit_breaker", "pending_requests"], "syntax": "attribute", "type": "number"}, {"aliases": ["default pool advanced options circuit breaker priority"], "anchor": "schema-default_pool--advanced_options--circuit_breaker--priority", "description": "Priority routing for each request. Different connection pools are used based on the priority selected for the request. Also, circuit-breaker configuration at destination cluster is chosen based on selected priority. Default routing mechanism High-Priority routing mechanism.", "document_id": "xcsh-docs:resources:http_loadbalancer:properties:default_pool:advanced_options:circuit_breaker", "enum_extraction_complete": true, "enum_validators": [{"case_sensitive": true, "complete": true, "source": "ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf", "validator": "OneOf", "values": ["DEFAULT", "HIGH"], "version": 1}], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["default_pool", "advanced_options", "circuit_breaker", "priority"], "syntax": "attribute", "type": "string"}, {"aliases": ["default pool advanced options circuit breaker retries"], "anchor": "schema-default_pool--advanced_options--circuit_breaker--retries", "description": "The maximum number of retries that can be outstanding to all hosts in a cluster at any given time. Remove endpoint out of load balancing decision, if retries for request exceed this count.", "document_id": "xcsh-docs:resources:http_loadbalancer:properties:default_pool:advanced_options:circuit_breaker", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["default_pool", "advanced_options", "circuit_breaker", "retries"], "syntax": "attribute", "type": "number"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/http_loadbalancer/properties/default_pool/advanced_options/circuit_breaker/index.txt", "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833", "summary": "CircuitBreaker provides a mechanism for watching failures in upstream connections or requests and if the failures reach a certain threshold, automatically fail subsequent requests which allows to apply back pressure on downstream quickly.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.3", "schema_components": ["http_loadbalancerCreateRequest"], "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"}}
+xcsh_docs: {"aliases": ["default pool advanced options circuit breaker"], "body_bytes": 6617, "body_sha256": "sha256:d1fd882b942666c615f553158c15e11c46204e9268a86081b28c9bf19400465e", "capabilities": ["load-balancing"], "category": "load-balancing", "child_ids": [], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:resources:http_loadbalancer:collection", "completeness": "complete", "id": "xcsh-docs:resources:http_loadbalancer:properties:default_pool:advanced_options:circuit_breaker", "parent_id": "xcsh-docs:resources:http_loadbalancer:properties:default_pool:advanced_options", "path": "documentation/resources/http_loadbalancer/properties/default_pool/advanced_options/circuit_breaker/index.md", "product": "distributed-cloud", "provider_name": "http_loadbalancer", "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829", "provider_type": "resources", "registry_anchor": "canonical-1031212032101202-3130331233121230-1022333233112301-0011311210120111-0130221013310320-2201133030023101-1021133320211103-0302331222320211", "registry_path": "docs/guides/resources--http_loadbalancer--reference--group-016.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["default_pool", "advanced_options", "circuit_breaker"], "schema_version": 1, "sections": [{"aliases": ["default pool advanced options circuit breaker connection limit"], "anchor": "schema-default_pool--advanced_options--circuit_breaker--connection_limit", "description": "The maximum number of connections that loadbalancer will establish to all hosts in an upstream cluster. In practice this is only applicable to TCP and HTTP/1.1 clusters since HTTP/2 uses a single connection to each host. Remove endpoint out of load balancing decision, if number of connections reach connection limit.", "document_id": "xcsh-docs:resources:http_loadbalancer:properties:default_pool:advanced_options:circuit_breaker", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["default_pool", "advanced_options", "circuit_breaker", "connection_limit"], "syntax": "attribute", "type": "number"}, {"aliases": ["default pool advanced options circuit breaker max requests"], "anchor": "schema-default_pool--advanced_options--circuit_breaker--max_requests", "description": "The maximum number of requests that can be outstanding to all hosts in a cluster at any given time. In practice this is applicable to HTTP/2 clusters since HTTP/1.1 clusters are governed by the maximum connections (connection_limit). Remove endpoint out of load balancing decision, if requests exceed this count.", "document_id": "xcsh-docs:resources:http_loadbalancer:properties:default_pool:advanced_options:circuit_breaker", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["default_pool", "advanced_options", "circuit_breaker", "max_requests"], "syntax": "attribute", "type": "number"}, {"aliases": ["default pool advanced options circuit breaker pending requests"], "anchor": "schema-default_pool--advanced_options--circuit_breaker--pending_requests", "description": "The maximum number of requests that will be queued while waiting for a ready connection pool connection. Since HTTP/2 requests are sent over a single connection, this circuit breaker only comes into play as the initial connection is created, as requests will be multiplexed immediately afterwards. For HTTP/1.1,", "document_id": "xcsh-docs:resources:http_loadbalancer:properties:default_pool:advanced_options:circuit_breaker", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["default_pool", "advanced_options", "circuit_breaker", "pending_requests"], "syntax": "attribute", "type": "number"}, {"aliases": ["default pool advanced options circuit breaker priority"], "anchor": "schema-default_pool--advanced_options--circuit_breaker--priority", "description": "Priority routing for each request. Different connection pools are used based on the priority selected for the request. Also, circuit-breaker configuration at destination cluster is chosen based on selected priority. Default routing mechanism High-Priority routing mechanism.", "document_id": "xcsh-docs:resources:http_loadbalancer:properties:default_pool:advanced_options:circuit_breaker", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["default_pool", "advanced_options", "circuit_breaker", "priority"], "syntax": "attribute", "type": "string"}, {"aliases": ["default pool advanced options circuit breaker retries"], "anchor": "schema-default_pool--advanced_options--circuit_breaker--retries", "description": "The maximum number of retries that can be outstanding to all hosts in a cluster at any given time. Remove endpoint out of load balancing decision, if retries for request exceed this count.", "document_id": "xcsh-docs:resources:http_loadbalancer:properties:default_pool:advanced_options:circuit_breaker", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["default_pool", "advanced_options", "circuit_breaker", "retries"], "syntax": "attribute", "type": "number"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/http_loadbalancer/properties/default_pool/advanced_options/circuit_breaker/index.txt", "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1", "summary": "CircuitBreaker provides a mechanism for watching failures in upstream connections or requests and if the failures reach a certain threshold, automatically fail subsequent requests which allows to apply back pressure on downstream quickly.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.4", "schema_components": ["http_loadbalancerCreateRequest"], "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -61,15 +61,6 @@ cluster. In practice this is only applicable to TCP and HTTP/1.1 clusters since 
 connection to each host. Remove endpoint out of load balancing decision, if number of connections
 reach connection limit.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Int64{
-  int64validator.AtMost(32768),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -82,7 +73,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "api-probed",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -111,15 +102,6 @@ In practice this is applicable to HTTP/2 clusters since HTTP/1.1 clusters are go
 maximum connections (connection\_limit). Remove endpoint out of load balancing decision, if requests
 exceed this count.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Int64{
-  int64validator.AtMost(32768),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -132,7 +114,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "api-probed",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -164,15 +146,6 @@ enough upstream connections available to immediately dispatch the request, so th
 will remain in play for the lifetime of the process. Remove endpoint out of load balancing decision,
 if pending request reach pending\_request.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Int64{
-  int64validator.AtMost(32768),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -185,7 +158,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "api-probed",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -218,17 +191,6 @@ Additional upstream details:
 
 Priority routing for each request. Default routing mechanism High-Priority routing mechanism.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-EnumValidators: [{"version":1,"validator":"OneOf","values":["DEFAULT","HIGH"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
-Validators: []validator.String{
-  stringvalidator.OneOf("DEFAULT",
-    "HIGH"),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -256,15 +218,6 @@ Type: `"number"`. Optional.
 The maximum number of retries that can be outstanding to all hosts in a cluster at any given time.
 Remove endpoint out of load balancing decision, if retries for request exceed this count.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Int64{
-  int64validator.Between(0, 32768),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -277,7 +230,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "api-probed",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minimum": 0,
     "multipleOf": 1

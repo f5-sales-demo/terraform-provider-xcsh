@@ -2,7 +2,7 @@
 page_title: "cors_policy"
 subcategory: "Load Balancing"
 description: "Cross-Origin Resource Sharing requests configuration specified at Virtual-host or Route level. Route level configuration takes precedence. An example of an Cross origin HTTP request GET /resources/public-data/ HTTP/1.1 Host: bar.other User-Agent: Mozilla/5.0 (Macintosh; U; Intel MAC OS X 10.5; en-US; rv:1.9.1b3pre)"
-xcsh_docs: {"aliases": ["cors policy", "duration"], "body_bytes": 9531, "body_sha256": "sha256:e433ee6a1d52c893d69bdaf733ae41eda107d2bc4e8a1d238dcf9ebc086dedb5", "capabilities": ["load-balancing"], "category": "load-balancing", "child_ids": [], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:resources:http_loadbalancer:collection", "completeness": "complete", "id": "xcsh-docs:resources:http_loadbalancer:properties:cors_policy", "parent_id": "xcsh-docs:resources:http_loadbalancer:reference", "path": "documentation/resources/http_loadbalancer/properties/cors_policy/index.md", "product": "distributed-cloud", "provider_name": "http_loadbalancer", "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429", "provider_type": "resources", "registry_anchor": "canonical-2120230123301020-2223032123333110-0222303131313113-1302023032311223-0231200001201300-0311101003010332-1110132103312122-1021322003001231", "registry_path": "docs/guides/resources--http_loadbalancer--reference--group-014.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["cors_policy"], "schema_version": 1, "sections": [{"aliases": ["authentication", "cors policy allow credentials", "credential setup", "credentials"], "anchor": "schema-cors_policy--allow_credentials", "description": "Specifies whether the resource allows credentials.", "document_id": "xcsh-docs:resources:http_loadbalancer:properties:cors_policy", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["cors_policy", "allow_credentials"], "syntax": "attribute", "type": "bool"}, {"aliases": ["cors policy allow headers"], "anchor": "schema-cors_policy--allow_headers", "description": "Specifies the content for the access-control-allow-headers header.", "document_id": "xcsh-docs:resources:http_loadbalancer:properties:cors_policy", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["cors_policy", "allow_headers"], "syntax": "attribute", "type": "string"}, {"aliases": ["cors policy allow methods"], "anchor": "schema-cors_policy--allow_methods", "description": "Specifies the content for the access-control-allow-methods header.", "document_id": "xcsh-docs:resources:http_loadbalancer:properties:cors_policy", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["cors_policy", "allow_methods"], "syntax": "attribute", "type": "string"}, {"aliases": ["backend servers", "cors policy allow origin", "origin servers", "upstream servers"], "anchor": "schema-cors_policy--allow_origin", "description": "Specifies the origins that will be allowed to do CORS requests. An origin is allowed if either allow_origin or allow_origin_regex match.", "document_id": "xcsh-docs:resources:http_loadbalancer:properties:cors_policy", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["cors_policy", "allow_origin"], "syntax": "attribute", "type": "list"}, {"aliases": ["backend servers", "cors policy allow origin regex", "origin servers", "upstream servers"], "anchor": "schema-cors_policy--allow_origin_regex", "description": "Specifies regex patterns that match allowed origins. An origin is allowed if either allow_origin or allow_origin_regex match.", "document_id": "xcsh-docs:resources:http_loadbalancer:properties:cors_policy", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["cors_policy", "allow_origin_regex"], "syntax": "attribute", "type": "list"}, {"aliases": ["cors policy disabled"], "anchor": "schema-cors_policy--disabled", "description": "Disable the CorsPolicy for a particular route. This is useful when virtual-host has CorsPolicy, but we need to disable it on a specific route. The value of this field is ignored for virtual-host.", "document_id": "xcsh-docs:resources:http_loadbalancer:properties:cors_policy", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["cors_policy", "disabled"], "syntax": "attribute", "type": "bool"}, {"aliases": ["cors policy expose headers"], "anchor": "schema-cors_policy--expose_headers", "description": "Specifies the content for the access-control-expose-headers header.", "document_id": "xcsh-docs:resources:http_loadbalancer:properties:cors_policy", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["cors_policy", "expose_headers"], "syntax": "attribute", "type": "string"}, {"aliases": ["cors policy maximum age"], "anchor": "schema-cors_policy--maximum_age", "description": "Specifies the content for the access-control-max-age header in seconds. This indicates the maximum number of seconds the results can be cached A value of -1 will disable caching. Maximum permitted value is 86400 seconds (24 hours)", "document_id": "xcsh-docs:resources:http_loadbalancer:properties:cors_policy", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["cors_policy", "maximum_age"], "syntax": "attribute", "type": "number"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/http_loadbalancer/properties/cors_policy/index.txt", "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833", "summary": "Cross-Origin Resource Sharing requests configuration specified at Virtual-host or Route level. Route level configuration takes precedence. An example of an Cross origin HTTP request GET /resources/public-data/ HTTP/1.1 Host: bar.other User-Agent: Mozilla/5.0 (Macintosh; U; Intel MAC OS X 10.5; en-US; rv:1.9.1b3pre)", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.3", "schema_components": ["http_loadbalancerCreateRequest"], "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"}}
+xcsh_docs: {"aliases": ["cors policy", "duration"], "body_bytes": 9041, "body_sha256": "sha256:db415c3c2166ff57d7e3fc31089dfa73eba0e8457b8007d2167d7c19c1f76ef6", "capabilities": ["load-balancing"], "category": "load-balancing", "child_ids": [], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:resources:http_loadbalancer:collection", "completeness": "complete", "id": "xcsh-docs:resources:http_loadbalancer:properties:cors_policy", "parent_id": "xcsh-docs:resources:http_loadbalancer:reference", "path": "documentation/resources/http_loadbalancer/properties/cors_policy/index.md", "product": "distributed-cloud", "provider_name": "http_loadbalancer", "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829", "provider_type": "resources", "registry_anchor": "canonical-2120230123301020-2223032123333110-0222303131313113-1302023032311223-0231200001201300-0311101003010332-1110132103312122-1021322003001231", "registry_path": "docs/guides/resources--http_loadbalancer--reference--group-015.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["cors_policy"], "schema_version": 1, "sections": [{"aliases": ["authentication", "cors policy allow credentials", "credential setup", "credentials"], "anchor": "schema-cors_policy--allow_credentials", "description": "Specifies whether the resource allows credentials.", "document_id": "xcsh-docs:resources:http_loadbalancer:properties:cors_policy", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["cors_policy", "allow_credentials"], "syntax": "attribute", "type": "bool"}, {"aliases": ["cors policy allow headers"], "anchor": "schema-cors_policy--allow_headers", "description": "Specifies the content for the access-control-allow-headers header.", "document_id": "xcsh-docs:resources:http_loadbalancer:properties:cors_policy", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["cors_policy", "allow_headers"], "syntax": "attribute", "type": "string"}, {"aliases": ["cors policy allow methods"], "anchor": "schema-cors_policy--allow_methods", "description": "Specifies the content for the access-control-allow-methods header.", "document_id": "xcsh-docs:resources:http_loadbalancer:properties:cors_policy", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["cors_policy", "allow_methods"], "syntax": "attribute", "type": "string"}, {"aliases": ["backend servers", "cors policy allow origin", "origin servers", "upstream servers"], "anchor": "schema-cors_policy--allow_origin", "description": "Specifies the origins that will be allowed to do CORS requests. An origin is allowed if either allow_origin or allow_origin_regex match.", "document_id": "xcsh-docs:resources:http_loadbalancer:properties:cors_policy", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["cors_policy", "allow_origin"], "syntax": "attribute", "type": "list"}, {"aliases": ["backend servers", "cors policy allow origin regex", "origin servers", "upstream servers"], "anchor": "schema-cors_policy--allow_origin_regex", "description": "Specifies regex patterns that match allowed origins. An origin is allowed if either allow_origin or allow_origin_regex match.", "document_id": "xcsh-docs:resources:http_loadbalancer:properties:cors_policy", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["cors_policy", "allow_origin_regex"], "syntax": "attribute", "type": "list"}, {"aliases": ["cors policy disabled"], "anchor": "schema-cors_policy--disabled", "description": "Disable the CorsPolicy for a particular route. This is useful when virtual-host has CorsPolicy, but we need to disable it on a specific route. The value of this field is ignored for virtual-host.", "document_id": "xcsh-docs:resources:http_loadbalancer:properties:cors_policy", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["cors_policy", "disabled"], "syntax": "attribute", "type": "bool"}, {"aliases": ["cors policy expose headers"], "anchor": "schema-cors_policy--expose_headers", "description": "Specifies the content for the access-control-expose-headers header.", "document_id": "xcsh-docs:resources:http_loadbalancer:properties:cors_policy", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["cors_policy", "expose_headers"], "syntax": "attribute", "type": "string"}, {"aliases": ["cors policy maximum age"], "anchor": "schema-cors_policy--maximum_age", "description": "Specifies the content for the access-control-max-age header in seconds. This indicates the maximum number of seconds the results can be cached A value of -1 will disable caching. Maximum permitted value is 86400 seconds (24 hours)", "document_id": "xcsh-docs:resources:http_loadbalancer:properties:cors_policy", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["cors_policy", "maximum_age"], "syntax": "attribute", "type": "number"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/http_loadbalancer/properties/cors_policy/index.txt", "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1", "summary": "Cross-Origin Resource Sharing requests configuration specified at Virtual-host or Route level. Route level configuration takes precedence. An example of an Cross origin HTTP request GET /resources/public-data/ HTTP/1.1 Host: bar.other User-Agent: Mozilla/5.0 (Macintosh; U; Intel MAC OS X 10.5; en-US; rv:1.9.1b3pre)", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.4", "schema_components": ["http_loadbalancerCreateRequest"], "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -113,7 +113,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -144,7 +144,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -171,15 +171,6 @@ Type: `["list", "string"]`. Optional.
 Specifies the origins that will be allowed to do CORS requests. An origin is allowed if either
 allow\_origin or allow\_origin\_regex match.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.List{
-  listvalidator.SizeAtMost(128),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -193,7 +184,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "uniqueItems": true
   },
@@ -227,15 +218,6 @@ Type: `["list", "string"]`. Optional.
 Specifies regex patterns that match allowed origins. An origin is allowed if either allow\_origin or
 allow\_origin\_regex match.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.List{
-  listvalidator.SizeAtMost(16),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -249,7 +231,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "uniqueItems": true
   },
@@ -317,7 +299,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -339,15 +321,6 @@ Specifies the content for the access-control-max-age header in seconds. This ind
 number of seconds the results can be cached A value of -1 will disable caching. Maximum permitted
 value is 86400 seconds (24 hours).
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Int64{
-  int64validator.Between(-1, 86400),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -360,7 +333,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minimum": -1
   },

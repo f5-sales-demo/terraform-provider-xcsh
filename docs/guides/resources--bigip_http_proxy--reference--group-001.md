@@ -114,7 +114,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 0
   },
@@ -219,15 +219,6 @@ This is the name of configuration object. It has to be unique within the namespa
 specified during create API and cannot be changed during replace API. The value of name has to
 follow DNS-1035 format.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.String{
-  validators.NameValidator(),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -248,7 +239,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "inferred",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1,
     "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
@@ -287,15 +278,6 @@ Additional upstream details:
 This defines the workspace within which each the configuration object is to be created. Must be a
 DNS\_LABEL format. For a namespace object itself, namespace value will be ""
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.String{
-  validators.NamespaceValidator(),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -316,7 +298,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "inferred",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1,
     "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
@@ -402,7 +384,7 @@ Each exact path has one authoritative reference destination. Collection element 
 | `origin_pools.pools.origin_servers.origin_servers.k8s_service.site_locator.virtual_site.namespace` | [origin_pools.pools.origin_servers.origin_servers.k8s_service.site_locator.virtual_site.namespace](resources--bigip_http_proxy--reference--group-001.md#canonical-3122222102303000-0133132113001303-3000232332020011-3112011012121002-2232003330133030-2321213302201020-1321123321002033-2111330030031312) |
 | `origin_pools.pools.origin_servers.origin_servers.k8s_service.site_locator.virtual_site.tenant` | [origin_pools.pools.origin_servers.origin_servers.k8s_service.site_locator.virtual_site.tenant](resources--bigip_http_proxy--reference--group-001.md#canonical-0021231230231113-1300211321002230-0102000110202102-0010311320203013-3111220002022030-2302212302301112-0012223321113332-3112301123120011) |
 | `origin_pools.pools.origin_servers.origin_servers.k8s_service.snat_pool` | [origin_pools.pools.origin_servers.origin_servers.k8s_service.snat_pool](resources--bigip_http_proxy--reference--group-001.md#canonical-1210031012130200-3003222231330333-0133200303022131-1223223112102113-3210213223112122-1331002330012323-3032111213321023-3022112132102131) |
-| `origin_pools.pools.origin_servers.origin_servers.k8s_service.snat_pool.no_snat_pool` | [origin_pools.pools.origin_servers.origin_servers.k8s_service.snat_pool.no_snat_pool](resources--bigip_http_proxy--reference--group-001.md#canonical-2123321133201330-1101022110010022-2212000130131300-3133310211302131-0030133321202301-2022230213131132-0120023221132230-3102120020000311) |
+| `origin_pools.pools.origin_servers.origin_servers.k8s_service.snat_pool.no_snat_pool` | [origin_pools.pools.origin_servers.origin_servers.k8s_service.snat_pool.no_snat_pool](resources--bigip_http_proxy--reference--group-002.md#canonical-2123321133201330-1101022110010022-2212000130131300-3133310211302131-0030133321202301-2022230213131132-0120023221132230-3102120020000311) |
 | `origin_pools.pools.origin_servers.origin_servers.k8s_service.snat_pool.snat_pool` | [origin_pools.pools.origin_servers.origin_servers.k8s_service.snat_pool.snat_pool](resources--bigip_http_proxy--reference--group-002.md#canonical-3211300102000202-3203101313113331-0331003310300202-3303003031202201-2003013322303020-2233320301203211-1122013313021221-2101220030033123) |
 | `origin_pools.pools.origin_servers.origin_servers.k8s_service.snat_pool.snat_pool.prefixes` | [origin_pools.pools.origin_servers.origin_servers.k8s_service.snat_pool.snat_pool.prefixes](resources--bigip_http_proxy--reference--group-002.md#canonical-3302231032122000-1312303303312013-0101003333130022-2030011323001031-2022302202032303-2323120111000321-0323332302211130-1223331130300021) |
 | `origin_pools.pools.origin_servers.origin_servers.k8s_service.vk8s_networks` | [origin_pools.pools.origin_servers.origin_servers.k8s_service.vk8s_networks](resources--bigip_http_proxy--reference--group-002.md#canonical-0211133031012200-2011221102322000-1112030331321300-3123012032022312-3011231122213110-2012121212030310-1210231103212022-2103221310302031) |
@@ -464,7 +446,7 @@ Each exact path has one authoritative reference destination. Collection element 
 | `proxy_advertisement.advertise_custom.advertise_where.site.site.tenant` | [proxy_advertisement.advertise_custom.advertise_where.site.site.tenant](resources--bigip_http_proxy--reference--group-002.md#canonical-2130110320200002-2110133002112013-2320330233030131-3123212011010022-2302320301231122-2013100300313230-0331332100120331-0301120011332120) |
 | `proxy_advertisement.advertise_custom.advertise_where.use_default_port` | [proxy_advertisement.advertise_custom.advertise_where.use_default_port](resources--bigip_http_proxy--reference--group-002.md#canonical-2013220330230101-2003131300000130-1012200023330101-1333300111011111-2013012233321220-0203303100032221-2321301121110103-3000322103322310) |
 | `proxy_advertisement.advertise_custom.advertise_where.virtual_network` | [proxy_advertisement.advertise_custom.advertise_where.virtual_network](resources--bigip_http_proxy--reference--group-002.md#canonical-2000021012300133-0223211112310033-2331021312120301-2313132120011121-3113333332332113-1322020000320032-0200131310201213-2230332300033033) |
-| `proxy_advertisement.advertise_custom.advertise_where.virtual_network.default_v6_vip` | [proxy_advertisement.advertise_custom.advertise_where.virtual_network.default_v6_vip](resources--bigip_http_proxy--reference--group-003.md#canonical-3031102321023301-0003233200231212-2100221311200220-1021002103112311-2121132033022033-1101123331113010-3202012121110012-3213323011331103) |
+| `proxy_advertisement.advertise_custom.advertise_where.virtual_network.default_v6_vip` | [proxy_advertisement.advertise_custom.advertise_where.virtual_network.default_v6_vip](resources--bigip_http_proxy--reference--group-002.md#canonical-3031102321023301-0003233200231212-2100221311200220-1021002103112311-2121132033022033-1101123331113010-3202012121110012-3213323011331103) |
 | `proxy_advertisement.advertise_custom.advertise_where.virtual_network.default_vip` | [proxy_advertisement.advertise_custom.advertise_where.virtual_network.default_vip](resources--bigip_http_proxy--reference--group-003.md#canonical-2333123311103322-0333002203111322-2010313023322001-0331122223103000-1222300102001212-0033200321233203-3133131011121032-1330311333132333) |
 | `proxy_advertisement.advertise_custom.advertise_where.virtual_network.specific_v6_vip` | [proxy_advertisement.advertise_custom.advertise_where.virtual_network.specific_v6_vip](resources--bigip_http_proxy--reference--group-002.md#canonical-3032021001323100-1300201313010310-3102031313322320-1113032020320323-1022112212210030-0322230333211300-2233112333333130-3010123031111030) |
 | `proxy_advertisement.advertise_custom.advertise_where.virtual_network.specific_vip` | [proxy_advertisement.advertise_custom.advertise_where.virtual_network.specific_vip](resources--bigip_http_proxy--reference--group-002.md#canonical-0310203013301232-0022102032113130-3300123120231130-0320021010210123-0231122000222022-2021233021330332-1120211123232010-0020111021223012) |
@@ -530,9 +512,9 @@ Each exact path has one authoritative reference destination. Collection element 
 | `proxy_config.https.tls_cert_params.certificates` | [proxy_config.https.tls_cert_params.certificates](resources--bigip_http_proxy--reference--group-003.md#canonical-2331102121213232-3113200110102120-2130311031232123-0023131022032013-3310110201230102-3121330232000222-1112023203131030-2233312113200011) |
 | `proxy_config.https.tls_cert_params.certificates.name` | [proxy_config.https.tls_cert_params.certificates.name](resources--bigip_http_proxy--reference--group-003.md#canonical-3020130213211231-0110022032110102-0103110201032332-3130011011102112-0000032222200003-0123132112301022-0321313310003111-2101002230132021) |
 | `proxy_config.https.tls_cert_params.certificates.namespace` | [proxy_config.https.tls_cert_params.certificates.namespace](resources--bigip_http_proxy--reference--group-003.md#canonical-2221332102220321-1233103023203000-1132122302301322-0032233310020101-1333331321231302-1120223010000332-3232003120111120-1213133331301100) |
-| `proxy_config.https.tls_cert_params.certificates.tenant` | [proxy_config.https.tls_cert_params.certificates.tenant](resources--bigip_http_proxy--reference--group-004.md#canonical-1310220210131220-0001132111131111-0320020301231232-3001111231312233-1003032012100032-2020230333123220-1220301033122022-2131101123313200) |
-| `proxy_config.https.tls_cert_params.no_mtls` | [proxy_config.https.tls_cert_params.no_mtls](resources--bigip_http_proxy--reference--group-004.md#canonical-3321313102220133-2311213030011233-0012110132133220-3203323230330000-1013313202132332-1232000110102031-0001132120123232-0210022212030103) |
-| `proxy_config.https.tls_cert_params.tls_config` | [proxy_config.https.tls_cert_params.tls_config](resources--bigip_http_proxy--reference--group-004.md#canonical-2133230230132223-0013202033222321-1032221331203013-1213030201201130-1012122111333111-0122020311333212-0030313001002123-3011211110212103) |
+| `proxy_config.https.tls_cert_params.certificates.tenant` | [proxy_config.https.tls_cert_params.certificates.tenant](resources--bigip_http_proxy--reference--group-003.md#canonical-1310220210131220-0001132111131111-0320020301231232-3001111231312233-1003032012100032-2020230333123220-1220301033122022-2131101123313200) |
+| `proxy_config.https.tls_cert_params.no_mtls` | [proxy_config.https.tls_cert_params.no_mtls](resources--bigip_http_proxy--reference--group-003.md#canonical-3321313102220133-2311213030011233-0012110132133220-3203323230330000-1013313202132332-1232000110102031-0001132120123232-0210022212030103) |
+| `proxy_config.https.tls_cert_params.tls_config` | [proxy_config.https.tls_cert_params.tls_config](resources--bigip_http_proxy--reference--group-003.md#canonical-2133230230132223-0013202033222321-1032221331203013-1213030201201130-1012122111333111-0122020311333212-0030313001002123-3011211110212103) |
 | `proxy_config.https.tls_cert_params.tls_config.custom_security` | [proxy_config.https.tls_cert_params.tls_config.custom_security](resources--bigip_http_proxy--reference--group-004.md#canonical-0031303213213230-2003331031200220-2032201120012222-1300113230130211-3321122000021131-1133222112012330-2331302010011132-3122231122103321) |
 | `proxy_config.https.tls_cert_params.tls_config.custom_security.cipher_suites` | [proxy_config.https.tls_cert_params.tls_config.custom_security.cipher_suites](resources--bigip_http_proxy--reference--group-004.md#canonical-2100012232300311-1022312321330200-0320113031110201-2331220210122300-1332223301233032-3220331312020101-3010122131101022-2001023212020100) |
 | `proxy_config.https.tls_cert_params.tls_config.custom_security.max_version` | [proxy_config.https.tls_cert_params.tls_config.custom_security.max_version](resources--bigip_http_proxy--reference--group-004.md#canonical-2131110222323031-1310312332103231-0003203223032310-0211103112012003-0230231030321332-3330232003300312-3200302001020032-0032222000110130) |
@@ -558,6 +540,26 @@ Each exact path has one authoritative reference destination. Collection element 
 | `proxy_config.https.tls_parameters` | [proxy_config.https.tls_parameters](resources--bigip_http_proxy--reference--group-004.md#canonical-0120102120100020-1100011221033102-0221220220332001-1333311021222120-2023123132110312-0002031111321112-1022231022201102-3131022230333133) |
 | `proxy_config.https.tls_parameters.no_mtls` | [proxy_config.https.tls_parameters.no_mtls](resources--bigip_http_proxy--reference--group-004.md#canonical-3310030003230002-1220330232102210-3310322322222322-3120220231131103-2013100022001031-0232220231320012-3222200121113102-2231011021001022) |
 | `proxy_config.https.tls_parameters.tls_certificates` | [proxy_config.https.tls_parameters.tls_certificates](resources--bigip_http_proxy--reference--group-004.md#canonical-0220301032330333-1323013100331100-0012033233323112-2320332311233123-3212210220220222-0112021100023210-3201100302313332-0122102311013310) |
+| `proxy_config.https.tls_parameters.tls_certificates.blindfold` | [proxy_config.https.tls_parameters.tls_certificates.blindfold](resources--bigip_http_proxy--reference--group-004.md#canonical-3020130232100132-2121311131231100-2303331223310233-2021330023311232-3311321321210301-0231321322301010-2010112002300123-3320233132301330) |
+| `proxy_config.https.tls_parameters.tls_certificates.blindfold.algorithm` | [proxy_config.https.tls_parameters.tls_certificates.blindfold.algorithm](resources--bigip_http_proxy--reference--group-004.md#canonical-3201120310110031-0210023000223211-0230121313021133-1302202302033130-0000123320132212-0102101123212223-0300213320011110-0303222220220223) |
+| `proxy_config.https.tls_parameters.tls_certificates.blindfold.certificate_file` | [proxy_config.https.tls_parameters.tls_certificates.blindfold.certificate_file](resources--bigip_http_proxy--reference--group-004.md#canonical-2121012022202020-3121202310203022-1110301001231313-3033322212020230-1302102231133313-2013331132002102-1233023022012322-1330133013230330) |
+| `proxy_config.https.tls_parameters.tls_certificates.blindfold.certificate_pem` | [proxy_config.https.tls_parameters.tls_certificates.blindfold.certificate_pem](resources--bigip_http_proxy--reference--group-004.md#canonical-3000012023331030-2212223333100033-0103231123233132-3230221131011311-1103103220232313-1230202112120303-3301033130121311-1312200013232000) |
+| `proxy_config.https.tls_parameters.tls_certificates.blindfold.chain_identity` | [proxy_config.https.tls_parameters.tls_certificates.blindfold.chain_identity](resources--bigip_http_proxy--reference--group-004.md#canonical-2011101021220000-2010223311130321-2323032013321020-2221123232020030-2303113212200212-3111132130023133-0321321233133221-1330232332103211) |
+| `proxy_config.https.tls_parameters.tls_certificates.blindfold.context_digest` | [proxy_config.https.tls_parameters.tls_certificates.blindfold.context_digest](resources--bigip_http_proxy--reference--group-004.md#canonical-0302203312230112-2102323023333330-2132010331130110-3002113112111102-2233213001011111-2101022310031302-2332131221023020-3130110300311121) |
+| `proxy_config.https.tls_parameters.tls_certificates.blindfold.encrypted_location` | [proxy_config.https.tls_parameters.tls_certificates.blindfold.encrypted_location](resources--bigip_http_proxy--reference--group-004.md#canonical-2111031303010321-1033033122012221-3102102221112302-3121310311111022-3321302231120210-3011223331200330-3112310230201010-0031122322332300) |
+| `proxy_config.https.tls_parameters.tls_certificates.blindfold.expires_at` | [proxy_config.https.tls_parameters.tls_certificates.blindfold.expires_at](resources--bigip_http_proxy--reference--group-004.md#canonical-2022102211302332-0111223333333330-1233333100200110-3321322130333030-0201220120233002-1321010231131022-1332301312210120-2111010211202131) |
+| `proxy_config.https.tls_parameters.tls_certificates.blindfold.fingerprint` | [proxy_config.https.tls_parameters.tls_certificates.blindfold.fingerprint](resources--bigip_http_proxy--reference--group-004.md#canonical-1133311203100222-3211002132031303-0213332020010130-0312122013033000-0110120200312211-0030330312003130-3230120322210002-0002102303333030) |
+| `proxy_config.https.tls_parameters.tls_certificates.blindfold.id` | [proxy_config.https.tls_parameters.tls_certificates.blindfold.id](resources--bigip_http_proxy--reference--group-004.md#canonical-2232233023303220-1230230212111022-1100131011223212-1202030302131231-0310110210310130-3323210100221231-0230002311020021-3020211331211223) |
+| `proxy_config.https.tls_parameters.tls_certificates.blindfold.material_version` | [proxy_config.https.tls_parameters.tls_certificates.blindfold.material_version](resources--bigip_http_proxy--reference--group-004.md#canonical-3330112010023003-3110333133231222-0320123320032231-1011111312213223-2032123032312033-3133200303332303-2001003121001122-2020332300202100) |
+| `proxy_config.https.tls_parameters.tls_certificates.blindfold.passphrase_env` | [proxy_config.https.tls_parameters.tls_certificates.blindfold.passphrase_env](resources--bigip_http_proxy--reference--group-004.md#canonical-1001203031031013-2032122321233320-0133221333203310-2322033232323311-2213112130103202-2113022133200320-2311230332230100-1032330110033202) |
+| `proxy_config.https.tls_parameters.tls_certificates.blindfold.passphrase_wo` | [proxy_config.https.tls_parameters.tls_certificates.blindfold.passphrase_wo](resources--bigip_http_proxy--reference--group-004.md#canonical-2103310312022200-3231212030113331-1011312312331321-0210123013003031-2013323311201111-1102212020313132-3200331120320001-3333032311210212) |
+| `proxy_config.https.tls_parameters.tls_certificates.blindfold.pkcs12_file` | [proxy_config.https.tls_parameters.tls_certificates.blindfold.pkcs12_file](resources--bigip_http_proxy--reference--group-004.md#canonical-2102101120032131-3300001022101311-1032123021221311-2210002231112203-1313202301212201-2001231120203213-2032110133330323-0321301003022221) |
+| `proxy_config.https.tls_parameters.tls_certificates.blindfold.pkcs12_wo` | [proxy_config.https.tls_parameters.tls_certificates.blindfold.pkcs12_wo](resources--bigip_http_proxy--reference--group-004.md#canonical-3333303103313120-2022110023223220-1002023003032121-2102123202021123-0211002202111232-0033121312233332-0132302130011221-0132133032131322) |
+| `proxy_config.https.tls_parameters.tls_certificates.blindfold.policy` | [proxy_config.https.tls_parameters.tls_certificates.blindfold.policy](resources--bigip_http_proxy--reference--group-004.md#canonical-2320213201313033-3212132120032132-1320323123233022-3000101303330331-0333002133203032-1102103113320223-1123330112230121-1223111201013021) |
+| `proxy_config.https.tls_parameters.tls_certificates.blindfold.prepared_identity` | [proxy_config.https.tls_parameters.tls_certificates.blindfold.prepared_identity](resources--bigip_http_proxy--reference--group-004.md#canonical-0330322030010001-3130112010000103-0001003132123111-1230103021123232-2313023210303130-1032332230113230-3101202213212011-1200131331102132) |
+| `proxy_config.https.tls_parameters.tls_certificates.blindfold.private_key_file` | [proxy_config.https.tls_parameters.tls_certificates.blindfold.private_key_file](resources--bigip_http_proxy--reference--group-004.md#canonical-0310213033121000-1320102213130013-1101311120123110-2331201220212003-0200003102211221-1333012311001310-3302132213233113-1033322223333111) |
+| `proxy_config.https.tls_parameters.tls_certificates.blindfold.private_key_wo` | [proxy_config.https.tls_parameters.tls_certificates.blindfold.private_key_wo](resources--bigip_http_proxy--reference--group-004.md#canonical-3102113110221113-2131031113311312-3033220113102020-3300301211133112-0221323233033000-2332310020212021-2203333331123332-3012301323013311) |
+| `proxy_config.https.tls_parameters.tls_certificates.blindfold.spki_identity` | [proxy_config.https.tls_parameters.tls_certificates.blindfold.spki_identity](resources--bigip_http_proxy--reference--group-004.md#canonical-3222221130211213-2033210201313211-1002231321322230-3011112103323220-3001031222131131-3101032201010012-1222130100133320-2121002113022113) |
 | `proxy_config.https.tls_parameters.tls_certificates.certificate_url` | [proxy_config.https.tls_parameters.tls_certificates.certificate_url](resources--bigip_http_proxy--reference--group-004.md#canonical-0032213100120331-0231021203102030-3023322201023331-1112010001322213-3132232010200100-0320222200322132-3211320213133323-0013323130333301) |
 | `proxy_config.https.tls_parameters.tls_certificates.custom_hash_algorithms` | [proxy_config.https.tls_parameters.tls_certificates.custom_hash_algorithms](resources--bigip_http_proxy--reference--group-004.md#canonical-2333232103133300-0103332332102100-3233300330020313-0131011021330123-1023112210330310-3321023123023210-2132112123212203-3313221233102030) |
 | `proxy_config.https.tls_parameters.tls_certificates.custom_hash_algorithms.hash_algorithms` | [proxy_config.https.tls_parameters.tls_certificates.custom_hash_algorithms.hash_algorithms](resources--bigip_http_proxy--reference--group-004.md#canonical-1100222003230221-2033331123031030-3220021020133123-3012122121031213-3002223122312312-1011012231100202-2131011223020320-2331303222311231) |
@@ -669,14 +671,6 @@ Breadcrumbs:
 Type: `"object"`. single nested block, Optional.
 
 This defines various advanced Profile OPTIONS for a Loadbalancer.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.ConflictingObjectAttributes("disable_spec",
-    "enable_default_profile")}
-```
 
 Receipt-pinned upstream constraints:
 
@@ -806,14 +800,6 @@ Configuration parameter for ddos profile.
 Additional upstream details:
 
 BIG-IP DDoS Protection Rules.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.ConflictingObjectAttributes("disable_ddos_mitigation",
-    "enable_ddos_mitigation")}
-```
 
 Receipt-pinned upstream constraints:
 
@@ -1005,13 +991,6 @@ Type: `"object"`. list nested block, Optional.
 
 OPTIONS for attaching iRules to BIG-IP HTTP Proxy.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.List{validators.RequiredListObjectAttributes("name")}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -1025,7 +1004,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "uniqueItems": true
   },
@@ -1067,15 +1046,6 @@ Type: `"string"`. Optional.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
 referred object's(e.g. Route's) name.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 128),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -1094,7 +1064,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1
   },
@@ -1128,15 +1098,6 @@ Type: `"string"`. Optional, Computed.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
 hold the referred object's(e.g. Route's) namespace.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 63),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -1161,7 +1122,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1,
     "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
@@ -1196,15 +1157,6 @@ Type: `"string"`. Computed.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
 the referred object's(e.g. Route's) tenant.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthAtMost(64),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -1221,7 +1173,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -1409,13 +1361,6 @@ Type: `"object"`. list nested block, Optional.
 
 Origin Pools. List of Origin Pools.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.List{validators.RequiredListObjectAttributes("name")}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -1429,7 +1374,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minItems": 1,
     "uniqueItems": true
@@ -1471,17 +1416,6 @@ Type: `"string"`. Optional.
 
 Name. Name of the origin pool.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 63),
-  stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`),
-    ""),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -1502,7 +1436,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "inferred",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1,
     "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
@@ -1540,15 +1474,6 @@ Priority of this origin pool, valid only with multiple origin pools. Value of 0 
 as lowest priority origin pool. When active origin pool is not available, lower priority origin
 pools are made active as per the increasing priority.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Int64{
-  int64validator.Between(0, 32),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -1561,7 +1486,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "api-probed",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minimum": 0,
     "multipleOf": 1
@@ -1602,7 +1527,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.8,
       "source": "inferred",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minimum": 0,
     "multipleOf": 1
@@ -1637,19 +1562,6 @@ Breadcrumbs:
 Type: `"object"`. single nested block, Optional.
 
 List of origin Servers for the BIG-IP HTTP Proxy.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("origin_servers"),
-  validators.ConflictingObjectAttributes("automatic_port",
-    "lb_port"),
-  validators.ConflictingObjectAttributes("automatic_port",
-    "port"),
-  validators.ConflictingObjectAttributes("lb_port",
-    "port")}
-```
 
 Receipt-pinned upstream constraints:
 
@@ -1695,15 +1607,6 @@ Type: `"number"`. Optional.
 
 Exclusive with \[automatic\_port lb\_port\] Endpoint service is available on this port.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Int64{
-  int64validator.Between(1, 65535),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -1716,7 +1619,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "api-probed",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minimum": 1,
     "multipleOf": 1
@@ -1813,17 +1716,6 @@ Additional upstream details:
 
 Origin Server Health Checks.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("health_check",
-    "healthy_threshold",
-    "interval",
-    "timeout",
-    "unhealthy_threshold")}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -1863,15 +1755,6 @@ Number of successful responses before declaring healthy. In other words, this is
 healthy health checks required before a host is marked healthy. Note that during startup, only a
 single successful health check is required to mark a host healthy.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Int64{
-  int64validator.Between(1, 16),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -1884,7 +1767,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "api-probed",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minimum": 1
   },
@@ -1917,15 +1800,6 @@ Type: `"number"`. Optional.
 
 Time interval in seconds between two health check requests.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Int64{
-  int64validator.Between(1, 600),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -1938,7 +1812,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "api-probed",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minimum": 1,
     "multipleOf": 1
@@ -1974,15 +1848,6 @@ Timeout in seconds to wait for successful response. In other words, it is the ti
 health check response. If the timeout is reached the health check attempt will be considered a
 failure.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Int64{
-  int64validator.Between(1, 600),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -1995,7 +1860,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "api-probed",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minimum": 1,
     "multipleOf": 1
@@ -2032,15 +1897,6 @@ unhealthy health checks required before a host is marked unhealthy. Note that fo
 if a host responds with 503 this threshold is ignored and the host is considered unhealthy
 immediately.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Int64{
-  int64validator.Between(1, 16),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -2053,7 +1909,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "api-probed",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minimum": 1
   },
@@ -2100,14 +1956,6 @@ Type: `"object"`. list nested block, Optional.
 
 List of Health Checks. List of Health Checks.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.List{validators.ConflictingListObjectAttributes("icmp_health_check",
-    "tcp_health_check")}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -2121,7 +1969,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minItems": 0,
     "uniqueItems": true
@@ -2239,14 +2087,6 @@ Type: `"object"`. single nested block, Optional.
 Monitor reports healthy status if UDP connection is successful and response payload matches expected
 response pattern.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("expected_response",
-    "send_payload")}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -2280,15 +2120,6 @@ Type: `"string"`. Optional.
 
 Specifies a regular expression pattern which will be matched against response payload.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthAtMost(2048),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -2302,7 +2133,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -2332,15 +2163,6 @@ Type: `"string"`. Optional.
 
 Send string. Text string sent in the request.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthAtMost(2048),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -2354,7 +2176,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -2445,24 +2267,6 @@ Type: `"object"`. list nested block, Optional.
 
 List of Origin Servers. List of origin servers for Proxy.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.List{validators.ConflictingListObjectAttributes("k8s_service",
-    "private_ip"),
-  validators.ConflictingListObjectAttributes("k8s_service",
-    "public_ip"),
-  validators.ConflictingListObjectAttributes("k8s_service",
-    "public_name"),
-  validators.ConflictingListObjectAttributes("private_ip",
-    "public_ip"),
-  validators.ConflictingListObjectAttributes("private_ip",
-    "public_name"),
-  validators.ConflictingListObjectAttributes("public_ip",
-    "public_name")}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -2477,7 +2281,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minItems": 1,
     "uniqueItems": true
@@ -2547,18 +2351,6 @@ Type: `"object"`. single nested block, Optional.
 
 Specify origin server with K8s service name and site information.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.ConflictingObjectAttributes("inside_network",
-    "outside_network"),
-  validators.ConflictingObjectAttributes("inside_network",
-    "vk8s_networks"),
-  validators.ConflictingObjectAttributes("outside_network",
-    "vk8s_networks")}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -2600,17 +2392,6 @@ Type: `"string"`. Optional.
 
 \[Enum: PROTOCOL\_TCP|PROTOCOL\_UDP\] Type of protocol - PROTOCOL\_TCP: TCP - PROTOCOL\_UDP: UDP.
 Possible values are \`PROTOCOL\_TCP\`, \`PROTOCOL\_UDP\`. Defaults to \`PROTOCOL\_TCP\`.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-EnumValidators: [{"version":1,"validator":"OneOf","values":["PROTOCOL_TCP","PROTOCOL_UDP"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
-Validators: []validator.String{
-  stringvalidator.OneOf("PROTOCOL_TCP",
-    "PROTOCOL_UDP"),
-}
-```
 
 Receipt-pinned upstream constraints:
 
@@ -2660,7 +2441,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -2809,14 +2590,6 @@ Type: `"object"`. single nested block, Optional.
 
 This message defines a reference to a site or virtual site object.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.ConflictingObjectAttributes("site",
-    "virtual_site")}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -2874,13 +2647,6 @@ Type: `"object"`. single nested block, Optional.
 This type establishes a direct reference from one object(the referrer) to another(the referred).
 Such a reference is in form of tenant/namespace/name.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -2915,15 +2681,6 @@ Type: `"string"`. Optional.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
 referred object's(e.g. Route's) name.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 128),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -2942,7 +2699,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1
   },
@@ -2976,15 +2733,6 @@ Type: `"string"`. Optional, Computed.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
 hold the referred object's(e.g. Route's) namespace.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 63),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -3009,7 +2757,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1,
     "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
@@ -3044,15 +2792,6 @@ Type: `"string"`. Computed.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
 the referred object's(e.g. Route's) tenant.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthAtMost(64),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -3069,7 +2808,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -3114,13 +2853,6 @@ Type: `"object"`. single nested block, Optional.
 This type establishes a direct reference from one object(the referrer) to another(the referred).
 Such a reference is in form of tenant/namespace/name.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -3155,15 +2887,6 @@ Type: `"string"`. Optional.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
 referred object's(e.g. Route's) name.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 128),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -3182,7 +2905,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1
   },
@@ -3216,15 +2939,6 @@ Type: `"string"`. Optional, Computed.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
 hold the referred object's(e.g. Route's) namespace.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 63),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -3249,7 +2963,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1,
     "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
@@ -3284,15 +2998,6 @@ Type: `"string"`. Computed.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
 the referred object's(e.g. Route's) tenant.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthAtMost(64),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -3309,7 +3014,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -3352,14 +3057,6 @@ Type: `"object"`. single nested block, Optional.
 
 SNAT Pool. SNAT Pool configuration.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.ConflictingObjectAttributes("no_snat_pool",
-    "snat_pool")}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -3381,62 +3078,3 @@ snat_pool {
   # Configure direct properties listed below.
 }
 ```
-
-<a id="canonical-2203113031322030-2330022102103202-0211000330230112-2321023021232000-2132221020212300-2323003202003223-1033331032231323-1223000222120121"></a>
-
-### Direct properties for `origin_pools.pools.origin_servers.origin_servers.k8s_service.snat_pool`
-
-- [no_snat_pool](resources--bigip_http_proxy--reference--group-001.md#canonical-1120300203220233-1323222220312211-0331031300103232-1032020031220021-0122233111303312-2300212310302333-1111201311313111-3122313000013000): complete subsection reference.
-
-- [snat_pool](resources--bigip_http_proxy--reference--group-002.md#canonical-0032212100033122-2311302103202323-1103111310103113-0223312130120302-3012020303232232-2120331002202032-0233210232332320-1011300123211203): complete subsection reference.
-
-<a id="canonical-1120300203220233-1323222220312211-0331031300103232-1032020031220021-0122233111303312-2300212310302333-1111201311313111-3122313000013000"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-## `origin_pools.pools.origin_servers.origin_servers.k8s_service.snat_pool.no_snat_pool` properties
-
-Breadcrumbs:
-
-- [xcsh_bigip_http_proxy](../resources/bigip_http_proxy.md#canonical-1032100020020330-1220313211200112-1331211020131131-0320101130102310-2022002330330313-3011010123201310-3333021132203201-3110113102200111)
-- [Property reference](resources--bigip_http_proxy--reference--group-001.md#canonical-0101201332222201-3302033021001322-1302101210311331-2210333210320003-0002033231003211-1133020003110203-0200133113131131-0101001111122000)
-- [origin_pools](resources--bigip_http_proxy--reference--group-001.md#canonical-3130302100213032-1133033213001002-2331132101322013-0203331122233331-3021113033330230-2313122333001332-0303103133232110-2002132020103202)
-- [origin_pools.pools](resources--bigip_http_proxy--reference--group-001.md#canonical-1023031131101223-0333002000010022-2011021202323002-2121003101012320-0131313002113130-0302023223110202-2203300233110313-3320003203232022)
-- [origin_pools.pools.origin_servers](resources--bigip_http_proxy--reference--group-001.md#canonical-1312222213103100-0321300110133131-3312031033013332-1010303313020221-3311012303023212-1010020102000132-3130213301103033-0122010331103022)
-- [origin_pools.pools.origin_servers.origin_servers](resources--bigip_http_proxy--reference--group-001.md#canonical-3122233331022000-3130002202110102-2203300321323221-1321111230302130-2010113302011332-2020303212023012-2310303023303012-3120020110120320)
-- [origin_pools.pools.origin_servers.origin_servers.k8s_service](resources--bigip_http_proxy--reference--group-001.md#canonical-0211202201221121-3001000133010112-1131111200013313-3122130332300332-1020212223330013-1311100313303320-2312112110031023-1120330330033233)
-- [origin_pools.pools.origin_servers.origin_servers.k8s_service.snat_pool](resources--bigip_http_proxy--reference--group-001.md#canonical-1311211321313201-3321333332130333-1111232100201310-0132003101311310-2303103123122102-2211202330330320-0120121003102110-0330330133201010)
-- origin_pools.pools.origin_servers.origin_servers.k8s_service.snat_pool.no_snat_pool
-
-<a id="canonical-2123321133201330-1101022110010022-2212000130131300-3133310211302131-0030133321202301-2022230213131132-0120023221132230-3102120020000311"></a>
-
-Type: `["object", {}]`. Optional.
-
-Configuration parameter for no snat pool.
-
-Additional upstream details:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-no_snat_pool = {}
-```
-
-This is an empty object or choice marker. It has no direct properties.

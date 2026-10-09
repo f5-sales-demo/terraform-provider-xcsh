@@ -6,6 +6,202 @@ description: "Complete grouped canonical reference for xcsh_proxy reference."
 
 # xcsh_proxy reference
 
+<a id="canonical-2033011031112123-1001200301010122-2102002131220130-2300002033112303-0122231133323312-0213001310121011-1122322312200210-0300020030310111"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `dynamic_proxy.https_proxy.more_option.response_cookies_to_add.ignore_path` properties
+
+Breadcrumbs:
+
+- [xcsh_proxy](../resources/proxy.md#canonical-0132300111013030-3233132200202310-2233332113220102-2031222100321320-0203021302013323-3111102110130123-3333011301331210-2310111332313332)
+- [Property reference](resources--proxy--reference--group-001.md#canonical-1332312330112202-0302233320331232-2000013322011121-0003103202230221-3121132031010303-2222021012203301-0203131033201011-3322301300211003)
+- [dynamic_proxy](resources--proxy--reference--group-001.md#canonical-2113202112212121-1011022102113232-3230331132220202-1123220031210121-3101202003212120-3201030233332031-2311232301212001-3100202032113330)
+- [dynamic_proxy.https_proxy](resources--proxy--reference--group-002.md#canonical-0033132111320233-2011322231113202-2020323111021022-1301011120122032-0130023120000002-1231101010311312-1231330202000102-3301003110212203)
+- [dynamic_proxy.https_proxy.more_option](resources--proxy--reference--group-002.md#canonical-1100230213313000-0130201002302032-2021202213303231-2021102323011312-0123330102131332-3113321301230331-3020211222211311-1223311310330202)
+- [dynamic_proxy.https_proxy.more_option.response_cookies_to_add](resources--proxy--reference--group-002.md#canonical-0332321332102213-2113202202211022-0131202101220121-3302231222320201-2200202021300121-0000022100331131-1232120022001101-0100132301321310)
+- dynamic_proxy.https_proxy.more_option.response_cookies_to_add.ignore_path
+
+<a id="canonical-2210222201222220-3322123223010022-2320221122133010-0022221332023210-1221230022310211-3313301302313232-1011223331131213-2120030132122021"></a>
+
+Type: `["object", {}]`. Optional.
+
+Enable this option
+
+Additional upstream details:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+ignore_path = {}
+```
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-1211213001210301-2322033012322331-1103132223010023-0321332020332102-3330322330101330-2133023313300333-1213101111220203-1310233003200121"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `dynamic_proxy.https_proxy.more_option.response_cookies_to_add.ignore_samesite` properties
+
+Breadcrumbs:
+
+- [xcsh_proxy](../resources/proxy.md#canonical-0132300111013030-3233132200202310-2233332113220102-2031222100321320-0203021302013323-3111102110130123-3333011301331210-2310111332313332)
+- [Property reference](resources--proxy--reference--group-001.md#canonical-1332312330112202-0302233320331232-2000013322011121-0003103202230221-3121132031010303-2222021012203301-0203131033201011-3322301300211003)
+- [dynamic_proxy](resources--proxy--reference--group-001.md#canonical-2113202112212121-1011022102113232-3230331132220202-1123220031210121-3101202003212120-3201030233332031-2311232301212001-3100202032113330)
+- [dynamic_proxy.https_proxy](resources--proxy--reference--group-002.md#canonical-0033132111320233-2011322231113202-2020323111021022-1301011120122032-0130023120000002-1231101010311312-1231330202000102-3301003110212203)
+- [dynamic_proxy.https_proxy.more_option](resources--proxy--reference--group-002.md#canonical-1100230213313000-0130201002302032-2021202213303231-2021102323011312-0123330102131332-3113321301230331-3020211222211311-1223311310330202)
+- [dynamic_proxy.https_proxy.more_option.response_cookies_to_add](resources--proxy--reference--group-002.md#canonical-0332321332102213-2113202202211022-0131202101220121-3302231222320201-2200202021300121-0000022100331131-1232120022001101-0100132301321310)
+- dynamic_proxy.https_proxy.more_option.response_cookies_to_add.ignore_samesite
+
+<a id="canonical-1132103301333331-2100322212221230-3303203330321333-3232023010201303-1230300230322233-2000300022011223-1302133020123210-3201302300202320"></a>
+
+Type: `["object", {}]`. Optional.
+
+Enable this option
+
+Additional upstream details:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+ignore_samesite = {}
+```
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-2213321311302100-3220123332103320-0211203033210101-2323003122302332-3320323021310000-3331321200102210-2303200132132310-0300032002002013"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `dynamic_proxy.https_proxy.more_option.response_cookies_to_add.ignore_secure` properties
+
+Breadcrumbs:
+
+- [xcsh_proxy](../resources/proxy.md#canonical-0132300111013030-3233132200202310-2233332113220102-2031222100321320-0203021302013323-3111102110130123-3333011301331210-2310111332313332)
+- [Property reference](resources--proxy--reference--group-001.md#canonical-1332312330112202-0302233320331232-2000013322011121-0003103202230221-3121132031010303-2222021012203301-0203131033201011-3322301300211003)
+- [dynamic_proxy](resources--proxy--reference--group-001.md#canonical-2113202112212121-1011022102113232-3230331132220202-1123220031210121-3101202003212120-3201030233332031-2311232301212001-3100202032113330)
+- [dynamic_proxy.https_proxy](resources--proxy--reference--group-002.md#canonical-0033132111320233-2011322231113202-2020323111021022-1301011120122032-0130023120000002-1231101010311312-1231330202000102-3301003110212203)
+- [dynamic_proxy.https_proxy.more_option](resources--proxy--reference--group-002.md#canonical-1100230213313000-0130201002302032-2021202213303231-2021102323011312-0123330102131332-3113321301230331-3020211222211311-1223311310330202)
+- [dynamic_proxy.https_proxy.more_option.response_cookies_to_add](resources--proxy--reference--group-002.md#canonical-0332321332102213-2113202202211022-0131202101220121-3302231222320201-2200202021300121-0000022100331131-1232120022001101-0100132301321310)
+- dynamic_proxy.https_proxy.more_option.response_cookies_to_add.ignore_secure
+
+<a id="canonical-3022331022100322-2320213332033311-2211032211200223-1201013302021000-2200012201012321-3220210333333301-0112310322101133-3121201211011300"></a>
+
+Type: `["object", {}]`. Optional.
+
+Enable this option
+
+Additional upstream details:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+ignore_secure = {}
+```
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-1313012130201032-2222121001201222-2300123313203311-0221001020222032-0033020033131021-0231111013123123-2100123102122101-0233003112002200"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `dynamic_proxy.https_proxy.more_option.response_cookies_to_add.ignore_value` properties
+
+Breadcrumbs:
+
+- [xcsh_proxy](../resources/proxy.md#canonical-0132300111013030-3233132200202310-2233332113220102-2031222100321320-0203021302013323-3111102110130123-3333011301331210-2310111332313332)
+- [Property reference](resources--proxy--reference--group-001.md#canonical-1332312330112202-0302233320331232-2000013322011121-0003103202230221-3121132031010303-2222021012203301-0203131033201011-3322301300211003)
+- [dynamic_proxy](resources--proxy--reference--group-001.md#canonical-2113202112212121-1011022102113232-3230331132220202-1123220031210121-3101202003212120-3201030233332031-2311232301212001-3100202032113330)
+- [dynamic_proxy.https_proxy](resources--proxy--reference--group-002.md#canonical-0033132111320233-2011322231113202-2020323111021022-1301011120122032-0130023120000002-1231101010311312-1231330202000102-3301003110212203)
+- [dynamic_proxy.https_proxy.more_option](resources--proxy--reference--group-002.md#canonical-1100230213313000-0130201002302032-2021202213303231-2021102323011312-0123330102131332-3113321301230331-3020211222211311-1223311310330202)
+- [dynamic_proxy.https_proxy.more_option.response_cookies_to_add](resources--proxy--reference--group-002.md#canonical-0332321332102213-2113202202211022-0131202101220121-3302231222320201-2200202021300121-0000022100331131-1232120022001101-0100132301321310)
+- dynamic_proxy.https_proxy.more_option.response_cookies_to_add.ignore_value
+
+<a id="canonical-0201122322233323-0301231210021300-0301220222232332-3310031130132213-3103120322000122-2021323310123102-0303333313212213-0303022313321112"></a>
+
+Type: `["object", {}]`. Optional.
+
+Configuration parameter for ignore value.
+
+Additional upstream details:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+ignore_value = {}
+```
+
+This is an empty object or choice marker. It has no direct properties.
+
 <a id="canonical-0130331210231000-1311132112001330-2100133002022130-0003332021222230-3032210131202201-1203330013213010-2013000302222323-1131300123132013"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -177,14 +373,6 @@ Type: `"object"`. single nested block, Optional.
 
 SecretType is used in an object to indicate a sensitive/confidential field.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info",
-    "clear_secret_info")}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -240,13 +428,6 @@ Type: `"object"`. single nested block, Optional.
 
 BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("location")}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -292,7 +473,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -315,15 +496,6 @@ Type: `"string"`. Optional, Sensitive.
 Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(4, 131072),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -339,7 +511,7 @@ Receipt-pinned upstream constraints:
       "confidence": 1.0,
       "note": "Blindfold envelope encryption (AES-256-GCM + RSA-OAEP) of an RSA-2048 TLS private key produces ~3700 char string:/// URL. 128KB max secret size = ~175KB base64. Discovery reported 1024 which is incorrect.",
       "source": "manual-override",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 4
   },
@@ -383,7 +555,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -419,13 +591,6 @@ Breadcrumbs:
 Type: `"object"`. single nested block, Optional.
 
 ClearSecretInfoType specifies information about the Secret that is not encrypted.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("url")}
-```
 
 Receipt-pinned upstream constraints:
 
@@ -473,15 +638,6 @@ URL of the secret. Currently supported URL schemes is string:///. For string:///
 needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
 base64 decoding.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 131072),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -500,7 +656,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1,
     "pattern": "^(https?|ftp)://[^\\s/$.?#].[^\\s]*$",
@@ -552,15 +708,6 @@ Type: `"object"`. list nested block, Optional.
 Headers are key-value pairs to be added to HTTP response being sent towards downstream. Headers
 specified at this level are applied after headers from matched Route are applied.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.List{validators.RequiredListObjectAttributes("name"),
-  validators.ConflictingListObjectAttributes("secret_value",
-    "value")}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -574,7 +721,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "uniqueItems": true
   },
@@ -643,15 +790,6 @@ Type: `"string"`. Optional.
 
 Name. Name of the HTTP header.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 256),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -673,7 +811,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1,
     "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
@@ -711,15 +849,6 @@ Type: `"string"`. Optional.
 
 Exclusive with \[secret\_value\] Value of the HTTP header.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthAtMost(8096),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -733,7 +862,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -774,14 +903,6 @@ Breadcrumbs:
 Type: `"object"`. single nested block, Optional.
 
 SecretType is used in an object to indicate a sensitive/confidential field.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info",
-    "clear_secret_info")}
-```
 
 Receipt-pinned upstream constraints:
 
@@ -838,13 +959,6 @@ Type: `"object"`. single nested block, Optional.
 
 BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("location")}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -890,7 +1004,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -913,15 +1027,6 @@ Type: `"string"`. Optional, Sensitive.
 Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(4, 131072),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -937,7 +1042,7 @@ Receipt-pinned upstream constraints:
       "confidence": 1.0,
       "note": "Blindfold envelope encryption (AES-256-GCM + RSA-OAEP) of an RSA-2048 TLS private key produces ~3700 char string:/// URL. 128KB max secret size = ~175KB base64. Discovery reported 1024 which is incorrect.",
       "source": "manual-override",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 4
   },
@@ -981,7 +1086,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -1017,13 +1122,6 @@ Breadcrumbs:
 Type: `"object"`. single nested block, Optional.
 
 ClearSecretInfoType specifies information about the Secret that is not encrypted.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("url")}
-```
 
 Receipt-pinned upstream constraints:
 
@@ -1071,15 +1169,6 @@ URL of the secret. Currently supported URL schemes is string:///. For string:///
 needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
 base64 decoding.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 131072),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -1098,7 +1187,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1,
     "pattern": "^(https?|ftp)://[^\\s/$.?#].[^\\s]*$",
@@ -1147,15 +1236,6 @@ Breadcrumbs:
 Type: `"object"`. single nested block, Optional.
 
 Inline TLS Parameters. Inline TLS parameters.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("tls_certificates"),
-  validators.ConflictingObjectAttributes("no_mtls",
-    "use_mtls")}
-```
 
 Receipt-pinned upstream constraints:
 
@@ -1263,19 +1343,6 @@ Type: `"object"`. list nested block, Optional.
 Users can add one or more certificates that share the same set of domains. For example, domain.com
 and \*.domain.com - but use different signature algorithms.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.List{validators.RequiredListObjectAttributes("certificate_url"),
-  validators.ConflictingListObjectAttributes("custom_hash_algorithms",
-    "disable_ocsp_stapling"),
-  validators.ConflictingListObjectAttributes("custom_hash_algorithms",
-    "use_system_defaults"),
-  validators.ConflictingListObjectAttributes("disable_ocsp_stapling",
-    "use_system_defaults")}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -1290,7 +1357,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minItems": 1
   },
@@ -1325,22 +1392,17 @@ tls_certificates {
 
 ### Direct properties for `dynamic_proxy.https_proxy.tls_params.tls_certificates`
 
+- [blindfold](resources--proxy--reference--group-003.md#canonical-0301223302301213-3210201223000002-2232002330033231-2331311233213120-2203121203100201-0003021013000222-0100000122312000-2333020122002201): complete subsection reference.
+
 <a id="canonical-2323332021332122-3032132312220122-0021301003312032-0120323002120121-3101333201111221-0113200100120131-3231112210133213-3123323102213231"></a>
+
+<a id="canonical-3300320210332133-1230321032230022-0031231013100232-1131113031223200-3010233312330123-0113131333131133-1002220012133001-2232020111020021"></a>
 
 #### `dynamic_proxy.https_proxy.tls_params.tls_certificates.certificate_url` property
 
-Type: `"string"`. Optional.
+Type: `"string"`. Optional, Computed.
 
 TLS certificate. Certificate or certificate chain in PEM format including the PEM headers.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 131072),
-}
-```
 
 Receipt-pinned upstream constraints:
 
@@ -1360,7 +1422,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1
   },
@@ -1389,7 +1451,7 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-1233032203323230-2121123121301102-1102203133223212-1002120302000000-0200233211020032-1322001213303030-3321131012302222-0000113022220210"></a>
 
-<a id="canonical-3300320210332133-1230321032230022-0031231013100232-1131113031223200-3010233312330123-0113131333131133-1002220012133001-2232020111020021"></a>
+<a id="canonical-1103302111222100-1110330301202111-0202200103111211-3120011301021213-0101121010022032-3131112212030231-2022220132301320-3321102202030223"></a>
 
 #### `dynamic_proxy.https_proxy.tls_params.tls_certificates.description_spec` property
 
@@ -1402,6 +1464,186 @@ Description. Description for the certificate.
 - [private_key](resources--proxy--reference--group-003.md#canonical-2132213022011331-1332022303000320-0302031031322210-1133230310331331-2030230110322320-3223033012111202-0323302330100121-1103331321313032): complete subsection reference.
 
 - [use_system_defaults](resources--proxy--reference--group-003.md#canonical-1230013300213220-3213200230111020-1103222220212222-1123123333210012-2203033210111223-1303310100021100-1210201013211021-0113320131102322): complete subsection reference.
+
+<a id="canonical-0301223302301213-3210201223000002-2232002330033231-2331311233213120-2203121203100201-0003021013000222-0100000122312000-2333020122002201"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `dynamic_proxy.https_proxy.tls_params.tls_certificates.blindfold` properties
+
+Breadcrumbs:
+
+- [xcsh_proxy](../resources/proxy.md#canonical-0132300111013030-3233132200202310-2233332113220102-2031222100321320-0203021302013323-3111102110130123-3333011301331210-2310111332313332)
+- [Property reference](resources--proxy--reference--group-001.md#canonical-1332312330112202-0302233320331232-2000013322011121-0003103202230221-3121132031010303-2222021012203301-0203131033201011-3322301300211003)
+- [dynamic_proxy](resources--proxy--reference--group-001.md#canonical-2113202112212121-1011022102113232-3230331132220202-1123220031210121-3101202003212120-3201030233332031-2311232301212001-3100202032113330)
+- [dynamic_proxy.https_proxy](resources--proxy--reference--group-002.md#canonical-0033132111320233-2011322231113202-2020323111021022-1301011120122032-0130023120000002-1231101010311312-1231330202000102-3301003110212203)
+- [dynamic_proxy.https_proxy.tls_params](resources--proxy--reference--group-003.md#canonical-0202230303213331-0000212221213101-0112112302233312-1211230320301111-2131110223221220-0201320302231332-3120220330312330-1222032000312220)
+- [dynamic_proxy.https_proxy.tls_params.tls_certificates](resources--proxy--reference--group-003.md#canonical-2123003001001330-3032122020130321-2211132130321232-1122221122023013-2000320310332313-0001203031303101-1331202203221001-3330303321130021)
+- dynamic_proxy.https_proxy.tls_params.tls_certificates.blindfold
+
+<a id="canonical-0000223012333302-0102233103230121-2311331202010303-3121030322010323-0122020000231033-1201032223013323-2331320222032230-1111130200311131"></a>
+
+Type: `"single"`. Optional.
+
+Native certificate preparation. Use PEM files or a P12 file, or write-only key/bundle values with
+material\_version (Terraform 1.11+). Defaults to shared/ves-io-allow-volterra. Inline certificates
+require unique IDs. Private inputs are never stored.
+
+<a id="canonical-2332131023101203-2013121203103112-3133012130221223-1320133022200331-2203111113032102-0032112011121033-0233100000331231-1022121332111132"></a>
+
+### Direct properties for `dynamic_proxy.https_proxy.tls_params.tls_certificates.blindfold`
+
+<a id="canonical-1233312123133221-0220122111101120-3023101120220030-1032022203223011-0101020122103121-1001020220022222-1330311020200330-2300030032131212"></a>
+
+#### `dynamic_proxy.https_proxy.tls_params.tls_certificates.blindfold.algorithm` property
+
+Type: `"string"`. Computed.
+
+<a id="canonical-2011312321111320-0223331203331113-0011021003311103-0001122031313033-2311130133203212-3020320333313011-2121223131122202-3110202112131120"></a>
+
+<a id="canonical-0123212320211210-3312312311112121-1020121022223311-2023213123122310-2212312230201113-0213032232332210-2033001012212121-2021100232233111"></a>
+
+#### `dynamic_proxy.https_proxy.tls_params.tls_certificates.blindfold.certificate_file` property
+
+Type: `"string"`. Optional.
+
+<a id="canonical-0133322031311110-0132233111031112-3333000332022330-2210220202012202-2110130020002031-2312032012012010-1320331230022031-0011101123132012"></a>
+
+<a id="canonical-0123122030120332-1332100121301203-3313322000101100-1013223120131021-1303120120221233-2033002321012101-2030033011001223-0120112113121121"></a>
+
+#### `dynamic_proxy.https_proxy.tls_params.tls_certificates.blindfold.certificate_pem` property
+
+Type: `"string"`. Optional.
+
+<a id="canonical-2003302012222200-0120220222200203-0031212310312002-1213122333212022-2322211302330132-0112102121100311-3321332000321221-0202330331112100"></a>
+
+<a id="canonical-0031020320212312-3110120203121013-0332212011002021-1232130100300302-0221011301102120-3010211121201110-1213231332021303-3011220210021022"></a>
+
+#### `dynamic_proxy.https_proxy.tls_params.tls_certificates.blindfold.chain_identity` property
+
+Type: `"string"`. Computed.
+
+<a id="canonical-2033011312030111-0103310111120123-0333333232132030-0321132100020032-0313233333332121-3201331123320230-1210132111022131-2022232122320123"></a>
+
+<a id="canonical-3112020322033000-3021300112330330-0003030312302232-3212222232320312-1301020220130323-0332222232331321-0303101031333211-0022302121032303"></a>
+
+#### `dynamic_proxy.https_proxy.tls_params.tls_certificates.blindfold.context_digest` property
+
+Type: `"string"`. Computed.
+
+<a id="canonical-0002320102300221-3310011302220031-3102302023033133-0301213321011020-3013032231323003-2200201132333110-0132002012102121-1232131231232123"></a>
+
+<a id="canonical-3230321232120200-2122302111033130-1010022331201213-0020033231322022-0220102321131122-0310133100332322-3022101312010010-1232312321201300"></a>
+
+#### `dynamic_proxy.https_proxy.tls_params.tls_certificates.blindfold.encrypted_location` property
+
+Type: `"string"`. Computed, Sensitive.
+
+<a id="canonical-1000131223222110-3101313311110321-2300103011212000-3023012223103103-2201010111320213-1210123320133100-0210103122003110-2321013002001033"></a>
+
+<a id="canonical-2333301323110023-3322013320100320-2133320303220313-0313102012031332-2003230032231202-0112311000020320-0132012302201203-1200230002023102"></a>
+
+#### `dynamic_proxy.https_proxy.tls_params.tls_certificates.blindfold.expires_at` property
+
+Type: `"string"`. Computed.
+
+<a id="canonical-1203001223011001-3312320123021123-3111003213311023-0310203311120213-3232022312233330-2002202100201303-3312130012203130-3321312113111113"></a>
+
+<a id="canonical-1312230013203100-2010220111332222-0230200212112122-2022211301202103-2011120111310330-2332121332103112-3022333230302111-2023323301203111"></a>
+
+#### `dynamic_proxy.https_proxy.tls_params.tls_certificates.blindfold.fingerprint` property
+
+Type: `"string"`. Computed.
+
+<a id="canonical-2232003131122022-3213232301303130-0310013332132123-3312322113200013-1003103311323122-1211131101112310-1131012021010021-0222130332102321"></a>
+
+<a id="canonical-0231013232303333-2121302333300021-0102223311322332-0211123010303120-3121021312303330-3221031112311103-3123123320032200-0131202321111032"></a>
+
+#### `dynamic_proxy.https_proxy.tls_params.tls_certificates.blindfold.id` property
+
+Type: `"string"`. Optional.
+
+<a id="canonical-0131210312333210-1111113313030303-2313120002111201-1232112231111221-1022110303321323-1313031021110333-3211211133013201-0311303301132220"></a>
+
+<a id="canonical-1120322013003113-0013310022302002-2311111212301322-0313020232033331-0211230101010120-1002303330110121-0132012301230022-1302332012230220"></a>
+
+#### `dynamic_proxy.https_proxy.tls_params.tls_certificates.blindfold.material_version` property
+
+Type: `"string"`. Optional.
+
+<a id="canonical-1130012321002110-3023103232010333-2101100320230031-2213010021133301-2031130232030121-1301222110213110-0000233332211322-1003201200102023"></a>
+
+<a id="canonical-0113320020100110-1131332211221112-1121322211012332-3113023203230101-1012120321302333-0220211201003022-0230010213300001-0032332230202233"></a>
+
+#### `dynamic_proxy.https_proxy.tls_params.tls_certificates.blindfold.passphrase_env` property
+
+Type: `"string"`. Optional.
+
+<a id="canonical-0023010001232023-0233013002223333-1032330002001212-1110122232012230-0331013103023300-0012032132302113-1321302221131223-2020113200023201"></a>
+
+<a id="canonical-0122210131122231-1131221222110301-3122220031123010-2320233233002222-3020301301102033-0130320031020121-2202033111020130-0301102313320022"></a>
+
+#### `dynamic_proxy.https_proxy.tls_params.tls_certificates.blindfold.passphrase_wo` property
+
+Type: `"string"`. Optional, Sensitive, Write_only.
+
+<a id="canonical-2002022332202120-0013100103300222-2113023233200321-1312002333120211-2000111233022331-1032121320310233-3301201333201002-1310010333223122"></a>
+
+<a id="canonical-2021233302301101-1001010131313210-2111312220011311-0102013222122122-0211330323012322-3121203201103232-3113211120330010-1002011332223131"></a>
+
+#### `dynamic_proxy.https_proxy.tls_params.tls_certificates.blindfold.pkcs12_file` property
+
+Type: `"string"`. Optional.
+
+<a id="canonical-0320131333003232-0100221300131310-2223213021121010-0130313322131320-2302202102220000-3302212332202003-2320230033001301-2032022301313023"></a>
+
+<a id="canonical-2333020323323211-3222113130330001-1131021021023310-3021232032000233-1313213210211221-1212030202022112-2101012032022232-0030231113201310"></a>
+
+#### `dynamic_proxy.https_proxy.tls_params.tls_certificates.blindfold.pkcs12_wo` property
+
+Type: `"string"`. Optional, Sensitive, Write_only.
+
+<a id="canonical-1312213311101311-3210212123012233-3311100310033020-0220020002013322-2312023300301213-1203202301101222-3310032022133020-0013233100101113"></a>
+
+<a id="canonical-0131020031033020-2220101121323232-0022020103001301-3322202122303101-3330033022000200-2100223201322230-0103232123201221-0223202132003211"></a>
+
+#### `dynamic_proxy.https_proxy.tls_params.tls_certificates.blindfold.policy` property
+
+Type: `"string"`. Optional.
+
+<a id="canonical-2000321321022123-1022313331001333-2022220011112322-3010123102003330-1011000230102221-2013222100032323-2000333132102200-0003012112110311"></a>
+
+<a id="canonical-1313313212131323-1103312102310332-1111003220313100-0310301120222300-3100030213230013-0303102332332323-0320132310133223-3333202230233212"></a>
+
+#### `dynamic_proxy.https_proxy.tls_params.tls_certificates.blindfold.prepared_identity` property
+
+Type: `"string"`. Computed.
+
+<a id="canonical-0002132330000320-2003201032312223-3132222102210102-2013133122113311-2211120312322020-1010113121003230-2230010020102210-1223032233000022"></a>
+
+<a id="canonical-1322110233120130-2301013110313310-0303320023222313-3020113222131132-0333021103320303-2103333200223320-2230112001030101-0211221301022203"></a>
+
+#### `dynamic_proxy.https_proxy.tls_params.tls_certificates.blindfold.private_key_file` property
+
+Type: `"string"`. Optional.
+
+<a id="canonical-1232021320203220-3112303203210033-2021001200320110-1112211013223310-2031223102013210-0031220011302223-2023313112023011-2332120200030112"></a>
+
+<a id="canonical-1020202030100000-3302331032022113-1020220122202111-3310310213010133-0230120212212011-2122011302201011-1222222022333013-2002112002102121"></a>
+
+#### `dynamic_proxy.https_proxy.tls_params.tls_certificates.blindfold.private_key_wo` property
+
+Type: `"string"`. Optional, Sensitive, Write_only.
+
+<a id="canonical-2132010321321101-1020130220133223-0230000030131022-0313131303322213-3002101122003101-3232230331113102-0301320012333222-3010023203202023"></a>
+
+<a id="canonical-2021212111323212-3030122021311122-3011113320203103-1113022131221000-0232310132313011-0222202203011230-2121330230222132-3132100313311320"></a>
+
+#### `dynamic_proxy.https_proxy.tls_params.tls_certificates.blindfold.spki_identity` property
+
+Type: `"string"`. Computed.
 
 <a id="canonical-1333111333313230-3121323312102302-1312320210203101-1321110330113322-0323123321002010-3111101110023221-0112322321000011-1000311011002201"></a>
 
@@ -1426,13 +1668,6 @@ Breadcrumbs:
 Type: `"object"`. single nested block, Optional.
 
 Specifies the hash algorithms to be used.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("hash_algorithms")}
-```
 
 Receipt-pinned upstream constraints:
 
@@ -1469,15 +1704,6 @@ Type: `["list", "string"]`. Optional.
 values are \`INVALID\_HASH\_ALGORITHM\`, \`SHA256\`, \`SHA1\`. Defaults to
 \`INVALID\_HASH\_ALGORITHM\`.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.List{
-  listvalidator.SizeBetween(1, 4),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -1492,7 +1718,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minItems": 1,
     "uniqueItems": true
@@ -1591,14 +1817,6 @@ Type: `"object"`. single nested block, Optional.
 
 SecretType is used in an object to indicate a sensitive/confidential field.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info",
-    "clear_secret_info")}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -1654,13 +1872,6 @@ Type: `"object"`. single nested block, Optional.
 
 BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("location")}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -1706,7 +1917,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -1729,15 +1940,6 @@ Type: `"string"`. Optional, Sensitive.
 Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(4, 131072),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -1753,7 +1955,7 @@ Receipt-pinned upstream constraints:
       "confidence": 1.0,
       "note": "Blindfold envelope encryption (AES-256-GCM + RSA-OAEP) of an RSA-2048 TLS private key produces ~3700 char string:/// URL. 128KB max secret size = ~175KB base64. Discovery reported 1024 which is incorrect.",
       "source": "manual-override",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 4
   },
@@ -1797,7 +1999,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -1833,13 +2035,6 @@ Breadcrumbs:
 Type: `"object"`. single nested block, Optional.
 
 ClearSecretInfoType specifies information about the Secret that is not encrypted.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("url")}
-```
 
 Receipt-pinned upstream constraints:
 
@@ -1887,15 +2082,6 @@ URL of the secret. Currently supported URL schemes is string:///. For string:///
 needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
 base64 decoding.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 131072),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -1914,7 +2100,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1,
     "pattern": "^(https?|ftp)://[^\\s/$.?#].[^\\s]*$",
@@ -2014,24 +2200,6 @@ Type: `"object"`. single nested block, Optional.
 
 This defines various OPTIONS to configure TLS configuration parameters.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.ConflictingObjectAttributes("custom_security",
-    "default_security"),
-  validators.ConflictingObjectAttributes("custom_security",
-    "low_security"),
-  validators.ConflictingObjectAttributes("custom_security",
-    "medium_security"),
-  validators.ConflictingObjectAttributes("default_security",
-    "low_security"),
-  validators.ConflictingObjectAttributes("default_security",
-    "medium_security"),
-  validators.ConflictingObjectAttributes("low_security",
-    "medium_security")}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -2090,13 +2258,6 @@ Type: `"object"`. single nested block, Optional.
 
 This defines TLS protocol config including min/max versions and allowed ciphers.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("cipher_suites")}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -2141,7 +2302,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "uniqueItems": true
   },
@@ -2176,20 +2337,6 @@ Type: `"string"`. Optional.
 versions F5 Distributed Cloud will choose the optimal TLS version. Possible values are
 \`TLS\_AUTO\`, \`TLSv1\_0\`, \`TLSv1\_1\`, \`TLSv1\_2\`, \`TLSv1\_3\`. Defaults to \`TLS\_AUTO\`.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-EnumValidators: [{"version":1,"validator":"OneOf","values":["TLS_AUTO","TLSv1_0","TLSv1_1","TLSv1_2","TLSv1_3"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
-Validators: []validator.String{
-  stringvalidator.OneOf("TLS_AUTO",
-    "TLSv1_0",
-    "TLSv1_1",
-    "TLSv1_2",
-    "TLSv1_3"),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -2222,20 +2369,6 @@ Type: `"string"`. Optional.
 \[Enum: TLS\_AUTO|TLSv1\_0|TLSv1\_1|TLSv1\_2|TLSv1\_3\] TlsProtocol is enumeration of supported TLS
 versions F5 Distributed Cloud will choose the optimal TLS version. Possible values are
 \`TLS\_AUTO\`, \`TLSv1\_0\`, \`TLSv1\_1\`, \`TLSv1\_2\`, \`TLSv1\_3\`. Defaults to \`TLS\_AUTO\`.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-EnumValidators: [{"version":1,"validator":"OneOf","values":["TLS_AUTO","TLSv1_0","TLSv1_1","TLSv1_2","TLSv1_3"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
-Validators: []validator.String{
-  stringvalidator.OneOf("TLS_AUTO",
-    "TLSv1_0",
-    "TLSv1_1",
-    "TLSv1_2",
-    "TLSv1_3"),
-}
-```
 
 Receipt-pinned upstream constraints:
 
@@ -2428,18 +2561,6 @@ Type: `"object"`. single nested block, Optional.
 
 Validation context for downstream client TLS connections.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.ConflictingObjectAttributes("crl",
-    "no_crl"),
-  validators.ConflictingObjectAttributes("trusted_ca",
-    "trusted_ca_url"),
-  validators.ConflictingObjectAttributes("xfcc_disabled",
-    "xfcc_options")}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -2493,9 +2614,9 @@ Receipt-pinned upstream constraints:
 
 - [crl](resources--proxy--reference--group-003.md#canonical-0001322300020012-2202212022120010-1131232201213100-0000301003323111-1123330313013320-1110121300013301-1020000312223323-2200211201330030): complete subsection reference.
 
-- [no_crl](resources--proxy--reference--group-003.md#canonical-2212123203301223-2303123302332301-1033020013321211-0212311111123033-2100000200020300-1120330133022321-2030023121323133-1302003230302120): complete subsection reference.
+- [no_crl](resources--proxy--reference--group-004.md#canonical-2212123203301223-2303123302332301-1033020013321211-0212311111123033-2100000200020300-1120330133022321-2030023121323133-1302003230302120): complete subsection reference.
 
-- [trusted_ca](resources--proxy--reference--group-003.md#canonical-2230303001100132-2100001122031031-1021322122310121-2330022311303113-3230213033230130-2302031221001030-2120331111023010-0120103221232032): complete subsection reference.
+- [trusted_ca](resources--proxy--reference--group-004.md#canonical-2230303001100132-2100001122031031-1021322122310121-2330022311303113-3230213033230130-2302031221001030-2120331111023010-0120103221232032): complete subsection reference.
 
 <a id="canonical-2211221112201113-0130230100233301-2332111312231113-1330122333302003-1122111001202302-1211111012300233-0303213023202221-1333000330033201"></a>
 
@@ -2506,15 +2627,6 @@ Receipt-pinned upstream constraints:
 Type: `"string"`. Optional.
 
 Exclusive with \[trusted\_ca\] Upload a Root CA Certificate specifically for this Load Balancer.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 131072),
-}
-```
 
 Receipt-pinned upstream constraints:
 
@@ -2534,7 +2646,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1
   },
@@ -2557,9 +2669,9 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [xfcc_disabled](resources--proxy--reference--group-003.md#canonical-3301301013003012-1010130000202121-0230031303003100-2111102033131312-0200320003300232-1300031313132231-1320223300221001-0012021223131322): complete subsection reference.
+- [xfcc_disabled](resources--proxy--reference--group-004.md#canonical-3301301013003012-1010130000202121-0230031303003100-2111102033131312-0200320003300232-1300031313132231-1320223300221001-0012021223131322): complete subsection reference.
 
-- [xfcc_options](resources--proxy--reference--group-003.md#canonical-0012033023300202-1223030021113200-1023321133332103-1233011321201233-1231122211102010-1031000133330202-2021121032011301-0233203202103022): complete subsection reference.
+- [xfcc_options](resources--proxy--reference--group-004.md#canonical-0012033023300202-1223030021113200-1023321133332103-1233011321201233-1231122211102010-1031000133330202-2021121032011301-0233203202103022): complete subsection reference.
 
 <a id="canonical-0001322300020012-2202212022120010-1131232201213100-0000301003323111-1123330313013320-1110121300013301-1020000312223323-2200211201330030"></a>
 
@@ -2585,13 +2697,6 @@ Type: `"object"`. single nested block, Optional.
 
 This type establishes a direct reference from one object(the referrer) to another(the referred).
 Such a reference is in form of tenant/namespace/name.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
-```
 
 Receipt-pinned upstream constraints:
 
@@ -2627,15 +2732,6 @@ Type: `"string"`. Optional.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
 referred object's(e.g. Route's) name.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 128),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -2654,7 +2750,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1
   },
@@ -2678,738 +2774,3 @@ Receipt-pinned upstream constraints:
 ```
 
 <a id="canonical-2011013033332322-2012013022331210-2232130323320033-0030312310210131-3021133003101032-0003013231221030-0122010103103023-0130330003111213"></a>
-
-<a id="canonical-0311012012130330-2230202122110332-2202333010311222-3330213233010221-2003312111232333-0300010300321332-0311130302102223-0002130211300011"></a>
-
-#### `dynamic_proxy.https_proxy.tls_params.use_mtls.crl.namespace` property
-
-Type: `"string"`. Optional, Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
-hold the referred object's(e.g. Route's) namespace.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 63),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxLength": 64,
-  "x-f5xc-constraints": {
-    "byteLength": {
-      "max": 64
-    },
-    "category": "discovery",
-    "characterSet": {
-      "allowed": "[a-z0-9-]",
-      "description": "Lowercase letter start, alphanumeric with hyphens, alphanumeric end",
-      "required": "[a-z0-9]",
-      "restricted": "[^a-z0-9-]"
-    },
-    "constraintType": "string",
-    "deterministic": true,
-    "format": "dns-label",
-    "formatDescription": "DNS-1035 label: must start with a lowercase letter",
-    "maxLength": 63,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
-    },
-    "minLength": 1,
-    "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
-    "validation": {
-      "rfc": "RFC 1035",
-      "standard": "DNS-1035 label (alpha-first)"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.string.max_bytes": "64"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.string.max_bytes": "64"
-  }
-}
-```
-
-<a id="canonical-2301200221321002-2213201030300011-0230112203033202-2310320032022121-0210332320310012-0233223032223002-1331133331312313-0330332122330022"></a>
-
-<a id="canonical-1311310223232113-3230232121203202-0001120301332113-2311320200032022-3233002123313001-2013212012302002-1232210332201102-2020013022012020"></a>
-
-#### `dynamic_proxy.https_proxy.tls_params.use_mtls.crl.tenant` property
-
-Type: `"string"`. Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
-the referred object's(e.g. Route's) tenant.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthAtMost(64),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxLength": 64,
-  "x-f5xc-constraints": {
-    "byteLength": {
-      "max": 64
-    },
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "maxLength": 64,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.string.max_bytes": "64"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.string.max_bytes": "64"
-  }
-}
-```
-
-<a id="canonical-2212123203301223-2303123302332301-1033020013321211-0212311111123033-2100000200020300-1120330133022321-2030023121323133-1302003230302120"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-## `dynamic_proxy.https_proxy.tls_params.use_mtls.no_crl` properties
-
-Breadcrumbs:
-
-- [xcsh_proxy](../resources/proxy.md#canonical-0132300111013030-3233132200202310-2233332113220102-2031222100321320-0203021302013323-3111102110130123-3333011301331210-2310111332313332)
-- [Property reference](resources--proxy--reference--group-001.md#canonical-1332312330112202-0302233320331232-2000013322011121-0003103202230221-3121132031010303-2222021012203301-0203131033201011-3322301300211003)
-- [dynamic_proxy](resources--proxy--reference--group-001.md#canonical-2113202112212121-1011022102113232-3230331132220202-1123220031210121-3101202003212120-3201030233332031-2311232301212001-3100202032113330)
-- [dynamic_proxy.https_proxy](resources--proxy--reference--group-002.md#canonical-0033132111320233-2011322231113202-2020323111021022-1301011120122032-0130023120000002-1231101010311312-1231330202000102-3301003110212203)
-- [dynamic_proxy.https_proxy.tls_params](resources--proxy--reference--group-003.md#canonical-0202230303213331-0000212221213101-0112112302233312-1211230320301111-2131110223221220-0201320302231332-3120220330312330-1222032000312220)
-- [dynamic_proxy.https_proxy.tls_params.use_mtls](resources--proxy--reference--group-003.md#canonical-1120302120201130-2021020112211312-2012121003331033-1202131121023223-2102330022132231-0123033302022200-3110300012022001-3113320030210032)
-- dynamic_proxy.https_proxy.tls_params.use_mtls.no_crl
-
-<a id="canonical-0012332021113300-0101132122322010-1233111203122131-3233321011020222-2220213101211133-2022013323301130-0203100030230012-3020202233320013"></a>
-
-Type: `["object", {}]`. Optional.
-
-Enable this option
-
-Additional upstream details:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-no_crl = {}
-```
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-2230303001100132-2100001122031031-1021322122310121-2330022311303113-3230213033230130-2302031221001030-2120331111023010-0120103221232032"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-## `dynamic_proxy.https_proxy.tls_params.use_mtls.trusted_ca` properties
-
-Breadcrumbs:
-
-- [xcsh_proxy](../resources/proxy.md#canonical-0132300111013030-3233132200202310-2233332113220102-2031222100321320-0203021302013323-3111102110130123-3333011301331210-2310111332313332)
-- [Property reference](resources--proxy--reference--group-001.md#canonical-1332312330112202-0302233320331232-2000013322011121-0003103202230221-3121132031010303-2222021012203301-0203131033201011-3322301300211003)
-- [dynamic_proxy](resources--proxy--reference--group-001.md#canonical-2113202112212121-1011022102113232-3230331132220202-1123220031210121-3101202003212120-3201030233332031-2311232301212001-3100202032113330)
-- [dynamic_proxy.https_proxy](resources--proxy--reference--group-002.md#canonical-0033132111320233-2011322231113202-2020323111021022-1301011120122032-0130023120000002-1231101010311312-1231330202000102-3301003110212203)
-- [dynamic_proxy.https_proxy.tls_params](resources--proxy--reference--group-003.md#canonical-0202230303213331-0000212221213101-0112112302233312-1211230320301111-2131110223221220-0201320302231332-3120220330312330-1222032000312220)
-- [dynamic_proxy.https_proxy.tls_params.use_mtls](resources--proxy--reference--group-003.md#canonical-1120302120201130-2021020112211312-2012121003331033-1202131121023223-2102330022132231-0123033302022200-3110300012022001-3113320030210032)
-- dynamic_proxy.https_proxy.tls_params.use_mtls.trusted_ca
-
-<a id="canonical-2101133330131000-1210300310201203-2120330333320222-3220313320012132-0033101031132320-3020302310233202-0333113201311211-3011310001320203"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-This type establishes a direct reference from one object(the referrer) to another(the referred).
-Such a reference is in form of tenant/namespace/name.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-trusted_ca {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-2320310330001130-2320203231303210-1112312210300222-3220200111322032-2331303113202220-1313220212132012-2022333011230200-1100123033030031"></a>
-
-### Direct properties for `dynamic_proxy.https_proxy.tls_params.use_mtls.trusted_ca`
-
-<a id="canonical-1113223012213120-1312200010332033-1303302220020303-1303320023202333-1333132130311333-0310321130220013-3200303122210012-3102331130023212"></a>
-
-#### `dynamic_proxy.https_proxy.tls_params.use_mtls.trusted_ca.name` property
-
-Type: `"string"`. Optional.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
-referred object's(e.g. Route's) name.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 128),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxLength": 128,
-  "minLength": 1,
-  "x-f5xc-constraints": {
-    "byteLength": {
-      "max": 128,
-      "min": 1
-    },
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "maxLength": 128,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
-    },
-    "minLength": 1
-  },
-  "x-f5xc-required-for": {
-    "create": true,
-    "minimum_config": true,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.max_bytes": "128",
-    "ves.io.schema.rules.string.min_bytes": "1"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.max_bytes": "128",
-    "ves.io.schema.rules.string.min_bytes": "1"
-  }
-}
-```
-
-<a id="canonical-2020320002332323-3121111023011020-0120202321222220-3022130211300131-3311302020132212-3122311021011222-3321311230212123-3022203003201100"></a>
-
-<a id="canonical-0130113313312100-2203232112222130-0022020311003302-1130132110221003-0330113300300223-3233221233331233-0103202310031303-1121220000020223"></a>
-
-#### `dynamic_proxy.https_proxy.tls_params.use_mtls.trusted_ca.namespace` property
-
-Type: `"string"`. Optional, Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
-hold the referred object's(e.g. Route's) namespace.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 63),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxLength": 64,
-  "x-f5xc-constraints": {
-    "byteLength": {
-      "max": 64
-    },
-    "category": "discovery",
-    "characterSet": {
-      "allowed": "[a-z0-9-]",
-      "description": "Lowercase letter start, alphanumeric with hyphens, alphanumeric end",
-      "required": "[a-z0-9]",
-      "restricted": "[^a-z0-9-]"
-    },
-    "constraintType": "string",
-    "deterministic": true,
-    "format": "dns-label",
-    "formatDescription": "DNS-1035 label: must start with a lowercase letter",
-    "maxLength": 63,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
-    },
-    "minLength": 1,
-    "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
-    "validation": {
-      "rfc": "RFC 1035",
-      "standard": "DNS-1035 label (alpha-first)"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.string.max_bytes": "64"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.string.max_bytes": "64"
-  }
-}
-```
-
-<a id="canonical-2131203132123300-1331311113102133-0030321222032120-0010212302033301-1002230022222033-3230221211331332-3013223131101321-1030321000111212"></a>
-
-<a id="canonical-1033303213212302-3001133322030112-3202322002000202-3011101000113221-1300012033302303-2113101100311122-3211021302011323-1212000300232211"></a>
-
-#### `dynamic_proxy.https_proxy.tls_params.use_mtls.trusted_ca.tenant` property
-
-Type: `"string"`. Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
-the referred object's(e.g. Route's) tenant.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthAtMost(64),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxLength": 64,
-  "x-f5xc-constraints": {
-    "byteLength": {
-      "max": 64
-    },
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "maxLength": 64,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.string.max_bytes": "64"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.string.max_bytes": "64"
-  }
-}
-```
-
-<a id="canonical-3301301013003012-1010130000202121-0230031303003100-2111102033131312-0200320003300232-1300031313132231-1320223300221001-0012021223131322"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-## `dynamic_proxy.https_proxy.tls_params.use_mtls.xfcc_disabled` properties
-
-Breadcrumbs:
-
-- [xcsh_proxy](../resources/proxy.md#canonical-0132300111013030-3233132200202310-2233332113220102-2031222100321320-0203021302013323-3111102110130123-3333011301331210-2310111332313332)
-- [Property reference](resources--proxy--reference--group-001.md#canonical-1332312330112202-0302233320331232-2000013322011121-0003103202230221-3121132031010303-2222021012203301-0203131033201011-3322301300211003)
-- [dynamic_proxy](resources--proxy--reference--group-001.md#canonical-2113202112212121-1011022102113232-3230331132220202-1123220031210121-3101202003212120-3201030233332031-2311232301212001-3100202032113330)
-- [dynamic_proxy.https_proxy](resources--proxy--reference--group-002.md#canonical-0033132111320233-2011322231113202-2020323111021022-1301011120122032-0130023120000002-1231101010311312-1231330202000102-3301003110212203)
-- [dynamic_proxy.https_proxy.tls_params](resources--proxy--reference--group-003.md#canonical-0202230303213331-0000212221213101-0112112302233312-1211230320301111-2131110223221220-0201320302231332-3120220330312330-1222032000312220)
-- [dynamic_proxy.https_proxy.tls_params.use_mtls](resources--proxy--reference--group-003.md#canonical-1120302120201130-2021020112211312-2012121003331033-1202131121023223-2102330022132231-0123033302022200-3110300012022001-3113320030210032)
-- dynamic_proxy.https_proxy.tls_params.use_mtls.xfcc_disabled
-
-<a id="canonical-3103231300321003-2332320233132101-0112303220110113-0013222023313233-1022010303023100-2222310231010132-1113121132121211-1333311111230012"></a>
-
-Type: `["object", {}]`. Optional.
-
-Enable this option
-
-Additional upstream details:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-xfcc_disabled = {}
-```
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-0012033023300202-1223030021113200-1023321133332103-1233011321201233-1231122211102010-1031000133330202-2021121032011301-0233203202103022"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-## `dynamic_proxy.https_proxy.tls_params.use_mtls.xfcc_options` properties
-
-Breadcrumbs:
-
-- [xcsh_proxy](../resources/proxy.md#canonical-0132300111013030-3233132200202310-2233332113220102-2031222100321320-0203021302013323-3111102110130123-3333011301331210-2310111332313332)
-- [Property reference](resources--proxy--reference--group-001.md#canonical-1332312330112202-0302233320331232-2000013322011121-0003103202230221-3121132031010303-2222021012203301-0203131033201011-3322301300211003)
-- [dynamic_proxy](resources--proxy--reference--group-001.md#canonical-2113202112212121-1011022102113232-3230331132220202-1123220031210121-3101202003212120-3201030233332031-2311232301212001-3100202032113330)
-- [dynamic_proxy.https_proxy](resources--proxy--reference--group-002.md#canonical-0033132111320233-2011322231113202-2020323111021022-1301011120122032-0130023120000002-1231101010311312-1231330202000102-3301003110212203)
-- [dynamic_proxy.https_proxy.tls_params](resources--proxy--reference--group-003.md#canonical-0202230303213331-0000212221213101-0112112302233312-1211230320301111-2131110223221220-0201320302231332-3120220330312330-1222032000312220)
-- [dynamic_proxy.https_proxy.tls_params.use_mtls](resources--proxy--reference--group-003.md#canonical-1120302120201130-2021020112211312-2012121003331033-1202131121023223-2102330022132231-0123033302022200-3110300012022001-3113320030210032)
-- dynamic_proxy.https_proxy.tls_params.use_mtls.xfcc_options
-
-<a id="canonical-3211002013213020-0021331212032032-2110133202312122-3130330121020202-1020020322133333-1022130000232201-0301301131200330-2203002331301331"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-X-Forwarded-Client-Cert header elements to be added to requests.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("xfcc_header_elements")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-xfcc_options {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-1100331303212022-1310333031113300-0200213002132020-3121223011212310-1223312033311212-3002203303320103-3222020232022222-1302000120031012"></a>
-
-### Direct properties for `dynamic_proxy.https_proxy.tls_params.use_mtls.xfcc_options`
-
-<a id="canonical-0303132300303032-3323122220133003-2113000112303033-2123202220313310-0231133312333303-0123223021330130-2301310210230033-1003331303013100"></a>
-
-#### `dynamic_proxy.https_proxy.tls_params.use_mtls.xfcc_options.xfcc_header_elements` property
-
-Type: `["list", "string"]`. Optional.
-
-\[Enum: XFCC\_NONE|XFCC\_CERT|XFCC\_CHAIN|XFCC\_SUBJECT|XFCC\_URI|XFCC\_DNS\]
-X-Forwarded-Client-Cert header elements to be added to requests. Possible values are \`XFCC\_NONE\`,
-\`XFCC\_CERT\`, \`XFCC\_CHAIN\`, \`XFCC\_SUBJECT\`, \`XFCC\_URI\`, \`XFCC\_DNS\`. Defaults to
-\`XFCC\_NONE\`.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": true,
-    "minimum_config": true,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.repeated.items.enum.defined_only": "true",
-    "ves.io.schema.rules.repeated.items.enum.not_in": "[0]"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.repeated.items.enum.defined_only": "true",
-    "ves.io.schema.rules.repeated.items.enum.not_in": "[0]"
-  }
-}
-```
-
-<a id="canonical-3112020001021313-3001013121113231-2312300311233300-0101002320313231-2321103212111010-1200232211133121-0211133000013012-3022312230220132"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-## `dynamic_proxy.sni_proxy` properties
-
-Breadcrumbs:
-
-- [xcsh_proxy](../resources/proxy.md#canonical-0132300111013030-3233132200202310-2233332113220102-2031222100321320-0203021302013323-3111102110130123-3333011301331210-2310111332313332)
-- [Property reference](resources--proxy--reference--group-001.md#canonical-1332312330112202-0302233320331232-2000013322011121-0003103202230221-3121132031010303-2222021012203301-0203131033201011-3322301300211003)
-- [dynamic_proxy](resources--proxy--reference--group-001.md#canonical-2113202112212121-1011022102113232-3230331132220202-1123220031210121-3101202003212120-3201030233332031-2311232301212001-3100202032113330)
-- dynamic_proxy.sni_proxy
-
-<a id="canonical-1200030100100302-3313101203023312-3310213031113310-3011223200220232-2103312102230333-1313221202010332-0111200212103102-0112023213123033"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-Dynamic SNI Proxy Type. Parameters for dynamic SNI proxy.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-sni_proxy {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-3011320011030003-0120120130103220-0210332213012331-1211210210312212-3300302131200120-3323230212311202-0001212132003011-3213211121300123"></a>
-
-### Direct properties for `dynamic_proxy.sni_proxy`
-
-<a id="canonical-3102213023212303-0330313003231333-3320111333210230-1103302013332103-1112333310132031-2121023231131130-0232232223121321-3301102012232102"></a>
-
-#### `dynamic_proxy.sni_proxy.idle_timeout` property
-
-Type: `"number"`. Optional.
-
-The amount of time that a stream can exist without upstream or downstream activity, in milliseconds.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Int64{
-  int64validator.AtMost(86400000),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "number",
-    "deterministic": true,
-    "maximum": 86400000,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "api-probed",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.uint32.lte": "86400000"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.uint32.lte": "86400000"
-  }
-}
-```
-
-<a id="canonical-3302133012220212-1002331310020302-1203301311211210-0210121333012131-2110013230033031-1011330131123021-1320232033123130-1032121203032331"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-## `http_proxy` properties
-
-Breadcrumbs:
-
-- [xcsh_proxy](../resources/proxy.md#canonical-0132300111013030-3233132200202310-2233332113220102-2031222100321320-0203021302013323-3111102110130123-3333011301331210-2310111332313332)
-- [Property reference](resources--proxy--reference--group-001.md#canonical-1332312330112202-0302233320331232-2000013322011121-0003103202230221-3121132031010303-2222021012203301-0203131033201011-3322301300211003)
-- http_proxy
-
-<a id="canonical-0023030222010311-3300322230002013-2001102311323223-1122022322221322-2020120013210033-0032330013323132-3222112033103212-3223122333232132"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-HTTP Connect Proxy. Parameters for HTTP Connect Proxy.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-ves-oneof-field-http_https_choice": "[\"enable_http\"]"
-}
-```
-
-Terraform syntax:
-
-```terraform
-http_proxy {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-0001130321111012-0123330210031333-1200230203212123-0200333323001333-0030320110230222-2120111032223232-3221232200322222-2120313320211032"></a>
-
-### Direct properties for `http_proxy`
-
-- [enable_http](resources--proxy--reference--group-003.md#canonical-2002121210003201-0021203110203212-0231123222023331-1322322121312213-2112302100301200-1311323303120011-0332131100230302-1321302012212010): complete subsection reference.
-
-- [more_option](resources--proxy--reference--group-004.md#canonical-3001012213010301-3221113322132133-1003230211323111-2221122020301212-1212323320201323-2103212032121003-0332130232112122-0312011030301003): complete subsection reference.
-
-<a id="canonical-2002121210003201-0021203110203212-0231123222023331-1322322121312213-2112302100301200-1311323303120011-0332131100230302-1321302012212010"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-## `http_proxy.enable_http` properties
-
-Breadcrumbs:
-
-- [xcsh_proxy](../resources/proxy.md#canonical-0132300111013030-3233132200202310-2233332113220102-2031222100321320-0203021302013323-3111102110130123-3333011301331210-2310111332313332)
-- [Property reference](resources--proxy--reference--group-001.md#canonical-1332312330112202-0302233320331232-2000013322011121-0003103202230221-3121132031010303-2222021012203301-0203131033201011-3322301300211003)
-- [http_proxy](resources--proxy--reference--group-003.md#canonical-3302133012220212-1002331310020302-1203301311211210-0210121333012131-2110013230033031-1011330131123021-1320232033123130-1032121203032331)
-- http_proxy.enable_http
-
-<a id="canonical-2200301101203123-0013221023302022-1232013120121021-3011201200132231-1230013223110322-3123022010130320-0222232030103110-2221202002230222"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-Configuration parameter for enable http.
-
-Additional upstream details:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-enable_http {}
-```
-
-This is an empty object or choice marker. It has no direct properties.

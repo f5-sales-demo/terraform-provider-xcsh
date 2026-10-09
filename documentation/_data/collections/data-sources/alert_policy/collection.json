@@ -284,7 +284,7 @@
       "path": "documentation/data-sources/alert_policy/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_policy",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0320032130000223-0013312111113203-3221033200310232-1301022120210012-3300321311100201-0013103020333103-2030012213311032-1033111200111130",
       "registry_path": "docs/data-sources/alert_policy.md",
@@ -294,21 +294,21 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_policy/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Reads Alert Policy information from F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_alert_policy",
       "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["alert_policyCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["alert policy"],
       "body_bytes": 17138,
-      "body_sha256": "sha256:c250dd8ed93538289f8001919d4cc42e56d5e2510c834354909ca55943115d06",
+      "body_sha256": "sha256:03e7d2e6a585f22861604b7ac9e4576355cc6ee39981f1c555042778b7b155dc",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [
@@ -329,7 +329,7 @@
       "path": "documentation/data-sources/alert_policy/properties/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_policy",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2112221201120012-2232133313303133-2202012021221221-3312133021112123-2200311330232132-2302002223011013-0001113332303200-1210002023212123",
       "registry_path": "docs/guides/data-sources--alert_policy--reference--group-001.md",
@@ -484,20 +484,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_policy/properties/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Property reference for xcsh_alert_policy.",
       "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["alert_policyCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["notification parameters"],
       "body_bytes": 5517,
-      "body_sha256": "sha256:84b96fc27039ec99a5de9fe1567662a74d7bc014f198b2e53cdcd384e785605f",
+      "body_sha256": "sha256:44c468b5da736c95d576e6c5745e9618a85b74eb08ed490ada5e391b569c330a",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [
@@ -519,7 +519,7 @@
       "path": "documentation/data-sources/alert_policy/properties/notification_parameters/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_policy",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2012132313221311-3323230320132032-3021211202211100-2311103030201203-3201200032113120-3202102012130301-3022210210213311-0331112303130200",
       "registry_path": "docs/guides/data-sources--alert_policy--reference--group-001.md",
@@ -642,20 +642,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_policy/properties/notification_parameters/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Set of notification parameters to decide how and when the alert notifications should be sent to the receivers.",
       "tasks": ["configuration"],
       "title": "notification_parameters",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["alert_policyCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["notification parameters custom"],
       "body_bytes": 1949,
-      "body_sha256": "sha256:3ea2ffa689e6bbf4a12d598898d3c77c1b8acf1d76447e5383a18196e926668d",
+      "body_sha256": "sha256:12a58265369b84aac6d0222e82d5161f5522704b234cedb24766212b8a978161",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -672,7 +672,7 @@
       "path": "documentation/data-sources/alert_policy/properties/notification_parameters/custom/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_policy",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0233321223231111-0120003030221221-3003223000130200-1310312013101223-1101010232232020-0321120122230010-2310002333110102-2321221321201310",
       "registry_path": "docs/guides/data-sources--alert_policy--reference--group-001.md",
@@ -699,14 +699,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_policy/properties/notification_parameters/custom/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Specify list of custom labels to group/aggregate the alerts.",
       "tasks": ["configuration"],
       "title": "notification_parameters.custom",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["alert_policyCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -729,7 +729,7 @@
       "path": "documentation/data-sources/alert_policy/properties/notification_parameters/default/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_policy",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0103132313333320-1033203232332303-1201112210221213-0332233222331120-2121101230232101-0330310111232000-0332311221212221-0103030131303100",
       "registry_path": "docs/guides/data-sources--alert_policy--reference--group-001.md",
@@ -739,14 +739,14 @@
       "schema_path": ["notification_parameters", "default"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_policy/properties/notification_parameters/default/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "notification_parameters.default",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["alert_policyCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -769,7 +769,7 @@
       "path": "documentation/data-sources/alert_policy/properties/notification_parameters/individual/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_policy",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2332033320102111-2322210023211030-3120032111320232-3011232021023103-1120103111111313-0010202331231133-0120110303012211-0313223232023032",
       "registry_path": "docs/guides/data-sources--alert_policy--reference--group-001.md",
@@ -779,14 +779,14 @@
       "schema_path": ["notification_parameters", "individual"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_policy/properties/notification_parameters/individual/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "notification_parameters.individual",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["alert_policyCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -809,7 +809,7 @@
       "path": "documentation/data-sources/alert_policy/properties/notification_parameters/ves_io_group/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_policy",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2212200313101322-2121230020303002-1022102223230022-2220220201232210-3123211133202122-3003011011032011-0032023210030201-0101210300313020",
       "registry_path": "docs/guides/data-sources--alert_policy--reference--group-001.md",
@@ -819,20 +819,20 @@
       "schema_path": ["notification_parameters", "ves_io_group"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_policy/properties/notification_parameters/ves_io_group/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "notification_parameters.ves_io_group",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["alert_policyCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["receivers"],
       "body_bytes": 5088,
-      "body_sha256": "sha256:10feeaff8f4d8c9635071e2bf534a1f55c31b2841908a9336a09066f94248f66",
+      "body_sha256": "sha256:7b0e6a2970f233fc10d784bf6f3d414e0613d6f376ec008f5fafd3c4fca6fbcf",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -849,7 +849,7 @@
       "path": "documentation/data-sources/alert_policy/properties/receivers/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_policy",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3101011111113203-3320322310232130-1320032032033121-1221133020000113-1021233103201030-0221021130100132-1022002300200000-1102333030221331",
       "registry_path": "docs/guides/data-sources--alert_policy--reference--group-001.md",
@@ -975,20 +975,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_policy/properties/receivers/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "List of Alert Receivers where the alerts will be sent.",
       "tasks": ["configuration"],
       "title": "receivers",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["alert_policyCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["routes"],
       "body_bytes": 9490,
-      "body_sha256": "sha256:87e680e5e0fb3ded3f703b9089bc3252664de44128e75e430c9b7de7637596e6",
+      "body_sha256": "sha256:558447fedbb3376e781b7882e4fea6c06e66d1b282099e5446988a3f825758f4",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [
@@ -1013,7 +1013,7 @@
       "path": "documentation/data-sources/alert_policy/properties/routes/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_policy",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1021230332031130-2213013032020203-1113313122013232-3230212020122200-2010101322212202-2331133113011102-2113130202310120-2003213023103202",
       "registry_path": "docs/guides/data-sources--alert_policy--reference--group-001.md",
@@ -1168,14 +1168,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_policy/properties/routes/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Set of routes to match the incoming alert. The routes are evaluated in the specified order and terminates on the first match.",
       "tasks": ["configuration"],
       "title": "routes",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["alert_policyCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -1198,7 +1198,7 @@
       "path": "documentation/data-sources/alert_policy/properties/routes/any/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_policy",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1111130100211122-3222210232030202-2221333323112311-1121201113020300-2321311012312100-2232233102302103-1332323302320030-2333211031110032",
       "registry_path": "docs/guides/data-sources--alert_policy--reference--group-001.md",
@@ -1208,14 +1208,14 @@
       "schema_path": ["routes", "any"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_policy/properties/routes/any/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "routes.any",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["alert_policyCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -1243,7 +1243,7 @@
       "path": "documentation/data-sources/alert_policy/properties/routes/custom/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_policy",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2111032222302223-0233011322210313-1123202120313233-2330130321123330-0231130212120033-2213022223222302-1301321103330130-3002100333101000",
       "registry_path": "docs/guides/data-sources--alert_policy--reference--group-001.md",
@@ -1318,14 +1318,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_policy/properties/routes/custom/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "A set of matchers an alert has to fulfill to match the route.",
       "tasks": ["configuration"],
       "title": "routes.custom",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["alert_policyCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -1348,7 +1348,7 @@
       "path": "documentation/data-sources/alert_policy/properties/routes/custom/alertlabel/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_policy",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0123003123222100-3123103230023332-2130113213210332-1212230331013201-1011220121233331-0123130201200320-1313121332220101-3013113311311000",
       "registry_path": "docs/guides/data-sources--alert_policy--reference--group-001.md",
@@ -1358,20 +1358,20 @@
       "schema_path": ["routes", "custom", "alertlabel"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_policy/properties/routes/custom/alertlabel/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "AlertLabel to configure the alert policy rule.",
       "tasks": ["configuration"],
       "title": "routes.custom.alertlabel",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["alert_policyCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["routes custom alertname"],
       "body_bytes": 2175,
-      "body_sha256": "sha256:30bbdb29d7387f27537d327846340a43b528103dbf3718628f38f116079bf67f",
+      "body_sha256": "sha256:cb211d69892453afaa70d10956c76d4f77655ace077a5e891f25b6d573a87a16",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -1388,7 +1388,7 @@
       "path": "documentation/data-sources/alert_policy/properties/routes/custom/alertname/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_policy",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1010331031221220-1030103211013011-2303202332032322-1321212012131321-2121310312130001-0212333021201322-2322201020003030-1321202200021010",
       "registry_path": "docs/guides/data-sources--alert_policy--reference--group-001.md",
@@ -1431,20 +1431,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_policy/properties/routes/custom/alertname/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Label Matcher.",
       "tasks": ["configuration"],
       "title": "routes.custom.alertname",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["alert_policyCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["routes custom group"],
       "body_bytes": 2159,
-      "body_sha256": "sha256:090f5c151ba4abf28419762112014507e4b850eb264a6ccda45130fe22f6dda2",
+      "body_sha256": "sha256:8424f1f69ec82612fe9fd65b9005cda9240add7a34bb83ae4f7a85d977e4dccf",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -1461,7 +1461,7 @@
       "path": "documentation/data-sources/alert_policy/properties/routes/custom/group/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_policy",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3123330332320212-3011100103333130-1213121013213331-0200203320222032-0200230303123002-2131111031321222-2211333211033313-1121112231020111",
       "registry_path": "docs/guides/data-sources--alert_policy--reference--group-001.md",
@@ -1504,20 +1504,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_policy/properties/routes/custom/group/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Label Matcher.",
       "tasks": ["configuration"],
       "title": "routes.custom.group",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["alert_policyCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["routes custom severity"],
       "body_bytes": 2171,
-      "body_sha256": "sha256:329f2a363450719089ecddc10a7e624d7805b7893cfb48d008bc08751c1c6ecb",
+      "body_sha256": "sha256:345cafe0c337df35fddc63e80e961dd6b36e4ce9152549cf80c4a22b0c7aa730",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -1534,7 +1534,7 @@
       "path": "documentation/data-sources/alert_policy/properties/routes/custom/severity/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_policy",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2223332111322120-2212302211303331-1121033012003020-3012032003021332-3001232020323333-3302321132331233-0220230103100022-3233130331330020",
       "registry_path": "docs/guides/data-sources--alert_policy--reference--group-001.md",
@@ -1577,14 +1577,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_policy/properties/routes/custom/severity/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Label Matcher.",
       "tasks": ["configuration"],
       "title": "routes.custom.severity",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["alert_policyCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -1607,7 +1607,7 @@
       "path": "documentation/data-sources/alert_policy/properties/routes/dont_send/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_policy",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3213231322233200-3122333111133131-1331323303311222-1202333313320223-3301303133202133-0033131233332030-3002203323131311-2323310302033111",
       "registry_path": "docs/guides/data-sources--alert_policy--reference--group-001.md",
@@ -1617,14 +1617,14 @@
       "schema_path": ["routes", "dont_send"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_policy/properties/routes/dont_send/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "routes.dont_send",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["alert_policyCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -1647,7 +1647,7 @@
       "path": "documentation/data-sources/alert_policy/properties/routes/group/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_policy",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2233223112013011-1321003322230102-0301001203213333-0122000222202110-3121223221010132-2301332032303312-0110021331332102-1030231113112203",
       "registry_path": "docs/guides/data-sources--alert_policy--reference--group-001.md",
@@ -1674,20 +1674,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_policy/properties/routes/group/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Select one or more known group names to match the incoming alert.",
       "tasks": ["configuration"],
       "title": "routes.group",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["alert_policyCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["routes notification parameters"],
       "body_bytes": 5696,
-      "body_sha256": "sha256:57c70672b692b11c9f5fbf2691b47fa5321239ead40d783ecad39b90c021b111",
+      "body_sha256": "sha256:e624131ad9526258d8e5d8f0ddc031b2e02bda45243bc4da82b935836456b880",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [
@@ -1709,7 +1709,7 @@
       "path": "documentation/data-sources/alert_policy/properties/routes/notification_parameters/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_policy",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3222233311320102-0030322313100000-1023230020323111-3023210212302030-3002100220323100-0111221013302013-0223102120002031-0233120202310322",
       "registry_path": "docs/guides/data-sources--alert_policy--reference--group-001.md",
@@ -1832,20 +1832,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_policy/properties/routes/notification_parameters/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Set of notification parameters to decide how and when the alert notifications should be sent to the receivers.",
       "tasks": ["configuration"],
       "title": "routes.notification_parameters",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["alert_policyCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["routes notification parameters custom"],
       "body_bytes": 2098,
-      "body_sha256": "sha256:84e8cb467e5919f3d6100f3c3b9913deb5ddba13cc62cfbe71a117d5a58bda0a",
+      "body_sha256": "sha256:ca50bf3d1318d451053d9144e4da5722c9de7c6f3669b563456ab6d9449b4e6b",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
@@ -1862,7 +1862,7 @@
       "path": "documentation/data-sources/alert_policy/properties/routes/notification_parameters/custom/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_policy",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1010231102310202-0032222133032113-2000321113021313-0331323220033212-3202133213233002-0322312220221230-1032322231022032-2201203232220130",
       "registry_path": "docs/guides/data-sources--alert_policy--reference--group-001.md",
@@ -1889,14 +1889,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_policy/properties/routes/notification_parameters/custom/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Specify list of custom labels to group/aggregate the alerts.",
       "tasks": ["configuration"],
       "title": "routes.notification_parameters.custom",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["alert_policyCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -1919,7 +1919,7 @@
       "path": "documentation/data-sources/alert_policy/properties/routes/notification_parameters/default/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_policy",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2030222302312212-1321303222330102-2033130010200120-3021213101000022-3000231031103013-3023330011021113-2220211222120233-2332311021010112",
       "registry_path": "docs/guides/data-sources--alert_policy--reference--group-001.md",
@@ -1929,14 +1929,14 @@
       "schema_path": ["routes", "notification_parameters", "default"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_policy/properties/routes/notification_parameters/default/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "routes.notification_parameters.default",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["alert_policyCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -1959,7 +1959,7 @@
       "path": "documentation/data-sources/alert_policy/properties/routes/notification_parameters/individual/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_policy",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3112321112233210-3311210130223311-3123321123133300-2322322132122111-3311213223221121-2033100202112101-3313111231031300-3022331012003100",
       "registry_path": "docs/guides/data-sources--alert_policy--reference--group-001.md",
@@ -1969,14 +1969,14 @@
       "schema_path": ["routes", "notification_parameters", "individual"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_policy/properties/routes/notification_parameters/individual/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "routes.notification_parameters.individual",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["alert_policyCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -1999,7 +1999,7 @@
       "path": "documentation/data-sources/alert_policy/properties/routes/notification_parameters/ves_io_group/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_policy",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1030030013101223-2100310011303130-0111031203222000-1211131233011002-1212223121310201-0023321313011322-1012333032321003-3300230111200001",
       "registry_path": "docs/guides/data-sources--alert_policy--reference--group-001.md",
@@ -2009,14 +2009,14 @@
       "schema_path": ["routes", "notification_parameters", "ves_io_group"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_policy/properties/routes/notification_parameters/ves_io_group/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "routes.notification_parameters.ves_io_group",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["alert_policyCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -2039,7 +2039,7 @@
       "path": "documentation/data-sources/alert_policy/properties/routes/send/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_policy",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2301303200003012-0222210012300032-1222303311120232-0131120201030010-2220103330210030-3033332302303230-2102202012311123-0103231122212002",
       "registry_path": "docs/guides/data-sources--alert_policy--reference--group-001.md",
@@ -2049,14 +2049,14 @@
       "schema_path": ["routes", "send"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_policy/properties/routes/send/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "routes.send",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["alert_policyCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -2079,7 +2079,7 @@
       "path": "documentation/data-sources/alert_policy/properties/routes/severity/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_policy",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0023021201013110-2032203003113120-0330000033303313-1323320123013030-1130013333022020-1220223110321132-0232223012001321-2122302330130311",
       "registry_path": "docs/guides/data-sources--alert_policy--reference--group-001.md",
@@ -2106,14 +2106,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_policy/properties/routes/severity/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Select one or more severity levels to match the incoming alert.",
       "tasks": ["configuration"],
       "title": "routes.severity",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["alert_policyCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -2136,7 +2136,7 @@
       "path": "documentation/data-sources/alert_policy/examples/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_policy",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0331200133120203-2223103130311131-1313003123311020-2320233233111301-0201023120200322-1100113321132123-0333222333022022-0211023101101221",
       "registry_path": "docs/guides/data-sources--alert_policy--examples--group-001.md",
@@ -2146,14 +2146,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_policy/examples/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Examples for xcsh_alert_policy.",
       "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["alert_policyCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -2183,7 +2183,7 @@
       "path": "documentation/data-sources/alert_policy/examples/data-source/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_policy",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2230333020132001-0302320213001132-2013223221312333-0323213112021313-3102021333300103-2003123031312221-2233311201030302-2121032010321323",
       "registry_path": "docs/guides/data-sources--alert_policy--examples--group-001.md",
@@ -2193,14 +2193,14 @@
       "schema_path": ["data-source"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/alert_policy/examples/data-source/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Data source for xcsh_alert_policy.",
       "tasks": ["configuration"],
       "title": "Data source",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["alert_policyCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     }
   ],

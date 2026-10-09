@@ -6,6 +6,155 @@ description: "Complete grouped canonical reference for xcsh_proxy reference."
 
 # xcsh_proxy reference
 
+<a id="canonical-3132332212330322-0202310233313222-2003022020022302-3113230213300121-0200202011212113-1020310103120000-1323101010233002-3312222223212020"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `http_proxy.more_option.response_cookies_to_add.samesite_none` properties
+
+Breadcrumbs:
+
+- [xcsh_proxy](../resources/proxy.md#canonical-0132300111013030-3233132200202310-2233332113220102-2031222100321320-0203021302013323-3111102110130123-3333011301331210-2310111332313332)
+- [Property reference](resources--proxy--reference--group-001.md#canonical-1332312330112202-0302233320331232-2000013322011121-0003103202230221-3121132031010303-2222021012203301-0203131033201011-3322301300211003)
+- [http_proxy](resources--proxy--reference--group-004.md#canonical-3302133012220212-1002331310020302-1203301311211210-0210121333012131-2110013230033031-1011330131123021-1320232033123130-1032121203032331)
+- [http_proxy.more_option](resources--proxy--reference--group-004.md#canonical-3001012213010301-3221113322132133-1003230211323111-2221122020301212-1212323320201323-2103212032121003-0332130232112122-0312011030301003)
+- [http_proxy.more_option.response_cookies_to_add](resources--proxy--reference--group-004.md#canonical-0000001231023213-2333232322200002-1101223312110200-1332032022023223-3210130302001101-3210211200123011-3203100230022300-3110000311031311)
+- http_proxy.more_option.response_cookies_to_add.samesite_none
+
+<a id="canonical-0333030220112210-2021023111232103-0122120132213233-2033202133101020-1110312213101233-3331210333132111-3133213211111101-0130332211011103"></a>
+
+Type: `["object", {}]`. Optional.
+
+Enable this option
+
+Additional upstream details:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+samesite_none = {}
+```
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-2222032212220010-0332200103321102-2131011023001102-3310033321132213-0103322202210010-0220312231211301-3310330222200123-3320210000213321"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `http_proxy.more_option.response_cookies_to_add.samesite_strict` properties
+
+Breadcrumbs:
+
+- [xcsh_proxy](../resources/proxy.md#canonical-0132300111013030-3233132200202310-2233332113220102-2031222100321320-0203021302013323-3111102110130123-3333011301331210-2310111332313332)
+- [Property reference](resources--proxy--reference--group-001.md#canonical-1332312330112202-0302233320331232-2000013322011121-0003103202230221-3121132031010303-2222021012203301-0203131033201011-3322301300211003)
+- [http_proxy](resources--proxy--reference--group-004.md#canonical-3302133012220212-1002331310020302-1203301311211210-0210121333012131-2110013230033031-1011330131123021-1320232033123130-1032121203032331)
+- [http_proxy.more_option](resources--proxy--reference--group-004.md#canonical-3001012213010301-3221113322132133-1003230211323111-2221122020301212-1212323320201323-2103212032121003-0332130232112122-0312011030301003)
+- [http_proxy.more_option.response_cookies_to_add](resources--proxy--reference--group-004.md#canonical-0000001231023213-2333232322200002-1101223312110200-1332032022023223-3210130302001101-3210211200123011-3203100230022300-3110000311031311)
+- http_proxy.more_option.response_cookies_to_add.samesite_strict
+
+<a id="canonical-1111222130212203-0131223230132311-3010311232233220-3111231010232322-3301221010120130-3211003012131223-0303220300123312-0302102210001222"></a>
+
+Type: `["object", {}]`. Optional.
+
+Enable this option
+
+Additional upstream details:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+samesite_strict = {}
+```
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-0032223220331321-2122103333322322-0112302321320233-1222120311123120-3122320100100323-2000101331022231-0320013223311032-0110033301203222"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `http_proxy.more_option.response_cookies_to_add.secret_value` properties
+
+Breadcrumbs:
+
+- [xcsh_proxy](../resources/proxy.md#canonical-0132300111013030-3233132200202310-2233332113220102-2031222100321320-0203021302013323-3111102110130123-3333011301331210-2310111332313332)
+- [Property reference](resources--proxy--reference--group-001.md#canonical-1332312330112202-0302233320331232-2000013322011121-0003103202230221-3121132031010303-2222021012203301-0203131033201011-3322301300211003)
+- [http_proxy](resources--proxy--reference--group-004.md#canonical-3302133012220212-1002331310020302-1203301311211210-0210121333012131-2110013230033031-1011330131123021-1320232033123130-1032121203032331)
+- [http_proxy.more_option](resources--proxy--reference--group-004.md#canonical-3001012213010301-3221113322132133-1003230211323111-2221122020301212-1212323320201323-2103212032121003-0332130232112122-0312011030301003)
+- [http_proxy.more_option.response_cookies_to_add](resources--proxy--reference--group-004.md#canonical-0000001231023213-2333232322200002-1101223312110200-1332032022023223-3210130302001101-3210211200123011-3203100230022300-3110000311031311)
+- http_proxy.more_option.response_cookies_to_add.secret_value
+
+<a id="canonical-1300211320131301-0203023131301210-1303101312013001-1112303003212202-0120331100100003-2001013102011323-2100133111233203-3101011302130220"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+SecretType is used in an object to indicate a sensitive/confidential field.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-secret_info_oneof": "[\"blindfold_secret_info\",\"clear_secret_info\"]"
+}
+```
+
+Terraform syntax:
+
+```terraform
+secret_value {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-2001100202131202-2322300211233123-2332223313213312-3202323030203030-3132213010023203-0102002233302011-3201102123210101-0223233200002201"></a>
+
+### Direct properties for `http_proxy.more_option.response_cookies_to_add.secret_value`
+
+- [blindfold_secret_info](resources--proxy--reference--group-005.md#canonical-1210113233221230-1203323122300112-2012110322330310-2123210112123301-2110120032232111-0200223332121310-3122221101333302-1132231101001031): complete subsection reference.
+
+- [clear_secret_info](resources--proxy--reference--group-005.md#canonical-2111320201010202-1001012323322201-0233312100110032-2123030212002221-3332123331003122-0122100302330333-2233101000313130-2011200001003302): complete subsection reference.
+
 <a id="canonical-1210113233221230-1203323122300112-2012110322330310-2123210112123301-2110120032232111-0200223332121310-3122221101333302-1132231101001031"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -18,10 +167,10 @@ Breadcrumbs:
 
 - [xcsh_proxy](../resources/proxy.md#canonical-0132300111013030-3233132200202310-2233332113220102-2031222100321320-0203021302013323-3111102110130123-3333011301331210-2310111332313332)
 - [Property reference](resources--proxy--reference--group-001.md#canonical-1332312330112202-0302233320331232-2000013322011121-0003103202230221-3121132031010303-2222021012203301-0203131033201011-3322301300211003)
-- [http_proxy](resources--proxy--reference--group-003.md#canonical-3302133012220212-1002331310020302-1203301311211210-0210121333012131-2110013230033031-1011330131123021-1320232033123130-1032121203032331)
+- [http_proxy](resources--proxy--reference--group-004.md#canonical-3302133012220212-1002331310020302-1203301311211210-0210121333012131-2110013230033031-1011330131123021-1320232033123130-1032121203032331)
 - [http_proxy.more_option](resources--proxy--reference--group-004.md#canonical-3001012213010301-3221113322132133-1003230211323111-2221122020301212-1212323320201323-2103212032121003-0332130232112122-0312011030301003)
 - [http_proxy.more_option.response_cookies_to_add](resources--proxy--reference--group-004.md#canonical-0000001231023213-2333232322200002-1101223312110200-1332032022023223-3210130302001101-3210211200123011-3203100230022300-3110000311031311)
-- [http_proxy.more_option.response_cookies_to_add.secret_value](resources--proxy--reference--group-004.md#canonical-0032223220331321-2122103333322322-0112302321320233-1222120311123120-3122320100100323-2000101331022231-0320013223311032-0110033301203222)
+- [http_proxy.more_option.response_cookies_to_add.secret_value](resources--proxy--reference--group-005.md#canonical-0032223220331321-2122103333322322-0112302321320233-1222120311123120-3122320100100323-2000101331022231-0320013223311032-0110033301203222)
 - http_proxy.more_option.response_cookies_to_add.secret_value.blindfold_secret_info
 
 <a id="canonical-3333123130100000-2100030320313133-1023322130300210-2110122230231023-1003110310131130-2231022121323302-0201202132100000-0313013132223032"></a>
@@ -29,13 +178,6 @@ Breadcrumbs:
 Type: `"object"`. single nested block, Optional.
 
 BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("location")}
-```
 
 Receipt-pinned upstream constraints:
 
@@ -82,7 +224,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -105,15 +247,6 @@ Type: `"string"`. Optional, Sensitive.
 Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(4, 131072),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -129,7 +262,7 @@ Receipt-pinned upstream constraints:
       "confidence": 1.0,
       "note": "Blindfold envelope encryption (AES-256-GCM + RSA-OAEP) of an RSA-2048 TLS private key produces ~3700 char string:/// URL. 128KB max secret size = ~175KB base64. Discovery reported 1024 which is incorrect.",
       "source": "manual-override",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 4
   },
@@ -173,7 +306,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -197,10 +330,10 @@ Breadcrumbs:
 
 - [xcsh_proxy](../resources/proxy.md#canonical-0132300111013030-3233132200202310-2233332113220102-2031222100321320-0203021302013323-3111102110130123-3333011301331210-2310111332313332)
 - [Property reference](resources--proxy--reference--group-001.md#canonical-1332312330112202-0302233320331232-2000013322011121-0003103202230221-3121132031010303-2222021012203301-0203131033201011-3322301300211003)
-- [http_proxy](resources--proxy--reference--group-003.md#canonical-3302133012220212-1002331310020302-1203301311211210-0210121333012131-2110013230033031-1011330131123021-1320232033123130-1032121203032331)
+- [http_proxy](resources--proxy--reference--group-004.md#canonical-3302133012220212-1002331310020302-1203301311211210-0210121333012131-2110013230033031-1011330131123021-1320232033123130-1032121203032331)
 - [http_proxy.more_option](resources--proxy--reference--group-004.md#canonical-3001012213010301-3221113322132133-1003230211323111-2221122020301212-1212323320201323-2103212032121003-0332130232112122-0312011030301003)
 - [http_proxy.more_option.response_cookies_to_add](resources--proxy--reference--group-004.md#canonical-0000001231023213-2333232322200002-1101223312110200-1332032022023223-3210130302001101-3210211200123011-3203100230022300-3110000311031311)
-- [http_proxy.more_option.response_cookies_to_add.secret_value](resources--proxy--reference--group-004.md#canonical-0032223220331321-2122103333322322-0112302321320233-1222120311123120-3122320100100323-2000101331022231-0320013223311032-0110033301203222)
+- [http_proxy.more_option.response_cookies_to_add.secret_value](resources--proxy--reference--group-005.md#canonical-0032223220331321-2122103333322322-0112302321320233-1222120311123120-3122320100100323-2000101331022231-0320013223311032-0110033301203222)
 - http_proxy.more_option.response_cookies_to_add.secret_value.clear_secret_info
 
 <a id="canonical-2100103200111022-1232311232303131-3302200200002321-0030031313122311-0130110020122031-3223311213201232-1103222003022021-3112313133223303"></a>
@@ -208,13 +341,6 @@ Breadcrumbs:
 Type: `"object"`. single nested block, Optional.
 
 ClearSecretInfoType specifies information about the Secret that is not encrypted.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("url")}
-```
 
 Receipt-pinned upstream constraints:
 
@@ -262,15 +388,6 @@ URL of the secret. Currently supported URL schemes is string:///. For string:///
 needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
 base64 decoding.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 131072),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -289,7 +406,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1,
     "pattern": "^(https?|ftp)://[^\\s/$.?#].[^\\s]*$",
@@ -329,7 +446,7 @@ Breadcrumbs:
 
 - [xcsh_proxy](../resources/proxy.md#canonical-0132300111013030-3233132200202310-2233332113220102-2031222100321320-0203021302013323-3111102110130123-3333011301331210-2310111332313332)
 - [Property reference](resources--proxy--reference--group-001.md#canonical-1332312330112202-0302233320331232-2000013322011121-0003103202230221-3121132031010303-2222021012203301-0203131033201011-3322301300211003)
-- [http_proxy](resources--proxy--reference--group-003.md#canonical-3302133012220212-1002331310020302-1203301311211210-0210121333012131-2110013230033031-1011330131123021-1320232033123130-1032121203032331)
+- [http_proxy](resources--proxy--reference--group-004.md#canonical-3302133012220212-1002331310020302-1203301311211210-0210121333012131-2110013230033031-1011330131123021-1320232033123130-1032121203032331)
 - [http_proxy.more_option](resources--proxy--reference--group-004.md#canonical-3001012213010301-3221113322132133-1003230211323111-2221122020301212-1212323320201323-2103212032121003-0332130232112122-0312011030301003)
 - http_proxy.more_option.response_headers_to_add
 
@@ -339,15 +456,6 @@ Type: `"object"`. list nested block, Optional.
 
 Headers are key-value pairs to be added to HTTP response being sent towards downstream. Headers
 specified at this level are applied after headers from matched Route are applied.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.List{validators.RequiredListObjectAttributes("name"),
-  validators.ConflictingListObjectAttributes("secret_value",
-    "value")}
-```
 
 Receipt-pinned upstream constraints:
 
@@ -362,7 +470,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "uniqueItems": true
   },
@@ -431,15 +539,6 @@ Type: `"string"`. Optional.
 
 Name. Name of the HTTP header.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 256),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -461,7 +560,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1,
     "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
@@ -499,15 +598,6 @@ Type: `"string"`. Optional.
 
 Exclusive with \[secret\_value\] Value of the HTTP header.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthAtMost(8096),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -521,7 +611,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -551,7 +641,7 @@ Breadcrumbs:
 
 - [xcsh_proxy](../resources/proxy.md#canonical-0132300111013030-3233132200202310-2233332113220102-2031222100321320-0203021302013323-3111102110130123-3333011301331210-2310111332313332)
 - [Property reference](resources--proxy--reference--group-001.md#canonical-1332312330112202-0302233320331232-2000013322011121-0003103202230221-3121132031010303-2222021012203301-0203131033201011-3322301300211003)
-- [http_proxy](resources--proxy--reference--group-003.md#canonical-3302133012220212-1002331310020302-1203301311211210-0210121333012131-2110013230033031-1011330131123021-1320232033123130-1032121203032331)
+- [http_proxy](resources--proxy--reference--group-004.md#canonical-3302133012220212-1002331310020302-1203301311211210-0210121333012131-2110013230033031-1011330131123021-1320232033123130-1032121203032331)
 - [http_proxy.more_option](resources--proxy--reference--group-004.md#canonical-3001012213010301-3221113322132133-1003230211323111-2221122020301212-1212323320201323-2103212032121003-0332130232112122-0312011030301003)
 - [http_proxy.more_option.response_headers_to_add](resources--proxy--reference--group-005.md#canonical-0321302212120332-1003310003320101-2331211322200330-1231022123102030-0001322133103022-1202202120331013-0312112103131001-3233331200001032)
 - http_proxy.more_option.response_headers_to_add.secret_value
@@ -561,14 +651,6 @@ Breadcrumbs:
 Type: `"object"`. single nested block, Optional.
 
 SecretType is used in an object to indicate a sensitive/confidential field.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info",
-    "clear_secret_info")}
-```
 
 Receipt-pinned upstream constraints:
 
@@ -612,7 +694,7 @@ Breadcrumbs:
 
 - [xcsh_proxy](../resources/proxy.md#canonical-0132300111013030-3233132200202310-2233332113220102-2031222100321320-0203021302013323-3111102110130123-3333011301331210-2310111332313332)
 - [Property reference](resources--proxy--reference--group-001.md#canonical-1332312330112202-0302233320331232-2000013322011121-0003103202230221-3121132031010303-2222021012203301-0203131033201011-3322301300211003)
-- [http_proxy](resources--proxy--reference--group-003.md#canonical-3302133012220212-1002331310020302-1203301311211210-0210121333012131-2110013230033031-1011330131123021-1320232033123130-1032121203032331)
+- [http_proxy](resources--proxy--reference--group-004.md#canonical-3302133012220212-1002331310020302-1203301311211210-0210121333012131-2110013230033031-1011330131123021-1320232033123130-1032121203032331)
 - [http_proxy.more_option](resources--proxy--reference--group-004.md#canonical-3001012213010301-3221113322132133-1003230211323111-2221122020301212-1212323320201323-2103212032121003-0332130232112122-0312011030301003)
 - [http_proxy.more_option.response_headers_to_add](resources--proxy--reference--group-005.md#canonical-0321302212120332-1003310003320101-2331211322200330-1231022123102030-0001322133103022-1202202120331013-0312112103131001-3233331200001032)
 - [http_proxy.more_option.response_headers_to_add.secret_value](resources--proxy--reference--group-005.md#canonical-2300011033210230-3200023212122302-3133032202031123-3031312001002303-2211020320303111-3210011300022320-2331101223122002-1130322131232013)
@@ -623,13 +705,6 @@ Breadcrumbs:
 Type: `"object"`. single nested block, Optional.
 
 BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("location")}
-```
 
 Receipt-pinned upstream constraints:
 
@@ -676,7 +751,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -699,15 +774,6 @@ Type: `"string"`. Optional, Sensitive.
 Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(4, 131072),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -723,7 +789,7 @@ Receipt-pinned upstream constraints:
       "confidence": 1.0,
       "note": "Blindfold envelope encryption (AES-256-GCM + RSA-OAEP) of an RSA-2048 TLS private key produces ~3700 char string:/// URL. 128KB max secret size = ~175KB base64. Discovery reported 1024 which is incorrect.",
       "source": "manual-override",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 4
   },
@@ -767,7 +833,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -791,7 +857,7 @@ Breadcrumbs:
 
 - [xcsh_proxy](../resources/proxy.md#canonical-0132300111013030-3233132200202310-2233332113220102-2031222100321320-0203021302013323-3111102110130123-3333011301331210-2310111332313332)
 - [Property reference](resources--proxy--reference--group-001.md#canonical-1332312330112202-0302233320331232-2000013322011121-0003103202230221-3121132031010303-2222021012203301-0203131033201011-3322301300211003)
-- [http_proxy](resources--proxy--reference--group-003.md#canonical-3302133012220212-1002331310020302-1203301311211210-0210121333012131-2110013230033031-1011330131123021-1320232033123130-1032121203032331)
+- [http_proxy](resources--proxy--reference--group-004.md#canonical-3302133012220212-1002331310020302-1203301311211210-0210121333012131-2110013230033031-1011330131123021-1320232033123130-1032121203032331)
 - [http_proxy.more_option](resources--proxy--reference--group-004.md#canonical-3001012213010301-3221113322132133-1003230211323111-2221122020301212-1212323320201323-2103212032121003-0332130232112122-0312011030301003)
 - [http_proxy.more_option.response_headers_to_add](resources--proxy--reference--group-005.md#canonical-0321302212120332-1003310003320101-2331211322200330-1231022123102030-0001322133103022-1202202120331013-0312112103131001-3233331200001032)
 - [http_proxy.more_option.response_headers_to_add.secret_value](resources--proxy--reference--group-005.md#canonical-2300011033210230-3200023212122302-3133032202031123-3031312001002303-2211020320303111-3210011300022320-2331101223122002-1130322131232013)
@@ -802,13 +868,6 @@ Breadcrumbs:
 Type: `"object"`. single nested block, Optional.
 
 ClearSecretInfoType specifies information about the Secret that is not encrypted.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("url")}
-```
 
 Receipt-pinned upstream constraints:
 
@@ -856,15 +915,6 @@ URL of the secret. Currently supported URL schemes is string:///. For string:///
 needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
 base64 decoding.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 131072),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -883,7 +933,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1,
     "pattern": "^(https?|ftp)://[^\\s/$.?#].[^\\s]*$",
@@ -1126,13 +1176,6 @@ Type: `"object"`. single nested block, Optional.
 
 This defines a way to advertise a VIP on specific sites.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("advertise_where")}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -1181,16 +1224,6 @@ Type: `"object"`. list nested block, Optional.
 
 Where should this load balancer be available.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.List{validators.ConflictingListObjectAttributes("port",
-    "use_default_port"),
-  validators.ConflictingListObjectAttributes("site",
-    "virtual_site")}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -1205,7 +1238,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minItems": 1,
     "uniqueItems": true
@@ -1251,15 +1284,6 @@ Type: `"number"`. Optional.
 
 Exclusive with \[use\_default\_port\] TCP port to Listen.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Int64{
-  int64validator.Between(1, 65535),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -1272,7 +1296,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "api-probed",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minimum": 1,
     "multipleOf": 1
@@ -1356,16 +1380,6 @@ Type: `"string"`. Optional.
 
 Use given IP address as VIP on the site.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.String{
-  stringvalidator.LengthAtMost(1024),
-  validators.IPv4Validator(),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -1379,7 +1393,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -1424,22 +1438,6 @@ site
 
 This Virtual network type is used for exposing virtual host on IP Fabric network on the VER site or
 for endpoint in IP Fabric network.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-EnumValidators: [{"version":1,"validator":"OneOf","values":["SITE_NETWORK_INSIDE","SITE_NETWORK_INSIDE_AND_OUTSIDE","SITE_NETWORK_INSIDE_AND_OUTSIDE_WITH_INTERNET_VIP","SITE_NETWORK_IP_FABRIC","SITE_NETWORK_OUTSIDE","SITE_NETWORK_OUTSIDE_WITH_INTERNET_VIP","SITE_NETWORK_SERVICE"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
-Validators: []validator.String{
-  stringvalidator.OneOf("SITE_NETWORK_INSIDE_AND_OUTSIDE",
-    "SITE_NETWORK_INSIDE",
-    "SITE_NETWORK_OUTSIDE",
-    "SITE_NETWORK_SERVICE",
-    "SITE_NETWORK_OUTSIDE_WITH_INTERNET_VIP",
-    "SITE_NETWORK_INSIDE_AND_OUTSIDE_WITH_INTERNET_VIP",
-    "SITE_NETWORK_IP_FABRIC"),
-}
-```
 
 Receipt-pinned upstream constraints:
 
@@ -1490,13 +1488,6 @@ Type: `"object"`. single nested block, Optional.
 This type establishes a direct reference from one object(the referrer) to another(the referred).
 Such a reference is in form of tenant/namespace/name.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -1531,15 +1522,6 @@ Type: `"string"`. Optional.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
 referred object's(e.g. Route's) name.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 128),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -1558,7 +1540,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1
   },
@@ -1592,15 +1574,6 @@ Type: `"string"`. Optional, Computed.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
 hold the referred object's(e.g. Route's) namespace.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 63),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -1625,7 +1598,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1,
     "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
@@ -1660,15 +1633,6 @@ Type: `"string"`. Computed.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
 the referred object's(e.g. Route's) tenant.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthAtMost(64),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -1685,7 +1649,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -1824,22 +1788,6 @@ site
 This Virtual network type is used for exposing virtual host on IP Fabric network on the VER site or
 for endpoint in IP Fabric network.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-EnumValidators: [{"version":1,"validator":"OneOf","values":["SITE_NETWORK_INSIDE","SITE_NETWORK_INSIDE_AND_OUTSIDE","SITE_NETWORK_INSIDE_AND_OUTSIDE_WITH_INTERNET_VIP","SITE_NETWORK_IP_FABRIC","SITE_NETWORK_OUTSIDE","SITE_NETWORK_OUTSIDE_WITH_INTERNET_VIP","SITE_NETWORK_SERVICE"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
-Validators: []validator.String{
-  stringvalidator.OneOf("SITE_NETWORK_INSIDE_AND_OUTSIDE",
-    "SITE_NETWORK_INSIDE",
-    "SITE_NETWORK_OUTSIDE",
-    "SITE_NETWORK_SERVICE",
-    "SITE_NETWORK_OUTSIDE_WITH_INTERNET_VIP",
-    "SITE_NETWORK_INSIDE_AND_OUTSIDE_WITH_INTERNET_VIP",
-    "SITE_NETWORK_IP_FABRIC"),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -1889,13 +1837,6 @@ Type: `"object"`. single nested block, Optional.
 This type establishes a direct reference from one object(the referrer) to another(the referred).
 Such a reference is in form of tenant/namespace/name.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -1930,15 +1871,6 @@ Type: `"string"`. Optional.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
 referred object's(e.g. Route's) name.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 128),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -1957,7 +1889,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1
   },
@@ -1991,15 +1923,6 @@ Type: `"string"`. Optional, Computed.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
 hold the referred object's(e.g. Route's) namespace.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 63),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -2024,7 +1947,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1,
     "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
@@ -2059,15 +1982,6 @@ Type: `"string"`. Computed.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
 the referred object's(e.g. Route's) tenant.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthAtMost(64),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -2084,7 +1998,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -2200,18 +2114,6 @@ Type: `"object"`. single nested block, Optional.
 
 Configuration to enable TLS interception.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.ConflictingObjectAttributes("custom_certificate",
-    "volterra_certificate"),
-  validators.ConflictingObjectAttributes("enable_for_all_domains",
-    "policy"),
-  validators.ConflictingObjectAttributes("trusted_ca_url",
-    "volterra_trusted_ca")}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -2257,15 +2159,6 @@ Type: `"string"`. Optional.
 Exclusive with \[volterra\_trusted\_ca\] Custom Root CA Certificate for validating upstream server
 certificate.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthAtMost(131072),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -2283,7 +2176,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -2332,19 +2225,6 @@ Additional upstream details:
 
 Handle to fetch certificate and key.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("certificate_url"),
-  validators.ConflictingObjectAttributes("custom_hash_algorithms",
-    "disable_ocsp_stapling"),
-  validators.ConflictingObjectAttributes("custom_hash_algorithms",
-    "use_system_defaults"),
-  validators.ConflictingObjectAttributes("disable_ocsp_stapling",
-    "use_system_defaults")}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -2371,22 +2251,17 @@ custom_certificate {
 
 ### Direct properties for `tls_intercept.custom_certificate`
 
+- [blindfold](resources--proxy--reference--group-005.md#canonical-0231231313200102-3002110000011103-2313003013002021-1122101030030220-3020101231312031-3032202012021002-2120200210331003-2323122132322211): complete subsection reference.
+
 <a id="canonical-2201022013301311-0213100320031220-1002032113200202-1310102202002013-2330221000130002-3323111100231222-0301212033232303-1222032322333202"></a>
+
+<a id="canonical-2033001111101210-3133133011132120-1220301201301230-1210011132101300-1021023102233231-2010303122130231-2232213230223212-2201223120312311"></a>
 
 #### `tls_intercept.custom_certificate.certificate_url` property
 
-Type: `"string"`. Optional.
+Type: `"string"`. Optional, Computed.
 
 TLS certificate. Certificate or certificate chain in PEM format including the PEM headers.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 131072),
-}
-```
 
 Receipt-pinned upstream constraints:
 
@@ -2406,7 +2281,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1
   },
@@ -2435,7 +2310,7 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-3133130011332203-2030002102133223-2312210333013330-3000211323231223-2002111120220221-1101123210002112-0201001310000103-1232113321303100"></a>
 
-<a id="canonical-2033001111101210-3133133011132120-1220301201301230-1210011132101300-1021023102233231-2010303122130231-2232213230223212-2201223120312311"></a>
+<a id="canonical-3000202023111201-3221230001233100-3031011122330131-3003230332131020-0032233132130022-1202100033031311-2001301110323233-1200202022103020"></a>
 
 #### `tls_intercept.custom_certificate.description_spec` property
 
@@ -2448,6 +2323,184 @@ Description. Description for the certificate.
 - [private_key](resources--proxy--reference--group-005.md#canonical-3321230201331111-0132320001302220-0020330020122133-1310210212012031-2232300311202031-3302001322330103-0220322112132033-2212201013212221): complete subsection reference.
 
 - [use_system_defaults](resources--proxy--reference--group-005.md#canonical-0203212312012200-0022331233322101-3312232012110231-2001030223033320-3211223032133022-0222102213210232-0213123221113002-2200213003332120): complete subsection reference.
+
+<a id="canonical-0231231313200102-3002110000011103-2313003013002021-1122101030030220-3020101231312031-3032202012021002-2120200210331003-2323122132322211"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `tls_intercept.custom_certificate.blindfold` properties
+
+Breadcrumbs:
+
+- [xcsh_proxy](../resources/proxy.md#canonical-0132300111013030-3233132200202310-2233332113220102-2031222100321320-0203021302013323-3111102110130123-3333011301331210-2310111332313332)
+- [Property reference](resources--proxy--reference--group-001.md#canonical-1332312330112202-0302233320331232-2000013322011121-0003103202230221-3121132031010303-2222021012203301-0203131033201011-3322301300211003)
+- [tls_intercept](resources--proxy--reference--group-005.md#canonical-1012032132320210-0010122100332331-0000321130320013-3133303110113120-0200133111003231-2120031011211003-1123012303313320-0010122102231031)
+- [tls_intercept.custom_certificate](resources--proxy--reference--group-005.md#canonical-2222323212312221-3303111113221022-1023133211123101-3301233201020312-0112032313303222-2100131321310321-3100110101112031-0201012311323223)
+- tls_intercept.custom_certificate.blindfold
+
+<a id="canonical-0111023123111103-3220222203330220-0311010323031021-2101313311333210-0302032310210332-2213321310321133-0003233203100022-1322021101030330"></a>
+
+Type: `"single"`. Optional.
+
+Native certificate preparation. Use PEM files or a P12 file, or write-only key/bundle values with
+material\_version (Terraform 1.11+). Defaults to shared/ves-io-allow-volterra. Inline certificates
+require unique IDs. Private inputs are never stored.
+
+<a id="canonical-1013300111011203-2032213220001222-2120120301120012-0310301333232202-1333022120100001-2323321331013030-3003320002100321-3202130332310032"></a>
+
+### Direct properties for `tls_intercept.custom_certificate.blindfold`
+
+<a id="canonical-3122322012101303-2321122222213000-1011300302332303-0101112010023031-1022012232333020-2200223103002230-1323312020113012-2000202210132230"></a>
+
+#### `tls_intercept.custom_certificate.blindfold.algorithm` property
+
+Type: `"string"`. Computed.
+
+<a id="canonical-0012200120320220-1300200212112002-1312013131031100-1111332130332321-1003201230200113-0021112002201313-1203202221022122-1011310223230303"></a>
+
+<a id="canonical-1111312202113021-1310021222101221-0110023031332311-2232310322232100-3121222121010331-3121013000011123-3231202302300012-3022211331303111"></a>
+
+#### `tls_intercept.custom_certificate.blindfold.certificate_file` property
+
+Type: `"string"`. Optional.
+
+<a id="canonical-0230211000011231-3301322110020330-2302100321130113-1210313021231002-0033010130103132-0113210130222001-3330213002330013-0000101302010223"></a>
+
+<a id="canonical-3103012032201033-2212331221132303-1220213012022313-1313021023210110-3122313300101311-3133321120213212-0333303300003022-0033110320130011"></a>
+
+#### `tls_intercept.custom_certificate.blindfold.certificate_pem` property
+
+Type: `"string"`. Optional.
+
+<a id="canonical-1022110131002301-2200002303301010-0232212001122100-2120211330121010-2321112330023323-3202201231311322-1323300121322113-3331020100221111"></a>
+
+<a id="canonical-3100022121102331-1332211302233020-3320000010312233-3020013023132033-3313203311012332-1031312211122002-2022120110032320-1000011101112302"></a>
+
+#### `tls_intercept.custom_certificate.blindfold.chain_identity` property
+
+Type: `"string"`. Computed.
+
+<a id="canonical-1100303112222100-1223110113203110-0332112012300212-1110113200230032-1302201212231232-2300322100110102-3321120301103323-0322213133300103"></a>
+
+<a id="canonical-1302130113100101-3303102223301121-3033121133331002-2023011031300303-1022321132032110-0031123132021300-1322203012013000-3003010023313230"></a>
+
+#### `tls_intercept.custom_certificate.blindfold.context_digest` property
+
+Type: `"string"`. Computed.
+
+<a id="canonical-0001102223302032-1330312202323302-0322120012101133-1133302001331100-3231201031022113-1111103313102010-2210202333003110-3103130203110003"></a>
+
+<a id="canonical-1000012032302300-2023023022010133-2303223232210003-1232222303112132-1031220203312301-3020133302210313-3003130301220231-3323131211230101"></a>
+
+#### `tls_intercept.custom_certificate.blindfold.encrypted_location` property
+
+Type: `"string"`. Computed, Sensitive.
+
+<a id="canonical-0320002101301300-3201300030232203-0000312322111130-0133212313222213-3033011331323132-0012002010030022-2111021311021013-3103220321121233"></a>
+
+<a id="canonical-2132031020030120-2312203301312011-2133000030101123-3220020220131323-1110331112120233-2202230011332113-1320213013200013-0003133122133033"></a>
+
+#### `tls_intercept.custom_certificate.blindfold.expires_at` property
+
+Type: `"string"`. Computed.
+
+<a id="canonical-2023202310203030-1201232320133313-3130103233220011-1120132331230030-0201220213200122-1100321222112233-2303112023113312-0233032221000201"></a>
+
+<a id="canonical-0023133122023332-1322013320132031-0220303211110020-3303203220012133-2231213103312221-2030220302110330-2301111023311130-1321001230232021"></a>
+
+#### `tls_intercept.custom_certificate.blindfold.fingerprint` property
+
+Type: `"string"`. Computed.
+
+<a id="canonical-0000230332323101-0103111203210221-3211011320230331-2021311121220012-2223330100201303-0232000312101203-1210123330210022-3332331331230113"></a>
+
+<a id="canonical-0110301310031033-2120210200332212-3211230110213211-3002330200333211-2313320220001121-0222310332203200-2011112303323301-2230200103033102"></a>
+
+#### `tls_intercept.custom_certificate.blindfold.id` property
+
+Type: `"string"`. Optional.
+
+<a id="canonical-1233023113032002-3013002111212013-2100323202310100-2323330023332223-1130231213210010-1332102132103203-2322122023003011-0201331002331023"></a>
+
+<a id="canonical-2203313211122110-0132002301101030-2013220230131123-3302221023000121-3103031103300301-2131202021210210-0013313212013131-2312001032310021"></a>
+
+#### `tls_intercept.custom_certificate.blindfold.material_version` property
+
+Type: `"string"`. Optional.
+
+<a id="canonical-3321023131202120-2033021131033131-3330332330110120-2200031201231030-1202203012113000-2023302311011002-1023333102010301-0032210321203303"></a>
+
+<a id="canonical-3033331300012313-3201221132202321-1023320131223321-0010030000222113-1033212033320103-0123002102312022-0002301021103301-2310223202100310"></a>
+
+#### `tls_intercept.custom_certificate.blindfold.passphrase_env` property
+
+Type: `"string"`. Optional.
+
+<a id="canonical-1020203030030233-0313322302333003-3212220232201330-0322311303230033-3130003103210013-2223320202122303-0012110333300220-2031110000200032"></a>
+
+<a id="canonical-3100022302031022-3003321321122030-1111220003203033-2333112121221322-3222120003033131-3332233313311200-2112131323030220-3232210230300310"></a>
+
+#### `tls_intercept.custom_certificate.blindfold.passphrase_wo` property
+
+Type: `"string"`. Optional, Sensitive, Write_only.
+
+<a id="canonical-2230022112333102-1030330213032003-2220030301211312-1323222122122212-1133203013113222-1233032210203303-2220333011023033-3322313120131012"></a>
+
+<a id="canonical-2210232203032312-0210303000302311-0122303202021311-2130011011303303-2123112032120001-0203022100310001-2023003312112101-1102220201000330"></a>
+
+#### `tls_intercept.custom_certificate.blindfold.pkcs12_file` property
+
+Type: `"string"`. Optional.
+
+<a id="canonical-3311230102123001-1100220320001131-2210212120100132-0332112200102310-1101322203000103-0001113031022003-3021201021302301-1022323312113301"></a>
+
+<a id="canonical-0323032310201011-3121122203230130-3230310303120301-1132222202221022-3031211003122030-3022203223111310-0221102302020022-2300001230233332"></a>
+
+#### `tls_intercept.custom_certificate.blindfold.pkcs12_wo` property
+
+Type: `"string"`. Optional, Sensitive, Write_only.
+
+<a id="canonical-3100213211111201-0033113300202223-3332313022312020-0320310320212033-0220230210132310-3112200111013211-2332101130301322-3312310030212300"></a>
+
+<a id="canonical-2030211220121002-1012013322031322-1112322101210300-1202101213233310-1333333021122333-1102113103002233-0131112120333321-0301103103122133"></a>
+
+#### `tls_intercept.custom_certificate.blindfold.policy` property
+
+Type: `"string"`. Optional.
+
+<a id="canonical-1203200100000103-1320203010312320-3310023313221111-3012101233230102-0021110223001301-0230003002221323-2231313320333120-2221011331331003"></a>
+
+<a id="canonical-2301121023331000-1020210100230323-0212020303300213-3232320302210231-2330311022201212-0201320012320213-1203210302112330-1131111330330301"></a>
+
+#### `tls_intercept.custom_certificate.blindfold.prepared_identity` property
+
+Type: `"string"`. Computed.
+
+<a id="canonical-3133222200123113-1212013011033322-3331223321301010-1222020301322231-3110101101023111-2131100013113111-1231203300212233-3230021130200202"></a>
+
+<a id="canonical-1013332032212333-0132011132222210-3102033023103322-1113211222010221-3013311213032032-1331100133320101-1312021100203330-0303001132332200"></a>
+
+#### `tls_intercept.custom_certificate.blindfold.private_key_file` property
+
+Type: `"string"`. Optional.
+
+<a id="canonical-3312200223302231-3220320012033021-1210323301210002-0132331013233020-3010300001030321-0311213230210130-1100010002213220-3321110021301322"></a>
+
+<a id="canonical-1000111212302113-2233120123020001-2200300110302332-3103000232320313-3311221102010213-1033210203313213-1230300100032112-2303020301030102"></a>
+
+#### `tls_intercept.custom_certificate.blindfold.private_key_wo` property
+
+Type: `"string"`. Optional, Sensitive, Write_only.
+
+<a id="canonical-0302001110130103-1002132001301132-0202031021231000-2112003113223230-1320103232121010-0113320120312220-0111322022111013-1312311000002311"></a>
+
+<a id="canonical-2131213003332231-1312233323322012-2012012331333010-1033002130221203-3301312123310131-0122101330101331-3321121312110203-3030212112321112"></a>
+
+#### `tls_intercept.custom_certificate.blindfold.spki_identity` property
+
+Type: `"string"`. Computed.
 
 <a id="canonical-3032013211022031-2003020322332212-2232310313202130-1212131023200112-2311110231233322-0213332121331132-2131203121303020-3333330323131203"></a>
 
@@ -2470,13 +2523,6 @@ Breadcrumbs:
 Type: `"object"`. single nested block, Optional.
 
 Specifies the hash algorithms to be used.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("hash_algorithms")}
-```
 
 Receipt-pinned upstream constraints:
 
@@ -2513,15 +2559,6 @@ Type: `["list", "string"]`. Optional.
 values are \`INVALID\_HASH\_ALGORITHM\`, \`SHA256\`, \`SHA1\`. Defaults to
 \`INVALID\_HASH\_ALGORITHM\`.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.List{
-  listvalidator.SizeBetween(1, 4),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -2536,7 +2573,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minItems": 1,
     "uniqueItems": true
@@ -2631,14 +2668,6 @@ Type: `"object"`. single nested block, Optional.
 
 SecretType is used in an object to indicate a sensitive/confidential field.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info",
-    "clear_secret_info")}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -2692,13 +2721,6 @@ Type: `"object"`. single nested block, Optional.
 
 BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("location")}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -2744,7 +2766,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -2767,15 +2789,6 @@ Type: `"string"`. Optional, Sensitive.
 Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(4, 131072),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -2791,7 +2804,7 @@ Receipt-pinned upstream constraints:
       "confidence": 1.0,
       "note": "Blindfold envelope encryption (AES-256-GCM + RSA-OAEP) of an RSA-2048 TLS private key produces ~3700 char string:/// URL. 128KB max secret size = ~175KB base64. Discovery reported 1024 which is incorrect.",
       "source": "manual-override",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 4
   },
@@ -2835,7 +2848,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -2869,13 +2882,6 @@ Breadcrumbs:
 Type: `"object"`. single nested block, Optional.
 
 ClearSecretInfoType specifies information about the Secret that is not encrypted.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("url")}
-```
 
 Receipt-pinned upstream constraints:
 
@@ -2923,15 +2929,6 @@ URL of the secret. Currently supported URL schemes is string:///. For string:///
 needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
 base64 decoding.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 131072),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -2950,7 +2947,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1,
     "pattern": "^(https?|ftp)://[^\\s/$.?#].[^\\s]*$",
@@ -3092,13 +3089,6 @@ Type: `"object"`. single nested block, Optional.
 
 Policy to enable or disable TLS interception.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("interception_rules")}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -3148,14 +3138,6 @@ Type: `"object"`. list nested block, Optional.
 
 List of ordered rules to enable or disable for TLS interception.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.List{validators.ConflictingListObjectAttributes("disable_interception",
-    "enable_interception")}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -3170,7 +3152,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minItems": 1,
     "uniqueItems": true
@@ -3289,18 +3271,6 @@ Additional upstream details:
 
 Domains names.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.ConflictingObjectAttributes("exact_value",
-    "regex_value"),
-  validators.ConflictingObjectAttributes("exact_value",
-    "suffix_value"),
-  validators.ConflictingObjectAttributes("regex_value",
-    "suffix_value")}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -3335,15 +3305,6 @@ Type: `"string"`. Optional.
 
 Exclusive with \[regular expression\_value suffix\_value\] Exact domain name.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 256),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -3359,7 +3320,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1
   },
@@ -3392,15 +3353,6 @@ Type: `"string"`. Optional.
 
 Exclusive with \[exact\_value suffix\_value\] Regular Expression value for the domain name.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 256),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -3415,7 +3367,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1
   },
@@ -3454,15 +3406,6 @@ Additional upstream details:
 Exclusive with \[exact\_value regular expression\_value\] Suffix of domain name e.g "xyz.com" will match
 "\*.xyz.com" and "xyz.com"
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 256),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -3478,7 +3421,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1
   },

@@ -2,7 +2,7 @@
 page_title: "data_guard_rules.path"
 subcategory: "Load Balancing"
 description: "Path match of the URI can be either be, Prefix match or exact match or regular expression match."
-xcsh_docs: {"aliases": ["data guard rules path"], "body_bytes": 4886, "body_sha256": "sha256:1eefdecef6847ccb0db3ecee1e602e07b76005a7941a7d6b6f6ed4b86ad65d6e", "capabilities": ["cdn"], "category": "cdn", "child_ids": [], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:resources:cdn_loadbalancer:collection", "completeness": "complete", "id": "xcsh-docs:resources:cdn_loadbalancer:properties:data_guard_rules:path", "parent_id": "xcsh-docs:resources:cdn_loadbalancer:properties:data_guard_rules", "path": "documentation/resources/cdn_loadbalancer/properties/data_guard_rules/path/index.md", "product": "distributed-cloud", "provider_name": "cdn_loadbalancer", "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429", "provider_type": "resources", "registry_anchor": "canonical-2221321201233220-1100220020003312-3000210031200012-2102301330322031-2230030102330302-3313203123032010-2033213021121323-3102030311233212", "registry_path": "docs/guides/resources--cdn_loadbalancer--reference--group-009.md", "relationships": [{"anchor": "schema-data_guard_rules--path--path", "enforcement": "provider-schema", "group": "data_guard_rules.path:ConflictingObjectAttributes:path,prefix", "source": "ast-validator:ConflictingObjectAttributes", "target_id": "xcsh-docs:resources:cdn_loadbalancer:properties:data_guard_rules:path", "type": "conflicts"}, {"anchor": "schema-data_guard_rules--path--path", "enforcement": "provider-schema", "group": "data_guard_rules.path:ConflictingObjectAttributes:path,regex", "source": "ast-validator:ConflictingObjectAttributes", "target_id": "xcsh-docs:resources:cdn_loadbalancer:properties:data_guard_rules:path", "type": "conflicts"}, {"anchor": "schema-data_guard_rules--path--prefix", "enforcement": "provider-schema", "group": "data_guard_rules.path:ConflictingObjectAttributes:path,prefix", "source": "ast-validator:ConflictingObjectAttributes", "target_id": "xcsh-docs:resources:cdn_loadbalancer:properties:data_guard_rules:path", "type": "conflicts"}, {"anchor": "schema-data_guard_rules--path--prefix", "enforcement": "provider-schema", "group": "data_guard_rules.path:ConflictingObjectAttributes:prefix,regex", "source": "ast-validator:ConflictingObjectAttributes", "target_id": "xcsh-docs:resources:cdn_loadbalancer:properties:data_guard_rules:path", "type": "conflicts"}, {"anchor": "schema-data_guard_rules--path--regex", "enforcement": "provider-schema", "group": "data_guard_rules.path:ConflictingObjectAttributes:path,regex", "source": "ast-validator:ConflictingObjectAttributes", "target_id": "xcsh-docs:resources:cdn_loadbalancer:properties:data_guard_rules:path", "type": "conflicts"}, {"anchor": "schema-data_guard_rules--path--regex", "enforcement": "provider-schema", "group": "data_guard_rules.path:ConflictingObjectAttributes:prefix,regex", "source": "ast-validator:ConflictingObjectAttributes", "target_id": "xcsh-docs:resources:cdn_loadbalancer:properties:data_guard_rules:path", "type": "conflicts"}], "retrieval_version": 1, "role": "properties", "schema_path": ["data_guard_rules", "path"], "schema_version": 1, "sections": [{"aliases": ["data guard rules path path"], "anchor": "schema-data_guard_rules--path--path", "description": "Exclusive with Exact path value to match.", "document_id": "xcsh-docs:resources:cdn_loadbalancer:properties:data_guard_rules:path", "enum_extraction_complete": true, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["data_guard_rules", "path", "path"], "syntax": "attribute", "type": "string"}, {"aliases": ["data guard rules path prefix"], "anchor": "schema-data_guard_rules--path--prefix", "description": "Exclusive with Path prefix to match (e.g. The value / will match on all paths)", "document_id": "xcsh-docs:resources:cdn_loadbalancer:properties:data_guard_rules:path", "enum_extraction_complete": true, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["data_guard_rules", "path", "prefix"], "syntax": "attribute", "type": "string"}, {"aliases": ["data guard rules path regex"], "anchor": "schema-data_guard_rules--path--regex", "description": "Exclusive with Regular expression of path match (e.g. The value .* will match on all paths)", "document_id": "xcsh-docs:resources:cdn_loadbalancer:properties:data_guard_rules:path", "enum_extraction_complete": true, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["data_guard_rules", "path", "regex"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cdn_loadbalancer/properties/data_guard_rules/path/index.txt", "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833", "summary": "Path match of the URI can be either be, Prefix match or exact match or regular expression match.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.3", "schema_components": ["cdn_loadbalancerCreateRequest"], "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"}}
+xcsh_docs: {"aliases": ["data guard rules path"], "body_bytes": 4059, "body_sha256": "sha256:eef192b576f022c34c4535a66ab283f47b615d282425f0d812823385392287c1", "capabilities": ["cdn"], "category": "cdn", "child_ids": [], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:resources:cdn_loadbalancer:collection", "completeness": "complete", "id": "xcsh-docs:resources:cdn_loadbalancer:properties:data_guard_rules:path", "parent_id": "xcsh-docs:resources:cdn_loadbalancer:properties:data_guard_rules", "path": "documentation/resources/cdn_loadbalancer/properties/data_guard_rules/path/index.md", "product": "distributed-cloud", "provider_name": "cdn_loadbalancer", "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829", "provider_type": "resources", "registry_anchor": "canonical-2221321201233220-1100220020003312-3000210031200012-2102301330322031-2230030102330302-3313203123032010-2033213021121323-3102030311233212", "registry_path": "docs/guides/resources--cdn_loadbalancer--reference--group-009.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["data_guard_rules", "path"], "schema_version": 1, "sections": [{"aliases": ["data guard rules path path"], "anchor": "schema-data_guard_rules--path--path", "description": "Exclusive with Exact path value to match.", "document_id": "xcsh-docs:resources:cdn_loadbalancer:properties:data_guard_rules:path", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["data_guard_rules", "path", "path"], "syntax": "attribute", "type": "string"}, {"aliases": ["data guard rules path prefix"], "anchor": "schema-data_guard_rules--path--prefix", "description": "Exclusive with Path prefix to match (e.g. The value / will match on all paths)", "document_id": "xcsh-docs:resources:cdn_loadbalancer:properties:data_guard_rules:path", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["data_guard_rules", "path", "prefix"], "syntax": "attribute", "type": "string"}, {"aliases": ["data guard rules path regex"], "anchor": "schema-data_guard_rules--path--regex", "description": "Exclusive with Regular expression of path match (e.g. The value .* will match on all paths)", "document_id": "xcsh-docs:resources:cdn_loadbalancer:properties:data_guard_rules:path", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["data_guard_rules", "path", "regex"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cdn_loadbalancer/properties/data_guard_rules/path/index.txt", "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1", "summary": "Path match of the URI can be either be, Prefix match or exact match or regular expression match.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.4", "schema_components": ["cdn_loadbalancerCreateRequest"], "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -23,18 +23,6 @@ Breadcrumbs:
 Type: `"object"`. single nested block, Optional.
 
 Path match of the URI can be either be, Prefix match or exact match or regular expression match.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.ConflictingObjectAttributes("path",
-    "prefix"),
-  validators.ConflictingObjectAttributes("path",
-    "regex"),
-  validators.ConflictingObjectAttributes("prefix",
-    "regex")}
-```
 
 Receipt-pinned upstream constraints:
 
@@ -68,15 +56,6 @@ Type: `"string"`. Optional.
 
 Exclusive with \[prefix regex\] Exact path value to match.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 256),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -90,7 +69,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1,
     "pattern": "^[/a-zA-Z0-9._-]+$"
@@ -120,15 +99,6 @@ Type: `"string"`. Optional.
 
 Exclusive with \[path regex\] Path prefix to match (e.g. The value / will match on all paths)
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthAtMost(256),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -142,7 +112,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -171,15 +141,6 @@ Type: `"string"`. Optional.
 Exclusive with \[path prefix\] Regular expression of path match (e.g. The value .\* will match on
 all paths).
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 256),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -198,7 +159,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1
   },
