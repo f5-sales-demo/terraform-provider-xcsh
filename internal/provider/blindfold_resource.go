@@ -202,6 +202,27 @@ func atValue(v tftypes.Value, p []any) tftypes.Value {
 	}
 	return v
 }
+
+// Native IDs identify managed history; list positions only identify legacy
+// certificate nodes that have not yet acquired native inputs during import.
+func nativeHistory(state tftypes.Value, path []any, id string, named bool) (map[string]tftypes.Value, []any) {
+	previous := objectValue(atValue(state, path))
+	if native := previous["blindfold"]; native.Type() != nil && !native.IsNull() {
+		previous = nil
+	}
+	walkNative(state, nil, func(candidatePath []any, candidate map[string]tftypes.Value) {
+		entry := objectValue(candidate["blindfold"])
+		previousID := textValue(entry["id"])
+		if previousID == "" && named {
+			previousID = "default"
+		}
+		if previousID == id {
+			previous = candidate
+			path = candidatePath
+		}
+	})
+	return previous, path
+}
 func editValue(v tftypes.Value, p []any, fn func(map[string]tftypes.Value)) tftypes.Value {
 	if len(p) == 0 {
 		m := objectValue(v)
@@ -467,21 +488,14 @@ func (r *blindfoldResource) nodes(c context.Context, config, plan, state tftypes
 		}
 		plannedParent := objectValue(atValue(plan, p))
 		planned := objectValue(plannedParent["blindfold"])
-		oldParent := objectValue(atValue(state, p))
+		oldParent, oldPath := nativeHistory(state, p, id, r.named)
 		old := objectValue(oldParent["blindfold"])
-		walkNative(state, nil, func(_ []any, candidate map[string]tftypes.Value) {
-			entry := objectValue(candidate["blindfold"])
-			previousID := textValue(entry["id"])
-			if previousID == "" && r.named {
-				previousID = "default"
-			}
-			if previousID == id {
-				old = entry
-			}
-		})
 		node := &nativeNode{path: p, id: id, config: input, plan: planned, material: material, context: context}
 		nodes = append(nodes, node)
-		remoteN := remoteNode(remote, p)
+		var remoteN map[string]any
+		if len(oldParent) > 0 {
+			remoteN = remoteNode(remote, oldPath)
+		}
 		if stable := remoteByEntry(remote, prov.Entries[id]); stable != nil {
 			remoteN = stable
 		}
@@ -748,7 +762,8 @@ func (r *blindfoldResource) ModifyPlan(c context.Context, q resource.ModifyPlanR
 	defer closeNodes(nodes)
 	s.Plan.Raw = nativeOutputs(s.Plan.Raw, nodes, false)
 	for _, n := range nodes {
-		previous := objectValue(objectValue(atValue(q.State.Raw, n.path))["blindfold"])
+		history, _ := nativeHistory(q.State.Raw, n.path, n.id, r.named)
+		previous := objectValue(history["blindfold"])
 		if textValue(previous["prepared_identity"]) == "remote-drift" {
 			s.Plan.Raw = editValue(s.Plan.Raw, n.path, func(parent map[string]tftypes.Value) {
 				v := parent["blindfold"]
