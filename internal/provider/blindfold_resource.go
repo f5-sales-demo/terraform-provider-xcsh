@@ -800,6 +800,9 @@ func (r *blindfoldResource) Create(c context.Context, q resource.CreateRequest, 
 	s.State = tfsdk.State{Raw: raw, Schema: b}
 	r.inner.Create(c, q, s)
 	if s.Diagnostics.HasError() {
+		var enhanced resource.SchemaResponse
+		r.Schema(c, resource.SchemaRequest{}, &enhanced)
+		s.State = tfsdk.State{Raw: tftypes.NewValue(enhanced.Schema.Type().TerraformType(c), nil), Schema: enhanced.Schema}
 		return
 	}
 	if s.State.Raw.IsNull() {
@@ -813,6 +816,7 @@ func (r *blindfoldResource) Create(c context.Context, q resource.CreateRequest, 
 	}
 }
 func (r *blindfoldResource) Update(c context.Context, q resource.UpdateRequest, s *resource.UpdateResponse) {
+	originalState := q.State
 	nodes, err := r.nodes(c, q.Config.Raw, q.Plan.Raw, q.State.Raw, true)
 	if err != nil {
 		nativeError(&s.Diagnostics, err)
@@ -836,6 +840,7 @@ func (r *blindfoldResource) Update(c context.Context, q resource.UpdateRequest, 
 	s.State = tfsdk.State{Raw: raw, Schema: b}
 	r.inner.Update(c, q, s)
 	if s.Diagnostics.HasError() {
+		s.State = originalState
 		return
 	}
 	var enhanced resource.SchemaResponse
