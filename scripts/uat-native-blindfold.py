@@ -1,3 +1,5 @@
+# Executable command filename follows existing script naming.
+# pylint: disable=invalid-name
 """Run disposable native-certificate Terraform UAT; credentials stay in environment."""
 
 import argparse
@@ -12,6 +14,7 @@ import urllib.error
 import urllib.parse
 import urllib.request
 from pathlib import Path
+from typing import TypedDict
 
 NOT_FOUND = 404
 LABEL = re.compile(r"^[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?$")
@@ -25,14 +28,9 @@ parser.add_argument("--receipt", required=True)
 args = parser.parse_args()
 api_url = os.environ.get("XCSH_API_URL", "").rstrip("/")
 origin = urllib.parse.urlparse(api_url)
-if (
-    origin.scheme != "https"
-    or origin.username
-    or origin.password
-    or origin.query
-    or origin.fragment
-    or origin.path
-):
+invalid_origin = origin.scheme != "https" or bool(origin.username or origin.password)
+invalid_origin = invalid_origin or bool(origin.query or origin.fragment or origin.path)
+if invalid_origin:
     message = "Tenant API URL must be an HTTPS origin"
     raise SystemExit(message)
 if (
@@ -42,11 +40,23 @@ if (
 ):
     message = "Tenant credentials and valid disposable identities are required"
     raise SystemExit(message)
-terraform = shutil.which("terraform")
-if not terraform:
+terraform_path = shutil.which("terraform")
+if not terraform_path:
     message = "Terraform executable is required"
     raise SystemExit(message)
-receipt = {"version": 1, "gates": {}, "cleanup": False}
+terraform: str = terraform_path
+
+
+class Receipt(TypedDict, total=False):
+    """Sanitized acceptance facts without tenant credentials."""
+
+    version: int
+    gates: dict[str, int | bool]
+    cleanup: bool
+    state_sha256: str
+
+
+receipt: Receipt = {"version": 1, "gates": {}, "cleanup": False}
 with tempfile.TemporaryDirectory(prefix="blindfold-uat-") as temp:
     root = Path(temp)
     root.chmod(0o700)
@@ -107,7 +117,8 @@ with tempfile.TemporaryDirectory(prefix="blindfold-uat-") as temp:
             url, headers={"Authorization": "APIToken " + os.environ["XCSH_API_TOKEN"]}
         )
         try:
-            urllib.request.urlopen(request, timeout=30)  # noqa: S310 -- validated HTTPS origin
+            with urllib.request.urlopen(request, timeout=30) as response:  # noqa: S310 -- validated HTTPS origin
+                response.read(1)
         except urllib.error.HTTPError as error:
             if error.code == NOT_FOUND:
                 receipt["cleanup"] = True
