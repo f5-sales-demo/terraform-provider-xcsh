@@ -104,7 +104,7 @@ func documentNode(n *yaml.Node) (any, error) {
 			return n.Value, nil
 		case "!!int":
 			if !decimal.MatchString(n.Value) {
-				return nil, errors.New("Blindfold integer must be unsigned decimal")
+				return nil, errors.New("blindfold integer must be unsigned decimal")
 			}
 			return json.Number(n.Value), nil
 		case "!!bool":
@@ -142,7 +142,7 @@ func ParseContext(public, policy []byte) (Context, error) {
 	}
 	tenant, ok := pub["tenant"].(string)
 	if !ok || !label.MatchString(tenant) || pol["tenant"] != tenant {
-		return Context{}, errors.New("Blindfold material tenant mismatch")
+		return Context{}, errors.New("blindfold material tenant mismatch")
 	}
 	v, ok := pub["key_version"].(json.Number)
 	if !ok {
@@ -198,7 +198,7 @@ func Encrypt(secret []byte, c Context) (string, error) {
 		return "", err
 	}
 	if len(secret) > MaxInput {
-		return "", errors.New("Blindfold input exceeds 2 MiB")
+		return "", errors.New("blindfold input exceeds 2 MiB")
 	}
 	width := (c.Modulus.BitLen() + 7) / 8
 	// Check the final encoding before allocating or encrypting a large secret.
