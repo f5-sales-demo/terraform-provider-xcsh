@@ -72,9 +72,9 @@ with tempfile.TemporaryDirectory(prefix="blindfold-uat-") as temp:
     def run(stage: str, *argv: str) -> None:
         """Run fixed Terraform operations and retain only private temporary logs."""
         # Terraform receives fixed command tokens and validated paths, without a shell.
-        completed = subprocess.run(
+        completed = subprocess.run(  # noqa: S603 -- fixed Terraform tokens and validated paths
             [terraform, *argv], cwd=root, env=env, capture_output=True, check=False
-        )  # noqa: S603
+        )
         (root / (stage + ".log")).write_bytes(completed.stdout + completed.stderr)
         receipt["gates"][stage] = completed.returncode
         if completed.returncode:
@@ -103,11 +103,11 @@ with tempfile.TemporaryDirectory(prefix="blindfold-uat-") as temp:
             + "/certificates/"
             + args.name
         )
-        request = urllib.request.Request(
+        request = urllib.request.Request(  # noqa: S310 -- validated HTTPS origin
             url, headers={"Authorization": "APIToken " + os.environ["XCSH_API_TOKEN"]}
-        )  # noqa: S310 -- validated HTTPS origin and label paths
+        )
         try:
-            urllib.request.urlopen(request, timeout=30)  # noqa: S310 -- validated HTTPS origin and label paths
+            urllib.request.urlopen(request, timeout=30)  # noqa: S310 -- validated HTTPS origin
         except urllib.error.HTTPError as error:
             if error.code == NOT_FOUND:
                 receipt["cleanup"] = True
