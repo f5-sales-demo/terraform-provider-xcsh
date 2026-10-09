@@ -14,7 +14,7 @@ func TestPinnedReferenceRecovery(t *testing.T) {
 	if err := ValidateContract(); err != nil {
 		t.Fatal(err)
 	}
-	b, _ := contract.ReadFile("contract/blindfold-contract-v1.json")
+	b, _ := contract.ReadFile("contract/blindfold-contract-v1.txt")
 	var bundle struct {
 		Files map[string]string `json:"files"`
 	}

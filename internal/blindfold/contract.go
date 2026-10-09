@@ -12,7 +12,7 @@ import (
 var contract embed.FS
 
 func ValidateContract() error {
-	bundle, err := contract.ReadFile("contract/blindfold-contract-v1.json")
+	bundle, err := contract.ReadFile("contract/blindfold-contract-v1.txt")
 	if err != nil {
 		return err
 	}
