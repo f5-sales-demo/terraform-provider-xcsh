@@ -384,7 +384,27 @@ func provenance(body map[string]any) blindfold.Provenance {
 	if len(s) > blindfold.MaxEncoded {
 		return p
 	}
-	_ = json.Unmarshal([]byte(s), &p)
+	if _, err := blindfold.ParseDocument([]byte(s)); err != nil {
+		return p
+	}
+	if json.Unmarshal([]byte(s), &p) != nil {
+		return blindfold.Provenance{}
+	}
+	for id, entry := range p.Entries {
+		if !blindfoldLabel(id) || (entry.Algorithm != "RSA" && entry.Algorithm != "EC") {
+			return blindfold.Provenance{}
+		}
+		for _, digest := range []string{entry.Chain, entry.SPKI, entry.Context, entry.Ciphertext} {
+			if len(digest) != 64 {
+				return blindfold.Provenance{}
+			}
+			for _, v := range digest {
+				if !(v >= '0' && v <= '9' || v >= 'a' && v <= 'f') {
+					return blindfold.Provenance{}
+				}
+			}
+		}
+	}
 	if p.Version != 1 {
 		return blindfold.Provenance{}
 	}
