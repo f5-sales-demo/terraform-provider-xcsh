@@ -399,7 +399,7 @@ func provenance(body map[string]any) blindfold.Provenance {
 				return blindfold.Provenance{}
 			}
 			for _, v := range digest {
-				if !(v >= '0' && v <= '9' || v >= 'a' && v <= 'f') {
+				if (v < '0' || v > '9') && (v < 'a' || v > 'f') {
 					return blindfold.Provenance{}
 				}
 			}

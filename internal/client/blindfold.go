@@ -62,7 +62,7 @@ func (c *Client) blindfoldWrite(ctx context.Context, method, path string, data, 
 	}
 	_, writeErr := c.doRequestWithRetry(ctx, method, path, data, false)
 	if HasHTTPStatus(writeErr, 409) {
-		return errors.New("Blindfold concurrency conflict; refresh and replan")
+		return errors.New("blindfold concurrency conflict; refresh and replan")
 	}
 	readPath := path
 	if method == "POST" {
@@ -75,12 +75,12 @@ func (c *Client) blindfoldWrite(ctx context.Context, method, path string, data, 
 	var observed map[string]any
 	err = c.GetReplaceForm(ctx, readPath, &observed)
 	if err != nil || !nativeMaterialEqual(desired["spec"], observed["spec"]) {
-		return errors.New("Blindfold write outcome unresolved; inspect named resource before retrying")
+		return errors.New("blindfold write outcome unresolved; inspect named resource before retrying")
 	}
 	observedMeta, _ := observed["metadata"].(map[string]any)
 	observedAnnotations, _ := observedMeta["annotations"].(map[string]any)
 	if observedAnnotations["f5-sales-demo.com/blindfold"] != annotations["f5-sales-demo.com/blindfold"] {
-		return errors.New("Blindfold provenance readback failed")
+		return errors.New("blindfold provenance readback failed")
 	}
 	if result != nil {
 		body, _ := json.Marshal(observed)
