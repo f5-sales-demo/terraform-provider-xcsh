@@ -3,13 +3,16 @@
   "source": {
     "provider": "6254f14fbced03306e73d468a12ff14a112acee7",
     "xcsh": "ca82baec682ba3dade47a306f3b9bb7bdfee2726",
-    "contract": "9a25608eaa8c4c679ff3e052b0434cc659fe896d"
+    "contract": "c065b50c62df6306ce68a9b0a9c2a6bd74dcef14"
   },
   "artifacts": {
     "linux_prototype_sha256": "710d1c5951aff6e5465375392ab79e64a7be6b77c5d070502594311a395f5c33",
     "linux_final_sha256": "b74d6af71a6f70241c24fbeb6a44686f7e80a16d6e02f16b7cb3b7d8b2681806",
     "macos_arm64_prototype_sha256": "03c00ad99c1e5ff3cd29e8a1b034ee43e312180337d0e39467b953a3d72cae75",
-    "xcsh_linux_native_sha256": "34ce879f6d0dee904c421d24edcfb527df77edfaea93c0446b587c365fbf1a71"
+    "xcsh_linux_native_sha256": "34ce879f6d0dee904c421d24edcfb527df77edfaea93c0446b587c365fbf1a71",
+    "linux_v12_0_4_candidate_sha256": "6d887340deee27fd6442912765b7ace0e277095834e8e5c856b0fcf1b4c185d0",
+    "installed_xcsh_linux_candidate_sha256": "460604dd0f6dd84a18317fbfc7669da2f04ce047452f4e891cb36244b4a3020a",
+    "xcsh_macos_arm64_native_sha256": "099d2c55d1b8f589327b8d9d8beabc44f521e309494aae1f1dcd4694e14fafbe"
   },
   "qualified": {
     "go_independent_recovery": true,
@@ -38,7 +41,10 @@
     "cleanup_named_inline_and_macos": true,
     "all_node_serialization_and_write_only_stripping": true,
     "final_committed_linux_harness": true,
-    "source_go_vet": true
+    "source_go_vet": true,
+    "installed_xcsh_linux_create_unchanged_cleanup": true,
+    "macos_native_live_ensure_create_unchanged_cleanup": true,
+    "v12_0_4_live_init_apply_empty_cleanup": true
   },
   "unqualified": [
     "all remaining inline configuration surfaces live",
@@ -46,7 +52,6 @@
     "complete list insertion/reordering live",
     "installed xcsh macOS candidate",
     "published immutable release artifacts",
-    "contract runner deployment awaits AWS SSO",
     "final protected PR delivery"
   ],
   "live_receipts": {
