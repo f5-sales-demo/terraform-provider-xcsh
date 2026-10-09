@@ -44,7 +44,7 @@ var (
 )
 
 func NewOriginPoolResource() resource.Resource {
-	return &OriginPoolResource{}
+	return newBlindfoldResource(&OriginPoolResource{}, "/api/config/namespaces/%s/origin_pools", "/api/config/namespaces/%s/origin_pools/%s", false)
 }
 
 type OriginPoolResource struct {
@@ -4798,9 +4798,6 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 												if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
 													return &OriginPoolUseTLSUseMtlsTLSCertificatesPrivateKeyModel{
 														BlindfoldSecretInfo: func() *OriginPoolUseTLSUseMtlsTLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
-															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo != nil {
-																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo
-															}
 															if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 																return &OriginPoolUseTLSUseMtlsTLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
 																	DecryptionProvider: func() types.String {
@@ -4826,9 +4823,6 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 															return nil
 														}(),
 														ClearSecretInfo: func() *OriginPoolUseTLSUseMtlsTLSCertificatesPrivateKeyClearSecretInfoModel {
-															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo != nil {
-																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo
-															}
 															if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 																return &OriginPoolUseTLSUseMtlsTLSCertificatesPrivateKeyClearSecretInfoModel{
 																	Provider: func() types.String {
@@ -6585,9 +6579,6 @@ func (r *OriginPoolResource) Read(ctx context.Context, req resource.ReadRequest,
 												if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
 													return &OriginPoolUseTLSUseMtlsTLSCertificatesPrivateKeyModel{
 														BlindfoldSecretInfo: func() *OriginPoolUseTLSUseMtlsTLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
-															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo != nil {
-																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo
-															}
 															if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 																return &OriginPoolUseTLSUseMtlsTLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
 																	DecryptionProvider: func() types.String {
@@ -6613,9 +6604,6 @@ func (r *OriginPoolResource) Read(ctx context.Context, req resource.ReadRequest,
 															return nil
 														}(),
 														ClearSecretInfo: func() *OriginPoolUseTLSUseMtlsTLSCertificatesPrivateKeyClearSecretInfoModel {
-															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo != nil {
-																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo
-															}
 															if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 																return &OriginPoolUseTLSUseMtlsTLSCertificatesPrivateKeyClearSecretInfoModel{
 																	Provider: func() types.String {
@@ -9130,9 +9118,6 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 												if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
 													return &OriginPoolUseTLSUseMtlsTLSCertificatesPrivateKeyModel{
 														BlindfoldSecretInfo: func() *OriginPoolUseTLSUseMtlsTLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
-															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo != nil {
-																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo
-															}
 															if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 																return &OriginPoolUseTLSUseMtlsTLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
 																	DecryptionProvider: func() types.String {
@@ -9158,9 +9143,6 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 															return nil
 														}(),
 														ClearSecretInfo: func() *OriginPoolUseTLSUseMtlsTLSCertificatesPrivateKeyClearSecretInfoModel {
-															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo != nil {
-																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo
-															}
 															if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 																return &OriginPoolUseTLSUseMtlsTLSCertificatesPrivateKeyClearSecretInfoModel{
 																	Provider: func() types.String {

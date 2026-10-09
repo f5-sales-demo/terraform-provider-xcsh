@@ -27,7 +27,7 @@ func (c *Client) CreateBigIPHTTPProxy(ctx context.Context, resource *BigIPHTTPPr
 func (c *Client) GetBigIPHTTPProxy(ctx context.Context, namespace, name string) (*BigIPHTTPProxy, error) {
 	var result BigIPHTTPProxy
 	path := fmt.Sprintf("/api/config/namespaces/%s/bigip_http_proxys/%s", namespace, name)
-	err := c.Get(ctx, path, &result)
+	err := c.GetReplaceForm(ctx, path, &result)
 	return &result, err
 }
 

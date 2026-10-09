@@ -1208,7 +1208,7 @@ func (c *Client) Get{{.TitleCase}}(ctx context.Context, namespace, name string) 
 	path := fmt.Sprintf("{{.APIPathItem}}", name)
 	_ = namespace // Namespace not required in API path for this resource
 {{- end}}
-	err := c.Get(ctx, path, &result)
+	{{if hasBlindfoldNodes .Attributes}}err := c.GetReplaceForm(ctx, path, &result){{else}}err := c.Get(ctx, path, &result){{end}}
 	return &result, err
 }
 

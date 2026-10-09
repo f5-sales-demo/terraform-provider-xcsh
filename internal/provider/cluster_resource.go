@@ -42,7 +42,7 @@ var (
 )
 
 func NewClusterResource() resource.Resource {
-	return &ClusterResource{}
+	return newBlindfoldResource(&ClusterResource{}, "/api/config/namespaces/%s/clusters", "/api/config/namespaces/%s/clusters/%s", false)
 }
 
 type ClusterResource struct {
@@ -2442,9 +2442,6 @@ func (r *ClusterResource) Create(ctx context.Context, req resource.CreateRequest
 												if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
 													return &ClusterTLSParametersCommonParamsTLSCertificatesPrivateKeyModel{
 														BlindfoldSecretInfo: func() *ClusterTLSParametersCommonParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
-															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo != nil {
-																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo
-															}
 															if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 																return &ClusterTLSParametersCommonParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
 																	DecryptionProvider: func() types.String {
@@ -2470,9 +2467,6 @@ func (r *ClusterResource) Create(ctx context.Context, req resource.CreateRequest
 															return nil
 														}(),
 														ClearSecretInfo: func() *ClusterTLSParametersCommonParamsTLSCertificatesPrivateKeyClearSecretInfoModel {
-															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo != nil {
-																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo
-															}
 															if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 																return &ClusterTLSParametersCommonParamsTLSCertificatesPrivateKeyClearSecretInfoModel{
 																	Provider: func() types.String {
@@ -3478,9 +3472,6 @@ func (r *ClusterResource) Read(ctx context.Context, req resource.ReadRequest, re
 												if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
 													return &ClusterTLSParametersCommonParamsTLSCertificatesPrivateKeyModel{
 														BlindfoldSecretInfo: func() *ClusterTLSParametersCommonParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
-															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo != nil {
-																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo
-															}
 															if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 																return &ClusterTLSParametersCommonParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
 																	DecryptionProvider: func() types.String {
@@ -3506,9 +3497,6 @@ func (r *ClusterResource) Read(ctx context.Context, req resource.ReadRequest, re
 															return nil
 														}(),
 														ClearSecretInfo: func() *ClusterTLSParametersCommonParamsTLSCertificatesPrivateKeyClearSecretInfoModel {
-															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo != nil {
-																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo
-															}
 															if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 																return &ClusterTLSParametersCommonParamsTLSCertificatesPrivateKeyClearSecretInfoModel{
 																	Provider: func() types.String {
@@ -4987,9 +4975,6 @@ func (r *ClusterResource) Update(ctx context.Context, req resource.UpdateRequest
 												if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
 													return &ClusterTLSParametersCommonParamsTLSCertificatesPrivateKeyModel{
 														BlindfoldSecretInfo: func() *ClusterTLSParametersCommonParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
-															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo != nil {
-																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo
-															}
 															if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 																return &ClusterTLSParametersCommonParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
 																	DecryptionProvider: func() types.String {
@@ -5015,9 +5000,6 @@ func (r *ClusterResource) Update(ctx context.Context, req resource.UpdateRequest
 															return nil
 														}(),
 														ClearSecretInfo: func() *ClusterTLSParametersCommonParamsTLSCertificatesPrivateKeyClearSecretInfoModel {
-															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo != nil {
-																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo
-															}
 															if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 																return &ClusterTLSParametersCommonParamsTLSCertificatesPrivateKeyClearSecretInfoModel{
 																	Provider: func() types.String {

@@ -40,7 +40,7 @@ var (
 )
 
 func NewNetworkConnectorResource() resource.Resource {
-	return &NetworkConnectorResource{}
+	return newBlindfoldResource(&NetworkConnectorResource{}, "/api/config/namespaces/%s/network_connectors", "/api/config/namespaces/%s/network_connectors/%s", false)
 }
 
 type NetworkConnectorResource struct {
@@ -1082,15 +1082,9 @@ func (r *NetworkConnectorResource) Create(ctx context.Context, req resource.Crea
 										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 									PrivateKey: func() *NetworkConnectorEnableForwardProxyTLSInterceptCustomCertificatePrivateKeyModel {
-										if !isImport && data.EnableForwardProxy != nil && data.EnableForwardProxy.TLSIntercept != nil && data.EnableForwardProxy.TLSIntercept.CustomCertificate != nil && data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey != nil {
-											return data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey
-										}
 										if PrivateKeyData, ok := CustomCertificateData["private_key"].(map[string]interface{}); ok {
 											return &NetworkConnectorEnableForwardProxyTLSInterceptCustomCertificatePrivateKeyModel{
 												BlindfoldSecretInfo: func() *NetworkConnectorEnableForwardProxyTLSInterceptCustomCertificatePrivateKeyBlindfoldSecretInfoModel {
-													if !isImport && data.EnableForwardProxy != nil && data.EnableForwardProxy.TLSIntercept != nil && data.EnableForwardProxy.TLSIntercept.CustomCertificate != nil && data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey != nil && data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey.BlindfoldSecretInfo != nil {
-														return data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey.BlindfoldSecretInfo
-													}
 													if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 														return &NetworkConnectorEnableForwardProxyTLSInterceptCustomCertificatePrivateKeyBlindfoldSecretInfoModel{
 															DecryptionProvider: func() types.String {
@@ -1116,9 +1110,6 @@ func (r *NetworkConnectorResource) Create(ctx context.Context, req resource.Crea
 													return nil
 												}(),
 												ClearSecretInfo: func() *NetworkConnectorEnableForwardProxyTLSInterceptCustomCertificatePrivateKeyClearSecretInfoModel {
-													if !isImport && data.EnableForwardProxy != nil && data.EnableForwardProxy.TLSIntercept != nil && data.EnableForwardProxy.TLSIntercept.CustomCertificate != nil && data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey != nil && data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey.ClearSecretInfo != nil {
-														return data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey.ClearSecretInfo
-													}
 													if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 														return &NetworkConnectorEnableForwardProxyTLSInterceptCustomCertificatePrivateKeyClearSecretInfoModel{
 															Provider: func() types.String {
@@ -1601,15 +1592,9 @@ func (r *NetworkConnectorResource) Read(ctx context.Context, req resource.ReadRe
 										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 									PrivateKey: func() *NetworkConnectorEnableForwardProxyTLSInterceptCustomCertificatePrivateKeyModel {
-										if !isImport && data.EnableForwardProxy != nil && data.EnableForwardProxy.TLSIntercept != nil && data.EnableForwardProxy.TLSIntercept.CustomCertificate != nil && data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey != nil {
-											return data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey
-										}
 										if PrivateKeyData, ok := CustomCertificateData["private_key"].(map[string]interface{}); ok {
 											return &NetworkConnectorEnableForwardProxyTLSInterceptCustomCertificatePrivateKeyModel{
 												BlindfoldSecretInfo: func() *NetworkConnectorEnableForwardProxyTLSInterceptCustomCertificatePrivateKeyBlindfoldSecretInfoModel {
-													if !isImport && data.EnableForwardProxy != nil && data.EnableForwardProxy.TLSIntercept != nil && data.EnableForwardProxy.TLSIntercept.CustomCertificate != nil && data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey != nil && data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey.BlindfoldSecretInfo != nil {
-														return data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey.BlindfoldSecretInfo
-													}
 													if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 														return &NetworkConnectorEnableForwardProxyTLSInterceptCustomCertificatePrivateKeyBlindfoldSecretInfoModel{
 															DecryptionProvider: func() types.String {
@@ -1635,9 +1620,6 @@ func (r *NetworkConnectorResource) Read(ctx context.Context, req resource.ReadRe
 													return nil
 												}(),
 												ClearSecretInfo: func() *NetworkConnectorEnableForwardProxyTLSInterceptCustomCertificatePrivateKeyClearSecretInfoModel {
-													if !isImport && data.EnableForwardProxy != nil && data.EnableForwardProxy.TLSIntercept != nil && data.EnableForwardProxy.TLSIntercept.CustomCertificate != nil && data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey != nil && data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey.ClearSecretInfo != nil {
-														return data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey.ClearSecretInfo
-													}
 													if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 														return &NetworkConnectorEnableForwardProxyTLSInterceptCustomCertificatePrivateKeyClearSecretInfoModel{
 															Provider: func() types.String {
@@ -2319,15 +2301,9 @@ func (r *NetworkConnectorResource) Update(ctx context.Context, req resource.Upda
 										return types.ObjectNull(map[string]attr.Type{})
 									}(),
 									PrivateKey: func() *NetworkConnectorEnableForwardProxyTLSInterceptCustomCertificatePrivateKeyModel {
-										if !isImport && data.EnableForwardProxy != nil && data.EnableForwardProxy.TLSIntercept != nil && data.EnableForwardProxy.TLSIntercept.CustomCertificate != nil && data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey != nil {
-											return data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey
-										}
 										if PrivateKeyData, ok := CustomCertificateData["private_key"].(map[string]interface{}); ok {
 											return &NetworkConnectorEnableForwardProxyTLSInterceptCustomCertificatePrivateKeyModel{
 												BlindfoldSecretInfo: func() *NetworkConnectorEnableForwardProxyTLSInterceptCustomCertificatePrivateKeyBlindfoldSecretInfoModel {
-													if !isImport && data.EnableForwardProxy != nil && data.EnableForwardProxy.TLSIntercept != nil && data.EnableForwardProxy.TLSIntercept.CustomCertificate != nil && data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey != nil && data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey.BlindfoldSecretInfo != nil {
-														return data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey.BlindfoldSecretInfo
-													}
 													if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 														return &NetworkConnectorEnableForwardProxyTLSInterceptCustomCertificatePrivateKeyBlindfoldSecretInfoModel{
 															DecryptionProvider: func() types.String {
@@ -2353,9 +2329,6 @@ func (r *NetworkConnectorResource) Update(ctx context.Context, req resource.Upda
 													return nil
 												}(),
 												ClearSecretInfo: func() *NetworkConnectorEnableForwardProxyTLSInterceptCustomCertificatePrivateKeyClearSecretInfoModel {
-													if !isImport && data.EnableForwardProxy != nil && data.EnableForwardProxy.TLSIntercept != nil && data.EnableForwardProxy.TLSIntercept.CustomCertificate != nil && data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey != nil && data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey.ClearSecretInfo != nil {
-														return data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey.ClearSecretInfo
-													}
 													if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 														return &NetworkConnectorEnableForwardProxyTLSInterceptCustomCertificatePrivateKeyClearSecretInfoModel{
 															Provider: func() types.String {

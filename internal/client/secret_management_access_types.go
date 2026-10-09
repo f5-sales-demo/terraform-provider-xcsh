@@ -27,7 +27,7 @@ func (c *Client) CreateSecretManagementAccess(ctx context.Context, resource *Sec
 func (c *Client) GetSecretManagementAccess(ctx context.Context, namespace, name string) (*SecretManagementAccess, error) {
 	var result SecretManagementAccess
 	path := fmt.Sprintf("/api/config/namespaces/%s/secret_management_accesss/%s", namespace, name)
-	err := c.Get(ctx, path, &result)
+	err := c.GetReplaceForm(ctx, path, &result)
 	return &result, err
 }
 

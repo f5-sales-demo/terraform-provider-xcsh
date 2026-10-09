@@ -585,6 +585,9 @@ func LookupNestedField(obj map[string]interface{}, dottedPaths ...string) (inter
 
 // Post performs a POST request
 func (c *Client) Post(ctx context.Context, path string, data, result interface{}) error {
+	if isNativeBlindfold(data) {
+		return c.blindfoldWrite(ctx, http.MethodPost, path, data, result)
+	}
 	body, err := c.doRequest(ctx, http.MethodPost, path, data)
 	if err != nil {
 		return err
@@ -611,6 +614,9 @@ func (c *Client) PostLenient(ctx context.Context, path string, data, result inte
 
 // Put performs a PUT request
 func (c *Client) Put(ctx context.Context, path string, data, result interface{}) error {
+	if isNativeBlindfold(data) {
+		return c.blindfoldWrite(ctx, http.MethodPut, path, data, result)
+	}
 	body, err := c.doRequest(ctx, http.MethodPut, path, data)
 	if err != nil {
 		return err

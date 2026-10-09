@@ -27,7 +27,7 @@ func (c *Client) CreateCertificate(ctx context.Context, resource *Certificate) (
 func (c *Client) GetCertificate(ctx context.Context, namespace, name string) (*Certificate, error) {
 	var result Certificate
 	path := fmt.Sprintf("/api/config/namespaces/%s/certificates/%s", namespace, name)
-	err := c.Get(ctx, path, &result)
+	err := c.GetReplaceForm(ctx, path, &result)
 	return &result, err
 }
 

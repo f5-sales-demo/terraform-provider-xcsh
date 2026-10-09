@@ -41,7 +41,7 @@ var (
 )
 
 func NewSecretManagementAccessResource() resource.Resource {
-	return &SecretManagementAccessResource{}
+	return newBlindfoldResource(&SecretManagementAccessResource{}, "/api/config/namespaces/%s/secret_management_accesss", "/api/config/namespaces/%s/secret_management_accesss/%s", false)
 }
 
 type SecretManagementAccessResource struct {
@@ -2482,9 +2482,6 @@ func (r *SecretManagementAccessResource) Create(ctx context.Context, req resourc
 															if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
 																return &SecretManagementAccessAccessInfoTLSConfigCommonParamsTLSCertificatesPrivateKeyModel{
 																	BlindfoldSecretInfo: func() *SecretManagementAccessAccessInfoTLSConfigCommonParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
-																		if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo != nil {
-																			return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo
-																		}
 																		if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 																			return &SecretManagementAccessAccessInfoTLSConfigCommonParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
 																				DecryptionProvider: func() types.String {
@@ -2510,9 +2507,6 @@ func (r *SecretManagementAccessResource) Create(ctx context.Context, req resourc
 																		return nil
 																	}(),
 																	ClearSecretInfo: func() *SecretManagementAccessAccessInfoTLSConfigCommonParamsTLSCertificatesPrivateKeyClearSecretInfoModel {
-																		if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo != nil {
-																			return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo
-																		}
 																		if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 																			return &SecretManagementAccessAccessInfoTLSConfigCommonParamsTLSCertificatesPrivateKeyClearSecretInfoModel{
 																				Provider: func() types.String {
@@ -3647,9 +3641,6 @@ func (r *SecretManagementAccessResource) Read(ctx context.Context, req resource.
 															if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
 																return &SecretManagementAccessAccessInfoTLSConfigCommonParamsTLSCertificatesPrivateKeyModel{
 																	BlindfoldSecretInfo: func() *SecretManagementAccessAccessInfoTLSConfigCommonParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
-																		if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo != nil {
-																			return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo
-																		}
 																		if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 																			return &SecretManagementAccessAccessInfoTLSConfigCommonParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
 																				DecryptionProvider: func() types.String {
@@ -3675,9 +3666,6 @@ func (r *SecretManagementAccessResource) Read(ctx context.Context, req resource.
 																		return nil
 																	}(),
 																	ClearSecretInfo: func() *SecretManagementAccessAccessInfoTLSConfigCommonParamsTLSCertificatesPrivateKeyClearSecretInfoModel {
-																		if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo != nil {
-																			return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo
-																		}
 																		if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 																			return &SecretManagementAccessAccessInfoTLSConfigCommonParamsTLSCertificatesPrivateKeyClearSecretInfoModel{
 																				Provider: func() types.String {
@@ -5284,9 +5272,6 @@ func (r *SecretManagementAccessResource) Update(ctx context.Context, req resourc
 															if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
 																return &SecretManagementAccessAccessInfoTLSConfigCommonParamsTLSCertificatesPrivateKeyModel{
 																	BlindfoldSecretInfo: func() *SecretManagementAccessAccessInfoTLSConfigCommonParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
-																		if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo != nil {
-																			return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo
-																		}
 																		if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 																			return &SecretManagementAccessAccessInfoTLSConfigCommonParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
 																				DecryptionProvider: func() types.String {
@@ -5312,9 +5297,6 @@ func (r *SecretManagementAccessResource) Update(ctx context.Context, req resourc
 																		return nil
 																	}(),
 																	ClearSecretInfo: func() *SecretManagementAccessAccessInfoTLSConfigCommonParamsTLSCertificatesPrivateKeyClearSecretInfoModel {
-																		if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo != nil {
-																			return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo
-																		}
 																		if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 																			return &SecretManagementAccessAccessInfoTLSConfigCommonParamsTLSCertificatesPrivateKeyClearSecretInfoModel{
 																				Provider: func() types.String {

@@ -27,7 +27,7 @@ func (c *Client) CreateCDNLoadBalancer(ctx context.Context, resource *CDNLoadBal
 func (c *Client) GetCDNLoadBalancer(ctx context.Context, namespace, name string) (*CDNLoadBalancer, error) {
 	var result CDNLoadBalancer
 	path := fmt.Sprintf("/api/config/namespaces/%s/cdn_loadbalancers/%s", namespace, name)
-	err := c.Get(ctx, path, &result)
+	err := c.GetReplaceForm(ctx, path, &result)
 	return &result, err
 }
 

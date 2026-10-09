@@ -27,7 +27,7 @@ func (c *Client) CreateOriginPool(ctx context.Context, resource *OriginPool) (*O
 func (c *Client) GetOriginPool(ctx context.Context, namespace, name string) (*OriginPool, error) {
 	var result OriginPool
 	path := fmt.Sprintf("/api/config/namespaces/%s/origin_pools/%s", namespace, name)
-	err := c.Get(ctx, path, &result)
+	err := c.GetReplaceForm(ctx, path, &result)
 	return &result, err
 }
 

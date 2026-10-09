@@ -1166,7 +1166,7 @@ func renderUnmarshalSingleChild(sb *strings.Builder, rc, childPath string, attr 
 	// reference anywhere: an object-ref's tenant/uid/kind are Computed-only and unknown in
 	// state on create, so any block ON THE PATH to a reference must read those leaves from
 	// the API. See #1079 (direct refs) and #1091 (nested refs, e.g. custom_api_auth_discovery).
-	preserveWhole := container == "single" && stateBase != "" && !hasObjectReferenceDescendant(attr) && !hasComputedDescendant(attr)
+	preserveWhole := container == "single" && stateBase != "" && !hasObjectReferenceDescendant(attr) && !hasComputedDescendant(attr) && !strings.Contains(childPath, "PrivateKey")
 
 	// When a block cannot be preserved whole because it merely CONTAINS a reference on one
 	// arm (a "spine" block), reconstruct from the API but thread the prior-state accessor

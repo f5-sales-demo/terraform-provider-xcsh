@@ -27,7 +27,7 @@ func (c *Client) CreateCluster(ctx context.Context, resource *Cluster) (*Cluster
 func (c *Client) GetCluster(ctx context.Context, namespace, name string) (*Cluster, error) {
 	var result Cluster
 	path := fmt.Sprintf("/api/config/namespaces/%s/clusters/%s", namespace, name)
-	err := c.Get(ctx, path, &result)
+	err := c.GetReplaceForm(ctx, path, &result)
 	return &result, err
 }
 

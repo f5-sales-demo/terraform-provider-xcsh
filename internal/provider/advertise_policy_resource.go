@@ -43,7 +43,7 @@ var (
 )
 
 func NewAdvertisePolicyResource() resource.Resource {
-	return &AdvertisePolicyResource{}
+	return newBlindfoldResource(&AdvertisePolicyResource{}, "/api/config/namespaces/%s/advertise_policys", "/api/config/namespaces/%s/advertise_policys/%s", false)
 }
 
 type AdvertisePolicyResource struct {
@@ -1554,9 +1554,6 @@ func (r *AdvertisePolicyResource) Create(ctx context.Context, req resource.Creat
 												if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
 													return &AdvertisePolicyTLSParametersCommonParamsTLSCertificatesPrivateKeyModel{
 														BlindfoldSecretInfo: func() *AdvertisePolicyTLSParametersCommonParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
-															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo != nil {
-																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo
-															}
 															if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 																return &AdvertisePolicyTLSParametersCommonParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
 																	DecryptionProvider: func() types.String {
@@ -1582,9 +1579,6 @@ func (r *AdvertisePolicyResource) Create(ctx context.Context, req resource.Creat
 															return nil
 														}(),
 														ClearSecretInfo: func() *AdvertisePolicyTLSParametersCommonParamsTLSCertificatesPrivateKeyClearSecretInfoModel {
-															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo != nil {
-																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo
-															}
 															if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 																return &AdvertisePolicyTLSParametersCommonParamsTLSCertificatesPrivateKeyClearSecretInfoModel{
 																	Provider: func() types.String {
@@ -2321,9 +2315,6 @@ func (r *AdvertisePolicyResource) Read(ctx context.Context, req resource.ReadReq
 												if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
 													return &AdvertisePolicyTLSParametersCommonParamsTLSCertificatesPrivateKeyModel{
 														BlindfoldSecretInfo: func() *AdvertisePolicyTLSParametersCommonParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
-															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo != nil {
-																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo
-															}
 															if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 																return &AdvertisePolicyTLSParametersCommonParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
 																	DecryptionProvider: func() types.String {
@@ -2349,9 +2340,6 @@ func (r *AdvertisePolicyResource) Read(ctx context.Context, req resource.ReadReq
 															return nil
 														}(),
 														ClearSecretInfo: func() *AdvertisePolicyTLSParametersCommonParamsTLSCertificatesPrivateKeyClearSecretInfoModel {
-															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo != nil {
-																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo
-															}
 															if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 																return &AdvertisePolicyTLSParametersCommonParamsTLSCertificatesPrivateKeyClearSecretInfoModel{
 																	Provider: func() types.String {
@@ -3423,9 +3411,6 @@ func (r *AdvertisePolicyResource) Update(ctx context.Context, req resource.Updat
 												if PrivateKeyData, ok := TLSCertificatesItemMap["private_key"].(map[string]interface{}); ok {
 													return &AdvertisePolicyTLSParametersCommonParamsTLSCertificatesPrivateKeyModel{
 														BlindfoldSecretInfo: func() *AdvertisePolicyTLSParametersCommonParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoModel {
-															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo != nil {
-																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.BlindfoldSecretInfo
-															}
 															if BlindfoldSecretInfoData, ok := PrivateKeyData["blindfold_secret_info"].(map[string]interface{}); ok {
 																return &AdvertisePolicyTLSParametersCommonParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoModel{
 																	DecryptionProvider: func() types.String {
@@ -3451,9 +3436,6 @@ func (r *AdvertisePolicyResource) Update(ctx context.Context, req resource.Updat
 															return nil
 														}(),
 														ClearSecretInfo: func() *AdvertisePolicyTLSParametersCommonParamsTLSCertificatesPrivateKeyClearSecretInfoModel {
-															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey != nil && TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo != nil {
-																return TLSCertificatesExisting[TLSCertificatesIdx].PrivateKey.ClearSecretInfo
-															}
 															if ClearSecretInfoData, ok := PrivateKeyData["clear_secret_info"].(map[string]interface{}); ok {
 																return &AdvertisePolicyTLSParametersCommonParamsTLSCertificatesPrivateKeyClearSecretInfoModel{
 																	Provider: func() types.String {
