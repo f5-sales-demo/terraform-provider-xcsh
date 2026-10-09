@@ -2,7 +2,7 @@
 page_title: "enable_forward_proxy"
 subcategory: "Networking"
 description: "Fine tune forward proxy behavior Few configurations allowed are White listed ports and IP prefixes: Forward proxy does application protocol detection and server name(SNI) detection by peeking into the traffic on the incoming downstream connection. Few protocols doesn't have client sending the first data. In such"
-xcsh_docs: {"aliases": ["duration", "enable forward proxy"], "body_bytes": 6930, "body_sha256": "sha256:00c8794e3b716471d84605b69ef8fc8cd542223ab54b1c8153d1d30e037d6350", "capabilities": ["networking"], "category": "networking", "child_ids": ["xcsh-docs:resources:network_connector:properties:enable_forward_proxy:no_interception", "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept"], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:resources:network_connector:collection", "completeness": "complete", "id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy", "parent_id": "xcsh-docs:resources:network_connector:reference", "path": "documentation/resources/network_connector/properties/enable_forward_proxy/index.md", "product": "distributed-cloud", "provider_name": "network_connector", "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429", "provider_type": "resources", "registry_anchor": "canonical-1101110030313313-2102212303300111-0320130013022202-3311211123122310-2200103232211301-3223222300011312-2202123000112213-2220311201321020", "registry_path": "docs/guides/resources--network_connector--reference--group-001.md", "relationships": [{"anchor": "section", "enforcement": "provider-schema", "group": "enable_forward_proxy:ConflictingObjectAttributes:no_interception,tls_intercept", "source": "ast-validator:ConflictingObjectAttributes", "target_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:no_interception", "type": "conflicts"}, {"anchor": "section", "enforcement": "provider-schema", "group": "enable_forward_proxy:ConflictingObjectAttributes:no_interception,tls_intercept", "source": "ast-validator:ConflictingObjectAttributes", "target_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept", "type": "conflicts"}], "retrieval_version": 1, "role": "properties", "schema_path": ["enable_forward_proxy"], "schema_version": 1, "sections": [{"aliases": ["duration", "enable forward proxy connection timeout"], "anchor": "schema-enable_forward_proxy--connection_timeout", "description": "The timeout for new network connections to upstream server. This is specified in milliseconds. The default value is 2000 (2 seconds)", "document_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["enable_forward_proxy", "connection_timeout"], "syntax": "attribute", "type": "number"}, {"aliases": ["enable forward proxy max connect attempts"], "anchor": "schema-enable_forward_proxy--max_connect_attempts", "description": "Specifies the allowed number of retries on connect failure to upstream server. Defaults to 1.", "document_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["enable_forward_proxy", "max_connect_attempts"], "syntax": "attribute", "type": "number"}, {"aliases": ["enable forward proxy no interception"], "anchor": "section", "description": "This can be used for messages where no values are needed.", "document_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:no_interception", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["enable_forward_proxy", "no_interception"], "syntax": "attribute", "type": "object"}, {"aliases": ["enable forward proxy tls intercept"], "anchor": "section", "description": "Configuration to enable TLS interception.", "document_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept", "enum_extraction_complete": false, "enum_validators": [], "flags": [], "max_items": null, "min_items": null, "nesting": "single", "relationships": [{"anchor": "schema-enable_forward_proxy--tls_intercept--trusted_ca_url", "enforcement": "provider-schema", "group": "enable_forward_proxy.tls_intercept:ConflictingObjectAttributes:trusted_ca_url,volterra_trusted_ca", "source": "ast-validator:ConflictingObjectAttributes", "target_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept", "type": "conflicts"}, {"anchor": "section", "enforcement": "provider-schema", "group": "enable_forward_proxy.tls_intercept:ConflictingObjectAttributes:custom_certificate,volterra_certificate", "source": "ast-validator:ConflictingObjectAttributes", "target_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:custom_certificate", "type": "conflicts"}, {"anchor": "section", "enforcement": "provider-schema", "group": "enable_forward_proxy.tls_intercept:ConflictingObjectAttributes:enable_for_all_domains,policy", "source": "ast-validator:ConflictingObjectAttributes", "target_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:enable_for_all_domains", "type": "conflicts"}, {"anchor": "section", "enforcement": "provider-schema", "group": "enable_forward_proxy.tls_intercept:ConflictingObjectAttributes:enable_for_all_domains,policy", "source": "ast-validator:ConflictingObjectAttributes", "target_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:policy", "type": "conflicts"}, {"anchor": "section", "enforcement": "provider-schema", "group": "enable_forward_proxy.tls_intercept:ConflictingObjectAttributes:custom_certificate,volterra_certificate", "source": "ast-validator:ConflictingObjectAttributes", "target_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:volterra_certificate", "type": "conflicts"}, {"anchor": "section", "enforcement": "provider-schema", "group": "enable_forward_proxy.tls_intercept:ConflictingObjectAttributes:trusted_ca_url,volterra_trusted_ca", "source": "ast-validator:ConflictingObjectAttributes", "target_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:volterra_trusted_ca", "type": "conflicts"}], "schema_path": ["enable_forward_proxy", "tls_intercept"], "syntax": "block", "type": "object"}, {"aliases": ["enable forward proxy white listed ports"], "anchor": "schema-enable_forward_proxy--white_listed_ports", "description": "Traffic to these destination TCP ports is not subjected to protocol parsing Example \"tmate\" server port.", "document_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["enable_forward_proxy", "white_listed_ports"], "syntax": "attribute", "type": "list"}, {"aliases": ["enable forward proxy white listed prefixes"], "anchor": "schema-enable_forward_proxy--white_listed_prefixes", "description": "Traffic to these destination IP prefixes is not subjected to protocol parsing Example \"tmate\" server IP.", "document_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["enable_forward_proxy", "white_listed_prefixes"], "syntax": "attribute", "type": "list"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_connector/properties/enable_forward_proxy/index.txt", "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833", "summary": "Fine tune forward proxy behavior Few configurations allowed are White listed ports and IP prefixes: Forward proxy does application protocol detection and server name(SNI) detection by peeking into the traffic on the incoming downstream connection. Few protocols doesn't have client sending the first data. In such", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.3", "schema_components": ["network_connectorCreateRequest"], "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"}}
+xcsh_docs: {"aliases": ["duration", "enable forward proxy"], "body_bytes": 6079, "body_sha256": "sha256:09166bc9a4c87b8a90326099eceaf89eb5ba2c50eb24868e67580b87503a4b12", "capabilities": ["networking"], "category": "networking", "child_ids": ["xcsh-docs:resources:network_connector:properties:enable_forward_proxy:no_interception", "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept"], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:resources:network_connector:collection", "completeness": "complete", "id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy", "parent_id": "xcsh-docs:resources:network_connector:reference", "path": "documentation/resources/network_connector/properties/enable_forward_proxy/index.md", "product": "distributed-cloud", "provider_name": "network_connector", "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829", "provider_type": "resources", "registry_anchor": "canonical-1101110030313313-2102212303300111-0320130013022202-3311211123122310-2200103232211301-3223222300011312-2202123000112213-2220311201321020", "registry_path": "docs/guides/resources--network_connector--reference--group-001.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["enable_forward_proxy"], "schema_version": 1, "sections": [{"aliases": ["duration", "enable forward proxy connection timeout"], "anchor": "schema-enable_forward_proxy--connection_timeout", "description": "The timeout for new network connections to upstream server. This is specified in milliseconds. The default value is 2000 (2 seconds)", "document_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["enable_forward_proxy", "connection_timeout"], "syntax": "attribute", "type": "number"}, {"aliases": ["enable forward proxy max connect attempts"], "anchor": "schema-enable_forward_proxy--max_connect_attempts", "description": "Specifies the allowed number of retries on connect failure to upstream server. Defaults to 1.", "document_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["enable_forward_proxy", "max_connect_attempts"], "syntax": "attribute", "type": "number"}, {"aliases": ["enable forward proxy no interception"], "anchor": "section", "description": "This can be used for messages where no values are needed.", "document_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:no_interception", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["enable_forward_proxy", "no_interception"], "syntax": "attribute", "type": "object"}, {"aliases": ["enable forward proxy tls intercept"], "anchor": "section", "description": "Configuration to enable TLS interception.", "document_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept", "enum_extraction_complete": false, "enum_validators": [], "flags": [], "max_items": null, "min_items": null, "nesting": "single", "relationships": [], "schema_path": ["enable_forward_proxy", "tls_intercept"], "syntax": "block", "type": "object"}, {"aliases": ["enable forward proxy white listed ports"], "anchor": "schema-enable_forward_proxy--white_listed_ports", "description": "Traffic to these destination TCP ports is not subjected to protocol parsing Example \"tmate\" server port.", "document_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["enable_forward_proxy", "white_listed_ports"], "syntax": "attribute", "type": "list"}, {"aliases": ["enable forward proxy white listed prefixes"], "anchor": "schema-enable_forward_proxy--white_listed_prefixes", "description": "Traffic to these destination IP prefixes is not subjected to protocol parsing Example \"tmate\" server IP.", "document_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["enable_forward_proxy", "white_listed_prefixes"], "syntax": "attribute", "type": "list"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_connector/properties/enable_forward_proxy/index.txt", "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1", "summary": "Fine tune forward proxy behavior Few configurations allowed are White listed ports and IP prefixes: Forward proxy does application protocol detection and server name(SNI) detection by peeking into the traffic on the incoming downstream connection. Few protocols doesn't have client sending the first data. In such", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.4", "schema_components": ["network_connectorCreateRequest"], "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -32,14 +32,6 @@ configuration allows, skipping protocol and SNI detection for whitelisted IP-pre
 connection\_timeout: The timeout for new network connections to upstream server.
 Max\_connect\_attempts: Maximum number of attempts made to make new network connection to upstream
 server.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.ConflictingObjectAttributes("no_interception",
-    "tls_intercept")}
-```
 
 Receipt-pinned upstream constraints:
 
@@ -78,15 +70,6 @@ Additional upstream details:
 
 The default value is 2000 (2 seconds)
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Int64{
-  int64validator.AtMost(600000),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -99,7 +82,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "api-probed",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -129,15 +112,6 @@ Additional upstream details:
 
 Defaults to 1.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Int64{
-  int64validator.AtMost(8),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -150,7 +124,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "api-probed",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -186,15 +160,6 @@ Additional upstream details:
 Traffic to these destination TCP ports is not subjected to protocol parsing Example "tmate" server
 port.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.List{
-  listvalidator.SizeAtMost(64),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -208,7 +173,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -242,15 +207,6 @@ Additional upstream details:
 Traffic to these destination IP prefixes is not subjected to protocol parsing Example "tmate" server
 IP.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.List{
-  listvalidator.SizeAtMost(64),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -264,7 +220,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "uniqueItems": true
   },

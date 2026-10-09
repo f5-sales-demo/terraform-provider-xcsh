@@ -444,7 +444,7 @@
       "path": "documentation/resources/external_connector/index.md",
       "product": "distributed-cloud",
       "provider_name": "external_connector",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-3122312021220130-3300301303031130-2302131220123022-3100221331011030-0221003203020132-3312113011210302-1031003011331110-0113230133233222",
       "registry_path": "docs/resources/external_connector.md",
@@ -454,21 +454,21 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/external_connector/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Manages an External Connector resource in F5 Distributed Cloud for external_connector configuration specification. configuration.",
       "tasks": ["configuration"],
       "title": "xcsh_external_connector",
       "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["external_connectorCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["external connector"],
       "body_bytes": 27659,
-      "body_sha256": "sha256:9f8f221c421e37e05e9c5a24e4822aa2e89c905075bdfe0d90c808910a5fd5f1",
+      "body_sha256": "sha256:172de1d196fa17be692fb236ca815960828f2f0104ac78b3aea49cb16cabecdd",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -490,7 +490,7 @@
       "path": "documentation/resources/external_connector/properties/index.md",
       "product": "distributed-cloud",
       "provider_name": "external_connector",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-3213311113001013-2210200203110132-0213333230312322-2323001310333022-3213131211021012-0222230300311031-1133032330331310-3032202302013232",
       "registry_path": "docs/guides/resources--external_connector--reference--group-001.md",
@@ -686,20 +686,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/external_connector/properties/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Property reference for xcsh_external_connector.",
       "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["external_connectorCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["ce site reference"],
       "body_bytes": 5087,
-      "body_sha256": "sha256:1fcd2f0c601121a86e0ac9696d8db7a7d4ba273ae497913097755e7ff192ca79",
+      "body_sha256": "sha256:69d48224a309ab780552a78cb2f3682694f94722f9753a31da9ce3baa6330558",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -716,7 +716,7 @@
       "path": "documentation/resources/external_connector/properties/ce_site_reference/index.md",
       "product": "distributed-cloud",
       "provider_name": "external_connector",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-2311120011233120-0122300223313033-3100003032220323-0112113103013023-2003110312112000-3233013001302220-1322131223200322-1113210121122322",
       "registry_path": "docs/guides/resources--external_connector--reference--group-001.md",
@@ -805,14 +805,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/external_connector/properties/ce_site_reference/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "ce_site_reference",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["external_connectorCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -835,7 +835,7 @@
       "path": "documentation/resources/external_connector/properties/gre/index.md",
       "product": "distributed-cloud",
       "provider_name": "external_connector",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-1033000200113321-0321330103312322-3230321011131113-2322301213310303-2112331120223022-0212022112222302-3112221022312333-0111121133033131",
       "registry_path": "docs/guides/resources--external_connector--reference--group-001.md",
@@ -927,20 +927,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/external_connector/properties/gre/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "External Connector with GRE tunnel.",
       "tasks": ["configuration"],
       "title": "gre",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["external_connectorCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["gre gre parameters"],
       "body_bytes": 3463,
-      "body_sha256": "sha256:dc80f8ee65b005fcb0eebeef6e32b40e7a4cdd019646aaa99358b215e35114e4",
+      "body_sha256": "sha256:6da826996526d337a68622389fde79fba312364c148a6d574f987e152e1cd120",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -963,7 +963,7 @@
       "path": "documentation/resources/external_connector/properties/gre/gre_parameters/index.md",
       "product": "distributed-cloud",
       "provider_name": "external_connector",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-3101301101332121-2110312002000013-2231001111210031-0111032211133210-1203222202331320-2002302122213201-1100123102223120-3313131020301200",
       "registry_path": "docs/guides/resources--external_connector--reference--group-001.md",
@@ -1177,20 +1177,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/external_connector/properties/gre/gre_parameters/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "GRE configuration parameters required for GRE Connection type.",
       "tasks": ["configuration"],
       "title": "gre.gre_parameters",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["external_connectorCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["gre gre parameters peer ip address"],
       "body_bytes": 2091,
-      "body_sha256": "sha256:791a484a99843ff404968f5bf5030b838338a796089c26cd41e14f34e79d0aac",
+      "body_sha256": "sha256:8058bf04b3d526295845e5cecd1a9d0655d7e1daf482373b1a5a6120af657731",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -1207,7 +1207,7 @@
       "path": "documentation/resources/external_connector/properties/gre/gre_parameters/peer_ip_address/index.md",
       "product": "distributed-cloud",
       "provider_name": "external_connector",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-2311222021113110-1311130120233133-2310033001200202-2211000203311010-3121133233201013-0121113123033132-2301313102013302-0321312330121122",
       "registry_path": "docs/guides/resources--external_connector--reference--group-001.md",
@@ -1234,14 +1234,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/external_connector/properties/gre/gre_parameters/peer_ip_address/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "IPv4 Address in dot-decimal notation.",
       "tasks": ["configuration"],
       "title": "gre.gre_parameters.peer_ip_address",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["external_connectorCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -1264,7 +1264,7 @@
       "path": "documentation/resources/external_connector/properties/gre/gre_parameters/segment/index.md",
       "product": "distributed-cloud",
       "provider_name": "external_connector",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-3033011103100101-0331031313031322-1321223022000220-2121023221103112-1031123102133113-0310331122002210-2232000331012220-1200323030030230",
       "registry_path": "docs/guides/resources--external_connector--reference--group-001.md",
@@ -1300,20 +1300,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/external_connector/properties/gre/gre_parameters/segment/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Reference to Segment Object.",
       "tasks": ["configuration"],
       "title": "gre.gre_parameters.segment",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["external_connectorCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["gre gre parameters segment refs"],
       "body_bytes": 6044,
-      "body_sha256": "sha256:311131b6a3cc636319a57d4dae2a4350c4e0d64f8beac857e5d97654626e8b8f",
+      "body_sha256": "sha256:940c3fe30d040b137797c8aefd07e1c6d3b54f6747ae7317bea158ea1796b7de",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -1330,7 +1330,7 @@
       "path": "documentation/resources/external_connector/properties/gre/gre_parameters/segment/refs/index.md",
       "product": "distributed-cloud",
       "provider_name": "external_connector",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-0130021011120302-0123332323033300-0101311013330013-2321022120030010-3233022010333221-0200101213313323-0203212000000121-3203303200100211",
       "registry_path": "docs/guides/resources--external_connector--reference--group-001.md",
@@ -1456,14 +1456,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/external_connector/properties/gre/gre_parameters/segment/refs/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Reference to Segment Object.",
       "tasks": ["configuration"],
       "title": "gre.gre_parameters.segment.refs",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["external_connectorCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -1486,7 +1486,7 @@
       "path": "documentation/resources/external_connector/properties/gre/gre_parameters/site_local_inside_network/index.md",
       "product": "distributed-cloud",
       "provider_name": "external_connector",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-0323303202120112-0013320211312000-0133101303331021-1301221032313300-0333021113300110-2331121000200131-3332323022031321-2101203110313011",
       "registry_path": "docs/guides/resources--external_connector--reference--group-001.md",
@@ -1496,14 +1496,14 @@
       "schema_path": ["gre", "gre_parameters", "site_local_inside_network"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/external_connector/properties/gre/gre_parameters/site_local_inside_network/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "gre.gre_parameters.site_local_inside_network",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["external_connectorCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -1526,7 +1526,7 @@
       "path": "documentation/resources/external_connector/properties/gre/gre_parameters/site_local_network/index.md",
       "product": "distributed-cloud",
       "provider_name": "external_connector",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-3122301323222230-3110131220331223-3200121221312232-2110020023332300-2222012103130123-1001102032222202-2013331101003112-2200220032212012",
       "registry_path": "docs/guides/resources--external_connector--reference--group-001.md",
@@ -1536,20 +1536,20 @@
       "schema_path": ["gre", "gre_parameters", "site_local_network"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/external_connector/properties/gre/gre_parameters/site_local_network/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "gre.gre_parameters.site_local_network",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["external_connectorCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["gre gre parameters tunnel eps"],
       "body_bytes": 5537,
-      "body_sha256": "sha256:4ab0f3206eca14ff2856b27259288d5c53a024797deb34d411750979a7c5e9eb",
+      "body_sha256": "sha256:64012ff1fa44f9fdaf3cea2af3899bdae37b17517281553cf5d24f0323c4b530",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -1566,7 +1566,7 @@
       "path": "documentation/resources/external_connector/properties/gre/gre_parameters/tunnel_eps/index.md",
       "product": "distributed-cloud",
       "provider_name": "external_connector",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-3010112031211331-0301021120032210-0212123101022030-3302111100331202-2220301013332022-1320010300030001-0003013201312303-1013110321001212",
       "registry_path": "docs/guides/resources--external_connector--reference--group-001.md",
@@ -1674,14 +1674,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/external_connector/properties/gre/gre_parameters/tunnel_eps/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Configure tunnel parameters, source, destination, IP addresses.",
       "tasks": ["configuration"],
       "title": "gre.gre_parameters.tunnel_eps",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["external_connectorCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -1707,7 +1707,7 @@
       "path": "documentation/resources/external_connector/properties/ipsec/index.md",
       "product": "distributed-cloud",
       "provider_name": "external_connector",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-2222210331120321-3310203330131102-1332111323102002-1300213031003231-2312210013333323-3221022213020223-3312333001311121-0222322020131133",
       "registry_path": "docs/guides/resources--external_connector--reference--group-001.md",
@@ -1904,20 +1904,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/external_connector/properties/ipsec/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "External Connector with IPsec tunnel.",
       "tasks": ["configuration"],
       "title": "ipsec",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["external_connectorCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["ipsec ike parameters"],
       "body_bytes": 4163,
-      "body_sha256": "sha256:18d87cac127b1e19446d250aeed008e8a579330fec7d01b7fa93d0e59f42638f",
+      "body_sha256": "sha256:47d4ceba1628d32db7a7ad1e95d26c79f4bd420ac21197f0fa2bc83c9d8366ef",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -1944,7 +1944,7 @@
       "path": "documentation/resources/external_connector/properties/ipsec/ike_parameters/index.md",
       "product": "distributed-cloud",
       "provider_name": "external_connector",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-2110112022302230-2103222202112010-1012130322030213-3100331333231022-3132330220301303-2012000231322123-0021133111013121-3222203023211013",
       "registry_path": "docs/guides/resources--external_connector--reference--group-001.md",
@@ -2272,14 +2272,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/external_connector/properties/ipsec/ike_parameters/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "IKE configuration parameters required for IPsec Connection type.",
       "tasks": ["configuration"],
       "title": "ipsec.ike_parameters",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["external_connectorCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -2302,7 +2302,7 @@
       "path": "documentation/resources/external_connector/properties/ipsec/ike_parameters/dpd_disabled/index.md",
       "product": "distributed-cloud",
       "provider_name": "external_connector",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-1111321100210220-0111023123121121-2212313103303031-3021233311333001-0021003022332002-3313103311302312-3133311311333210-2232012003033323",
       "registry_path": "docs/guides/resources--external_connector--reference--group-001.md",
@@ -2312,20 +2312,20 @@
       "schema_path": ["ipsec", "ike_parameters", "dpd_disabled"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/external_connector/properties/ipsec/ike_parameters/dpd_disabled/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "ipsec.ike_parameters.dpd_disabled",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["external_connectorCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["ipsec ike parameters dpd keep alive timer"],
       "body_bytes": 2346,
-      "body_sha256": "sha256:0f0e73e8a1f07c0ba1116f26e4ddbde4b49e1b0aa6ee4a37bd7cac9b31ae6221",
+      "body_sha256": "sha256:e16c9b975aa4a96fe06bcfb39536cbbbf94c785ce6afc1d9044173f169a8cfe1",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -2342,7 +2342,7 @@
       "path": "documentation/resources/external_connector/properties/ipsec/ike_parameters/dpd_keep_alive_timer/index.md",
       "product": "distributed-cloud",
       "provider_name": "external_connector",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-0201200323101322-3010031113332333-0210103123123123-1012200001010033-3021311222223022-1213032313113101-3130323023010031-0220302232322010",
       "registry_path": "docs/guides/resources--external_connector--reference--group-001.md",
@@ -2378,20 +2378,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/external_connector/properties/ipsec/ike_parameters/dpd_keep_alive_timer/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Configuration parameter for dpd keep alive timer.",
       "tasks": ["configuration"],
       "title": "ipsec.ike_parameters.dpd_keep_alive_timer",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["external_connectorCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["ipsec ike parameters ike phase1 profile"],
       "body_bytes": 5462,
-      "body_sha256": "sha256:f3fac4760552c3106cef6fea337e02c4087189c14f402a1031c2f838d94f7799",
+      "body_sha256": "sha256:c4b51c418da884140b32855cf660ba1565b4081b5d92f85accc67d9f9962943a",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -2408,7 +2408,7 @@
       "path": "documentation/resources/external_connector/properties/ipsec/ike_parameters/ike_phase1_profile/index.md",
       "product": "distributed-cloud",
       "provider_name": "external_connector",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-0211232120122301-1331132102322012-2030111102213223-2011102332130111-1111331000133003-1303123212120310-2201100121323223-1103323232220013",
       "registry_path": "docs/guides/resources--external_connector--reference--group-001.md",
@@ -2497,20 +2497,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/external_connector/properties/ipsec/ike_parameters/ike_phase1_profile/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "ipsec.ike_parameters.ike_phase1_profile",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["external_connectorCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["ipsec ike parameters ike phase2 profile"],
       "body_bytes": 5462,
-      "body_sha256": "sha256:3ecee70b53add69683053346f58696c2a6c404fb39789bef2ac82176c6cffbe0",
+      "body_sha256": "sha256:e603397d18cdad8b8268daa9d9cd5df6cf54db65c4d38be5840f4ea437472d8c",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -2527,7 +2527,7 @@
       "path": "documentation/resources/external_connector/properties/ipsec/ike_parameters/ike_phase2_profile/index.md",
       "product": "distributed-cloud",
       "provider_name": "external_connector",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-3111311323322130-0103333120230033-0312100202300122-2130222013013001-1120011132233320-1030022111132100-0112003132302101-0232131200220223",
       "registry_path": "docs/guides/resources--external_connector--reference--group-001.md",
@@ -2616,14 +2616,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/external_connector/properties/ipsec/ike_parameters/ike_phase2_profile/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "ipsec.ike_parameters.ike_phase2_profile",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["external_connectorCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -2646,7 +2646,7 @@
       "path": "documentation/resources/external_connector/properties/ipsec/ike_parameters/initiator/index.md",
       "product": "distributed-cloud",
       "provider_name": "external_connector",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-0302121201233210-2202133200011000-2021020131303223-3103331000102231-1033120300201012-3220330201011102-1112221032012003-2222313010101103",
       "registry_path": "docs/guides/resources--external_connector--reference--group-001.md",
@@ -2656,14 +2656,14 @@
       "schema_path": ["ipsec", "ike_parameters", "initiator"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/external_connector/properties/ipsec/ike_parameters/initiator/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "ipsec.ike_parameters.initiator",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["external_connectorCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -2686,7 +2686,7 @@
       "path": "documentation/resources/external_connector/properties/ipsec/ike_parameters/responder/index.md",
       "product": "distributed-cloud",
       "provider_name": "external_connector",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-0032203013123300-0333020112200010-0110312323131012-3221130002003033-2311223031332310-1331121120012120-1020133212213233-0103121320131033",
       "registry_path": "docs/guides/resources--external_connector--reference--group-001.md",
@@ -2696,14 +2696,14 @@
       "schema_path": ["ipsec", "ike_parameters", "responder"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/external_connector/properties/ipsec/ike_parameters/responder/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "ipsec.ike_parameters.responder",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["external_connectorCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -2730,7 +2730,7 @@
       "path": "documentation/resources/external_connector/properties/ipsec/ike_parameters/rm_ip_address/index.md",
       "product": "distributed-cloud",
       "provider_name": "external_connector",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-1021320210230233-0300130321222101-0332113201003312-2123232100220012-3201003310002210-3322122233233202-3111300100310100-0211113122201313",
       "registry_path": "docs/guides/resources--external_connector--reference--group-001.md",
@@ -2838,14 +2838,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/external_connector/properties/ipsec/ike_parameters/rm_ip_address/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "IP Address used to specify an IPv4 or IPv6 address.",
       "tasks": ["configuration"],
       "title": "ipsec.ike_parameters.rm_ip_address",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["external_connectorCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -2871,7 +2871,7 @@
       "path": "documentation/resources/external_connector/properties/ipsec/ike_parameters/rm_ip_address/dual_stack/index.md",
       "product": "distributed-cloud",
       "provider_name": "external_connector",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-3300211300210031-3300320111200102-0211330332013320-3223110023133020-3121232220000031-2220132331310003-0013312222201003-1212303112111323",
       "registry_path": "docs/guides/resources--external_connector--reference--group-001.md",
@@ -2914,20 +2914,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/external_connector/properties/ipsec/ike_parameters/rm_ip_address/dual_stack/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "DualStackAddressType represents both IPv4 and IPv6 together.",
       "tasks": ["configuration"],
       "title": "ipsec.ike_parameters.rm_ip_address.dual_stack",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["external_connectorCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["ipsec ike parameters rm ip address dual stack ipv4"],
       "body_bytes": 2580,
-      "body_sha256": "sha256:9b9d053d9603aa8cd1ba6767be9d58bbb4cd23e57199a358079549abc6d31ce8",
+      "body_sha256": "sha256:ec434fbe5fdb5bba69f22e4460d128f1fc3ab280f72a16da20d248b5f8793975",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -2944,7 +2944,7 @@
       "path": "documentation/resources/external_connector/properties/ipsec/ike_parameters/rm_ip_address/dual_stack/ipv4/index.md",
       "product": "distributed-cloud",
       "provider_name": "external_connector",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-1010330312021233-2123202333231112-2022201013102013-2103331131222212-0120102311022020-3313010202301333-0022010220230110-3330013313013110",
       "registry_path": "docs/guides/resources--external_connector--reference--group-001.md",
@@ -2971,20 +2971,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/external_connector/properties/ipsec/ike_parameters/rm_ip_address/dual_stack/ipv4/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "IPv4 Address in dot-decimal notation.",
       "tasks": ["configuration"],
       "title": "ipsec.ike_parameters.rm_ip_address.dual_stack.ipv4",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["external_connectorCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["ipsec ike parameters rm ip address dual stack ipv6"],
       "body_bytes": 2717,
-      "body_sha256": "sha256:b9e6c383748f24a89ff1b514631a5b222e7427f67e28a67fe186afb06ff3238b",
+      "body_sha256": "sha256:200fd4e0d1d18d7b40a756a3a5df7c735ad38f51e442fb10d8cdeb7f9e9bbe52",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -3001,7 +3001,7 @@
       "path": "documentation/resources/external_connector/properties/ipsec/ike_parameters/rm_ip_address/dual_stack/ipv6/index.md",
       "product": "distributed-cloud",
       "provider_name": "external_connector",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-0233101221313000-3011121112231320-3313002013030010-0120222210200121-3212210103110010-2302022331302132-0330131020123302-3230133310000203",
       "registry_path": "docs/guides/resources--external_connector--reference--group-001.md",
@@ -3028,20 +3028,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/external_connector/properties/ipsec/ike_parameters/rm_ip_address/dual_stack/ipv6/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "IPv6 Address specified as hexadecimal numbers separated by ':'",
       "tasks": ["configuration"],
       "title": "ipsec.ike_parameters.rm_ip_address.dual_stack.ipv6",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["external_connectorCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["ipsec ike parameters rm ip address ipv4"],
       "body_bytes": 2352,
-      "body_sha256": "sha256:60ea0fe284dc75321071b108ba65cd9575eb95299d30d7c121582f5495cc4b11",
+      "body_sha256": "sha256:410ef529e1d5fe84aa01a2ad2d06b39a8494468a6650c6adf3afbec0af3ddfe0",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -3058,7 +3058,7 @@
       "path": "documentation/resources/external_connector/properties/ipsec/ike_parameters/rm_ip_address/ipv4/index.md",
       "product": "distributed-cloud",
       "provider_name": "external_connector",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-2100211023110201-1212230201221210-2212333202032200-2001010322201123-1211313211001102-0322322133323112-2103313031331330-1003121303203221",
       "registry_path": "docs/guides/resources--external_connector--reference--group-001.md",
@@ -3085,20 +3085,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/external_connector/properties/ipsec/ike_parameters/rm_ip_address/ipv4/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "IPv4 Address in dot-decimal notation.",
       "tasks": ["configuration"],
       "title": "ipsec.ike_parameters.rm_ip_address.ipv4",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["external_connectorCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["ipsec ike parameters rm ip address ipv6"],
       "body_bytes": 2489,
-      "body_sha256": "sha256:130634368c9677e12120ce8887758384c2bf4b3083ac273f7ec45da4e3d05149",
+      "body_sha256": "sha256:fe6cedb9c87dabaccb197fb6faf545e5f35993a1e58a742391e21fa49f8d8b0c",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -3115,7 +3115,7 @@
       "path": "documentation/resources/external_connector/properties/ipsec/ike_parameters/rm_ip_address/ipv6/index.md",
       "product": "distributed-cloud",
       "provider_name": "external_connector",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-0113131123101301-2232011211100010-1303113030120332-1113202110330200-3010002111121003-2033222212100031-0300133103323112-2101203111100230",
       "registry_path": "docs/guides/resources--external_connector--reference--group-001.md",
@@ -3142,14 +3142,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/external_connector/properties/ipsec/ike_parameters/rm_ip_address/ipv6/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "IPv6 Address specified as hexadecimal numbers separated by ':'",
       "tasks": ["configuration"],
       "title": "ipsec.ike_parameters.rm_ip_address.ipv6",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["external_connectorCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -3172,7 +3172,7 @@
       "path": "documentation/resources/external_connector/properties/ipsec/ike_parameters/use_default_local_ike_id/index.md",
       "product": "distributed-cloud",
       "provider_name": "external_connector",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-2203332212111231-1233232210033231-3302200313011103-1320320031132222-3020011013212211-2011021031300333-1202320013123100-1231103113130112",
       "registry_path": "docs/guides/resources--external_connector--reference--group-001.md",
@@ -3182,14 +3182,14 @@
       "schema_path": ["ipsec", "ike_parameters", "use_default_local_ike_id"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/external_connector/properties/ipsec/ike_parameters/use_default_local_ike_id/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "ipsec.ike_parameters.use_default_local_ike_id",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["external_connectorCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -3212,7 +3212,7 @@
       "path": "documentation/resources/external_connector/properties/ipsec/ike_parameters/use_default_remote_ike_id/index.md",
       "product": "distributed-cloud",
       "provider_name": "external_connector",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-2332221223221312-2330120323211321-3330111123031100-3130000121101013-2201300311311122-2332203102103332-2032230023131002-0213122010103222",
       "registry_path": "docs/guides/resources--external_connector--reference--group-001.md",
@@ -3222,20 +3222,20 @@
       "schema_path": ["ipsec", "ike_parameters", "use_default_remote_ike_id"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/external_connector/properties/ipsec/ike_parameters/use_default_remote_ike_id/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "ipsec.ike_parameters.use_default_remote_ike_id",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["external_connectorCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["ipsec ipsec tunnel parameters"],
       "body_bytes": 4614,
-      "body_sha256": "sha256:93f4fe1b6de02b634ef33d024b97e6a0b356c670796543b1415d4b8c11c776a2",
+      "body_sha256": "sha256:e593e48f5d78209bcdf672ec3f3b8512a18d99ab54af132b0167ff44eb26f2af",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -3258,7 +3258,7 @@
       "path": "documentation/resources/external_connector/properties/ipsec/ipsec_tunnel_parameters/index.md",
       "product": "distributed-cloud",
       "provider_name": "external_connector",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-1111312210033110-1323001002020013-0301303102011303-3323022223203100-3130333022311330-3033000102231322-1330001332110221-0323222300300120",
       "registry_path": "docs/guides/resources--external_connector--reference--group-001.md",
@@ -3496,20 +3496,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/external_connector/properties/ipsec/ipsec_tunnel_parameters/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "In this section, we will configure the tunnel parameters, source, destination, IP addresses, and segment.",
       "tasks": ["configuration"],
       "title": "ipsec.ipsec_tunnel_parameters",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["external_connectorCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["ipsec ipsec tunnel parameters peer ip address"],
       "body_bytes": 2150,
-      "body_sha256": "sha256:bb36b142e62c4c2ff4c20a517ad49a23e8ca1877fcf6e0feddc033754576fa12",
+      "body_sha256": "sha256:76338bf1eae355b475bc0034a996c9f6174cfd80da83d4240bbecd716ebda1a5",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -3526,7 +3526,7 @@
       "path": "documentation/resources/external_connector/properties/ipsec/ipsec_tunnel_parameters/peer_ip_address/index.md",
       "product": "distributed-cloud",
       "provider_name": "external_connector",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-3021301113200132-1210020301222122-0132011012332233-0303100330222213-3111333010321220-0302310301201301-0332113022313333-0202300202033212",
       "registry_path": "docs/guides/resources--external_connector--reference--group-001.md",
@@ -3553,14 +3553,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/external_connector/properties/ipsec/ipsec_tunnel_parameters/peer_ip_address/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "IPv4 Address in dot-decimal notation.",
       "tasks": ["configuration"],
       "title": "ipsec.ipsec_tunnel_parameters.peer_ip_address",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["external_connectorCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -3583,7 +3583,7 @@
       "path": "documentation/resources/external_connector/properties/ipsec/ipsec_tunnel_parameters/segment/index.md",
       "product": "distributed-cloud",
       "provider_name": "external_connector",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-1322200131300021-2200232001312301-2123232000201310-3131302201230021-0000003021103031-1222031021130120-1133230031113323-3321303122021132",
       "registry_path": "docs/guides/resources--external_connector--reference--group-001.md",
@@ -3619,20 +3619,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/external_connector/properties/ipsec/ipsec_tunnel_parameters/segment/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Reference to Segment Object.",
       "tasks": ["configuration"],
       "title": "ipsec.ipsec_tunnel_parameters.segment",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["external_connectorCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["ipsec ipsec tunnel parameters segment refs"],
       "body_bytes": 6169,
-      "body_sha256": "sha256:74d311597833762002ace604b2d1db9b8781dbb349b2156f94d3a04bfec9eae7",
+      "body_sha256": "sha256:142e17bf4d878ced226d5f983001f619189deb8e4c638c261ff8f62907e7271f",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -3649,7 +3649,7 @@
       "path": "documentation/resources/external_connector/properties/ipsec/ipsec_tunnel_parameters/segment/refs/index.md",
       "product": "distributed-cloud",
       "provider_name": "external_connector",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-1003032313213122-0230220010230120-2331111030321011-2303003103110013-3300012130130110-3131021102332200-1130312332303122-2122002111022321",
       "registry_path": "docs/guides/resources--external_connector--reference--group-001.md",
@@ -3775,14 +3775,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/external_connector/properties/ipsec/ipsec_tunnel_parameters/segment/refs/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Reference to Segment Object.",
       "tasks": ["configuration"],
       "title": "ipsec.ipsec_tunnel_parameters.segment.refs",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["external_connectorCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -3805,7 +3805,7 @@
       "path": "documentation/resources/external_connector/properties/ipsec/ipsec_tunnel_parameters/site_local_inside_network/index.md",
       "product": "distributed-cloud",
       "provider_name": "external_connector",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-2332112022211302-1302311111102000-0323130303200002-0313033021210121-3323011232312210-3320302013132310-3023330010323130-1012320130200130",
       "registry_path": "docs/guides/resources--external_connector--reference--group-001.md",
@@ -3815,14 +3815,14 @@
       "schema_path": ["ipsec", "ipsec_tunnel_parameters", "site_local_inside_network"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/external_connector/properties/ipsec/ipsec_tunnel_parameters/site_local_inside_network/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "ipsec.ipsec_tunnel_parameters.site_local_inside_network",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["external_connectorCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -3845,7 +3845,7 @@
       "path": "documentation/resources/external_connector/properties/ipsec/ipsec_tunnel_parameters/site_local_network/index.md",
       "product": "distributed-cloud",
       "provider_name": "external_connector",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-0212133002302120-2211331113002301-3013233312320033-3023101102111312-1020110212313333-3300212010102331-0320232210302132-0133023333323012",
       "registry_path": "docs/guides/resources--external_connector--reference--group-001.md",
@@ -3855,20 +3855,20 @@
       "schema_path": ["ipsec", "ipsec_tunnel_parameters", "site_local_network"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/external_connector/properties/ipsec/ipsec_tunnel_parameters/site_local_network/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "ipsec.ipsec_tunnel_parameters.site_local_network",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["external_connectorCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["ipsec ipsec tunnel parameters tunnel eps"],
       "body_bytes": 5625,
-      "body_sha256": "sha256:3c777b8cc59b1c2200a2ccc598c4eb250de9f295a8908771709c0d5bd8d62816",
+      "body_sha256": "sha256:1ac092477990a44a6453c18a60a9c1ebf2bb4a2858e8258b7060e1c1c18b6d61",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -3885,7 +3885,7 @@
       "path": "documentation/resources/external_connector/properties/ipsec/ipsec_tunnel_parameters/tunnel_eps/index.md",
       "product": "distributed-cloud",
       "provider_name": "external_connector",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-1131202200302232-3323130320112131-0032233332221201-0333102102123321-2102313203000200-0221133230230021-2231211011303003-1233332202212302",
       "registry_path": "docs/guides/resources--external_connector--reference--group-001.md",
@@ -3993,14 +3993,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/external_connector/properties/ipsec/ipsec_tunnel_parameters/tunnel_eps/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Configure tunnel parameters, local and remote IP addresses.",
       "tasks": ["configuration"],
       "title": "ipsec.ipsec_tunnel_parameters.tunnel_eps",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["external_connectorCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -4023,7 +4023,7 @@
       "path": "documentation/resources/external_connector/properties/timeouts/index.md",
       "product": "distributed-cloud",
       "provider_name": "external_connector",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-2023312120203110-1221003013330002-1112111012032321-3130202022101320-2101222231102210-3302313300130100-1023233130323102-1003201233323103",
       "registry_path": "docs/guides/resources--external_connector--reference--group-001.md",
@@ -4133,14 +4133,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/external_connector/properties/timeouts/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "timeouts for xcsh_external_connector.",
       "tasks": ["configuration"],
       "title": "timeouts",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["external_connectorCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -4163,7 +4163,7 @@
       "path": "documentation/resources/external_connector/examples/index.md",
       "product": "distributed-cloud",
       "provider_name": "external_connector",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-1023020021113213-0322331233001322-0012100022302130-1013123302233230-0232032201001213-3203001323100231-3330210233012201-1001111112222333",
       "registry_path": "docs/guides/resources--external_connector--examples--group-001.md",
@@ -4173,14 +4173,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/external_connector/examples/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Examples for xcsh_external_connector.",
       "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["external_connectorCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -4210,7 +4210,7 @@
       "path": "documentation/resources/external_connector/examples/resource/index.md",
       "product": "distributed-cloud",
       "provider_name": "external_connector",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-1311210323213000-2020122012123210-0121232212103321-2100123111010301-2020231230132333-0000023203230331-3033131002100022-0013331232230331",
       "registry_path": "docs/guides/resources--external_connector--examples--group-001.md",
@@ -4220,14 +4220,14 @@
       "schema_path": ["resource"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/external_connector/examples/resource/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Resource for xcsh_external_connector.",
       "tasks": ["configuration"],
       "title": "Resource",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["external_connectorCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -4251,7 +4251,7 @@
       "path": "documentation/resources/external_connector/lifecycle/import/index.md",
       "product": "distributed-cloud",
       "provider_name": "external_connector",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-3101203302032013-3223302322323222-2012123333131213-0111113112232132-1221222111101032-1332122322200000-2330022313230303-1321030113210320",
       "registry_path": "docs/guides/resources--external_connector--lifecycle--group-001.md",
@@ -4261,14 +4261,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/external_connector/lifecycle/import/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Import for xcsh_external_connector.",
       "tasks": ["import"],
       "title": "Import",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["external_connectorCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -4291,7 +4291,7 @@
       "path": "documentation/resources/external_connector/lifecycle/timeouts/index.md",
       "product": "distributed-cloud",
       "provider_name": "external_connector",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-0311311020002201-0111320220201230-1221201123312323-3002302331212201-0120213000231022-0023222201210022-2121313201110202-2131311122230310",
       "registry_path": "docs/guides/resources--external_connector--lifecycle--group-001.md",
@@ -4301,14 +4301,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/external_connector/lifecycle/timeouts/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Timeouts for xcsh_external_connector.",
       "tasks": ["lifecycle"],
       "title": "Timeouts",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["external_connectorCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     }
   ],

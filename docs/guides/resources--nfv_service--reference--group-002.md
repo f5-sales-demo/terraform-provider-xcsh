@@ -6,6 +6,948 @@ description: "Complete grouped canonical reference for xcsh_nfv_service referenc
 
 # xcsh_nfv_service reference
 
+<a id="canonical-1113221322000011-1313031012002033-2123303222033131-1023101101330233-1222020101023123-2130012102302313-0302322023032013-3110122331011130"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `f5_big_ip_aws_service.endpoint_service.https_port` properties
+
+Breadcrumbs:
+
+- [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
+- [Property reference](resources--nfv_service--reference--group-001.md#canonical-1033200313012130-2303320020000220-3032203302003212-3030323031320111-0322032022323123-0203102131300133-1232321110231101-1022222010201320)
+- [f5_big_ip_aws_service](resources--nfv_service--reference--group-001.md#canonical-2203212022212003-2212301132213201-2010231030110211-3120210322102100-3130230103331230-0332101002301003-2302320031110011-3121121001302210)
+- [f5_big_ip_aws_service.endpoint_service](resources--nfv_service--reference--group-001.md#canonical-1010032200210212-2313121332112310-0110323222301213-2211012302000323-2311222030300112-0122023013313002-3223113221233302-2201323331331100)
+- f5_big_ip_aws_service.endpoint_service.https_port
+
+<a id="canonical-3213200002230332-1112000033222310-2121220020110031-0313333130213222-1320131011223201-1113022013000112-2032221032220100-2322323031100132"></a>
+
+Type: `["object", {}]`. Optional.
+
+Enable this option
+
+Additional upstream details:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+https_port = {}
+```
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-2323230322303213-2133022201311333-0013103330033033-3122301030103131-2303322233110330-3002113230113033-0230331312202212-1232301203313133"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `f5_big_ip_aws_service.endpoint_service.no_tcp_ports` properties
+
+Breadcrumbs:
+
+- [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
+- [Property reference](resources--nfv_service--reference--group-001.md#canonical-1033200313012130-2303320020000220-3032203302003212-3030323031320111-0322032022323123-0203102131300133-1232321110231101-1022222010201320)
+- [f5_big_ip_aws_service](resources--nfv_service--reference--group-001.md#canonical-2203212022212003-2212301132213201-2010231030110211-3120210322102100-3130230103331230-0332101002301003-2302320031110011-3121121001302210)
+- [f5_big_ip_aws_service.endpoint_service](resources--nfv_service--reference--group-001.md#canonical-1010032200210212-2313121332112310-0110323222301213-2211012302000323-2311222030300112-0122023013313002-3223113221233302-2201323331331100)
+- f5_big_ip_aws_service.endpoint_service.no_tcp_ports
+
+<a id="canonical-0031203113313320-2000021332233113-0133122032103002-0021122020111311-3132031120321221-2031132223103012-0313332012111212-3032122211300012"></a>
+
+Type: `["object", {}]`. Optional.
+
+Enable this option
+
+Additional upstream details:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+no_tcp_ports = {}
+```
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-0032211122030020-3003323212002133-2120003300011011-1012223010030013-1022302100113132-3330231031213131-3320022302013010-0110001302110001"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `f5_big_ip_aws_service.endpoint_service.no_udp_ports` properties
+
+Breadcrumbs:
+
+- [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
+- [Property reference](resources--nfv_service--reference--group-001.md#canonical-1033200313012130-2303320020000220-3032203302003212-3030323031320111-0322032022323123-0203102131300133-1232321110231101-1022222010201320)
+- [f5_big_ip_aws_service](resources--nfv_service--reference--group-001.md#canonical-2203212022212003-2212301132213201-2010231030110211-3120210322102100-3130230103331230-0332101002301003-2302320031110011-3121121001302210)
+- [f5_big_ip_aws_service.endpoint_service](resources--nfv_service--reference--group-001.md#canonical-1010032200210212-2313121332112310-0110323222301213-2211012302000323-2311222030300112-0122023013313002-3223113221233302-2201323331331100)
+- f5_big_ip_aws_service.endpoint_service.no_udp_ports
+
+<a id="canonical-2302111331330122-3120022132102213-2012020331132031-3101313032303321-3300210000112122-1320123212313210-0132221032312033-3012022030210131"></a>
+
+Type: `["object", {}]`. Optional.
+
+Enable this option
+
+Additional upstream details:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+no_udp_ports = {}
+```
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-3121221100302221-2312112212213100-2300030203321033-0023133210013231-0322231123223011-1213333100111231-1001202332212022-3001113302213202"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `f5_big_ip_aws_service.market_place_image` properties
+
+Breadcrumbs:
+
+- [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
+- [Property reference](resources--nfv_service--reference--group-001.md#canonical-1033200313012130-2303320020000220-3032203302003212-3030323031320111-0322032022323123-0203102131300133-1232321110231101-1022222010201320)
+- [f5_big_ip_aws_service](resources--nfv_service--reference--group-001.md#canonical-2203212022212003-2212301132213201-2010231030110211-3120210322102100-3130230103331230-0332101002301003-2302320031110011-3121121001302210)
+- f5_big_ip_aws_service.market_place_image
+
+<a id="canonical-0130301203100302-3320011222113103-2233202312103233-1121212120332021-0100201102103322-1132210222233310-0300113210112121-3300112100033101"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+BIG-IP AWS Pay as You Go Image Selection.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-ami_choice": "[\"AWAFPayG200Mbps\",\"AWAFPayG3Gbps\",\"BestPlusPayG200Mbps\",\"best_plus_payg_1gbps\"]"
+}
+```
+
+Terraform syntax:
+
+```terraform
+market_place_image {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-2110211022210013-0330012110213003-0221330111013110-0311321031333123-0111031220322322-1203000212132210-3023112233323003-2232222333020001"></a>
+
+### Direct properties for `f5_big_ip_aws_service.market_place_image`
+
+- [awafpay_g200_mbps](resources--nfv_service--reference--group-002.md#canonical-3311231311003000-2031121323311100-0331220313322022-1203201010200030-0232111332331122-2002302212312010-1321212203111331-0002303130000202): complete subsection reference.
+
+- [awafpay_g3_gbps](resources--nfv_service--reference--group-002.md#canonical-3303221122123120-0330230111223322-1021231332330022-3313202301212031-0201230313031302-1121133212211002-0312013330003213-2112113330311011): complete subsection reference.
+
+<a id="canonical-3311231311003000-2031121323311100-0331220313322022-1203201010200030-0232111332331122-2002302212312010-1321212203111331-0002303130000202"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `f5_big_ip_aws_service.market_place_image.awafpay_g200_mbps` properties
+
+Breadcrumbs:
+
+- [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
+- [Property reference](resources--nfv_service--reference--group-001.md#canonical-1033200313012130-2303320020000220-3032203302003212-3030323031320111-0322032022323123-0203102131300133-1232321110231101-1022222010201320)
+- [f5_big_ip_aws_service](resources--nfv_service--reference--group-001.md#canonical-2203212022212003-2212301132213201-2010231030110211-3120210322102100-3130230103331230-0332101002301003-2302320031110011-3121121001302210)
+- [f5_big_ip_aws_service.market_place_image](resources--nfv_service--reference--group-002.md#canonical-3121221100302221-2312112212213100-2300030203321033-0023133210013231-0322231123223011-1213333100111231-1001202332212022-3001113302213202)
+- f5_big_ip_aws_service.market_place_image.awafpay_g200_mbps
+
+<a id="canonical-3013002010302031-0223121012302313-0203311033210231-0012031111210212-1332120130131022-3313200110102232-1112000311101220-1320102333212013"></a>
+
+Type: `["object", {}]`. Optional.
+
+Configuration parameter for AWAFPayG200Mbps.
+
+Terraform syntax:
+
+```terraform
+awafpay_g200_mbps = {}
+```
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-3303221122123120-0330230111223322-1021231332330022-3313202301212031-0201230313031302-1121133212211002-0312013330003213-2112113330311011"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `f5_big_ip_aws_service.market_place_image.awafpay_g3_gbps` properties
+
+Breadcrumbs:
+
+- [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
+- [Property reference](resources--nfv_service--reference--group-001.md#canonical-1033200313012130-2303320020000220-3032203302003212-3030323031320111-0322032022323123-0203102131300133-1232321110231101-1022222010201320)
+- [f5_big_ip_aws_service](resources--nfv_service--reference--group-001.md#canonical-2203212022212003-2212301132213201-2010231030110211-3120210322102100-3130230103331230-0332101002301003-2302320031110011-3121121001302210)
+- [f5_big_ip_aws_service.market_place_image](resources--nfv_service--reference--group-002.md#canonical-3121221100302221-2312112212213100-2300030203321033-0023133210013231-0322231123223011-1213333100111231-1001202332212022-3001113302213202)
+- f5_big_ip_aws_service.market_place_image.awafpay_g3_gbps
+
+<a id="canonical-0313103233111113-1301101000002302-0010330233101313-3303031321330022-0101012032023131-0103211222203211-1110103303020001-3311121303001011"></a>
+
+Type: `["object", {}]`. Optional.
+
+Configuration parameter for AWAFPayG3Gbps.
+
+Terraform syntax:
+
+```terraform
+awafpay_g3_gbps = {}
+```
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-0303213133011232-0201322132022131-1321023330330310-0032213003120332-3011101310033312-2030333102020323-2111032131310203-3332013322121201"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `f5_big_ip_aws_service.nodes` properties
+
+Breadcrumbs:
+
+- [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
+- [Property reference](resources--nfv_service--reference--group-001.md#canonical-1033200313012130-2303320020000220-3032203302003212-3030323031320111-0322032022323123-0203102131300133-1232321110231101-1022222010201320)
+- [f5_big_ip_aws_service](resources--nfv_service--reference--group-001.md#canonical-2203212022212003-2212301132213201-2010231030110211-3120210322102100-3130230103331230-0332101002301003-2302320031110011-3121121001302210)
+- f5_big_ip_aws_service.nodes
+
+<a id="canonical-3322312331030022-2323331220311230-3322211311333031-1010031133322100-2101112112010002-0032031213032211-3121323132132102-3000001312210133"></a>
+
+Type: `"object"`. list nested block, Optional.
+
+Specify how and where the service nodes are spawned.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxItems": 2,
+  "minItems": 1,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "array",
+    "deterministic": true,
+    "maxItems": 2,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-09T12:34:59+00:00"
+    },
+    "minItems": 1
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.repeated.max_items": "2",
+    "ves.io.schema.rules.repeated.min_items": "1"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.repeated.max_items": "2",
+    "ves.io.schema.rules.repeated.min_items": "1"
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+nodes {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-0203312102031122-3212331322210213-1020321130000311-1232311330302003-1212203102010110-1311000300023312-1110021113030100-0100331120213111"></a>
+
+### Direct properties for `f5_big_ip_aws_service.nodes`
+
+- [automatic_prefix](resources--nfv_service--reference--group-002.md#canonical-1001003122322020-2222302032321213-3021110030120031-2311010120113300-0121000200200303-3230122300122323-3003212023130110-2203011222202223): complete subsection reference.
+
+<a id="canonical-2130312031100011-1223332112201300-2232111031010121-0102002030201230-3022331220301002-3230220001312022-0333100301020311-0321233203103222"></a>
+
+<a id="canonical-3311231320101120-0002020012123033-2212212231303001-2020230330122220-0332011200203022-3000203121312303-3312331221302011-3302113111121300"></a>
+
+#### `f5_big_ip_aws_service.nodes.aws_az_name` property
+
+Type: `"string"`. Optional.
+
+The AWS Availability Zone must be consistent with the AWS Region chosen. Please select an AZ in the
+same Region as your TGW Site.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-09T12:34:59+00:00"
+    },
+    "pattern": "^([a-z]{2})-([a-z0-9]{4,20})-([a-z0-9]{2})$"
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.pattern": "^([a-z]{2})-([a-z0-9]{4,20})-([a-z0-9]{2})$"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.pattern": "^([a-z]{2})-([a-z0-9]{4,20})-([a-z0-9]{2})$"
+  }
+}
+```
+
+- [mgmt_subnet](resources--nfv_service--reference--group-002.md#canonical-1133221000222000-2213120123130103-0130203310131333-2133112220333331-0003003001130320-0222323310321220-1321013301112222-3310100211322021): complete subsection reference.
+
+<a id="canonical-3023030020220322-0212220021110223-3203030132120230-0101321102012132-1013312033222321-3010320102301120-0233313212112212-1323233123113323"></a>
+
+<a id="canonical-1221112313212332-1102323132113103-1123213000131300-2230301101030312-3121220220002103-1330002131033103-0021030102212133-3030132202001133"></a>
+
+#### `f5_big_ip_aws_service.nodes.node_name` property
+
+Type: `"string"`. Optional.
+
+Node Name will be used to assign as hostname to the service.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 256,
+  "minLength": 1,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "hostname",
+    "maxLength": 256,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-09T12:34:59+00:00"
+    },
+    "minLength": 1
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.hostname": "true",
+    "ves.io.schema.rules.string.max_len": "256",
+    "ves.io.schema.rules.string.min_len": "1"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.hostname": "true",
+    "ves.io.schema.rules.string.max_len": "256",
+    "ves.io.schema.rules.string.min_len": "1"
+  }
+}
+```
+
+- [reserved_mgmt_subnet](resources--nfv_service--reference--group-002.md#canonical-2010110231023102-2320103003311321-1331301001120003-0133203323300021-2331102311120021-1311331010010103-1221300133122101-2113331113111133): complete subsection reference.
+
+<a id="canonical-1003211130213231-3220103110102213-1102323030303311-2220213012301221-2230111303001031-3030120113021321-2130203330023333-1333212311302120"></a>
+
+<a id="canonical-2330211020220300-3230223320001230-1120112301010332-3112212321112233-0323021122013102-2012230203222331-3021121333300333-1223020123120312"></a>
+
+#### `f5_big_ip_aws_service.nodes.tunnel_prefix` property
+
+Type: `"string"`. Optional.
+
+Exclusive with \[automatic\_prefix\] Enter IP prefix for the tunnel, it has to be /30.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "general",
+    "constraintType": "string",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.85,
+      "source": "inferred",
+      "validatedAt": "2026-10-09T12:34:59+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.ipv4_prefix": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.ipv4_prefix": "true"
+  }
+}
+```
+
+<a id="canonical-1001003122322020-2222302032321213-3021110030120031-2311010120113300-0121000200200303-3230122300122323-3003212023130110-2203011222202223"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `f5_big_ip_aws_service.nodes.automatic_prefix` properties
+
+Breadcrumbs:
+
+- [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
+- [Property reference](resources--nfv_service--reference--group-001.md#canonical-1033200313012130-2303320020000220-3032203302003212-3030323031320111-0322032022323123-0203102131300133-1232321110231101-1022222010201320)
+- [f5_big_ip_aws_service](resources--nfv_service--reference--group-001.md#canonical-2203212022212003-2212301132213201-2010231030110211-3120210322102100-3130230103331230-0332101002301003-2302320031110011-3121121001302210)
+- [f5_big_ip_aws_service.nodes](resources--nfv_service--reference--group-002.md#canonical-0303213133011232-0201322132022131-1321023330330310-0032213003120332-3011101310033312-2030333102020323-2111032131310203-3332013322121201)
+- f5_big_ip_aws_service.nodes.automatic_prefix
+
+<a id="canonical-0321222210300212-1313321302213310-3212131023020201-1313312203001232-0200011011002330-1023311023023001-0020023023022302-3030031332331323"></a>
+
+Type: `["object", {}]`. Optional.
+
+Configuration parameter for automatic prefix.
+
+Additional upstream details:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+automatic_prefix = {}
+```
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-1133221000222000-2213120123130103-0130203310131333-2133112220333331-0003003001130320-0222323310321220-1321013301112222-3310100211322021"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `f5_big_ip_aws_service.nodes.mgmt_subnet` properties
+
+Breadcrumbs:
+
+- [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
+- [Property reference](resources--nfv_service--reference--group-001.md#canonical-1033200313012130-2303320020000220-3032203302003212-3030323031320111-0322032022323123-0203102131300133-1232321110231101-1022222010201320)
+- [f5_big_ip_aws_service](resources--nfv_service--reference--group-001.md#canonical-2203212022212003-2212301132213201-2010231030110211-3120210322102100-3130230103331230-0332101002301003-2302320031110011-3121121001302210)
+- [f5_big_ip_aws_service.nodes](resources--nfv_service--reference--group-002.md#canonical-0303213133011232-0201322132022131-1321023330330310-0032213003120332-3011101310033312-2030333102020323-2111032131310203-3332013322121201)
+- f5_big_ip_aws_service.nodes.mgmt_subnet
+
+<a id="canonical-0122002030110001-1122012022001111-3131220223022030-3231330121100020-3323322303220102-3000332012003230-1021003002122212-2221213011232103"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+Configuration parameter for mgmt subnet.
+
+Additional upstream details:
+
+Parameters for AWS subnet.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-choice": "[\"existing_subnet_id\",\"subnet_param\"]"
+}
+```
+
+Terraform syntax:
+
+```terraform
+mgmt_subnet {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-1320031022301112-2103201200330021-3013020002222102-0101122323232103-1332211021233303-0220211123223232-2001113332020010-0122133013120302"></a>
+
+### Direct properties for `f5_big_ip_aws_service.nodes.mgmt_subnet`
+
+<a id="canonical-3211101130211131-0011331031322321-1102023110023331-2320001321303010-1322301000133102-3222220110020013-2202030032131113-2320311021011230"></a>
+
+#### `f5_big_ip_aws_service.nodes.mgmt_subnet.existing_subnet_id` property
+
+Type: `"string"`. Optional.
+
+Exclusive with \[subnet\_param\] Information about existing subnet ID.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 64,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "maxLength": 64,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-09T12:34:59+00:00"
+    },
+    "pattern": "^(subnet-)([a-z0-9]{8}|[a-z0-9]{17})$"
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.max_len": "64",
+    "ves.io.schema.rules.string.pattern": "^(subnet-)([a-z0-9]{8}|[a-z0-9]{17})$"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.max_len": "64",
+    "ves.io.schema.rules.string.pattern": "^(subnet-)([a-z0-9]{8}|[a-z0-9]{17})$"
+  }
+}
+```
+
+- [subnet_param](resources--nfv_service--reference--group-002.md#canonical-2300131333210103-3201113223231000-2311112203311130-1011120033203123-1233123133122113-3101002102330100-0002233130122002-0312232221033011): complete subsection reference.
+
+<a id="canonical-2300131333210103-3201113223231000-2311112203311130-1011120033203123-1233123133122113-3101002102330100-0002233130122002-0312232221033011"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `f5_big_ip_aws_service.nodes.mgmt_subnet.subnet_param` properties
+
+Breadcrumbs:
+
+- [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
+- [Property reference](resources--nfv_service--reference--group-001.md#canonical-1033200313012130-2303320020000220-3032203302003212-3030323031320111-0322032022323123-0203102131300133-1232321110231101-1022222010201320)
+- [f5_big_ip_aws_service](resources--nfv_service--reference--group-001.md#canonical-2203212022212003-2212301132213201-2010231030110211-3120210322102100-3130230103331230-0332101002301003-2302320031110011-3121121001302210)
+- [f5_big_ip_aws_service.nodes](resources--nfv_service--reference--group-002.md#canonical-0303213133011232-0201322132022131-1321023330330310-0032213003120332-3011101310033312-2030333102020323-2111032131310203-3332013322121201)
+- [f5_big_ip_aws_service.nodes.mgmt_subnet](resources--nfv_service--reference--group-002.md#canonical-1133221000222000-2213120123130103-0130203310131333-2133112220333331-0003003001130320-0222323310321220-1321013301112222-3310100211322021)
+- f5_big_ip_aws_service.nodes.mgmt_subnet.subnet_param
+
+<a id="canonical-0113312113022013-3003211103033221-1310021323023311-2200310023003223-2012100212032013-2112223103022220-0232031203002222-1203331022030101"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+Parameters for creating a new cloud subnet.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+subnet_param {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-1232222212203203-3030213313202120-3230130032110202-1003200021021113-1312230221122222-3023321023121213-0011020103201231-3230030201132302"></a>
+
+### Direct properties for `f5_big_ip_aws_service.nodes.mgmt_subnet.subnet_param`
+
+<a id="canonical-0331210223320322-1033003000220102-1110333302210302-1230232212022133-1302201122121312-0112330333310301-2323120322002131-1103222113112102"></a>
+
+#### `f5_big_ip_aws_service.nodes.mgmt_subnet.subnet_param.ipv4` property
+
+Type: `"string"`. Optional.
+
+IPv4 Subnet. IPv4 subnet prefix for this subnet.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "general",
+    "constraintType": "string",
+    "format": "ipv4",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.85,
+      "source": "inferred",
+      "validatedAt": "2026-10-09T12:34:59+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.ipv4_prefix": "true",
+    "ves.io.schema.rules.string.max_ip_prefix_length": "28"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.ipv4_prefix": "true",
+    "ves.io.schema.rules.string.max_ip_prefix_length": "28"
+  }
+}
+```
+
+<a id="canonical-2010110231023102-2320103003311321-1331301001120003-0133203323300021-2331102311120021-1311331010010103-1221300133122101-2113331113111133"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `f5_big_ip_aws_service.nodes.reserved_mgmt_subnet` properties
+
+Breadcrumbs:
+
+- [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
+- [Property reference](resources--nfv_service--reference--group-001.md#canonical-1033200313012130-2303320020000220-3032203302003212-3030323031320111-0322032022323123-0203102131300133-1232321110231101-1022222010201320)
+- [f5_big_ip_aws_service](resources--nfv_service--reference--group-001.md#canonical-2203212022212003-2212301132213201-2010231030110211-3120210322102100-3130230103331230-0332101002301003-2302320031110011-3121121001302210)
+- [f5_big_ip_aws_service.nodes](resources--nfv_service--reference--group-002.md#canonical-0303213133011232-0201322132022131-1321023330330310-0032213003120332-3011101310033312-2030333102020323-2111032131310203-3332013322121201)
+- f5_big_ip_aws_service.nodes.reserved_mgmt_subnet
+
+<a id="canonical-0311323132002111-2221023212113103-2131311303120213-3121302331113023-3333100003322230-2013133111321133-0132131002331333-1010312031103321"></a>
+
+Type: `["object", {}]`. Optional.
+
+Configuration parameter for reserved mgmt subnet.
+
+Additional upstream details:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+reserved_mgmt_subnet = {}
+```
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-2012312013030011-0102312120121131-2122112110311110-1102330303132211-1031011331133302-3311032130133131-3022001211230302-3310030220221101"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `https_management` properties
+
+Breadcrumbs:
+
+- [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
+- [Property reference](resources--nfv_service--reference--group-001.md#canonical-1033200313012130-2303320020000220-3032203302003212-3030323031320111-0322032022323123-0203102131300133-1232321110231101-1022222010201320)
+- https_management
+
+<a id="canonical-2310110120210321-0011122021130100-1020101231210333-1001101201002320-3213323313112230-0312000102310210-1113012113122222-1223202310021130"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+Configuration parameter for https management.
+
+Additional upstream details:
+
+HTTPS based configuration.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-advertise_choice": "[\"advertise_on_internet\",\"advertise_on_internet_default_vip\",\"advertise_on_sli_vip\",\"advertise_on_slo_internet_vip\",\"advertise_on_slo_sli\",\"advertise_on_slo_vip\"]",
+  "x-ves-oneof-field-internet_choice": "[]",
+  "x-ves-oneof-field-port_choice": "[\"default_https_port\",\"https_port\"]"
+}
+```
+
+Terraform syntax:
+
+```terraform
+https_management {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-0021330103130213-0200330132132022-2303311233300030-1303030132222023-2220111102013313-1213212010130220-0312120323033112-2102020230020020"></a>
+
+### Direct properties for `https_management`
+
+- [advertise_on_internet](resources--nfv_service--reference--group-002.md#canonical-0120200112111003-3331321000320321-3001301020110212-2233312213000030-3121001203022212-2312200333022211-2120220200002130-3331131211211023): complete subsection reference.
+
+- [advertise_on_internet_default_vip](resources--nfv_service--reference--group-002.md#canonical-2111023221103101-0221221100321122-1133132330200200-2021112233223332-3131313223011311-3201013031123012-2130013033112113-0311013010100122): complete subsection reference.
+
+- [advertise_on_sli_vip](resources--nfv_service--reference--group-002.md#canonical-0331000010312010-2210033023202103-2113002300230301-3022110023310301-2232203113103003-1020202001202210-3321212230202210-0102133323033302): complete subsection reference.
+
+- [advertise_on_slo_internet_vip](resources--nfv_service--reference--group-002.md#canonical-3031132200011022-1313221310121032-3200012331302121-0120313212301311-1101211132233033-2113333100000023-0121110203223213-0303202010232130): complete subsection reference.
+
+- [advertise_on_slo_sli](resources--nfv_service--reference--group-003.md#canonical-0300000202230320-1330311113123300-3013200231333023-2210113332222133-1202010133200331-1103103321101332-1311010232212102-3002120020221012): complete subsection reference.
+
+- [advertise_on_slo_vip](resources--nfv_service--reference--group-004.md#canonical-3123232331313231-1003300030030012-0013233023203203-0221011121303133-2002120310330210-0313012223300221-2030131203030100-3230303033112000): complete subsection reference.
+
+- [default_https_port](resources--nfv_service--reference--group-004.md#canonical-1031033213022103-1023333001002003-1001122010332122-2120200101013131-3210333031311132-3130212220330310-3120322302022212-0102303131310332): complete subsection reference.
+
+<a id="canonical-3131321201111130-3033222200321231-1201202313023231-1333112310130303-0322120131011100-3120231222222200-3012213001122230-2023330133221023"></a>
+
+<a id="canonical-1001013303213100-2110310031313302-3123031003030023-1223233200012010-3321331133003111-3320332300212013-1123212313330201-2323321131301012"></a>
+
+#### `https_management.domain_suffix` property
+
+Type: `"string"`. Optional.
+
+Domain suffix will be used along with node name to form URL to access node management.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "hostname",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-09T12:34:59+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.hostname": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.hostname": "true"
+  }
+}
+```
+
+<a id="canonical-0123023032232303-0323211001202133-2013003322001322-1032312221231232-2112222313233021-0230202320231133-3133101222220000-2000332000110001"></a>
+
+<a id="canonical-2120300001113211-1132320000001200-3310032301121002-0001003100203103-2100002023030221-2311101221111120-3022303323120301-3301131231323130"></a>
+
+#### `https_management.https_port` property
+
+Type: `"number"`. Optional.
+
+Exclusive with \[default\_https\_port\] Enter TCP port number.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "number",
+    "deterministic": true,
+    "maximum": 65535,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "api-probed",
+      "validatedAt": "2026-10-09T12:34:59+00:00"
+    },
+    "minimum": 1
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.uint32.gte": "1",
+    "ves.io.schema.rules.uint32.lte": "65535"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.uint32.gte": "1",
+    "ves.io.schema.rules.uint32.lte": "65535"
+  }
+}
+```
+
+<a id="canonical-0120200112111003-3331321000320321-3001301020110212-2233312213000030-3121001203022212-2312200333022211-2120220200002130-3331131211211023"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `https_management.advertise_on_internet` properties
+
+Breadcrumbs:
+
+- [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
+- [Property reference](resources--nfv_service--reference--group-001.md#canonical-1033200313012130-2303320020000220-3032203302003212-3030323031320111-0322032022323123-0203102131300133-1232321110231101-1022222010201320)
+- [https_management](resources--nfv_service--reference--group-002.md#canonical-2012312013030011-0102312120121131-2122112110311110-1102330303132211-1031011331133302-3311032130133131-3022001211230302-3310030220221101)
+- https_management.advertise_on_internet
+
+<a id="canonical-0323010000210110-1011321220101213-3302313013003100-3101320312130203-3020110132002010-2121301212013103-3112021220132330-0311003300231200"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+This defines a way to advertise a load balancer on public. If optional public\_ip is provided, it
+will only be advertised on RE sites where that public\_ip is available.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+advertise_on_internet {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-2330300311000311-3031023210321000-1132002313112231-1201131303003223-2300310031302001-2100121020022202-3300301323212311-1130110313212231"></a>
+
+### Direct properties for `https_management.advertise_on_internet`
+
+- [public_ip](resources--nfv_service--reference--group-002.md#canonical-0100132113311101-3231330300000220-3223211013111100-1133012230033333-3131132022031312-0023012203321222-1010313330223321-3220232020001122): complete subsection reference.
+
 <a id="canonical-0100132113311101-3231330300000220-3223211013111100-1133012230033333-3131132022031312-0023012203321222-1010313330223321-3220232020001122"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -18,8 +960,8 @@ Breadcrumbs:
 
 - [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
 - [Property reference](resources--nfv_service--reference--group-001.md#canonical-1033200313012130-2303320020000220-3032203302003212-3030323031320111-0322032022323123-0203102131300133-1232321110231101-1022222010201320)
-- [https_management](resources--nfv_service--reference--group-001.md#canonical-2012312013030011-0102312120121131-2122112110311110-1102330303132211-1031011331133302-3311032130133131-3022001211230302-3310030220221101)
-- [https_management.advertise_on_internet](resources--nfv_service--reference--group-001.md#canonical-0120200112111003-3331321000320321-3001301020110212-2233312213000030-3121001203022212-2312200333022211-2120220200002130-3331131211211023)
+- [https_management](resources--nfv_service--reference--group-002.md#canonical-2012312013030011-0102312120121131-2122112110311110-1102330303132211-1031011331133302-3311032130133131-3022001211230302-3310030220221101)
+- [https_management.advertise_on_internet](resources--nfv_service--reference--group-002.md#canonical-0120200112111003-3331321000320321-3001301020110212-2233312213000030-3121001203022212-2312200333022211-2120220200002130-3331131211211023)
 - https_management.advertise_on_internet.public_ip
 
 <a id="canonical-1320022302320301-0301323112111020-0012221032212033-1121313221310031-3111210222023102-1211122200200303-0212322333301221-2200310112030020"></a>
@@ -28,13 +970,6 @@ Type: `"object"`. single nested block, Optional.
 
 This type establishes a direct reference from one object(the referrer) to another(the referred).
 Such a reference is in form of tenant/namespace/name.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
-```
 
 Receipt-pinned upstream constraints:
 
@@ -70,15 +1005,6 @@ Type: `"string"`. Optional.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
 referred object's(e.g. Route's) name.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 128),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -97,7 +1023,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1
   },
@@ -131,15 +1057,6 @@ Type: `"string"`. Optional, Computed.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
 hold the referred object's(e.g. Route's) namespace.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 63),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -164,7 +1081,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1,
     "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
@@ -199,15 +1116,6 @@ Type: `"string"`. Computed.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
 the referred object's(e.g. Route's) tenant.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthAtMost(64),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -224,7 +1132,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -254,7 +1162,7 @@ Breadcrumbs:
 
 - [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
 - [Property reference](resources--nfv_service--reference--group-001.md#canonical-1033200313012130-2303320020000220-3032203302003212-3030323031320111-0322032022323123-0203102131300133-1232321110231101-1022222010201320)
-- [https_management](resources--nfv_service--reference--group-001.md#canonical-2012312013030011-0102312120121131-2122112110311110-1102330303132211-1031011331133302-3311032130133131-3022001211230302-3310030220221101)
+- [https_management](resources--nfv_service--reference--group-002.md#canonical-2012312013030011-0102312120121131-2122112110311110-1102330303132211-1031011331133302-3311032130133131-3022001211230302-3310030220221101)
 - https_management.advertise_on_internet_default_vip
 
 <a id="canonical-3032302201112032-1310300120032303-3102310202001023-3132002203013332-0313211203133322-2230000031320222-0030000330311033-3330122112223211"></a>
@@ -300,7 +1208,7 @@ Breadcrumbs:
 
 - [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
 - [Property reference](resources--nfv_service--reference--group-001.md#canonical-1033200313012130-2303320020000220-3032203302003212-3030323031320111-0322032022323123-0203102131300133-1232321110231101-1022222010201320)
-- [https_management](resources--nfv_service--reference--group-001.md#canonical-2012312013030011-0102312120121131-2122112110311110-1102330303132211-1031011331133302-3311032130133131-3022001211230302-3310030220221101)
+- [https_management](resources--nfv_service--reference--group-002.md#canonical-2012312013030011-0102312120121131-2122112110311110-1102330303132211-1031011331133302-3311032130133131-3022001211230302-3310030220221101)
 - https_management.advertise_on_sli_vip
 
 <a id="canonical-0333202002211320-0113013211010133-1020230123220300-1113103313110221-3232301101001323-3011223320210101-2332032320313031-2300121003201333"></a>
@@ -308,15 +1216,6 @@ Breadcrumbs:
 Type: `"object"`. single nested block, Optional.
 
 Inline TLS Parameters. Inline TLS parameters.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("tls_certificates"),
-  validators.ConflictingObjectAttributes("no_mtls",
-    "use_mtls")}
-```
 
 Receipt-pinned upstream constraints:
 
@@ -364,7 +1263,7 @@ Breadcrumbs:
 
 - [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
 - [Property reference](resources--nfv_service--reference--group-001.md#canonical-1033200313012130-2303320020000220-3032203302003212-3030323031320111-0322032022323123-0203102131300133-1232321110231101-1022222010201320)
-- [https_management](resources--nfv_service--reference--group-001.md#canonical-2012312013030011-0102312120121131-2122112110311110-1102330303132211-1031011331133302-3311032130133131-3022001211230302-3310030220221101)
+- [https_management](resources--nfv_service--reference--group-002.md#canonical-2012312013030011-0102312120121131-2122112110311110-1102330303132211-1031011331133302-3311032130133131-3022001211230302-3310030220221101)
 - [https_management.advertise_on_sli_vip](resources--nfv_service--reference--group-002.md#canonical-0331000010312010-2210033023202103-2113002300230301-3022110023310301-2232203113103003-1020202001202210-3321212230202210-0102133323033302)
 - https_management.advertise_on_sli_vip.no_mtls
 
@@ -411,7 +1310,7 @@ Breadcrumbs:
 
 - [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
 - [Property reference](resources--nfv_service--reference--group-001.md#canonical-1033200313012130-2303320020000220-3032203302003212-3030323031320111-0322032022323123-0203102131300133-1232321110231101-1022222010201320)
-- [https_management](resources--nfv_service--reference--group-001.md#canonical-2012312013030011-0102312120121131-2122112110311110-1102330303132211-1031011331133302-3311032130133131-3022001211230302-3310030220221101)
+- [https_management](resources--nfv_service--reference--group-002.md#canonical-2012312013030011-0102312120121131-2122112110311110-1102330303132211-1031011331133302-3311032130133131-3022001211230302-3310030220221101)
 - [https_management.advertise_on_sli_vip](resources--nfv_service--reference--group-002.md#canonical-0331000010312010-2210033023202103-2113002300230301-3022110023310301-2232203113103003-1020202001202210-3321212230202210-0102133323033302)
 - https_management.advertise_on_sli_vip.tls_certificates
 
@@ -421,19 +1320,6 @@ Type: `"object"`. list nested block, Optional.
 
 Users can add one or more certificates that share the same set of domains. For example, domain.com
 and \*.domain.com - but use different signature algorithms.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.List{validators.RequiredListObjectAttributes("certificate_url"),
-  validators.ConflictingListObjectAttributes("custom_hash_algorithms",
-    "disable_ocsp_stapling"),
-  validators.ConflictingListObjectAttributes("custom_hash_algorithms",
-    "use_system_defaults"),
-  validators.ConflictingListObjectAttributes("disable_ocsp_stapling",
-    "use_system_defaults")}
-```
 
 Receipt-pinned upstream constraints:
 
@@ -449,7 +1335,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minItems": 1
   },
@@ -484,22 +1370,17 @@ tls_certificates {
 
 ### Direct properties for `https_management.advertise_on_sli_vip.tls_certificates`
 
+- [blindfold](resources--nfv_service--reference--group-002.md#canonical-1323212331201101-3133223202133011-0311120120321330-0112000301212011-1210113200301301-0021233133032013-3000302222003322-2012232030313231): complete subsection reference.
+
 <a id="canonical-2301110001001230-3133131001202021-2012133312201011-3202313010100031-2321133201333031-1032300322103120-2231320233131020-1103033230311302"></a>
+
+<a id="canonical-3023110332231332-2010103223222123-2121222330210312-2003201132231003-1312103320311203-1113123203020322-3100031312222032-0121312100333210"></a>
 
 #### `https_management.advertise_on_sli_vip.tls_certificates.certificate_url` property
 
-Type: `"string"`. Optional.
+Type: `"string"`. Optional, Computed.
 
 TLS certificate. Certificate or certificate chain in PEM format including the PEM headers.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 131072),
-}
-```
 
 Receipt-pinned upstream constraints:
 
@@ -519,7 +1400,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1
   },
@@ -548,7 +1429,7 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-1303031230302323-1022011313213011-2202221313113320-1131013120030112-1121002320213221-0203212213131213-1000231113000221-0110322012013330"></a>
 
-<a id="canonical-3023110332231332-2010103223222123-2121222330210312-2003201132231003-1312103320311203-1113123203020322-3100031312222032-0121312100333210"></a>
+<a id="canonical-2311033130020213-0221022200112020-1220011220012000-2220031212112123-3020231212021021-3313130020221011-3211112313020302-2101001101031133"></a>
 
 #### `https_management.advertise_on_sli_vip.tls_certificates.description_spec` property
 
@@ -562,6 +1443,185 @@ Description. Description for the certificate.
 
 - [use_system_defaults](resources--nfv_service--reference--group-002.md#canonical-1013311131131210-2312303211200202-2231121313322010-3221001002232302-2012023132322333-3001200001201000-2320130130233022-3000211102330332): complete subsection reference.
 
+<a id="canonical-1323212331201101-3133223202133011-0311120120321330-0112000301212011-1210113200301301-0021233133032013-3000302222003322-2012232030313231"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `https_management.advertise_on_sli_vip.tls_certificates.blindfold` properties
+
+Breadcrumbs:
+
+- [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
+- [Property reference](resources--nfv_service--reference--group-001.md#canonical-1033200313012130-2303320020000220-3032203302003212-3030323031320111-0322032022323123-0203102131300133-1232321110231101-1022222010201320)
+- [https_management](resources--nfv_service--reference--group-002.md#canonical-2012312013030011-0102312120121131-2122112110311110-1102330303132211-1031011331133302-3311032130133131-3022001211230302-3310030220221101)
+- [https_management.advertise_on_sli_vip](resources--nfv_service--reference--group-002.md#canonical-0331000010312010-2210033023202103-2113002300230301-3022110023310301-2232203113103003-1020202001202210-3321212230202210-0102133323033302)
+- [https_management.advertise_on_sli_vip.tls_certificates](resources--nfv_service--reference--group-002.md#canonical-2202130032112332-2213103030020310-2020103332030021-2000031031330133-0032200222123221-3200112310231200-3330110113212020-1233310003130001)
+- https_management.advertise_on_sli_vip.tls_certificates.blindfold
+
+<a id="canonical-1303300220233002-1131012132323222-3222301132332323-1011222111211021-1101311312302300-1211303110223131-1121123110230203-2320300212120102"></a>
+
+Type: `"single"`. Optional.
+
+Native certificate preparation. Use PEM files or a P12 file, or write-only key/bundle values with
+material\_version (Terraform 1.11+). Defaults to shared/ves-io-allow-volterra. Inline certificates
+require unique IDs. Private inputs are never stored.
+
+<a id="canonical-3121232330203101-2023012223130211-0221211302232021-0233230310231203-2012030311332023-3223231310112301-1321300331002103-2032133220301031"></a>
+
+### Direct properties for `https_management.advertise_on_sli_vip.tls_certificates.blindfold`
+
+<a id="canonical-1123031101302320-1221333022220333-3000322031113101-0320321323220001-0130101121210232-1311133100001021-0322200112221012-1101310303010100"></a>
+
+#### `https_management.advertise_on_sli_vip.tls_certificates.blindfold.algorithm` property
+
+Type: `"string"`. Computed.
+
+<a id="canonical-1212203010203300-2133200123122103-1031020211102303-3202010010113111-0032302012033012-3013300100101210-3303230122203131-3203120303012231"></a>
+
+<a id="canonical-1203030232221002-3331111300301223-0010021323020013-1131333021021221-0021323112111330-3332111210311322-2311212132331230-1103230033300022"></a>
+
+#### `https_management.advertise_on_sli_vip.tls_certificates.blindfold.certificate_file` property
+
+Type: `"string"`. Optional.
+
+<a id="canonical-3112010001002020-3331131123031302-0132100233020230-3210023103320112-0003223210021210-0111202320111223-1012331130120200-0013022300101321"></a>
+
+<a id="canonical-1231302032221331-1132203320332012-2332330202132031-2132202133312313-2301202232202220-3300210000001330-2130101323103131-2102222032331231"></a>
+
+#### `https_management.advertise_on_sli_vip.tls_certificates.blindfold.certificate_pem` property
+
+Type: `"string"`. Optional.
+
+<a id="canonical-2312233030201011-2121310220333231-3223030030320311-3321220100121313-2312320332121231-0123123303221121-0300302000120121-0102213120132110"></a>
+
+<a id="canonical-0022011311020030-0021101030103133-1103122001130011-1233211023301033-3212021213212210-2320221231222212-2000313000001222-1123231213323112"></a>
+
+#### `https_management.advertise_on_sli_vip.tls_certificates.blindfold.chain_identity` property
+
+Type: `"string"`. Computed.
+
+<a id="canonical-0201300010123120-2323002011133311-0311220002101003-1211100110130111-0233120033231023-1101213330232100-2031113323121022-0310121200012133"></a>
+
+<a id="canonical-1122202323223112-1212022321233331-1312212221013210-0333231322102332-1303031013333231-3203030103120201-1202212122320031-3131300013000321"></a>
+
+#### `https_management.advertise_on_sli_vip.tls_certificates.blindfold.context_digest` property
+
+Type: `"string"`. Computed.
+
+<a id="canonical-1331330213303310-2020023023012032-1012132231003333-3020220230122002-1132231121212223-0332232131011321-3132111011031221-2030210330330311"></a>
+
+<a id="canonical-3133033311301303-2221331010213023-2030312111212312-3201122313022021-2131301013033330-3221101032333322-1100322121220202-2101133233012301"></a>
+
+#### `https_management.advertise_on_sli_vip.tls_certificates.blindfold.encrypted_location` property
+
+Type: `"string"`. Computed, Sensitive.
+
+<a id="canonical-2211101020303230-2310123211300310-2020030001321120-3013321011211002-3200000332213312-3202221232220200-3011332002111230-1121300223321111"></a>
+
+<a id="canonical-3310003120130113-1331333220120220-0031002313101222-1000210213033131-0202031322221022-1103003223203320-0010233331321110-1011223123330331"></a>
+
+#### `https_management.advertise_on_sli_vip.tls_certificates.blindfold.expires_at` property
+
+Type: `"string"`. Computed.
+
+<a id="canonical-2020301202301220-2232032021002312-1021010301113323-2020312001230131-3330111333231323-3230013323132111-1122222231122333-2010010022001212"></a>
+
+<a id="canonical-1110332002111221-1221233030000132-1133022111213133-0233210103101031-2003123220223212-0333111022121123-2313300113210223-3023002020122000"></a>
+
+#### `https_management.advertise_on_sli_vip.tls_certificates.blindfold.fingerprint` property
+
+Type: `"string"`. Computed.
+
+<a id="canonical-3013300013130212-3222111011100303-0100033003112300-0110120011000130-2122333023311023-2030022013321213-0302023212232202-3223011031322231"></a>
+
+<a id="canonical-0322300120122121-1032022201301232-3313211133112112-2312021100112010-1022121123301033-1303211332030101-1003131232031231-0130033023022031"></a>
+
+#### `https_management.advertise_on_sli_vip.tls_certificates.blindfold.id` property
+
+Type: `"string"`. Optional.
+
+<a id="canonical-3300012003101122-3131202021123310-3210330001103132-3023021201213312-1110002330120302-2122303100100311-0113130321010033-0312020100121011"></a>
+
+<a id="canonical-0300032221332300-3011130223022101-3010322320233010-3120303010223212-1220122231331122-2202032331010101-2302031033201320-2100303301333221"></a>
+
+#### `https_management.advertise_on_sli_vip.tls_certificates.blindfold.material_version` property
+
+Type: `"string"`. Optional.
+
+<a id="canonical-3333033000303201-3212113233233301-3031323021112031-3231230300312331-0320323133333120-3103301333110233-2223002031303223-2300111301323323"></a>
+
+<a id="canonical-2223312300202121-0001301011322031-3110202221103130-0320010200122322-1301230031220030-2103203213121301-3331223113012220-2232302100120203"></a>
+
+#### `https_management.advertise_on_sli_vip.tls_certificates.blindfold.passphrase_env` property
+
+Type: `"string"`. Optional.
+
+<a id="canonical-3100001302020122-3201202012222122-0310232031002232-1322011010121223-0311310233120303-3111333311013201-2130331011012311-3333322300232121"></a>
+
+<a id="canonical-1002310223312002-1123331033231201-0023231303333202-0330100123320002-1221112101233211-0132103323211103-1023322200310113-1000223320031312"></a>
+
+#### `https_management.advertise_on_sli_vip.tls_certificates.blindfold.passphrase_wo` property
+
+Type: `"string"`. Optional, Sensitive, Write_only.
+
+<a id="canonical-3312233133030201-0121303331003213-1212013133302112-0030123213201010-0123010110131112-3232122030102003-3012023011001020-0131101121331000"></a>
+
+<a id="canonical-0001203131022131-1101311123021002-3022202011130000-0101030302321202-0011331030222020-3110120323333331-0120201210020310-0200011232120303"></a>
+
+#### `https_management.advertise_on_sli_vip.tls_certificates.blindfold.pkcs12_file` property
+
+Type: `"string"`. Optional.
+
+<a id="canonical-3323113231233001-3120111020232322-2210121333123321-3112200211210102-3312330210302201-0122200213333330-2311111132121113-3300010210121123"></a>
+
+<a id="canonical-1022021331012003-1323112031132123-0213221013012320-0023032313020312-2210021030203000-1003102033320221-1201132121302000-0321323120022223"></a>
+
+#### `https_management.advertise_on_sli_vip.tls_certificates.blindfold.pkcs12_wo` property
+
+Type: `"string"`. Optional, Sensitive, Write_only.
+
+<a id="canonical-1302122312221200-1030112220032002-3001203210303030-0113100312203112-0300303333230310-0131112001300021-1210230301231131-0022102130301312"></a>
+
+<a id="canonical-1123133333030312-1021302220320031-1113301033330121-1023020102330311-3000312000100030-1032012122213311-3320001322320223-0031201233213333"></a>
+
+#### `https_management.advertise_on_sli_vip.tls_certificates.blindfold.policy` property
+
+Type: `"string"`. Optional.
+
+<a id="canonical-3003203231200120-1102013011310230-0232221132333203-1221033233230021-1000322213033223-1232021002222211-0201200120230131-3300122303020022"></a>
+
+<a id="canonical-3011311132221023-1013302320002323-1303030213320301-2100113211111120-3120222320012101-3011101331030002-0123123111313220-3232022202023031"></a>
+
+#### `https_management.advertise_on_sli_vip.tls_certificates.blindfold.prepared_identity` property
+
+Type: `"string"`. Computed.
+
+<a id="canonical-0120320112003021-2312220113332022-1221112322231223-2203123021122330-2310312021221012-0231200331233011-0110311031211220-0113220211011233"></a>
+
+<a id="canonical-1010200221322121-1302032001311012-0033100101102022-3121331133120200-1132303113121133-0211223110000122-3012132013320013-1020130322002301"></a>
+
+#### `https_management.advertise_on_sli_vip.tls_certificates.blindfold.private_key_file` property
+
+Type: `"string"`. Optional.
+
+<a id="canonical-0223313202133300-1130002210212312-3110231103133333-0331201113103223-3302320322311201-3010211332000003-2321023333021133-2112121322222023"></a>
+
+<a id="canonical-2222100023232123-1031000132221011-2130213310320302-2321202223012121-1202003103200331-1321331101220030-2000311031022200-2301031300321112"></a>
+
+#### `https_management.advertise_on_sli_vip.tls_certificates.blindfold.private_key_wo` property
+
+Type: `"string"`. Optional, Sensitive, Write_only.
+
+<a id="canonical-1032120120003223-2021023232123333-1113302123321230-3102302323101010-2121133121003312-0211221132310322-1230101110321213-0302031233312332"></a>
+
+<a id="canonical-0301232010032202-0330123231031013-0121021003020113-3010022100221211-2130222212013110-1011222233310212-3232300221001321-2021011230110010"></a>
+
+#### `https_management.advertise_on_sli_vip.tls_certificates.blindfold.spki_identity` property
+
+Type: `"string"`. Computed.
+
 <a id="canonical-2221022101033013-3013303203011113-3001220231312133-3121021223310301-1310020313330110-0120012022312220-1210032301023211-3333303310021112"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -574,7 +1634,7 @@ Breadcrumbs:
 
 - [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
 - [Property reference](resources--nfv_service--reference--group-001.md#canonical-1033200313012130-2303320020000220-3032203302003212-3030323031320111-0322032022323123-0203102131300133-1232321110231101-1022222010201320)
-- [https_management](resources--nfv_service--reference--group-001.md#canonical-2012312013030011-0102312120121131-2122112110311110-1102330303132211-1031011331133302-3311032130133131-3022001211230302-3310030220221101)
+- [https_management](resources--nfv_service--reference--group-002.md#canonical-2012312013030011-0102312120121131-2122112110311110-1102330303132211-1031011331133302-3311032130133131-3022001211230302-3310030220221101)
 - [https_management.advertise_on_sli_vip](resources--nfv_service--reference--group-002.md#canonical-0331000010312010-2210033023202103-2113002300230301-3022110023310301-2232203113103003-1020202001202210-3321212230202210-0102133323033302)
 - [https_management.advertise_on_sli_vip.tls_certificates](resources--nfv_service--reference--group-002.md#canonical-2202130032112332-2213103030020310-2020103332030021-2000031031330133-0032200222123221-3200112310231200-3330110113212020-1233310003130001)
 - https_management.advertise_on_sli_vip.tls_certificates.custom_hash_algorithms
@@ -584,13 +1644,6 @@ Breadcrumbs:
 Type: `"object"`. single nested block, Optional.
 
 Specifies the hash algorithms to be used.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("hash_algorithms")}
-```
 
 Receipt-pinned upstream constraints:
 
@@ -627,15 +1680,6 @@ Type: `["list", "string"]`. Optional.
 values are \`INVALID\_HASH\_ALGORITHM\`, \`SHA256\`, \`SHA1\`. Defaults to
 \`INVALID\_HASH\_ALGORITHM\`.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.List{
-  listvalidator.SizeBetween(1, 4),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -650,7 +1694,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minItems": 1,
     "uniqueItems": true
@@ -688,7 +1732,7 @@ Breadcrumbs:
 
 - [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
 - [Property reference](resources--nfv_service--reference--group-001.md#canonical-1033200313012130-2303320020000220-3032203302003212-3030323031320111-0322032022323123-0203102131300133-1232321110231101-1022222010201320)
-- [https_management](resources--nfv_service--reference--group-001.md#canonical-2012312013030011-0102312120121131-2122112110311110-1102330303132211-1031011331133302-3311032130133131-3022001211230302-3310030220221101)
+- [https_management](resources--nfv_service--reference--group-002.md#canonical-2012312013030011-0102312120121131-2122112110311110-1102330303132211-1031011331133302-3311032130133131-3022001211230302-3310030220221101)
 - [https_management.advertise_on_sli_vip](resources--nfv_service--reference--group-002.md#canonical-0331000010312010-2210033023202103-2113002300230301-3022110023310301-2232203113103003-1020202001202210-3321212230202210-0102133323033302)
 - [https_management.advertise_on_sli_vip.tls_certificates](resources--nfv_service--reference--group-002.md#canonical-2202130032112332-2213103030020310-2020103332030021-2000031031330133-0032200222123221-3200112310231200-3330110113212020-1233310003130001)
 - https_management.advertise_on_sli_vip.tls_certificates.disable_ocsp_stapling
@@ -736,7 +1780,7 @@ Breadcrumbs:
 
 - [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
 - [Property reference](resources--nfv_service--reference--group-001.md#canonical-1033200313012130-2303320020000220-3032203302003212-3030323031320111-0322032022323123-0203102131300133-1232321110231101-1022222010201320)
-- [https_management](resources--nfv_service--reference--group-001.md#canonical-2012312013030011-0102312120121131-2122112110311110-1102330303132211-1031011331133302-3311032130133131-3022001211230302-3310030220221101)
+- [https_management](resources--nfv_service--reference--group-002.md#canonical-2012312013030011-0102312120121131-2122112110311110-1102330303132211-1031011331133302-3311032130133131-3022001211230302-3310030220221101)
 - [https_management.advertise_on_sli_vip](resources--nfv_service--reference--group-002.md#canonical-0331000010312010-2210033023202103-2113002300230301-3022110023310301-2232203113103003-1020202001202210-3321212230202210-0102133323033302)
 - [https_management.advertise_on_sli_vip.tls_certificates](resources--nfv_service--reference--group-002.md#canonical-2202130032112332-2213103030020310-2020103332030021-2000031031330133-0032200222123221-3200112310231200-3330110113212020-1233310003130001)
 - https_management.advertise_on_sli_vip.tls_certificates.private_key
@@ -746,14 +1790,6 @@ Breadcrumbs:
 Type: `"object"`. single nested block, Optional.
 
 SecretType is used in an object to indicate a sensitive/confidential field.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info",
-    "clear_secret_info")}
-```
 
 Receipt-pinned upstream constraints:
 
@@ -797,7 +1833,7 @@ Breadcrumbs:
 
 - [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
 - [Property reference](resources--nfv_service--reference--group-001.md#canonical-1033200313012130-2303320020000220-3032203302003212-3030323031320111-0322032022323123-0203102131300133-1232321110231101-1022222010201320)
-- [https_management](resources--nfv_service--reference--group-001.md#canonical-2012312013030011-0102312120121131-2122112110311110-1102330303132211-1031011331133302-3311032130133131-3022001211230302-3310030220221101)
+- [https_management](resources--nfv_service--reference--group-002.md#canonical-2012312013030011-0102312120121131-2122112110311110-1102330303132211-1031011331133302-3311032130133131-3022001211230302-3310030220221101)
 - [https_management.advertise_on_sli_vip](resources--nfv_service--reference--group-002.md#canonical-0331000010312010-2210033023202103-2113002300230301-3022110023310301-2232203113103003-1020202001202210-3321212230202210-0102133323033302)
 - [https_management.advertise_on_sli_vip.tls_certificates](resources--nfv_service--reference--group-002.md#canonical-2202130032112332-2213103030020310-2020103332030021-2000031031330133-0032200222123221-3200112310231200-3330110113212020-1233310003130001)
 - [https_management.advertise_on_sli_vip.tls_certificates.private_key](resources--nfv_service--reference--group-002.md#canonical-3332203122223003-2210301120230013-0320301312020222-2132330101313130-3333103301023323-1012131100030103-3012302133001020-1100221003122102)
@@ -808,13 +1844,6 @@ Breadcrumbs:
 Type: `"object"`. single nested block, Optional.
 
 BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("location")}
-```
 
 Receipt-pinned upstream constraints:
 
@@ -861,7 +1890,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -884,15 +1913,6 @@ Type: `"string"`. Optional, Sensitive.
 Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(4, 131072),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -908,7 +1928,7 @@ Receipt-pinned upstream constraints:
       "confidence": 1.0,
       "note": "Blindfold envelope encryption (AES-256-GCM + RSA-OAEP) of an RSA-2048 TLS private key produces ~3700 char string:/// URL. 128KB max secret size = ~175KB base64. Discovery reported 1024 which is incorrect.",
       "source": "manual-override",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 4
   },
@@ -952,7 +1972,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -976,7 +1996,7 @@ Breadcrumbs:
 
 - [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
 - [Property reference](resources--nfv_service--reference--group-001.md#canonical-1033200313012130-2303320020000220-3032203302003212-3030323031320111-0322032022323123-0203102131300133-1232321110231101-1022222010201320)
-- [https_management](resources--nfv_service--reference--group-001.md#canonical-2012312013030011-0102312120121131-2122112110311110-1102330303132211-1031011331133302-3311032130133131-3022001211230302-3310030220221101)
+- [https_management](resources--nfv_service--reference--group-002.md#canonical-2012312013030011-0102312120121131-2122112110311110-1102330303132211-1031011331133302-3311032130133131-3022001211230302-3310030220221101)
 - [https_management.advertise_on_sli_vip](resources--nfv_service--reference--group-002.md#canonical-0331000010312010-2210033023202103-2113002300230301-3022110023310301-2232203113103003-1020202001202210-3321212230202210-0102133323033302)
 - [https_management.advertise_on_sli_vip.tls_certificates](resources--nfv_service--reference--group-002.md#canonical-2202130032112332-2213103030020310-2020103332030021-2000031031330133-0032200222123221-3200112310231200-3330110113212020-1233310003130001)
 - [https_management.advertise_on_sli_vip.tls_certificates.private_key](resources--nfv_service--reference--group-002.md#canonical-3332203122223003-2210301120230013-0320301312020222-2132330101313130-3333103301023323-1012131100030103-3012302133001020-1100221003122102)
@@ -987,13 +2007,6 @@ Breadcrumbs:
 Type: `"object"`. single nested block, Optional.
 
 ClearSecretInfoType specifies information about the Secret that is not encrypted.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("url")}
-```
 
 Receipt-pinned upstream constraints:
 
@@ -1041,15 +2054,6 @@ URL of the secret. Currently supported URL schemes is string:///. For string:///
 needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
 base64 decoding.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 131072),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -1068,7 +2072,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1,
     "pattern": "^(https?|ftp)://[^\\s/$.?#].[^\\s]*$",
@@ -1108,7 +2112,7 @@ Breadcrumbs:
 
 - [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
 - [Property reference](resources--nfv_service--reference--group-001.md#canonical-1033200313012130-2303320020000220-3032203302003212-3030323031320111-0322032022323123-0203102131300133-1232321110231101-1022222010201320)
-- [https_management](resources--nfv_service--reference--group-001.md#canonical-2012312013030011-0102312120121131-2122112110311110-1102330303132211-1031011331133302-3311032130133131-3022001211230302-3310030220221101)
+- [https_management](resources--nfv_service--reference--group-002.md#canonical-2012312013030011-0102312120121131-2122112110311110-1102330303132211-1031011331133302-3311032130133131-3022001211230302-3310030220221101)
 - [https_management.advertise_on_sli_vip](resources--nfv_service--reference--group-002.md#canonical-0331000010312010-2210033023202103-2113002300230301-3022110023310301-2232203113103003-1020202001202210-3321212230202210-0102133323033302)
 - [https_management.advertise_on_sli_vip.tls_certificates](resources--nfv_service--reference--group-002.md#canonical-2202130032112332-2213103030020310-2020103332030021-2000031031330133-0032200222123221-3200112310231200-3330110113212020-1233310003130001)
 - https_management.advertise_on_sli_vip.tls_certificates.use_system_defaults
@@ -1156,7 +2160,7 @@ Breadcrumbs:
 
 - [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
 - [Property reference](resources--nfv_service--reference--group-001.md#canonical-1033200313012130-2303320020000220-3032203302003212-3030323031320111-0322032022323123-0203102131300133-1232321110231101-1022222010201320)
-- [https_management](resources--nfv_service--reference--group-001.md#canonical-2012312013030011-0102312120121131-2122112110311110-1102330303132211-1031011331133302-3311032130133131-3022001211230302-3310030220221101)
+- [https_management](resources--nfv_service--reference--group-002.md#canonical-2012312013030011-0102312120121131-2122112110311110-1102330303132211-1031011331133302-3311032130133131-3022001211230302-3310030220221101)
 - [https_management.advertise_on_sli_vip](resources--nfv_service--reference--group-002.md#canonical-0331000010312010-2210033023202103-2113002300230301-3022110023310301-2232203113103003-1020202001202210-3321212230202210-0102133323033302)
 - https_management.advertise_on_sli_vip.tls_config
 
@@ -1165,24 +2169,6 @@ Breadcrumbs:
 Type: `"object"`. single nested block, Optional.
 
 This defines various OPTIONS to configure TLS configuration parameters.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.ConflictingObjectAttributes("custom_security",
-    "default_security"),
-  validators.ConflictingObjectAttributes("custom_security",
-    "low_security"),
-  validators.ConflictingObjectAttributes("custom_security",
-    "medium_security"),
-  validators.ConflictingObjectAttributes("default_security",
-    "low_security"),
-  validators.ConflictingObjectAttributes("default_security",
-    "medium_security"),
-  validators.ConflictingObjectAttributes("low_security",
-    "medium_security")}
-```
 
 Receipt-pinned upstream constraints:
 
@@ -1230,7 +2216,7 @@ Breadcrumbs:
 
 - [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
 - [Property reference](resources--nfv_service--reference--group-001.md#canonical-1033200313012130-2303320020000220-3032203302003212-3030323031320111-0322032022323123-0203102131300133-1232321110231101-1022222010201320)
-- [https_management](resources--nfv_service--reference--group-001.md#canonical-2012312013030011-0102312120121131-2122112110311110-1102330303132211-1031011331133302-3311032130133131-3022001211230302-3310030220221101)
+- [https_management](resources--nfv_service--reference--group-002.md#canonical-2012312013030011-0102312120121131-2122112110311110-1102330303132211-1031011331133302-3311032130133131-3022001211230302-3310030220221101)
 - [https_management.advertise_on_sli_vip](resources--nfv_service--reference--group-002.md#canonical-0331000010312010-2210033023202103-2113002300230301-3022110023310301-2232203113103003-1020202001202210-3321212230202210-0102133323033302)
 - [https_management.advertise_on_sli_vip.tls_config](resources--nfv_service--reference--group-002.md#canonical-3101221210201303-0122110331333210-1100330202120030-1111101212122332-2101222021311203-3110010210203203-0323302102321102-3110011120100012)
 - https_management.advertise_on_sli_vip.tls_config.custom_security
@@ -1240,13 +2226,6 @@ Breadcrumbs:
 Type: `"object"`. single nested block, Optional.
 
 This defines TLS protocol config including min/max versions and allowed ciphers.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("cipher_suites")}
-```
 
 Receipt-pinned upstream constraints:
 
@@ -1292,7 +2271,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "uniqueItems": true
   },
@@ -1327,20 +2306,6 @@ Type: `"string"`. Optional.
 versions F5 Distributed Cloud will choose the optimal TLS version. Possible values are
 \`TLS\_AUTO\`, \`TLSv1\_0\`, \`TLSv1\_1\`, \`TLSv1\_2\`, \`TLSv1\_3\`. Defaults to \`TLS\_AUTO\`.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-EnumValidators: [{"version":1,"validator":"OneOf","values":["TLS_AUTO","TLSv1_0","TLSv1_1","TLSv1_2","TLSv1_3"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
-Validators: []validator.String{
-  stringvalidator.OneOf("TLS_AUTO",
-    "TLSv1_0",
-    "TLSv1_1",
-    "TLSv1_2",
-    "TLSv1_3"),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -1373,20 +2338,6 @@ Type: `"string"`. Optional.
 \[Enum: TLS\_AUTO|TLSv1\_0|TLSv1\_1|TLSv1\_2|TLSv1\_3\] TlsProtocol is enumeration of supported TLS
 versions F5 Distributed Cloud will choose the optimal TLS version. Possible values are
 \`TLS\_AUTO\`, \`TLSv1\_0\`, \`TLSv1\_1\`, \`TLSv1\_2\`, \`TLSv1\_3\`. Defaults to \`TLS\_AUTO\`.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-EnumValidators: [{"version":1,"validator":"OneOf","values":["TLS_AUTO","TLSv1_0","TLSv1_1","TLSv1_2","TLSv1_3"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
-Validators: []validator.String{
-  stringvalidator.OneOf("TLS_AUTO",
-    "TLSv1_0",
-    "TLSv1_1",
-    "TLSv1_2",
-    "TLSv1_3"),
-}
-```
 
 Receipt-pinned upstream constraints:
 
@@ -1421,7 +2372,7 @@ Breadcrumbs:
 
 - [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
 - [Property reference](resources--nfv_service--reference--group-001.md#canonical-1033200313012130-2303320020000220-3032203302003212-3030323031320111-0322032022323123-0203102131300133-1232321110231101-1022222010201320)
-- [https_management](resources--nfv_service--reference--group-001.md#canonical-2012312013030011-0102312120121131-2122112110311110-1102330303132211-1031011331133302-3311032130133131-3022001211230302-3310030220221101)
+- [https_management](resources--nfv_service--reference--group-002.md#canonical-2012312013030011-0102312120121131-2122112110311110-1102330303132211-1031011331133302-3311032130133131-3022001211230302-3310030220221101)
 - [https_management.advertise_on_sli_vip](resources--nfv_service--reference--group-002.md#canonical-0331000010312010-2210033023202103-2113002300230301-3022110023310301-2232203113103003-1020202001202210-3321212230202210-0102133323033302)
 - [https_management.advertise_on_sli_vip.tls_config](resources--nfv_service--reference--group-002.md#canonical-3101221210201303-0122110331333210-1100330202120030-1111101212122332-2101222021311203-3110010210203203-0323302102321102-3110011120100012)
 - https_management.advertise_on_sli_vip.tls_config.default_security
@@ -1469,7 +2420,7 @@ Breadcrumbs:
 
 - [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
 - [Property reference](resources--nfv_service--reference--group-001.md#canonical-1033200313012130-2303320020000220-3032203302003212-3030323031320111-0322032022323123-0203102131300133-1232321110231101-1022222010201320)
-- [https_management](resources--nfv_service--reference--group-001.md#canonical-2012312013030011-0102312120121131-2122112110311110-1102330303132211-1031011331133302-3311032130133131-3022001211230302-3310030220221101)
+- [https_management](resources--nfv_service--reference--group-002.md#canonical-2012312013030011-0102312120121131-2122112110311110-1102330303132211-1031011331133302-3311032130133131-3022001211230302-3310030220221101)
 - [https_management.advertise_on_sli_vip](resources--nfv_service--reference--group-002.md#canonical-0331000010312010-2210033023202103-2113002300230301-3022110023310301-2232203113103003-1020202001202210-3321212230202210-0102133323033302)
 - [https_management.advertise_on_sli_vip.tls_config](resources--nfv_service--reference--group-002.md#canonical-3101221210201303-0122110331333210-1100330202120030-1111101212122332-2101222021311203-3110010210203203-0323302102321102-3110011120100012)
 - https_management.advertise_on_sli_vip.tls_config.low_security
@@ -1517,7 +2468,7 @@ Breadcrumbs:
 
 - [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
 - [Property reference](resources--nfv_service--reference--group-001.md#canonical-1033200313012130-2303320020000220-3032203302003212-3030323031320111-0322032022323123-0203102131300133-1232321110231101-1022222010201320)
-- [https_management](resources--nfv_service--reference--group-001.md#canonical-2012312013030011-0102312120121131-2122112110311110-1102330303132211-1031011331133302-3311032130133131-3022001211230302-3310030220221101)
+- [https_management](resources--nfv_service--reference--group-002.md#canonical-2012312013030011-0102312120121131-2122112110311110-1102330303132211-1031011331133302-3311032130133131-3022001211230302-3310030220221101)
 - [https_management.advertise_on_sli_vip](resources--nfv_service--reference--group-002.md#canonical-0331000010312010-2210033023202103-2113002300230301-3022110023310301-2232203113103003-1020202001202210-3321212230202210-0102133323033302)
 - [https_management.advertise_on_sli_vip.tls_config](resources--nfv_service--reference--group-002.md#canonical-3101221210201303-0122110331333210-1100330202120030-1111101212122332-2101222021311203-3110010210203203-0323302102321102-3110011120100012)
 - https_management.advertise_on_sli_vip.tls_config.medium_security
@@ -1565,7 +2516,7 @@ Breadcrumbs:
 
 - [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
 - [Property reference](resources--nfv_service--reference--group-001.md#canonical-1033200313012130-2303320020000220-3032203302003212-3030323031320111-0322032022323123-0203102131300133-1232321110231101-1022222010201320)
-- [https_management](resources--nfv_service--reference--group-001.md#canonical-2012312013030011-0102312120121131-2122112110311110-1102330303132211-1031011331133302-3311032130133131-3022001211230302-3310030220221101)
+- [https_management](resources--nfv_service--reference--group-002.md#canonical-2012312013030011-0102312120121131-2122112110311110-1102330303132211-1031011331133302-3311032130133131-3022001211230302-3310030220221101)
 - [https_management.advertise_on_sli_vip](resources--nfv_service--reference--group-002.md#canonical-0331000010312010-2210033023202103-2113002300230301-3022110023310301-2232203113103003-1020202001202210-3321212230202210-0102133323033302)
 - https_management.advertise_on_sli_vip.use_mtls
 
@@ -1574,18 +2525,6 @@ Breadcrumbs:
 Type: `"object"`. single nested block, Optional.
 
 Validation context for downstream client TLS connections.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.ConflictingObjectAttributes("crl",
-    "no_crl"),
-  validators.ConflictingObjectAttributes("trusted_ca",
-    "trusted_ca_url"),
-  validators.ConflictingObjectAttributes("xfcc_disabled",
-    "xfcc_options")}
-```
 
 Receipt-pinned upstream constraints:
 
@@ -1654,15 +2593,6 @@ Type: `"string"`. Optional.
 
 Exclusive with \[trusted\_ca\] Upload a Root CA Certificate specifically for this Load Balancer.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 131072),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -1681,7 +2611,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1
   },
@@ -1720,7 +2650,7 @@ Breadcrumbs:
 
 - [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
 - [Property reference](resources--nfv_service--reference--group-001.md#canonical-1033200313012130-2303320020000220-3032203302003212-3030323031320111-0322032022323123-0203102131300133-1232321110231101-1022222010201320)
-- [https_management](resources--nfv_service--reference--group-001.md#canonical-2012312013030011-0102312120121131-2122112110311110-1102330303132211-1031011331133302-3311032130133131-3022001211230302-3310030220221101)
+- [https_management](resources--nfv_service--reference--group-002.md#canonical-2012312013030011-0102312120121131-2122112110311110-1102330303132211-1031011331133302-3311032130133131-3022001211230302-3310030220221101)
 - [https_management.advertise_on_sli_vip](resources--nfv_service--reference--group-002.md#canonical-0331000010312010-2210033023202103-2113002300230301-3022110023310301-2232203113103003-1020202001202210-3321212230202210-0102133323033302)
 - [https_management.advertise_on_sli_vip.use_mtls](resources--nfv_service--reference--group-002.md#canonical-3323212101100012-2120200230103030-0210110233320201-0122330303210131-0130313123120202-1312100232302303-2101212110220331-2002201112313332)
 - https_management.advertise_on_sli_vip.use_mtls.crl
@@ -1731,13 +2661,6 @@ Type: `"object"`. single nested block, Optional.
 
 This type establishes a direct reference from one object(the referrer) to another(the referred).
 Such a reference is in form of tenant/namespace/name.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
-```
 
 Receipt-pinned upstream constraints:
 
@@ -1773,15 +2696,6 @@ Type: `"string"`. Optional.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
 referred object's(e.g. Route's) name.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 128),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -1800,7 +2714,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1
   },
@@ -1834,15 +2748,6 @@ Type: `"string"`. Optional, Computed.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
 hold the referred object's(e.g. Route's) namespace.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 63),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -1867,7 +2772,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1,
     "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
@@ -1902,15 +2807,6 @@ Type: `"string"`. Computed.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
 the referred object's(e.g. Route's) tenant.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthAtMost(64),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -1927,7 +2823,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -1957,7 +2853,7 @@ Breadcrumbs:
 
 - [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
 - [Property reference](resources--nfv_service--reference--group-001.md#canonical-1033200313012130-2303320020000220-3032203302003212-3030323031320111-0322032022323123-0203102131300133-1232321110231101-1022222010201320)
-- [https_management](resources--nfv_service--reference--group-001.md#canonical-2012312013030011-0102312120121131-2122112110311110-1102330303132211-1031011331133302-3311032130133131-3022001211230302-3310030220221101)
+- [https_management](resources--nfv_service--reference--group-002.md#canonical-2012312013030011-0102312120121131-2122112110311110-1102330303132211-1031011331133302-3311032130133131-3022001211230302-3310030220221101)
 - [https_management.advertise_on_sli_vip](resources--nfv_service--reference--group-002.md#canonical-0331000010312010-2210033023202103-2113002300230301-3022110023310301-2232203113103003-1020202001202210-3321212230202210-0102133323033302)
 - [https_management.advertise_on_sli_vip.use_mtls](resources--nfv_service--reference--group-002.md#canonical-3323212101100012-2120200230103030-0210110233320201-0122330303210131-0130313123120202-1312100232302303-2101212110220331-2002201112313332)
 - https_management.advertise_on_sli_vip.use_mtls.no_crl
@@ -2005,7 +2901,7 @@ Breadcrumbs:
 
 - [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
 - [Property reference](resources--nfv_service--reference--group-001.md#canonical-1033200313012130-2303320020000220-3032203302003212-3030323031320111-0322032022323123-0203102131300133-1232321110231101-1022222010201320)
-- [https_management](resources--nfv_service--reference--group-001.md#canonical-2012312013030011-0102312120121131-2122112110311110-1102330303132211-1031011331133302-3311032130133131-3022001211230302-3310030220221101)
+- [https_management](resources--nfv_service--reference--group-002.md#canonical-2012312013030011-0102312120121131-2122112110311110-1102330303132211-1031011331133302-3311032130133131-3022001211230302-3310030220221101)
 - [https_management.advertise_on_sli_vip](resources--nfv_service--reference--group-002.md#canonical-0331000010312010-2210033023202103-2113002300230301-3022110023310301-2232203113103003-1020202001202210-3321212230202210-0102133323033302)
 - [https_management.advertise_on_sli_vip.use_mtls](resources--nfv_service--reference--group-002.md#canonical-3323212101100012-2120200230103030-0210110233320201-0122330303210131-0130313123120202-1312100232302303-2101212110220331-2002201112313332)
 - https_management.advertise_on_sli_vip.use_mtls.trusted_ca
@@ -2016,13 +2912,6 @@ Type: `"object"`. single nested block, Optional.
 
 This type establishes a direct reference from one object(the referrer) to another(the referred).
 Such a reference is in form of tenant/namespace/name.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
-```
 
 Receipt-pinned upstream constraints:
 
@@ -2058,15 +2947,6 @@ Type: `"string"`. Optional.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
 referred object's(e.g. Route's) name.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 128),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -2085,7 +2965,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1
   },
@@ -2119,15 +2999,6 @@ Type: `"string"`. Optional, Computed.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
 hold the referred object's(e.g. Route's) namespace.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 63),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -2152,7 +3023,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1,
     "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
@@ -2187,15 +3058,6 @@ Type: `"string"`. Computed.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
 the referred object's(e.g. Route's) tenant.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthAtMost(64),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -2212,7 +3074,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -2242,7 +3104,7 @@ Breadcrumbs:
 
 - [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
 - [Property reference](resources--nfv_service--reference--group-001.md#canonical-1033200313012130-2303320020000220-3032203302003212-3030323031320111-0322032022323123-0203102131300133-1232321110231101-1022222010201320)
-- [https_management](resources--nfv_service--reference--group-001.md#canonical-2012312013030011-0102312120121131-2122112110311110-1102330303132211-1031011331133302-3311032130133131-3022001211230302-3310030220221101)
+- [https_management](resources--nfv_service--reference--group-002.md#canonical-2012312013030011-0102312120121131-2122112110311110-1102330303132211-1031011331133302-3311032130133131-3022001211230302-3310030220221101)
 - [https_management.advertise_on_sli_vip](resources--nfv_service--reference--group-002.md#canonical-0331000010312010-2210033023202103-2113002300230301-3022110023310301-2232203113103003-1020202001202210-3321212230202210-0102133323033302)
 - [https_management.advertise_on_sli_vip.use_mtls](resources--nfv_service--reference--group-002.md#canonical-3323212101100012-2120200230103030-0210110233320201-0122330303210131-0130313123120202-1312100232302303-2101212110220331-2002201112313332)
 - https_management.advertise_on_sli_vip.use_mtls.xfcc_disabled
@@ -2290,7 +3152,7 @@ Breadcrumbs:
 
 - [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
 - [Property reference](resources--nfv_service--reference--group-001.md#canonical-1033200313012130-2303320020000220-3032203302003212-3030323031320111-0322032022323123-0203102131300133-1232321110231101-1022222010201320)
-- [https_management](resources--nfv_service--reference--group-001.md#canonical-2012312013030011-0102312120121131-2122112110311110-1102330303132211-1031011331133302-3311032130133131-3022001211230302-3310030220221101)
+- [https_management](resources--nfv_service--reference--group-002.md#canonical-2012312013030011-0102312120121131-2122112110311110-1102330303132211-1031011331133302-3311032130133131-3022001211230302-3310030220221101)
 - [https_management.advertise_on_sli_vip](resources--nfv_service--reference--group-002.md#canonical-0331000010312010-2210033023202103-2113002300230301-3022110023310301-2232203113103003-1020202001202210-3321212230202210-0102133323033302)
 - [https_management.advertise_on_sli_vip.use_mtls](resources--nfv_service--reference--group-002.md#canonical-3323212101100012-2120200230103030-0210110233320201-0122330303210131-0130313123120202-1312100232302303-2101212110220331-2002201112313332)
 - https_management.advertise_on_sli_vip.use_mtls.xfcc_options
@@ -2300,13 +3162,6 @@ Breadcrumbs:
 Type: `"object"`. single nested block, Optional.
 
 X-Forwarded-Client-Cert header elements to be added to requests.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("xfcc_header_elements")}
-```
 
 Receipt-pinned upstream constraints:
 
@@ -2379,7 +3234,7 @@ Breadcrumbs:
 
 - [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
 - [Property reference](resources--nfv_service--reference--group-001.md#canonical-1033200313012130-2303320020000220-3032203302003212-3030323031320111-0322032022323123-0203102131300133-1232321110231101-1022222010201320)
-- [https_management](resources--nfv_service--reference--group-001.md#canonical-2012312013030011-0102312120121131-2122112110311110-1102330303132211-1031011331133302-3311032130133131-3022001211230302-3310030220221101)
+- [https_management](resources--nfv_service--reference--group-002.md#canonical-2012312013030011-0102312120121131-2122112110311110-1102330303132211-1031011331133302-3311032130133131-3022001211230302-3310030220221101)
 - https_management.advertise_on_slo_internet_vip
 
 <a id="canonical-0000003311331222-2311113333311103-2302132333030302-2232121322202323-0000303312213300-1103320133323031-0001022212013022-3312312223201311"></a>
@@ -2387,15 +3242,6 @@ Breadcrumbs:
 Type: `"object"`. single nested block, Optional.
 
 Inline TLS Parameters. Inline TLS parameters.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("tls_certificates"),
-  validators.ConflictingObjectAttributes("no_mtls",
-    "use_mtls")}
-```
 
 Receipt-pinned upstream constraints:
 
@@ -2427,7 +3273,7 @@ advertise_on_slo_internet_vip {
 
 - [tls_certificates](resources--nfv_service--reference--group-002.md#canonical-3000022222203033-3231020103202213-3023210232220211-3031323131333002-2330312032131112-2210223330301032-0222333023223300-3031111021111331): complete subsection reference.
 
-- [tls_config](resources--nfv_service--reference--group-002.md#canonical-1213132313200213-3123233220332100-3110233321120302-3302330011200013-1020000021301021-2311231102233101-3132011331023103-0020311123001231): complete subsection reference.
+- [tls_config](resources--nfv_service--reference--group-003.md#canonical-1213132313200213-3123233220332100-3110233321120302-3302330011200013-1020000021301021-2311231102233101-3132011331023103-0020311123001231): complete subsection reference.
 
 - [use_mtls](resources--nfv_service--reference--group-003.md#canonical-2220303111010322-0112002023201232-0133012112231002-3103111320133100-1120331002010022-2320111201201332-2112303320000210-2130023033333112): complete subsection reference.
 
@@ -2443,7 +3289,7 @@ Breadcrumbs:
 
 - [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
 - [Property reference](resources--nfv_service--reference--group-001.md#canonical-1033200313012130-2303320020000220-3032203302003212-3030323031320111-0322032022323123-0203102131300133-1232321110231101-1022222010201320)
-- [https_management](resources--nfv_service--reference--group-001.md#canonical-2012312013030011-0102312120121131-2122112110311110-1102330303132211-1031011331133302-3311032130133131-3022001211230302-3310030220221101)
+- [https_management](resources--nfv_service--reference--group-002.md#canonical-2012312013030011-0102312120121131-2122112110311110-1102330303132211-1031011331133302-3311032130133131-3022001211230302-3310030220221101)
 - [https_management.advertise_on_slo_internet_vip](resources--nfv_service--reference--group-002.md#canonical-3031132200011022-1313221310121032-3200012331302121-0120313212301311-1101211132233033-2113333100000023-0121110203223213-0303202010232130)
 - https_management.advertise_on_slo_internet_vip.no_mtls
 
@@ -2490,7 +3336,7 @@ Breadcrumbs:
 
 - [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
 - [Property reference](resources--nfv_service--reference--group-001.md#canonical-1033200313012130-2303320020000220-3032203302003212-3030323031320111-0322032022323123-0203102131300133-1232321110231101-1022222010201320)
-- [https_management](resources--nfv_service--reference--group-001.md#canonical-2012312013030011-0102312120121131-2122112110311110-1102330303132211-1031011331133302-3311032130133131-3022001211230302-3310030220221101)
+- [https_management](resources--nfv_service--reference--group-002.md#canonical-2012312013030011-0102312120121131-2122112110311110-1102330303132211-1031011331133302-3311032130133131-3022001211230302-3310030220221101)
 - [https_management.advertise_on_slo_internet_vip](resources--nfv_service--reference--group-002.md#canonical-3031132200011022-1313221310121032-3200012331302121-0120313212301311-1101211132233033-2113333100000023-0121110203223213-0303202010232130)
 - https_management.advertise_on_slo_internet_vip.tls_certificates
 
@@ -2500,19 +3346,6 @@ Type: `"object"`. list nested block, Optional.
 
 Users can add one or more certificates that share the same set of domains. For example, domain.com
 and \*.domain.com - but use different signature algorithms.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.List{validators.RequiredListObjectAttributes("certificate_url"),
-  validators.ConflictingListObjectAttributes("custom_hash_algorithms",
-    "disable_ocsp_stapling"),
-  validators.ConflictingListObjectAttributes("custom_hash_algorithms",
-    "use_system_defaults"),
-  validators.ConflictingListObjectAttributes("disable_ocsp_stapling",
-    "use_system_defaults")}
-```
 
 Receipt-pinned upstream constraints:
 
@@ -2528,7 +3361,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minItems": 1
   },
@@ -2563,22 +3396,17 @@ tls_certificates {
 
 ### Direct properties for `https_management.advertise_on_slo_internet_vip.tls_certificates`
 
+- [blindfold](resources--nfv_service--reference--group-002.md#canonical-3022133321200030-3320031010321033-2222211022303012-0201002032020021-3022103223313020-2120102313321210-1130323222320302-2332302203001321): complete subsection reference.
+
 <a id="canonical-0233103230320023-3013012130111110-0122001211003201-0212103023231110-2332230010120200-0320303300202230-0221332000013012-2333231313230310"></a>
+
+<a id="canonical-1030032010312311-0133030012212101-1031221021332120-0232111303232313-2031331110020130-0202122133231010-2213201112232122-0110023333101203"></a>
 
 #### `https_management.advertise_on_slo_internet_vip.tls_certificates.certificate_url` property
 
-Type: `"string"`. Optional.
+Type: `"string"`. Optional, Computed.
 
 TLS certificate. Certificate or certificate chain in PEM format including the PEM headers.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 131072),
-}
-```
 
 Receipt-pinned upstream constraints:
 
@@ -2598,7 +3426,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1
   },
@@ -2623,11 +3451,11 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [custom_hash_algorithms](resources--nfv_service--reference--group-002.md#canonical-3233132331203230-2011001123021320-3230231000120130-0111230000101322-3001330103210111-1101113230233232-1212002311301212-3300120122233132): complete subsection reference.
+- [custom_hash_algorithms](resources--nfv_service--reference--group-003.md#canonical-3233132331203230-2011001123021320-3230231000120130-0111230000101322-3001330103210111-1101113230233232-1212002311301212-3300120122233132): complete subsection reference.
 
 <a id="canonical-0322331323100131-2031010003002123-0213202102023122-0303102333133232-0032013001000333-2122001023113002-0201320002312232-0130031013103033"></a>
 
-<a id="canonical-1030032010312311-0133030012212101-1031221021332120-0232111303232313-2031331110020130-0202122133231010-2213201112232122-0110023333101203"></a>
+<a id="canonical-3033033130322300-1121232031031011-0331111302100310-1010302130020213-3320103213203112-0333203301321013-0221103111211201-3332223123311110"></a>
 
 #### `https_management.advertise_on_slo_internet_vip.tls_certificates.description_spec` property
 
@@ -2635,763 +3463,33 @@ Type: `"string"`. Optional.
 
 Description. Description for the certificate.
 
-- [disable_ocsp_stapling](resources--nfv_service--reference--group-002.md#canonical-2331312303101310-1221003012020233-0313021233131331-0033322131122330-1111333230333023-3303030230331202-3033131231203223-2303110012300303): complete subsection reference.
+- [disable_ocsp_stapling](resources--nfv_service--reference--group-003.md#canonical-2331312303101310-1221003012020233-0313021233131331-0033322131122330-1111333230333023-3303030230331202-3033131231203223-2303110012300303): complete subsection reference.
 
-- [private_key](resources--nfv_service--reference--group-002.md#canonical-0311033230100310-2123323033230112-3332102033010130-1233221222031323-1201021003210020-0013220211200200-0111322310220010-3330021000131012): complete subsection reference.
+- [private_key](resources--nfv_service--reference--group-003.md#canonical-0311033230100310-2123323033230112-3332102033010130-1233221222031323-1201021003210020-0013220211200200-0111322310220010-3330021000131012): complete subsection reference.
 
-- [use_system_defaults](resources--nfv_service--reference--group-002.md#canonical-0323330313213100-1021330331220300-1002321231320130-1132002313002332-0103201323302033-3321322202002001-0133231312031320-0123101220121102): complete subsection reference.
+- [use_system_defaults](resources--nfv_service--reference--group-003.md#canonical-0323330313213100-1021330331220300-1002321231320130-1132002313002332-0103201323302033-3321322202002001-0133231312031320-0123101220121102): complete subsection reference.
 
-<a id="canonical-3233132331203230-2011001123021320-3230231000120130-0111230000101322-3001330103210111-1101113230233232-1212002311301212-3300120122233132"></a>
+<a id="canonical-3022133321200030-3320031010321033-2222211022303012-0201002032020021-3022103223313020-2120102313321210-1130323222320302-2332302203001321"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-## `https_management.advertise_on_slo_internet_vip.tls_certificates.custom_hash_algorithms` properties
+## `https_management.advertise_on_slo_internet_vip.tls_certificates.blindfold` properties
 
 Breadcrumbs:
 
 - [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
 - [Property reference](resources--nfv_service--reference--group-001.md#canonical-1033200313012130-2303320020000220-3032203302003212-3030323031320111-0322032022323123-0203102131300133-1232321110231101-1022222010201320)
-- [https_management](resources--nfv_service--reference--group-001.md#canonical-2012312013030011-0102312120121131-2122112110311110-1102330303132211-1031011331133302-3311032130133131-3022001211230302-3310030220221101)
+- [https_management](resources--nfv_service--reference--group-002.md#canonical-2012312013030011-0102312120121131-2122112110311110-1102330303132211-1031011331133302-3311032130133131-3022001211230302-3310030220221101)
 - [https_management.advertise_on_slo_internet_vip](resources--nfv_service--reference--group-002.md#canonical-3031132200011022-1313221310121032-3200012331302121-0120313212301311-1101211132233033-2113333100000023-0121110203223213-0303202010232130)
 - [https_management.advertise_on_slo_internet_vip.tls_certificates](resources--nfv_service--reference--group-002.md#canonical-3000022222203033-3231020103202213-3023210232220211-3031323131333002-2330312032131112-2210223330301032-0222333023223300-3031111021111331)
-- https_management.advertise_on_slo_internet_vip.tls_certificates.custom_hash_algorithms
+- https_management.advertise_on_slo_internet_vip.tls_certificates.blindfold
 
-<a id="canonical-1301221302130022-3100011012233003-1220310300032131-1131311020200322-1033101233020303-2133333122320312-3312133031100300-2131003031032121"></a>
+<a id="canonical-3012113311001130-0301123020321322-0001223331230302-1021121213311020-1320323132331331-2030020213313321-1323320030322321-3011101213130313"></a>
 
-Type: `"object"`. single nested block, Optional.
+Type: `"single"`. Optional.
 
-Specifies the hash algorithms to be used.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("hash_algorithms")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-custom_hash_algorithms {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-0120322210021023-0013200322332020-2300213311111322-3113131122101321-3302332332333210-2203230201302320-2331222033020223-2111110003313031"></a>
-
-### Direct properties for `https_management.advertise_on_slo_internet_vip.tls_certificates.custom_hash_algorithms`
-
-<a id="canonical-0202120302110320-0010312022111110-3332133320230302-1033221223123011-2032311300011030-0323211332013030-2312322301221122-3121301130003300"></a>
-
-#### `https_management.advertise_on_slo_internet_vip.tls_certificates.custom_hash_algorithms.hash_algorithms` property
-
-Type: `["list", "string"]`. Optional.
-
-\[Enum: INVALID\_HASH\_ALGORITHM|SHA256|SHA1\] Ordered list of hash algorithms to be used. Possible
-values are \`INVALID\_HASH\_ALGORITHM\`, \`SHA256\`, \`SHA1\`. Defaults to
-\`INVALID\_HASH\_ALGORITHM\`.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.List{
-  listvalidator.SizeBetween(1, 4),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxItems": 4,
-  "minItems": 1,
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "array",
-    "deterministic": true,
-    "maxItems": 4,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
-    },
-    "minItems": 1,
-    "uniqueItems": true
-  },
-  "x-f5xc-required-for": {
-    "create": true,
-    "minimum_config": true,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.repeated.max_items": "4",
-    "ves.io.schema.rules.repeated.min_items": "1",
-    "ves.io.schema.rules.repeated.unique": "true"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.repeated.max_items": "4",
-    "ves.io.schema.rules.repeated.min_items": "1",
-    "ves.io.schema.rules.repeated.unique": "true"
-  }
-}
-```
-
-<a id="canonical-2331312303101310-1221003012020233-0313021233131331-0033322131122330-1111333230333023-3303030230331202-3033131231203223-2303110012300303"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-## `https_management.advertise_on_slo_internet_vip.tls_certificates.disable_ocsp_stapling` properties
-
-Breadcrumbs:
-
-- [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
-- [Property reference](resources--nfv_service--reference--group-001.md#canonical-1033200313012130-2303320020000220-3032203302003212-3030323031320111-0322032022323123-0203102131300133-1232321110231101-1022222010201320)
-- [https_management](resources--nfv_service--reference--group-001.md#canonical-2012312013030011-0102312120121131-2122112110311110-1102330303132211-1031011331133302-3311032130133131-3022001211230302-3310030220221101)
-- [https_management.advertise_on_slo_internet_vip](resources--nfv_service--reference--group-002.md#canonical-3031132200011022-1313221310121032-3200012331302121-0120313212301311-1101211132233033-2113333100000023-0121110203223213-0303202010232130)
-- [https_management.advertise_on_slo_internet_vip.tls_certificates](resources--nfv_service--reference--group-002.md#canonical-3000022222203033-3231020103202213-3023210232220211-3031323131333002-2330312032131112-2210223330301032-0222333023223300-3031111021111331)
-- https_management.advertise_on_slo_internet_vip.tls_certificates.disable_ocsp_stapling
-
-<a id="canonical-0003003331023023-0133102022030100-2320312311111100-1310021121102013-3133032212102321-3102102302031132-3301330333032221-2103102231230031"></a>
-
-Type: `["object", {}]`. Optional.
-
-Configuration parameter for disable ocsp stapling.
-
-Additional upstream details:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-disable_ocsp_stapling = {}
-```
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-0311033230100310-2123323033230112-3332102033010130-1233221222031323-1201021003210020-0013220211200200-0111322310220010-3330021000131012"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-## `https_management.advertise_on_slo_internet_vip.tls_certificates.private_key` properties
-
-Breadcrumbs:
-
-- [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
-- [Property reference](resources--nfv_service--reference--group-001.md#canonical-1033200313012130-2303320020000220-3032203302003212-3030323031320111-0322032022323123-0203102131300133-1232321110231101-1022222010201320)
-- [https_management](resources--nfv_service--reference--group-001.md#canonical-2012312013030011-0102312120121131-2122112110311110-1102330303132211-1031011331133302-3311032130133131-3022001211230302-3310030220221101)
-- [https_management.advertise_on_slo_internet_vip](resources--nfv_service--reference--group-002.md#canonical-3031132200011022-1313221310121032-3200012331302121-0120313212301311-1101211132233033-2113333100000023-0121110203223213-0303202010232130)
-- [https_management.advertise_on_slo_internet_vip.tls_certificates](resources--nfv_service--reference--group-002.md#canonical-3000022222203033-3231020103202213-3023210232220211-3031323131333002-2330312032131112-2210223330301032-0222333023223300-3031111021111331)
-- https_management.advertise_on_slo_internet_vip.tls_certificates.private_key
-
-<a id="canonical-3031210022033230-0321121201200100-3300323103310220-0202123202113101-2333210112103113-2203301202312220-0220001102123121-1313213131030031"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-SecretType is used in an object to indicate a sensitive/confidential field.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info",
-    "clear_secret_info")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-ves-oneof-field-secret_info_oneof": "[\"blindfold_secret_info\",\"clear_secret_info\"]"
-}
-```
-
-Terraform syntax:
-
-```terraform
-private_key {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-3201212223213013-1300320013200121-2300000133200203-2311011232110030-0230202331310112-1313332232303220-3133232230023210-2132333122031123"></a>
-
-### Direct properties for `https_management.advertise_on_slo_internet_vip.tls_certificates.private_key`
-
-- [blindfold_secret_info](resources--nfv_service--reference--group-002.md#canonical-0312233232203011-2032101312031321-0012102211012313-2130213100301231-3112020013100322-3102201212132013-1110121210301131-1222132310211300): complete subsection reference.
-
-- [clear_secret_info](resources--nfv_service--reference--group-002.md#canonical-2022102022131312-0120222313310332-1302022003212232-2103133010332330-3112221321313010-2202100022002312-1201211121330000-3123301030122201): complete subsection reference.
-
-<a id="canonical-0312233232203011-2032101312031321-0012102211012313-2130213100301231-3112020013100322-3102201212132013-1110121210301131-1222132310211300"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-## `https_management.advertise_on_slo_internet_vip.tls_certificates.private_key.blindfold_secret_info` properties
-
-Breadcrumbs:
-
-- [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
-- [Property reference](resources--nfv_service--reference--group-001.md#canonical-1033200313012130-2303320020000220-3032203302003212-3030323031320111-0322032022323123-0203102131300133-1232321110231101-1022222010201320)
-- [https_management](resources--nfv_service--reference--group-001.md#canonical-2012312013030011-0102312120121131-2122112110311110-1102330303132211-1031011331133302-3311032130133131-3022001211230302-3310030220221101)
-- [https_management.advertise_on_slo_internet_vip](resources--nfv_service--reference--group-002.md#canonical-3031132200011022-1313221310121032-3200012331302121-0120313212301311-1101211132233033-2113333100000023-0121110203223213-0303202010232130)
-- [https_management.advertise_on_slo_internet_vip.tls_certificates](resources--nfv_service--reference--group-002.md#canonical-3000022222203033-3231020103202213-3023210232220211-3031323131333002-2330312032131112-2210223330301032-0222333023223300-3031111021111331)
-- [https_management.advertise_on_slo_internet_vip.tls_certificates.private_key](resources--nfv_service--reference--group-002.md#canonical-0311033230100310-2123323033230112-3332102033010130-1233221222031323-1201021003210020-0013220211200200-0111322310220010-3330021000131012)
-- https_management.advertise_on_slo_internet_vip.tls_certificates.private_key.blindfold_secret_info
-
-<a id="canonical-2323130220122302-0232133013002203-1132201012120133-3310301102012210-1210301031311222-3211022110131203-0203130020001130-2333321320111003"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("location")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-blindfold_secret_info {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-2010033220203333-2223231212023322-3303223031010103-0312301210133000-3031333301201100-2130212230121211-2211121010230230-1331313103320100"></a>
-
-### Direct properties for `https_management.advertise_on_slo_internet_vip.tls_certificates.private_key.blindfold_secret_info`
-
-<a id="canonical-2333201221322033-1010132232002223-3221103023330130-2332132120102311-3220023202020021-1302010303022003-2203310030112331-2031213003110012"></a>
-
-#### `https_management.advertise_on_slo_internet_vip.tls_certificates.private_key.blindfold_secret_info.decryption_provider` property
-
-Type: `"string"`. Optional.
-
-Name of the Secret Management Access object that contains information about the backend Secret
-Management service.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "string",
-    "maxLength": 1024,
-    "metadata": {
-      "confidence": 0.85,
-      "source": "inferred",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-2312202201302310-1120101031023022-0332012122103321-2110221332310300-3311203110302331-3321001001012030-2301332000112331-0333311132031321"></a>
-
-<a id="canonical-3311212030231333-0021221113222001-3220323022011200-3021000330133003-0221120000121102-3331211313222033-2222330001001211-1313021101122320"></a>
-
-#### `https_management.advertise_on_slo_internet_vip.tls_certificates.private_key.blindfold_secret_info.location` property
-
-Type: `"string"`. Optional, Sensitive.
-
-Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
-store provider is an HTTP/HTTPS location.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(4, 131072),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "content",
-    "constraintType": "string",
-    "deterministic": true,
-    "format": "uri",
-    "maxLength": 131072,
-    "metadata": {
-      "category": "content",
-      "confidence": 1.0,
-      "note": "Blindfold envelope encryption (AES-256-GCM + RSA-OAEP) of an RSA-2048 TLS private key produces ~3700 char string:/// URL. 128KB max secret size = ~175KB base64. Discovery reported 1024 which is incorrect.",
-      "source": "manual-override",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
-    },
-    "minLength": 4
-  },
-  "x-f5xc-required-for": {
-    "create": true,
-    "minimum_config": true,
-    "read": false,
-    "update": false
-  },
-  "x-f5xc-sensitive": true,
-  "x-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.uri_ref": "true"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.uri_ref": "true"
-  }
-}
-```
-
-<a id="canonical-2123330132300230-1202230302201303-2012203023201221-0221002002022330-1320123210130001-3211230233122202-0330013332032300-0011313033202331"></a>
-
-<a id="canonical-1313203202200022-0131030312022201-0122030023021211-1021101033322222-3102232201112201-1021302003122112-2132213022031232-3000331212202122"></a>
-
-#### `https_management.advertise_on_slo_internet_vip.tls_certificates.private_key.blindfold_secret_info.store_provider` property
-
-Type: `"string"`. Optional.
-
-Name of the Secret Management Access object that contains information about the store to GET
-encrypted bytes This field needs to be provided only if the URL scheme is not string:///.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "string",
-    "maxLength": 1024,
-    "metadata": {
-      "confidence": 0.85,
-      "source": "inferred",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-2022102022131312-0120222313310332-1302022003212232-2103133010332330-3112221321313010-2202100022002312-1201211121330000-3123301030122201"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-## `https_management.advertise_on_slo_internet_vip.tls_certificates.private_key.clear_secret_info` properties
-
-Breadcrumbs:
-
-- [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
-- [Property reference](resources--nfv_service--reference--group-001.md#canonical-1033200313012130-2303320020000220-3032203302003212-3030323031320111-0322032022323123-0203102131300133-1232321110231101-1022222010201320)
-- [https_management](resources--nfv_service--reference--group-001.md#canonical-2012312013030011-0102312120121131-2122112110311110-1102330303132211-1031011331133302-3311032130133131-3022001211230302-3310030220221101)
-- [https_management.advertise_on_slo_internet_vip](resources--nfv_service--reference--group-002.md#canonical-3031132200011022-1313221310121032-3200012331302121-0120313212301311-1101211132233033-2113333100000023-0121110203223213-0303202010232130)
-- [https_management.advertise_on_slo_internet_vip.tls_certificates](resources--nfv_service--reference--group-002.md#canonical-3000022222203033-3231020103202213-3023210232220211-3031323131333002-2330312032131112-2210223330301032-0222333023223300-3031111021111331)
-- [https_management.advertise_on_slo_internet_vip.tls_certificates.private_key](resources--nfv_service--reference--group-002.md#canonical-0311033230100310-2123323033230112-3332102033010130-1233221222031323-1201021003210020-0013220211200200-0111322310220010-3330021000131012)
-- https_management.advertise_on_slo_internet_vip.tls_certificates.private_key.clear_secret_info
-
-<a id="canonical-3020222030301022-1301031200022110-2023131313131010-1313030000200200-2111220233122110-2033232230312121-1030123003313101-1202330012010121"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-ClearSecretInfoType specifies information about the Secret that is not encrypted.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("url")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-clear_secret_info {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-2213212300102101-2310202111011321-0330012213332213-0212323221121330-1002101003131312-2020213200200010-0221030202111313-1121333212210113"></a>
-
-### Direct properties for `https_management.advertise_on_slo_internet_vip.tls_certificates.private_key.clear_secret_info`
-
-<a id="canonical-0321332312131111-1121220202230233-0222212113113201-2121211322321030-2232232011332311-3132212221111030-2200123231330201-2230032113101100"></a>
-
-#### `https_management.advertise_on_slo_internet_vip.tls_certificates.private_key.clear_secret_info.provider_ref` property
-
-Type: `"string"`. Optional.
-
-Name of the Secret Management Access object that contains information about the store to GET
-encrypted bytes This field needs to be provided only if the URL scheme is not string:///.
-
-<a id="canonical-2100131110232100-2221301100222003-3111202002031020-2013031210220012-2102011303101230-3210230313222103-1130132231022202-3223232321022111"></a>
-
-<a id="canonical-3102013331133010-3031101111123132-1331333111123332-0021203032101102-0301302021023203-1113123000031133-3330301202200302-1220101212303332"></a>
-
-#### `https_management.advertise_on_slo_internet_vip.tls_certificates.private_key.clear_secret_info.url` property
-
-Type: `"string"`. Optional, Sensitive.
-
-URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret
-needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
-base64 decoding.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 131072),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxLength": 131072,
-  "x-f5xc-constraints": {
-    "byteLength": {
-      "max": 131072
-    },
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "format": "uri",
-    "formatDescription": "RFC 3986 URI with scheme (http, https, ftp)",
-    "maxLength": 131072,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
-    },
-    "minLength": 1,
-    "pattern": "^(https?|ftp)://[^\\s/$.?#].[^\\s]*$",
-    "validation": {
-      "rfc": "RFC 3986"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": true,
-    "minimum_config": true,
-    "read": false,
-    "update": false
-  },
-  "x-f5xc-sensitive": true,
-  "x-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.max_bytes": "131072",
-    "ves.io.schema.rules.string.uri_ref": "true"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.max_bytes": "131072",
-    "ves.io.schema.rules.string.uri_ref": "true"
-  }
-}
-```
-
-<a id="canonical-0323330313213100-1021330331220300-1002321231320130-1132002313002332-0103201323302033-3321322202002001-0133231312031320-0123101220121102"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-## `https_management.advertise_on_slo_internet_vip.tls_certificates.use_system_defaults` properties
-
-Breadcrumbs:
-
-- [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
-- [Property reference](resources--nfv_service--reference--group-001.md#canonical-1033200313012130-2303320020000220-3032203302003212-3030323031320111-0322032022323123-0203102131300133-1232321110231101-1022222010201320)
-- [https_management](resources--nfv_service--reference--group-001.md#canonical-2012312013030011-0102312120121131-2122112110311110-1102330303132211-1031011331133302-3311032130133131-3022001211230302-3310030220221101)
-- [https_management.advertise_on_slo_internet_vip](resources--nfv_service--reference--group-002.md#canonical-3031132200011022-1313221310121032-3200012331302121-0120313212301311-1101211132233033-2113333100000023-0121110203223213-0303202010232130)
-- [https_management.advertise_on_slo_internet_vip.tls_certificates](resources--nfv_service--reference--group-002.md#canonical-3000022222203033-3231020103202213-3023210232220211-3031323131333002-2330312032131112-2210223330301032-0222333023223300-3031111021111331)
-- https_management.advertise_on_slo_internet_vip.tls_certificates.use_system_defaults
-
-<a id="canonical-0220112311302233-2122212113132013-0233231201302101-1112223231301202-2032011311001030-2231333111130113-2110312212213220-2312301001110300"></a>
-
-Type: `["object", {}]`. Optional.
-
-Configuration parameter for use system defaults.
-
-Additional upstream details:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-use_system_defaults = {}
-```
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-1213132313200213-3123233220332100-3110233321120302-3302330011200013-1020000021301021-2311231102233101-3132011331023103-0020311123001231"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-## `https_management.advertise_on_slo_internet_vip.tls_config` properties
-
-Breadcrumbs:
-
-- [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
-- [Property reference](resources--nfv_service--reference--group-001.md#canonical-1033200313012130-2303320020000220-3032203302003212-3030323031320111-0322032022323123-0203102131300133-1232321110231101-1022222010201320)
-- [https_management](resources--nfv_service--reference--group-001.md#canonical-2012312013030011-0102312120121131-2122112110311110-1102330303132211-1031011331133302-3311032130133131-3022001211230302-3310030220221101)
-- [https_management.advertise_on_slo_internet_vip](resources--nfv_service--reference--group-002.md#canonical-3031132200011022-1313221310121032-3200012331302121-0120313212301311-1101211132233033-2113333100000023-0121110203223213-0303202010232130)
-- https_management.advertise_on_slo_internet_vip.tls_config
-
-<a id="canonical-1322100212101002-2101201122301130-2332320101220302-2230332100223301-0223311132320010-0212111220032220-1311113301100321-1331322031222320"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-This defines various OPTIONS to configure TLS configuration parameters.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.ConflictingObjectAttributes("custom_security",
-    "default_security"),
-  validators.ConflictingObjectAttributes("custom_security",
-    "low_security"),
-  validators.ConflictingObjectAttributes("custom_security",
-    "medium_security"),
-  validators.ConflictingObjectAttributes("default_security",
-    "low_security"),
-  validators.ConflictingObjectAttributes("default_security",
-    "medium_security"),
-  validators.ConflictingObjectAttributes("low_security",
-    "medium_security")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-ves-oneof-field-choice": "[\"custom_security\",\"default_security\",\"low_security\",\"medium_security\"]"
-}
-```
-
-Terraform syntax:
-
-```terraform
-tls_config {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-2000230221331100-0220031330022223-3221211100131310-1001233010202133-0212002330301100-2212220033131023-3121301312013131-0130000211111002"></a>
-
-### Direct properties for `https_management.advertise_on_slo_internet_vip.tls_config`
-
-- [custom_security](resources--nfv_service--reference--group-002.md#canonical-1131101333231332-3300010202130230-0132300323233032-2000102121012030-2313022021100113-1011210301202122-1110112021311130-3310330130130003): complete subsection reference.
-
-- [default_security](resources--nfv_service--reference--group-003.md#canonical-1110320013323011-1221022301022012-1322313110032031-0113212112202223-2232123020330103-2103233202220200-1033132313332211-0020110123232000): complete subsection reference.
-
-- [low_security](resources--nfv_service--reference--group-003.md#canonical-1013003000033020-1113232000210310-2321203001320001-1221311323300021-2120320323231233-0022203313121011-1013222232133321-1122203123230300): complete subsection reference.
-
-- [medium_security](resources--nfv_service--reference--group-003.md#canonical-3120302233232220-1010103303200001-2103100232033012-3213231322030023-1321011220230003-2011220221130113-0101211112103321-2032030013113020): complete subsection reference.
-
-<a id="canonical-1131101333231332-3300010202130230-0132300323233032-2000102121012030-2313022021100113-1011210301202122-1110112021311130-3310330130130003"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-## `https_management.advertise_on_slo_internet_vip.tls_config.custom_security` properties
-
-Breadcrumbs:
-
-- [xcsh_nfv_service](../resources/nfv_service.md#canonical-0223321113210321-0013210302112221-0313201132021001-1102330023301310-1131322132000230-3303202123330303-3122032322302202-2202303201230222)
-- [Property reference](resources--nfv_service--reference--group-001.md#canonical-1033200313012130-2303320020000220-3032203302003212-3030323031320111-0322032022323123-0203102131300133-1232321110231101-1022222010201320)
-- [https_management](resources--nfv_service--reference--group-001.md#canonical-2012312013030011-0102312120121131-2122112110311110-1102330303132211-1031011331133302-3311032130133131-3022001211230302-3310030220221101)
-- [https_management.advertise_on_slo_internet_vip](resources--nfv_service--reference--group-002.md#canonical-3031132200011022-1313221310121032-3200012331302121-0120313212301311-1101211132233033-2113333100000023-0121110203223213-0303202010232130)
-- [https_management.advertise_on_slo_internet_vip.tls_config](resources--nfv_service--reference--group-002.md#canonical-1213132313200213-3123233220332100-3110233321120302-3302330011200013-1020000021301021-2311231102233101-3132011331023103-0020311123001231)
-- https_management.advertise_on_slo_internet_vip.tls_config.custom_security
-
-<a id="canonical-1110212103322000-1013330322012313-3323120112303113-3222010211200331-2120231300311131-1311311201123032-1122221212131220-1121013123212233"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-This defines TLS protocol config including min/max versions and allowed ciphers.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("cipher_suites")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-custom_security {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-0120110323331232-3321303221300220-1030013023033310-0201132112322112-2211300003020112-3233302001031333-3100021112031322-3322201030222210"></a>
-
-### Direct properties for `https_management.advertise_on_slo_internet_vip.tls_config.custom_security`
-
-<a id="canonical-2201132011011232-3111211002233201-3223300323000121-2131002003333323-3102222211110231-0021023210023032-1330032300233203-2131220120110021"></a>
-
-#### `https_management.advertise_on_slo_internet_vip.tls_config.custom_security.cipher_suites` property
-
-Type: `["list", "string"]`. Optional.
-
-The TLS listener will only support the specified cipher list.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "array",
-    "deterministic": true,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
-    },
-    "uniqueItems": true
-  },
-  "x-f5xc-required-for": {
-    "create": true,
-    "minimum_config": true,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.repeated.items.string.in": "[\\\"TLS_AES_128_GCM_SHA256\\\",\\\"TLS_AES_256_GCM_SHA384\\\",\\\"TLS_CHACHA20_POLY1305_SHA256\\\",\\\"TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256\\\",\\\"TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384\\\",\\\"TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256\\\",\\\"TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256\\\",\\\"TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384\\\",\\\"TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256\\\",\\\"TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA\\\",\\\"TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA\\\",\\\"TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA\\\",\\\"TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA\\\",\\\"TLS_RSA_WITH_AES_128_CBC_SHA\\\",\\\"TLS_RSA_WITH_AES_128_GCM_SHA256\\\",\\\"TLS_RSA_WITH_AES_256_CBC_SHA\\\",\\\"TLS_RSA_WITH_AES_256_GCM_SHA384\\\"]",
-    "ves.io.schema.rules.repeated.unique": "true"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.repeated.items.string.in": "[\\\"TLS_AES_128_GCM_SHA256\\\",\\\"TLS_AES_256_GCM_SHA384\\\",\\\"TLS_CHACHA20_POLY1305_SHA256\\\",\\\"TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256\\\",\\\"TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384\\\",\\\"TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256\\\",\\\"TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256\\\",\\\"TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384\\\",\\\"TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256\\\",\\\"TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA\\\",\\\"TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA\\\",\\\"TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA\\\",\\\"TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA\\\",\\\"TLS_RSA_WITH_AES_128_CBC_SHA\\\",\\\"TLS_RSA_WITH_AES_128_GCM_SHA256\\\",\\\"TLS_RSA_WITH_AES_256_CBC_SHA\\\",\\\"TLS_RSA_WITH_AES_256_GCM_SHA384\\\"]",
-    "ves.io.schema.rules.repeated.unique": "true"
-  }
-}
-```
-
-<a id="canonical-0101023300312311-1303202012010120-2101231121302302-0323233113221003-2121003121210320-0003012333002322-2302232210003302-0321212222021103"></a>
+Native certificate preparation. Use PEM files or a P12 file, or write-only key/bundle values with
+material\_version (Terraform 1.11+). Defaults to shared/ves-io-allow-volterra. Inline certificates
+require unique IDs. Private inputs are never stored.

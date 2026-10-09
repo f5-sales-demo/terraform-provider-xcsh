@@ -108,7 +108,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 0
   },
@@ -213,15 +213,6 @@ This is the name of configuration object. It has to be unique within the namespa
 specified during create API and cannot be changed during replace API. The value of name has to
 follow DNS-1035 format.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.String{
-  validators.NameValidator(),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -242,7 +233,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "inferred",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1,
     "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
@@ -281,15 +272,6 @@ Additional upstream details:
 This defines the workspace within which each the configuration object is to be created. Must be a
 DNS\_LABEL format. For a namespace object itself, namespace value will be ""
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.String{
-  validators.NamespaceValidator(),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -310,7 +292,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "inferred",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1,
     "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
@@ -354,6 +336,26 @@ Each exact path has one authoritative reference destination. Collection element 
 | `enable_forward_proxy.no_interception` | [enable_forward_proxy.no_interception](resources--network_connector--reference--group-001.md#canonical-2000111123312222-0331321120201221-1121212112300012-2122110331120010-3332012313313103-0003023232101002-2210300223133212-0210222311033002) |
 | `enable_forward_proxy.tls_intercept` | [enable_forward_proxy.tls_intercept](resources--network_connector--reference--group-001.md#canonical-0303331031333300-2230333010210221-0201333322133022-0320213231111020-2012300010320211-0110032320011333-3131310012201330-3302322201023222) |
 | `enable_forward_proxy.tls_intercept.custom_certificate` | [enable_forward_proxy.tls_intercept.custom_certificate](resources--network_connector--reference--group-001.md#canonical-0323332303131301-0113201123331210-2211102311030000-3200013231033012-2202100322230113-0112320333332033-2010032320322003-0203113310000320) |
+| `enable_forward_proxy.tls_intercept.custom_certificate.blindfold` | [enable_forward_proxy.tls_intercept.custom_certificate.blindfold](resources--network_connector--reference--group-001.md#canonical-0033021123302221-2322123233123213-3330222200023031-3000320220023213-2313232311301330-2021302000232033-3322303303031202-0331310223012033) |
+| `enable_forward_proxy.tls_intercept.custom_certificate.blindfold.algorithm` | [enable_forward_proxy.tls_intercept.custom_certificate.blindfold.algorithm](resources--network_connector--reference--group-001.md#canonical-0011313232103123-1100103120133003-1000111022311330-2123023003222102-3233123332102123-1321131313233121-3023132132312311-3112301210011113) |
+| `enable_forward_proxy.tls_intercept.custom_certificate.blindfold.certificate_file` | [enable_forward_proxy.tls_intercept.custom_certificate.blindfold.certificate_file](resources--network_connector--reference--group-001.md#canonical-2232310112030201-0130312301013113-3010000300332233-2232101322002023-0333323200231220-1102113111212331-3320202232310031-2011011223112030) |
+| `enable_forward_proxy.tls_intercept.custom_certificate.blindfold.certificate_pem` | [enable_forward_proxy.tls_intercept.custom_certificate.blindfold.certificate_pem](resources--network_connector--reference--group-001.md#canonical-1012111232230202-0202030002223223-2113302030330220-1330112100321322-3011121112201222-1100032232320213-0321122300133013-0320010100123222) |
+| `enable_forward_proxy.tls_intercept.custom_certificate.blindfold.chain_identity` | [enable_forward_proxy.tls_intercept.custom_certificate.blindfold.chain_identity](resources--network_connector--reference--group-001.md#canonical-1223011320031000-0320002233011031-2000112203001220-1211212233122011-0201023030211300-2233332013320033-3132202021002302-0201232003211020) |
+| `enable_forward_proxy.tls_intercept.custom_certificate.blindfold.context_digest` | [enable_forward_proxy.tls_intercept.custom_certificate.blindfold.context_digest](resources--network_connector--reference--group-001.md#canonical-1030233331031310-1202003023102030-2220233033302210-1211231301200321-3113110111023123-2011110312331300-2112003202030320-0323300303213031) |
+| `enable_forward_proxy.tls_intercept.custom_certificate.blindfold.encrypted_location` | [enable_forward_proxy.tls_intercept.custom_certificate.blindfold.encrypted_location](resources--network_connector--reference--group-001.md#canonical-3232023013202132-1223313322133310-3202213221133213-2033213213213303-1022321131332333-3322121312211221-1220212122130320-3012132021301031) |
+| `enable_forward_proxy.tls_intercept.custom_certificate.blindfold.expires_at` | [enable_forward_proxy.tls_intercept.custom_certificate.blindfold.expires_at](resources--network_connector--reference--group-001.md#canonical-0322033111030031-3022203222011121-1021310011203321-3322131000222211-1221313121231302-3223120233231100-2230311011021012-1103331223202222) |
+| `enable_forward_proxy.tls_intercept.custom_certificate.blindfold.fingerprint` | [enable_forward_proxy.tls_intercept.custom_certificate.blindfold.fingerprint](resources--network_connector--reference--group-001.md#canonical-0112032320231212-0200022220120003-1103110310223303-0111100211210310-0033100001332212-2030331110031131-1110200313120003-2123031013032310) |
+| `enable_forward_proxy.tls_intercept.custom_certificate.blindfold.id` | [enable_forward_proxy.tls_intercept.custom_certificate.blindfold.id](resources--network_connector--reference--group-001.md#canonical-2330233013213322-0200212313200230-1321220302113123-1201032003102031-1201113101101130-0023321220223320-2320031223133203-0231121130103021) |
+| `enable_forward_proxy.tls_intercept.custom_certificate.blindfold.material_version` | [enable_forward_proxy.tls_intercept.custom_certificate.blindfold.material_version](resources--network_connector--reference--group-001.md#canonical-1113122113010121-2302320130301121-2210222112013011-0133222301022332-0031201223101323-0310011222132033-0100023221213213-3133223120223311) |
+| `enable_forward_proxy.tls_intercept.custom_certificate.blindfold.passphrase_env` | [enable_forward_proxy.tls_intercept.custom_certificate.blindfold.passphrase_env](resources--network_connector--reference--group-001.md#canonical-0203330203233323-2331213302111310-0103113023200020-0132210133111100-1013322313101333-1332013302022221-1333303120110310-1200322203220001) |
+| `enable_forward_proxy.tls_intercept.custom_certificate.blindfold.passphrase_wo` | [enable_forward_proxy.tls_intercept.custom_certificate.blindfold.passphrase_wo](resources--network_connector--reference--group-001.md#canonical-3303321213133011-0201221322131301-0100133012002033-3301230001033201-3213002220010223-0121100302011221-3120200203313203-3132033100312211) |
+| `enable_forward_proxy.tls_intercept.custom_certificate.blindfold.pkcs12_file` | [enable_forward_proxy.tls_intercept.custom_certificate.blindfold.pkcs12_file](resources--network_connector--reference--group-001.md#canonical-1003203220201022-0300330221132012-3303312121311023-1331203111221231-2330232322020133-2121102031201003-3033201122012313-1210113030203000) |
+| `enable_forward_proxy.tls_intercept.custom_certificate.blindfold.pkcs12_wo` | [enable_forward_proxy.tls_intercept.custom_certificate.blindfold.pkcs12_wo](resources--network_connector--reference--group-001.md#canonical-0223323021031131-3102121103031033-0111302003200233-3201100030130311-2300113211220211-2033321102010333-2023200322013332-3321133033130320) |
+| `enable_forward_proxy.tls_intercept.custom_certificate.blindfold.policy` | [enable_forward_proxy.tls_intercept.custom_certificate.blindfold.policy](resources--network_connector--reference--group-001.md#canonical-1031023323333230-2313201313331211-0033201222332312-3012011311003110-3001023200000222-1213022021302213-2211013323100002-0123012033213201) |
+| `enable_forward_proxy.tls_intercept.custom_certificate.blindfold.prepared_identity` | [enable_forward_proxy.tls_intercept.custom_certificate.blindfold.prepared_identity](resources--network_connector--reference--group-001.md#canonical-3133033103322130-3201223301121021-2313322003001332-2031013210213003-3120203010112032-0032031210201013-2021122213000311-1301302120320300) |
+| `enable_forward_proxy.tls_intercept.custom_certificate.blindfold.private_key_file` | [enable_forward_proxy.tls_intercept.custom_certificate.blindfold.private_key_file](resources--network_connector--reference--group-001.md#canonical-2301301031010310-2311202130032311-2333222333113203-0120111303312312-3013233100222332-0123200112130033-1130123320212301-0231223312213222) |
+| `enable_forward_proxy.tls_intercept.custom_certificate.blindfold.private_key_wo` | [enable_forward_proxy.tls_intercept.custom_certificate.blindfold.private_key_wo](resources--network_connector--reference--group-001.md#canonical-3223003311332300-2211311312112201-2001103202013223-1021310123102233-1003021220221211-1013023302013100-0202323301133010-1202221101131232) |
+| `enable_forward_proxy.tls_intercept.custom_certificate.blindfold.spki_identity` | [enable_forward_proxy.tls_intercept.custom_certificate.blindfold.spki_identity](resources--network_connector--reference--group-001.md#canonical-3323311000232022-1103023020322002-2210311222302101-3302120200133130-0313133023120231-1310220032212310-3132330112121130-3021131120113313) |
 | `enable_forward_proxy.tls_intercept.custom_certificate.certificate_url` | [enable_forward_proxy.tls_intercept.custom_certificate.certificate_url](resources--network_connector--reference--group-001.md#canonical-0023132223121321-0102220203123222-2200230020211311-1332033322001121-3333023003330321-3323000132122103-3131111013013300-2130220221300102) |
 | `enable_forward_proxy.tls_intercept.custom_certificate.custom_hash_algorithms` | [enable_forward_proxy.tls_intercept.custom_certificate.custom_hash_algorithms](resources--network_connector--reference--group-001.md#canonical-0212213333330132-2133122011211111-0133032312022313-2120002301311112-0333032010122112-0302300330133330-3112203221323223-3231001230233222) |
 | `enable_forward_proxy.tls_intercept.custom_certificate.custom_hash_algorithms.hash_algorithms` | [enable_forward_proxy.tls_intercept.custom_certificate.custom_hash_algorithms.hash_algorithms](resources--network_connector--reference--group-001.md#canonical-3212102131032310-0110130002211132-3030232303033023-1222100030233310-3131330213221201-2122101332311112-1330020022330113-1330213133100013) |
@@ -488,14 +490,6 @@ connection\_timeout: The timeout for new network connections to upstream server.
 Max\_connect\_attempts: Maximum number of attempts made to make new network connection to upstream
 server.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.ConflictingObjectAttributes("no_interception",
-    "tls_intercept")}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -535,15 +529,6 @@ Additional upstream details:
 
 The default value is 2000 (2 seconds)
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Int64{
-  int64validator.AtMost(600000),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -556,7 +541,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "api-probed",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -588,15 +573,6 @@ Additional upstream details:
 
 Defaults to 1.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Int64{
-  int64validator.AtMost(8),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -609,7 +585,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "api-probed",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -647,15 +623,6 @@ Additional upstream details:
 Traffic to these destination TCP ports is not subjected to protocol parsing Example "tmate" server
 port.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.List{
-  listvalidator.SizeAtMost(64),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -669,7 +636,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -705,15 +672,6 @@ Additional upstream details:
 Traffic to these destination IP prefixes is not subjected to protocol parsing Example "tmate" server
 IP.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.List{
-  listvalidator.SizeAtMost(64),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -727,7 +685,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "uniqueItems": true
   },
@@ -817,18 +775,6 @@ Type: `"object"`. single nested block, Optional.
 
 Configuration to enable TLS interception.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.ConflictingObjectAttributes("custom_certificate",
-    "volterra_certificate"),
-  validators.ConflictingObjectAttributes("enable_for_all_domains",
-    "policy"),
-  validators.ConflictingObjectAttributes("trusted_ca_url",
-    "volterra_trusted_ca")}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -874,15 +820,6 @@ Type: `"string"`. Optional.
 Exclusive with \[volterra\_trusted\_ca\] Custom Root CA Certificate for validating upstream server
 certificate.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthAtMost(131072),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -900,7 +837,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -950,19 +887,6 @@ Additional upstream details:
 
 Handle to fetch certificate and key.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("certificate_url"),
-  validators.ConflictingObjectAttributes("custom_hash_algorithms",
-    "disable_ocsp_stapling"),
-  validators.ConflictingObjectAttributes("custom_hash_algorithms",
-    "use_system_defaults"),
-  validators.ConflictingObjectAttributes("disable_ocsp_stapling",
-    "use_system_defaults")}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -989,22 +913,17 @@ custom_certificate {
 
 ### Direct properties for `enable_forward_proxy.tls_intercept.custom_certificate`
 
+- [blindfold](resources--network_connector--reference--group-001.md#canonical-1323113001110323-2022313322202012-3113330302132330-1022112330001203-0211200220232130-1303033232222322-3031120302223303-1201321311233221): complete subsection reference.
+
 <a id="canonical-0023132223121321-0102220203123222-2200230020211311-1332033322001121-3333023003330321-3323000132122103-3131111013013300-2130220221300102"></a>
+
+<a id="canonical-1202102312132302-2023210131023233-2112322033200022-0211333021211012-1333323212322322-1231133200111210-0110121312030302-1000321122332232"></a>
 
 #### `enable_forward_proxy.tls_intercept.custom_certificate.certificate_url` property
 
-Type: `"string"`. Optional.
+Type: `"string"`. Optional, Computed.
 
 TLS certificate. Certificate or certificate chain in PEM format including the PEM headers.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 131072),
-}
-```
 
 Receipt-pinned upstream constraints:
 
@@ -1024,7 +943,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1
   },
@@ -1053,7 +972,7 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-0021032021230222-0110333130321030-2202211003323201-0021032110233023-0130030123103013-0320200100303332-2233132202312223-3121002312332212"></a>
 
-<a id="canonical-1202102312132302-2023210131023233-2112322033200022-0211333021211012-1333323212322322-1231133200111210-0110121312030302-1000321122332232"></a>
+<a id="canonical-0330131112331002-0113101032000002-3202102112001021-2231113131121321-3311120201313202-3011332101030103-1002321012331112-2201030031211030"></a>
 
 #### `enable_forward_proxy.tls_intercept.custom_certificate.description_spec` property
 
@@ -1066,6 +985,185 @@ Description. Description for the certificate.
 - [private_key](resources--network_connector--reference--group-001.md#canonical-2221211102221322-0121012130323032-2120331032320113-1022031001212310-3230231103002311-3202302003110303-0331101203120033-0203030111001221): complete subsection reference.
 
 - [use_system_defaults](resources--network_connector--reference--group-001.md#canonical-2302323012133000-3023322330122001-2111022313231223-0013221120232101-0322010231231012-3231011213212001-1033002001331323-1201200222112102): complete subsection reference.
+
+<a id="canonical-1323113001110323-2022313322202012-3113330302132330-1022112330001203-0211200220232130-1303033232222322-3031120302223303-1201321311233221"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `enable_forward_proxy.tls_intercept.custom_certificate.blindfold` properties
+
+Breadcrumbs:
+
+- [xcsh_network_connector](../resources/network_connector.md#canonical-0030231112200120-2310101313112331-0112221320311330-1010030020110100-0320030301321031-0201122000110313-2302331223321203-3130322032000100)
+- [Property reference](resources--network_connector--reference--group-001.md#canonical-3230201320313300-3100103222213301-3222301220332000-2102123311113022-2103213133210102-1103110232333032-2123011010231323-2310223103003331)
+- [enable_forward_proxy](resources--network_connector--reference--group-001.md#canonical-1101110030313313-2102212303300111-0320130013022202-3311211123122310-2200103232211301-3223222300011312-2202123000112213-2220311201321020)
+- [enable_forward_proxy.tls_intercept](resources--network_connector--reference--group-001.md#canonical-1103300020233001-3233102132113202-0100231103312111-2133120322011110-3203012000032323-3033230123333013-2000221112111311-2302123032122113)
+- [enable_forward_proxy.tls_intercept.custom_certificate](resources--network_connector--reference--group-001.md#canonical-3001233111130311-2332001231310032-0012121313112300-2201122031203313-0033000103222321-0201010200101102-1232030300133322-3030101321223233)
+- enable_forward_proxy.tls_intercept.custom_certificate.blindfold
+
+<a id="canonical-0033021123302221-2322123233123213-3330222200023031-3000320220023213-2313232311301330-2021302000232033-3322303303031202-0331310223012033"></a>
+
+Type: `"single"`. Optional.
+
+Native certificate preparation. Use PEM files or a P12 file, or write-only key/bundle values with
+material\_version (Terraform 1.11+). Defaults to shared/ves-io-allow-volterra. Inline certificates
+require unique IDs. Private inputs are never stored.
+
+<a id="canonical-0231313202030200-1100202233221123-0232323233132232-3112201021303031-1030030330023113-1202030130133031-2323020132112311-0132221311032220"></a>
+
+### Direct properties for `enable_forward_proxy.tls_intercept.custom_certificate.blindfold`
+
+<a id="canonical-0011313232103123-1100103120133003-1000111022311330-2123023003222102-3233123332102123-1321131313233121-3023132132312311-3112301210011113"></a>
+
+#### `enable_forward_proxy.tls_intercept.custom_certificate.blindfold.algorithm` property
+
+Type: `"string"`. Computed.
+
+<a id="canonical-2232310112030201-0130312301013113-3010000300332233-2232101322002023-0333323200231220-1102113111212331-3320202232310031-2011011223112030"></a>
+
+<a id="canonical-2012102113213030-0020010202310130-1332103330032331-2003301312201020-3003312230120031-1021030213333012-3200110310100032-3123002233232300"></a>
+
+#### `enable_forward_proxy.tls_intercept.custom_certificate.blindfold.certificate_file` property
+
+Type: `"string"`. Optional.
+
+<a id="canonical-1012111232230202-0202030002223223-2113302030330220-1330112100321322-3011121112201222-1100032232320213-0321122300133013-0320010100123222"></a>
+
+<a id="canonical-1131131311331211-2331220221121230-1231222032013011-1303210211323232-2031330022223302-3321230102132133-0111013121130300-0330300101111231"></a>
+
+#### `enable_forward_proxy.tls_intercept.custom_certificate.blindfold.certificate_pem` property
+
+Type: `"string"`. Optional.
+
+<a id="canonical-1223011320031000-0320002233011031-2000112203001220-1211212233122011-0201023030211300-2233332013320033-3132202021002302-0201232003211020"></a>
+
+<a id="canonical-0132230322101221-1333223110133003-0330230123031301-0113321021133003-2311130301132200-0213103333110010-1121202302011030-3310100310101213"></a>
+
+#### `enable_forward_proxy.tls_intercept.custom_certificate.blindfold.chain_identity` property
+
+Type: `"string"`. Computed.
+
+<a id="canonical-1030233331031310-1202003023102030-2220233033302210-1211231301200321-3113110111023123-2011110312331300-2112003202030320-0323300303213031"></a>
+
+<a id="canonical-1033120000102103-2221302312103132-2023230023303203-2131333233300312-1013011123302311-3003223301103232-1231032033100131-1203200330013331"></a>
+
+#### `enable_forward_proxy.tls_intercept.custom_certificate.blindfold.context_digest` property
+
+Type: `"string"`. Computed.
+
+<a id="canonical-3232023013202132-1223313322133310-3202213221133213-2033213213213303-1022321131332333-3322121312211221-1220212122130320-3012132021301031"></a>
+
+<a id="canonical-3120312103032232-0310221000310310-2021313012100021-0211210200231202-3103010200112030-1100233100101312-0321020013202332-0330332033313301"></a>
+
+#### `enable_forward_proxy.tls_intercept.custom_certificate.blindfold.encrypted_location` property
+
+Type: `"string"`. Computed, Sensitive.
+
+<a id="canonical-0322033111030031-3022203222011121-1021310011203321-3322131000222211-1221313121231302-3223120233231100-2230311011021012-1103331223202222"></a>
+
+<a id="canonical-1002013022112020-0301121021030100-3231233033323011-1031031023310002-2033201200233221-0123122333133120-1203210120133010-1103310231121113"></a>
+
+#### `enable_forward_proxy.tls_intercept.custom_certificate.blindfold.expires_at` property
+
+Type: `"string"`. Computed.
+
+<a id="canonical-0112032320231212-0200022220120003-1103110310223303-0111100211210310-0033100001332212-2030331110031131-1110200313120003-2123031013032310"></a>
+
+<a id="canonical-0233233020110110-0123222122321002-0221121213132231-1311020230301322-0233330030320210-3032302230202003-1312200323103023-1133230130210231"></a>
+
+#### `enable_forward_proxy.tls_intercept.custom_certificate.blindfold.fingerprint` property
+
+Type: `"string"`. Computed.
+
+<a id="canonical-2330233013213322-0200212313200230-1321220302113123-1201032003102031-1201113101101130-0023321220223320-2320031223133203-0231121130103021"></a>
+
+<a id="canonical-2200232201230032-0033213021302010-3230221212020210-0212000000211323-1231302200010302-0000320021021202-1202213000222000-0111022011001331"></a>
+
+#### `enable_forward_proxy.tls_intercept.custom_certificate.blindfold.id` property
+
+Type: `"string"`. Optional.
+
+<a id="canonical-1113122113010121-2302320130301121-2210222112013011-0133222301022332-0031201223101323-0310011222132033-0100023221213213-3133223120223311"></a>
+
+<a id="canonical-0302211300110100-0133312021300100-3131201210000113-0010133131311032-1211312311033233-2030233002103302-0000223103200300-0303300100211033"></a>
+
+#### `enable_forward_proxy.tls_intercept.custom_certificate.blindfold.material_version` property
+
+Type: `"string"`. Optional.
+
+<a id="canonical-0203330203233323-2331213302111310-0103113023200020-0132210133111100-1013322313101333-1332013302022221-1333303120110310-1200322203220001"></a>
+
+<a id="canonical-1313212010311120-3333322131033121-3300330002103022-3320033232233231-0011120120330211-2223103321020201-0013130130312121-3022203303023333"></a>
+
+#### `enable_forward_proxy.tls_intercept.custom_certificate.blindfold.passphrase_env` property
+
+Type: `"string"`. Optional.
+
+<a id="canonical-3303321213133011-0201221322131301-0100133012002033-3301230001033201-3213002220010223-0121100302011221-3120200203313203-3132033100312211"></a>
+
+<a id="canonical-3022103313023230-1121122300122202-3002131311131311-1103101012201223-2120300031220221-3020303221001132-2312210313221002-1020112003022031"></a>
+
+#### `enable_forward_proxy.tls_intercept.custom_certificate.blindfold.passphrase_wo` property
+
+Type: `"string"`. Optional, Sensitive, Write_only.
+
+<a id="canonical-1003203220201022-0300330221132012-3303312121311023-1331203111221231-2330232322020133-2121102031201003-3033201122012313-1210113030203000"></a>
+
+<a id="canonical-0302031331002010-0102303132202103-0022003033132033-0220020101332032-0121320223000032-2110011132033031-0003021002120221-2210333133103010"></a>
+
+#### `enable_forward_proxy.tls_intercept.custom_certificate.blindfold.pkcs12_file` property
+
+Type: `"string"`. Optional.
+
+<a id="canonical-0223323021031131-3102121103031033-0111302003200233-3201100030130311-2300113211220211-2033321102010333-2023200322013332-3321133033130320"></a>
+
+<a id="canonical-1303301223030221-1030103322131112-1200130223132323-0223031210033311-2032223003223333-1030323231232120-2102331212333111-3031120031213103"></a>
+
+#### `enable_forward_proxy.tls_intercept.custom_certificate.blindfold.pkcs12_wo` property
+
+Type: `"string"`. Optional, Sensitive, Write_only.
+
+<a id="canonical-1031023323333230-2313201313331211-0033201222332312-3012011311003110-3001023200000222-1213022021302213-2211013323100002-0123012033213201"></a>
+
+<a id="canonical-0310330203101303-2210303130323022-0210322201022331-2121312232121322-1002322103210200-3012202201002032-2101131233003001-0001311023323021"></a>
+
+#### `enable_forward_proxy.tls_intercept.custom_certificate.blindfold.policy` property
+
+Type: `"string"`. Optional.
+
+<a id="canonical-3133033103322130-3201223301121021-2313322003001332-2031013210213003-3120203010112032-0032031210201013-2021122213000311-1301302120320300"></a>
+
+<a id="canonical-1221020102122112-0023012032313322-3022133313203030-0312230123321323-3020131212330030-2213230223122313-2010200322330030-2311301122333101"></a>
+
+#### `enable_forward_proxy.tls_intercept.custom_certificate.blindfold.prepared_identity` property
+
+Type: `"string"`. Computed.
+
+<a id="canonical-2301301031010310-2311202130032311-2333222333113203-0120111303312312-3013233100222332-0123200112130033-1130123320212301-0231223312213222"></a>
+
+<a id="canonical-1300312330030313-3202232212023113-1313001203222232-3223320221130211-3123021131032112-3322203030020321-0310120222313321-1032302211213002"></a>
+
+#### `enable_forward_proxy.tls_intercept.custom_certificate.blindfold.private_key_file` property
+
+Type: `"string"`. Optional.
+
+<a id="canonical-3223003311332300-2211311312112201-2001103202013223-1021310123102233-1003021220221211-1013023302013100-0202323301133010-1202221101131232"></a>
+
+<a id="canonical-2322302111011231-2002303022300022-3311223302010130-0303300233100303-0020300202210203-0212310122232223-1333333222200003-3012211002203213"></a>
+
+#### `enable_forward_proxy.tls_intercept.custom_certificate.blindfold.private_key_wo` property
+
+Type: `"string"`. Optional, Sensitive, Write_only.
+
+<a id="canonical-3323311000232022-1103023020322002-2210311222302101-3302120200133130-0313133023120231-1310220032212310-3132330112121130-3021131120113313"></a>
+
+<a id="canonical-3200200120021012-2002313210220101-3220323133120211-2331310230122300-1310121102222212-0230111033332232-0311013212121122-2033233312202100"></a>
+
+#### `enable_forward_proxy.tls_intercept.custom_certificate.blindfold.spki_identity` property
+
+Type: `"string"`. Computed.
 
 <a id="canonical-1222220221121321-2112110330102031-2011212032031302-3300212212120110-1123322011321313-2300011030023332-0132130133221002-0300232100200203"></a>
 
@@ -1089,13 +1187,6 @@ Breadcrumbs:
 Type: `"object"`. single nested block, Optional.
 
 Specifies the hash algorithms to be used.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("hash_algorithms")}
-```
 
 Receipt-pinned upstream constraints:
 
@@ -1132,15 +1223,6 @@ Type: `["list", "string"]`. Optional.
 values are \`INVALID\_HASH\_ALGORITHM\`, \`SHA256\`, \`SHA1\`. Defaults to
 \`INVALID\_HASH\_ALGORITHM\`.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.List{
-  listvalidator.SizeBetween(1, 4),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -1155,7 +1237,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minItems": 1,
     "uniqueItems": true
@@ -1252,14 +1334,6 @@ Type: `"object"`. single nested block, Optional.
 
 SecretType is used in an object to indicate a sensitive/confidential field.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info",
-    "clear_secret_info")}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -1314,13 +1388,6 @@ Type: `"object"`. single nested block, Optional.
 
 BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("location")}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -1366,7 +1433,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -1389,15 +1456,6 @@ Type: `"string"`. Optional, Sensitive.
 Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(4, 131072),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -1413,7 +1471,7 @@ Receipt-pinned upstream constraints:
       "confidence": 1.0,
       "note": "Blindfold envelope encryption (AES-256-GCM + RSA-OAEP) of an RSA-2048 TLS private key produces ~3700 char string:/// URL. 128KB max secret size = ~175KB base64. Discovery reported 1024 which is incorrect.",
       "source": "manual-override",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 4
   },
@@ -1457,7 +1515,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -1492,13 +1550,6 @@ Breadcrumbs:
 Type: `"object"`. single nested block, Optional.
 
 ClearSecretInfoType specifies information about the Secret that is not encrypted.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("url")}
-```
 
 Receipt-pinned upstream constraints:
 
@@ -1546,15 +1597,6 @@ URL of the secret. Currently supported URL schemes is string:///. For string:///
 needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
 base64 decoding.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 131072),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -1573,7 +1615,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1,
     "pattern": "^(https?|ftp)://[^\\s/$.?#].[^\\s]*$",
@@ -1718,13 +1760,6 @@ Type: `"object"`. single nested block, Optional.
 
 Policy to enable or disable TLS interception.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("interception_rules")}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -1775,14 +1810,6 @@ Type: `"object"`. list nested block, Optional.
 
 List of ordered rules to enable or disable for TLS interception.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.List{validators.ConflictingListObjectAttributes("disable_interception",
-    "enable_interception")}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -1797,7 +1824,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minItems": 1,
     "uniqueItems": true
@@ -1918,18 +1945,6 @@ Additional upstream details:
 
 Domains names.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.ConflictingObjectAttributes("exact_value",
-    "regex_value"),
-  validators.ConflictingObjectAttributes("exact_value",
-    "suffix_value"),
-  validators.ConflictingObjectAttributes("regex_value",
-    "suffix_value")}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -1964,15 +1979,6 @@ Type: `"string"`. Optional.
 
 Exclusive with \[regular expression\_value suffix\_value\] Exact domain name.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 256),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -1988,7 +1994,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1
   },
@@ -2021,15 +2027,6 @@ Type: `"string"`. Optional.
 
 Exclusive with \[exact\_value suffix\_value\] Regular Expression value for the domain name.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 256),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -2044,7 +2041,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1
   },
@@ -2083,15 +2080,6 @@ Additional upstream details:
 Exclusive with \[exact\_value regular expression\_value\] Suffix of domain name e.g "xyz.com" will match
 "\*.xyz.com" and "xyz.com"
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 256),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -2107,7 +2095,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1
   },
@@ -2351,13 +2339,6 @@ Type: `"object"`. single nested block, Optional.
 This type establishes a direct reference from one object(the referrer) to another(the referred).
 Such a reference is in form of tenant/namespace/name.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -2392,15 +2373,6 @@ Type: `"string"`. Optional.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
 referred object's(e.g. Route's) name.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 128),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -2419,7 +2391,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1
   },
@@ -2453,15 +2425,6 @@ Type: `"string"`. Optional, Computed.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
 hold the referred object's(e.g. Route's) namespace.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 63),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -2486,7 +2449,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1,
     "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
@@ -2521,15 +2484,6 @@ Type: `"string"`. Computed.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
 the referred object's(e.g. Route's) tenant.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthAtMost(64),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -2546,7 +2500,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -2780,13 +2734,6 @@ Type: `"object"`. single nested block, Optional.
 This type establishes a direct reference from one object(the referrer) to another(the referred).
 Such a reference is in form of tenant/namespace/name.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -2821,15 +2768,6 @@ Type: `"string"`. Optional.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
 referred object's(e.g. Route's) name.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 128),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -2848,7 +2786,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1
   },
@@ -2882,15 +2820,6 @@ Type: `"string"`. Optional, Computed.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
 hold the referred object's(e.g. Route's) namespace.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 63),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -2915,7 +2844,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1,
     "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
@@ -2950,15 +2879,6 @@ Type: `"string"`. Computed.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
 the referred object's(e.g. Route's) tenant.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthAtMost(64),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -2975,7 +2895,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {

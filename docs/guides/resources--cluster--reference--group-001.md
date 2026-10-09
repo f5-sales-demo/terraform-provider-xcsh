@@ -98,15 +98,6 @@ Additional upstream details:
 
 The default value is 2 seconds.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Int64{
-  int64validator.AtMost(600000),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -119,7 +110,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "api-probed",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -168,7 +159,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 0
   },
@@ -239,18 +230,6 @@ endpoints for load balancing Enable this policy to load balance ONLY among local
 endpoints Prefer the local endpoints for load balancing. If local endpoints are not present remote
 endpoints will be considered.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-EnumValidators: [{"version":1,"validator":"OneOf","values":["DISTRIBUTED","LOCAL_ONLY","LOCAL_PREFERRED"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
-Validators: []validator.String{
-  stringvalidator.OneOf("DISTRIBUTED",
-    "LOCAL_ONLY",
-    "LOCAL_PREFERRED"),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -295,18 +274,6 @@ cluster had no endpoint matching the subset policy Any cluster endpoint may be s
 cluster had no endpoint matching the subset policy Load balancing is done over endpoints matching
 default\_subset if the cluster had no endpoint matching the subset policy.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-EnumValidators: [{"version":1,"validator":"OneOf","values":["ANY_ENDPOINT","DEFAULT_SUBSET","NO_FALLBACK"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
-Validators: []validator.String{
-  stringvalidator.OneOf("NO_FALLBACK",
-    "ANY_ENDPOINT",
-    "DEFAULT_SUBSET"),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -345,15 +312,6 @@ in which there are no active requests. When the idle timeout is reached the conn
 closed. Note that request based timeouts mean that HTTP/2 PINGs will not keep the connection alive.
 This is specified in milliseconds. The default value is 5 minutes.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Int64{
-  int64validator.AtMost(600000),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -366,7 +324,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "api-probed",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -468,20 +426,6 @@ host in the set that comes after a failed host. &#8203;- LB\_OVERRIDE: Load Bala
 
 Hash policy is taken from from the load balancer which is using this origin pool.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-EnumValidators: [{"version":1,"validator":"OneOf","values":["LB_OVERRIDE","LEAST_REQUEST","RANDOM","RING_HASH","ROUND_ROBIN"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
-Validators: []validator.String{
-  stringvalidator.OneOf("ROUND_ROBIN",
-    "LEAST_REQUEST",
-    "RING_HASH",
-    "RANDOM",
-    "LB_OVERRIDE"),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -516,15 +460,6 @@ no\_request\_limit\_per\_connection\] Exclusive with \[no\_request\_limit\_per\_
 the maximum number of requests allowed per connection to the origin server. Enter a value &gt;=1 to
 define the request limit per connection.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Int64{
-  int64validator.AtLeast(1),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -536,7 +471,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "api-probed",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minimum": 1
   },
@@ -578,15 +513,6 @@ This is the name of configuration object. It has to be unique within the namespa
 specified during create API and cannot be changed during replace API. The value of name has to
 follow DNS-1035 format.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.String{
-  validators.NameValidator(),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -607,7 +533,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "inferred",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1,
     "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
@@ -646,15 +572,6 @@ Additional upstream details:
 This defines the workspace within which each the configuration object is to be created. Must be a
 DNS\_LABEL format. For a namespace object itself, namespace value will be ""
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.String{
-  validators.NamespaceValidator(),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -675,7 +592,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "inferred",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1,
     "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
@@ -710,15 +627,6 @@ Type: `"number"`. Optional, Computed.
 Exclusive with \[no\_panic\_threshold\] Configure a threshold (percentage of unhealthy endpoints)
 below which all endpoints will be considered for loadbalancing ignoring its health status.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Int64{
-  int64validator.AtMost(100),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -731,7 +639,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "api-probed",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -827,16 +735,16 @@ Each exact path has one authoritative reference destination. Collection element 
 | `timeouts.read` | [timeouts.read](resources--cluster--reference--group-001.md#canonical-2131222203323332-1131121222031022-3320212122132111-0023002130320221-1202001131333213-1312311230101111-3322022200231002-0033330230033000) |
 | `timeouts.update` | [timeouts.update](resources--cluster--reference--group-001.md#canonical-3200033303013012-1121131301202102-0213012021212131-1120220302011132-1333330301000231-2112111101222310-3012003221303032-1210103322233330) |
 | `tls_parameters` | [tls_parameters](resources--cluster--reference--group-001.md#canonical-3131202220133102-1013100100131301-2132120313213100-0321321003131203-2030330031211213-1112033032013313-0103110131021322-1120220330212120) |
-| `tls_parameters.cert_params` | [tls_parameters.cert_params](resources--cluster--reference--group-002.md#canonical-2321212120333130-0103220022113300-1022221001323302-3313232232210012-0300331021202221-3111120220030331-3102220023000003-1100122032001031) |
-| `tls_parameters.cert_params.certificates` | [tls_parameters.cert_params.certificates](resources--cluster--reference--group-002.md#canonical-2231313331231132-0010220301302320-1101002310113123-3323122121013220-2101022331033012-3331330020330233-2202223202121233-3230211222123320) |
-| `tls_parameters.cert_params.certificates.kind` | [tls_parameters.cert_params.certificates.kind](resources--cluster--reference--group-002.md#canonical-3332033231201023-1111103301101203-3321332200012230-0303020333233011-2112211020021031-1113330101100202-2332310110112310-1012221120113012) |
-| `tls_parameters.cert_params.certificates.name` | [tls_parameters.cert_params.certificates.name](resources--cluster--reference--group-002.md#canonical-1333011113223300-2032333230310321-0222313120212002-0010003223333003-0332311113313030-2133301011133002-3130223321021211-0301101230111322) |
-| `tls_parameters.cert_params.certificates.namespace` | [tls_parameters.cert_params.certificates.namespace](resources--cluster--reference--group-002.md#canonical-3213001020111100-0033111131001010-0033313013013323-1202113020202322-2300121102000123-1303311300012323-3031132231133111-1132301112103103) |
-| `tls_parameters.cert_params.certificates.tenant` | [tls_parameters.cert_params.certificates.tenant](resources--cluster--reference--group-002.md#canonical-2200233121210111-0231301103300202-2131220233331333-3100300100302012-0133000120213011-1310030020311310-3223120023121303-0313032333000013) |
+| `tls_parameters.cert_params` | [tls_parameters.cert_params](resources--cluster--reference--group-001.md#canonical-2321212120333130-0103220022113300-1022221001323302-3313232232210012-0300331021202221-3111120220030331-3102220023000003-1100122032001031) |
+| `tls_parameters.cert_params.certificates` | [tls_parameters.cert_params.certificates](resources--cluster--reference--group-001.md#canonical-2231313331231132-0010220301302320-1101002310113123-3323122121013220-2101022331033012-3331330020330233-2202223202121233-3230211222123320) |
+| `tls_parameters.cert_params.certificates.kind` | [tls_parameters.cert_params.certificates.kind](resources--cluster--reference--group-001.md#canonical-3332033231201023-1111103301101203-3321332200012230-0303020333233011-2112211020021031-1113330101100202-2332310110112310-1012221120113012) |
+| `tls_parameters.cert_params.certificates.name` | [tls_parameters.cert_params.certificates.name](resources--cluster--reference--group-001.md#canonical-1333011113223300-2032333230310321-0222313120212002-0010003223333003-0332311113313030-2133301011133002-3130223321021211-0301101230111322) |
+| `tls_parameters.cert_params.certificates.namespace` | [tls_parameters.cert_params.certificates.namespace](resources--cluster--reference--group-001.md#canonical-3213001020111100-0033111131001010-0033313013013323-1202113020202322-2300121102000123-1303311300012323-3031132231133111-1132301112103103) |
+| `tls_parameters.cert_params.certificates.tenant` | [tls_parameters.cert_params.certificates.tenant](resources--cluster--reference--group-001.md#canonical-2200233121210111-0231301103300202-2131220233331333-3100300100302012-0133000120213011-1310030020311310-3223120023121303-0313032333000013) |
 | `tls_parameters.cert_params.certificates.uid` | [tls_parameters.cert_params.certificates.uid](resources--cluster--reference--group-002.md#canonical-3221110212020010-3222330302010201-2212232220221320-1113330020233202-0131300121301201-0201322320103000-2210031300130130-0201300232103102) |
-| `tls_parameters.cert_params.cipher_suites` | [tls_parameters.cert_params.cipher_suites](resources--cluster--reference--group-002.md#canonical-1322120020330010-2022311322230223-2023021012220213-2311200122121020-3120330313101231-3112020332112003-0320033313112313-2303020200122021) |
-| `tls_parameters.cert_params.maximum_protocol_version` | [tls_parameters.cert_params.maximum_protocol_version](resources--cluster--reference--group-002.md#canonical-1011001323111030-1210011203121131-3103332130112003-1113203002100222-1110332312300323-1030323320133131-0232022223323131-0011110032101133) |
-| `tls_parameters.cert_params.minimum_protocol_version` | [tls_parameters.cert_params.minimum_protocol_version](resources--cluster--reference--group-002.md#canonical-2233212232010233-2100121100203131-1332130321011010-0122013121113210-0230000220301123-0000322213210111-3102022023201021-2111000032031131) |
+| `tls_parameters.cert_params.cipher_suites` | [tls_parameters.cert_params.cipher_suites](resources--cluster--reference--group-001.md#canonical-1322120020330010-2022311322230223-2023021012220213-2311200122121020-3120330313101231-3112020332112003-0320033313112313-2303020200122021) |
+| `tls_parameters.cert_params.maximum_protocol_version` | [tls_parameters.cert_params.maximum_protocol_version](resources--cluster--reference--group-001.md#canonical-1011001323111030-1210011203121131-3103332130112003-1113203002100222-1110332312300323-1030323320133131-0232022223323131-0011110032101133) |
+| `tls_parameters.cert_params.minimum_protocol_version` | [tls_parameters.cert_params.minimum_protocol_version](resources--cluster--reference--group-001.md#canonical-2233212232010233-2100121100203131-1332130321011010-0122013121113210-0230000220301123-0000322213210111-3102022023201021-2111000032031131) |
 | `tls_parameters.cert_params.skip_server_verification` | [tls_parameters.cert_params.skip_server_verification](resources--cluster--reference--group-002.md#canonical-2310320120131103-3032122203113332-2012320213331310-1323110111033133-0313210321012131-1302122211302102-3322230332101313-2022233001303023) |
 | `tls_parameters.cert_params.tls_validation_params` | [tls_parameters.cert_params.tls_validation_params](resources--cluster--reference--group-002.md#canonical-1111221222123022-1311312321201030-3330332220030111-1200001323233030-3230102010132111-1113221320202030-3132103201021310-1200203223313222) |
 | `tls_parameters.cert_params.tls_validation_params.skip_hostname_verification` | [tls_parameters.cert_params.tls_validation_params.skip_hostname_verification](resources--cluster--reference--group-002.md#canonical-0121331230300021-2131120113111110-0213302301032020-1110131321331233-1001333312301313-1312322231111333-0022130303322013-3021102311010223) |
@@ -855,6 +763,26 @@ Each exact path has one authoritative reference destination. Collection element 
 | `tls_parameters.common_params.maximum_protocol_version` | [tls_parameters.common_params.maximum_protocol_version](resources--cluster--reference--group-002.md#canonical-0320231230222310-0031001003033230-1201022023020101-2133312001211130-1231033011233132-3022001000300031-3232021111022133-0203032320021213) |
 | `tls_parameters.common_params.minimum_protocol_version` | [tls_parameters.common_params.minimum_protocol_version](resources--cluster--reference--group-002.md#canonical-2310310133130010-3323131322122011-3023012102321000-3303220210103213-2120312131130023-0200032022020211-0222120022211013-2023022123131122) |
 | `tls_parameters.common_params.tls_certificates` | [tls_parameters.common_params.tls_certificates](resources--cluster--reference--group-002.md#canonical-0100100311312333-3331230103112232-3233213303223112-1233021101313233-1321110021213113-1232220323210211-2132130020232133-0023113310302132) |
+| `tls_parameters.common_params.tls_certificates.blindfold` | [tls_parameters.common_params.tls_certificates.blindfold](resources--cluster--reference--group-002.md#canonical-0321112000011100-1200221133001212-3300133002031023-0111133111210100-2221011012001131-0122210022310220-1110303223312031-3313233301121230) |
+| `tls_parameters.common_params.tls_certificates.blindfold.algorithm` | [tls_parameters.common_params.tls_certificates.blindfold.algorithm](resources--cluster--reference--group-002.md#canonical-1120022001230220-3212130023100132-2303213331012120-1013100012222102-1333133013000102-3310333023300310-2030202231232101-3131223033310011) |
+| `tls_parameters.common_params.tls_certificates.blindfold.certificate_file` | [tls_parameters.common_params.tls_certificates.blindfold.certificate_file](resources--cluster--reference--group-002.md#canonical-1312000320220230-0213303210222021-2123030213221313-3011301220002003-2323020001020033-1213121101232220-3101131302211200-1323011031010313) |
+| `tls_parameters.common_params.tls_certificates.blindfold.certificate_pem` | [tls_parameters.common_params.tls_certificates.blindfold.certificate_pem](resources--cluster--reference--group-002.md#canonical-1212221010102220-2331132323301310-0020232103331212-2023211110231312-3323203010112100-3313020020110021-3231202032100321-0303222232200021) |
+| `tls_parameters.common_params.tls_certificates.blindfold.chain_identity` | [tls_parameters.common_params.tls_certificates.blindfold.chain_identity](resources--cluster--reference--group-002.md#canonical-0221231121303211-2012000202221202-3210113131122110-1313101231213032-3201302310223030-3310223130013221-3032202301012011-0133303021302232) |
+| `tls_parameters.common_params.tls_certificates.blindfold.context_digest` | [tls_parameters.common_params.tls_certificates.blindfold.context_digest](resources--cluster--reference--group-002.md#canonical-2323322021302320-1323300121312233-1302301322112310-3321013110201311-0231232133100211-3310311112111202-0002303233102210-0033220330002231) |
+| `tls_parameters.common_params.tls_certificates.blindfold.encrypted_location` | [tls_parameters.common_params.tls_certificates.blindfold.encrypted_location](resources--cluster--reference--group-002.md#canonical-1102230010223111-2132111011323330-1200332320200100-2023210302012123-1203021331212200-3030110332001031-1300201320221022-3023012001301322) |
+| `tls_parameters.common_params.tls_certificates.blindfold.expires_at` | [tls_parameters.common_params.tls_certificates.blindfold.expires_at](resources--cluster--reference--group-002.md#canonical-3301033023311032-2112303210203231-1113100000033233-3303211331130211-2221300033112003-0120213313013013-3212010123022012-1203101030310030) |
+| `tls_parameters.common_params.tls_certificates.blindfold.fingerprint` | [tls_parameters.common_params.tls_certificates.blindfold.fingerprint](resources--cluster--reference--group-002.md#canonical-2102211333312201-1121211022003311-2212332201221033-2321311030133123-3303310022100330-0021131100303322-1001213311300311-2110320020323113) |
+| `tls_parameters.common_params.tls_certificates.blindfold.id` | [tls_parameters.common_params.tls_certificates.blindfold.id](resources--cluster--reference--group-002.md#canonical-2302133103011311-0300002112300303-3001121203022010-3303333021311100-3321203312321003-2333320101122132-0322123230031333-2121320323133233) |
+| `tls_parameters.common_params.tls_certificates.blindfold.material_version` | [tls_parameters.common_params.tls_certificates.blindfold.material_version](resources--cluster--reference--group-002.md#canonical-0103110233111132-3223321101120120-3030203000223302-1000223300231311-1323302032332123-3330030131100212-0202212333201100-0313101331301031) |
+| `tls_parameters.common_params.tls_certificates.blindfold.passphrase_env` | [tls_parameters.common_params.tls_certificates.blindfold.passphrase_env](resources--cluster--reference--group-002.md#canonical-2320212313111203-2123022322132032-1031102321021001-2122013000000203-0000102212113313-2011320223030311-2222122133302203-1033000313210131) |
+| `tls_parameters.common_params.tls_certificates.blindfold.passphrase_wo` | [tls_parameters.common_params.tls_certificates.blindfold.passphrase_wo](resources--cluster--reference--group-002.md#canonical-3322023012210021-3002000313223202-2100121310033232-0201201303310200-2122101213323320-1322123221300113-3313311120100022-3001310002012011) |
+| `tls_parameters.common_params.tls_certificates.blindfold.pkcs12_file` | [tls_parameters.common_params.tls_certificates.blindfold.pkcs12_file](resources--cluster--reference--group-002.md#canonical-2303313313030312-0333130002331112-0011111102121330-3102031101132322-1330123013111131-0110110001231003-2131313233303103-1030211102213121) |
+| `tls_parameters.common_params.tls_certificates.blindfold.pkcs12_wo` | [tls_parameters.common_params.tls_certificates.blindfold.pkcs12_wo](resources--cluster--reference--group-002.md#canonical-3221020220023122-3013310131032323-0321000200123303-1001321103222010-0031110233110320-2033223030303000-1321313113010013-1300212100100133) |
+| `tls_parameters.common_params.tls_certificates.blindfold.policy` | [tls_parameters.common_params.tls_certificates.blindfold.policy](resources--cluster--reference--group-002.md#canonical-3302112130112133-1300030310233232-0302300023130023-1113303211211112-2232033013110322-0233231300221010-3111202222313202-3022110123223233) |
+| `tls_parameters.common_params.tls_certificates.blindfold.prepared_identity` | [tls_parameters.common_params.tls_certificates.blindfold.prepared_identity](resources--cluster--reference--group-002.md#canonical-3000111021210222-2001112031022230-0133033010320232-3301220333232113-1002323230203100-3110032310213103-3000313103010113-3000302223020130) |
+| `tls_parameters.common_params.tls_certificates.blindfold.private_key_file` | [tls_parameters.common_params.tls_certificates.blindfold.private_key_file](resources--cluster--reference--group-002.md#canonical-2220232321023203-2022332030323123-3022131222230112-3320122021121123-3122133322121221-0002301302222200-2101200000101101-2333033321320022) |
+| `tls_parameters.common_params.tls_certificates.blindfold.private_key_wo` | [tls_parameters.common_params.tls_certificates.blindfold.private_key_wo](resources--cluster--reference--group-002.md#canonical-2000031120123000-3212230032222023-2213000001012022-1132311133003102-0300121312010031-1222021123203010-3110330212103111-0003302300221330) |
+| `tls_parameters.common_params.tls_certificates.blindfold.spki_identity` | [tls_parameters.common_params.tls_certificates.blindfold.spki_identity](resources--cluster--reference--group-002.md#canonical-3130013211301211-0300200030002030-3100110002113101-0011211030000101-2220213113210011-0302123132012133-1111323303133010-1033031322001103) |
 | `tls_parameters.common_params.tls_certificates.certificate_url` | [tls_parameters.common_params.tls_certificates.certificate_url](resources--cluster--reference--group-002.md#canonical-3101311010203203-2023303120120233-2201030100031123-0220333013232222-0030311000132223-2203021231332020-2201023332122111-3002303203102012) |
 | `tls_parameters.common_params.tls_certificates.custom_hash_algorithms` | [tls_parameters.common_params.tls_certificates.custom_hash_algorithms](resources--cluster--reference--group-002.md#canonical-3101031322202101-3212201230103033-2202123311010221-2101223201322020-3301002232223211-3123003233310010-1103000113333311-2031112213132123) |
 | `tls_parameters.common_params.tls_certificates.custom_hash_algorithms.hash_algorithms` | [tls_parameters.common_params.tls_certificates.custom_hash_algorithms.hash_algorithms](resources--cluster--reference--group-002.md#canonical-1230311011232210-2013031031002200-0013231023102303-3130233203233231-3301002030231301-3200121112003311-1221311213012031-3310110210330013) |
@@ -1001,15 +929,6 @@ cluster. In practice this is only applicable to TCP and HTTP/1.1 clusters since 
 connection to each host. Remove endpoint out of load balancing decision, if number of connections
 reach connection limit.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Int64{
-  int64validator.AtMost(32768),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -1022,7 +941,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "api-probed",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -1053,15 +972,6 @@ In practice this is applicable to HTTP/2 clusters since HTTP/1.1 clusters are go
 maximum connections (connection\_limit). Remove endpoint out of load balancing decision, if requests
 exceed this count.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Int64{
-  int64validator.AtMost(32768),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -1074,7 +984,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "api-probed",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -1108,15 +1018,6 @@ enough upstream connections available to immediately dispatch the request, so th
 will remain in play for the lifetime of the process. Remove endpoint out of load balancing decision,
 if pending request reach pending\_request.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Int64{
-  int64validator.AtMost(32768),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -1129,7 +1030,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "api-probed",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -1164,17 +1065,6 @@ Additional upstream details:
 
 Priority routing for each request. Default routing mechanism High-Priority routing mechanism.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-EnumValidators: [{"version":1,"validator":"OneOf","values":["DEFAULT","HIGH"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
-Validators: []validator.String{
-  stringvalidator.OneOf("DEFAULT",
-    "HIGH"),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -1204,15 +1094,6 @@ Type: `"number"`. Optional.
 The maximum number of retries that can be outstanding to all hosts in a cluster at any given time.
 Remove endpoint out of load balancing decision, if retries for request exceed this count.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Int64{
-  int64validator.Between(0, 32768),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -1225,7 +1106,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "api-probed",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minimum": 0,
     "multipleOf": 1
@@ -1423,13 +1304,6 @@ ep1, ep3 Fallback: No subset selector for "app" alone stage: production, app: hr
 endpoints selected other: x ep1, ep3 Fallback: No subset selector for “other” (none) ep1, ep3
 Fallback: No subset requested.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.List{validators.RequiredListObjectAttributes("keys")}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -1443,7 +1317,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -1481,15 +1355,6 @@ Type: `["list", "string"]`. Optional.
 
 List of keys that define a cluster subset class.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.List{
-  listvalidator.SizeAtMost(16),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -1503,7 +1368,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -1562,7 +1427,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minItems": 0,
     "uniqueItems": false
@@ -1619,7 +1484,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -1653,7 +1518,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -1676,17 +1541,6 @@ Type: `"string"`. Optional, Computed.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
 hold the referred object's(e.g. Route's) namespace.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 63),
-  stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`),
-    ""),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -1707,7 +1561,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "inferred",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1,
     "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
@@ -1747,7 +1601,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -1781,7 +1635,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -1830,7 +1684,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -1885,7 +1739,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -1919,7 +1773,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -1942,17 +1796,6 @@ Type: `"string"`. Optional, Computed.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
 hold the referred object's(e.g. Route's) namespace.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 63),
-  stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`),
-    ""),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -1973,7 +1816,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "inferred",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1,
     "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
@@ -2013,7 +1856,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -2047,7 +1890,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -2126,18 +1969,6 @@ Breadcrumbs:
 Type: `"object"`. single nested block, Optional.
 
 Header Transformation OPTIONS for HTTP/1.1 request/response headers.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.ConflictingObjectAttributes("default_header_transformation",
-    "preserve_case_header_transformation"),
-  validators.ConflictingObjectAttributes("default_header_transformation",
-    "proper_case_header_transformation"),
-  validators.ConflictingObjectAttributes("preserve_case_header_transformation",
-    "proper_case_header_transformation")}
-```
 
 Receipt-pinned upstream constraints:
 
@@ -2533,15 +2364,6 @@ The base time that a host is ejected for. The real time is equal to the base tim
 number of times the host has been ejected. This causes hosts to GET ejected for longer periods if
 they continue to fail. Defaults to 30000ms or 30s. Specified in milliseconds.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Int64{
-  int64validator.AtMost(1800000),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -2554,7 +2376,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "api-probed",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -2586,15 +2408,6 @@ return one on the upstream’s behalf(reset, connection failure, etc.) consecuti
 number of consecutive 5xx responses required before a consecutive 5xx ejection occurs. Defaults to
 5.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Int64{
-  int64validator.AtMost(1024),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -2607,7 +2420,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "api-probed",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -2639,15 +2452,6 @@ one of these status codes on the upstream’s behalf (reset, connection failure,
 Consecutive\_gateway\_failure indicates the number of consecutive gateway failures before a
 consecutive gateway failure ejection occurs. Defaults to 5.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Int64{
-  int64validator.AtMost(1024),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -2660,7 +2464,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "api-probed",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -2693,15 +2497,6 @@ Additional upstream details:
 
 Defaults to 10000ms or 10s. Specified in milliseconds.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Int64{
-  int64validator.Between(1, 600000),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -2714,7 +2509,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "api-probed",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minimum": 1,
     "multipleOf": 1
@@ -2750,15 +2545,6 @@ Additional upstream details:
 The maximum % of an upstream cluster that can be ejected due to outlier detection. Defaults to 10%
 but will eject at least one host regardless of the value.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Int64{
-  int64validator.AtMost(100),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -2771,7 +2557,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "api-probed",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -2977,26 +2763,6 @@ Type: `"object"`. single nested block, Optional.
 
 TLS configuration for upstream connections.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.ConflictingObjectAttributes("cert_params",
-    "common_params"),
-  validators.ConflictingObjectAttributes("default_session_key_caching",
-    "disable_session_key_caching"),
-  validators.ConflictingObjectAttributes("default_session_key_caching",
-    "max_session_keys"),
-  validators.ConflictingObjectAttributes("disable_session_key_caching",
-    "max_session_keys"),
-  validators.ConflictingObjectAttributes("disable_sni",
-    "sni"),
-  validators.ConflictingObjectAttributes("disable_sni",
-    "use_host_header_as_sni"),
-  validators.ConflictingObjectAttributes("sni",
-    "use_host_header_as_sni")}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -3025,7 +2791,7 @@ tls_parameters {
 
 ### Direct properties for `tls_parameters`
 
-- [cert_params](resources--cluster--reference--group-002.md#canonical-1100203002130122-0022303002220133-3103111323222000-2330331223110031-2130313221330022-3031012100210311-2322023011022002-1201200201010022): complete subsection reference.
+- [cert_params](resources--cluster--reference--group-001.md#canonical-1100203002130122-0022303002220133-3103111323222000-2330331223110031-2130313221330022-3031012100210311-2322023011022002-1201200201010022): complete subsection reference.
 
 - [common_params](resources--cluster--reference--group-002.md#canonical-3000332102231031-2232112022123031-0211133232202112-0032122020002033-2212122300111002-2302023030003012-0222333220103023-0320013312123031): complete subsection reference.
 
@@ -3046,15 +2812,6 @@ Type: `"number"`. Optional.
 Exclusive with \[default\_session\_key\_caching disable\_session\_key\_caching\] Number of session
 keys that are cached.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Int64{
-  int64validator.Between(2, 64),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -3067,7 +2824,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "api-probed",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minimum": 2
   },
@@ -3089,3 +2846,402 @@ Receipt-pinned upstream constraints:
 ```
 
 <a id="canonical-1032233230233223-0302312202012102-1123201223122132-0020032100232220-2202323321120010-1120232223221030-2102123312000102-0320112313302221"></a>
+
+<a id="canonical-0222332200030023-3222121231101312-1201311233220000-3131203231021313-3331333332001330-2131232223322103-0113330331331123-0303013212031211"></a>
+
+#### `tls_parameters.sni` property
+
+Type: `"string"`. Optional.
+
+Exclusive with \[disable\_sni use\_host\_header\_as\_sni\] SNI value to be used.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 256,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "hostname",
+    "maxLength": 256,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-09T12:34:59+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.hostname": "true",
+    "ves.io.schema.rules.string.max_len": "256"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.hostname": "true",
+    "ves.io.schema.rules.string.max_len": "256"
+  }
+}
+```
+
+- [use_host_header_as_sni](resources--cluster--reference--group-002.md#canonical-3303030113320302-0313223030232122-1230002312320323-0112201033032021-3032303300003222-3030123202200331-3032022101232333-0330331332030030): complete subsection reference.
+
+<a id="canonical-1100203002130122-0022303002220133-3103111323222000-2330331223110031-2130313221330022-3031012100210311-2322023011022002-1201200201010022"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `tls_parameters.cert_params` properties
+
+Breadcrumbs:
+
+- [xcsh_cluster](../resources/cluster.md#canonical-0200232312311331-3030233031121222-1103023001033003-2132323312102233-3022210011323301-1323303310030333-2031301002313333-2332312221310003)
+- [Property reference](resources--cluster--reference--group-001.md#canonical-3101131133022110-3312300202101321-1032132322320210-3102023201100003-0111113110022121-3023312323003101-2100300213113301-3113003202303321)
+- [tls_parameters](resources--cluster--reference--group-001.md#canonical-3220210122031322-3121113012222331-0213030232301003-2002100301202230-1030100031230032-2222122001310100-2022213213020103-1031100333310031)
+- tls_parameters.cert_params
+
+<a id="canonical-2321212120333130-0103220022113300-1022221001323302-3313232232210012-0300331021202221-3111120220030331-3102220023000003-1100122032001031"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+Certificate Parameters for authentication, TLS ciphers, and trust store.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-server_validation_choice": "[\"skip_server_verification\",\"tls_validation_params\",\"volterra_trusted_ca\"]"
+}
+```
+
+Terraform syntax:
+
+```terraform
+cert_params {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-2233002301202220-1221132313213202-3331013032222303-3311213320233201-0202213021322212-2130003003220222-2130023100100023-0103231321003231"></a>
+
+### Direct properties for `tls_parameters.cert_params`
+
+- [certificates](resources--cluster--reference--group-001.md#canonical-3231221112110221-2222223230122221-0123030212331110-3102133330132221-1323200221220213-2331121203031321-2322013132001213-1231033011033303): complete subsection reference.
+
+<a id="canonical-1322120020330010-2022311322230223-2023021012220213-2311200122121020-3120330313101231-3112020332112003-0320033313112313-2303020200122021"></a>
+
+<a id="canonical-0233010110221023-1231211032003223-3113022312331313-2321022322232201-1203212310222100-3123030113032120-1001300303132102-3130222103023021"></a>
+
+#### `tls_parameters.cert_params.cipher_suites` property
+
+Type: `["list", "string"]`. Optional.
+
+The following list specifies the supported cipher suite TLS\_AES\_128\_GCM\_SHA256
+TLS\_AES\_256\_GCM\_SHA384 TLS\_CHACHA20\_POLY1305\_SHA256
+TLS\_ECDHE\_ECDSA\_WITH\_AES\_128\_GCM\_SHA256 TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384
+TLS\_ECDHE\_ECDSA\_WITH\_CHACHA20\_POLY1305\_SHA256 TLS\_ECDHE\_RSA\_WITH\_AES\_128\_GCM\_SHA256
+TLS\_ECDHE\_RSA\_WITH\_AES\_256\_GCM\_SHA384 TLS\_ECDHE\_RSA\_WITH\_CHACHA20\_POLY1305\_SHA256
+TLS\_ECDHE\_ECDSA\_WITH\_AES\_128\_CBC\_SHA TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_CBC\_SHA
+TLS\_ECDHE\_RSA\_WITH\_AES\_128\_CBC\_SHA TLS\_ECDHE\_RSA\_WITH\_AES\_256\_CBC\_SHA
+TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256
+TLS\_RSA\_WITH\_AES\_256\_CBC\_SHA TLS\_RSA\_WITH\_AES\_256\_GCM\_SHA384
+
+If not specified, the default list: TLS\_ECDHE\_ECDSA\_WITH\_AES\_128\_GCM\_SHA256
+TLS\_ECDHE\_ECDSA\_WITH\_CHACHA20\_POLY1305\_SHA256 TLS\_ECDHE\_RSA\_WITH\_AES\_128\_GCM\_SHA256
+TLS\_ECDHE\_RSA\_WITH\_CHACHA20\_POLY1305\_SHA256 TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384
+TLS\_ECDHE\_RSA\_WITH\_AES\_256\_GCM\_SHA384 will be used.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "array",
+    "deterministic": true,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-09T12:34:59+00:00"
+    },
+    "uniqueItems": true
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.repeated.items.string.in": "[\\\"TLS_AES_128_GCM_SHA256\\\",\\\"TLS_AES_256_GCM_SHA384\\\",\\\"TLS_CHACHA20_POLY1305_SHA256\\\",\\\"TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256\\\",\\\"TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384\\\",\\\"TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256\\\",\\\"TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256\\\",\\\"TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384\\\",\\\"TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256\\\",\\\"TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA\\\",\\\"TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA\\\",\\\"TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA\\\",\\\"TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA\\\",\\\"TLS_RSA_WITH_AES_128_CBC_SHA\\\",\\\"TLS_RSA_WITH_AES_128_GCM_SHA256\\\",\\\"TLS_RSA_WITH_AES_256_CBC_SHA\\\",\\\"TLS_RSA_WITH_AES_256_GCM_SHA384\\\"]",
+    "ves.io.schema.rules.repeated.unique": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.repeated.items.string.in": "[\\\"TLS_AES_128_GCM_SHA256\\\",\\\"TLS_AES_256_GCM_SHA384\\\",\\\"TLS_CHACHA20_POLY1305_SHA256\\\",\\\"TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256\\\",\\\"TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384\\\",\\\"TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256\\\",\\\"TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256\\\",\\\"TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384\\\",\\\"TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256\\\",\\\"TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA\\\",\\\"TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA\\\",\\\"TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA\\\",\\\"TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA\\\",\\\"TLS_RSA_WITH_AES_128_CBC_SHA\\\",\\\"TLS_RSA_WITH_AES_128_GCM_SHA256\\\",\\\"TLS_RSA_WITH_AES_256_CBC_SHA\\\",\\\"TLS_RSA_WITH_AES_256_GCM_SHA384\\\"]",
+    "ves.io.schema.rules.repeated.unique": "true"
+  }
+}
+```
+
+<a id="canonical-1011001323111030-1210011203121131-3103332130112003-1113203002100222-1110332312300323-1030323320133131-0232022223323131-0011110032101133"></a>
+
+<a id="canonical-0132031101100110-0021303012003232-0223112232303332-3111031221321300-0223123220011021-1333301112231220-0300311012330233-1323201113033200"></a>
+
+#### `tls_parameters.cert_params.maximum_protocol_version` property
+
+Type: `"string"`. Optional.
+
+\[Enum: TLS\_AUTO|TLSv1\_0|TLSv1\_1|TLSv1\_2|TLSv1\_3\] TlsProtocol is enumeration of supported TLS
+versions F5 Distributed Cloud will choose the optimal TLS version. Possible values are
+\`TLS\_AUTO\`, \`TLSv1\_0\`, \`TLSv1\_1\`, \`TLSv1\_2\`, \`TLSv1\_3\`. Defaults to \`TLS\_AUTO\`.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "default": "TLS_AUTO",
+  "enum": [
+    "TLS_AUTO",
+    "TLSv1_0",
+    "TLSv1_1",
+    "TLSv1_2",
+    "TLSv1_3"
+  ],
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-2233212232010233-2100121100203131-1332130321011010-0122013121113210-0230000220301123-0000322213210111-3102022023201021-2111000032031131"></a>
+
+<a id="canonical-1013200212100323-1301330222122220-2302321100200330-3202022230031020-3003313233332302-3030211232233321-1311212100032330-2030322011200020"></a>
+
+#### `tls_parameters.cert_params.minimum_protocol_version` property
+
+Type: `"string"`. Optional.
+
+\[Enum: TLS\_AUTO|TLSv1\_0|TLSv1\_1|TLSv1\_2|TLSv1\_3\] TlsProtocol is enumeration of supported TLS
+versions F5 Distributed Cloud will choose the optimal TLS version. Possible values are
+\`TLS\_AUTO\`, \`TLSv1\_0\`, \`TLSv1\_1\`, \`TLSv1\_2\`, \`TLSv1\_3\`. Defaults to \`TLS\_AUTO\`.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "default": "TLS_AUTO",
+  "enum": [
+    "TLS_AUTO",
+    "TLSv1_0",
+    "TLSv1_1",
+    "TLSv1_2",
+    "TLSv1_3"
+  ],
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+- [skip_server_verification](resources--cluster--reference--group-002.md#canonical-3230113212220110-1311312112103302-1122313301110122-2300101023102300-2311300223331201-3302320331023023-1100030020113322-2020202131030311): complete subsection reference.
+
+- [tls_validation_params](resources--cluster--reference--group-002.md#canonical-2101011001120302-3311230102233231-2123132022111332-1330332321231133-2303000103200231-1130103300133322-3102220332233122-0200233112023111): complete subsection reference.
+
+- [volterra_trusted_ca](resources--cluster--reference--group-002.md#canonical-0232001101331213-3011133133010213-0313330030310323-1311002133300112-1300011211333120-3323002231113130-0300100332301033-0311100310121120): complete subsection reference.
+
+<a id="canonical-3231221112110221-2222223230122221-0123030212331110-3102133330132221-1323200221220213-2331121203031321-2322013132001213-1231033011033303"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `tls_parameters.cert_params.certificates` properties
+
+Breadcrumbs:
+
+- [xcsh_cluster](../resources/cluster.md#canonical-0200232312311331-3030233031121222-1103023001033003-2132323312102233-3022210011323301-1323303310030333-2031301002313333-2332312221310003)
+- [Property reference](resources--cluster--reference--group-001.md#canonical-3101131133022110-3312300202101321-1032132322320210-3102023201100003-0111113110022121-3023312323003101-2100300213113301-3113003202303321)
+- [tls_parameters](resources--cluster--reference--group-001.md#canonical-3220210122031322-3121113012222331-0213030232301003-2002100301202230-1030100031230032-2222122001310100-2022213213020103-1031100333310031)
+- [tls_parameters.cert_params](resources--cluster--reference--group-001.md#canonical-1100203002130122-0022303002220133-3103111323222000-2330331223110031-2130313221330022-3031012100210311-2322023011022002-1201200201010022)
+- tls_parameters.cert_params.certificates
+
+<a id="canonical-2231313331231132-0010220301302320-1101002310113123-3323122121013220-2101022331033012-3331330020330233-2202223202121233-3230211222123320"></a>
+
+Type: `"object"`. list nested block, Optional.
+
+Client TLS Certificate required for mTLS authentication.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.max_len": "1",
+    "ves.io.schema.rules.string.min_len": "1"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.max_len": "1",
+    "ves.io.schema.rules.string.min_len": "1"
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+certificates {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-1303123320123211-0213302333022222-2112321330202231-1132303103210102-1302333322122021-1312021023111330-3133312331123022-0013333021000023"></a>
+
+### Direct properties for `tls_parameters.cert_params.certificates`
+
+<a id="canonical-3332033231201023-1111103301101203-3321332200012230-0303020333233011-2112211020021031-1113330101100202-2332310110112310-1012221120113012"></a>
+
+#### `tls_parameters.cert_params.certificates.kind` property
+
+Type: `"string"`. Computed.
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then kind will hold the
+referred object's kind (e.g. 'route').
+
+Additional upstream details:
+
+Virtual\_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g.
+"route")
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "general",
+    "constraintType": "string",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.85,
+      "source": "inferred",
+      "validatedAt": "2026-10-09T12:34:59+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-1333011113223300-2032333230310321-0222313120212002-0010003223333003-0332311113313030-2133301011133002-3130223321021211-0301101230111322"></a>
+
+<a id="canonical-3003210221231323-2101123310112300-0102210301120030-3122312312023310-2031101330303302-0232000022223210-3202013100032112-1213222211030322"></a>
+
+#### `tls_parameters.cert_params.certificates.name` property
+
+Type: `"string"`. Optional.
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
+referred object's(e.g. Route's) name.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "general",
+    "constraintType": "string",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.85,
+      "source": "inferred",
+      "validatedAt": "2026-10-09T12:34:59+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-3213001020111100-0033111131001010-0033313013013323-1202113020202322-2300121102000123-1303311300012323-3031132231133111-1132301112103103"></a>
+
+<a id="canonical-2232002002212033-1310001122111030-0012001231322132-3200130123000210-1332003302033110-2331300133212313-2310212203233203-3333012231202333"></a>
+
+#### `tls_parameters.cert_params.certificates.namespace` property
+
+Type: `"string"`. Optional, Computed.
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
+hold the referred object's(e.g. Route's) namespace.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "naming",
+    "characterSet": {
+      "allowed": "[a-z0-9-]",
+      "description": "Lowercase letter start, alphanumeric with hyphens, alphanumeric end",
+      "required": "[a-z0-9]",
+      "restricted": "[^a-z0-9-]"
+    },
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "dns-label",
+    "formatDescription": "DNS-1035 label: must start with a lowercase letter",
+    "maxLength": 63,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "inferred",
+      "validatedAt": "2026-10-09T12:34:59+00:00"
+    },
+    "minLength": 1,
+    "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
+    "validation": {
+      "rfc": "RFC 1035",
+      "standard": "DNS-1035 label (alpha-first)"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-2200233121210111-0231301103300202-2131220233331333-3100300100302012-0133000120213011-1310030020311310-3223120023121303-0313032333000013"></a>

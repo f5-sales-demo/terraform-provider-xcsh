@@ -112,7 +112,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 0
   },
@@ -213,15 +213,6 @@ This is the name of configuration object. It has to be unique within the namespa
 specified during create API and cannot be changed during replace API. The value of name has to
 follow DNS-1035 format.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.String{
-  validators.NameValidator(),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -242,7 +233,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "inferred",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1,
     "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
@@ -281,15 +272,6 @@ Additional upstream details:
 This defines the workspace within which each the configuration object is to be created. Must be a
 DNS\_LABEL format. For a namespace object itself, namespace value will be ""
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.String{
-  validators.NamespaceValidator(),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -310,7 +292,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "inferred",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1,
     "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
@@ -339,15 +321,6 @@ Type: `"string"`. Required.
 Name given to this secret management backend. site.provider needs to be unique, and will be
 referenced for using this object.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 256),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -362,7 +335,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1
   },
@@ -387,7 +360,7 @@ Receipt-pinned upstream constraints:
 
 - [timeouts](resources--secret_management_access--reference--group-001.md#canonical-3323013113011220-0112002023230221-0022123301231112-0311033122021321-0012233310113333-1120230302310030-3302113003112103-0010202130123300): complete subsection reference.
 
-- [where](resources--secret_management_access--reference--group-001.md#canonical-3010002013310032-1213220213323213-2123321300111132-1013020133110321-1213123032001233-2000133123322201-2232220303213303-3030000000122211): complete subsection reference.
+- [where](resources--secret_management_access--reference--group-002.md#canonical-3010002013310032-1213220213323213-2123321300111132-1013020133110321-1213123032001233-2000133123322201-2232220303213303-3030000000122211): complete subsection reference.
 
 <a id="canonical-3111010233332311-3230013003230332-3032131131230022-1023010020110303-0322113320230312-2020112112322132-0112212211022312-2321013312100323"></a>
 
@@ -444,6 +417,26 @@ Each exact path has one authoritative reference destination. Collection element 
 | `access_info.tls_config.common_params.maximum_protocol_version` | [access_info.tls_config.common_params.maximum_protocol_version](resources--secret_management_access--reference--group-001.md#canonical-1110111000102103-3301322023023003-2231303021122101-3320321122232332-2203311203110221-1112311332032310-3222321230203320-3131103021323030) |
 | `access_info.tls_config.common_params.minimum_protocol_version` | [access_info.tls_config.common_params.minimum_protocol_version](resources--secret_management_access--reference--group-001.md#canonical-0220110013103230-3122132112231303-0123301021333323-2133321231201331-2020032030023122-0311310221322223-1113301221112130-0002202312032120) |
 | `access_info.tls_config.common_params.tls_certificates` | [access_info.tls_config.common_params.tls_certificates](resources--secret_management_access--reference--group-001.md#canonical-0000322003121202-2123302100002330-1201101301123212-1002103003213232-2321122223001200-1100311300323032-3203203300132001-2030223220312033) |
+| `access_info.tls_config.common_params.tls_certificates.blindfold` | [access_info.tls_config.common_params.tls_certificates.blindfold](resources--secret_management_access--reference--group-001.md#canonical-0232200000013103-2322332231033213-0000102122022010-1012213022022102-1032011323323123-3021212202002222-0103230222320210-1013032323030030) |
+| `access_info.tls_config.common_params.tls_certificates.blindfold.algorithm` | [access_info.tls_config.common_params.tls_certificates.blindfold.algorithm](resources--secret_management_access--reference--group-001.md#canonical-2331300222133012-1100110333032020-3321320112022033-2230022301212131-1012102133310211-2221113231333223-1010333231102022-3210333101202032) |
+| `access_info.tls_config.common_params.tls_certificates.blindfold.certificate_file` | [access_info.tls_config.common_params.tls_certificates.blindfold.certificate_file](resources--secret_management_access--reference--group-001.md#canonical-0022022122333203-3232331101301102-2030103112333122-3101210013033110-1132203113203201-2312010220210321-3110123223012231-3213223102120221) |
+| `access_info.tls_config.common_params.tls_certificates.blindfold.certificate_pem` | [access_info.tls_config.common_params.tls_certificates.blindfold.certificate_pem](resources--secret_management_access--reference--group-001.md#canonical-2002121223332311-3122023220231101-2103131000230311-3301110300030123-3002011031212300-3110110023233201-1103010133120103-1313021332121001) |
+| `access_info.tls_config.common_params.tls_certificates.blindfold.chain_identity` | [access_info.tls_config.common_params.tls_certificates.blindfold.chain_identity](resources--secret_management_access--reference--group-001.md#canonical-2220220012233311-2002312333032113-2212110030113330-1212303003313300-3013313031112330-1010113231232021-3202320021230303-3213001330002122) |
+| `access_info.tls_config.common_params.tls_certificates.blindfold.context_digest` | [access_info.tls_config.common_params.tls_certificates.blindfold.context_digest](resources--secret_management_access--reference--group-001.md#canonical-3010232333200012-3321102030103131-1322233332332303-2121033203032103-3230113133032130-1103213120311132-3123212030303022-2132003203320312) |
+| `access_info.tls_config.common_params.tls_certificates.blindfold.encrypted_location` | [access_info.tls_config.common_params.tls_certificates.blindfold.encrypted_location](resources--secret_management_access--reference--group-001.md#canonical-1210230302003232-3100100330202210-1322021201212102-0323200312331313-3313213311102013-1200023122232200-3003132121333331-1120331033233021) |
+| `access_info.tls_config.common_params.tls_certificates.blindfold.expires_at` | [access_info.tls_config.common_params.tls_certificates.blindfold.expires_at](resources--secret_management_access--reference--group-001.md#canonical-0011223303321323-3023133333312212-0203103110103223-0220103133113122-2213231210032133-1130322002213201-2032331211032100-0111230102310000) |
+| `access_info.tls_config.common_params.tls_certificates.blindfold.fingerprint` | [access_info.tls_config.common_params.tls_certificates.blindfold.fingerprint](resources--secret_management_access--reference--group-001.md#canonical-0121312311230122-3131100012032102-2312232333030031-1332311230233013-3030232331121302-1000030201133312-0013210023123020-2323022110122023) |
+| `access_info.tls_config.common_params.tls_certificates.blindfold.id` | [access_info.tls_config.common_params.tls_certificates.blindfold.id](resources--secret_management_access--reference--group-001.md#canonical-1301223201112320-1131233232303032-3121232210000211-2213220130200230-0323233130223333-2310302222332303-0033123322103103-1223233211111311) |
+| `access_info.tls_config.common_params.tls_certificates.blindfold.material_version` | [access_info.tls_config.common_params.tls_certificates.blindfold.material_version](resources--secret_management_access--reference--group-001.md#canonical-0311122210301201-0110322100300320-0203032002221332-2201213223110321-0000223032111121-0313131030110010-3230133201220100-3211022202013320) |
+| `access_info.tls_config.common_params.tls_certificates.blindfold.passphrase_env` | [access_info.tls_config.common_params.tls_certificates.blindfold.passphrase_env](resources--secret_management_access--reference--group-001.md#canonical-1030332112102131-1010230133113003-1001333001221233-1222211123322222-1332320100230122-0011120000000202-2303103133221101-3113131032311031) |
+| `access_info.tls_config.common_params.tls_certificates.blindfold.passphrase_wo` | [access_info.tls_config.common_params.tls_certificates.blindfold.passphrase_wo](resources--secret_management_access--reference--group-001.md#canonical-1101220021123223-1203230332203230-3132233231110202-0300001322102230-0301221111032223-2332221010200203-0310233123002002-3233101302113021) |
+| `access_info.tls_config.common_params.tls_certificates.blindfold.pkcs12_file` | [access_info.tls_config.common_params.tls_certificates.blindfold.pkcs12_file](resources--secret_management_access--reference--group-001.md#canonical-2210330111033113-3130333103002223-1022013201131303-0133201321101330-0103311022011000-0210011131321311-2231131203120113-2232202222223010) |
+| `access_info.tls_config.common_params.tls_certificates.blindfold.pkcs12_wo` | [access_info.tls_config.common_params.tls_certificates.blindfold.pkcs12_wo](resources--secret_management_access--reference--group-001.md#canonical-0130111230213031-0322002033223122-2000013101032030-2022000321213113-0331000133102021-3103301300120031-1001332223311111-0023202120210032) |
+| `access_info.tls_config.common_params.tls_certificates.blindfold.policy` | [access_info.tls_config.common_params.tls_certificates.blindfold.policy](resources--secret_management_access--reference--group-001.md#canonical-0331132233121202-1202023200112120-2011020310021332-2022233201331232-0302200311132301-3303130030312320-2110001103102020-1021113303323323) |
+| `access_info.tls_config.common_params.tls_certificates.blindfold.prepared_identity` | [access_info.tls_config.common_params.tls_certificates.blindfold.prepared_identity](resources--secret_management_access--reference--group-001.md#canonical-1031103112022232-0020211101002003-1031100133210210-0001331302320001-3322101031213021-2311023030010233-2123112332023333-1003133003110223) |
+| `access_info.tls_config.common_params.tls_certificates.blindfold.private_key_file` | [access_info.tls_config.common_params.tls_certificates.blindfold.private_key_file](resources--secret_management_access--reference--group-001.md#canonical-0130323323333322-3323013223320031-3330002330222100-0330323101012320-2013110221110011-2033013133030022-2030231012303131-3012302032131022) |
+| `access_info.tls_config.common_params.tls_certificates.blindfold.private_key_wo` | [access_info.tls_config.common_params.tls_certificates.blindfold.private_key_wo](resources--secret_management_access--reference--group-001.md#canonical-2220231103231031-1011010112100110-3312132113030103-0313033321100110-2313230010230213-3021002102220201-2131320013330111-2013221333120213) |
+| `access_info.tls_config.common_params.tls_certificates.blindfold.spki_identity` | [access_info.tls_config.common_params.tls_certificates.blindfold.spki_identity](resources--secret_management_access--reference--group-001.md#canonical-3330322302331212-2330111023103003-1211131333302230-2112331221200131-2323221310001321-3122330220311131-3213323321301232-0232321313323313) |
 | `access_info.tls_config.common_params.tls_certificates.certificate_url` | [access_info.tls_config.common_params.tls_certificates.certificate_url](resources--secret_management_access--reference--group-001.md#canonical-3013012321023020-3301020232303303-0302002220002003-0130202322021121-3221332310121033-1103302330023200-3220311121021210-3021101213112122) |
 | `access_info.tls_config.common_params.tls_certificates.custom_hash_algorithms` | [access_info.tls_config.common_params.tls_certificates.custom_hash_algorithms](resources--secret_management_access--reference--group-001.md#canonical-1013103223230130-2003133323232103-3103322030200311-1233000001230231-1100313001001103-2102222220221332-3230131010200022-2332321310331212) |
 | `access_info.tls_config.common_params.tls_certificates.custom_hash_algorithms.hash_algorithms` | [access_info.tls_config.common_params.tls_certificates.custom_hash_algorithms.hash_algorithms](resources--secret_management_access--reference--group-001.md#canonical-1002320223323132-2222310220001303-0301222311330203-1310203111000022-1321232312132203-2003231202012133-0033122032021323-0131300002233000) |
@@ -507,11 +500,11 @@ Each exact path has one authoritative reference destination. Collection element 
 | `timeouts.delete` | [timeouts.delete](resources--secret_management_access--reference--group-001.md#canonical-1123131123122002-1233123312231033-0211001110122312-0230031210303331-1100220231131110-3020300213232002-0231000032030212-3222303133131111) |
 | `timeouts.read` | [timeouts.read](resources--secret_management_access--reference--group-001.md#canonical-1002013113003230-3002002230012200-1100303321312203-2302010232222000-2222010232022130-3120031220332021-3122333303312323-2103020310212231) |
 | `timeouts.update` | [timeouts.update](resources--secret_management_access--reference--group-001.md#canonical-1032311123221330-3330122021302303-1212131230301300-0103022301213131-0202003121332100-0130022313122122-2201303220210131-0201231313331000) |
-| `where` | [where](resources--secret_management_access--reference--group-001.md#canonical-2222020230013022-1132023222021231-1021320003032021-2201100230001031-2030331013100203-1020203210021121-2311002100100203-1322032002013221) |
-| `where.site` | [where.site](resources--secret_management_access--reference--group-001.md#canonical-2221013003012203-1332011201133123-2303232030033320-1131301220033011-0311113211013200-0101311333101212-0311333312103213-0300130020311300) |
+| `where` | [where](resources--secret_management_access--reference--group-002.md#canonical-2222020230013022-1132023222021231-1021320003032021-2201100230001031-2030331013100203-1020203210021121-2311002100100203-1322032002013221) |
+| `where.site` | [where.site](resources--secret_management_access--reference--group-002.md#canonical-2221013003012203-1332011201133123-2303232030033320-1131301220033011-0311113211013200-0101311333101212-0311333312103213-0300130020311300) |
 | `where.site.disable_internet_vip` | [where.site.disable_internet_vip](resources--secret_management_access--reference--group-002.md#canonical-1211223111003203-0122202211311203-1201012323200232-2302220322103103-2331123323320300-2312230301322003-0112300111210001-1210201223000020) |
 | `where.site.enable_internet_vip` | [where.site.enable_internet_vip](resources--secret_management_access--reference--group-002.md#canonical-2100311023212210-1102232230223221-2210002032313010-2131131212330012-2102232111112312-3333211233323222-3310003313132003-1111323132210122) |
-| `where.site.network_type` | [where.site.network_type](resources--secret_management_access--reference--group-001.md#canonical-2133013213302313-2320121101202232-0212230133232032-0202200031031311-0203100331121333-2123301320132122-2112301323011112-1110321103233110) |
+| `where.site.network_type` | [where.site.network_type](resources--secret_management_access--reference--group-002.md#canonical-2133013213302313-2320121101202232-0212230133232032-0202200031031311-0203100331121333-2123301320132122-2112301323011112-1110321103233110) |
 | `where.site.ref` | [where.site.ref](resources--secret_management_access--reference--group-002.md#canonical-1320013132032111-1220203212322220-1331112031220110-0300320231021031-1203011001211222-3313212110133300-1122231110332323-1332203203322223) |
 | `where.site.ref.kind` | [where.site.ref.kind](resources--secret_management_access--reference--group-002.md#canonical-2211020011200301-2211232311132221-2120030010323300-0310123121222120-1332321320213232-3320003302001100-2303230013030122-2221310230222012) |
 | `where.site.ref.name` | [where.site.ref.name](resources--secret_management_access--reference--group-002.md#canonical-2322211332302330-1030102303321110-0203030002311110-2003022221303103-0312012330312113-0212021223031212-1200000232022120-2322012030330010) |
@@ -556,15 +549,6 @@ Type: `"object"`. single nested block, Optional.
 
 HostAccessInfoType contains the information about how to connect to the remote host.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("server_endpoint"),
-  validators.ConflictingObjectAttributes("rest_auth_info",
-    "vault_auth_info")}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -604,17 +588,6 @@ Type: `"string"`. Optional.
 \[Enum: HTTP|HTTPS\] SchemeType is used to indicate URL scheme HTTP:// scheme HTTPS:// scheme.
 Possible values are \`HTTP\`, \`HTTPS\`. Defaults to \`HTTP\`.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-EnumValidators: [{"version":1,"validator":"OneOf","values":["HTTP","HTTPS"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
-Validators: []validator.String{
-  stringvalidator.OneOf("HTTP",
-    "HTTPS"),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -643,15 +616,6 @@ Type: `"string"`. Optional.
 
 Endpoint to connect to, in host:port format.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 256),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -666,7 +630,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1
   },
@@ -713,18 +677,6 @@ Breadcrumbs:
 Type: `"object"`. single nested block, Optional.
 
 Authentication parameters for REST based hosts.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.ConflictingObjectAttributes("basic_auth",
-    "headers_auth"),
-  validators.ConflictingObjectAttributes("basic_auth",
-    "query_params_auth"),
-  validators.ConflictingObjectAttributes("headers_auth",
-    "query_params_auth")}
-```
 
 Receipt-pinned upstream constraints:
 
@@ -832,7 +784,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1,
     "pattern": "^[a-zA-Z0-9_.-]+$"
@@ -868,14 +820,6 @@ Breadcrumbs:
 Type: `"object"`. single nested block, Optional.
 
 SecretType is used in an object to indicate a sensitive/confidential field.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info",
-    "clear_secret_info")}
-```
 
 Receipt-pinned upstream constraints:
 
@@ -931,13 +875,6 @@ Type: `"object"`. single nested block, Optional.
 
 BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("location")}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -983,7 +920,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -1006,15 +943,6 @@ Type: `"string"`. Optional, Sensitive.
 Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(4, 131072),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -1030,7 +958,7 @@ Receipt-pinned upstream constraints:
       "confidence": 1.0,
       "note": "Blindfold envelope encryption (AES-256-GCM + RSA-OAEP) of an RSA-2048 TLS private key produces ~3700 char string:/// URL. 128KB max secret size = ~175KB base64. Discovery reported 1024 which is incorrect.",
       "source": "manual-override",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 4
   },
@@ -1074,7 +1002,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -1109,13 +1037,6 @@ Breadcrumbs:
 Type: `"object"`. single nested block, Optional.
 
 ClearSecretInfoType specifies information about the Secret that is not encrypted.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("url")}
-```
 
 Receipt-pinned upstream constraints:
 
@@ -1163,15 +1084,6 @@ URL of the secret. Currently supported URL schemes is string:///. For string:///
 needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
 base64 decoding.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 131072),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -1190,7 +1102,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1,
     "pattern": "^(https?|ftp)://[^\\s/$.?#].[^\\s]*$",
@@ -1481,26 +1393,6 @@ Type: `"object"`. single nested block, Optional.
 
 TLS configuration for upstream connections.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.ConflictingObjectAttributes("cert_params",
-    "common_params"),
-  validators.ConflictingObjectAttributes("default_session_key_caching",
-    "disable_session_key_caching"),
-  validators.ConflictingObjectAttributes("default_session_key_caching",
-    "max_session_keys"),
-  validators.ConflictingObjectAttributes("disable_session_key_caching",
-    "max_session_keys"),
-  validators.ConflictingObjectAttributes("disable_sni",
-    "sni"),
-  validators.ConflictingObjectAttributes("disable_sni",
-    "use_host_header_as_sni"),
-  validators.ConflictingObjectAttributes("sni",
-    "use_host_header_as_sni")}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -1550,15 +1442,6 @@ Type: `"number"`. Optional.
 Exclusive with \[default\_session\_key\_caching disable\_session\_key\_caching\] Number of session
 keys that are cached.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Int64{
-  int64validator.Between(2, 64),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -1571,7 +1454,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "api-probed",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minimum": 2
   },
@@ -1602,15 +1485,6 @@ Type: `"string"`. Optional.
 
 Exclusive with \[disable\_sni use\_host\_header\_as\_sni\] SNI value to be used.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthAtMost(256),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -1625,7 +1499,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -1668,19 +1542,6 @@ Breadcrumbs:
 Type: `"object"`. single nested block, Optional.
 
 Certificate Parameters for authentication, TLS ciphers, and trust store.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("certificates"),
-  validators.ConflictingObjectAttributes("skip_server_verification",
-    "tls_validation_params"),
-  validators.ConflictingObjectAttributes("skip_server_verification",
-    "volterra_trusted_ca"),
-  validators.ConflictingObjectAttributes("tls_validation_params",
-    "volterra_trusted_ca")}
-```
 
 Receipt-pinned upstream constraints:
 
@@ -1744,7 +1605,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "uniqueItems": true
   },
@@ -1776,20 +1637,6 @@ Type: `"string"`. Optional.
 \[Enum: TLS\_AUTO|TLSv1\_0|TLSv1\_1|TLSv1\_2|TLSv1\_3\] TlsProtocol is enumeration of supported TLS
 versions F5 Distributed Cloud will choose the optimal TLS version. Possible values are
 \`TLS\_AUTO\`, \`TLSv1\_0\`, \`TLSv1\_1\`, \`TLSv1\_2\`, \`TLSv1\_3\`. Defaults to \`TLS\_AUTO\`.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-EnumValidators: [{"version":1,"validator":"OneOf","values":["TLS_AUTO","TLSv1_0","TLSv1_1","TLSv1_2","TLSv1_3"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
-Validators: []validator.String{
-  stringvalidator.OneOf("TLS_AUTO",
-    "TLSv1_0",
-    "TLSv1_1",
-    "TLSv1_2",
-    "TLSv1_3"),
-}
-```
 
 Receipt-pinned upstream constraints:
 
@@ -1823,20 +1670,6 @@ Type: `"string"`. Optional.
 \[Enum: TLS\_AUTO|TLSv1\_0|TLSv1\_1|TLSv1\_2|TLSv1\_3\] TlsProtocol is enumeration of supported TLS
 versions F5 Distributed Cloud will choose the optimal TLS version. Possible values are
 \`TLS\_AUTO\`, \`TLSv1\_0\`, \`TLSv1\_1\`, \`TLSv1\_2\`, \`TLSv1\_3\`. Defaults to \`TLS\_AUTO\`.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-EnumValidators: [{"version":1,"validator":"OneOf","values":["TLS_AUTO","TLSv1_0","TLSv1_1","TLSv1_2","TLSv1_3"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
-Validators: []validator.String{
-  stringvalidator.OneOf("TLS_AUTO",
-    "TLSv1_0",
-    "TLSv1_1",
-    "TLSv1_2",
-    "TLSv1_3"),
-}
-```
 
 Receipt-pinned upstream constraints:
 
@@ -1948,7 +1781,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -1982,7 +1815,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -2005,17 +1838,6 @@ Type: `"string"`. Optional, Computed.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
 hold the referred object's(e.g. Route's) namespace.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 63),
-  stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`),
-    ""),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -2036,7 +1858,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "inferred",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1,
     "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
@@ -2076,7 +1898,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -2110,7 +1932,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -2194,14 +2016,6 @@ Type: `"object"`. single nested block, Optional.
 This includes URL for a trust store, whether SAN verification is required and list of Subject Alt
 Names for verification.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.ConflictingObjectAttributes("trusted_ca",
-    "trusted_ca_url")}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -2262,15 +2076,6 @@ Type: `"string"`. Optional.
 
 Exclusive with \[trusted\_ca\] Inline Root CA Certificate.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthAtMost(131072),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -2287,7 +2092,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -2421,7 +2226,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -2476,7 +2281,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -2510,7 +2315,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -2533,17 +2338,6 @@ Type: `"string"`. Optional, Computed.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
 hold the referred object's(e.g. Route's) namespace.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 63),
-  stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`),
-    ""),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -2564,7 +2358,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "inferred",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1,
     "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
@@ -2604,7 +2398,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -2638,7 +2432,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -2778,7 +2572,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "uniqueItems": true
   },
@@ -2810,20 +2604,6 @@ Type: `"string"`. Optional.
 \[Enum: TLS\_AUTO|TLSv1\_0|TLSv1\_1|TLSv1\_2|TLSv1\_3\] TlsProtocol is enumeration of supported TLS
 versions F5 Distributed Cloud will choose the optimal TLS version. Possible values are
 \`TLS\_AUTO\`, \`TLSv1\_0\`, \`TLSv1\_1\`, \`TLSv1\_2\`, \`TLSv1\_3\`. Defaults to \`TLS\_AUTO\`.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-EnumValidators: [{"version":1,"validator":"OneOf","values":["TLS_AUTO","TLSv1_0","TLSv1_1","TLSv1_2","TLSv1_3"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
-Validators: []validator.String{
-  stringvalidator.OneOf("TLS_AUTO",
-    "TLSv1_0",
-    "TLSv1_1",
-    "TLSv1_2",
-    "TLSv1_3"),
-}
-```
 
 Receipt-pinned upstream constraints:
 
@@ -2857,20 +2637,6 @@ Type: `"string"`. Optional.
 \[Enum: TLS\_AUTO|TLSv1\_0|TLSv1\_1|TLSv1\_2|TLSv1\_3\] TlsProtocol is enumeration of supported TLS
 versions F5 Distributed Cloud will choose the optimal TLS version. Possible values are
 \`TLS\_AUTO\`, \`TLSv1\_0\`, \`TLSv1\_1\`, \`TLSv1\_2\`, \`TLSv1\_3\`. Defaults to \`TLS\_AUTO\`.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-EnumValidators: [{"version":1,"validator":"OneOf","values":["TLS_AUTO","TLSv1_0","TLSv1_1","TLSv1_2","TLSv1_3"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
-Validators: []validator.String{
-  stringvalidator.OneOf("TLS_AUTO",
-    "TLSv1_0",
-    "TLSv1_1",
-    "TLSv1_2",
-    "TLSv1_3"),
-}
-```
 
 Receipt-pinned upstream constraints:
 
@@ -2920,19 +2686,6 @@ Type: `"object"`. list nested block, Optional.
 
 TLS Certificates. Set of TLS certificates.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.List{validators.RequiredListObjectAttributes("certificate_url"),
-  validators.ConflictingListObjectAttributes("custom_hash_algorithms",
-    "disable_ocsp_stapling"),
-  validators.ConflictingListObjectAttributes("custom_hash_algorithms",
-    "use_system_defaults"),
-  validators.ConflictingListObjectAttributes("disable_ocsp_stapling",
-    "use_system_defaults")}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -2958,22 +2711,17 @@ tls_certificates {
 
 ### Direct properties for `access_info.tls_config.common_params.tls_certificates`
 
+- [blindfold](resources--secret_management_access--reference--group-001.md#canonical-2313210131113220-3222330013031203-1320320130210112-1031010220330333-1232203310032201-3313312233103033-0133013322210313-3233113232122322): complete subsection reference.
+
 <a id="canonical-3013012321023020-3301020232303303-0302002220002003-0130202322021121-3221332310121033-1103302330023200-3220311121021210-3021101213112122"></a>
+
+<a id="canonical-2030133332311310-1201010202102102-0102121231021101-2331132130223103-3311100133102021-0332031223300301-3312110120102300-3200121120332232"></a>
 
 #### `access_info.tls_config.common_params.tls_certificates.certificate_url` property
 
-Type: `"string"`. Optional.
+Type: `"string"`. Optional, Computed.
 
 TLS certificate. Certificate or certificate chain in PEM format including the PEM headers.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 131072),
-}
-```
 
 Receipt-pinned upstream constraints:
 
@@ -2993,7 +2741,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1
   },
@@ -3022,7 +2770,7 @@ Receipt-pinned upstream constraints:
 
 <a id="canonical-2002030301030311-0210033133010012-2121030232300100-3302313201113110-0313132013022212-2213312122330202-1102011322130033-1230022230311113"></a>
 
-<a id="canonical-2030133332311310-1201010202102102-0102121231021101-2331132130223103-3311100133102021-0332031223300301-3312110120102300-3200121120332232"></a>
+<a id="canonical-2120123330302202-3300132303210232-0303003322103221-0303111211330231-0031003311033310-1333011012113310-0111022201222222-2112032201312232"></a>
 
 #### `access_info.tls_config.common_params.tls_certificates.description_spec` property
 
@@ -3035,6 +2783,186 @@ Description. Description for the certificate.
 - [private_key](resources--secret_management_access--reference--group-001.md#canonical-0110131301331210-2120332120000100-1103102001211330-2021221032121020-3023120212030003-3220133113122221-0223131211030221-2032123211103013): complete subsection reference.
 
 - [use_system_defaults](resources--secret_management_access--reference--group-001.md#canonical-2332223321023312-3102202320201102-0332313223330202-2100123323203012-3203223010331211-3010330231101330-0131122113322112-1131300013123231): complete subsection reference.
+
+<a id="canonical-2313210131113220-3222330013031203-1320320130210112-1031010220330333-1232203310032201-3313312233103033-0133013322210313-3233113232122322"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `access_info.tls_config.common_params.tls_certificates.blindfold` properties
+
+Breadcrumbs:
+
+- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
+- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0032020332001320-3010332010002310-2231312312333102-1213312333213211-2000323020020311-0210022012013130-0030301110003231-0300312031002123)
+- [access_info](resources--secret_management_access--reference--group-001.md#canonical-2302030002201031-3031010213110200-2013100112131001-2333012320201231-1232103301212112-3331320111021012-0031323320220221-1211023031200100)
+- [access_info.tls_config](resources--secret_management_access--reference--group-001.md#canonical-0303313332033223-1101113133210311-0132323103031210-1231020232003323-1331213201300200-1321212120203132-2300130113302022-0011232001322121)
+- [access_info.tls_config.common_params](resources--secret_management_access--reference--group-001.md#canonical-1232221100110203-0220321230020230-1210031211101202-2031231201030330-2300232010223312-0303013330022332-3201103220201031-2300322122300120)
+- [access_info.tls_config.common_params.tls_certificates](resources--secret_management_access--reference--group-001.md#canonical-1222230031301121-1003331022322112-1022200023222230-2333120003231030-1231230303022001-3322203111003121-3233121011323013-3222132303102310)
+- access_info.tls_config.common_params.tls_certificates.blindfold
+
+<a id="canonical-0232200000013103-2322332231033213-0000102122022010-1012213022022102-1032011323323123-3021212202002222-0103230222320210-1013032323030030"></a>
+
+Type: `"single"`. Optional.
+
+Native certificate preparation. Use PEM files or a P12 file, or write-only key/bundle values with
+material\_version (Terraform 1.11+). Defaults to shared/ves-io-allow-volterra. Inline certificates
+require unique IDs. Private inputs are never stored.
+
+<a id="canonical-3212312310210322-1312223232312311-2222331220201221-1132302130021323-3300220322220110-0033102301311330-0120030110321111-3022013201302201"></a>
+
+### Direct properties for `access_info.tls_config.common_params.tls_certificates.blindfold`
+
+<a id="canonical-2331300222133012-1100110333032020-3321320112022033-2230022301212131-1012102133310211-2221113231333223-1010333231102022-3210333101202032"></a>
+
+#### `access_info.tls_config.common_params.tls_certificates.blindfold.algorithm` property
+
+Type: `"string"`. Computed.
+
+<a id="canonical-0022022122333203-3232331101301102-2030103112333122-3101210013033110-1132203113203201-2312010220210321-3110123223012231-3213223102120221"></a>
+
+<a id="canonical-3132232320310111-3103212213320133-0213012030310220-1101203012132313-0101113131120312-2311213130031100-3010120220122231-1310321133011133"></a>
+
+#### `access_info.tls_config.common_params.tls_certificates.blindfold.certificate_file` property
+
+Type: `"string"`. Optional.
+
+<a id="canonical-2002121223332311-3122023220231101-2103131000230311-3301110300030123-3002011031212300-3110110023233201-1103010133120103-1313021332121001"></a>
+
+<a id="canonical-1222131232110310-0330313120201110-0303331222210301-0232203023211310-3102113030001320-1030332311102001-3132032133112010-0011133121112102"></a>
+
+#### `access_info.tls_config.common_params.tls_certificates.blindfold.certificate_pem` property
+
+Type: `"string"`. Optional.
+
+<a id="canonical-2220220012233311-2002312333032113-2212110030113330-1212303003313300-3013313031112330-1010113231232021-3202320021230303-3213001330002122"></a>
+
+<a id="canonical-0201103033310221-1122113023002202-3110012010001110-1101311030112222-3100120200101031-2131111021331322-1013231132012320-2000000112202112"></a>
+
+#### `access_info.tls_config.common_params.tls_certificates.blindfold.chain_identity` property
+
+Type: `"string"`. Computed.
+
+<a id="canonical-3010232333200012-3321102030103131-1322233332332303-2121033203032103-3230113133032130-1103213120311132-3123212030303022-2132003203320312"></a>
+
+<a id="canonical-2223123221211132-1332203122000121-0123331212020100-1031113220233113-3230202300012211-0111313320310131-3330233011022301-0020133221311002"></a>
+
+#### `access_info.tls_config.common_params.tls_certificates.blindfold.context_digest` property
+
+Type: `"string"`. Computed.
+
+<a id="canonical-1210230302003232-3100100330202210-1322021201212102-0323200312331313-3313213311102013-1200023122232200-3003132121333331-1120331033233021"></a>
+
+<a id="canonical-1023320302132131-0313113122122121-2122121132230130-1331123301332233-0231033221011333-1220333011231132-1110112101121300-1002232002302313"></a>
+
+#### `access_info.tls_config.common_params.tls_certificates.blindfold.encrypted_location` property
+
+Type: `"string"`. Computed, Sensitive.
+
+<a id="canonical-0011223303321323-3023133333312212-0203103110103223-0220103133113122-2213231210032133-1130322002213201-2032331211032100-0111230102310000"></a>
+
+<a id="canonical-0321231332133303-2020023300333011-3322221302033213-3103212011313322-2321102000232322-1130311033030001-0211113120301211-3113303312130110"></a>
+
+#### `access_info.tls_config.common_params.tls_certificates.blindfold.expires_at` property
+
+Type: `"string"`. Computed.
+
+<a id="canonical-0121312311230122-3131100012032102-2312232333030031-1332311230233013-3030232331121302-1000030201133312-0013210023123020-2323022110122023"></a>
+
+<a id="canonical-3122212010232111-2200233223301213-1212101012130101-1333131012213333-2030110223311333-1022101012231020-1002110220201221-2131013200221003"></a>
+
+#### `access_info.tls_config.common_params.tls_certificates.blindfold.fingerprint` property
+
+Type: `"string"`. Computed.
+
+<a id="canonical-1301223201112320-1131233232303032-3121232210000211-2213220130200230-0323233130223333-2310302222332303-0033123322103103-1223233211111311"></a>
+
+<a id="canonical-2111022130232213-3323031123111221-2331121333111320-3123313320213013-0302031023123312-3032130131120333-1112123110111020-2333200321323032"></a>
+
+#### `access_info.tls_config.common_params.tls_certificates.blindfold.id` property
+
+Type: `"string"`. Optional.
+
+<a id="canonical-0311122210301201-0110322100300320-0203032002221332-2201213223110321-0000223032111121-0313131030110010-3230133201220100-3211022202013320"></a>
+
+<a id="canonical-2112010101031100-1322331231300120-0323010013033330-3121311120031001-2320112231131222-2230313110012132-3023202012011112-0000322102231121"></a>
+
+#### `access_info.tls_config.common_params.tls_certificates.blindfold.material_version` property
+
+Type: `"string"`. Optional.
+
+<a id="canonical-1030332112102131-1010230133113003-1001333001221233-1222211123322222-1332320100230122-0011120000000202-2303103133221101-3113131032311031"></a>
+
+<a id="canonical-3022131032102011-3023201032202032-0023011102120111-0103111031132231-2123002123203113-2012203100033330-0133102333022303-0300101000000301"></a>
+
+#### `access_info.tls_config.common_params.tls_certificates.blindfold.passphrase_env` property
+
+Type: `"string"`. Optional.
+
+<a id="canonical-1101220021123223-1203230332203230-3132233231110202-0300001322102230-0301221111032223-2332221010200203-0310233123002002-3233101302113021"></a>
+
+<a id="canonical-1002120222133002-0003202031302223-2323110211033002-2312330321301020-3032002033233221-3100333031303003-3203231332212001-3030233321301302"></a>
+
+#### `access_info.tls_config.common_params.tls_certificates.blindfold.passphrase_wo` property
+
+Type: `"string"`. Optional, Sensitive, Write_only.
+
+<a id="canonical-2210330111033113-3130333103002223-1022013201131303-0133201321101330-0103311022011000-0210011131321311-2231131203120113-2232202222223010"></a>
+
+<a id="canonical-0111111211020100-3333331121321020-0103300112333131-0021122130032322-1000322003132233-0312033313003003-2121313033312230-2120020032320010"></a>
+
+#### `access_info.tls_config.common_params.tls_certificates.blindfold.pkcs12_file` property
+
+Type: `"string"`. Optional.
+
+<a id="canonical-0130111230213031-0322002033223122-2000013101032030-2022000321213113-0331000133102021-3103301300120031-1001332223311111-0023202120210032"></a>
+
+<a id="canonical-1203220021000011-1330121002022203-2233311122031223-0320130032002323-2023112120031200-3003200102110022-1023103110320121-0120301232233303"></a>
+
+#### `access_info.tls_config.common_params.tls_certificates.blindfold.pkcs12_wo` property
+
+Type: `"string"`. Optional, Sensitive, Write_only.
+
+<a id="canonical-0331132233121202-1202023200112120-2011020310021332-2022233201331232-0302200311132301-3303130030312320-2110001103102020-1021113303323323"></a>
+
+<a id="canonical-3113323230333030-3113120321330213-1302221231101203-2120232020010031-0102012210013202-3220100200332003-1112212110022132-1003322213102200"></a>
+
+#### `access_info.tls_config.common_params.tls_certificates.blindfold.policy` property
+
+Type: `"string"`. Optional.
+
+<a id="canonical-1031103112022232-0020211101002003-1031100133210210-0001331302320001-3322101031213021-2311023030010233-2123112332023333-1003133003110223"></a>
+
+<a id="canonical-0322301230121333-1231000312322231-1311222330201010-3212333000023203-2120021102322020-3300132333233201-3130101322022120-3330111032010130"></a>
+
+#### `access_info.tls_config.common_params.tls_certificates.blindfold.prepared_identity` property
+
+Type: `"string"`. Computed.
+
+<a id="canonical-0130323323333322-3323013223320031-3330002330222100-0330323101012320-2013110221110011-2033013133030022-2030231012303131-3012302032131022"></a>
+
+<a id="canonical-2333001031132203-1323210330112232-3211100200312003-0002213020033030-1301200131300220-0020320332102121-0002220323101101-1033200312130023"></a>
+
+#### `access_info.tls_config.common_params.tls_certificates.blindfold.private_key_file` property
+
+Type: `"string"`. Optional.
+
+<a id="canonical-2220231103231031-1011010112100110-3312132113030103-0313033321100110-2313230010230213-3021002102220201-2131320013330111-2013221333120213"></a>
+
+<a id="canonical-0003320020211101-0222133111332111-3100020331020302-0302220123230112-1023110122233221-3033210223313011-1123022011113332-0313231013111120"></a>
+
+#### `access_info.tls_config.common_params.tls_certificates.blindfold.private_key_wo` property
+
+Type: `"string"`. Optional, Sensitive, Write_only.
+
+<a id="canonical-3330322302331212-2330111023103003-1211131333302230-2112331221200131-2323221310001321-3122330220311131-3213323321301232-0232321313323313"></a>
+
+<a id="canonical-1023012011231033-0210010103201132-1131001110311132-0212002230233333-1100032200022313-3112100322113013-3323230100012130-2332310131031202"></a>
+
+#### `access_info.tls_config.common_params.tls_certificates.blindfold.spki_identity` property
+
+Type: `"string"`. Computed.
 
 <a id="canonical-3301221000322222-2131032022032001-1130313102121210-0212320000200311-3212130010211212-0201222321110103-3032233202010110-0202312311302310"></a>
 
@@ -3059,13 +2987,6 @@ Breadcrumbs:
 Type: `"object"`. single nested block, Optional.
 
 Specifies the hash algorithms to be used.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("hash_algorithms")}
-```
 
 Receipt-pinned upstream constraints:
 
@@ -3102,15 +3023,6 @@ Type: `["list", "string"]`. Optional.
 values are \`INVALID\_HASH\_ALGORITHM\`, \`SHA256\`, \`SHA1\`. Defaults to
 \`INVALID\_HASH\_ALGORITHM\`.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.List{
-  listvalidator.SizeBetween(1, 4),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -3125,7 +3037,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minItems": 1,
     "uniqueItems": true
@@ -3224,14 +3136,6 @@ Type: `"object"`. single nested block, Optional.
 
 SecretType is used in an object to indicate a sensitive/confidential field.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info",
-    "clear_secret_info")}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -3287,13 +3191,6 @@ Type: `"object"`. single nested block, Optional.
 
 BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("location")}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -3339,7 +3236,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -3362,15 +3259,6 @@ Type: `"string"`. Optional, Sensitive.
 Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(4, 131072),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -3386,7 +3274,7 @@ Receipt-pinned upstream constraints:
       "confidence": 1.0,
       "note": "Blindfold envelope encryption (AES-256-GCM + RSA-OAEP) of an RSA-2048 TLS private key produces ~3700 char string:/// URL. 128KB max secret size = ~175KB base64. Discovery reported 1024 which is incorrect.",
       "source": "manual-override",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 4
   },
@@ -3430,7 +3318,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -3466,13 +3354,6 @@ Breadcrumbs:
 Type: `"object"`. single nested block, Optional.
 
 ClearSecretInfoType specifies information about the Secret that is not encrypted.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("url")}
-```
 
 Receipt-pinned upstream constraints:
 
@@ -3520,15 +3401,6 @@ URL of the secret. Currently supported URL schemes is string:///. For string:///
 needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
 base64 decoding.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 131072),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -3547,7 +3419,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1,
     "pattern": "^(https?|ftp)://[^\\s/$.?#].[^\\s]*$",
@@ -3648,14 +3520,6 @@ Type: `"object"`. single nested block, Optional.
 This includes URL for a trust store, whether SAN verification is required and list of Subject Alt
 Names for verification.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.ConflictingObjectAttributes("trusted_ca",
-    "trusted_ca_url")}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -3716,15 +3580,6 @@ Type: `"string"`. Optional.
 
 Exclusive with \[trusted\_ca\] Inline Root CA Certificate.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthAtMost(131072),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -3741,7 +3596,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -3875,7 +3730,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -3930,7 +3785,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -3964,7 +3819,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -3987,17 +3842,6 @@ Type: `"string"`. Optional, Computed.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
 hold the referred object's(e.g. Route's) namespace.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 63),
-  stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`),
-    ""),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -4018,7 +3862,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "inferred",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1,
     "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
@@ -4058,7 +3902,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -4092,7 +3936,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -4313,14 +4157,6 @@ Type: `"object"`. single nested block, Optional.
 
 Authentication parameters for Hashicorp Vault hosts.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.ConflictingObjectAttributes("app_role_auth",
-    "token")}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -4417,7 +4253,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -4453,14 +4289,6 @@ Breadcrumbs:
 Type: `"object"`. single nested block, Optional.
 
 SecretType is used in an object to indicate a sensitive/confidential field.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info",
-    "clear_secret_info")}
-```
 
 Receipt-pinned upstream constraints:
 
@@ -4516,13 +4344,6 @@ Type: `"object"`. single nested block, Optional.
 
 BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("location")}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -4568,7 +4389,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -4591,15 +4412,6 @@ Type: `"string"`. Optional, Sensitive.
 Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(4, 131072),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -4615,7 +4427,7 @@ Receipt-pinned upstream constraints:
       "confidence": 1.0,
       "note": "Blindfold envelope encryption (AES-256-GCM + RSA-OAEP) of an RSA-2048 TLS private key produces ~3700 char string:/// URL. 128KB max secret size = ~175KB base64. Discovery reported 1024 which is incorrect.",
       "source": "manual-override",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 4
   },
@@ -4659,7 +4471,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -4694,13 +4506,6 @@ Breadcrumbs:
 Type: `"object"`. single nested block, Optional.
 
 ClearSecretInfoType specifies information about the Secret that is not encrypted.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("url")}
-```
 
 Receipt-pinned upstream constraints:
 
@@ -4748,15 +4553,6 @@ URL of the secret. Currently supported URL schemes is string:///. For string:///
 needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
 base64 decoding.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 131072),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -4775,7 +4571,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1,
     "pattern": "^(https?|ftp)://[^\\s/$.?#].[^\\s]*$",
@@ -4824,14 +4620,6 @@ Breadcrumbs:
 Type: `"object"`. single nested block, Optional.
 
 SecretType is used in an object to indicate a sensitive/confidential field.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info",
-    "clear_secret_info")}
-```
 
 Receipt-pinned upstream constraints:
 
@@ -4886,13 +4674,6 @@ Type: `"object"`. single nested block, Optional.
 
 BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("location")}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -4938,7 +4719,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -4961,15 +4742,6 @@ Type: `"string"`. Optional, Sensitive.
 Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(4, 131072),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -4985,7 +4757,7 @@ Receipt-pinned upstream constraints:
       "confidence": 1.0,
       "note": "Blindfold envelope encryption (AES-256-GCM + RSA-OAEP) of an RSA-2048 TLS private key produces ~3700 char string:/// URL. 128KB max secret size = ~175KB base64. Discovery reported 1024 which is incorrect.",
       "source": "manual-override",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 4
   },
@@ -5029,7 +4801,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -5063,13 +4835,6 @@ Breadcrumbs:
 Type: `"object"`. single nested block, Optional.
 
 ClearSecretInfoType specifies information about the Secret that is not encrypted.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("url")}
-```
 
 Receipt-pinned upstream constraints:
 
@@ -5117,15 +4882,6 @@ URL of the secret. Currently supported URL schemes is string:///. For string:///
 needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
 base64 decoding.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 131072),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -5144,7 +4900,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1,
     "pattern": "^(https?|ftp)://[^\\s/$.?#].[^\\s]*$",
@@ -5239,263 +4995,3 @@ of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s"
 is enabled.
 
 <a id="canonical-1032311123221330-3330122021302303-1212131230301300-0103022301213131-0202003121332100-0130022313122122-2201303220210131-0201231313331000"></a>
-
-<a id="canonical-0321131110030110-0301232020212202-2202323013021133-2121003130130331-0011233220312112-1301113212200220-1300211112001023-3110321322012202"></a>
-
-#### `timeouts.update` property
-
-Type: `"string"`. Optional.
-
-A string that can be \[parsed as a duration\](https&#58;//pkg.go.dev/time\#ParseDuration) consisting
-of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m"
-(minutes), "h" (hours).
-
-<a id="canonical-3010002013310032-1213220213323213-2123321300111132-1013020133110321-1213123032001233-2000133123322201-2232220303213303-3030000000122211"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-## `where` properties
-
-Breadcrumbs:
-
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
-- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0032020332001320-3010332010002310-2231312312333102-1213312333213211-2000323020020311-0210022012013130-0030301110003231-0300312031002123)
-- where
-
-<a id="canonical-2222020230013022-1132023222021231-1021320003032021-2201100230001031-2030331013100203-1020203210021121-2311002100100203-1322032002013221"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-NetworkSiteRefSelector defines a union of reference to site or reference to virtual\_network or
-reference to virtual\_site It is used to determine virtual network using following rules \* Direct
-reference to virtual\_network object \* Site local network when referring to site object \* All site
-local networks for sites selected by referring to virtual\_site object.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.ConflictingObjectAttributes("site",
-    "virtual_network"),
-  validators.ConflictingObjectAttributes("site",
-    "virtual_site"),
-  validators.ConflictingObjectAttributes("virtual_network",
-    "virtual_site")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-ves-oneof-field-ref_or_selector": "[\"site\",\"virtual_network\",\"virtual_site\"]"
-}
-```
-
-Terraform syntax:
-
-```terraform
-where {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-0120111130310031-1201333033230121-1212322011023323-2213321110012212-1103213222011022-2312322033323322-1222221003022311-2011120131002123"></a>
-
-### Direct properties for `where`
-
-- [site](resources--secret_management_access--reference--group-001.md#canonical-3033131013101111-0223012002311321-1033203233321312-1220103012131012-1122021131131000-0210211310301120-1113032001320320-1013332231323303): complete subsection reference.
-
-- [virtual_network](resources--secret_management_access--reference--group-002.md#canonical-0212110313230212-3131103112200033-1001110002003112-0031121031212232-1013030302211120-1133033323213111-3210023102011233-2002113101203130): complete subsection reference.
-
-- [virtual_site](resources--secret_management_access--reference--group-002.md#canonical-2303221010330132-3011100131031200-3210022223102300-3330131232033111-0133010103230122-1210333210023233-1332211003232113-3332131131021330): complete subsection reference.
-
-<a id="canonical-3033131013101111-0223012002311321-1033203233321312-1220103012131012-1122021131131000-0210211310301120-1113032001320320-1013332231323303"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-## `where.site` properties
-
-Breadcrumbs:
-
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
-- [Property reference](resources--secret_management_access--reference--group-001.md#canonical-0032020332001320-3010332010002310-2231312312333102-1213312333213211-2000323020020311-0210022012013130-0030301110003231-0300312031002123)
-- [where](resources--secret_management_access--reference--group-001.md#canonical-3010002013310032-1213220213323213-2123321300111132-1013020133110321-1213123032001233-2000133123322201-2232220303213303-3030000000122211)
-- where.site
-
-<a id="canonical-2221013003012203-1332011201133123-2303232030033320-1131301220033011-0311113211013200-0101311333101212-0311333312103213-0300130020311300"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-This specifies a direct reference to a site configuration object.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("ref"),
-  validators.ConflictingObjectAttributes("disable_internet_vip",
-    "enable_internet_vip")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-ves-oneof-field-internet_vip_choice": "[\"disable_internet_vip\",\"enable_internet_vip\"]"
-}
-```
-
-Terraform syntax:
-
-```terraform
-site {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-0011301213103012-0031130323002113-0302013231010133-3222303232130123-3130100111111132-1221230133222310-0303023032313333-1112103322002233"></a>
-
-### Direct properties for `where.site`
-
-- [disable_internet_vip](resources--secret_management_access--reference--group-002.md#canonical-3322021123121120-1331101321210003-0101221331112313-0323133121220331-1012102110102230-1011002102022021-0102001122103112-1312103231303100): complete subsection reference.
-
-- [enable_internet_vip](resources--secret_management_access--reference--group-002.md#canonical-0130032100011033-3031212022022130-0002133032312211-2121030011321011-0030122120011302-3022110113130203-3000010223121222-0222122322010021): complete subsection reference.
-
-<a id="canonical-2133013213302313-2320121101202232-0212230133232032-0202200031031311-0203100331121333-2123301320132122-2112301323011112-1110321103233110"></a>
-
-<a id="canonical-1332012001133233-0132000012112303-3122121001121031-0131233010320233-3200111102200330-3123101211133012-1133223123033003-3133332313232000"></a>
-
-#### `where.site.network_type` property
-
-Type: `"string"`. Optional.
-
-\[Enum:
-VIRTUAL\_NETWORK\_SITE\_LOCAL|VIRTUAL\_NETWORK\_SITE\_LOCAL\_INSIDE|VIRTUAL\_NETWORK\_PER\_SITE|VIRTUAL\_NETWORK\_PUBLIC|VIRTUAL\_NETWORK\_GLOBAL|VIRTUAL\_NETWORK\_SITE\_SERVICE|VIRTUAL\_NETWORK\_VER\_INTERNAL|VIRTUAL\_NETWORK\_SITE\_LOCAL\_INSIDE\_OUTSIDE|VIRTUAL\_NETWORK\_IP\_AUTO|VIRTUAL\_NETWORK\_VOLTADN\_PRIVATE\_NETWORK|VIRTUAL\_NETWORK\_SRV6\_NETWORK|VIRTUAL\_NETWORK\_IP\_FABRIC|VIRTUAL\_NETWORK\_SEGMENT|VIRTUAL\_NETWORK\_MANAGEMENT\]
-Different types of virtual networks understood by the system Virtual-network of type
-VIRTUAL\_NETWORK\_SITE\_LOCAL provides connectivity to public (outside) network. This is an insecure
-network and is connected to public internet via NAT Gateways/firwalls Virtual-network of this type
-is local to.. Possible values are \`VIRTUAL\_NETWORK\_SITE\_LOCAL\`,
-\`VIRTUAL\_NETWORK\_SITE\_LOCAL\_INSIDE\`, \`VIRTUAL\_NETWORK\_PER\_SITE\`,
-\`VIRTUAL\_NETWORK\_PUBLIC\`, \`VIRTUAL\_NETWORK\_GLOBAL\`, \`VIRTUAL\_NETWORK\_SITE\_SERVICE\`,
-\`VIRTUAL\_NETWORK\_VER\_INTERNAL\`, \`VIRTUAL\_NETWORK\_SITE\_LOCAL\_INSIDE\_OUTSIDE\`,
-\`VIRTUAL\_NETWORK\_IP\_AUTO\`, \`VIRTUAL\_NETWORK\_VOLTADN\_PRIVATE\_NETWORK\`,
-\`VIRTUAL\_NETWORK\_SRV6\_NETWORK\`, \`VIRTUAL\_NETWORK\_IP\_FABRIC\`,
-\`VIRTUAL\_NETWORK\_SEGMENT\`, \`VIRTUAL\_NETWORK\_MANAGEMENT\`. Defaults to
-\`VIRTUAL\_NETWORK\_SITE\_LOCAL\`.
-
-Additional upstream details:
-
-Different types of virtual networks understood by the system
-
-Virtual-network of type VIRTUAL\_NETWORK\_SITE\_LOCAL provides connectivity to public (outside)
-network. This is an insecure network and is connected to public internet via NAT Gateways/firwalls
-Virtual-network of this type is local to every site. Two virtual networks of this type on different
-sites are neither related nor connected. Constraints: There can be atmost one virtual network of
-this type in a given site. This network type is supported on CE sites. This network is created
-automatically and present on all sites Virtual-network of type VIRTUAL\_NETWORK\_SITE\_LOCAL\_INSIDE
-is a private network inside site. It is a secure network and is not connected to public network.
-Virtual-network of this type is local to every site. Two virtual networks of this type on different
-sites are neither related nor connected. Constraints: There can be atmost one virtual network of
-this type in a given site. This network type is supported on CE sites. This network is created
-during provisioning of site User defined per-site virtual network. Scope of this virtual network is
-limited to the site. This is not yet supported Virtual-network of type VIRTUAL\_NETWORK\_PUBLIC
-directly connects to the public internet. Virtual-network of this type is local to every site. Two
-virtual networks of this type on different sites are neither related nor connected. Constraints:
-There can be atmost one virtual network of this type in a given site. This network type is supported
-on RE sites only It is an internally created by the system. They must not be created by user Virtual
-Networks with global scope across different sites in F5XC domain. An example global virtual-network
-called "AIN Network" is created for every tenant. For F5 Distributed Cloud fabric
-
-Constraints: It is currently only supported as internally created by the system. VK8s service
-network for a given tenant. Used to advertise a virtual host only to vk8s pods for that tenant
-Constraints: It is an internally created by the system. Must not be created by user VER internal
-network for the site. It can only be used for virtual hosts with SMA\_PROXY type proxy Constraints:
-It is an internally created by the system. Must not be created by user Virtual-network of type
-VIRTUAL\_NETWORK\_SITE\_LOCAL\_INSIDE\_OUTSIDE represents both VIRTUAL\_NETWORK\_SITE\_LOCAL and
-VIRTUAL\_NETWORK\_SITE\_LOCAL\_INSIDE
-
-Constraints: This network type is only meaningful in an advertise policy When virtual-network of
-type VIRTUAL\_NETWORK\_IP\_AUTO is selected for an endpoint, VER will try to determine the network
-based on the provided IP address
-
-Constraints: This network type is only meaningful in an endpoint
-
-VoltADN Private Network is used on F5 Distributed Cloud RE(s) to connect to customer private
-networks This network is created by opening a support ticket
-
-This network is per site srv6 network VER IP Fabric network for the site. This Virtual network type
-is used for exposing virtual host on IP Fabric network on the VER site or for endpoint in IP Fabric
-network Constraints: It is an internally created by the system. Must not be created by user
-Virtual-network of type VIRTUAL\_NETWORK\_SEGMENT for segment interface Virtual-network of type
-VIRTUAL\_NETWORK\_MANAGEMENT is used for management purposes.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-EnumValidators: [{"version":1,"validator":"OneOf","values":["VIRTUAL_NETWORK_GLOBAL","VIRTUAL_NETWORK_IP_AUTO","VIRTUAL_NETWORK_IP_FABRIC","VIRTUAL_NETWORK_MANAGEMENT","VIRTUAL_NETWORK_PER_SITE","VIRTUAL_NETWORK_PUBLIC","VIRTUAL_NETWORK_SEGMENT","VIRTUAL_NETWORK_SITE_LOCAL","VIRTUAL_NETWORK_SITE_LOCAL_INSIDE","VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE","VIRTUAL_NETWORK_SITE_SERVICE","VIRTUAL_NETWORK_SRV6_NETWORK","VIRTUAL_NETWORK_VER_INTERNAL","VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK"],"case_sensitive":true,"complete":true,"source":"ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf"}]
-Validators: []validator.String{
-  stringvalidator.OneOf("VIRTUAL_NETWORK_SITE_LOCAL",
-    "VIRTUAL_NETWORK_SITE_LOCAL_INSIDE",
-    "VIRTUAL_NETWORK_PER_SITE",
-    "VIRTUAL_NETWORK_PUBLIC",
-    "VIRTUAL_NETWORK_GLOBAL",
-    "VIRTUAL_NETWORK_SITE_SERVICE",
-    "VIRTUAL_NETWORK_VER_INTERNAL",
-    "VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE",
-    "VIRTUAL_NETWORK_IP_AUTO",
-    "VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK",
-    "VIRTUAL_NETWORK_SRV6_NETWORK",
-    "VIRTUAL_NETWORK_IP_FABRIC",
-    "VIRTUAL_NETWORK_SEGMENT",
-    "VIRTUAL_NETWORK_MANAGEMENT"),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "default": "VIRTUAL_NETWORK_SITE_LOCAL",
-  "enum": [
-    "VIRTUAL_NETWORK_SITE_LOCAL",
-    "VIRTUAL_NETWORK_SITE_LOCAL_INSIDE",
-    "VIRTUAL_NETWORK_PER_SITE",
-    "VIRTUAL_NETWORK_PUBLIC",
-    "VIRTUAL_NETWORK_GLOBAL",
-    "VIRTUAL_NETWORK_SITE_SERVICE",
-    "VIRTUAL_NETWORK_VER_INTERNAL",
-    "VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE",
-    "VIRTUAL_NETWORK_IP_AUTO",
-    "VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK",
-    "VIRTUAL_NETWORK_SRV6_NETWORK",
-    "VIRTUAL_NETWORK_IP_FABRIC",
-    "VIRTUAL_NETWORK_SEGMENT",
-    "VIRTUAL_NETWORK_MANAGEMENT"
-  ],
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-- [ref](resources--secret_management_access--reference--group-002.md#canonical-3101010002232021-1301001301301102-3131230311301333-1321121222232223-0003103223133301-2102121221031002-3120131021322003-0103202321200321): complete subsection reference.

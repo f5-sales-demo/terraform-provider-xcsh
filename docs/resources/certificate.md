@@ -62,7 +62,7 @@ resource "xcsh_certificate" "example" {
 
 ### Root configuration for `xcsh_certificate`
 
-Required root properties: `certificate_url`, `name`, `namespace`. Full root flags and choices appear in the property reference.
+Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
 
 <a id="canonical-1221111130031212-1033233233113330-0320320323301133-2221120033223023-1033011020112233-1101211211100020-1003322222211111-1230300022221013"></a>
 

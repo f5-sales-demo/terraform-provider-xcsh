@@ -79,6 +79,8 @@ Receipt-pinned upstream constraints:
 }
 ```
 
+- [blindfold](resources--certificate--reference--group-001.md#canonical-1133330130112321-1330211011221231-3112320213031213-1000313300133122-1013102303022130-2300232200213211-0121031230120100-0201032002231233): complete subsection reference.
+
 - [certificate_chain](resources--certificate--reference--group-001.md#canonical-1030320000233232-2232302213110323-3310002333011103-3020003203301303-3332202000210013-1213222102122030-2002010110130123-2123301311203302): complete subsection reference.
 
 <a id="canonical-0120232130213103-0001203133221331-2100132201133130-3333330022201311-3300233010333110-1031203021302101-2331022012031000-3303231032102113"></a>
@@ -87,18 +89,9 @@ Receipt-pinned upstream constraints:
 
 #### `certificate_url` property
 
-Type: `"string"`. Required.
+Type: `"string"`. Optional, Computed.
 
 Certificate. Certificate or certificate chain in PEM format including the PEM headers.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 131072),
-}
-```
 
 Receipt-pinned upstream constraints:
 
@@ -118,7 +111,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1
   },
@@ -174,7 +167,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 0
   },
@@ -277,15 +270,6 @@ This is the name of configuration object. It has to be unique within the namespa
 specified during create API and cannot be changed during replace API. The value of name has to
 follow DNS-1035 format.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.String{
-  validators.NameValidator(),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -306,7 +290,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "inferred",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1,
     "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
@@ -345,15 +329,6 @@ Additional upstream details:
 This defines the workspace within which each the configuration object is to be created. Must be a
 DNS\_LABEL format. For a namespace object itself, namespace value will be ""
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.String{
-  validators.NamespaceValidator(),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -374,7 +349,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "inferred",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1,
     "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
@@ -407,6 +382,26 @@ Each exact path has one authoritative reference destination. Collection element 
 | Schema path | Complete reference |
 | --- | --- |
 | `annotations` | [annotations](resources--certificate--reference--group-001.md#canonical-0320220311103002-1100000320010211-0023313322031110-0211201123101220-0102012203201200-2032211233103030-1330132322012212-3322131010100202) |
+| `blindfold` | [blindfold](resources--certificate--reference--group-001.md#canonical-3031322122003022-1212000100100000-3210321203322000-1011231222333213-0222010032133000-2023222002222220-2110302030131000-2000232302110233) |
+| `blindfold.algorithm` | [blindfold.algorithm](resources--certificate--reference--group-001.md#canonical-0200012230203110-1232233122302013-1301121332313321-0220221333211323-1021031011322030-1011110301131002-2210320220233023-0000321332201113) |
+| `blindfold.certificate_file` | [blindfold.certificate_file](resources--certificate--reference--group-001.md#canonical-3010333233200030-3300002033021100-3222021001032200-0212121031301030-0330012321122321-1122333231100033-0031020303333212-1033012130221101) |
+| `blindfold.certificate_pem` | [blindfold.certificate_pem](resources--certificate--reference--group-001.md#canonical-0001211331000003-3122013102130113-1312030022001322-2321312200111122-2002312211312321-0222113120101120-2000303010312111-2223113000200212) |
+| `blindfold.chain_identity` | [blindfold.chain_identity](resources--certificate--reference--group-001.md#canonical-0111120021211033-0131200021232200-2321322131032333-0101021110000221-0230121313023322-3031232132220312-2010220002300301-1103030332023221) |
+| `blindfold.context_digest` | [blindfold.context_digest](resources--certificate--reference--group-001.md#canonical-1033322111213313-1033020013102001-0212121222103011-0210113221020112-1012323310201311-0132020122000132-3203010330313101-0211221231001231) |
+| `blindfold.encrypted_location` | [blindfold.encrypted_location](resources--certificate--reference--group-001.md#canonical-3223123323002302-0302303202213311-3031120210122110-2121020110133000-2232321233133000-2330130210231012-3102321102020121-3213112123030011) |
+| `blindfold.expires_at` | [blindfold.expires_at](resources--certificate--reference--group-001.md#canonical-3102223123200023-1212132233013032-1120133320132000-0111121100102301-2121310102123020-0203011200002321-3211223032002200-1032212133232101) |
+| `blindfold.fingerprint` | [blindfold.fingerprint](resources--certificate--reference--group-001.md#canonical-3213103120312322-3032301220312112-1102120023003130-2302203133110012-0312111231213213-3301221312210230-0123032123121313-1231313131000021) |
+| `blindfold.id` | [blindfold.id](resources--certificate--reference--group-001.md#canonical-1130132321321030-2202101100023331-2032000321321101-0232300321300300-3330032003330102-3121302003020013-3311000013312232-1010021002103310) |
+| `blindfold.material_version` | [blindfold.material_version](resources--certificate--reference--group-001.md#canonical-2133323012322123-3313213322003321-3330002202120100-0213121013222301-3010322022203002-1232211333011021-3010233023032013-0231233133213011) |
+| `blindfold.passphrase_env` | [blindfold.passphrase_env](resources--certificate--reference--group-001.md#canonical-3021022312232221-1331013132033311-0121120332110321-3210202203312010-0201333033111032-1202210100010320-3021022330011321-3312120203011010) |
+| `blindfold.passphrase_wo` | [blindfold.passphrase_wo](resources--certificate--reference--group-001.md#canonical-1112313322103110-0133121212330012-2332323120100112-0000122030001113-0121032312200100-0313303323202022-2133112311220113-3301031220011011) |
+| `blindfold.pkcs12_file` | [blindfold.pkcs12_file](resources--certificate--reference--group-001.md#canonical-1020203220320202-1202210223201332-3100002232103120-1323303023123323-1102212203111022-3313301001131022-1301223020310120-2012011201121312) |
+| `blindfold.pkcs12_wo` | [blindfold.pkcs12_wo](resources--certificate--reference--group-001.md#canonical-2212022003303103-1013213103011120-2303211300301203-0310012100002001-3021332210211333-1112002100330223-1113033012211203-1323002003011311) |
+| `blindfold.policy` | [blindfold.policy](resources--certificate--reference--group-001.md#canonical-2132123101023203-0111210023022303-3111303330231223-1220003012100112-3220310313320201-2320313030201112-1200100330230100-1022013231312113) |
+| `blindfold.prepared_identity` | [blindfold.prepared_identity](resources--certificate--reference--group-001.md#canonical-3132001201103012-0303123331212303-3201233021332000-2023003033323223-2001311000000111-3230313023220302-2100312111013331-0132212203102002) |
+| `blindfold.private_key_file` | [blindfold.private_key_file](resources--certificate--reference--group-001.md#canonical-1010030330201301-1133203213233220-3121120031011222-1012022002112231-0311013010333101-1020023311000111-3132330230333011-0002201111210010) |
+| `blindfold.private_key_wo` | [blindfold.private_key_wo](resources--certificate--reference--group-001.md#canonical-1330213223011221-2222212021231110-2131113313213101-1023131303333300-3130233221200033-1100121221011311-1010300303332102-1000332002302010) |
+| `blindfold.spki_identity` | [blindfold.spki_identity](resources--certificate--reference--group-001.md#canonical-3211101310302022-2333020112000122-0332112231301111-1113331221013220-3322011321021312-0313000330330111-1333333011211232-3130221200331013) |
 | `certificate_chain` | [certificate_chain](resources--certificate--reference--group-001.md#canonical-1330301200113122-3202132011031313-2233013030020112-1010133233032132-1131231131000232-0131233310311330-1213323111312102-1011302321023122) |
 | `certificate_chain.name` | [certificate_chain.name](resources--certificate--reference--group-001.md#canonical-3100102310320022-2001321103213123-0332112213002323-2221231200312220-0202301212320121-1230121322331213-1232132021203012-0121013303100313) |
 | `certificate_chain.namespace` | [certificate_chain.namespace](resources--certificate--reference--group-001.md#canonical-3303011203122322-1221332120333011-0312101111221311-2002220331020300-0201203012303303-2112130020110000-1111013200311313-1111031212033212) |
@@ -436,6 +431,182 @@ Each exact path has one authoritative reference destination. Collection element 
 | `timeouts.update` | [timeouts.update](resources--certificate--reference--group-001.md#canonical-1120011233003201-2000212210010112-0033011100022110-3231030033323133-3230321202231000-3233032332223033-2102210201101110-0231222103012330) |
 | `use_system_defaults` | [use_system_defaults](resources--certificate--reference--group-001.md#canonical-3101230030230231-1320130120122112-2020012023230002-2003032110301202-1121311100130003-0001321111002231-2003020200001100-2312032130010111) |
 
+<a id="canonical-1133330130112321-1330211011221231-3112320213031213-1000313300133122-1013102303022130-2300232200213211-0121031230120100-0201032002231233"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+## `blindfold` properties
+
+Breadcrumbs:
+
+- [xcsh_certificate](../resources/certificate.md#canonical-2010033013323302-3111123220113301-2322122303101210-2003020210333032-0232021333220031-3000020103303100-3202112103030121-1013321102200130)
+- [Property reference](resources--certificate--reference--group-001.md#canonical-1232012101321203-0232010211323212-3033033201203103-3213030001121213-1213230323110200-2223013311301231-0110133211131133-3323323132201330)
+- blindfold
+
+<a id="canonical-3031322122003022-1212000100100000-3210321203322000-1011231222333213-0222010032133000-2023222002222220-2110302030131000-2000232302110233"></a>
+
+Type: `"single"`. Optional.
+
+Native certificate preparation. Use PEM files or a P12 file, or write-only key/bundle values with
+material\_version (Terraform 1.11+). Defaults to shared/ves-io-allow-volterra. Inline certificates
+require unique IDs. Private inputs are never stored.
+
+<a id="canonical-3233131132211221-1213131331020133-3120301011221003-1033332203033101-3322200020300332-3222021330231021-3213122221120112-3132023013030002"></a>
+
+### Direct properties for `blindfold`
+
+<a id="canonical-0200012230203110-1232233122302013-1301121332313321-0220221333211323-1021031011322030-1011110301131002-2210320220233023-0000321332201113"></a>
+
+#### `blindfold.algorithm` property
+
+Type: `"string"`. Computed.
+
+<a id="canonical-3010333233200030-3300002033021100-3222021001032200-0212121031301030-0330012321122321-1122333231100033-0031020303333212-1033012130221101"></a>
+
+<a id="canonical-1111101302223323-3031210130232122-3131033010003032-1213030113131001-2321333331223102-3000020112100131-2222130131110221-0100222221012303"></a>
+
+#### `blindfold.certificate_file` property
+
+Type: `"string"`. Optional.
+
+<a id="canonical-0001211331000003-3122013102130113-1312030022001322-2321312200111122-2002312211312321-0222113120101120-2000303010312111-2223113000200212"></a>
+
+<a id="canonical-3303133221100103-2230120130022213-1131322331300302-0200221130223121-0322023002230222-2310123100111010-1233102213011331-2120033033233121"></a>
+
+#### `blindfold.certificate_pem` property
+
+Type: `"string"`. Optional.
+
+<a id="canonical-0111120021211033-0131200021232200-2321322131032333-0101021110000221-0230121313023322-3031232132220312-2010220002300301-1103030332023221"></a>
+
+<a id="canonical-2030020230122113-1201013120010123-1211302013332001-0011003003103013-1123020111203302-0303323113131033-3100132030013001-1022331112103320"></a>
+
+#### `blindfold.chain_identity` property
+
+Type: `"string"`. Computed.
+
+<a id="canonical-1033322111213313-1033020013102001-0212121222103011-0210113221020112-1012323310201311-0132020122000132-3203010330313101-0211221231001231"></a>
+
+<a id="canonical-1221300331003302-2031223012213300-1032323001311133-3100211233032110-3122333001233330-3121310332122123-2002210221133132-3101000030233330"></a>
+
+#### `blindfold.context_digest` property
+
+Type: `"string"`. Computed.
+
+<a id="canonical-3223123323002302-0302303202213311-3031120210122110-2121020110133000-2232321233133000-2330130210231012-3102321102020121-3213112123030011"></a>
+
+<a id="canonical-2023000323000210-1231330212113210-3012312111010221-3311132323330310-2332333133311123-1020300213313223-0031333323233022-1232020310301113"></a>
+
+#### `blindfold.encrypted_location` property
+
+Type: `"string"`. Computed, Sensitive.
+
+<a id="canonical-3102223123200023-1212132233013032-1120133320132000-0111121100102301-2121310102123020-0203011200002321-3211223032002200-1032212133232101"></a>
+
+<a id="canonical-2110212033203031-0322233302231222-3331310220003212-3321212000023000-1020023131023201-0201231012122231-3211011323110200-0203120111011033"></a>
+
+#### `blindfold.expires_at` property
+
+Type: `"string"`. Computed.
+
+<a id="canonical-3213103120312322-3032301220312112-1102120023003130-2302203133110012-0312111231213213-3301221312210230-0123032123121313-1231313131000021"></a>
+
+<a id="canonical-1110002012011331-3220030231133001-1213210220303331-3113110221320011-2330132122022233-2032303121223023-0333022101133321-1012331223033011"></a>
+
+#### `blindfold.fingerprint` property
+
+Type: `"string"`. Computed.
+
+<a id="canonical-1130132321321030-2202101100023331-2032000321321101-0232300321300300-3330032003330102-3121302003020013-3311000013312232-1010021002103310"></a>
+
+<a id="canonical-2030021022221132-1200231112201032-0001220331010001-1133300120213130-0330302331300033-3011311132033023-3233312121013222-1213300021120212"></a>
+
+#### `blindfold.id` property
+
+Type: `"string"`. Optional.
+
+<a id="canonical-2133323012322123-3313213322003321-3330002202120100-0213121013222301-3010322022203002-1232211333011021-3010233023032013-0231233133213011"></a>
+
+<a id="canonical-0133331302220321-3202313220332330-0001012200222211-2302123232203130-1030112031103231-0000021020332113-3333320120302330-1022231030302101"></a>
+
+#### `blindfold.material_version` property
+
+Type: `"string"`. Optional.
+
+<a id="canonical-3021022312232221-1331013132033311-0121120332110321-3210202203312010-0201333033111032-1202210100010320-3021022330011321-3312120203011010"></a>
+
+<a id="canonical-0013200113300321-1122323231232201-2023301131031113-1330111213133211-3331102211112233-1120301200101210-3020022231122313-1300223110232121"></a>
+
+#### `blindfold.passphrase_env` property
+
+Type: `"string"`. Optional.
+
+<a id="canonical-1112313322103110-0133121212330012-2332323120100112-0000122030001113-0121032312200100-0313303323202022-2133112311220113-3301031220011011"></a>
+
+<a id="canonical-0310213111312311-1200313223032221-1333201022003110-2303112102020130-0210213130120011-1120121133023313-2330022132122002-1010311210230132"></a>
+
+#### `blindfold.passphrase_wo` property
+
+Type: `"string"`. Optional, Sensitive, Write_only.
+
+<a id="canonical-1020203220320202-1202210223201332-3100002232103120-1323303023123323-1102212203111022-3313301001131022-1301223020310120-2012011201121312"></a>
+
+<a id="canonical-3320300122313103-0331101021223332-2330133230231001-0332233101130033-1100332002231331-2203122321230222-3133230133330331-1210330230010203"></a>
+
+#### `blindfold.pkcs12_file` property
+
+Type: `"string"`. Optional.
+
+<a id="canonical-2212022003303103-1013213103011120-2303211300301203-0310012100002001-3021332210211333-1112002100330223-1113033012211203-1323002003011311"></a>
+
+<a id="canonical-0211302001111110-1300023121033311-2202221013331320-0130232012112211-1233213220110013-0020033111212132-0203203222312110-0222132112330002"></a>
+
+#### `blindfold.pkcs12_wo` property
+
+Type: `"string"`. Optional, Sensitive, Write_only.
+
+<a id="canonical-2132123101023203-0111210023022303-3111303330231223-1220003012100112-3220310313320201-2320313030201112-1200100330230100-1022013231312113"></a>
+
+<a id="canonical-2322113030002103-0330131032002303-2033030012112303-2123001132121013-0133211023011012-0232332211222222-1202022021130201-0103303021230213"></a>
+
+#### `blindfold.policy` property
+
+Type: `"string"`. Optional.
+
+<a id="canonical-3132001201103012-0303123331212303-3201233021332000-2023003033323223-2001311000000111-3230313023220302-2100312111013331-0132212203102002"></a>
+
+<a id="canonical-0321022213132102-0210230322211133-3120202301311110-3111303003130223-0003022211221023-3331332232310033-0122221200313300-3111111301311322"></a>
+
+#### `blindfold.prepared_identity` property
+
+Type: `"string"`. Computed.
+
+<a id="canonical-1010030330201301-1133203213233220-3121120031011222-1012022002112231-0311013010333101-1020023311000111-3132330230333011-0002201111210010"></a>
+
+<a id="canonical-2321111000122101-1000332201102022-0301330032111132-0211010323303322-1010320230322122-2131210011031103-1233033130303302-0222100110211321"></a>
+
+#### `blindfold.private_key_file` property
+
+Type: `"string"`. Optional.
+
+<a id="canonical-1330213223011221-2222212021231110-2131113313213101-1023131303333300-3130233221200033-1100121221011311-1010300303332102-1000332002302010"></a>
+
+<a id="canonical-0320311123333133-3320323323101121-0013100303023312-3122213003011222-0310022211301203-2113230003130212-2010002001310212-3033133130120311"></a>
+
+#### `blindfold.private_key_wo` property
+
+Type: `"string"`. Optional, Sensitive, Write_only.
+
+<a id="canonical-3211101310302022-2333020112000122-0332112231301111-1113331221013220-3322011321021312-0313000330330111-1333333011211232-3130221200331013"></a>
+
+<a id="canonical-0310323021013131-1310131111202311-0213330231230210-2103323313112201-3010011333211121-2203122003000222-1230131023333031-3101120101333221"></a>
+
+#### `blindfold.spki_identity` property
+
+Type: `"string"`. Computed.
+
 <a id="canonical-1030320000233232-2232302213110323-3310002333011103-3020003203301303-3332202000210013-1213222102122030-2002010110130123-2123301311203302"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -456,13 +627,6 @@ Type: `"object"`. single nested block, Optional.
 
 This type establishes a direct reference from one object(the referrer) to another(the referred).
 Such a reference is in form of tenant/namespace/name.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
-```
 
 Receipt-pinned upstream constraints:
 
@@ -498,15 +662,6 @@ Type: `"string"`. Optional.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
 referred object's(e.g. Route's) name.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 128),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -525,7 +680,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1
   },
@@ -559,15 +714,6 @@ Type: `"string"`. Optional, Computed.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
 hold the referred object's(e.g. Route's) namespace.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 63),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -592,7 +738,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1,
     "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
@@ -627,15 +773,6 @@ Type: `"string"`. Computed.
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
 the referred object's(e.g. Route's) tenant.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthAtMost(64),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -652,7 +789,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -690,13 +827,6 @@ Type: `"object"`. single nested block, Optional.
 
 \[OneOf: custom\_hash\_algorithms, disable\_ocsp\_stapling, use\_system\_defaults; Default:
 use\_system\_defaults\] Specifies the hash algorithms to be used.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("hash_algorithms")}
-```
 
 Receipt-pinned upstream constraints:
 
@@ -741,15 +871,6 @@ Type: `["list", "string"]`. Optional.
 values are \`INVALID\_HASH\_ALGORITHM\`, \`SHA256\`, \`SHA1\`. Defaults to
 \`INVALID\_HASH\_ALGORITHM\`.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.List{
-  listvalidator.SizeBetween(1, 4),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -764,7 +885,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minItems": 1,
     "uniqueItems": true
@@ -855,14 +976,6 @@ Type: `"object"`. single nested block, Optional.
 
 SecretType is used in an object to indicate a sensitive/confidential field.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.ConflictingObjectAttributes("blindfold_secret_info",
-    "clear_secret_info")}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -914,13 +1027,6 @@ Type: `"object"`. single nested block, Optional.
 
 BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("location")}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -966,7 +1072,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -989,15 +1095,6 @@ Type: `"string"`. Optional, Sensitive.
 Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
 store provider is an HTTP/HTTPS location.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(4, 131072),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -1013,7 +1110,7 @@ Receipt-pinned upstream constraints:
       "confidence": 1.0,
       "note": "Blindfold envelope encryption (AES-256-GCM + RSA-OAEP) of an RSA-2048 TLS private key produces ~3700 char string:/// URL. 128KB max secret size = ~175KB base64. Discovery reported 1024 which is incorrect.",
       "source": "manual-override",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 4
   },
@@ -1057,7 +1154,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -1089,13 +1186,6 @@ Breadcrumbs:
 Type: `"object"`. single nested block, Optional.
 
 ClearSecretInfoType specifies information about the Secret that is not encrypted.
-
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: false
-Validators: []validator.Object{validators.RequiredObjectAttributes("url")}
-```
 
 Receipt-pinned upstream constraints:
 
@@ -1143,15 +1233,6 @@ URL of the secret. Currently supported URL schemes is string:///. For string:///
 needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after
 base64 decoding.
 
-Provider validators and defaults (from schema source):
-
-```go
-EnumExtractionComplete: true
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 131072),
-}
-```
-
 Receipt-pinned upstream constraints:
 
 ```json
@@ -1170,7 +1251,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-08T03:45:36+00:00"
+      "validatedAt": "2026-10-09T12:34:59+00:00"
     },
     "minLength": 1,
     "pattern": "^(https?|ftp)://[^\\s/$.?#].[^\\s]*$",

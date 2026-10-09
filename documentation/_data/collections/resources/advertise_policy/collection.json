@@ -173,6 +173,106 @@
         "document_id": "xcsh-docs:resources:advertise_policy:properties:tls_parameters:common_params:tls_certificates",
         "schema_path": ["tls_parameters", "common_params", "tls_certificates"]
       },
+      "tls_parameters.common_params.tls_certificates.blindfold": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:advertise_policy:properties:tls_parameters:common_params:tls_certificates:blindfold",
+        "schema_path": ["tls_parameters", "common_params", "tls_certificates", "blindfold"]
+      },
+      "tls_parameters.common_params.tls_certificates.blindfold.algorithm": {
+        "anchor": "schema-tls_parameters--common_params--tls_certificates--blindfold--algorithm",
+        "document_id": "xcsh-docs:resources:advertise_policy:properties:tls_parameters:common_params:tls_certificates:blindfold",
+        "schema_path": ["tls_parameters", "common_params", "tls_certificates", "blindfold", "algorithm"]
+      },
+      "tls_parameters.common_params.tls_certificates.blindfold.certificate_file": {
+        "anchor": "schema-tls_parameters--common_params--tls_certificates--blindfold--certificate_file",
+        "document_id": "xcsh-docs:resources:advertise_policy:properties:tls_parameters:common_params:tls_certificates:blindfold",
+        "schema_path": ["tls_parameters", "common_params", "tls_certificates", "blindfold", "certificate_file"]
+      },
+      "tls_parameters.common_params.tls_certificates.blindfold.certificate_pem": {
+        "anchor": "schema-tls_parameters--common_params--tls_certificates--blindfold--certificate_pem",
+        "document_id": "xcsh-docs:resources:advertise_policy:properties:tls_parameters:common_params:tls_certificates:blindfold",
+        "schema_path": ["tls_parameters", "common_params", "tls_certificates", "blindfold", "certificate_pem"]
+      },
+      "tls_parameters.common_params.tls_certificates.blindfold.chain_identity": {
+        "anchor": "schema-tls_parameters--common_params--tls_certificates--blindfold--chain_identity",
+        "document_id": "xcsh-docs:resources:advertise_policy:properties:tls_parameters:common_params:tls_certificates:blindfold",
+        "schema_path": ["tls_parameters", "common_params", "tls_certificates", "blindfold", "chain_identity"]
+      },
+      "tls_parameters.common_params.tls_certificates.blindfold.context_digest": {
+        "anchor": "schema-tls_parameters--common_params--tls_certificates--blindfold--context_digest",
+        "document_id": "xcsh-docs:resources:advertise_policy:properties:tls_parameters:common_params:tls_certificates:blindfold",
+        "schema_path": ["tls_parameters", "common_params", "tls_certificates", "blindfold", "context_digest"]
+      },
+      "tls_parameters.common_params.tls_certificates.blindfold.encrypted_location": {
+        "anchor": "schema-tls_parameters--common_params--tls_certificates--blindfold--encrypted_location",
+        "document_id": "xcsh-docs:resources:advertise_policy:properties:tls_parameters:common_params:tls_certificates:blindfold",
+        "schema_path": ["tls_parameters", "common_params", "tls_certificates", "blindfold", "encrypted_location"]
+      },
+      "tls_parameters.common_params.tls_certificates.blindfold.expires_at": {
+        "anchor": "schema-tls_parameters--common_params--tls_certificates--blindfold--expires_at",
+        "document_id": "xcsh-docs:resources:advertise_policy:properties:tls_parameters:common_params:tls_certificates:blindfold",
+        "schema_path": ["tls_parameters", "common_params", "tls_certificates", "blindfold", "expires_at"]
+      },
+      "tls_parameters.common_params.tls_certificates.blindfold.fingerprint": {
+        "anchor": "schema-tls_parameters--common_params--tls_certificates--blindfold--fingerprint",
+        "document_id": "xcsh-docs:resources:advertise_policy:properties:tls_parameters:common_params:tls_certificates:blindfold",
+        "schema_path": ["tls_parameters", "common_params", "tls_certificates", "blindfold", "fingerprint"]
+      },
+      "tls_parameters.common_params.tls_certificates.blindfold.id": {
+        "anchor": "schema-tls_parameters--common_params--tls_certificates--blindfold--id",
+        "document_id": "xcsh-docs:resources:advertise_policy:properties:tls_parameters:common_params:tls_certificates:blindfold",
+        "schema_path": ["tls_parameters", "common_params", "tls_certificates", "blindfold", "id"]
+      },
+      "tls_parameters.common_params.tls_certificates.blindfold.material_version": {
+        "anchor": "schema-tls_parameters--common_params--tls_certificates--blindfold--material_version",
+        "document_id": "xcsh-docs:resources:advertise_policy:properties:tls_parameters:common_params:tls_certificates:blindfold",
+        "schema_path": ["tls_parameters", "common_params", "tls_certificates", "blindfold", "material_version"]
+      },
+      "tls_parameters.common_params.tls_certificates.blindfold.passphrase_env": {
+        "anchor": "schema-tls_parameters--common_params--tls_certificates--blindfold--passphrase_env",
+        "document_id": "xcsh-docs:resources:advertise_policy:properties:tls_parameters:common_params:tls_certificates:blindfold",
+        "schema_path": ["tls_parameters", "common_params", "tls_certificates", "blindfold", "passphrase_env"]
+      },
+      "tls_parameters.common_params.tls_certificates.blindfold.passphrase_wo": {
+        "anchor": "schema-tls_parameters--common_params--tls_certificates--blindfold--passphrase_wo",
+        "document_id": "xcsh-docs:resources:advertise_policy:properties:tls_parameters:common_params:tls_certificates:blindfold",
+        "schema_path": ["tls_parameters", "common_params", "tls_certificates", "blindfold", "passphrase_wo"]
+      },
+      "tls_parameters.common_params.tls_certificates.blindfold.pkcs12_file": {
+        "anchor": "schema-tls_parameters--common_params--tls_certificates--blindfold--pkcs12_file",
+        "document_id": "xcsh-docs:resources:advertise_policy:properties:tls_parameters:common_params:tls_certificates:blindfold",
+        "schema_path": ["tls_parameters", "common_params", "tls_certificates", "blindfold", "pkcs12_file"]
+      },
+      "tls_parameters.common_params.tls_certificates.blindfold.pkcs12_wo": {
+        "anchor": "schema-tls_parameters--common_params--tls_certificates--blindfold--pkcs12_wo",
+        "document_id": "xcsh-docs:resources:advertise_policy:properties:tls_parameters:common_params:tls_certificates:blindfold",
+        "schema_path": ["tls_parameters", "common_params", "tls_certificates", "blindfold", "pkcs12_wo"]
+      },
+      "tls_parameters.common_params.tls_certificates.blindfold.policy": {
+        "anchor": "schema-tls_parameters--common_params--tls_certificates--blindfold--policy",
+        "document_id": "xcsh-docs:resources:advertise_policy:properties:tls_parameters:common_params:tls_certificates:blindfold",
+        "schema_path": ["tls_parameters", "common_params", "tls_certificates", "blindfold", "policy"]
+      },
+      "tls_parameters.common_params.tls_certificates.blindfold.prepared_identity": {
+        "anchor": "schema-tls_parameters--common_params--tls_certificates--blindfold--prepared_identity",
+        "document_id": "xcsh-docs:resources:advertise_policy:properties:tls_parameters:common_params:tls_certificates:blindfold",
+        "schema_path": ["tls_parameters", "common_params", "tls_certificates", "blindfold", "prepared_identity"]
+      },
+      "tls_parameters.common_params.tls_certificates.blindfold.private_key_file": {
+        "anchor": "schema-tls_parameters--common_params--tls_certificates--blindfold--private_key_file",
+        "document_id": "xcsh-docs:resources:advertise_policy:properties:tls_parameters:common_params:tls_certificates:blindfold",
+        "schema_path": ["tls_parameters", "common_params", "tls_certificates", "blindfold", "private_key_file"]
+      },
+      "tls_parameters.common_params.tls_certificates.blindfold.private_key_wo": {
+        "anchor": "schema-tls_parameters--common_params--tls_certificates--blindfold--private_key_wo",
+        "document_id": "xcsh-docs:resources:advertise_policy:properties:tls_parameters:common_params:tls_certificates:blindfold",
+        "schema_path": ["tls_parameters", "common_params", "tls_certificates", "blindfold", "private_key_wo"]
+      },
+      "tls_parameters.common_params.tls_certificates.blindfold.spki_identity": {
+        "anchor": "schema-tls_parameters--common_params--tls_certificates--blindfold--spki_identity",
+        "document_id": "xcsh-docs:resources:advertise_policy:properties:tls_parameters:common_params:tls_certificates:blindfold",
+        "schema_path": ["tls_parameters", "common_params", "tls_certificates", "blindfold", "spki_identity"]
+      },
       "tls_parameters.common_params.tls_certificates.certificate_url": {
         "anchor": "schema-tls_parameters--common_params--tls_certificates--certificate_url",
         "document_id": "xcsh-docs:resources:advertise_policy:properties:tls_parameters:common_params:tls_certificates",
@@ -534,7 +634,7 @@
       "path": "documentation/resources/advertise_policy/index.md",
       "product": "distributed-cloud",
       "provider_name": "advertise_policy",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-0001000222330023-3030100013232123-3330120310010230-2130230202100101-2211301023201212-0322203103300021-2231103201203132-3101333221320000",
       "registry_path": "docs/resources/advertise_policy.md",
@@ -544,21 +644,21 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/advertise_policy/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Manages an Advertise Policy resource in F5 Distributed Cloud for advertise_policy object controls how and where a service represented by a given virtual_host object is advertised to consumers. configuration.",
       "tasks": ["configuration"],
       "title": "xcsh_advertise_policy",
       "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["advertise_policyCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["advertise policy"],
-      "body_bytes": 36108,
-      "body_sha256": "sha256:6eaf2197288353c412750eab19e8d9f6ba18e6965a0b51e15bdc24d36f93bede",
+      "body_bytes": 42387,
+      "body_sha256": "sha256:7e55680ce84a88880cfc45c55c7031572c5e3e3ea39d9385c3907df7ba15f07a",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -583,7 +683,7 @@
       "path": "documentation/resources/advertise_policy/properties/index.md",
       "product": "distributed-cloud",
       "provider_name": "advertise_policy",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-2311303001023102-3233233231231222-1130010332020001-3323201312312121-1032210233312021-1302023123223011-0023010011201300-2132121100111331",
       "registry_path": "docs/guides/resources--advertise_policy--reference--group-001.md",
@@ -789,7 +889,7 @@
           "anchor": "schema-port_ranges",
           "description": "Exclusive with A string containing a comma separated list of port ranges. Each port range consists of a single port or two ports separated by \"-\".",
           "document_id": "xcsh-docs:resources:advertise_policy:reference",
-          "enum_extraction_complete": true,
+          "enum_extraction_complete": false,
           "enum_validators": [],
           "flags": ["optional", "computed"],
           "max_items": null,
@@ -805,17 +905,8 @@
           "anchor": "schema-protocol",
           "description": "Protocol to advertise.",
           "document_id": "xcsh-docs:resources:advertise_policy:reference",
-          "enum_extraction_complete": true,
-          "enum_validators": [
-            {
-              "case_sensitive": true,
-              "complete": true,
-              "source": "ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf",
-              "validator": "OneOf",
-              "values": ["TCP", "UDP"],
-              "version": 1
-            }
-          ],
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional", "computed"],
           "max_items": null,
           "min_items": null,
@@ -884,56 +975,7 @@
           "max_items": null,
           "min_items": null,
           "nesting": "single",
-          "relationships": [
-            {
-              "anchor": "section",
-              "enforcement": "provider-schema",
-              "group": "tls_parameters:ConflictingObjectAttributes:client_certificate_optional,client_certificate_required",
-              "source": "ast-validator:ConflictingObjectAttributes",
-              "target_id": "xcsh-docs:resources:advertise_policy:properties:tls_parameters:client_certificate_optional",
-              "type": "conflicts"
-            },
-            {
-              "anchor": "section",
-              "enforcement": "provider-schema",
-              "group": "tls_parameters:ConflictingObjectAttributes:client_certificate_optional,no_client_certificate",
-              "source": "ast-validator:ConflictingObjectAttributes",
-              "target_id": "xcsh-docs:resources:advertise_policy:properties:tls_parameters:client_certificate_optional",
-              "type": "conflicts"
-            },
-            {
-              "anchor": "section",
-              "enforcement": "provider-schema",
-              "group": "tls_parameters:ConflictingObjectAttributes:client_certificate_optional,client_certificate_required",
-              "source": "ast-validator:ConflictingObjectAttributes",
-              "target_id": "xcsh-docs:resources:advertise_policy:properties:tls_parameters:client_certificate_required",
-              "type": "conflicts"
-            },
-            {
-              "anchor": "section",
-              "enforcement": "provider-schema",
-              "group": "tls_parameters:ConflictingObjectAttributes:client_certificate_required,no_client_certificate",
-              "source": "ast-validator:ConflictingObjectAttributes",
-              "target_id": "xcsh-docs:resources:advertise_policy:properties:tls_parameters:client_certificate_required",
-              "type": "conflicts"
-            },
-            {
-              "anchor": "section",
-              "enforcement": "provider-schema",
-              "group": "tls_parameters:ConflictingObjectAttributes:client_certificate_optional,no_client_certificate",
-              "source": "ast-validator:ConflictingObjectAttributes",
-              "target_id": "xcsh-docs:resources:advertise_policy:properties:tls_parameters:no_client_certificate",
-              "type": "conflicts"
-            },
-            {
-              "anchor": "section",
-              "enforcement": "provider-schema",
-              "group": "tls_parameters:ConflictingObjectAttributes:client_certificate_required,no_client_certificate",
-              "source": "ast-validator:ConflictingObjectAttributes",
-              "target_id": "xcsh-docs:resources:advertise_policy:properties:tls_parameters:no_client_certificate",
-              "type": "conflicts"
-            }
-          ],
+          "relationships": [],
           "schema_path": ["tls_parameters"],
           "syntax": "block",
           "type": "object"
@@ -949,70 +991,21 @@
           "max_items": null,
           "min_items": null,
           "nesting": "single",
-          "relationships": [
-            {
-              "anchor": "section",
-              "enforcement": "provider-schema",
-              "group": "where:ConflictingObjectAttributes:site,virtual_network",
-              "source": "ast-validator:ConflictingObjectAttributes",
-              "target_id": "xcsh-docs:resources:advertise_policy:properties:where:site",
-              "type": "conflicts"
-            },
-            {
-              "anchor": "section",
-              "enforcement": "provider-schema",
-              "group": "where:ConflictingObjectAttributes:site,virtual_site",
-              "source": "ast-validator:ConflictingObjectAttributes",
-              "target_id": "xcsh-docs:resources:advertise_policy:properties:where:site",
-              "type": "conflicts"
-            },
-            {
-              "anchor": "section",
-              "enforcement": "provider-schema",
-              "group": "where:ConflictingObjectAttributes:site,virtual_network",
-              "source": "ast-validator:ConflictingObjectAttributes",
-              "target_id": "xcsh-docs:resources:advertise_policy:properties:where:virtual_network",
-              "type": "conflicts"
-            },
-            {
-              "anchor": "section",
-              "enforcement": "provider-schema",
-              "group": "where:ConflictingObjectAttributes:virtual_network,virtual_site",
-              "source": "ast-validator:ConflictingObjectAttributes",
-              "target_id": "xcsh-docs:resources:advertise_policy:properties:where:virtual_network",
-              "type": "conflicts"
-            },
-            {
-              "anchor": "section",
-              "enforcement": "provider-schema",
-              "group": "where:ConflictingObjectAttributes:site,virtual_site",
-              "source": "ast-validator:ConflictingObjectAttributes",
-              "target_id": "xcsh-docs:resources:advertise_policy:properties:where:virtual_site",
-              "type": "conflicts"
-            },
-            {
-              "anchor": "section",
-              "enforcement": "provider-schema",
-              "group": "where:ConflictingObjectAttributes:virtual_network,virtual_site",
-              "source": "ast-validator:ConflictingObjectAttributes",
-              "target_id": "xcsh-docs:resources:advertise_policy:properties:where:virtual_site",
-              "type": "conflicts"
-            }
-          ],
+          "relationships": [],
           "schema_path": ["where"],
           "syntax": "block",
           "type": "object"
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/advertise_policy/properties/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Property reference for xcsh_advertise_policy.",
       "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["advertise_policyCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -1035,7 +1028,7 @@
       "path": "documentation/resources/advertise_policy/properties/dualstack/index.md",
       "product": "distributed-cloud",
       "provider_name": "advertise_policy",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-3130123120101222-1220203221123220-1312323010232302-0132230022313313-3223133102023311-2231101311030311-0233132213000003-3213202311001321",
       "registry_path": "docs/guides/resources--advertise_policy--reference--group-001.md",
@@ -1045,14 +1038,14 @@
       "schema_path": ["dualstack"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/advertise_policy/properties/dualstack/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "dualstack",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["advertise_policyCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -1075,7 +1068,7 @@
       "path": "documentation/resources/advertise_policy/properties/ipv4/index.md",
       "product": "distributed-cloud",
       "provider_name": "advertise_policy",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-0302023220132221-3313300011221002-2010113021102131-3030302011113300-1100111101221011-2012021103323130-0311003330022212-1112201103102030",
       "registry_path": "docs/guides/resources--advertise_policy--reference--group-001.md",
@@ -1085,14 +1078,14 @@
       "schema_path": ["ipv4"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/advertise_policy/properties/ipv4/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "ipv4",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["advertise_policyCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -1115,7 +1108,7 @@
       "path": "documentation/resources/advertise_policy/properties/ipv6/index.md",
       "product": "distributed-cloud",
       "provider_name": "advertise_policy",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-2120203212121232-3132123301211012-1002302311333123-1022322131230020-2232103220003320-2132221031000330-0222013101313223-3222110233021222",
       "registry_path": "docs/guides/resources--advertise_policy--reference--group-001.md",
@@ -1125,20 +1118,20 @@
       "schema_path": ["ipv6"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/advertise_policy/properties/ipv6/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "ipv6",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["advertise_policyCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["public ip"],
-      "body_bytes": 4978,
-      "body_sha256": "sha256:f8c75ca4eca5339306f3bcd85421d596d47dd77b69d827bfd6b9cbac3e3f95e4",
+      "body_bytes": 4715,
+      "body_sha256": "sha256:f9ffe24298cce12a33c2d530c16db47bec3ceb264f8e1a45fce334b9866364c5",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -1155,7 +1148,7 @@
       "path": "documentation/resources/advertise_policy/properties/public_ip/index.md",
       "product": "distributed-cloud",
       "provider_name": "advertise_policy",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-2303301110202311-2222032220031020-3121303333031321-2103131332222133-3111111130312021-0320322113112130-0301212122230111-2223203233322012",
       "registry_path": "docs/guides/resources--advertise_policy--reference--group-001.md",
@@ -1281,14 +1274,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/advertise_policy/properties/public_ip/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Optional. Public VIP to advertise This field is mutually exclusive with where and address fields.",
       "tasks": ["configuration"],
       "title": "public_ip",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["advertise_policyCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -1311,7 +1304,7 @@
       "path": "documentation/resources/advertise_policy/properties/timeouts/index.md",
       "product": "distributed-cloud",
       "provider_name": "advertise_policy",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-1003330112013233-3322213102311100-1200212333211211-1232231112331330-2101230211113313-1332123122003021-2020332033122232-2303333311102233",
       "registry_path": "docs/guides/resources--advertise_policy--reference--group-001.md",
@@ -1421,20 +1414,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/advertise_policy/properties/timeouts/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "timeouts for xcsh_advertise_policy.",
       "tasks": ["configuration"],
       "title": "timeouts",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["advertise_policyCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["tls parameters"],
-      "body_bytes": 3521,
-      "body_sha256": "sha256:94aa1d0c9b6fcf2cd99a5c8898cd64907b6c48b59ccafd017b2bacd214ce08cb",
+      "body_bytes": 3083,
+      "body_sha256": "sha256:f0b9f6b5e23c8c03cb566efc97ae72ca78616d6c41ebdb39526c3804107f3903",
       "capabilities": ["load-balancing.tls", "networking"],
       "category": "networking",
       "child_ids": [
@@ -1456,60 +1449,11 @@
       "path": "documentation/resources/advertise_policy/properties/tls_parameters/index.md",
       "product": "distributed-cloud",
       "provider_name": "advertise_policy",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-0332333113033300-2023221010021211-3120323123033310-2232030322312121-1101101210023031-2203131103020300-1330132310231221-2020023030033330",
       "registry_path": "docs/guides/resources--advertise_policy--reference--group-001.md",
-      "relationships": [
-        {
-          "anchor": "section",
-          "enforcement": "provider-schema",
-          "group": "tls_parameters:ConflictingObjectAttributes:client_certificate_optional,client_certificate_required",
-          "source": "ast-validator:ConflictingObjectAttributes",
-          "target_id": "xcsh-docs:resources:advertise_policy:properties:tls_parameters:client_certificate_optional",
-          "type": "conflicts"
-        },
-        {
-          "anchor": "section",
-          "enforcement": "provider-schema",
-          "group": "tls_parameters:ConflictingObjectAttributes:client_certificate_optional,no_client_certificate",
-          "source": "ast-validator:ConflictingObjectAttributes",
-          "target_id": "xcsh-docs:resources:advertise_policy:properties:tls_parameters:client_certificate_optional",
-          "type": "conflicts"
-        },
-        {
-          "anchor": "section",
-          "enforcement": "provider-schema",
-          "group": "tls_parameters:ConflictingObjectAttributes:client_certificate_optional,client_certificate_required",
-          "source": "ast-validator:ConflictingObjectAttributes",
-          "target_id": "xcsh-docs:resources:advertise_policy:properties:tls_parameters:client_certificate_required",
-          "type": "conflicts"
-        },
-        {
-          "anchor": "section",
-          "enforcement": "provider-schema",
-          "group": "tls_parameters:ConflictingObjectAttributes:client_certificate_required,no_client_certificate",
-          "source": "ast-validator:ConflictingObjectAttributes",
-          "target_id": "xcsh-docs:resources:advertise_policy:properties:tls_parameters:client_certificate_required",
-          "type": "conflicts"
-        },
-        {
-          "anchor": "section",
-          "enforcement": "provider-schema",
-          "group": "tls_parameters:ConflictingObjectAttributes:client_certificate_optional,no_client_certificate",
-          "source": "ast-validator:ConflictingObjectAttributes",
-          "target_id": "xcsh-docs:resources:advertise_policy:properties:tls_parameters:no_client_certificate",
-          "type": "conflicts"
-        },
-        {
-          "anchor": "section",
-          "enforcement": "provider-schema",
-          "group": "tls_parameters:ConflictingObjectAttributes:client_certificate_required,no_client_certificate",
-          "source": "ast-validator:ConflictingObjectAttributes",
-          "target_id": "xcsh-docs:resources:advertise_policy:properties:tls_parameters:no_client_certificate",
-          "type": "conflicts"
-        }
-      ],
+      "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["tls_parameters"],
@@ -1596,14 +1540,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/advertise_policy/properties/tls_parameters/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "TLS configuration for downstream connections.",
       "tasks": ["configuration"],
       "title": "tls_parameters",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["advertise_policyCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -1626,7 +1570,7 @@
       "path": "documentation/resources/advertise_policy/properties/tls_parameters/client_certificate_optional/index.md",
       "product": "distributed-cloud",
       "provider_name": "advertise_policy",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-3011211000321121-1203211002310022-1301212313121113-1320112310012002-2011003113031221-3102303113123230-1103303232223311-2132302212012103",
       "registry_path": "docs/guides/resources--advertise_policy--reference--group-001.md",
@@ -1636,14 +1580,14 @@
       "schema_path": ["tls_parameters", "client_certificate_optional"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/advertise_policy/properties/tls_parameters/client_certificate_optional/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "tls_parameters.client_certificate_optional",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["advertise_policyCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -1666,7 +1610,7 @@
       "path": "documentation/resources/advertise_policy/properties/tls_parameters/client_certificate_required/index.md",
       "product": "distributed-cloud",
       "provider_name": "advertise_policy",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-2123200310020220-1031310312303233-3202210101131333-2123123110203212-3020312111221120-3303011312012110-3231132302220231-2032131302002002",
       "registry_path": "docs/guides/resources--advertise_policy--reference--group-001.md",
@@ -1676,20 +1620,20 @@
       "schema_path": ["tls_parameters", "client_certificate_required"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/advertise_policy/properties/tls_parameters/client_certificate_required/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "tls_parameters.client_certificate_required",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["advertise_policyCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["tls parameters common params"],
-      "body_bytes": 7212,
-      "body_sha256": "sha256:07ddb84960dc70f511003fad92919695b645f69118f6ec15fc43fa402b8fef71",
+      "body_bytes": 6242,
+      "body_sha256": "sha256:e48f6bd5410720e456f38f9adac1b72e34c16018843a558a17283d2eeae044fd",
       "capabilities": ["load-balancing.tls", "networking"],
       "category": "networking",
       "child_ids": [
@@ -1709,7 +1653,7 @@
       "path": "documentation/resources/advertise_policy/properties/tls_parameters/common_params/index.md",
       "product": "distributed-cloud",
       "provider_name": "advertise_policy",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-0313021030032323-0110121003001310-2011311011311100-1001212322011312-2111223033130030-2203003310213020-0032233221222130-1033202003312030",
       "registry_path": "docs/guides/resources--advertise_policy--reference--group-001.md",
@@ -1739,17 +1683,8 @@
           "anchor": "schema-tls_parameters--common_params--maximum_protocol_version",
           "description": "TlsProtocol is enumeration of supported TLS versions F5 Distributed Cloud will choose the optimal TLS version.",
           "document_id": "xcsh-docs:resources:advertise_policy:properties:tls_parameters:common_params",
-          "enum_extraction_complete": true,
-          "enum_validators": [
-            {
-              "case_sensitive": true,
-              "complete": true,
-              "source": "ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf",
-              "validator": "OneOf",
-              "values": ["TLS_AUTO", "TLSv1_0", "TLSv1_1", "TLSv1_2", "TLSv1_3"],
-              "version": 1
-            }
-          ],
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -1764,17 +1699,8 @@
           "anchor": "schema-tls_parameters--common_params--minimum_protocol_version",
           "description": "TlsProtocol is enumeration of supported TLS versions F5 Distributed Cloud will choose the optimal TLS version.",
           "document_id": "xcsh-docs:resources:advertise_policy:properties:tls_parameters:common_params",
-          "enum_extraction_complete": true,
-          "enum_validators": [
-            {
-              "case_sensitive": true,
-              "complete": true,
-              "source": "ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf",
-              "validator": "OneOf",
-              "values": ["TLS_AUTO", "TLSv1_0", "TLSv1_1", "TLSv1_2", "TLSv1_3"],
-              "version": 1
-            }
-          ],
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -1801,64 +1727,7 @@
           "max_items": null,
           "min_items": null,
           "nesting": "list",
-          "relationships": [
-            {
-              "anchor": "section",
-              "enforcement": "provider-schema",
-              "group": "tls_parameters.common_params.tls_certificates:ConflictingListObjectAttributes:custom_hash_algorithms,disable_ocsp_stapling",
-              "source": "ast-validator:ConflictingListObjectAttributes",
-              "target_id": "xcsh-docs:resources:advertise_policy:properties:tls_parameters:common_params:tls_certificates:custom_hash_algorithms",
-              "type": "conflicts"
-            },
-            {
-              "anchor": "section",
-              "enforcement": "provider-schema",
-              "group": "tls_parameters.common_params.tls_certificates:ConflictingListObjectAttributes:custom_hash_algorithms,use_system_defaults",
-              "source": "ast-validator:ConflictingListObjectAttributes",
-              "target_id": "xcsh-docs:resources:advertise_policy:properties:tls_parameters:common_params:tls_certificates:custom_hash_algorithms",
-              "type": "conflicts"
-            },
-            {
-              "anchor": "section",
-              "enforcement": "provider-schema",
-              "group": "tls_parameters.common_params.tls_certificates:ConflictingListObjectAttributes:custom_hash_algorithms,disable_ocsp_stapling",
-              "source": "ast-validator:ConflictingListObjectAttributes",
-              "target_id": "xcsh-docs:resources:advertise_policy:properties:tls_parameters:common_params:tls_certificates:disable_ocsp_stapling",
-              "type": "conflicts"
-            },
-            {
-              "anchor": "section",
-              "enforcement": "provider-schema",
-              "group": "tls_parameters.common_params.tls_certificates:ConflictingListObjectAttributes:disable_ocsp_stapling,use_system_defaults",
-              "source": "ast-validator:ConflictingListObjectAttributes",
-              "target_id": "xcsh-docs:resources:advertise_policy:properties:tls_parameters:common_params:tls_certificates:disable_ocsp_stapling",
-              "type": "conflicts"
-            },
-            {
-              "anchor": "section",
-              "enforcement": "provider-schema",
-              "group": "tls_parameters.common_params.tls_certificates:ConflictingListObjectAttributes:custom_hash_algorithms,use_system_defaults",
-              "source": "ast-validator:ConflictingListObjectAttributes",
-              "target_id": "xcsh-docs:resources:advertise_policy:properties:tls_parameters:common_params:tls_certificates:use_system_defaults",
-              "type": "conflicts"
-            },
-            {
-              "anchor": "section",
-              "enforcement": "provider-schema",
-              "group": "tls_parameters.common_params.tls_certificates:ConflictingListObjectAttributes:disable_ocsp_stapling,use_system_defaults",
-              "source": "ast-validator:ConflictingListObjectAttributes",
-              "target_id": "xcsh-docs:resources:advertise_policy:properties:tls_parameters:common_params:tls_certificates:use_system_defaults",
-              "type": "conflicts"
-            },
-            {
-              "anchor": "schema-tls_parameters--common_params--tls_certificates--certificate_url",
-              "enforcement": "provider-schema",
-              "group": "tls_parameters.common_params.tls_certificates:RequiredListObjectAttributes:certificate_url",
-              "source": "ast-validator:RequiredListObjectAttributes",
-              "target_id": "xcsh-docs:resources:advertise_policy:properties:tls_parameters:common_params:tls_certificates",
-              "type": "requires"
-            }
-          ],
+          "relationships": [],
           "schema_path": ["tls_parameters", "common_params", "tls_certificates"],
           "syntax": "block",
           "type": "object"
@@ -1874,38 +1743,21 @@
           "max_items": null,
           "min_items": null,
           "nesting": "single",
-          "relationships": [
-            {
-              "anchor": "schema-tls_parameters--common_params--validation_params--trusted_ca_url",
-              "enforcement": "provider-schema",
-              "group": "tls_parameters.common_params.validation_params:ConflictingObjectAttributes:trusted_ca,trusted_ca_url",
-              "source": "ast-validator:ConflictingObjectAttributes",
-              "target_id": "xcsh-docs:resources:advertise_policy:properties:tls_parameters:common_params:validation_params",
-              "type": "conflicts"
-            },
-            {
-              "anchor": "section",
-              "enforcement": "provider-schema",
-              "group": "tls_parameters.common_params.validation_params:ConflictingObjectAttributes:trusted_ca,trusted_ca_url",
-              "source": "ast-validator:ConflictingObjectAttributes",
-              "target_id": "xcsh-docs:resources:advertise_policy:properties:tls_parameters:common_params:validation_params:trusted_ca",
-              "type": "conflicts"
-            }
-          ],
+          "relationships": [],
           "schema_path": ["tls_parameters", "common_params", "validation_params"],
           "syntax": "block",
           "type": "object"
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/advertise_policy/properties/tls_parameters/common_params/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Information of different aspects for TLS authentication related to ciphers, certificates and trust store.",
       "tasks": ["configuration"],
       "title": "tls_parameters.common_params",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["advertise_policyCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -1916,11 +1768,12 @@
         "tls certificates",
         "tls parameters common params tls certificates"
       ],
-      "body_bytes": 4161,
-      "body_sha256": "sha256:f1ef96651f291ac069f3be007cd528dfa92d6804a03397af2daddaf5633300c2",
+      "body_bytes": 3712,
+      "body_sha256": "sha256:8afd01d2808793e130a50ec8f2d6fe0b94af6899910a6a9a493156fd337a4b19",
       "capabilities": ["load-balancing.tls", "networking"],
       "category": "networking",
       "child_ids": [
+        "xcsh-docs:resources:advertise_policy:properties:tls_parameters:common_params:tls_certificates:blindfold",
         "xcsh-docs:resources:advertise_policy:properties:tls_parameters:common_params:tls_certificates:custom_hash_algorithms",
         "xcsh-docs:resources:advertise_policy:properties:tls_parameters:common_params:tls_certificates:disable_ocsp_stapling",
         "xcsh-docs:resources:advertise_policy:properties:tls_parameters:common_params:tls_certificates:private_key",
@@ -1939,72 +1792,31 @@
       "path": "documentation/resources/advertise_policy/properties/tls_parameters/common_params/tls_certificates/index.md",
       "product": "distributed-cloud",
       "provider_name": "advertise_policy",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-1221101232003200-2111301222311033-3321222332231322-2331002022323230-0200030311030103-0222032212012220-2133123120332003-2000021213101133",
       "registry_path": "docs/guides/resources--advertise_policy--reference--group-001.md",
-      "relationships": [
-        {
-          "anchor": "section",
-          "enforcement": "provider-schema",
-          "group": "tls_parameters.common_params.tls_certificates:ConflictingListObjectAttributes:custom_hash_algorithms,disable_ocsp_stapling",
-          "source": "ast-validator:ConflictingListObjectAttributes",
-          "target_id": "xcsh-docs:resources:advertise_policy:properties:tls_parameters:common_params:tls_certificates:custom_hash_algorithms",
-          "type": "conflicts"
-        },
-        {
-          "anchor": "section",
-          "enforcement": "provider-schema",
-          "group": "tls_parameters.common_params.tls_certificates:ConflictingListObjectAttributes:custom_hash_algorithms,use_system_defaults",
-          "source": "ast-validator:ConflictingListObjectAttributes",
-          "target_id": "xcsh-docs:resources:advertise_policy:properties:tls_parameters:common_params:tls_certificates:custom_hash_algorithms",
-          "type": "conflicts"
-        },
-        {
-          "anchor": "section",
-          "enforcement": "provider-schema",
-          "group": "tls_parameters.common_params.tls_certificates:ConflictingListObjectAttributes:custom_hash_algorithms,disable_ocsp_stapling",
-          "source": "ast-validator:ConflictingListObjectAttributes",
-          "target_id": "xcsh-docs:resources:advertise_policy:properties:tls_parameters:common_params:tls_certificates:disable_ocsp_stapling",
-          "type": "conflicts"
-        },
-        {
-          "anchor": "section",
-          "enforcement": "provider-schema",
-          "group": "tls_parameters.common_params.tls_certificates:ConflictingListObjectAttributes:disable_ocsp_stapling,use_system_defaults",
-          "source": "ast-validator:ConflictingListObjectAttributes",
-          "target_id": "xcsh-docs:resources:advertise_policy:properties:tls_parameters:common_params:tls_certificates:disable_ocsp_stapling",
-          "type": "conflicts"
-        },
-        {
-          "anchor": "section",
-          "enforcement": "provider-schema",
-          "group": "tls_parameters.common_params.tls_certificates:ConflictingListObjectAttributes:custom_hash_algorithms,use_system_defaults",
-          "source": "ast-validator:ConflictingListObjectAttributes",
-          "target_id": "xcsh-docs:resources:advertise_policy:properties:tls_parameters:common_params:tls_certificates:use_system_defaults",
-          "type": "conflicts"
-        },
-        {
-          "anchor": "section",
-          "enforcement": "provider-schema",
-          "group": "tls_parameters.common_params.tls_certificates:ConflictingListObjectAttributes:disable_ocsp_stapling,use_system_defaults",
-          "source": "ast-validator:ConflictingListObjectAttributes",
-          "target_id": "xcsh-docs:resources:advertise_policy:properties:tls_parameters:common_params:tls_certificates:use_system_defaults",
-          "type": "conflicts"
-        },
-        {
-          "anchor": "schema-tls_parameters--common_params--tls_certificates--certificate_url",
-          "enforcement": "provider-schema",
-          "group": "tls_parameters.common_params.tls_certificates:RequiredListObjectAttributes:certificate_url",
-          "source": "ast-validator:RequiredListObjectAttributes",
-          "target_id": "xcsh-docs:resources:advertise_policy:properties:tls_parameters:common_params:tls_certificates",
-          "type": "requires"
-        }
-      ],
+      "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["tls_parameters", "common_params", "tls_certificates"],
       "sections": [
+        {
+          "aliases": ["tls parameters common params tls certificates blindfold"],
+          "anchor": "section",
+          "description": "Native certificate preparation. Use PEM files or a P12 file, or write-only key/bundle values with material_version (Terraform 1.11+). Defaults to shared/ves-io-allow-volterra. Inline certificates require unique IDs. Private inputs are never stored.",
+          "document_id": "xcsh-docs:resources:advertise_policy:properties:tls_parameters:common_params:tls_certificates:blindfold",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "single",
+          "relationships": [],
+          "schema_path": ["tls_parameters", "common_params", "tls_certificates", "blindfold"],
+          "syntax": "attribute",
+          "type": "object"
+        },
         {
           "aliases": [
             "cert",
@@ -2016,9 +1828,9 @@
           "anchor": "schema-tls_parameters--common_params--tls_certificates--certificate_url",
           "description": "TLS certificate. Certificate or certificate chain in PEM format including the PEM headers.",
           "document_id": "xcsh-docs:resources:advertise_policy:properties:tls_parameters:common_params:tls_certificates",
-          "enum_extraction_complete": true,
+          "enum_extraction_complete": false,
           "enum_validators": [],
-          "flags": ["optional"],
+          "flags": ["optional", "computed"],
           "max_items": null,
           "min_items": null,
           "nesting": null,
@@ -2038,16 +1850,7 @@
           "max_items": null,
           "min_items": null,
           "nesting": "single",
-          "relationships": [
-            {
-              "anchor": "schema-tls_parameters--common_params--tls_certificates--custom_hash_algorithms--hash_algorithms",
-              "enforcement": "provider-schema",
-              "group": "tls_parameters.common_params.tls_certificates.custom_hash_algorithms:RequiredObjectAttributes:hash_algorithms",
-              "source": "ast-validator:RequiredObjectAttributes",
-              "target_id": "xcsh-docs:resources:advertise_policy:properties:tls_parameters:common_params:tls_certificates:custom_hash_algorithms",
-              "type": "requires"
-            }
-          ],
+          "relationships": [],
           "schema_path": ["tls_parameters", "common_params", "tls_certificates", "custom_hash_algorithms"],
           "syntax": "block",
           "type": "object"
@@ -2095,24 +1898,7 @@
           "max_items": null,
           "min_items": null,
           "nesting": "single",
-          "relationships": [
-            {
-              "anchor": "section",
-              "enforcement": "provider-schema",
-              "group": "tls_parameters.common_params.tls_certificates.private_key:ConflictingObjectAttributes:blindfold_secret_info,clear_secret_info",
-              "source": "ast-validator:ConflictingObjectAttributes",
-              "target_id": "xcsh-docs:resources:advertise_policy:properties:tls_parameters:common_params:tls_certificates:private_key:blindfold_secret_info",
-              "type": "conflicts"
-            },
-            {
-              "anchor": "section",
-              "enforcement": "provider-schema",
-              "group": "tls_parameters.common_params.tls_certificates.private_key:ConflictingObjectAttributes:blindfold_secret_info,clear_secret_info",
-              "source": "ast-validator:ConflictingObjectAttributes",
-              "target_id": "xcsh-docs:resources:advertise_policy:properties:tls_parameters:common_params:tls_certificates:private_key:clear_secret_info",
-              "type": "conflicts"
-            }
-          ],
+          "relationships": [],
           "schema_path": ["tls_parameters", "common_params", "tls_certificates", "private_key"],
           "syntax": "block",
           "type": "object"
@@ -2135,20 +1921,365 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/advertise_policy/properties/tls_parameters/common_params/tls_certificates/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Set of TLS certificates.",
       "tasks": ["configuration"],
       "title": "tls_parameters.common_params.tls_certificates",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["advertise_policyCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
+      }
+    },
+    {
+      "aliases": ["tls parameters common params tls certificates blindfold"],
+      "body_bytes": 4214,
+      "body_sha256": "sha256:e5852253ab81316cd9cdfd0dc3881954e6b0b89eee48301190d2d357a1005d79",
+      "capabilities": ["load-balancing.tls", "networking"],
+      "category": "networking",
+      "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
+        "sources": ["reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-domain"
+      },
+      "collection_id": "xcsh-docs:resources:advertise_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:advertise_policy:properties:tls_parameters:common_params:tls_certificates:blindfold",
+      "parent_id": "xcsh-docs:resources:advertise_policy:properties:tls_parameters:common_params:tls_certificates",
+      "path": "documentation/resources/advertise_policy/properties/tls_parameters/common_params/tls_certificates/blindfold/index.md",
+      "product": "distributed-cloud",
+      "provider_name": "advertise_policy",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
+      "provider_type": "resources",
+      "registry_anchor": "canonical-0102020101330201-1311212232330230-3303013101203021-2033200330313303-0200312101222320-3022202212332201-3022020311223122-3122200003113223",
+      "registry_path": "docs/guides/resources--advertise_policy--reference--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
+      "role": "properties",
+      "schema_path": ["tls_parameters", "common_params", "tls_certificates", "blindfold"],
+      "sections": [
+        {
+          "aliases": ["tls parameters common params tls certificates blindfold algorithm"],
+          "anchor": "schema-tls_parameters--common_params--tls_certificates--blindfold--algorithm",
+          "description": "algorithm",
+          "document_id": "xcsh-docs:resources:advertise_policy:properties:tls_parameters:common_params:tls_certificates:blindfold",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
+          "flags": ["computed"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["tls_parameters", "common_params", "tls_certificates", "blindfold", "algorithm"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["tls parameters common params tls certificates blindfold certificate file"],
+          "anchor": "schema-tls_parameters--common_params--tls_certificates--blindfold--certificate_file",
+          "description": "certificate file",
+          "document_id": "xcsh-docs:resources:advertise_policy:properties:tls_parameters:common_params:tls_certificates:blindfold",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["tls_parameters", "common_params", "tls_certificates", "blindfold", "certificate_file"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["tls parameters common params tls certificates blindfold certificate pem"],
+          "anchor": "schema-tls_parameters--common_params--tls_certificates--blindfold--certificate_pem",
+          "description": "certificate pem",
+          "document_id": "xcsh-docs:resources:advertise_policy:properties:tls_parameters:common_params:tls_certificates:blindfold",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["tls_parameters", "common_params", "tls_certificates", "blindfold", "certificate_pem"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["tls parameters common params tls certificates blindfold chain identity"],
+          "anchor": "schema-tls_parameters--common_params--tls_certificates--blindfold--chain_identity",
+          "description": "chain identity",
+          "document_id": "xcsh-docs:resources:advertise_policy:properties:tls_parameters:common_params:tls_certificates:blindfold",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
+          "flags": ["computed"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["tls_parameters", "common_params", "tls_certificates", "blindfold", "chain_identity"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["tls parameters common params tls certificates blindfold context digest"],
+          "anchor": "schema-tls_parameters--common_params--tls_certificates--blindfold--context_digest",
+          "description": "context digest",
+          "document_id": "xcsh-docs:resources:advertise_policy:properties:tls_parameters:common_params:tls_certificates:blindfold",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
+          "flags": ["computed"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["tls_parameters", "common_params", "tls_certificates", "blindfold", "context_digest"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["tls parameters common params tls certificates blindfold encrypted location"],
+          "anchor": "schema-tls_parameters--common_params--tls_certificates--blindfold--encrypted_location",
+          "description": "encrypted location",
+          "document_id": "xcsh-docs:resources:advertise_policy:properties:tls_parameters:common_params:tls_certificates:blindfold",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
+          "flags": ["computed", "sensitive"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["tls_parameters", "common_params", "tls_certificates", "blindfold", "encrypted_location"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["tls parameters common params tls certificates blindfold expires at"],
+          "anchor": "schema-tls_parameters--common_params--tls_certificates--blindfold--expires_at",
+          "description": "expires at",
+          "document_id": "xcsh-docs:resources:advertise_policy:properties:tls_parameters:common_params:tls_certificates:blindfold",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
+          "flags": ["computed"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["tls_parameters", "common_params", "tls_certificates", "blindfold", "expires_at"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["tls parameters common params tls certificates blindfold fingerprint"],
+          "anchor": "schema-tls_parameters--common_params--tls_certificates--blindfold--fingerprint",
+          "description": "fingerprint",
+          "document_id": "xcsh-docs:resources:advertise_policy:properties:tls_parameters:common_params:tls_certificates:blindfold",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
+          "flags": ["computed"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["tls_parameters", "common_params", "tls_certificates", "blindfold", "fingerprint"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["tls parameters common params tls certificates blindfold id"],
+          "anchor": "schema-tls_parameters--common_params--tls_certificates--blindfold--id",
+          "description": "id",
+          "document_id": "xcsh-docs:resources:advertise_policy:properties:tls_parameters:common_params:tls_certificates:blindfold",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["tls_parameters", "common_params", "tls_certificates", "blindfold", "id"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["tls parameters common params tls certificates blindfold material version"],
+          "anchor": "schema-tls_parameters--common_params--tls_certificates--blindfold--material_version",
+          "description": "material version",
+          "document_id": "xcsh-docs:resources:advertise_policy:properties:tls_parameters:common_params:tls_certificates:blindfold",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["tls_parameters", "common_params", "tls_certificates", "blindfold", "material_version"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["tls parameters common params tls certificates blindfold passphrase env"],
+          "anchor": "schema-tls_parameters--common_params--tls_certificates--blindfold--passphrase_env",
+          "description": "passphrase env",
+          "document_id": "xcsh-docs:resources:advertise_policy:properties:tls_parameters:common_params:tls_certificates:blindfold",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["tls_parameters", "common_params", "tls_certificates", "blindfold", "passphrase_env"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["tls parameters common params tls certificates blindfold passphrase wo"],
+          "anchor": "schema-tls_parameters--common_params--tls_certificates--blindfold--passphrase_wo",
+          "description": "passphrase wo",
+          "document_id": "xcsh-docs:resources:advertise_policy:properties:tls_parameters:common_params:tls_certificates:blindfold",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
+          "flags": ["optional", "sensitive", "write_only"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["tls_parameters", "common_params", "tls_certificates", "blindfold", "passphrase_wo"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["tls parameters common params tls certificates blindfold pkcs12 file"],
+          "anchor": "schema-tls_parameters--common_params--tls_certificates--blindfold--pkcs12_file",
+          "description": "pkcs12 file",
+          "document_id": "xcsh-docs:resources:advertise_policy:properties:tls_parameters:common_params:tls_certificates:blindfold",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["tls_parameters", "common_params", "tls_certificates", "blindfold", "pkcs12_file"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["tls parameters common params tls certificates blindfold pkcs12 wo"],
+          "anchor": "schema-tls_parameters--common_params--tls_certificates--blindfold--pkcs12_wo",
+          "description": "pkcs12 wo",
+          "document_id": "xcsh-docs:resources:advertise_policy:properties:tls_parameters:common_params:tls_certificates:blindfold",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
+          "flags": ["optional", "sensitive", "write_only"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["tls_parameters", "common_params", "tls_certificates", "blindfold", "pkcs12_wo"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["tls parameters common params tls certificates blindfold policy"],
+          "anchor": "schema-tls_parameters--common_params--tls_certificates--blindfold--policy",
+          "description": "policy",
+          "document_id": "xcsh-docs:resources:advertise_policy:properties:tls_parameters:common_params:tls_certificates:blindfold",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["tls_parameters", "common_params", "tls_certificates", "blindfold", "policy"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["tls parameters common params tls certificates blindfold prepared identity"],
+          "anchor": "schema-tls_parameters--common_params--tls_certificates--blindfold--prepared_identity",
+          "description": "prepared identity",
+          "document_id": "xcsh-docs:resources:advertise_policy:properties:tls_parameters:common_params:tls_certificates:blindfold",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
+          "flags": ["computed"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["tls_parameters", "common_params", "tls_certificates", "blindfold", "prepared_identity"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["tls parameters common params tls certificates blindfold private key file"],
+          "anchor": "schema-tls_parameters--common_params--tls_certificates--blindfold--private_key_file",
+          "description": "private key file",
+          "document_id": "xcsh-docs:resources:advertise_policy:properties:tls_parameters:common_params:tls_certificates:blindfold",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["tls_parameters", "common_params", "tls_certificates", "blindfold", "private_key_file"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["tls parameters common params tls certificates blindfold private key wo"],
+          "anchor": "schema-tls_parameters--common_params--tls_certificates--blindfold--private_key_wo",
+          "description": "private key wo",
+          "document_id": "xcsh-docs:resources:advertise_policy:properties:tls_parameters:common_params:tls_certificates:blindfold",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
+          "flags": ["optional", "sensitive", "write_only"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["tls_parameters", "common_params", "tls_certificates", "blindfold", "private_key_wo"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["tls parameters common params tls certificates blindfold spki identity"],
+          "anchor": "schema-tls_parameters--common_params--tls_certificates--blindfold--spki_identity",
+          "description": "spki identity",
+          "document_id": "xcsh-docs:resources:advertise_policy:properties:tls_parameters:common_params:tls_certificates:blindfold",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
+          "flags": ["computed"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["tls_parameters", "common_params", "tls_certificates", "blindfold", "spki_identity"],
+          "syntax": "attribute",
+          "type": "string"
+        }
+      ],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/advertise_policy/properties/tls_parameters/common_params/tls_certificates/blindfold/index.txt",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
+      "summary": "Native certificate preparation. Use PEM files or a P12 file, or write-only key/bundle values with material_version (Terraform 1.11+). Defaults to shared/ves-io-allow-volterra. Inline certificates require unique IDs. Private inputs are never stored.",
+      "tasks": ["configuration"],
+      "title": "tls_parameters.common_params.tls_certificates.blindfold",
+      "upstream_identity": {
+        "release_tag": "v12.0.4",
+        "schema_components": ["advertise_policyCreateRequest"],
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["tls parameters common params tls certificates custom hash algorithms"],
-      "body_bytes": 3111,
-      "body_sha256": "sha256:2ae54c34cdc432a109e528a2bc027a23330c26a5166fc311472242649646773d",
+      "body_bytes": 2763,
+      "body_sha256": "sha256:7e7b8778688a692b1ed7fc74c3921d41cae8b603a35d28553134a95260afd8ff",
       "capabilities": ["load-balancing.tls", "networking"],
       "category": "networking",
       "child_ids": [],
@@ -2165,20 +2296,11 @@
       "path": "documentation/resources/advertise_policy/properties/tls_parameters/common_params/tls_certificates/custom_hash_algorithms/index.md",
       "product": "distributed-cloud",
       "provider_name": "advertise_policy",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-3332322303321230-3131133313232313-1312301101013031-1020112000320130-1312221110111122-3121033333331110-1022331331033112-2320313331213133",
       "registry_path": "docs/guides/resources--advertise_policy--reference--group-001.md",
-      "relationships": [
-        {
-          "anchor": "schema-tls_parameters--common_params--tls_certificates--custom_hash_algorithms--hash_algorithms",
-          "enforcement": "provider-schema",
-          "group": "tls_parameters.common_params.tls_certificates.custom_hash_algorithms:RequiredObjectAttributes:hash_algorithms",
-          "source": "ast-validator:RequiredObjectAttributes",
-          "target_id": "xcsh-docs:resources:advertise_policy:properties:tls_parameters:common_params:tls_certificates:custom_hash_algorithms",
-          "type": "requires"
-        }
-      ],
+      "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["tls_parameters", "common_params", "tls_certificates", "custom_hash_algorithms"],
@@ -2207,14 +2329,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/advertise_policy/properties/tls_parameters/common_params/tls_certificates/custom_hash_algorithms/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Specifies the hash algorithms to be used.",
       "tasks": ["configuration"],
       "title": "tls_parameters.common_params.tls_certificates.custom_hash_algorithms",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["advertise_policyCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -2237,7 +2359,7 @@
       "path": "documentation/resources/advertise_policy/properties/tls_parameters/common_params/tls_certificates/disable_ocsp_stapling/index.md",
       "product": "distributed-cloud",
       "provider_name": "advertise_policy",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-1202331000100033-1020121133121110-2302332233223000-1121022331001132-0212212320203113-3301322222011312-1031231113220210-3230012320320310",
       "registry_path": "docs/guides/resources--advertise_policy--reference--group-001.md",
@@ -2247,20 +2369,20 @@
       "schema_path": ["tls_parameters", "common_params", "tls_certificates", "disable_ocsp_stapling"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/advertise_policy/properties/tls_parameters/common_params/tls_certificates/disable_ocsp_stapling/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "tls_parameters.common_params.tls_certificates.disable_ocsp_stapling",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["advertise_policyCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["tls parameters common params tls certificates private key"],
-      "body_bytes": 2163,
-      "body_sha256": "sha256:d81f40f5f961fddf37d89a1cddb8c2c92c0d1f04603ecf1070aed1c2f48d17d0",
+      "body_bytes": 1945,
+      "body_sha256": "sha256:45556dd5b0eb592ec2f5075edf2051d09920044d3e61462888aefd85a4bf1dbc",
       "capabilities": ["load-balancing.tls", "networking"],
       "category": "networking",
       "child_ids": [
@@ -2280,28 +2402,11 @@
       "path": "documentation/resources/advertise_policy/properties/tls_parameters/common_params/tls_certificates/private_key/index.md",
       "product": "distributed-cloud",
       "provider_name": "advertise_policy",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-0101122331121313-1011022321120120-1211301212301131-2133130302011133-1231000333133202-2332001321021330-1000310130030230-1121112221132202",
       "registry_path": "docs/guides/resources--advertise_policy--reference--group-001.md",
-      "relationships": [
-        {
-          "anchor": "section",
-          "enforcement": "provider-schema",
-          "group": "tls_parameters.common_params.tls_certificates.private_key:ConflictingObjectAttributes:blindfold_secret_info,clear_secret_info",
-          "source": "ast-validator:ConflictingObjectAttributes",
-          "target_id": "xcsh-docs:resources:advertise_policy:properties:tls_parameters:common_params:tls_certificates:private_key:blindfold_secret_info",
-          "type": "conflicts"
-        },
-        {
-          "anchor": "section",
-          "enforcement": "provider-schema",
-          "group": "tls_parameters.common_params.tls_certificates.private_key:ConflictingObjectAttributes:blindfold_secret_info,clear_secret_info",
-          "source": "ast-validator:ConflictingObjectAttributes",
-          "target_id": "xcsh-docs:resources:advertise_policy:properties:tls_parameters:common_params:tls_certificates:private_key:clear_secret_info",
-          "type": "conflicts"
-        }
-      ],
+      "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["tls_parameters", "common_params", "tls_certificates", "private_key"],
@@ -2317,16 +2422,7 @@
           "max_items": null,
           "min_items": null,
           "nesting": "single",
-          "relationships": [
-            {
-              "anchor": "schema-tls_parameters--common_params--tls_certificates--private_key--blindfold_secret_info--location",
-              "enforcement": "provider-schema",
-              "group": "tls_parameters.common_params.tls_certificates.private_key.blindfold_secret_info:RequiredObjectAttributes:location",
-              "source": "ast-validator:RequiredObjectAttributes",
-              "target_id": "xcsh-docs:resources:advertise_policy:properties:tls_parameters:common_params:tls_certificates:private_key:blindfold_secret_info",
-              "type": "requires"
-            }
-          ],
+          "relationships": [],
           "schema_path": [
             "tls_parameters",
             "common_params",
@@ -2348,36 +2444,27 @@
           "max_items": null,
           "min_items": null,
           "nesting": "single",
-          "relationships": [
-            {
-              "anchor": "schema-tls_parameters--common_params--tls_certificates--private_key--clear_secret_info--url",
-              "enforcement": "provider-schema",
-              "group": "tls_parameters.common_params.tls_certificates.private_key.clear_secret_info:RequiredObjectAttributes:url",
-              "source": "ast-validator:RequiredObjectAttributes",
-              "target_id": "xcsh-docs:resources:advertise_policy:properties:tls_parameters:common_params:tls_certificates:private_key:clear_secret_info",
-              "type": "requires"
-            }
-          ],
+          "relationships": [],
           "schema_path": ["tls_parameters", "common_params", "tls_certificates", "private_key", "clear_secret_info"],
           "syntax": "block",
           "type": "object"
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/advertise_policy/properties/tls_parameters/common_params/tls_certificates/private_key/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "SecretType is used in an object to indicate a sensitive/confidential field.",
       "tasks": ["configuration"],
       "title": "tls_parameters.common_params.tls_certificates.private_key",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["advertise_policyCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["tls parameters common params tls certificates private key blindfold secret info"],
-      "body_bytes": 4883,
-      "body_sha256": "sha256:6ff2b1b60fc0c852fcf5f647a16b93a020d26a1ec60621a1bbf4602280af7d7d",
+      "body_bytes": 4532,
+      "body_sha256": "sha256:806b12e9ab70680c818480ec032e818e3ef12172de7228619cc2c6578d828a05",
       "capabilities": ["load-balancing.tls", "networking"],
       "category": "networking",
       "child_ids": [],
@@ -2394,20 +2481,11 @@
       "path": "documentation/resources/advertise_policy/properties/tls_parameters/common_params/tls_certificates/private_key/blindfold_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "advertise_policy",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-2123131112031212-2022030331030321-3330313030013123-3312333332222110-2132331320320331-0333310023230110-2013022010121303-1301022022323110",
       "registry_path": "docs/guides/resources--advertise_policy--reference--group-001.md",
-      "relationships": [
-        {
-          "anchor": "schema-tls_parameters--common_params--tls_certificates--private_key--blindfold_secret_info--location",
-          "enforcement": "provider-schema",
-          "group": "tls_parameters.common_params.tls_certificates.private_key.blindfold_secret_info:RequiredObjectAttributes:location",
-          "source": "ast-validator:RequiredObjectAttributes",
-          "target_id": "xcsh-docs:resources:advertise_policy:properties:tls_parameters:common_params:tls_certificates:private_key:blindfold_secret_info",
-          "type": "requires"
-        }
-      ],
+      "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["tls_parameters", "common_params", "tls_certificates", "private_key", "blindfold_secret_info"],
@@ -2442,7 +2520,7 @@
           "anchor": "schema-tls_parameters--common_params--tls_certificates--private_key--blindfold_secret_info--location",
           "description": "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
           "document_id": "xcsh-docs:resources:advertise_policy:properties:tls_parameters:common_params:tls_certificates:private_key:blindfold_secret_info",
-          "enum_extraction_complete": true,
+          "enum_extraction_complete": false,
           "enum_validators": [],
           "flags": ["optional", "sensitive"],
           "max_items": null,
@@ -2485,20 +2563,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/advertise_policy/properties/tls_parameters/common_params/tls_certificates/private_key/blindfold_secret_info/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
       "tasks": ["configuration"],
       "title": "tls_parameters.common_params.tls_certificates.private_key.blindfold_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["advertise_policyCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["tls parameters common params tls certificates private key clear secret info"],
-      "body_bytes": 3868,
-      "body_sha256": "sha256:dd3ad8142b59dc86436fdd32cd402892ba075d0af3ea4d11241eac49c7f11d87",
+      "body_bytes": 3522,
+      "body_sha256": "sha256:a8b0e828e271edc6e241718d2a92baafa705cff0a712933b3a00632684a74214",
       "capabilities": ["load-balancing.tls", "networking"],
       "category": "networking",
       "child_ids": [],
@@ -2515,20 +2593,11 @@
       "path": "documentation/resources/advertise_policy/properties/tls_parameters/common_params/tls_certificates/private_key/clear_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "advertise_policy",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-0311233030101120-3301012122101211-1001211010310033-3202222101031320-1130011011323302-2333131322033000-3222330121202300-2023020322211001",
       "registry_path": "docs/guides/resources--advertise_policy--reference--group-001.md",
-      "relationships": [
-        {
-          "anchor": "schema-tls_parameters--common_params--tls_certificates--private_key--clear_secret_info--url",
-          "enforcement": "provider-schema",
-          "group": "tls_parameters.common_params.tls_certificates.private_key.clear_secret_info:RequiredObjectAttributes:url",
-          "source": "ast-validator:RequiredObjectAttributes",
-          "target_id": "xcsh-docs:resources:advertise_policy:properties:tls_parameters:common_params:tls_certificates:private_key:clear_secret_info",
-          "type": "requires"
-        }
-      ],
+      "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["tls_parameters", "common_params", "tls_certificates", "private_key", "clear_secret_info"],
@@ -2561,7 +2630,7 @@
           "anchor": "schema-tls_parameters--common_params--tls_certificates--private_key--clear_secret_info--url",
           "description": "URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding.",
           "document_id": "xcsh-docs:resources:advertise_policy:properties:tls_parameters:common_params:tls_certificates:private_key:clear_secret_info",
-          "enum_extraction_complete": true,
+          "enum_extraction_complete": false,
           "enum_validators": [],
           "flags": ["optional", "sensitive"],
           "max_items": null,
@@ -2581,14 +2650,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/advertise_policy/properties/tls_parameters/common_params/tls_certificates/private_key/clear_secret_info/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
       "tasks": ["configuration"],
       "title": "tls_parameters.common_params.tls_certificates.private_key.clear_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["advertise_policyCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -2611,7 +2680,7 @@
       "path": "documentation/resources/advertise_policy/properties/tls_parameters/common_params/tls_certificates/use_system_defaults/index.md",
       "product": "distributed-cloud",
       "provider_name": "advertise_policy",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-1100113010020100-0120101113323322-1322320201022021-3331332012322122-2002021222301231-1003000102013223-2323210121330021-0223021013300112",
       "registry_path": "docs/guides/resources--advertise_policy--reference--group-001.md",
@@ -2621,20 +2690,20 @@
       "schema_path": ["tls_parameters", "common_params", "tls_certificates", "use_system_defaults"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/advertise_policy/properties/tls_parameters/common_params/tls_certificates/use_system_defaults/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "tls_parameters.common_params.tls_certificates.use_system_defaults",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["advertise_policyCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["tls parameters common params validation params"],
-      "body_bytes": 3947,
-      "body_sha256": "sha256:9ac1686643c6527b7ba2db9dce879f093320d1fa2fc5adc4e00681f1fe4bb3f4",
+      "body_bytes": 3573,
+      "body_sha256": "sha256:2baa48f74e5d891ca15d8a21148f7704df624b7314ec4b7596dd7b01f24dba15",
       "capabilities": ["load-balancing.tls", "networking"],
       "category": "networking",
       "child_ids": [
@@ -2653,28 +2722,11 @@
       "path": "documentation/resources/advertise_policy/properties/tls_parameters/common_params/validation_params/index.md",
       "product": "distributed-cloud",
       "provider_name": "advertise_policy",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-1120302121321011-0010323001200020-2112303031220030-2230131220032213-0330011102333312-3132321111013003-3223110311012022-0213313210313002",
       "registry_path": "docs/guides/resources--advertise_policy--reference--group-001.md",
-      "relationships": [
-        {
-          "anchor": "schema-tls_parameters--common_params--validation_params--trusted_ca_url",
-          "enforcement": "provider-schema",
-          "group": "tls_parameters.common_params.validation_params:ConflictingObjectAttributes:trusted_ca,trusted_ca_url",
-          "source": "ast-validator:ConflictingObjectAttributes",
-          "target_id": "xcsh-docs:resources:advertise_policy:properties:tls_parameters:common_params:validation_params",
-          "type": "conflicts"
-        },
-        {
-          "anchor": "section",
-          "enforcement": "provider-schema",
-          "group": "tls_parameters.common_params.validation_params:ConflictingObjectAttributes:trusted_ca,trusted_ca_url",
-          "source": "ast-validator:ConflictingObjectAttributes",
-          "target_id": "xcsh-docs:resources:advertise_policy:properties:tls_parameters:common_params:validation_params:trusted_ca",
-          "type": "conflicts"
-        }
-      ],
+      "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["tls_parameters", "common_params", "validation_params"],
@@ -2716,7 +2768,7 @@
           "anchor": "schema-tls_parameters--common_params--validation_params--trusted_ca_url",
           "description": "Exclusive with Inline Root CA Certificate.",
           "document_id": "xcsh-docs:resources:advertise_policy:properties:tls_parameters:common_params:validation_params",
-          "enum_extraction_complete": true,
+          "enum_extraction_complete": false,
           "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
@@ -2745,14 +2797,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/advertise_policy/properties/tls_parameters/common_params/validation_params/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "This includes URL for a trust store, whether SAN verification is required and list of Subject Alt Names for verification.",
       "tasks": ["configuration"],
       "title": "tls_parameters.common_params.validation_params",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["advertise_policyCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -2777,7 +2829,7 @@
       "path": "documentation/resources/advertise_policy/properties/tls_parameters/common_params/validation_params/trusted_ca/index.md",
       "product": "distributed-cloud",
       "provider_name": "advertise_policy",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-0233330101330001-1132312012321002-1103300322201031-2211112112212211-3120032310213123-2303211230121330-1220132133003132-1001031231101202",
       "registry_path": "docs/guides/resources--advertise_policy--reference--group-001.md",
@@ -2804,20 +2856,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/advertise_policy/properties/tls_parameters/common_params/validation_params/trusted_ca/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Reference to Root CA Certificate.",
       "tasks": ["configuration"],
       "title": "tls_parameters.common_params.validation_params.trusted_ca",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["advertise_policyCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["tls parameters common params validation params trusted ca trusted ca list"],
-      "body_bytes": 6565,
-      "body_sha256": "sha256:10fb144130d9b9580e100e2d829c56eb05e5f92e48a7486894f0f462d2643417",
+      "body_bytes": 6302,
+      "body_sha256": "sha256:5f6be9a3eadf262b258292af753f5969b0dd0db9a23eec00e3a365383bfa5ab5",
       "capabilities": ["load-balancing.tls", "networking"],
       "category": "networking",
       "child_ids": [],
@@ -2834,7 +2886,7 @@
       "path": "documentation/resources/advertise_policy/properties/tls_parameters/common_params/validation_params/trusted_ca/trusted_ca_list/index.md",
       "product": "distributed-cloud",
       "provider_name": "advertise_policy",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-0032331212103230-1031220333120210-0133210331033101-1220300001201202-3102201000223101-2313011310330002-0212011312132223-0202011131112302",
       "registry_path": "docs/guides/resources--advertise_policy--reference--group-001.md",
@@ -2995,14 +3047,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/advertise_policy/properties/tls_parameters/common_params/validation_params/trusted_ca/trusted_ca_list/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Reference to Root CA Certificate.",
       "tasks": ["configuration"],
       "title": "tls_parameters.common_params.validation_params.trusted_ca.trusted_ca_list",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["advertise_policyCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -3025,7 +3077,7 @@
       "path": "documentation/resources/advertise_policy/properties/tls_parameters/no_client_certificate/index.md",
       "product": "distributed-cloud",
       "provider_name": "advertise_policy",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-1123113020213121-0131331120202031-3312010123111102-1332331131322320-3133313322220110-3103120010013310-2201332023123110-2000112122133021",
       "registry_path": "docs/guides/resources--advertise_policy--reference--group-001.md",
@@ -3035,20 +3087,20 @@
       "schema_path": ["tls_parameters", "no_client_certificate"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/advertise_policy/properties/tls_parameters/no_client_certificate/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "tls_parameters.no_client_certificate",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["advertise_policyCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["where"],
-      "body_bytes": 2016,
-      "body_sha256": "sha256:d06b80d3cfe831c96e9bf8c778c336bdccd7faa13f032eddc8131588c3f97cd9",
+      "body_bytes": 1666,
+      "body_sha256": "sha256:c13568ea9436d69878c38a5c7a447e15a7c1db509c1e4912a98ec1359aadb33c",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -3069,60 +3121,11 @@
       "path": "documentation/resources/advertise_policy/properties/where/index.md",
       "product": "distributed-cloud",
       "provider_name": "advertise_policy",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-1132021011013021-1001033122102311-2311002131222013-0101112131230102-3330100301313310-2331313131211020-1323310311022023-1012213313100101",
       "registry_path": "docs/guides/resources--advertise_policy--reference--group-001.md",
-      "relationships": [
-        {
-          "anchor": "section",
-          "enforcement": "provider-schema",
-          "group": "where:ConflictingObjectAttributes:site,virtual_network",
-          "source": "ast-validator:ConflictingObjectAttributes",
-          "target_id": "xcsh-docs:resources:advertise_policy:properties:where:site",
-          "type": "conflicts"
-        },
-        {
-          "anchor": "section",
-          "enforcement": "provider-schema",
-          "group": "where:ConflictingObjectAttributes:site,virtual_site",
-          "source": "ast-validator:ConflictingObjectAttributes",
-          "target_id": "xcsh-docs:resources:advertise_policy:properties:where:site",
-          "type": "conflicts"
-        },
-        {
-          "anchor": "section",
-          "enforcement": "provider-schema",
-          "group": "where:ConflictingObjectAttributes:site,virtual_network",
-          "source": "ast-validator:ConflictingObjectAttributes",
-          "target_id": "xcsh-docs:resources:advertise_policy:properties:where:virtual_network",
-          "type": "conflicts"
-        },
-        {
-          "anchor": "section",
-          "enforcement": "provider-schema",
-          "group": "where:ConflictingObjectAttributes:virtual_network,virtual_site",
-          "source": "ast-validator:ConflictingObjectAttributes",
-          "target_id": "xcsh-docs:resources:advertise_policy:properties:where:virtual_network",
-          "type": "conflicts"
-        },
-        {
-          "anchor": "section",
-          "enforcement": "provider-schema",
-          "group": "where:ConflictingObjectAttributes:site,virtual_site",
-          "source": "ast-validator:ConflictingObjectAttributes",
-          "target_id": "xcsh-docs:resources:advertise_policy:properties:where:virtual_site",
-          "type": "conflicts"
-        },
-        {
-          "anchor": "section",
-          "enforcement": "provider-schema",
-          "group": "where:ConflictingObjectAttributes:virtual_network,virtual_site",
-          "source": "ast-validator:ConflictingObjectAttributes",
-          "target_id": "xcsh-docs:resources:advertise_policy:properties:where:virtual_site",
-          "type": "conflicts"
-        }
-      ],
+      "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["where"],
@@ -3138,32 +3141,7 @@
           "max_items": null,
           "min_items": null,
           "nesting": "single",
-          "relationships": [
-            {
-              "anchor": "section",
-              "enforcement": "provider-schema",
-              "group": "where.site:ConflictingObjectAttributes:disable_internet_vip,enable_internet_vip",
-              "source": "ast-validator:ConflictingObjectAttributes",
-              "target_id": "xcsh-docs:resources:advertise_policy:properties:where:site:disable_internet_vip",
-              "type": "conflicts"
-            },
-            {
-              "anchor": "section",
-              "enforcement": "provider-schema",
-              "group": "where.site:ConflictingObjectAttributes:disable_internet_vip,enable_internet_vip",
-              "source": "ast-validator:ConflictingObjectAttributes",
-              "target_id": "xcsh-docs:resources:advertise_policy:properties:where:site:enable_internet_vip",
-              "type": "conflicts"
-            },
-            {
-              "anchor": "section",
-              "enforcement": "provider-schema",
-              "group": "where.site:RequiredObjectAttributes:ref",
-              "source": "ast-validator:RequiredObjectAttributes",
-              "target_id": "xcsh-docs:resources:advertise_policy:properties:where:site:ref",
-              "type": "requires"
-            }
-          ],
+          "relationships": [],
           "schema_path": ["where", "site"],
           "syntax": "block",
           "type": "object"
@@ -3179,16 +3157,7 @@
           "max_items": null,
           "min_items": null,
           "nesting": "single",
-          "relationships": [
-            {
-              "anchor": "section",
-              "enforcement": "provider-schema",
-              "group": "where.virtual_network:RequiredObjectAttributes:ref",
-              "source": "ast-validator:RequiredObjectAttributes",
-              "target_id": "xcsh-docs:resources:advertise_policy:properties:where:virtual_network:ref",
-              "type": "requires"
-            }
-          ],
+          "relationships": [],
           "schema_path": ["where", "virtual_network"],
           "syntax": "block",
           "type": "object"
@@ -3204,52 +3173,27 @@
           "max_items": null,
           "min_items": null,
           "nesting": "single",
-          "relationships": [
-            {
-              "anchor": "section",
-              "enforcement": "provider-schema",
-              "group": "where.virtual_site:ConflictingObjectAttributes:disable_internet_vip,enable_internet_vip",
-              "source": "ast-validator:ConflictingObjectAttributes",
-              "target_id": "xcsh-docs:resources:advertise_policy:properties:where:virtual_site:disable_internet_vip",
-              "type": "conflicts"
-            },
-            {
-              "anchor": "section",
-              "enforcement": "provider-schema",
-              "group": "where.virtual_site:ConflictingObjectAttributes:disable_internet_vip,enable_internet_vip",
-              "source": "ast-validator:ConflictingObjectAttributes",
-              "target_id": "xcsh-docs:resources:advertise_policy:properties:where:virtual_site:enable_internet_vip",
-              "type": "conflicts"
-            },
-            {
-              "anchor": "section",
-              "enforcement": "provider-schema",
-              "group": "where.virtual_site:RequiredObjectAttributes:ref",
-              "source": "ast-validator:RequiredObjectAttributes",
-              "target_id": "xcsh-docs:resources:advertise_policy:properties:where:virtual_site:ref",
-              "type": "requires"
-            }
-          ],
+          "relationships": [],
           "schema_path": ["where", "virtual_site"],
           "syntax": "block",
           "type": "object"
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/advertise_policy/properties/where/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "NetworkSiteRefSelector defines a union of reference to site or reference to virtual_network or reference to virtual_site It is used to determine virtual network using following rules * Direct reference to virtual_network object * Site local network when referring to site object * All site local networks for sites",
       "tasks": ["configuration"],
       "title": "where",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["advertise_policyCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["where site"],
-      "body_bytes": 8619,
-      "body_sha256": "sha256:d4f48611f7493ef2873ef968fbcc4c8252353800e5b38f580157b2174e8e785d",
+      "body_bytes": 7066,
+      "body_sha256": "sha256:d2721695c734e5dc233c8cd55a78416a8658bef2731139d336a7398342d80b9a",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -3270,36 +3214,11 @@
       "path": "documentation/resources/advertise_policy/properties/where/site/index.md",
       "product": "distributed-cloud",
       "provider_name": "advertise_policy",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-0222101210300200-0323002322120223-1311001311133220-1332231310102120-2023232323202303-1231311002212302-2202201032210023-3331230223123020",
       "registry_path": "docs/guides/resources--advertise_policy--reference--group-001.md",
-      "relationships": [
-        {
-          "anchor": "section",
-          "enforcement": "provider-schema",
-          "group": "where.site:ConflictingObjectAttributes:disable_internet_vip,enable_internet_vip",
-          "source": "ast-validator:ConflictingObjectAttributes",
-          "target_id": "xcsh-docs:resources:advertise_policy:properties:where:site:disable_internet_vip",
-          "type": "conflicts"
-        },
-        {
-          "anchor": "section",
-          "enforcement": "provider-schema",
-          "group": "where.site:ConflictingObjectAttributes:disable_internet_vip,enable_internet_vip",
-          "source": "ast-validator:ConflictingObjectAttributes",
-          "target_id": "xcsh-docs:resources:advertise_policy:properties:where:site:enable_internet_vip",
-          "type": "conflicts"
-        },
-        {
-          "anchor": "section",
-          "enforcement": "provider-schema",
-          "group": "where.site:RequiredObjectAttributes:ref",
-          "source": "ast-validator:RequiredObjectAttributes",
-          "target_id": "xcsh-docs:resources:advertise_policy:properties:where:site:ref",
-          "type": "requires"
-        }
-      ],
+      "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["where", "site"],
@@ -3341,32 +3260,8 @@
           "anchor": "schema-where--site--network_type",
           "description": "Different types of virtual networks understood by the system Virtual-network of type VIRTUAL_NETWORK_SITE_LOCAL provides connectivity to public (outside) network. This is an insecure network and is connected to public internet via NAT Gateways/firwalls Virtual-network of this type is local to every site. Two virtual",
           "document_id": "xcsh-docs:resources:advertise_policy:properties:where:site",
-          "enum_extraction_complete": true,
-          "enum_validators": [
-            {
-              "case_sensitive": true,
-              "complete": true,
-              "source": "ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf",
-              "validator": "OneOf",
-              "values": [
-                "VIRTUAL_NETWORK_GLOBAL",
-                "VIRTUAL_NETWORK_IP_AUTO",
-                "VIRTUAL_NETWORK_IP_FABRIC",
-                "VIRTUAL_NETWORK_MANAGEMENT",
-                "VIRTUAL_NETWORK_PER_SITE",
-                "VIRTUAL_NETWORK_PUBLIC",
-                "VIRTUAL_NETWORK_SEGMENT",
-                "VIRTUAL_NETWORK_SITE_LOCAL",
-                "VIRTUAL_NETWORK_SITE_LOCAL_INSIDE",
-                "VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE",
-                "VIRTUAL_NETWORK_SITE_SERVICE",
-                "VIRTUAL_NETWORK_SRV6_NETWORK",
-                "VIRTUAL_NETWORK_VER_INTERNAL",
-                "VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK"
-              ],
-              "version": 1
-            }
-          ],
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -3394,14 +3289,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/advertise_policy/properties/where/site/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "This specifies a direct reference to a site configuration object.",
       "tasks": ["configuration"],
       "title": "where.site",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["advertise_policyCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -3424,7 +3319,7 @@
       "path": "documentation/resources/advertise_policy/properties/where/site/disable_internet_vip/index.md",
       "product": "distributed-cloud",
       "provider_name": "advertise_policy",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-1320002122002132-3332122222121311-3331310122113332-0110301122000222-2000320302200120-1330303001201010-2032321201033131-2313102010000122",
       "registry_path": "docs/guides/resources--advertise_policy--reference--group-001.md",
@@ -3434,14 +3329,14 @@
       "schema_path": ["where", "site", "disable_internet_vip"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/advertise_policy/properties/where/site/disable_internet_vip/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "where.site.disable_internet_vip",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["advertise_policyCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -3464,7 +3359,7 @@
       "path": "documentation/resources/advertise_policy/properties/where/site/enable_internet_vip/index.md",
       "product": "distributed-cloud",
       "provider_name": "advertise_policy",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-2330210001212231-3011112101111032-1032201303001301-0213220033303121-1002110123331330-2003130213231012-3332103222133001-3012312020012332",
       "registry_path": "docs/guides/resources--advertise_policy--reference--group-001.md",
@@ -3474,20 +3369,20 @@
       "schema_path": ["where", "site", "enable_internet_vip"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/advertise_policy/properties/where/site/enable_internet_vip/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "where.site.enable_internet_vip",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["advertise_policyCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["where site ref"],
-      "body_bytes": 5739,
-      "body_sha256": "sha256:8ef919dcab61039c260441c64db91ceb58760fde7f854f1e1f4d042f5c450d92",
+      "body_bytes": 5476,
+      "body_sha256": "sha256:8408eaeb9d4cb8cbc8ebbbfc32ec6ea9e08d5a6bf241972ea48631b35feefc60",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -3504,7 +3399,7 @@
       "path": "documentation/resources/advertise_policy/properties/where/site/ref/index.md",
       "product": "distributed-cloud",
       "provider_name": "advertise_policy",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-3231123131130331-2122200032111122-1320131300022101-3210333203223112-0232302012133032-2001011033110030-3030101123133002-2130130331031321",
       "registry_path": "docs/guides/resources--advertise_policy--reference--group-001.md",
@@ -3630,20 +3525,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/advertise_policy/properties/where/site/ref/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "A site direct reference.",
       "tasks": ["configuration"],
       "title": "where.site.ref",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["advertise_policyCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["where virtual network"],
-      "body_bytes": 1281,
-      "body_sha256": "sha256:1008a877a58cdab28988c67ce413432a9f1cbcbc5a198e4ff403e1aa41c7bbe0",
+      "body_bytes": 1109,
+      "body_sha256": "sha256:1100629c2bf6329e845d9b1214a75a2be3cc39144b5a409eb5d735c25019ff86",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": ["xcsh-docs:resources:advertise_policy:properties:where:virtual_network:ref"],
@@ -3660,20 +3555,11 @@
       "path": "documentation/resources/advertise_policy/properties/where/virtual_network/index.md",
       "product": "distributed-cloud",
       "provider_name": "advertise_policy",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-3122020011221101-1023022311233310-1101232302222111-0103003032303222-0323233201231323-3133132331222122-0301313303200101-1121023221321331",
       "registry_path": "docs/guides/resources--advertise_policy--reference--group-001.md",
-      "relationships": [
-        {
-          "anchor": "section",
-          "enforcement": "provider-schema",
-          "group": "where.virtual_network:RequiredObjectAttributes:ref",
-          "source": "ast-validator:RequiredObjectAttributes",
-          "target_id": "xcsh-docs:resources:advertise_policy:properties:where:virtual_network:ref",
-          "type": "requires"
-        }
-      ],
+      "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["where", "virtual_network"],
@@ -3696,20 +3582,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/advertise_policy/properties/where/virtual_network/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "This specifies a direct reference to a network configuration object.",
       "tasks": ["configuration"],
       "title": "where.virtual_network",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["advertise_policyCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["where virtual network ref"],
-      "body_bytes": 5849,
-      "body_sha256": "sha256:942c3cd96404fdeb6af24d26d31c5a218589c9f33043856a6fb2ea65a2b7ae20",
+      "body_bytes": 5586,
+      "body_sha256": "sha256:324261629deb6c4ae0b6bcb4f285bb1f9eee10f906695da041d8b5181a53cf4b",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -3726,7 +3612,7 @@
       "path": "documentation/resources/advertise_policy/properties/where/virtual_network/ref/index.md",
       "product": "distributed-cloud",
       "provider_name": "advertise_policy",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-1320300130123330-1221122030023102-3210312132212222-1302022121221323-2223101301311012-3022101003211323-1101301330331223-2231131221000202",
       "registry_path": "docs/guides/resources--advertise_policy--reference--group-001.md",
@@ -3852,20 +3738,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/advertise_policy/properties/where/virtual_network/ref/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "A virtual network direct reference.",
       "tasks": ["configuration"],
       "title": "where.virtual_network.ref",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["advertise_policyCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["where virtual site"],
-      "body_bytes": 8660,
-      "body_sha256": "sha256:676e4b1c28cc7ad411d959712972463381f1dcf61e5f9d08df35a48b25c5384a",
+      "body_bytes": 7107,
+      "body_sha256": "sha256:0bbe24b39cc3b0533270331beb95a30228b9534c30293e617b28b37d2a98a4d2",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -3886,36 +3772,11 @@
       "path": "documentation/resources/advertise_policy/properties/where/virtual_site/index.md",
       "product": "distributed-cloud",
       "provider_name": "advertise_policy",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-3001022020113000-1323122102210321-0123111102031203-2122012110331032-1230222231110302-2322320110032111-2033032202032030-0000113201220002",
       "registry_path": "docs/guides/resources--advertise_policy--reference--group-001.md",
-      "relationships": [
-        {
-          "anchor": "section",
-          "enforcement": "provider-schema",
-          "group": "where.virtual_site:ConflictingObjectAttributes:disable_internet_vip,enable_internet_vip",
-          "source": "ast-validator:ConflictingObjectAttributes",
-          "target_id": "xcsh-docs:resources:advertise_policy:properties:where:virtual_site:disable_internet_vip",
-          "type": "conflicts"
-        },
-        {
-          "anchor": "section",
-          "enforcement": "provider-schema",
-          "group": "where.virtual_site:ConflictingObjectAttributes:disable_internet_vip,enable_internet_vip",
-          "source": "ast-validator:ConflictingObjectAttributes",
-          "target_id": "xcsh-docs:resources:advertise_policy:properties:where:virtual_site:enable_internet_vip",
-          "type": "conflicts"
-        },
-        {
-          "anchor": "section",
-          "enforcement": "provider-schema",
-          "group": "where.virtual_site:RequiredObjectAttributes:ref",
-          "source": "ast-validator:RequiredObjectAttributes",
-          "target_id": "xcsh-docs:resources:advertise_policy:properties:where:virtual_site:ref",
-          "type": "requires"
-        }
-      ],
+      "relationships": [],
       "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["where", "virtual_site"],
@@ -3957,32 +3818,8 @@
           "anchor": "schema-where--virtual_site--network_type",
           "description": "Different types of virtual networks understood by the system Virtual-network of type VIRTUAL_NETWORK_SITE_LOCAL provides connectivity to public (outside) network. This is an insecure network and is connected to public internet via NAT Gateways/firwalls Virtual-network of this type is local to every site. Two virtual",
           "document_id": "xcsh-docs:resources:advertise_policy:properties:where:virtual_site",
-          "enum_extraction_complete": true,
-          "enum_validators": [
-            {
-              "case_sensitive": true,
-              "complete": true,
-              "source": "ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf",
-              "validator": "OneOf",
-              "values": [
-                "VIRTUAL_NETWORK_GLOBAL",
-                "VIRTUAL_NETWORK_IP_AUTO",
-                "VIRTUAL_NETWORK_IP_FABRIC",
-                "VIRTUAL_NETWORK_MANAGEMENT",
-                "VIRTUAL_NETWORK_PER_SITE",
-                "VIRTUAL_NETWORK_PUBLIC",
-                "VIRTUAL_NETWORK_SEGMENT",
-                "VIRTUAL_NETWORK_SITE_LOCAL",
-                "VIRTUAL_NETWORK_SITE_LOCAL_INSIDE",
-                "VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE",
-                "VIRTUAL_NETWORK_SITE_SERVICE",
-                "VIRTUAL_NETWORK_SRV6_NETWORK",
-                "VIRTUAL_NETWORK_VER_INTERNAL",
-                "VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK"
-              ],
-              "version": 1
-            }
-          ],
+          "enum_extraction_complete": false,
+          "enum_validators": [],
           "flags": ["optional"],
           "max_items": null,
           "min_items": null,
@@ -4010,14 +3847,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/advertise_policy/properties/where/virtual_site/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "A reference to virtual_site object.",
       "tasks": ["configuration"],
       "title": "where.virtual_site",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["advertise_policyCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -4040,7 +3877,7 @@
       "path": "documentation/resources/advertise_policy/properties/where/virtual_site/disable_internet_vip/index.md",
       "product": "distributed-cloud",
       "provider_name": "advertise_policy",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-1333302102211023-0220022132011031-2211302022331310-0031120020233331-2200020020312122-0001132013211120-0000100120102033-2203231213212213",
       "registry_path": "docs/guides/resources--advertise_policy--reference--group-001.md",
@@ -4050,14 +3887,14 @@
       "schema_path": ["where", "virtual_site", "disable_internet_vip"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/advertise_policy/properties/where/virtual_site/disable_internet_vip/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "where.virtual_site.disable_internet_vip",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["advertise_policyCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -4080,7 +3917,7 @@
       "path": "documentation/resources/advertise_policy/properties/where/virtual_site/enable_internet_vip/index.md",
       "product": "distributed-cloud",
       "provider_name": "advertise_policy",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-3331210201121020-3101332102331202-2230102112333212-2102200020003313-0302102211120033-2033321012301110-3221133032031123-1302201222301230",
       "registry_path": "docs/guides/resources--advertise_policy--reference--group-001.md",
@@ -4090,20 +3927,20 @@
       "schema_path": ["where", "virtual_site", "enable_internet_vip"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/advertise_policy/properties/where/virtual_site/enable_internet_vip/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "where.virtual_site.enable_internet_vip",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["advertise_policyCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
       "aliases": ["where virtual site ref"],
-      "body_bytes": 5820,
-      "body_sha256": "sha256:57e68fe05e47e4ff1f5051332dc199a1fb59ccf96da0b5c84734c481341d4acc",
+      "body_bytes": 5557,
+      "body_sha256": "sha256:98349b23ba70362c7698ce438532fcacc8855bf200520e61b4760f72ef719c88",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -4120,7 +3957,7 @@
       "path": "documentation/resources/advertise_policy/properties/where/virtual_site/ref/index.md",
       "product": "distributed-cloud",
       "provider_name": "advertise_policy",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-0330132212201313-2100222231210122-3010202302323202-1232213220231310-3223022012311001-2102011101300123-2331110231122113-3121322330202313",
       "registry_path": "docs/guides/resources--advertise_policy--reference--group-001.md",
@@ -4246,14 +4083,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/advertise_policy/properties/where/virtual_site/ref/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "A virtual_site direct reference.",
       "tasks": ["configuration"],
       "title": "where.virtual_site.ref",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["advertise_policyCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -4276,7 +4113,7 @@
       "path": "documentation/resources/advertise_policy/examples/index.md",
       "product": "distributed-cloud",
       "provider_name": "advertise_policy",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-1222032302121303-1310301213122232-0312232232033120-3310223121230221-0301130033022321-0320133021320102-3021001333220022-1013311233113223",
       "registry_path": "docs/guides/resources--advertise_policy--examples--group-001.md",
@@ -4286,14 +4123,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/advertise_policy/examples/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Examples for xcsh_advertise_policy.",
       "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["advertise_policyCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -4323,7 +4160,7 @@
       "path": "documentation/resources/advertise_policy/examples/resource/index.md",
       "product": "distributed-cloud",
       "provider_name": "advertise_policy",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-1130302312201231-2213332000223123-2201301302211121-1220330133313300-3102122020131231-2010302111013101-2113320200031320-0222303330222321",
       "registry_path": "docs/guides/resources--advertise_policy--examples--group-001.md",
@@ -4333,14 +4170,14 @@
       "schema_path": ["resource"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/advertise_policy/examples/resource/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Resource for xcsh_advertise_policy.",
       "tasks": ["configuration"],
       "title": "Resource",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["advertise_policyCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -4364,7 +4201,7 @@
       "path": "documentation/resources/advertise_policy/lifecycle/import/index.md",
       "product": "distributed-cloud",
       "provider_name": "advertise_policy",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-3220131202323231-2120121230133121-2320012030002312-0100000301233001-3023032020101302-0331332113212010-3212020332233100-1113302202011131",
       "registry_path": "docs/guides/resources--advertise_policy--lifecycle--group-001.md",
@@ -4374,14 +4211,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/advertise_policy/lifecycle/import/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Import for xcsh_advertise_policy.",
       "tasks": ["import"],
       "title": "Import",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["advertise_policyCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     },
     {
@@ -4404,7 +4241,7 @@
       "path": "documentation/resources/advertise_policy/lifecycle/timeouts/index.md",
       "product": "distributed-cloud",
       "provider_name": "advertise_policy",
-      "provider_schema_digest": "sha256:3781a6379f2e577c345b0b96b045909a7e613252151aa7230ef45f5aa7bad429",
+      "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
       "provider_type": "resources",
       "registry_anchor": "canonical-1301203200233000-0211103303021221-3303210110033232-0010021033130333-1012322222211121-1000000300312030-3020323232333013-0100000233321220",
       "registry_path": "docs/guides/resources--advertise_policy--lifecycle--group-001.md",
@@ -4414,14 +4251,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/advertise_policy/lifecycle/timeouts/index.txt",
-      "spec_pin_digest": "sha256:2276c84e7ee95ed330198915b02d51b561c3c6ffa847cc94557c7c69ba2b4833",
+      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
       "summary": "Timeouts for xcsh_advertise_policy.",
       "tasks": ["lifecycle"],
       "title": "Timeouts",
       "upstream_identity": {
-        "release_tag": "v12.0.3",
+        "release_tag": "v12.0.4",
         "schema_components": ["advertise_policyCreateRequest"],
-        "target_commit": "6e75ef52298b89a53124977b4ae265f8020a04a8"
+        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
       }
     }
   ],
