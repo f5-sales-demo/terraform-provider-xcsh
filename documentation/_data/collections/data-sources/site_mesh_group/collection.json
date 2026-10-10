@@ -202,21 +202,21 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/site_mesh_group/index.txt",
-      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
+      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
       "summary": "Reads Site Mesh Group information from F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_site_mesh_group",
       "unresolved_relationships": [{ "name": "site", "source": "receipt-pinned-dependency:required" }],
       "upstream_identity": {
-        "release_tag": "v12.0.4",
+        "release_tag": "v12.0.5",
         "schema_components": ["site_mesh_groupCreateRequest"],
-        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
+        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
       }
     },
     {
       "aliases": ["site mesh group"],
       "body_bytes": 13750,
-      "body_sha256": "sha256:2cfdf2b44859a2ea1e8e5232fecaf58c04d3926edd642786ff64850f9e6a5215",
+      "body_sha256": "sha256:ec4aefb4f89e46f7de12d4245f1b80c1d82e8bb21dad75d40159b94c5eaf0def",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -477,14 +477,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/site_mesh_group/properties/index.txt",
-      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
+      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
       "summary": "Property reference for xcsh_site_mesh_group.",
       "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v12.0.4",
+        "release_tag": "v12.0.5",
         "schema_components": ["site_mesh_groupCreateRequest"],
-        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
+        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
       }
     },
     {
@@ -517,20 +517,20 @@
       "schema_path": ["bfd_disabled"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/site_mesh_group/properties/bfd_disabled/index.txt",
-      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
+      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "bfd_disabled",
       "upstream_identity": {
-        "release_tag": "v12.0.4",
+        "release_tag": "v12.0.5",
         "schema_components": ["site_mesh_groupCreateRequest"],
-        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
+        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
       }
     },
     {
       "aliases": ["bfd enabled"],
       "body_bytes": 3691,
-      "body_sha256": "sha256:c6cd127022dc9d2d1037420b4e40cff6e9d13faf0fa60f7013fe979153bd2cbd",
+      "body_sha256": "sha256:f4476125453fd8f00a082f931ee8f54d4c561796ca0061271a9a0968341cc121",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -606,14 +606,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/site_mesh_group/properties/bfd_enabled/index.txt",
-      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
+      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
       "summary": "BFD parameters.",
       "tasks": ["configuration"],
       "title": "bfd_enabled",
       "upstream_identity": {
-        "release_tag": "v12.0.4",
+        "release_tag": "v12.0.5",
         "schema_components": ["site_mesh_groupCreateRequest"],
-        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
+        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
       }
     },
     {
@@ -646,14 +646,14 @@
       "schema_path": ["disable_re_fallback"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/site_mesh_group/properties/disable_re_fallback/index.txt",
-      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
+      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "disable_re_fallback",
       "upstream_identity": {
-        "release_tag": "v12.0.4",
+        "release_tag": "v12.0.5",
         "schema_components": ["site_mesh_groupCreateRequest"],
-        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
+        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
       }
     },
     {
@@ -686,14 +686,14 @@
       "schema_path": ["enable_re_fallback"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/site_mesh_group/properties/enable_re_fallback/index.txt",
-      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
+      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "enable_re_fallback",
       "upstream_identity": {
-        "release_tag": "v12.0.4",
+        "release_tag": "v12.0.5",
         "schema_components": ["site_mesh_groupCreateRequest"],
-        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
+        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
       }
     },
     {
@@ -762,14 +762,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/site_mesh_group/properties/full_mesh/index.txt",
-      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
+      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
       "summary": "Details of Full Mesh Group Type.",
       "tasks": ["configuration"],
       "title": "full_mesh",
       "upstream_identity": {
-        "release_tag": "v12.0.4",
+        "release_tag": "v12.0.5",
         "schema_components": ["site_mesh_groupCreateRequest"],
-        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
+        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
       }
     },
     {
@@ -802,14 +802,14 @@
       "schema_path": ["full_mesh", "control_and_data_plane_mesh"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/site_mesh_group/properties/full_mesh/control_and_data_plane_mesh/index.txt",
-      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
+      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "full_mesh.control_and_data_plane_mesh",
       "upstream_identity": {
-        "release_tag": "v12.0.4",
+        "release_tag": "v12.0.5",
         "schema_components": ["site_mesh_groupCreateRequest"],
-        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
+        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
       }
     },
     {
@@ -842,14 +842,14 @@
       "schema_path": ["full_mesh", "data_plane_mesh"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/site_mesh_group/properties/full_mesh/data_plane_mesh/index.txt",
-      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
+      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "full_mesh.data_plane_mesh",
       "upstream_identity": {
-        "release_tag": "v12.0.4",
+        "release_tag": "v12.0.5",
         "schema_components": ["site_mesh_groupCreateRequest"],
-        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
+        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
       }
     },
     {
@@ -918,14 +918,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/site_mesh_group/properties/hub_mesh/index.txt",
-      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
+      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
       "summary": "Details of Hub Full Mesh Group Type.",
       "tasks": ["configuration"],
       "title": "hub_mesh",
       "upstream_identity": {
-        "release_tag": "v12.0.4",
+        "release_tag": "v12.0.5",
         "schema_components": ["site_mesh_groupCreateRequest"],
-        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
+        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
       }
     },
     {
@@ -958,14 +958,14 @@
       "schema_path": ["hub_mesh", "control_and_data_plane_mesh"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/site_mesh_group/properties/hub_mesh/control_and_data_plane_mesh/index.txt",
-      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
+      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "hub_mesh.control_and_data_plane_mesh",
       "upstream_identity": {
-        "release_tag": "v12.0.4",
+        "release_tag": "v12.0.5",
         "schema_components": ["site_mesh_groupCreateRequest"],
-        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
+        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
       }
     },
     {
@@ -998,14 +998,14 @@
       "schema_path": ["hub_mesh", "data_plane_mesh"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/site_mesh_group/properties/hub_mesh/data_plane_mesh/index.txt",
-      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
+      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "hub_mesh.data_plane_mesh",
       "upstream_identity": {
-        "release_tag": "v12.0.4",
+        "release_tag": "v12.0.5",
         "schema_components": ["site_mesh_groupCreateRequest"],
-        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
+        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
       }
     },
     {
@@ -1091,14 +1091,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/site_mesh_group/properties/spoke_mesh/index.txt",
-      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
+      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
       "summary": "Details of Spoke Mesh Group Type.",
       "tasks": ["configuration"],
       "title": "spoke_mesh",
       "upstream_identity": {
-        "release_tag": "v12.0.4",
+        "release_tag": "v12.0.5",
         "schema_components": ["site_mesh_groupCreateRequest"],
-        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
+        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
       }
     },
     {
@@ -1131,14 +1131,14 @@
       "schema_path": ["spoke_mesh", "control_and_data_plane_mesh"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/site_mesh_group/properties/spoke_mesh/control_and_data_plane_mesh/index.txt",
-      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
+      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "spoke_mesh.control_and_data_plane_mesh",
       "upstream_identity": {
-        "release_tag": "v12.0.4",
+        "release_tag": "v12.0.5",
         "schema_components": ["site_mesh_groupCreateRequest"],
-        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
+        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
       }
     },
     {
@@ -1171,20 +1171,20 @@
       "schema_path": ["spoke_mesh", "data_plane_mesh"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/site_mesh_group/properties/spoke_mesh/data_plane_mesh/index.txt",
-      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
+      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "spoke_mesh.data_plane_mesh",
       "upstream_identity": {
-        "release_tag": "v12.0.4",
+        "release_tag": "v12.0.5",
         "schema_components": ["site_mesh_groupCreateRequest"],
-        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
+        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
       }
     },
     {
       "aliases": ["spoke mesh hub mesh group"],
       "body_bytes": 4435,
-      "body_sha256": "sha256:c53597910df3bc7c44a99694ff83fd2f5acfeae3173628c4564e7f7403039506",
+      "body_sha256": "sha256:0d2afaa132d8fe6ceb3c5cca67f701d899c91157743e713e2925261c313f87d2",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -1281,20 +1281,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/site_mesh_group/properties/spoke_mesh/hub_mesh_group/index.txt",
-      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
+      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "spoke_mesh.hub_mesh_group",
       "upstream_identity": {
-        "release_tag": "v12.0.4",
+        "release_tag": "v12.0.5",
         "schema_components": ["site_mesh_groupCreateRequest"],
-        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
+        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
       }
     },
     {
       "aliases": ["virtual site"],
       "body_bytes": 5205,
-      "body_sha256": "sha256:b04212a1f4f20315b1241410e002f2fa388f86b1b809a32ed89ae2ab29264716",
+      "body_sha256": "sha256:e3ee2062ef82e53261985ec4e0e06e12d141862b11a1ce8da78c893a708a5ed8",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -1437,14 +1437,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/site_mesh_group/properties/virtual_site/index.txt",
-      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
+      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
       "summary": "Set of sites for which this mesh group config is valid. If 'Type' is Spoke, then it gives set of spoke sites. If 'Type' is Hub, then it gives set of hub sites. If 'Type' is Full Mesh, then it gives set of sites that are connected in full mesh.",
       "tasks": ["configuration"],
       "title": "virtual_site",
       "upstream_identity": {
-        "release_tag": "v12.0.4",
+        "release_tag": "v12.0.5",
         "schema_components": ["site_mesh_groupCreateRequest"],
-        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
+        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
       }
     },
     {
@@ -1477,14 +1477,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/site_mesh_group/examples/index.txt",
-      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
+      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
       "summary": "Examples for xcsh_site_mesh_group.",
       "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v12.0.4",
+        "release_tag": "v12.0.5",
         "schema_components": ["site_mesh_groupCreateRequest"],
-        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
+        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
       }
     },
     {
@@ -1524,14 +1524,14 @@
       "schema_path": ["data-source"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/site_mesh_group/examples/data-source/index.txt",
-      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
+      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
       "summary": "Data source for xcsh_site_mesh_group.",
       "tasks": ["configuration"],
       "title": "Data source",
       "upstream_identity": {
-        "release_tag": "v12.0.4",
+        "release_tag": "v12.0.5",
         "schema_components": ["site_mesh_groupCreateRequest"],
-        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
+        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
       }
     }
   ],

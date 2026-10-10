@@ -82,15 +82,15 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/public_ip_binding/index.txt",
-      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
+      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
       "summary": "Manage the regional virtual-site binding of an already allocated public IP. Creation adopts only the binding; deletion restores its captured original binding. This resource never allocates, deallocates or deletes the public IP.",
       "tasks": ["configuration"],
       "title": "xcsh_public_ip_binding",
       "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v12.0.4",
+        "release_tag": "v12.0.5",
         "schema_components": [],
-        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
+        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
       }
     },
     {
@@ -252,14 +252,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/public_ip_binding/properties/index.txt",
-      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
+      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
       "summary": "Property reference for xcsh_public_ip_binding.",
       "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v12.0.4",
+        "release_tag": "v12.0.5",
         "schema_components": [],
-        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
+        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
       }
     },
     {
@@ -292,14 +292,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/public_ip_binding/examples/index.txt",
-      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
+      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
       "summary": "Examples for xcsh_public_ip_binding.",
       "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v12.0.4",
+        "release_tag": "v12.0.5",
         "schema_components": [],
-        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
+        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
       }
     },
     {
@@ -339,14 +339,14 @@
       "schema_path": ["resource"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/public_ip_binding/examples/resource/index.txt",
-      "spec_pin_digest": "sha256:e06a3ea9db6a533295efd5c7a477afc65990ba80c3a998885b97b47262cfe9f1",
+      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
       "summary": "Resource for xcsh_public_ip_binding.",
       "tasks": ["configuration"],
       "title": "Resource",
       "upstream_identity": {
-        "release_tag": "v12.0.4",
+        "release_tag": "v12.0.5",
         "schema_components": [],
-        "target_commit": "c5ce81d5fb15314a0f9398db954e0da111d89606"
+        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
       }
     }
   ],

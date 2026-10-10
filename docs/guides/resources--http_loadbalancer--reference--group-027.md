@@ -669,7 +669,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-10-09T12:34:59+00:00"
+      "validatedAt": "2026-10-10T03:47:03+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -707,7 +707,7 @@ Receipt-pinned upstream constraints:
       "confidence": 1.0,
       "note": "Blindfold envelope encryption (AES-256-GCM + RSA-OAEP) of an RSA-2048 TLS private key produces ~3700 char string:/// URL. 128KB max secret size = ~175KB base64. Discovery reported 1024 which is incorrect.",
       "source": "manual-override",
-      "validatedAt": "2026-10-09T12:34:59+00:00"
+      "validatedAt": "2026-10-10T03:47:03+00:00"
     },
     "minLength": 4
   },
@@ -751,7 +751,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-10-09T12:34:59+00:00"
+      "validatedAt": "2026-10-10T03:47:03+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -852,7 +852,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-09T12:34:59+00:00"
+      "validatedAt": "2026-10-10T03:47:03+00:00"
     },
     "minLength": 1,
     "pattern": "^(https?|ftp)://[^\\s/$.?#].[^\\s]*$",
@@ -916,7 +916,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-09T12:34:59+00:00"
+      "validatedAt": "2026-10-10T03:47:03+00:00"
     },
     "uniqueItems": true
   },
@@ -1006,7 +1006,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-09T12:34:59+00:00"
+      "validatedAt": "2026-10-10T03:47:03+00:00"
     },
     "minLength": 1,
     "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
@@ -1057,7 +1057,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-09T12:34:59+00:00"
+      "validatedAt": "2026-10-10T03:47:03+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -1199,7 +1199,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-10-09T12:34:59+00:00"
+      "validatedAt": "2026-10-10T03:47:03+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -1237,7 +1237,7 @@ Receipt-pinned upstream constraints:
       "confidence": 1.0,
       "note": "Blindfold envelope encryption (AES-256-GCM + RSA-OAEP) of an RSA-2048 TLS private key produces ~3700 char string:/// URL. 128KB max secret size = ~175KB base64. Discovery reported 1024 which is incorrect.",
       "source": "manual-override",
-      "validatedAt": "2026-10-09T12:34:59+00:00"
+      "validatedAt": "2026-10-10T03:47:03+00:00"
     },
     "minLength": 4
   },
@@ -1281,7 +1281,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-10-09T12:34:59+00:00"
+      "validatedAt": "2026-10-10T03:47:03+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -1382,7 +1382,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-09T12:34:59+00:00"
+      "validatedAt": "2026-10-10T03:47:03+00:00"
     },
     "minLength": 1,
     "pattern": "^(https?|ftp)://[^\\s/$.?#].[^\\s]*$",
@@ -1535,7 +1535,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "api-probed",
-      "validatedAt": "2026-10-09T12:34:59+00:00"
+      "validatedAt": "2026-10-10T03:47:03+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -1575,7 +1575,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "api-probed",
-      "validatedAt": "2026-10-09T12:34:59+00:00"
+      "validatedAt": "2026-10-10T03:47:03+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -1616,7 +1616,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-09T12:34:59+00:00"
+      "validatedAt": "2026-10-10T03:47:03+00:00"
     },
     "uniqueItems": true
   },
@@ -1691,7 +1691,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-09T12:34:59+00:00"
+      "validatedAt": "2026-10-10T03:47:03+00:00"
     },
     "minItems": 1,
     "uniqueItems": true
@@ -1787,7 +1787,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "api-probed",
-      "validatedAt": "2026-10-09T12:34:59+00:00"
+      "validatedAt": "2026-10-10T03:47:03+00:00"
     },
     "minimum": 1
   },
@@ -1927,7 +1927,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-09T12:34:59+00:00"
+      "validatedAt": "2026-10-10T03:47:03+00:00"
     },
     "uniqueItems": true
   },
@@ -1989,7 +1989,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-09T12:34:59+00:00"
+      "validatedAt": "2026-10-10T03:47:03+00:00"
     },
     "minLength": 1
   },
@@ -2161,7 +2161,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-09T12:34:59+00:00"
+      "validatedAt": "2026-10-10T03:47:03+00:00"
     },
     "minLength": 1,
     "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
@@ -2211,7 +2211,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.8,
       "source": "inferred",
-      "validatedAt": "2026-10-09T12:34:59+00:00"
+      "validatedAt": "2026-10-10T03:47:03+00:00"
     },
     "minLength": 1,
     "pattern": "^[/a-zA-Z0-9._-]+$"
@@ -2739,7 +2739,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-09T12:34:59+00:00"
+      "validatedAt": "2026-10-10T03:47:03+00:00"
     },
     "minLength": 1
   },
@@ -2797,7 +2797,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-09T12:34:59+00:00"
+      "validatedAt": "2026-10-10T03:47:03+00:00"
     },
     "minLength": 1,
     "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
@@ -2848,7 +2848,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-09T12:34:59+00:00"
+      "validatedAt": "2026-10-10T03:47:03+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -3161,7 +3161,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-09T12:34:59+00:00"
+      "validatedAt": "2026-10-10T03:47:03+00:00"
     },
     "minItems": 0,
     "uniqueItems": true
@@ -3219,7 +3219,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-09T12:34:59+00:00"
+      "validatedAt": "2026-10-10T03:47:03+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -3298,7 +3298,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-09T12:34:59+00:00"
+      "validatedAt": "2026-10-10T03:47:03+00:00"
     },
     "minLength": 1,
     "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
@@ -3377,7 +3377,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-09T12:34:59+00:00"
+      "validatedAt": "2026-10-10T03:47:03+00:00"
     },
     "minLength": 1
   },
@@ -3470,7 +3470,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "api-probed",
-      "validatedAt": "2026-10-09T12:34:59+00:00"
+      "validatedAt": "2026-10-10T03:47:03+00:00"
     },
     "minimum": 1,
     "multipleOf": 1
@@ -3514,7 +3514,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-09T12:34:59+00:00"
+      "validatedAt": "2026-10-10T03:47:03+00:00"
     },
     "minLength": 1
   },
@@ -3621,7 +3621,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-09T12:34:59+00:00"
+      "validatedAt": "2026-10-10T03:47:03+00:00"
     },
     "minItems": 1,
     "uniqueItems": true
@@ -3690,7 +3690,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "api-probed",
-      "validatedAt": "2026-10-09T12:34:59+00:00"
+      "validatedAt": "2026-10-10T03:47:03+00:00"
     },
     "minimum": 0,
     "multipleOf": 1
@@ -3731,7 +3731,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.8,
       "source": "inferred",
-      "validatedAt": "2026-10-09T12:34:59+00:00"
+      "validatedAt": "2026-10-10T03:47:03+00:00"
     },
     "minimum": 0,
     "multipleOf": 1
@@ -3821,7 +3821,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-09T12:34:59+00:00"
+      "validatedAt": "2026-10-10T03:47:03+00:00"
     },
     "minLength": 1
   },
@@ -3879,7 +3879,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-09T12:34:59+00:00"
+      "validatedAt": "2026-10-10T03:47:03+00:00"
     },
     "minLength": 1,
     "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
@@ -3930,7 +3930,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-09T12:34:59+00:00"
+      "validatedAt": "2026-10-10T03:47:03+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -4095,7 +4095,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-09T12:34:59+00:00"
+      "validatedAt": "2026-10-10T03:47:03+00:00"
     },
     "minLength": 1
   },
@@ -4153,7 +4153,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-09T12:34:59+00:00"
+      "validatedAt": "2026-10-10T03:47:03+00:00"
     },
     "minLength": 1,
     "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
@@ -4204,7 +4204,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-09T12:34:59+00:00"
+      "validatedAt": "2026-10-10T03:47:03+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -4291,7 +4291,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-09T12:34:59+00:00"
+      "validatedAt": "2026-10-10T03:47:03+00:00"
     },
     "minLength": 1,
     "pattern": "^[/a-zA-Z0-9._-]+$"
@@ -4336,7 +4336,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-09T12:34:59+00:00"
+      "validatedAt": "2026-10-10T03:47:03+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -4385,7 +4385,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-09T12:34:59+00:00"
+      "validatedAt": "2026-10-10T03:47:03+00:00"
     },
     "minLength": 1
   },
@@ -4482,7 +4482,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-09T12:34:59+00:00"
+      "validatedAt": "2026-10-10T03:47:03+00:00"
     },
     "minLength": 1
   },
@@ -4684,7 +4684,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-09T12:34:59+00:00"
+      "validatedAt": "2026-10-10T03:47:03+00:00"
     },
     "uniqueItems": true
   },
@@ -4795,7 +4795,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-09T12:34:59+00:00"
+      "validatedAt": "2026-10-10T03:47:03+00:00"
     },
     "uniqueItems": true
   },
@@ -4841,7 +4841,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-09T12:34:59+00:00"
+      "validatedAt": "2026-10-10T03:47:03+00:00"
     },
     "minLength": 1,
     "pattern": "^[/a-zA-Z0-9._-]+$"
@@ -4936,7 +4936,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-09T12:34:59+00:00"
+      "validatedAt": "2026-10-10T03:47:03+00:00"
     },
     "minItems": 1,
     "uniqueItems": true
@@ -5189,7 +5189,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-09T12:34:59+00:00"
+      "validatedAt": "2026-10-10T03:47:03+00:00"
     },
     "minLength": 1
   },
@@ -5247,7 +5247,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-09T12:34:59+00:00"
+      "validatedAt": "2026-10-10T03:47:03+00:00"
     },
     "minLength": 1,
     "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
@@ -5298,7 +5298,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-09T12:34:59+00:00"
+      "validatedAt": "2026-10-10T03:47:03+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -5710,7 +5710,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-09T12:34:59+00:00"
+      "validatedAt": "2026-10-10T03:47:03+00:00"
     },
     "minItems": 1,
     "uniqueItems": true
@@ -5766,7 +5766,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-09T12:34:59+00:00"
+      "validatedAt": "2026-10-10T03:47:03+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -5869,7 +5869,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-09T12:34:59+00:00"
+      "validatedAt": "2026-10-10T03:47:03+00:00"
     },
     "minLength": 1,
     "pattern": "^[a-zA-Z0-9_.-]+$"
@@ -6017,7 +6017,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-10-09T12:34:59+00:00"
+      "validatedAt": "2026-10-10T03:47:03+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -6055,7 +6055,7 @@ Receipt-pinned upstream constraints:
       "confidence": 1.0,
       "note": "Blindfold envelope encryption (AES-256-GCM + RSA-OAEP) of an RSA-2048 TLS private key produces ~3700 char string:/// URL. 128KB max secret size = ~175KB base64. Discovery reported 1024 which is incorrect.",
       "source": "manual-override",
-      "validatedAt": "2026-10-09T12:34:59+00:00"
+      "validatedAt": "2026-10-10T03:47:03+00:00"
     },
     "minLength": 4
   },
@@ -6099,7 +6099,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-10-09T12:34:59+00:00"
+      "validatedAt": "2026-10-10T03:47:03+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -6202,7 +6202,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-09T12:34:59+00:00"
+      "validatedAt": "2026-10-10T03:47:03+00:00"
     },
     "minLength": 1,
     "pattern": "^(https?|ftp)://[^\\s/$.?#].[^\\s]*$",
