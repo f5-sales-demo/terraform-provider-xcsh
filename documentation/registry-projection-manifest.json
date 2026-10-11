@@ -3189,8 +3189,8 @@
       "sha256": "sha256:a3cc75b192568d8fd7ddf68df583f51faff2a7290fefca093e1e8cd4c3a7687a"
     },
     "docs/guides/resources--advertise_policy--reference--group-001.md": {
-      "bytes": 189270,
-      "sha256": "sha256:3d1099fe4fc680e4e5b0eaffc6e87860b933ae2e6190ce6066fa820d6e5c477f"
+      "bytes": 189290,
+      "sha256": "sha256:a5f220ac54002cb01de7e031efbae91178f5d9576c579acfbb8a9f91af4053bf"
     },
     "docs/guides/resources--alert_gen_policy--examples--group-001.md": {
       "bytes": 2558,
@@ -3681,12 +3681,12 @@
       "sha256": "sha256:27f583ef6a727cfbf1c6850f2c6e907fe8ee513fd19eb12925a7cf987c497e68"
     },
     "docs/guides/resources--cluster--reference--group-001.md": {
-      "bytes": 152058,
-      "sha256": "sha256:4b944700e3e973fb4465935218a11b3ac85ca2aa28aa27b8d4a54f0cfbefb7d9"
+      "bytes": 152078,
+      "sha256": "sha256:5698696932784d1795985d59cb9ddd1982285ba1904e5679e9f83280bebd2122"
     },
     "docs/guides/resources--cluster--reference--group-002.md": {
-      "bytes": 95650,
-      "sha256": "sha256:f779cc7e5aa607ede8688c94eb33511afc6c376d72083e1224c7da5c707fc5f2"
+      "bytes": 95670,
+      "sha256": "sha256:7cbfb918356cbd28267781d63dd52aa545e9def4aed52f02ae09053c7146437f"
     },
     "docs/guides/resources--cminstance--examples--group-001.md": {
       "bytes": 2564,
@@ -4689,8 +4689,8 @@
       "sha256": "sha256:c0954d71be2ab98d5bb2ddd84f930fb8525d402ddd0c6dba50a26836a8019d05"
     },
     "docs/guides/resources--secret_management_access--reference--group-001.md": {
-      "bytes": 254604,
-      "sha256": "sha256:6749557a017c72fd296efc63683115e0165d94d071fc997f63b2311b2419f649"
+      "bytes": 254644,
+      "sha256": "sha256:99d27817cf2b4bb04e5b2900997074d2625e2141931927570c381cb8e982bf5d"
     },
     "docs/guides/resources--secret_management_access--reference--group-002.md": {
       "bytes": 53040,
@@ -5017,8 +5017,8 @@
       "sha256": "sha256:eff616a7dbca38ebada87371636761411f8e63cd1d0e30eefb8d864372bf321e"
     },
     "docs/guides/resources--virtual_host--reference--group-002.md": {
-      "bytes": 304919,
-      "sha256": "sha256:370f4fd7ba08d3fdd9363f7d64bf67bd6b9eb7fae5536078d079bb8a224e87ae"
+      "bytes": 304959,
+      "sha256": "sha256:738037b8bce6af137932093ad74b6536e5abe547790562151185684e3156f285"
     },
     "docs/guides/resources--virtual_host--reference--group-003.md": {
       "bytes": 44228,
@@ -5722,7 +5722,7 @@
     }
   },
   "limit_bytes": 500000,
-  "provider_schema_digest": "sha256:7e724befbd28dae1d544e2cc8bbc72d0e62fdd0382374fb6e98044bf0ff0e829",
+  "provider_schema_digest": "sha256:c6e4ccf56e8887c4192e662ded7285f98ad804e3254075567df8f73a44375945",
   "schema_version": 1,
   "section_manifests": [
     { "path": "documentation/registry-projection/sections-0001.json", "section_count": 534 },

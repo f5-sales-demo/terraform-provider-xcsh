@@ -1069,7 +1069,7 @@
       "section_id": "xcsh-docs:resources:advertise_policy:properties:tls_parameters:common_params:section:0",
       "source_sha256": "sha256:2fe1484aa340593c3c18145414fa78e245e2a33797f1318c67e7174777429fe9",
       "source_bytes": 992,
-      "canonical_source_sha256": "sha256:5bf95f3aa38d936d52116a43f12ac240fccff79efd5d17e2f6fc468e16541d64",
+      "canonical_source_sha256": "sha256:80ccb17000449871472274c4dd7538791c13a91202da2f9a0c536e96925c828b",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/advertise_policy/properties/tls_parameters/common_params/",
       "anchor": "canonical-0313021030032323-0110121003001310-2011311011311100-1001212322011312-2111223033130030-2203003310213020-0032233221222130-1033202003312030",
       "anchor_map": [
@@ -1086,7 +1086,7 @@
       "section_id": "xcsh-docs:resources:advertise_policy:properties:tls_parameters:common_params:section:1",
       "source_sha256": "sha256:3559e141587aec1f06a61497d06396a75261bf3f02e3f551341e28c806b4c593",
       "source_bytes": 3488,
-      "canonical_source_sha256": "sha256:5bf95f3aa38d936d52116a43f12ac240fccff79efd5d17e2f6fc468e16541d64",
+      "canonical_source_sha256": "sha256:80ccb17000449871472274c4dd7538791c13a91202da2f9a0c536e96925c828b",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/advertise_policy/properties/tls_parameters/common_params/",
       "anchor": "canonical-0203302121011032-2100111103322333-3331221320331231-2320120121332303-3101222021311001-1123323000130023-3033322121312133-2103100013233230",
       "anchor_map": [
@@ -1105,9 +1105,9 @@
     {
       "canonical_id": "xcsh-docs:resources:advertise_policy:properties:tls_parameters:common_params",
       "section_id": "xcsh-docs:resources:advertise_policy:properties:tls_parameters:common_params:section:2",
-      "source_sha256": "sha256:fb8a58b4aeafa32fe3bc8375555c98a47ef3e10be9eaebe7aa349e5c957afe16",
-      "source_bytes": 723,
-      "canonical_source_sha256": "sha256:5bf95f3aa38d936d52116a43f12ac240fccff79efd5d17e2f6fc468e16541d64",
+      "source_sha256": "sha256:b5d4a4bfea3e5517d00652398be957f4c2e84c91d6dded145554f23c713a44d5",
+      "source_bytes": 733,
+      "canonical_source_sha256": "sha256:80ccb17000449871472274c4dd7538791c13a91202da2f9a0c536e96925c828b",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/advertise_policy/properties/tls_parameters/common_params/",
       "anchor": "canonical-3233023020231023-1011121122322302-3303300211321323-3111202332101011-2222131233013331-0010330212203200-2203112210210032-1312220203232233",
       "anchor_map": [
@@ -1122,9 +1122,9 @@
     {
       "canonical_id": "xcsh-docs:resources:advertise_policy:properties:tls_parameters:common_params",
       "section_id": "xcsh-docs:resources:advertise_policy:properties:tls_parameters:common_params:section:3",
-      "source_sha256": "sha256:e44fe7f4f01a4052f484d35cad5d795dd22aff2c32a96778a8b446005bd41ae7",
-      "source_bytes": 1039,
-      "canonical_source_sha256": "sha256:5bf95f3aa38d936d52116a43f12ac240fccff79efd5d17e2f6fc468e16541d64",
+      "source_sha256": "sha256:4ae44de8c798ddffb09d3e6ca4459959aeab550755d88a6b7338243e5240b19b",
+      "source_bytes": 1049,
+      "canonical_source_sha256": "sha256:80ccb17000449871472274c4dd7538791c13a91202da2f9a0c536e96925c828b",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/advertise_policy/properties/tls_parameters/common_params/",
       "anchor": "canonical-2130132333002201-2023122110010121-2133201212303231-3312202202210102-1311033301320123-3101023022322003-0321002303213301-1210013001323101",
       "anchor_map": [],
