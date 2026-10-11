@@ -3001,7 +3001,7 @@ Receipt-pinned upstream constraints:
 
 #### `tls_parameters.cert_params.maximum_protocol_version` property
 
-Type: `"string"`. Optional.
+Type: `"string"`. Optional, Computed.
 
 \[Enum: TLS\_AUTO|TLSv1\_0|TLSv1\_1|TLSv1\_2|TLSv1\_3\] TlsProtocol is enumeration of supported TLS
 versions F5 Distributed Cloud will choose the optimal TLS version. Possible values are
@@ -3034,7 +3034,7 @@ Receipt-pinned upstream constraints:
 
 #### `tls_parameters.cert_params.minimum_protocol_version` property
 
-Type: `"string"`. Optional.
+Type: `"string"`. Optional, Computed.
 
 \[Enum: TLS\_AUTO|TLSv1\_0|TLSv1\_1|TLSv1\_2|TLSv1\_3\] TlsProtocol is enumeration of supported TLS
 versions F5 Distributed Cloud will choose the optimal TLS version. Possible values are
