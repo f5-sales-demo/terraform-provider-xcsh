@@ -1,0 +1,53 @@
+{
+  "version": 1,
+  "candidate_binary_sha256": "5248a5faed3cfe85afd735c6dbf9c017dfd5a2b164525fa61e14a5a4b35100bb",
+  "qualification": "installed Linux candidate, disposable live configuration lifecycle",
+  "surfaces": [
+    {
+      "node": "xcsh_cluster.tls_parameters.common_params.tls_certificates",
+      "init_apply_empty": true,
+      "omitted_tls_protocol_defaults": true,
+      "rsa_ec_insertion_reorder_removal": true,
+      "stable_ciphertext_for_retained_ids": true,
+      "obsolete_provenance_entries": 0,
+      "metadata_and_renewal": true,
+      "restart_empty": true,
+      "cleanup_http": 404
+    },
+    {
+      "node": "xcsh_advertise_policy.tls_parameters.common_params.tls_certificates",
+      "init_apply_empty": true,
+      "omitted_tls_protocol_defaults": true,
+      "rsa_ec_insertion_reorder_removal": true,
+      "stable_ciphertext_for_retained_ids": true,
+      "obsolete_provenance_entries": 0,
+      "metadata_and_renewal": true,
+      "restart_empty": true,
+      "cleanup_http": 404
+    },
+    {
+      "node": "xcsh_secret_management_access.access_info.tls_config.common_params.tls_certificates",
+      "init_apply_empty": true,
+      "omitted_tls_protocol_defaults": true,
+      "rsa_ec_insertion_reorder_removal": true,
+      "stable_ciphertext_for_retained_ids": true,
+      "obsolete_provenance_entries": 0,
+      "metadata_and_renewal": true,
+      "restart_empty": true,
+      "cleanup_http": 404
+    }
+  ],
+  "published_provider_policy_rotation": {
+    "provider_version": "15.6.1",
+    "selected_policy_identity": true,
+    "in_place_canonical_policy_document": true,
+    "reencryption_once_then_empty": true,
+    "cleanup_http": 404
+  },
+  "limits": [
+    "Remaining live load-balancer surfaces require tenant virtual-host capacity",
+    "Network connectors require the system namespace",
+    "No isolated tenant public-key rotation API in the pinned contract",
+    "Additional surfaces have configuration lifecycle proof; served TLS remains unqualified"
+  ]
+}
