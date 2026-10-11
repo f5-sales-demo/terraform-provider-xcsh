@@ -2,9 +2,12 @@ package provider
 
 import (
 	"context"
+	"encoding/json"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/blindfold"
 	"github.com/hashicorp/terraform-plugin-framework/resource"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema"
 	"github.com/hashicorp/terraform-plugin-go/tftypes"
+	"strings"
 	"testing"
 )
 
@@ -54,5 +57,46 @@ func TestBlindfoldProjection(t *testing.T) {
 	merged := mergeNative(projected, raw)
 	if textValue(objectValue(merged)["certificate_url"]) != "public" {
 		t.Fatal("public data lost")
+	}
+}
+
+func TestBlindfoldTLSProtocolDefaults(t *testing.T) {
+	ctx := context.Background()
+	var response resource.SchemaResponse
+	r := NewClusterResource()
+	r.Schema(ctx, resource.SchemaRequest{}, &response)
+	tls := response.Schema.Blocks["tls_parameters"].(schema.SingleNestedBlock)
+	common := tls.Blocks["common_params"].(schema.SingleNestedBlock)
+	for _, key := range []string{"minimum_protocol_version", "maximum_protocol_version"} {
+		v := common.Attributes[key].(schema.StringAttribute)
+		if !v.Optional || !v.Computed {
+			t.Fatalf("%s must accept observed API default", key)
+		}
+	}
+}
+
+func TestBlindfoldAnnotationRemovesObsoleteIDs(t *testing.T) {
+	annotationType := tftypes.Map{ElementType: tftypes.String}
+	rawType := tftypes.Object{AttributeTypes: map[string]tftypes.Type{"annotations": annotationType}}
+	raw := tftypes.NewValue(rawType, map[string]tftypes.Value{"annotations": tftypes.NewValue(annotationType, map[string]tftypes.Value{"example.test/keep": tftypes.NewValue(tftypes.String, "configured")})})
+	provenance := blindfold.Provenance{Version: 1, Entries: map[string]blindfold.Entry{
+		"retained": {Chain: strings.Repeat("a", 64), SPKI: strings.Repeat("b", 64), Context: strings.Repeat("c", 64), Ciphertext: strings.Repeat("d", 64), Algorithm: "RSA"}, "removed": {Chain: strings.Repeat("a", 64), SPKI: strings.Repeat("b", 64), Context: strings.Repeat("c", 64), Ciphertext: strings.Repeat("e", 64), Algorithm: "RSA"},
+	}}
+	serialized, _ := json.Marshal(provenance)
+	remote := map[string]any{"metadata": map[string]any{"annotations": map[string]any{blindfold.Annotation: string(serialized), "example.test/remote": "remote"}}}
+	updated := annotationRaw(raw, []*nativeNode{{id: "retained"}}, remote)
+	attrs := map[string]tftypes.Value{}
+	if err := objectValue(updated)["annotations"].As(&attrs); err != nil {
+		t.Fatal(err)
+	}
+	var actual blindfold.Provenance
+	if err := json.Unmarshal([]byte(textValue(attrs[blindfold.Annotation])), &actual); err != nil {
+		t.Fatal(err)
+	}
+	if len(actual.Entries) != 1 || actual.Entries["retained"] != provenance.Entries["retained"] {
+		t.Fatalf("obsolete ID retained or unchanged write-only entry lost: %+v", actual)
+	}
+	if textValue(attrs["example.test/keep"]) != "configured" || textValue(attrs["example.test/remote"]) != "remote" {
+		t.Fatal("unrelated annotations changed")
 	}
 }

@@ -6,6 +6,8 @@ import (
 	"errors"
 	"net/url"
 	"strings"
+
+	xcsherrors "github.com/f5-sales-demo/terraform-provider-xcsh/internal/errors"
 )
 
 // GetReplaceForm retains the outer concurrency token when XC wraps complete
@@ -63,6 +65,14 @@ func (c *Client) blindfoldWrite(ctx context.Context, method, path string, data, 
 	_, writeErr := c.doRequestWithRetry(ctx, method, path, data, false)
 	if HasHTTPStatus(writeErr, 409) {
 		return errors.New("blindfold concurrency conflict; refresh and replan")
+	}
+
+	// Definitive client rejections cannot have accepted the desired mutation.
+	// Preserve a machine-readable status without reflecting the API body, which
+	// may include a complete certificate configuration or tenant identifiers.
+	var apiErr *xcsherrors.XCSHError
+	if errors.As(writeErr, &apiErr) && apiErr.StatusCode >= 400 && apiErr.StatusCode < 500 && apiErr.StatusCode != 408 {
+		return &xcsherrors.XCSHError{Code: apiErr.Code, StatusCode: apiErr.StatusCode, Message: "blindfold write rejected by API; correct the request or tenant prerequisite and replan"}
 	}
 	readPath := path
 	if method == "POST" {

@@ -66,6 +66,14 @@ func blindfoldSchema() schema.SingleNestedAttribute {
 	return schema.SingleNestedAttribute{Optional: true, Attributes: a, MarkdownDescription: "Native certificate preparation. Use PEM files or a P12 file, or write-only key/bundle values with material_version (Terraform 1.11+). Defaults to shared/ves-io-allow-volterra. Inline certificates require unique IDs. Private inputs are never stored."}
 }
 func augmentBlindfold(a map[string]schema.Attribute, b map[string]schema.Block) {
+	// XC supplies TLS_AUTO on complete readback, including native writes. Keep
+	// explicit selections while allowing absent selections to acquire API defaults.
+	for _, k := range []string{"minimum_protocol_version", "maximum_protocol_version"} {
+		if v, ok := a[k].(schema.StringAttribute); ok && v.Optional {
+			v.Computed = true
+			a[k] = v
+		}
+	}
 	_, cert := a["certificate_url"]
 	_, key := b["private_key"]
 	if cert && key {
@@ -714,9 +722,19 @@ func annotationRaw(raw tftypes.Value, nodes []*nativeNode, remote map[string]any
 	if p.Entries == nil {
 		p = blindfold.Provenance{Version: 1, Entries: map[string]blindfold.Entry{}}
 	}
+
+	// Retain entries for active nodes (including unavailable write-only material),
+	// and discard IDs whose certificate nodes were removed from the desired spec.
+	active := make(map[string]bool, len(nodes))
 	for _, n := range nodes {
+		active[n.id] = true
 		if n.material != nil {
 			p.Entries[n.id] = n.material.Entry(n.context.Digest, n.location)
+		}
+	}
+	for id := range p.Entries {
+		if !active[id] {
+			delete(p.Entries, id)
 		}
 	}
 	b, _ := json.Marshal(p)
