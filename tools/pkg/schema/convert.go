@@ -661,6 +661,7 @@ func ExtractNestedAttributes(schema openapi.Schema, spec *openapi.Spec, depth in
 
 	var attrs []openapi.TerraformAttribute
 	for propName, propSchema := range schema.Properties {
+		propSchema = measuredNestedDefault(schema, propName, propSchema)
 		nestedPath := propName
 		if parentPath != "" {
 			nestedPath = parentPath + "." + propName
