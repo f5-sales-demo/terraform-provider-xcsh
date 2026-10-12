@@ -1318,6 +1318,41 @@ func renderUnmarshalListChild(sb *strings.Builder, rc, childPath string, attr op
 	return nil
 }
 
+// nestedDefaultOneOfMarker derives sibling cutover from the immediate schema container.
+func nestedDefaultOneOfMarker(attribute openapi.TerraformAttribute, attrs []openapi.TerraformAttribute) string {
+	if !attribute.EmptyObjectMarker || !attribute.Computed {
+		return ""
+	}
+	members := []string{fmt.Sprintf("%q", attribute.TfsdkTag)}
+	for _, sibling := range attrs {
+		if sibling.TfsdkTag == attribute.TfsdkTag {
+			continue
+		}
+		belongs := attribute.OneOfGroup != "" && sibling.OneOfGroup == attribute.OneOfGroup
+		for _, conflict := range attribute.ConflictsWith {
+			if conflict == sibling.TfsdkTag {
+				belongs = true
+			}
+		}
+		if belongs {
+			members = append(members, fmt.Sprintf("%q", sibling.TfsdkTag))
+		}
+	}
+	if len(members) < 2 {
+		return ""
+	}
+	return fmt.Sprintf("planmodifiers.DefaultOneOfMarker(%q, []string{%s})", attribute.TfsdkTag, strings.Join(members, ","))
+}
+
+func hasNestedDefaultOneOfMarker(attrs []openapi.TerraformAttribute) bool {
+	for _, attribute := range attrs {
+		if nestedDefaultOneOfMarker(attribute, attrs) != "" || hasNestedDefaultOneOfMarker(attribute.NestedAttributes) {
+			return true
+		}
+	}
+	return false
+}
+
 // RenderNestedAttributes generates the Attributes map for nested blocks
 func RenderNestedAttributes(attrs []openapi.TerraformAttribute, indent string) string {
 	if len(attrs) == 0 {
@@ -1371,7 +1406,8 @@ func RenderNestedAttributes(attrs []openapi.TerraformAttribute, indent string) s
 			sb.WriteString(fmt.Sprintf("%s\t\tSensitive: true,\n", indent))
 		}
 
-		if attr.PlanModifier != "" {
+		marker := nestedDefaultOneOfMarker(attr, attrs)
+		if attr.PlanModifier != "" || marker != "" {
 			typeName := "String"
 			pkgName := "stringplanmodifier"
 			switch attr.Type {
@@ -1392,11 +1428,16 @@ func RenderNestedAttributes(attrs []openapi.TerraformAttribute, indent string) s
 				pkgName = "objectplanmodifier"
 			}
 			sb.WriteString(fmt.Sprintf("%s\t\tPlanModifiers: []planmodifier.%s{\n", indent, typeName))
+			if marker != "" {
+				sb.WriteString(fmt.Sprintf("%s\t\t\t%s,\n", indent, marker))
+			}
 			switch attr.PlanModifier {
 			case "RequiresReplace":
 				sb.WriteString(fmt.Sprintf("%s\t\t\t%s.RequiresReplace(),\n", indent, pkgName))
 			default:
-				sb.WriteString(fmt.Sprintf("%s\t\t\t%s.UseStateForUnknown(),\n", indent, pkgName))
+				if attr.PlanModifier != "" {
+					sb.WriteString(fmt.Sprintf("%s\t\t\t%s.UseStateForUnknown(),\n", indent, pkgName))
+				}
 			}
 			sb.WriteString(fmt.Sprintf("%s\t\t},\n", indent))
 		}
