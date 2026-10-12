@@ -3,11 +3,7 @@
   "issue": 2535,
   "candidate_sha256": "9867ddfc6192d81108061b154161c352a2f5b3534b4e51b716b0653b7826de65",
   "spec_version": "v12.0.5",
-  "omitted_api_defaults": [
-    "origin_request_timeout",
-    "init_container",
-    "pull_policy"
-  ],
+  "omitted_api_defaults": ["origin_request_timeout", "init_container", "pull_policy"],
   "live_surfaces": [
     {
       "node": "xcsh_cdn_loadbalancer.https.tls_cert_options.tls_inline_params.tls_certificates",
