@@ -1,0 +1,52 @@
+{
+  "version": 1,
+  "issue": 2535,
+  "candidate_sha256": "9867ddfc6192d81108061b154161c352a2f5b3534b4e51b716b0653b7826de65",
+  "spec_version": "v12.0.5",
+  "omitted_api_defaults": [
+    "origin_request_timeout",
+    "init_container",
+    "pull_policy"
+  ],
+  "live_surfaces": [
+    {
+      "node": "xcsh_cdn_loadbalancer.https.tls_cert_options.tls_inline_params.tls_certificates",
+      "init_apply_empty": true,
+      "metadata_renewal_restart": true,
+      "retained_ciphertext_and_provenance": true,
+      "cleanup_http": 404
+    },
+    {
+      "node": "xcsh_cdn_loadbalancer.origin_pool.use_tls.use_mtls.tls_certificates",
+      "init_apply_empty": true,
+      "metadata_renewal_restart": true,
+      "retained_ciphertext_and_provenance": true,
+      "cleanup_http": 404
+    },
+    {
+      "node": "xcsh_workload.service.advertise_options.advertise_on_public.port.http_loadbalancer.https.tls_parameters.tls_certificates",
+      "init_apply_empty": true,
+      "metadata_renewal_restart": true,
+      "retained_ciphertext_and_provenance": true,
+      "cleanup_http": 404
+    },
+    {
+      "node": "xcsh_workload.service.advertise_options.advertise_on_public.multi_ports.ports.0.http_loadbalancer.https.tls_parameters.tls_certificates",
+      "init_apply_empty": true,
+      "metadata_renewal_restart": true,
+      "retained_ciphertext_and_provenance": true,
+      "cleanup_http": 404
+    },
+    {
+      "node": "xcsh_workload.service.advertise_options.advertise_custom.ports.0.http_loadbalancer.https.tls_parameters.tls_certificates",
+      "init_apply_empty": true,
+      "metadata_renewal_restart": true,
+      "retained_ciphertext_and_provenance": true,
+      "cleanup_http": 404
+    }
+  ],
+  "scope_limitations": [
+    "Stateful public/custom advertisement is rejected by the live API; shared container schemas are covered by generated-schema tests",
+    "Additional served TLS surfaces remain subject to the broader qualification matrix"
+  ]
+}
