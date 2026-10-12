@@ -3653,9 +3653,10 @@ origin_pool {
 
 #### `origin_pool.origin_request_timeout` property
 
-Type: `"string"`. Optional.
+Type: `"string"`. Optional, Computed.
 
 Configures the time after which a request to the origin will time out waiting for a response.
+Defaults to \`60s\`. Server applies default when omitted.
 
 Receipt-pinned upstream constraints:
 
