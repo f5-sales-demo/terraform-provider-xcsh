@@ -2746,7 +2746,8 @@ Receipt-pinned upstream constraints:
 
 Type: `"bool"`. Computed.
 
-Specialized container that runs before application container and runs to completion.
+Specialized container that runs before application container and runs to completion. Defaults to
+\`false\`. Server applies default when omitted.
 
 Receipt-pinned upstream constraints:
 
@@ -3176,7 +3177,7 @@ the workload - IMAGE\_PULL\_POLICY\_DEFAULT: Default Default will always pull im
 is specified in image name. If :latest tag is not specified in image name, it will pull image only..
 Possible values are \`IMAGE\_PULL\_POLICY\_DEFAULT\`, \`IMAGE\_PULL\_POLICY\_IF\_NOT\_PRESENT\`,
 \`IMAGE\_PULL\_POLICY\_ALWAYS\`, \`IMAGE\_PULL\_POLICY\_NEVER\`. Defaults to
-\`IMAGE\_PULL\_POLICY\_DEFAULT\`.
+\`IMAGE\_PULL\_POLICY\_DEFAULT\`. Server applies default when omitted.
 
 Additional upstream details:
 

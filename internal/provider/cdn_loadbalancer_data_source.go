@@ -4425,7 +4425,7 @@ func (d *CDNLoadBalancerDataSource) Schema(ctx context.Context, req datasource.S
 						AttributeTypes:      map[string]attr.Type{},
 					},
 					"origin_request_timeout": schema.StringAttribute{
-						MarkdownDescription: "Configures the time after which a request to the origin will time out waiting for a response.",
+						MarkdownDescription: "Configures the time after which a request to the origin will time out waiting for a response. Defaults to `60s`. Server applies default when omitted.",
 						Computed:            true,
 					},
 					"origin_servers": schema.ListNestedAttribute{

@@ -10677,8 +10677,12 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 						AttributeTypes:      map[string]attr.Type{},
 					},
 					"origin_request_timeout": schema.StringAttribute{
-						MarkdownDescription: "Configures the time after which a request to the origin will time out waiting for a response.",
+						MarkdownDescription: "Configures the time after which a request to the origin will time out waiting for a response. Defaults to `60s`. Server applies default when omitted.",
 						Optional:            true,
+						Computed:            true,
+						PlanModifiers: []planmodifier.String{
+							stringplanmodifier.UseStateForUnknown(),
+						},
 					},
 				},
 				Blocks: map[string]schema.Block{

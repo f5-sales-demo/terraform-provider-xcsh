@@ -8319,8 +8319,12 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 									},
 								},
 								"init_container": schema.BoolAttribute{
-									MarkdownDescription: "Specialized container that runs before application container and runs to completion.",
+									MarkdownDescription: "Specialized container that runs before application container and runs to completion. Defaults to `false`. Server applies default when omitted.",
 									Optional:            true,
+									Computed:            true,
+									PlanModifiers: []planmodifier.Bool{
+										boolplanmodifier.UseStateForUnknown(),
+									},
 								},
 								"name": schema.StringAttribute{
 									MarkdownDescription: "Name. Name of the container.",
@@ -8379,8 +8383,12 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 											AttributeTypes:      map[string]attr.Type{},
 										},
 										"pull_policy": schema.StringAttribute{
-											MarkdownDescription: "[Enum: IMAGE_PULL_POLICY_DEFAULT|IMAGE_PULL_POLICY_IF_NOT_PRESENT|IMAGE_PULL_POLICY_ALWAYS|IMAGE_PULL_POLICY_NEVER] Image pull policy type enumerates the policy choices to use for pulling the image prior to starting the workload - IMAGE_PULL_POLICY_DEFAULT: Default Default will always pull image if :latest tag is specified in image name. If :latest tag is not specified in image name, it will pull image only.. Possible values are `IMAGE_PULL_POLICY_DEFAULT`, `IMAGE_PULL_POLICY_IF_NOT_PRESENT`, `IMAGE_PULL_POLICY_ALWAYS`, `IMAGE_PULL_POLICY_NEVER`. Defaults to `IMAGE_PULL_POLICY_DEFAULT`.",
+											MarkdownDescription: "[Enum: IMAGE_PULL_POLICY_DEFAULT|IMAGE_PULL_POLICY_IF_NOT_PRESENT|IMAGE_PULL_POLICY_ALWAYS|IMAGE_PULL_POLICY_NEVER] Image pull policy type enumerates the policy choices to use for pulling the image prior to starting the workload - IMAGE_PULL_POLICY_DEFAULT: Default Default will always pull image if :latest tag is specified in image name. If :latest tag is not specified in image name, it will pull image only.. Possible values are `IMAGE_PULL_POLICY_DEFAULT`, `IMAGE_PULL_POLICY_IF_NOT_PRESENT`, `IMAGE_PULL_POLICY_ALWAYS`, `IMAGE_PULL_POLICY_NEVER`. Defaults to `IMAGE_PULL_POLICY_DEFAULT`. Server applies default when omitted.",
 											Optional:            true,
+											Computed:            true,
+											PlanModifiers: []planmodifier.String{
+												stringplanmodifier.UseStateForUnknown(),
+											},
 											Validators: []validator.String{
 												stringvalidator.OneOf("IMAGE_PULL_POLICY_DEFAULT", "IMAGE_PULL_POLICY_IF_NOT_PRESENT", "IMAGE_PULL_POLICY_ALWAYS", "IMAGE_PULL_POLICY_NEVER"),
 											},
@@ -13774,8 +13782,12 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 									},
 								},
 								"init_container": schema.BoolAttribute{
-									MarkdownDescription: "Specialized container that runs before application container and runs to completion.",
+									MarkdownDescription: "Specialized container that runs before application container and runs to completion. Defaults to `false`. Server applies default when omitted.",
 									Optional:            true,
+									Computed:            true,
+									PlanModifiers: []planmodifier.Bool{
+										boolplanmodifier.UseStateForUnknown(),
+									},
 								},
 								"name": schema.StringAttribute{
 									MarkdownDescription: "Name. Name of the container.",
@@ -13834,8 +13846,12 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 											AttributeTypes:      map[string]attr.Type{},
 										},
 										"pull_policy": schema.StringAttribute{
-											MarkdownDescription: "[Enum: IMAGE_PULL_POLICY_DEFAULT|IMAGE_PULL_POLICY_IF_NOT_PRESENT|IMAGE_PULL_POLICY_ALWAYS|IMAGE_PULL_POLICY_NEVER] Image pull policy type enumerates the policy choices to use for pulling the image prior to starting the workload - IMAGE_PULL_POLICY_DEFAULT: Default Default will always pull image if :latest tag is specified in image name. If :latest tag is not specified in image name, it will pull image only.. Possible values are `IMAGE_PULL_POLICY_DEFAULT`, `IMAGE_PULL_POLICY_IF_NOT_PRESENT`, `IMAGE_PULL_POLICY_ALWAYS`, `IMAGE_PULL_POLICY_NEVER`. Defaults to `IMAGE_PULL_POLICY_DEFAULT`.",
+											MarkdownDescription: "[Enum: IMAGE_PULL_POLICY_DEFAULT|IMAGE_PULL_POLICY_IF_NOT_PRESENT|IMAGE_PULL_POLICY_ALWAYS|IMAGE_PULL_POLICY_NEVER] Image pull policy type enumerates the policy choices to use for pulling the image prior to starting the workload - IMAGE_PULL_POLICY_DEFAULT: Default Default will always pull image if :latest tag is specified in image name. If :latest tag is not specified in image name, it will pull image only.. Possible values are `IMAGE_PULL_POLICY_DEFAULT`, `IMAGE_PULL_POLICY_IF_NOT_PRESENT`, `IMAGE_PULL_POLICY_ALWAYS`, `IMAGE_PULL_POLICY_NEVER`. Defaults to `IMAGE_PULL_POLICY_DEFAULT`. Server applies default when omitted.",
 											Optional:            true,
+											Computed:            true,
+											PlanModifiers: []planmodifier.String{
+												stringplanmodifier.UseStateForUnknown(),
+											},
 											Validators: []validator.String{
 												stringvalidator.OneOf("IMAGE_PULL_POLICY_DEFAULT", "IMAGE_PULL_POLICY_IF_NOT_PRESENT", "IMAGE_PULL_POLICY_ALWAYS", "IMAGE_PULL_POLICY_NEVER"),
 											},
@@ -14628,8 +14644,12 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 								},
 							},
 							"init_container": schema.BoolAttribute{
-								MarkdownDescription: "Specialized container that runs before application container and runs to completion.",
+								MarkdownDescription: "Specialized container that runs before application container and runs to completion. Defaults to `false`. Server applies default when omitted.",
 								Optional:            true,
+								Computed:            true,
+								PlanModifiers: []planmodifier.Bool{
+									boolplanmodifier.UseStateForUnknown(),
+								},
 							},
 							"name": schema.StringAttribute{
 								MarkdownDescription: "Name. Name of the container.",
@@ -14688,8 +14708,12 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 										AttributeTypes:      map[string]attr.Type{},
 									},
 									"pull_policy": schema.StringAttribute{
-										MarkdownDescription: "[Enum: IMAGE_PULL_POLICY_DEFAULT|IMAGE_PULL_POLICY_IF_NOT_PRESENT|IMAGE_PULL_POLICY_ALWAYS|IMAGE_PULL_POLICY_NEVER] Image pull policy type enumerates the policy choices to use for pulling the image prior to starting the workload - IMAGE_PULL_POLICY_DEFAULT: Default Default will always pull image if :latest tag is specified in image name. If :latest tag is not specified in image name, it will pull image only.. Possible values are `IMAGE_PULL_POLICY_DEFAULT`, `IMAGE_PULL_POLICY_IF_NOT_PRESENT`, `IMAGE_PULL_POLICY_ALWAYS`, `IMAGE_PULL_POLICY_NEVER`. Defaults to `IMAGE_PULL_POLICY_DEFAULT`.",
+										MarkdownDescription: "[Enum: IMAGE_PULL_POLICY_DEFAULT|IMAGE_PULL_POLICY_IF_NOT_PRESENT|IMAGE_PULL_POLICY_ALWAYS|IMAGE_PULL_POLICY_NEVER] Image pull policy type enumerates the policy choices to use for pulling the image prior to starting the workload - IMAGE_PULL_POLICY_DEFAULT: Default Default will always pull image if :latest tag is specified in image name. If :latest tag is not specified in image name, it will pull image only.. Possible values are `IMAGE_PULL_POLICY_DEFAULT`, `IMAGE_PULL_POLICY_IF_NOT_PRESENT`, `IMAGE_PULL_POLICY_ALWAYS`, `IMAGE_PULL_POLICY_NEVER`. Defaults to `IMAGE_PULL_POLICY_DEFAULT`. Server applies default when omitted.",
 										Optional:            true,
+										Computed:            true,
+										PlanModifiers: []planmodifier.String{
+											stringplanmodifier.UseStateForUnknown(),
+										},
 										Validators: []validator.String{
 											stringvalidator.OneOf("IMAGE_PULL_POLICY_DEFAULT", "IMAGE_PULL_POLICY_IF_NOT_PRESENT", "IMAGE_PULL_POLICY_ALWAYS", "IMAGE_PULL_POLICY_NEVER"),
 										},
@@ -19842,8 +19866,12 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 									},
 								},
 								"init_container": schema.BoolAttribute{
-									MarkdownDescription: "Specialized container that runs before application container and runs to completion.",
+									MarkdownDescription: "Specialized container that runs before application container and runs to completion. Defaults to `false`. Server applies default when omitted.",
 									Optional:            true,
+									Computed:            true,
+									PlanModifiers: []planmodifier.Bool{
+										boolplanmodifier.UseStateForUnknown(),
+									},
 								},
 								"name": schema.StringAttribute{
 									MarkdownDescription: "Name. Name of the container.",
@@ -19902,8 +19930,12 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 											AttributeTypes:      map[string]attr.Type{},
 										},
 										"pull_policy": schema.StringAttribute{
-											MarkdownDescription: "[Enum: IMAGE_PULL_POLICY_DEFAULT|IMAGE_PULL_POLICY_IF_NOT_PRESENT|IMAGE_PULL_POLICY_ALWAYS|IMAGE_PULL_POLICY_NEVER] Image pull policy type enumerates the policy choices to use for pulling the image prior to starting the workload - IMAGE_PULL_POLICY_DEFAULT: Default Default will always pull image if :latest tag is specified in image name. If :latest tag is not specified in image name, it will pull image only.. Possible values are `IMAGE_PULL_POLICY_DEFAULT`, `IMAGE_PULL_POLICY_IF_NOT_PRESENT`, `IMAGE_PULL_POLICY_ALWAYS`, `IMAGE_PULL_POLICY_NEVER`. Defaults to `IMAGE_PULL_POLICY_DEFAULT`.",
+											MarkdownDescription: "[Enum: IMAGE_PULL_POLICY_DEFAULT|IMAGE_PULL_POLICY_IF_NOT_PRESENT|IMAGE_PULL_POLICY_ALWAYS|IMAGE_PULL_POLICY_NEVER] Image pull policy type enumerates the policy choices to use for pulling the image prior to starting the workload - IMAGE_PULL_POLICY_DEFAULT: Default Default will always pull image if :latest tag is specified in image name. If :latest tag is not specified in image name, it will pull image only.. Possible values are `IMAGE_PULL_POLICY_DEFAULT`, `IMAGE_PULL_POLICY_IF_NOT_PRESENT`, `IMAGE_PULL_POLICY_ALWAYS`, `IMAGE_PULL_POLICY_NEVER`. Defaults to `IMAGE_PULL_POLICY_DEFAULT`. Server applies default when omitted.",
 											Optional:            true,
+											Computed:            true,
+											PlanModifiers: []planmodifier.String{
+												stringplanmodifier.UseStateForUnknown(),
+											},
 											Validators: []validator.String{
 												stringvalidator.OneOf("IMAGE_PULL_POLICY_DEFAULT", "IMAGE_PULL_POLICY_IF_NOT_PRESENT", "IMAGE_PULL_POLICY_ALWAYS", "IMAGE_PULL_POLICY_NEVER"),
 											},

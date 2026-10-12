@@ -1485,8 +1485,8 @@
       "sha256": "sha256:439d1726c1017dd8d545eeaf638f4bbaef14a3bff43f076988b6cd6307702c9a"
     },
     "docs/guides/data-sources--cdn_loadbalancer--reference--group-012.md": {
-      "bytes": 272442,
-      "sha256": "sha256:17a13698c84e61686e87db73dc623ec845c826ae2317d1ff08283d769862feb9"
+      "bytes": 272500,
+      "sha256": "sha256:a5a316a01bd04627cc682cd00d411a0c78715be35e22717cb0af70af835f5e4c"
     },
     "docs/guides/data-sources--cdn_loadbalancer--reference--group-013.md": {
       "bytes": 141319,
@@ -3033,8 +3033,8 @@
       "sha256": "sha256:039e6911beb3bcc572d9c79d21f7947ea2cac4e80f5571573213985937686543"
     },
     "docs/guides/data-sources--workload--reference--group-004.md": {
-      "bytes": 145242,
-      "sha256": "sha256:e52c65cd96da60610c6b96f2014acfaa9023bebe82f833c4d7e964a64a7773c7"
+      "bytes": 145339,
+      "sha256": "sha256:c4186d9db0d74d94af59670dd9e8bbab478876f5ba4d6726d0ec9b485768a755"
     },
     "docs/guides/data-sources--workload--reference--group-005.md": {
       "bytes": 126078,
@@ -3073,12 +3073,12 @@
       "sha256": "sha256:dcb67e6fbe128040fb5b8df1ce074727e9e57d205135ba81b5b182096f4d9168"
     },
     "docs/guides/data-sources--workload--reference--group-014.md": {
-      "bytes": 150346,
-      "sha256": "sha256:356e35812426cb1911f0548ecc94506f5c424ba34e1c84575e30dbea3f59e7ee"
+      "bytes": 150443,
+      "sha256": "sha256:5c05e08ebad9a1f4deb293184bc6452d78ca53c0f4726de097ea9c45aab6a005"
     },
     "docs/guides/data-sources--workload--reference--group-015.md": {
-      "bytes": 143064,
-      "sha256": "sha256:5199d7b11a75fda92f92dfcac8e5583c837a2a556d03d5436c062972f085da9c"
+      "bytes": 143161,
+      "sha256": "sha256:77c5bb48cbbc1bf3fb3b45dbea58365a0c121d1b823eba0212ef79b73483b380"
     },
     "docs/guides/data-sources--workload--reference--group-016.md": {
       "bytes": 243499,
@@ -3121,8 +3121,8 @@
       "sha256": "sha256:2a2e0c3a715329d4446c89123496825e723291f11003ee8e28448c0c27ccd8d5"
     },
     "docs/guides/data-sources--workload--reference--group-026.md": {
-      "bytes": 146307,
-      "sha256": "sha256:8f79197271553cbdcd7ccdf3dd19de7705ff0204cd0d75692ebe0e67d2f43ae7"
+      "bytes": 146404,
+      "sha256": "sha256:06324eab6da0735c9cf430cbea198ccd1ab0c048d3334521fee59a9cb3858489"
     },
     "docs/guides/data-sources--workload--reference--group-027.md": {
       "bytes": 129149,
@@ -3573,8 +3573,8 @@
       "sha256": "sha256:3ea2278eebeb63512cfcbfcebfec497e3faee6f0c81855d8b1799619055b2785"
     },
     "docs/guides/resources--cdn_loadbalancer--reference--group-012.md": {
-      "bytes": 275193,
-      "sha256": "sha256:d9fde709b0ddb4e558607540b0a62b80555104060780d131a9f50cc39264ddcc"
+      "bytes": 275261,
+      "sha256": "sha256:a5bda1eb25d862518377d8be82ce4c03bfb7350a886c700b0ee7a0c02f21805b"
     },
     "docs/guides/resources--cdn_loadbalancer--reference--group-013.md": {
       "bytes": 136669,
@@ -5093,8 +5093,8 @@
       "sha256": "sha256:7416b2d73e840857bc545e39e7d6d33e1f72f2b9b7976453fd13378d6e6f0ce4"
     },
     "docs/guides/resources--workload--reference--group-004.md": {
-      "bytes": 160122,
-      "sha256": "sha256:471fbbf0c1429ef069a4f6794890fe45236dc39c5a5516aabf71167632b51ca7"
+      "bytes": 160239,
+      "sha256": "sha256:2263288712f91936d90f41b7b43c21801134f62efc5ea3f883f7d21c730abea2"
     },
     "docs/guides/resources--workload--reference--group-005.md": {
       "bytes": 79584,
@@ -5141,12 +5141,12 @@
       "sha256": "sha256:6a78f0adcd47775c82cf86462c4e90b731fb2810b0d363d7df139e83cf00c1e1"
     },
     "docs/guides/resources--workload--reference--group-016.md": {
-      "bytes": 125395,
-      "sha256": "sha256:979360c03cc66227188820ddebb013ce4a41ddfd3faf9f73e5b8020e7ae964e9"
+      "bytes": 125512,
+      "sha256": "sha256:f3860186b66170d9050dbc9e4cf0cf60827fced617a1795034d79064098db10b"
     },
     "docs/guides/resources--workload--reference--group-017.md": {
-      "bytes": 134879,
-      "sha256": "sha256:38b63f32167d16fa47f145d65df1d5eb646d211da4ea77bf1bb609e8b6de831a"
+      "bytes": 134996,
+      "sha256": "sha256:b48db76117997c2c8fad28ead69ed1c2fa6cf1e295913dae86a741e439ba57f8"
     },
     "docs/guides/resources--workload--reference--group-018.md": {
       "bytes": 152431,
@@ -5189,8 +5189,8 @@
       "sha256": "sha256:c9d13c53b6d0adcbefa21c899d038d6f70749eb34ecda4301e47a0eb1c2a72d8"
     },
     "docs/guides/resources--workload--reference--group-028.md": {
-      "bytes": 132813,
-      "sha256": "sha256:08824eafed007c4f3b83fd1c32742cefd46c15de7006aa14a9a81fa30792bb83"
+      "bytes": 132930,
+      "sha256": "sha256:ecd313459e498dc24f4425569fbac8289ab365cfa78a34e716092158c7a60fdc"
     },
     "docs/guides/resources--workload--reference--group-029.md": {
       "bytes": 122500,
@@ -5722,7 +5722,7 @@
     }
   },
   "limit_bytes": 500000,
-  "provider_schema_digest": "sha256:c6e4ccf56e8887c4192e662ded7285f98ad804e3254075567df8f73a44375945",
+  "provider_schema_digest": "sha256:1b9ea59a790d92083efb68ff1abebe57ebbb3f7b716b91cdb7b0416134676174",
   "schema_version": 1,
   "section_manifests": [
     { "path": "documentation/registry-projection/sections-0001.json", "section_count": 534 },

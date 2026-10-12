@@ -2892,7 +2892,7 @@
       "section_id": "xcsh-docs:resources:workload:properties:job:containers:section:0",
       "source_sha256": "sha256:13228b21d7c6d7b119a16c4eea4a491fbf0508912f52364bdfa057be46e844a3",
       "source_bytes": 1396,
-      "canonical_source_sha256": "sha256:654c61ff69f21af7fae73353c16cdb69268dc65fd735112d249ecb57bb467670",
+      "canonical_source_sha256": "sha256:f1f6c15383f376910dc267013f95a88100e37d9777976df62844ea40d20ff987",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/workload/properties/job/containers/",
       "anchor": "canonical-2002301323122233-0221102100003021-3013132233211233-3012203030111110-1222020112111222-3222330102102021-2002120323232230-2011302203232120",
       "anchor_map": [
@@ -2909,7 +2909,7 @@
       "section_id": "xcsh-docs:resources:workload:properties:job:containers:section:1",
       "source_sha256": "sha256:59ed6930c0434089a71bd24cae25685022f2049aa422f8856f9aec121326da2b",
       "source_bytes": 864,
-      "canonical_source_sha256": "sha256:654c61ff69f21af7fae73353c16cdb69268dc65fd735112d249ecb57bb467670",
+      "canonical_source_sha256": "sha256:f1f6c15383f376910dc267013f95a88100e37d9777976df62844ea40d20ff987",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/workload/properties/job/containers/",
       "anchor": "canonical-3200302132100200-3322232120111213-1120320101103302-2123212130110000-0112301222133022-1211330332111112-1013301222230331-2301130310031020",
       "anchor_map": [
@@ -2930,7 +2930,7 @@
       "section_id": "xcsh-docs:resources:workload:properties:job:containers:section:2",
       "source_sha256": "sha256:4e62e28220b61a42b81d46d264e2bcc0d36d193f2d3882006c92d34dae9d53ba",
       "source_bytes": 1137,
-      "canonical_source_sha256": "sha256:654c61ff69f21af7fae73353c16cdb69268dc65fd735112d249ecb57bb467670",
+      "canonical_source_sha256": "sha256:f1f6c15383f376910dc267013f95a88100e37d9777976df62844ea40d20ff987",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/workload/properties/job/containers/",
       "anchor": "canonical-2200223223322301-1223300002000023-1003133203331322-2103033212111011-2001122110012301-0201031021303002-0202111301001021-2100110220000031",
       "anchor_map": [
@@ -2947,7 +2947,7 @@
       "section_id": "xcsh-docs:resources:workload:properties:job:containers:section:3",
       "source_sha256": "sha256:ce3e7e35ef32dab346ea42e37a608b881f13eae8b50c8cbf51d7a7a1e243abec",
       "source_bytes": 1589,
-      "canonical_source_sha256": "sha256:654c61ff69f21af7fae73353c16cdb69268dc65fd735112d249ecb57bb467670",
+      "canonical_source_sha256": "sha256:f1f6c15383f376910dc267013f95a88100e37d9777976df62844ea40d20ff987",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/workload/properties/job/containers/",
       "anchor": "canonical-3310312012332010-3330222211021231-0232333100121322-2203010312322223-2300332230102201-1133102202120200-3322111300132221-0001113320112132",
       "anchor_map": [
@@ -2962,9 +2962,9 @@
     {
       "canonical_id": "xcsh-docs:resources:workload:properties:job:containers",
       "section_id": "xcsh-docs:resources:workload:properties:job:containers:section:4",
-      "source_sha256": "sha256:0f58b6582d3c8442b11cae255f7cccf12563c04f1160ad78d4a9e254091be195",
-      "source_bytes": 530,
-      "canonical_source_sha256": "sha256:654c61ff69f21af7fae73353c16cdb69268dc65fd735112d249ecb57bb467670",
+      "source_sha256": "sha256:230bebbacaee0c7fb7fa601c77c8bebc6766421b449bcc528703e753d01d938c",
+      "source_bytes": 600,
+      "canonical_source_sha256": "sha256:f1f6c15383f376910dc267013f95a88100e37d9777976df62844ea40d20ff987",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/workload/properties/job/containers/",
       "anchor": "canonical-3230220001103002-0123020331321122-1302312322300030-3302031023020131-3100230130023132-3123210330323133-2010121031122331-0133312111322011",
       "anchor_map": [
@@ -2981,7 +2981,7 @@
       "section_id": "xcsh-docs:resources:workload:properties:job:containers:section:5",
       "source_sha256": "sha256:137ba9734993ac70a04f2283d4cbf4eeab30bb08ed092a6dc9e9e9b75712cf7f",
       "source_bytes": 1541,
-      "canonical_source_sha256": "sha256:654c61ff69f21af7fae73353c16cdb69268dc65fd735112d249ecb57bb467670",
+      "canonical_source_sha256": "sha256:f1f6c15383f376910dc267013f95a88100e37d9777976df62844ea40d20ff987",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/workload/properties/job/containers/",
       "anchor": "canonical-3311010133222222-3212213021302121-0003320011300013-0023003033023113-3211113033110113-2021103231111211-0000130220323331-1311011212033221",
       "anchor_map": [],
@@ -3077,7 +3077,7 @@
       "section_id": "xcsh-docs:resources:workload:properties:job:containers:image:section:0",
       "source_sha256": "sha256:f69998a4a1b6d70a91d1c18a5d1505a8ed76b9eec303d1bcbf2ad611e7a037e5",
       "source_bytes": 1112,
-      "canonical_source_sha256": "sha256:2fdac077b0af590b63c0d091202620cb8249ffa4465a43c9fa8b1c790dc53274",
+      "canonical_source_sha256": "sha256:27b5e1f8b08f746f9028eda1b588b50d006615b55dcac6140b2383d1e5a2f993",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/workload/properties/job/containers/image/",
       "anchor": "canonical-2002011301132301-3330102213113310-1102130100321130-2331030211120320-0011130122220321-1201230113212001-2122102222122303-1313011321113233",
       "anchor_map": [
@@ -3094,7 +3094,7 @@
       "section_id": "xcsh-docs:resources:workload:properties:job:containers:image:section:1",
       "source_sha256": "sha256:3f27131c91782758f72904f92366113e90c6dce5f2f6f3f80b91b2a585a70f7c",
       "source_bytes": 256,
-      "canonical_source_sha256": "sha256:2fdac077b0af590b63c0d091202620cb8249ffa4465a43c9fa8b1c790dc53274",
+      "canonical_source_sha256": "sha256:27b5e1f8b08f746f9028eda1b588b50d006615b55dcac6140b2383d1e5a2f993",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/workload/properties/job/containers/image/",
       "anchor": "canonical-1213332233201211-1332122023002020-1002021332203210-3003301030100002-2102001100311131-0121300020200121-2012333103302113-1101112121231123",
       "anchor_map": [
@@ -3111,7 +3111,7 @@
       "section_id": "xcsh-docs:resources:workload:properties:job:containers:image:section:2",
       "source_sha256": "sha256:28764165944a305749d0eeb8bad7654277b7cf421c70e5f44045aace582c5241",
       "source_bytes": 1840,
-      "canonical_source_sha256": "sha256:2fdac077b0af590b63c0d091202620cb8249ffa4465a43c9fa8b1c790dc53274",
+      "canonical_source_sha256": "sha256:27b5e1f8b08f746f9028eda1b588b50d006615b55dcac6140b2383d1e5a2f993",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/workload/properties/job/containers/image/",
       "anchor": "canonical-2302130221133023-2231132212330312-1010202221211323-1232123230211212-3110122203301003-1323030231301312-2332222203013321-3301322101030020",
       "anchor_map": [
@@ -3126,9 +3126,9 @@
     {
       "canonical_id": "xcsh-docs:resources:workload:properties:job:containers:image",
       "section_id": "xcsh-docs:resources:workload:properties:job:containers:image:section:3",
-      "source_sha256": "sha256:a5115c05aee97e485f08e2089ab650f6e9b78e0778f4d8778b4cae8b0315d021",
-      "source_bytes": 1700,
-      "canonical_source_sha256": "sha256:2fdac077b0af590b63c0d091202620cb8249ffa4465a43c9fa8b1c790dc53274",
+      "source_sha256": "sha256:ce60d026ec75fc1897e445c6859dca011bdcc4ee3bad5d2a8a1619eac9353393",
+      "source_bytes": 1747,
+      "canonical_source_sha256": "sha256:27b5e1f8b08f746f9028eda1b588b50d006615b55dcac6140b2383d1e5a2f993",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/workload/properties/job/containers/image/",
       "anchor": "canonical-0012120223003122-2301300223021312-2002012230011111-1111331103013231-2030232131113301-1212323332111310-1120200130003232-3131302312023213",
       "anchor_map": [],
