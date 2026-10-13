@@ -54,7 +54,7 @@ resource "time_sleep" "wait_for_namespace" {
 resource "xcsh_swagger_object" "fixture" {
  name = "%[1]s-spec"
  namespace = "shared"
- content = "{\"openapi\":\"3.0.3\",\"info\":{\"title\":\"Acceptance API\",\"version\":\"1.0.0\"},\"paths\":{\"/health\":{\"get\":{\"responses\":{\"200\":{\"description\":\"OK\"}}}}}}"
+ content = "{\"openapi\":\"3.0.3\",\"info\":{\"title\":\"Acceptance API\",\"version\":\"1.0.0\"},\"servers\":[{\"url\":\"https://example.com\"}],\"paths\":{\"/health\":{\"get\":{\"responses\":{\"200\":{\"description\":\"OK\"}}}}}}"
 }
 
 resource "xcsh_api_definition" "test" {

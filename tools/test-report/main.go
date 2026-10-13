@@ -86,10 +86,11 @@ const (
 // FailureFingerprint contains only allowlisted diagnostic facts. It must never
 // contain arbitrary test output, URLs, response bodies, state, or identifiers.
 type FailureFingerprint struct {
-	Class          FailureClass `json:"class"`
-	Summary        string       `json:"summary,omitempty"`
-	HTTPStatus     int          `json:"http_status,omitempty"`
-	SourceLocation string       `json:"source_location,omitempty"`
+	Class           FailureClass `json:"class"`
+	Summary         string       `json:"summary,omitempty"`
+	HTTPStatus      int          `json:"http_status,omitempty"`
+	SourceLocation  string       `json:"source_location,omitempty"`
+	DiagnosticFacts []string     `json:"diagnostic_facts,omitempty"`
 }
 
 // FailureFingerprintSummary deterministically groups identical safe failure
@@ -546,6 +547,11 @@ func classifyFailureFingerprint(output string) FailureFingerprint {
 		SourceLocation: extractPublicSourceLocation(output),
 	}
 	lower := strings.ToLower(output)
+	for _, fact := range []string{"quota_unconfigured", "quota_exceeded", "swagger_reference", "namespace_constraint", "missing_required_input", "schema_validation", "authentication_denied"} {
+		if strings.Contains(output, "[API_DIAGNOSTIC:"+fact+"]") {
+			fingerprint.DiagnosticFacts = append(fingerprint.DiagnosticFacts, fact)
+		}
+	}
 	if strings.Contains(lower, "no api verifier registered") || strings.Contains(lower, "no verifier registered") || strings.Contains(lower, "no deleter registered") {
 		fingerprint.Class = FailureClassCleanup
 		fingerprint.Summary = "Missing cleanup verifier"

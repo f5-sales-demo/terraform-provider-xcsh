@@ -266,6 +266,7 @@ func (t *ownershipTransport) RoundTrip(req *http.Request) (*http.Response, error
 	clone.ContentLength = int64(len(data))
 	clone.GetBody = func() (io.ReadCloser, error) { return io.NopCloser(bytes.NewReader(data)), nil }
 	response, err := t.base.RoundTrip(clone)
+	logAcceptanceAPIDiagnostic(response)
 	if err != nil {
 		return response, err
 	}
