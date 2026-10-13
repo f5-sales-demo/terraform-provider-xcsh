@@ -210,14 +210,14 @@ var resourceConfigs = map[string]string{
 
 	"bgp": `
   bgp_parameters {
-    asn          = 65000
+    asn = 65000
     from_site = {}
   }
   where {
     site {
       network_type = "VIRTUAL_NETWORK_SITE_LOCAL_INSIDE"
       ref {
-        name = "example-site"
+        name = %[2]q
         namespace = "system"
       }
     }
@@ -228,6 +228,7 @@ var resourceConfigs = map[string]string{
 
 	"bgp_routing_policy": `
   rules {
+    match { as_path = ".*" }
     action { allow = {} }
   }`,
 
@@ -718,6 +719,8 @@ var systemLevelResources = map[string]bool{
 
 // Resources that MUST use namespace = "system" (not custom namespace)
 var systemNamespaceResources = map[string]bool{
+	"bgp":                  true,
+	"bgp_routing_policy":   true,
 	"http_loadbalancer":    true,
 	"network_interface":    true,
 	"discovery":            true,
@@ -839,7 +842,7 @@ import (
 func {{.TestFuncName}}(t *testing.T) {
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
- {{if eq .Name "site_mesh_group"}}acctest.RequireReadOnlyVirtualSite(t){{else if or (eq .Name "subnet") (eq .Name "nat_policy") (eq .Name "discovery")}}acctest.RequireExistingInfrastructure(t,"site"){{end}}
+ {{if or (eq .Name "cloud_link") (eq .Name "cloud_elastic_ip")}}acctest.RequireExistingInfrastructure(t,"cloud_site"){{else if eq .Name "site_mesh_group"}}acctest.RequireReadOnlyVirtualSite(t){{else if or (eq .Name "subnet") (eq .Name "nat_policy") (eq .Name "discovery") (eq .Name "bgp")}}acctest.RequireExistingInfrastructure(t,"site"){{end}}
 
 	{{if eq .Name "api_definition"}}rName := acctest.CompactRandomName(20){{else}}rName := acctest.RandomName("tf-acc-test"){{end}}
 {{- if and .NeedsNamespace (not .IsNamespace) (not .UseSystemNamespace)}}
@@ -865,7 +868,7 @@ func {{.TestFuncName}}(t *testing.T) {
 {{- if .IsNamespace}}
 				Config: {{.ConfigFuncName}}(rName),
 {{- else if .UseSystemNamespace}}
-				Config: {{.ConfigFuncName}}(rName{{if eq .Name "site_mesh_group"}}, acctest.ReadOnlyVirtualSiteName(), acctest.ReadOnlyVirtualSiteNamespace(){{else if or (eq .Name "subnet") (eq .Name "nat_policy") (eq .Name "discovery")}}, acctest.ReadOnlySiteName(){{end}}),
+				Config: {{.ConfigFuncName}}(rName{{if eq .Name "site_mesh_group"}}, acctest.ReadOnlyVirtualSiteName(), acctest.ReadOnlyVirtualSiteNamespace(){{else if or (eq .Name "subnet") (eq .Name "nat_policy") (eq .Name "discovery") (eq .Name "bgp")}}, acctest.ReadOnlySiteName(){{end}}),
 {{- else if .NeedsNamespace}}
 				Config: {{.ConfigFuncName}}(nsName, rName),
 {{- else}}
@@ -906,7 +909,7 @@ data "{{.ResourceName}}" "test" {
 }
 {{- else if .UseSystemNamespace}}
 
-func {{.ConfigFuncName}}(name string{{if eq .Name "site_mesh_group"}}, virtualSiteName, virtualSiteNamespace string{{else if or (eq .Name "subnet") (eq .Name "nat_policy") (eq .Name "discovery")}}, siteName string{{end}}) string {
+func {{.ConfigFuncName}}(name string{{if eq .Name "site_mesh_group"}}, virtualSiteName, virtualSiteNamespace string{{else if or (eq .Name "subnet") (eq .Name "nat_policy") (eq .Name "discovery") (eq .Name "bgp")}}, siteName string{{end}}) string {
 {{- if or (eq .Name "certificate") (eq .Name "certificate_chain")}}
  certs := acctest.MustGenerateTestCertificates()
 {{- end}}
@@ -924,7 +927,7 @@ data "{{.ResourceName}}" "test" {
   name       = {{.ResourceName}}.test.name
   namespace  = {{.ResourceName}}.test.namespace
 }
-` + "`" + `, name{{if eq .Name "site_mesh_group"}}, virtualSiteName, virtualSiteNamespace{{else if or (eq .Name "subnet") (eq .Name "nat_policy") (eq .Name "discovery")}}, siteName{{end}}{{if eq .Name "certificate"}}, certs.ServerCertBase64, certs.ServerKeyBase64{{else if eq .Name "certificate_chain"}}, certs.IntermediateCABase64{{end}}))
+` + "`" + `, name{{if eq .Name "site_mesh_group"}}, virtualSiteName, virtualSiteNamespace{{else if or (eq .Name "subnet") (eq .Name "nat_policy") (eq .Name "discovery") (eq .Name "bgp")}}, siteName{{end}}{{if eq .Name "certificate"}}, certs.ServerCertBase64, certs.ServerKeyBase64{{else if eq .Name "certificate_chain"}}, certs.IntermediateCABase64{{end}}))
 }
 {{- else if and .NeedsNamespace (not .Skip)}}
 

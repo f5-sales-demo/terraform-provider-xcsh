@@ -72,6 +72,10 @@ resource "xcsh_bgp" "test" {
   name       = %[2]q
   namespace  = %[1]q
 
+  bgp_parameters {
+    asn = 65000
+    from_site = {}
+  }
   peers {
     metadata {
       name = "test-peer"

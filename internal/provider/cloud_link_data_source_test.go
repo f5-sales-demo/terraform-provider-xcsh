@@ -14,6 +14,7 @@ import (
 func TestAccCloudLinkDataSource_basic(t *testing.T) {
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
+	acctest.RequireExistingInfrastructure(t, "cloud_site")
 
 	rName := acctest.RandomName("tf-acc-test")
 	nsName := acctest.RandomName("tf-acc-test-ns")

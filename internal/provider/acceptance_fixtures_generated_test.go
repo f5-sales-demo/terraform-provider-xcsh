@@ -101,9 +101,7 @@ func init() {
 	})
 	acctest.RegisterFixture("testAccBgpAsnSetDataSourceConfig_basic", func() string { return testAccBgpAsnSetDataSourceConfig_basic("tf-acc-test-fixture") })
 	acctest.RegisterFixture("testAccBgpDataSourceConfig_basic", func() string { return testAccBgpDataSourceConfig_basic("tf-acc-test-fixture", "tf-acc-test-fixture") })
-	acctest.RegisterFixture("testAccBgpRoutingPolicyDataSourceConfig_basic", func() string {
-		return testAccBgpRoutingPolicyDataSourceConfig_basic("tf-acc-test-fixture", "tf-acc-test-fixture")
-	})
+	acctest.RegisterFixture("testAccBgpRoutingPolicyDataSourceConfig_basic", func() string { return testAccBgpRoutingPolicyDataSourceConfig_basic("tf-acc-test-fixture") })
 	acctest.RegisterFixture("testAccBotDefenseAppInfrastructureConfig_basic", func() string {
 		return testAccBotDefenseAppInfrastructureConfig_basic("tf-acc-test-fixture", "tf-acc-test-fixture")
 	})
