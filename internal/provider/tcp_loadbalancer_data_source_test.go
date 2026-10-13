@@ -16,18 +16,14 @@ func TestAccTcpLoadbalancerDataSource_basic(t *testing.T) {
 	acctest.PreCheck(t)
 
 	rName := acctest.RandomName("tf-acc-test")
-	nsName := acctest.RandomName("tf-acc-test-ns")
 	resourceName := "xcsh_tcp_loadbalancer.test"
 	dataSourceName := "data.xcsh_tcp_loadbalancer.test"
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
 		ProtoV6ProviderFactories: acctest.ProtoV6ProviderFactories,
-		ExternalProviders: map[string]resource.ExternalProvider{
-			"time": {Source: "hashicorp/time"},
-		},
 		Steps: []resource.TestStep{
 			{
-				Config: testAccTcpLoadbalancerDataSourceConfig_basic(nsName, rName),
+				Config: testAccTcpLoadbalancerDataSourceConfig_basic(rName),
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttrPair(dataSourceName, "name", resourceName, "name"),
 					resource.TestCheckResourceAttrPair(dataSourceName, "namespace", resourceName, "namespace"),
@@ -38,18 +34,10 @@ func TestAccTcpLoadbalancerDataSource_basic(t *testing.T) {
 	})
 }
 
-func testAccTcpLoadbalancerDataSourceConfig_basic(nsName, name string) string {
+func testAccTcpLoadbalancerDataSourceConfig_basic(name string) string {
 	return acctest.ConfigCompose(
 		acctest.ProviderConfig(),
 		fmt.Sprintf(`
-resource "xcsh_namespace" "test" {
-  name = %[1]q
-}
-
-resource "time_sleep" "wait_for_namespace" {
-  depends_on      = [xcsh_namespace.test]
-  create_duration = "5s"
-}
 
 resource "xcsh_origin_pool" "test" {
   name       = "%[1]s-pool"
@@ -65,9 +53,8 @@ resource "xcsh_origin_pool" "test" {
 }
 
 resource "xcsh_tcp_loadbalancer" "test" {
-  depends_on = [time_sleep.wait_for_namespace, xcsh_origin_pool.test]
-  name       = %[2]q
-  namespace  = xcsh_namespace.test.name
+  name      = %[1]q
+  namespace = "shared"
   domains = ["%[1]s.example.com"]
   tcp = {}
   listen_port = 80
@@ -88,5 +75,5 @@ data "xcsh_tcp_loadbalancer" "test" {
   name       = xcsh_tcp_loadbalancer.test.name
   namespace  = xcsh_tcp_loadbalancer.test.namespace
 }
-`, nsName, name))
+`, name))
 }

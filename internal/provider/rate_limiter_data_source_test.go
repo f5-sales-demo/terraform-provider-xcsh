@@ -41,7 +41,7 @@ func testAccRateLimiterDataSourceConfig_basic(name string) string {
 
 resource "xcsh_rate_limiter" "test" {
   name      = %[1]q
-  namespace = "system"
+  namespace = "shared"
 }
 
 data "xcsh_rate_limiter" "test" {

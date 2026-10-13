@@ -41,7 +41,7 @@ func testAccUserIdentificationDataSourceConfig_basic(name string) string {
 
 resource "xcsh_user_identification" "test" {
   name      = %[1]q
-  namespace = "system"
+  namespace = "shared"
   rules { client_ip = {} }
 }
 

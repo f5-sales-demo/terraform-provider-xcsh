@@ -41,7 +41,7 @@ func testAccHealthcheckDataSourceConfig_basic(name string) string {
 
 resource "xcsh_healthcheck" "test" {
   name      = %[1]q
-  namespace = "system"
+  namespace = "shared"
   healthy_threshold   = 1
   unhealthy_threshold = 2
   timeout             = 3

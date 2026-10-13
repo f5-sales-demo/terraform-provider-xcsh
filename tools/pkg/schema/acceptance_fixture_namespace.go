@@ -30,3 +30,33 @@ func AcceptanceFixtureNamespace(spec *openapi.DomainSpec, resourceName string) (
 	}
 	return "", nil
 }
+
+// AcceptanceReusableFixtureNamespace chooses an existing permitted tenant namespace
+// to avoid making unrelated namespace creation a prerequisite for every fixture.
+func AcceptanceReusableFixtureNamespace(spec *openapi.DomainSpec, resourceName string) (string, error) {
+	resolved, _, found, err := ResolveNamespaceProfileSchema(spec.Components.Schemas, resourceName, true)
+	if err != nil {
+		return "", err
+	}
+	var profile *openapi.NamespaceProfileSpec
+	if found {
+		profile = resolved.XF5XCNamespaceProfile
+	}
+	if profile == nil {
+		profile = spec.Info.XF5XCNamespaceProfile
+	}
+	if profile == nil {
+		profile = spec.XF5XCNamespaceProfile
+	}
+	if profile == nil || profile.Constraint == nil || !profile.Constraint.Enforced {
+		return "", nil
+	}
+	for _, candidate := range []string{"shared", "system", "default"} {
+		for _, allowed := range profile.Constraint.Allowed {
+			if candidate == allowed {
+				return candidate, nil
+			}
+		}
+	}
+	return "", nil
+}

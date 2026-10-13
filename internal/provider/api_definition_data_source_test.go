@@ -15,19 +15,15 @@ func TestAccApiDefinitionDataSource_basic(t *testing.T) {
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 
-	rName := acctest.RandomName("tf-acc-test")
-	nsName := acctest.RandomName("tf-acc-test-ns")
+	rName := acctest.CompactRandomName(20)
 	resourceName := "xcsh_api_definition.test"
 	dataSourceName := "data.xcsh_api_definition.test"
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
 		ProtoV6ProviderFactories: acctest.ProtoV6ProviderFactories,
-		ExternalProviders: map[string]resource.ExternalProvider{
-			"time": {Source: "hashicorp/time"},
-		},
 		Steps: []resource.TestStep{
 			{
-				Config: testAccApiDefinitionDataSourceConfig_basic(nsName, rName),
+				Config: testAccApiDefinitionDataSourceConfig_basic(rName),
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttrPair(dataSourceName, "name", resourceName, "name"),
 					resource.TestCheckResourceAttrPair(dataSourceName, "namespace", resourceName, "namespace"),
@@ -38,18 +34,10 @@ func TestAccApiDefinitionDataSource_basic(t *testing.T) {
 	})
 }
 
-func testAccApiDefinitionDataSourceConfig_basic(nsName, name string) string {
+func testAccApiDefinitionDataSourceConfig_basic(name string) string {
 	return acctest.ConfigCompose(
 		acctest.ProviderConfig(),
 		fmt.Sprintf(`
-resource "xcsh_namespace" "test" {
-  name = %[1]q
-}
-
-resource "time_sleep" "wait_for_namespace" {
-  depends_on      = [xcsh_namespace.test]
-  create_duration = "5s"
-}
 
 resource "xcsh_swagger_object" "fixture" {
  name = "%[1]s-spec"
@@ -58,9 +46,8 @@ resource "xcsh_swagger_object" "fixture" {
 }
 
 resource "xcsh_api_definition" "test" {
-  depends_on = [time_sleep.wait_for_namespace]
-  name       = %[2]q
-  namespace  = xcsh_namespace.test.name
+  name      = %[1]q
+  namespace = "shared"
   swagger_specs = [xcsh_swagger_object.fixture.path]
 }
 
@@ -69,5 +56,5 @@ data "xcsh_api_definition" "test" {
   name       = xcsh_api_definition.test.name
   namespace  = xcsh_api_definition.test.namespace
 }
-`, nsName, name))
+`, name))
 }

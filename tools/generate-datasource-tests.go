@@ -317,7 +317,7 @@ var resourceConfigs = map[string]string{
   default_route_pools {
     pool {
       name      = xcsh_origin_pool.test.name
-      namespace = xcsh_namespace.test.name
+      namespace = xcsh_origin_pool.test.namespace
     }
   }`,
 
@@ -663,7 +663,7 @@ func main() {
 			if _, err := os.Stat(filepath.Join("internal/provider", resource.Name+"_resource.go")); os.IsNotExist(err) {
 				continue
 			}
-			ns, err := schema.AcceptanceFixtureNamespace(domain.Spec, resource.Name)
+			ns, err := schema.AcceptanceReusableFixtureNamespace(domain.Spec, resource.Name)
 			if err != nil {
 				panic(err)
 			}
@@ -704,7 +704,7 @@ func {{.TestFuncName}}(t *testing.T) {
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 
-	rName := acctest.RandomName("tf-acc-test")
+	{{if eq .Name "api_definition"}}rName := acctest.CompactRandomName(20){{else}}rName := acctest.RandomName("tf-acc-test"){{end}}
 {{- if and .NeedsNamespace (not .IsNamespace) (not .UseSystemNamespace)}}
 	nsName := acctest.RandomName("tf-acc-test-ns")
 {{- end}}
@@ -924,6 +924,10 @@ data "{{.ResourceName}}" "test" {
 			DependsOnExtra     string
 		}
 
+		if ns:=fixtureNamespaces[resourceName];ns!="" {
+			config.ResourceConfig=strings.ReplaceAll(config.ResourceConfig,"xcsh_namespace.test.name",fmt.Sprintf("%q",ns))
+			deps=strings.ReplaceAll(deps,"xcsh_namespace.test.name",fmt.Sprintf("%q",ns))
+		}
 		data := templateData{
 			Name:               config.Name,
 			StructName:         config.StructName,
