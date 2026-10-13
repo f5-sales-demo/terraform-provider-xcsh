@@ -46,7 +46,7 @@ func TestOwnedSwaggerUsesExactVersionAndDigest(t *testing.T) {
 	if err = j.Confirm(r, "v1"); err != nil {
 		t.Fatal(err)
 	}
-	receipt, err := j.Cleanup(context.Background(), apiOwnershipBackend{c: c}, 3, 0)
+	receipt, err := j.Cleanup(context.Background(), apiOwnershipBackend{c: c, run: j.RunID}, 3, 0)
 	if err != nil || !receipt.Complete || deleted != "/api/object_store/namespaces/system/stored_objects/swagger/tf-acc-test-runone-swagger/v1" {
 		t.Fatalf("cleanup %#v %v %s", receipt, err, deleted)
 	}

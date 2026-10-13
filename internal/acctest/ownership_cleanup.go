@@ -22,7 +22,7 @@ func CleanupOwnershipRun(ctx context.Context, path, run, receiptPath string) err
 		if os.Getenv(EnvXCSHURL) == "" || os.Getenv(EnvXCSHToken) == "" {
 			err = errors.New("cleanup credentials unavailable")
 		} else {
-			receipt, err = j.Cleanup(ctx, apiOwnershipBackend{c: c}, 12, 5*time.Second)
+			receipt, err = j.Cleanup(ctx, apiOwnershipBackend{c: c, run: j.RunID}, 12, 5*time.Second)
 		}
 	}
 	data, marshalErr := json.MarshalIndent(receipt, "", "  ")

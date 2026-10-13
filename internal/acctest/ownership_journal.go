@@ -138,7 +138,7 @@ func LoadOwnershipJournal(path, run string) (*OwnershipJournal, error) {
 	return &j, nil
 }
 func (j *OwnershipJournal) validate(r OwnedResource) error {
-	if r.Type == "" || !strings.HasPrefix(r.Name, TestResourcePrefix+j.RunID+"-") || strings.ContainsAny(r.Name+r.Namespace, "/?# \t\r\n") {
+	if r.Type == "" || !matchesOwnershipRun(r.Name, j.RunID) || strings.ContainsAny(r.Name+r.Namespace, "/?# \t\r\n") {
 		return errors.New("resource outside ownership run")
 	}
 	return nil
@@ -381,7 +381,10 @@ func (j *OwnershipJournal) Cleanup(ctx context.Context, b OwnershipBackend, atte
 	return receipt, nil
 }
 
-type apiOwnershipBackend struct{ c *client.Client }
+type apiOwnershipBackend struct {
+	c   *client.Client
+	run string
+}
 
 func (b apiOwnershipBackend) Read(ctx context.Context, r OwnedResource) (client.Metadata, error) {
 	if r.Type == "xcsh_swagger_object" {
