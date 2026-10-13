@@ -1,0 +1,85 @@
+{
+  "variants": [
+    {
+      "accepted": false,
+      "mentions_dns_label": false,
+      "mentions_owned_network": false,
+      "mentions_owned_segment": false,
+      "mentions_ref_resolution": false,
+      "mentions_selected_site": false,
+      "status": 500,
+      "variant": "network"
+    },
+    {
+      "accepted": false,
+      "mentions_dns_label": false,
+      "mentions_owned_network": false,
+      "mentions_owned_segment": false,
+      "mentions_ref_resolution": false,
+      "mentions_selected_site": false,
+      "status": 500,
+      "variant": "segment"
+    },
+    {
+      "accepted": false,
+      "mentions_dns_label": false,
+      "mentions_owned_network": false,
+      "mentions_owned_segment": false,
+      "mentions_ref_resolution": false,
+      "mentions_selected_site": false,
+      "status": 500,
+      "variant": "disabled_network"
+    },
+    {
+      "accepted": false,
+      "mentions_dns_label": false,
+      "mentions_owned_network": false,
+      "mentions_owned_segment": false,
+      "mentions_ref_resolution": false,
+      "mentions_selected_site": false,
+      "status": 500,
+      "variant": "disabled_segment"
+    },
+    {
+      "accepted": false,
+      "mentions_dns_label": false,
+      "mentions_owned_network": false,
+      "mentions_owned_segment": false,
+      "mentions_ref_resolution": false,
+      "mentions_selected_site": false,
+      "status": 400,
+      "variant": "dynamic_network"
+    },
+    {
+      "accepted": false,
+      "mentions_dns_label": false,
+      "mentions_owned_network": false,
+      "mentions_owned_segment": false,
+      "mentions_ref_resolution": false,
+      "mentions_selected_site": false,
+      "status": 400,
+      "variant": "no_site_network"
+    },
+    {
+      "accepted": false,
+      "mentions_dns_label": false,
+      "mentions_owned_network": false,
+      "mentions_owned_segment": false,
+      "mentions_ref_resolution": false,
+      "mentions_selected_site": false,
+      "status": 400,
+      "variant": "no_site_segment"
+    }
+  ],
+  "version": 1,
+  "cleanup": {
+    "version": 1,
+    "journal_sha256": "427035d25a0607b185ef5da2cbfe3a993e3e59bbf346c8d7d7f0ccb79339e11e",
+    "complete": true,
+    "owned": 9,
+    "confirmed_absent": 9,
+    "failures": 0,
+    "second_pass_remaining": 0
+  },
+  "qualification": false
+}
