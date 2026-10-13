@@ -55,13 +55,6 @@ resource "xcsh_authentication" "test" {
   depends_on = [time_sleep.wait_for_namespace]
   name       = %[2]q
   namespace  = xcsh_namespace.test.name
-  hmac_auth {
-    secret {
-      clear_secret_info {
-        url = "string:///dGVzdC1zZWNyZXQtdmFsdWU="
-      }
-    }
-  }
 }
 
 data "xcsh_authentication" "test" {

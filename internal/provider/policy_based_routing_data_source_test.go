@@ -55,14 +55,6 @@ resource "xcsh_policy_based_routing" "test" {
   depends_on = [time_sleep.wait_for_namespace]
   name       = %[2]q
   namespace  = xcsh_namespace.test.name
-  destination_match_rules {
-    any_prefix = true
-    any_port   = true
-    protocol   = "TCP"
-    action {
-      vrf_egress = true
-    }
-  }
 }
 
 data "xcsh_policy_based_routing" "test" {

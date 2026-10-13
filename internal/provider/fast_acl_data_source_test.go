@@ -57,13 +57,7 @@ resource "xcsh_fast_acl" "test" {
   namespace  = xcsh_namespace.test.name
   site_acl {
     fast_acl_rules {
-      name   = "test-rule"
-      action {
-        deny = true
-      }
-      prefix {
-        prefix = ["10.0.0.0/8"]
-      }
+      action { simple_action = "DENY" }
     }
   }
 }

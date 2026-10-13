@@ -55,9 +55,15 @@ resource "xcsh_workload" "test" {
   depends_on = [time_sleep.wait_for_namespace]
   name       = %[2]q
   namespace  = xcsh_namespace.test.name
-  containers {
-    name  = "nginx"
-    image = "nginx:latest"
+  service {
+    containers {
+      name = "fixture"
+      image {
+        name = "nginx:stable"
+        public = {}
+      }
+    }
+
   }
 }
 

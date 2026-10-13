@@ -1852,7 +1852,7 @@ func TestScheduledAcceptanceFailureFailsWorkflow(t *testing.T) {
 			t.Errorf("acceptance job %s does not install the pinned Go toolchain", jobName)
 		}
 	}
-	for _, jobName := range []string{"real-api-tests", "cleanup"} {
+	for _, jobName := range []string{"real-api-tests"} {
 		if workflow.Jobs[jobName].RunsOn != "managed-socketless" {
 			t.Errorf("acceptance job %s does not use managed-socketless", jobName)
 		}
@@ -1860,7 +1860,7 @@ func TestScheduledAcceptanceFailureFailsWorkflow(t *testing.T) {
 			t.Errorf("acceptance job %s downloads Go instead of using the immutable runner toolchain", jobName)
 		}
 	}
-	for _, jobName := range []string{"mock-tests", "real-api-tests", "cleanup", "compare-results"} {
+	for _, jobName := range []string{"mock-tests", "real-api-tests", "compare-results"} {
 		if !verifiedImageGo[jobName] {
 			t.Errorf("acceptance job %s does not verify the pinned Go 1.25.13 toolchain", jobName)
 		}
@@ -1898,7 +1898,7 @@ for arg in "$@"; do
 done
 [ -n "$output" ] || exit 2
 if [ "$format" = json ]; then
-  printf '%s\n' '{"total_passed":0,"total_failed":1,"transient_errors":[],"failed_tests":[{"name":"TestAccFailure","failure_fingerprint":{"class":"framework_diagnostic","summary":"Missing required argument"}}],"failure_fingerprints":[{"class":"framework_diagnostic","summary":"Missing required argument","count":1,"tests":["TestAccFailure"]}]}' > "$output"
+  printf '%s\n' '{"stream_completeness":{"complete":true},"total_tests":1,"tests":[],"total_passed":0,"total_failed":1,"transient_errors":[],"failed_tests":[{"name":"TestAccFailure","failure_fingerprint":{"class":"framework_diagnostic","summary":"Missing required argument"}}],"failure_fingerprints":[{"class":"framework_diagnostic","summary":"Missing required argument","count":1,"tests":["TestAccFailure"]}]}' > "$output"
 else
   printf 'framework_diagnostic: Missing required argument\n' > "$output"
 fi
@@ -1942,109 +1942,45 @@ exit 1
 		})
 	}
 
-	sweepScript := extractWorkflowRunStep(t, "acc-tests.yml", "cleanup", "Run sweepers")
-	if strings.Count(sweepScript, "go test ./internal/acctest") != 2 ||
-		strings.Count(sweepScript, "-count=1 -v -sweep=all") != 2 {
-		t.Fatal("cleanup does not execute two uncached sweeper passes")
+	cleanupScript := extractWorkflowRunStep(t, "acc-tests.yml", "real-api-tests", "Verify journal-owned cleanup")
+	if _, exists := workflow.Jobs["cleanup"]; exists {
+		t.Fatal("separate prefix-sweep job remains")
 	}
-	for _, label := range []string{
-		"namespaces",
-		"HTTP load balancers",
-		"origin pools",
-		"healthchecks",
-		"app firewalls",
-		"service policies",
-		"IP prefix sets",
-		"rate limiters",
-		"user identifications",
-		"malicious user mitigations",
-	} {
-		if !strings.Contains(sweepScript, `record_final_count`) || !strings.Contains(sweepScript, `"`+label+`"`) {
-			t.Fatalf("cleanup omits final evidence for %s", label)
-		}
+	if strings.Contains(cleanupScript, "-sweep") || !strings.Contains(cleanupScript, "XCSH_ACC_JOURNAL") {
+		t.Fatal("cleanup does not use private ownership journal")
 	}
-
-	for _, tc := range []struct {
-		name     string
-		mode     string
-		wantErr  string
-		wantPass bool
-	}{
-		{name: "two clean passes", mode: "success", wantPass: true},
-		{name: "initial pass failure", mode: "first-failure", wantErr: "Initial cleanup sweepers failed"},
-		{name: "final pass failure", mode: "final-failure", wantErr: "Final idempotence sweepers failed"},
-		{name: "missing final category", mode: "missing", wantErr: "missing or ambiguous"},
-		{name: "nonzero final category", mode: "nonzero", wantErr: "Final sweep found 1 namespaces"},
-	} {
-		t.Run("sweepers "+tc.name, func(t *testing.T) {
+	for _, mode := range []string{"success", "missing", "incomplete", "remaining", "command-failure"} {
+		t.Run("ownership cleanup "+mode, func(t *testing.T) {
 			tmp := t.TempDir()
 			bin := filepath.Join(tmp, "bin")
 			writeReleaseTestFile(t, bin, "go", `#!/usr/bin/env bash
 set -euo pipefail
-calls_file=go-call-count
-calls=0
-if [ -f "$calls_file" ]; then calls=$(cat "$calls_file"); fi
-calls=$((calls + 1))
-printf '%s\n' "$calls" > "$calls_file"
-printf 'sweeper detail that must stay local\n'
-if [ "${SWEEP_MODE:-success}" = first-failure ] && [ "$calls" -eq 1 ]; then exit 7; fi
-if [ "${SWEEP_MODE:-success}" = final-failure ] && [ "$calls" -eq 2 ]; then exit 8; fi
-namespace_count=0
-if [ "$calls" -eq 1 ]; then namespace_count=3; fi
-if [ "${SWEEP_MODE:-success}" = nonzero ] && [ "$calls" -eq 2 ]; then namespace_count=1; fi
-printf '[INFO] Swept %s namespaces\n' "$namespace_count"
-printf '[INFO] Swept 0 HTTP load balancers\n'
-printf '[INFO] Swept 0 origin pools\n'
-printf '[INFO] Swept 0 healthchecks\n'
-printf '[INFO] Swept 0 app firewalls\n'
-printf '[INFO] Swept 0 service policies\n'
-printf '[INFO] Swept 0 IP prefix sets\n'
-printf '[INFO] Swept 0 rate limiters\n'
-printf '[INFO] Swept 0 user identifications\n'
-if [ "${SWEEP_MODE:-success}" != missing ] || [ "$calls" -ne 2 ]; then
-  printf '[INFO] Swept 0 malicious user mitigations\n'
-fi
+case "${CLEANUP_MODE}" in
+ success) printf '%s\n' '{"complete":true,"owned":2,"confirmed_absent":2,"failures":0,"second_pass_remaining":0}' > test-reports/cleanup.json ;;
+ incomplete) printf '%s\n' '{"complete":false,"owned":2,"confirmed_absent":1,"failures":1,"second_pass_remaining":0}' > test-reports/cleanup.json ;;
+ remaining) printf '%s\n' '{"complete":true,"owned":2,"confirmed_absent":2,"failures":0,"second_pass_remaining":1}' > test-reports/cleanup.json ;;
+ missing) exit 0 ;;
+ command-failure) exit 7 ;;
+esac
 `, 0o700)
 			outputPath := filepath.Join(tmp, "github-output")
-			result, runErr := runImplicitWorkflowScript(tmp, sweepScript, []string{
+			_, runErr := runImplicitWorkflowScript(tmp, cleanupScript, []string{
 				"PATH=" + bin + string(os.PathListSeparator) + os.Getenv("PATH"),
-				"GITHUB_OUTPUT=" + outputPath,
-				"XCSH_API_URL=https://example.invalid",
-				"XCSH_API_TOKEN=fixture",
-				"SWEEP_MODE=" + tc.mode,
+				"GITHUB_OUTPUT=" + outputPath, "CLEANUP_MODE=" + mode,
 			})
-			if tc.wantPass && runErr != nil {
-				t.Fatalf("valid two-pass cleanup failed: %v\n%s", runErr, result)
+			if (mode == "success") != (runErr == nil) {
+				t.Fatalf("cleanup %s err=%v", mode, runErr)
 			}
-			if !tc.wantPass && (runErr == nil || !strings.Contains(result, tc.wantErr)) {
-				t.Fatalf("cleanup defect was reported as success: err=%v\n%s", runErr, result)
+			output, err := os.ReadFile(outputPath)
+			if err != nil {
+				t.Fatal(err)
 			}
-			if strings.Contains(result, "sweeper detail") {
-				t.Fatalf("sweeper output leaked to the job log:\n%s", result)
+			want := "result=failure"
+			if mode == "success" {
+				want = "result=success"
 			}
-			calls, err := os.ReadFile(filepath.Join(tmp, "go-call-count")) //nolint:gosec // isolated fixture
-			if err != nil || strings.TrimSpace(string(calls)) != "2" {
-				t.Fatalf("cleanup did not invoke both passes: calls=%q err=%v", calls, err)
-			}
-			for _, rawName := range []string{"sweep-output-first.txt", "sweep-output-final.txt"} {
-				if _, err := os.Stat(filepath.Join(tmp, rawName)); !os.IsNotExist(err) {
-					t.Fatalf("private sweeper output survived script exit: %s: %v", rawName, err)
-				}
-			}
-			if tc.wantPass {
-				outputs, err := os.ReadFile(outputPath) //nolint:gosec // isolated fixture
-				if err != nil {
-					t.Fatal(err)
-				}
-				lines := strings.Split(strings.TrimSpace(string(outputs)), "\n")
-				if len(lines) != 10 {
-					t.Fatalf("cleanup published %d final counts, want 10:\n%s", len(lines), outputs)
-				}
-				for _, line := range lines {
-					if !strings.HasSuffix(line, "=0") {
-						t.Fatalf("cleanup published a nonzero or malformed final count: %q", line)
-					}
-				}
+			if !strings.Contains(string(output), want) {
+				t.Fatal("cleanup outcome missing")
 			}
 		})
 	}
@@ -2110,7 +2046,8 @@ exit 7
 			"all-reports/mock-test-reports/mock-tests.json":     `{"total_passed":1,"total_failed":0}` + "\n",
 			"all-reports/mock-test-reports/mock-tests.xml":      `<testsuite tests="1" failures="0"></testsuite>` + "\n",
 			"all-reports/mock-test-reports/mock-tests.md":       "mock evidence\n",
-			"all-reports/real-api-test-reports/real-tests.json": `{"total_passed":1,"total_failed":0}` + "\n",
+			"all-reports/real-api-test-reports/real-tests.json": `{"stream_completeness":{"complete":true},"total_passed":1,"total_failed":0}` + "\n",
+			"all-reports/real-api-test-reports/cleanup.json":    `{"complete":true,"owned":0,"confirmed_absent":0,"failures":0,"second_pass_remaining":0}` + "\n",
 			"all-reports/real-api-test-reports/real-tests.md":   "real evidence\n",
 			"all-reports/comparison-reports/comparison.json":    `{"summary":{"consistent":1,"mock_needs_fix":0}}` + "\n",
 			"all-reports/comparison-reports/comparison.md":      "comparison evidence\n",

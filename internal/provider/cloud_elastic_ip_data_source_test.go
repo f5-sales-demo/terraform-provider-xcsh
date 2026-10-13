@@ -55,6 +55,7 @@ resource "xcsh_cloud_elastic_ip" "test" {
   depends_on = [time_sleep.wait_for_namespace]
   name       = %[2]q
   namespace  = xcsh_namespace.test.name
+  item_count = 1
 }
 
 data "xcsh_cloud_elastic_ip" "test" {

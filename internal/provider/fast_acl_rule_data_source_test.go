@@ -55,12 +55,7 @@ resource "xcsh_fast_acl_rule" "test" {
   depends_on = [time_sleep.wait_for_namespace]
   name       = %[2]q
   namespace  = xcsh_namespace.test.name
-  action {
-    deny = true
-  }
-  prefix {
-    prefix = ["10.0.0.0/8"]
-  }
+  action { simple_action = "DENY" }
 }
 
 data "xcsh_fast_acl_rule" "test" {

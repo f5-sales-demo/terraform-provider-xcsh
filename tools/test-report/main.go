@@ -80,6 +80,7 @@ const (
 	FailureClassConnection          FailureClass = "connection"
 	FailureClassServerError         FailureClass = "server_error"
 	FailureClassUnclassified        FailureClass = "unclassified"
+	FailureClassCleanup             FailureClass = "cleanup_verification"
 )
 
 // FailureFingerprint contains only allowlisted diagnostic facts. It must never
@@ -116,16 +117,44 @@ const (
 
 // TestResult holds the result of a single test
 type TestResult struct {
-	Name               string              `json:"name"`
-	Package            string              `json:"package"`
-	Category           TestCategory        `json:"category"`
-	Status             string              `json:"status"` // pass, fail, skip
-	Duration           float64             `json:"duration_seconds"`
-	SkipReason         string              `json:"skip_reason,omitempty"`
-	SkipReasonType     SkipReasonType      `json:"skip_reason_type,omitempty"`
-	TransientError     TransientErrorType  `json:"transient_error,omitempty"`
-	FailureOutput      string              `json:"failure_output,omitempty"`
-	FailureFingerprint *FailureFingerprint `json:"failure_fingerprint,omitempty"`
+	Prerequisites      []PrerequisiteOutcome `json:"prerequisites,omitempty"`
+	Name               string                `json:"name"`
+	Package            string                `json:"package"`
+	Category           TestCategory          `json:"category"`
+	Status             string                `json:"status"` // pass, fail, skip
+	Duration           float64               `json:"duration_seconds"`
+	SkipReason         string                `json:"skip_reason,omitempty"`
+	SkipReasonType     SkipReasonType        `json:"skip_reason_type,omitempty"`
+	TransientError     TransientErrorType    `json:"transient_error,omitempty"`
+	FailureOutput      string                `json:"failure_output,omitempty"`
+	FailureFingerprint *FailureFingerprint   `json:"failure_fingerprint,omitempty"`
+}
+
+type PrerequisiteOutcome struct {
+	Outcome      string `json:"outcome"`
+	Method       string `json:"method"`
+	ResourceType string `json:"resource_type"`
+	HTTPStatus   int    `json:"http_status,omitempty"`
+}
+
+var prerequisitePattern = regexp.MustCompile(`\[PREREQUISITE:(operation_denied|tested) method=(POST|GET) type=(xcsh_[a-z0-9_]+)(?: status=(403))?\]`)
+
+func extractPrerequisites(output string) []PrerequisiteOutcome {
+	result := []PrerequisiteOutcome{}
+	seen := map[string]bool{}
+	for _, match := range prerequisitePattern.FindAllStringSubmatch(output, -1) {
+		key := strings.Join(match[1:], "/")
+		if seen[key] {
+			continue
+		}
+		seen[key] = true
+		status := 0
+		if match[4] == "403" {
+			status = 403
+		}
+		result = append(result, PrerequisiteOutcome{Outcome: match[1], Method: match[2], ResourceType: match[3], HTTPStatus: status})
+	}
+	return result
 }
 
 // CategorySummary holds statistics for a test category
@@ -163,6 +192,7 @@ type DurationStats struct {
 
 // Report is the full test report
 type Report struct {
+	Stream              StreamCompleteness                `json:"stream_completeness"`
 	Timestamp           time.Time                         `json:"timestamp"`
 	TotalDuration       float64                           `json:"total_duration_seconds"`
 	TotalTests          int                               `json:"total_tests"`
@@ -177,6 +207,18 @@ type Report struct {
 	SkipReasons         []SkipReasonSummary               `json:"skip_reasons,omitempty"`
 	SlowestTests        []TestResult                      `json:"slowest_tests,omitempty"`
 	DurationStats       *DurationStats                    `json:"duration_stats,omitempty"`
+}
+
+// StreamCompleteness retains only counts and fixed facts, never decoder errors.
+type StreamCompleteness struct {
+	Complete           bool `json:"complete"`
+	Events             int  `json:"events"`
+	MalformedLines     int  `json:"malformed_lines"`
+	InvalidEvents      int  `json:"invalid_events"`
+	ScannerError       bool `json:"scanner_error"`
+	IncompleteTests    int  `json:"incomplete_tests"`
+	IncompletePackages int  `json:"incomplete_packages"`
+	PackageFailures    int  `json:"package_failures"`
 }
 
 // JUnit XML types
@@ -252,7 +294,7 @@ func main() {
 	}
 
 	// Exit with non-zero status if there are failures
-	if report.TotalFailed > 0 {
+	if report.TotalFailed > 0 || !report.Stream.Complete {
 		os.Exit(1)
 	}
 }
@@ -277,6 +319,7 @@ func parseTestOutputReader(reader io.Reader, slowestCount int, tenantSafe bool) 
 	// Track test results (tests can have multiple events)
 	testResults := make(map[string]*TestResult)
 	testOutputs := make(map[string][]string)
+	packages := make(map[string]bool)
 
 	scanner := bufio.NewScanner(reader)
 	// Increase buffer size for large output lines
@@ -286,15 +329,51 @@ func parseTestOutputReader(reader io.Reader, slowestCount int, tenantSafe bool) 
 	for scanner.Scan() {
 		var event TestEvent
 		if err := json.Unmarshal(scanner.Bytes(), &event); err != nil {
-			continue // Skip non-JSON lines
+			report.Stream.MalformedLines++
+			continue
+		}
+		report.Stream.Events++
+		if event.Package == "" || event.Elapsed < 0 || math.IsNaN(event.Elapsed) || math.IsInf(event.Elapsed, 0) {
+			report.Stream.InvalidEvents++
+			continue
+		}
+		switch event.Action {
+		case "start", "run", "output", "pass", "fail", "skip", "pause", "cont", "bench":
+		default:
+			report.Stream.InvalidEvents++
+			continue
 		}
 
 		// Only process test-level events (not package-level)
 		if event.Test == "" {
+			switch event.Action {
+			case "start":
+				if _, exists := packages[event.Package]; exists {
+					report.Stream.InvalidEvents++
+				}
+				packages[event.Package] = false
+			case "pass", "skip", "fail":
+				if packages[event.Package] {
+					report.Stream.InvalidEvents++
+				}
+				packages[event.Package] = true
+				if event.Action == "fail" {
+					report.Stream.PackageFailures++
+				}
+			}
 			continue
 		}
 
 		key := event.Package + "/" + event.Test
+		if event.Action != "run" {
+			if result, ok := testResults[key]; !ok || (result.Status != "" && event.Action != "output") {
+				report.Stream.InvalidEvents++
+				continue
+			}
+		} else if _, exists := testResults[key]; exists {
+			report.Stream.InvalidEvents++
+			continue
+		}
 
 		switch event.Action {
 		case "run":
@@ -344,12 +423,23 @@ func parseTestOutputReader(reader io.Reader, slowestCount int, tenantSafe bool) 
 			}
 		}
 	}
+	if scanner.Err() != nil {
+		report.Stream.ScannerError = true
+	}
+	for _, terminal := range packages {
+		if !terminal {
+			report.Stream.IncompletePackages++
+		}
+	}
 
 	// Aggregate results
 	var durations []float64
 	for _, result := range testResults {
+		result.Prerequisites = extractPrerequisites(strings.Join(testOutputs[result.Package+"/"+result.Name], ""))
 		if result.Status == "" {
-			continue // Test didn't complete
+			report.Stream.IncompleteTests++
+			result.Status = "fail"
+			result.FailureFingerprint = &FailureFingerprint{Class: FailureClassUnclassified, Summary: "Missing terminal test event"}
 		}
 
 		report.Tests = append(report.Tests, *result)
@@ -404,6 +494,10 @@ func parseTestOutputReader(reader io.Reader, slowestCount int, tenantSafe bool) 
 
 	// Aggregate skip reasons
 	report.SkipReasons = aggregateSkipReasons(report.Tests)
+	report.Stream.Complete = report.Stream.Events > 0 &&
+		report.Stream.MalformedLines == 0 && report.Stream.InvalidEvents == 0 &&
+		!report.Stream.ScannerError && report.Stream.IncompleteTests == 0 &&
+		report.Stream.IncompletePackages == 0 && report.Stream.PackageFailures == 0
 
 	return report
 }
@@ -429,6 +523,7 @@ var (
 var frameworkSummaries = []string{
 	"Missing required argument",
 	"Unsupported argument",
+	"Unsupported block type",
 	"Provider produced inconsistent result after apply",
 	"Provider returned invalid result object",
 }
@@ -442,6 +537,16 @@ func classifyFailureFingerprint(output string) FailureFingerprint {
 		SourceLocation: extractPublicSourceLocation(output),
 	}
 	lower := strings.ToLower(output)
+	if strings.Contains(lower, "no api verifier registered") || strings.Contains(lower, "no verifier registered") || strings.Contains(lower, "no deleter registered") {
+		fingerprint.Class = FailureClassCleanup
+		fingerprint.Summary = "Missing cleanup verifier"
+		return fingerprint
+	}
+	if strings.Contains(lower, "panic:") {
+		fingerprint.Class = FailureClassAssertion
+		fingerprint.Summary = "Test panic"
+		return fingerprint
+	}
 
 	for _, summary := range frameworkSummaries {
 		if strings.Contains(lower, strings.ToLower(summary)) {
@@ -1002,6 +1107,9 @@ func outputText(out *os.File, report *Report, showAll bool) {
 }
 
 func outputMarkdown(out *os.File, report *Report, showAll bool) {
+	fmt.Fprintf(out, "Stream complete: %t; malformed lines: %d; invalid events: %d; scanner error: %t; incomplete tests: %d; incomplete packages: %d; package failures: %d.\n\n",
+		report.Stream.Complete, report.Stream.MalformedLines, report.Stream.InvalidEvents,
+		report.Stream.ScannerError, report.Stream.IncompleteTests, report.Stream.IncompletePackages, report.Stream.PackageFailures)
 	fmt.Fprintln(out, "# Test Summary Report")
 	fmt.Fprintln(out)
 	fmt.Fprintf(out, "**Timestamp:** %s\n", report.Timestamp.Format(time.RFC3339))

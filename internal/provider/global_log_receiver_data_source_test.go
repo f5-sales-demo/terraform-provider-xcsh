@@ -55,9 +55,13 @@ resource "xcsh_global_log_receiver" "test" {
   depends_on = [time_sleep.wait_for_namespace]
   name       = %[2]q
   namespace  = xcsh_namespace.test.name
-  http_global_receiver {
-    uri = "https://logs.example.com/receive"
+  http_receiver {
+    uri = "http://logs.example.com/fixture"
+    auth_none = {}
+    no_tls = {}
   }
+  ns_current = {}
+  audit_logs = {}
 }
 
 data "xcsh_global_log_receiver" "test" {

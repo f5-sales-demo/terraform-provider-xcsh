@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "explicit_handlers_required": [
+    "public_ip_binding",
+    "registration_approval",
+    "smsv2_kvm_runtime_interface",
+    "swagger_object"
+  ]
+}

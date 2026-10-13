@@ -55,27 +55,14 @@ resource "xcsh_network_policy" "test" {
   depends_on = [time_sleep.wait_for_namespace]
   name       = %[2]q
   namespace  = xcsh_namespace.test.name
-  endpoint {
-    any = true
-  }
-  ingress_rules {
-    metadata {
-      name = "rule1"
+  rules {
+    ingress_rules {
+      action = "ALLOW"
+      any = {}
     }
-    spec {
-      action      = "ALLOW"
-      any         = true
-      protocol    = "TCP"
-    }
-  }
-  egress_rules {
-    metadata {
-      name = "rule1"
-    }
-    spec {
-      action      = "ALLOW"
-      any         = true
-      protocol    = "TCP"
+    egress_rules {
+      action = "ALLOW"
+      any = {}
     }
   }
 }

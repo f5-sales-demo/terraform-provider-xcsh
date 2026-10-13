@@ -55,6 +55,7 @@ resource "xcsh_secret_management_access" "test" {
   depends_on = [time_sleep.wait_for_namespace]
   name       = %[2]q
   namespace  = xcsh_namespace.test.name
+  provider_name = "fixture"
 }
 
 data "xcsh_secret_management_access" "test" {

@@ -55,10 +55,10 @@ resource "xcsh_fleet" "test" {
   depends_on = [time_sleep.wait_for_namespace]
   name       = %[2]q
   namespace  = xcsh_namespace.test.name
-  fleet_label = "test-fleet"
-  network_connectors {
-    disable_forward_proxy = true
-  }
+  fleet_label = "%[1]s"
+  operating_system_version = "default"
+  volterra_software_version = "default"
+  enable_default_fleet_config_download = false
 }
 
 data "xcsh_fleet" "test" {

@@ -69,15 +69,18 @@ resource "xcsh_tcp_loadbalancer" "test" {
   depends_on = [time_sleep.wait_for_namespace, xcsh_origin_pool.test]
   name       = %[2]q
   namespace  = xcsh_namespace.test.name
-  domains = ["test.example.com"]
-  tcp {
-    dns_volterra_managed = false
-  }
+  domains = ["%[1]s.example.com"]
+  tcp = {}
+  listen_port = 80
+  no_sni = {}
+  no_service_policies = {}
+  do_not_advertise = {}
   origin_pools_weights {
     pool {
-      name      = xcsh_origin_pool.test.name
-      namespace = xcsh_namespace.test.name
+      name = xcsh_origin_pool.test.name
+      namespace = xcsh_origin_pool.test.namespace
     }
+    weight = 1
   }
 }
 

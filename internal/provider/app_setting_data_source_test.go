@@ -64,9 +64,11 @@ resource "xcsh_app_setting" "test" {
   depends_on = [time_sleep.wait_for_namespace, xcsh_app_type.test]
   name       = %[2]q
   namespace  = xcsh_namespace.test.name
-  app_type_refs {
-    name      = xcsh_app_type.test.name
-    namespace = xcsh_namespace.test.name
+  app_type_settings {
+    app_type_ref {
+      name = xcsh_app_type.test.name
+      namespace = xcsh_namespace.test.name
+    }
   }
 }
 

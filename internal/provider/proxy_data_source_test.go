@@ -55,7 +55,12 @@ resource "xcsh_proxy" "test" {
   depends_on = [time_sleep.wait_for_namespace]
   name       = %[2]q
   namespace  = xcsh_namespace.test.name
-  proxy_url = "http://proxy.example.com:8080"
+  http_proxy {
+    enable_http {}
+  }
+  no_forward_proxy_policy = {}
+  site_local_network = {}
+  do_not_advertise = {}
 }
 
 data "xcsh_proxy" "test" {

@@ -78,6 +78,8 @@ resource "time_sleep" "wait_for_namespace" {
 }
 
 resource "xcsh_cminstance" "test" {
+  username = "fixture"
+  port = 443
   depends_on = [time_sleep.wait_for_namespace]
   name       = %[2]q
   namespace  = xcsh_namespace.test.name

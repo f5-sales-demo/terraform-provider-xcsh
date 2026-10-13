@@ -60,7 +60,7 @@ const (
 
 // ProtoV6ProviderFactories returns the provider factories for acceptance testing
 var ProtoV6ProviderFactories = map[string]func() (tfprotov6.ProviderServer, error){
-	"xcsh": providerserver.NewProtocol6WithError(provider.New("test")()),
+	"xcsh": providerserver.NewProtocol6WithError(&ownedProvider{Provider: provider.New("test")()}),
 }
 
 // ExternalProviders defines external providers used in acceptance tests
@@ -176,6 +176,16 @@ func RandomName(prefix string) string {
 	if prefix != canonicalBase && !strings.HasPrefix(prefix, TestResourcePrefix) {
 		panic(fmt.Sprintf("acceptance-test resource prefix %q must begin with %q", prefix, TestResourcePrefix))
 	}
+	if run := os.Getenv("XCSH_ACC_RUN_ID"); run != "" {
+		if !ownershipRunPattern.MatchString(run) {
+			panic("invalid acceptance run identifier")
+		}
+		suffix := strings.TrimPrefix(prefix, canonicalBase)
+		prefix = canonicalBase + "-" + run + suffix
+	}
+	if len(prefix) > 54 {
+		prefix = prefix[:54]
+	}
 	return fmt.Sprintf("%s-%s", prefix, acctest.RandStringFromCharSet(8, acctest.CharSetAlphaNum))
 }
 
@@ -231,7 +241,7 @@ func CheckResourceDestroyed(resourceType string) resource.TestCheckFunc {
 	// This delegates to CheckResourceDestroyedWithAPIVerification which:
 	// - Performs actual API calls to verify resource deletion
 	// - Includes retry logic for async deletion
-	// - Falls back to state-only check for unregistered types
+	// - Fails closed for unregistered types
 	return CheckResourceDestroyedWithAPIVerification(resourceType)
 }
 
@@ -358,6 +368,11 @@ func GetTestClient() (*client.Client, error) {
 		}
 	})
 
+	if testClientErr == nil && testClient != nil {
+		if err := attachOwnership(testClient); err != nil {
+			return nil, err
+		}
+	}
 	return testClient, testClientErr
 }
 

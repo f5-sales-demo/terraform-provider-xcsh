@@ -55,6 +55,12 @@ resource "xcsh_cdn_loadbalancer" "test" {
   depends_on = [time_sleep.wait_for_namespace]
   name       = %[2]q
   namespace  = xcsh_namespace.test.name
+  domains = ["%[1]s.example.com"]
+  http {}
+  origin_pool {
+    public_name { dns_name = "example.com" }
+    no_tls = {}
+  }
 }
 
 data "xcsh_cdn_loadbalancer" "test" {

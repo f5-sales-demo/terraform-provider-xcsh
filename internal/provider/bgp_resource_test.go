@@ -82,15 +82,15 @@ resource "xcsh_bgp" "test" {
     }
     bfd_disabled = {}
     passive_mode_disabled = {}
-    disable {}
+    disable_spec = {}
   }
 
   where {
     site {
-      kind      = "site"
-      name      = "example-site"
-      namespace = "system"
-      tenant    = "example-corp"
+      ref {
+        name = "example-site"
+        namespace = "system"
+      }
     }
   }
 }

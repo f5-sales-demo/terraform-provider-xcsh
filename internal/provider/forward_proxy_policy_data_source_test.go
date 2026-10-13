@@ -55,20 +55,8 @@ resource "xcsh_forward_proxy_policy" "test" {
   depends_on = [time_sleep.wait_for_namespace]
   name       = %[2]q
   namespace  = xcsh_namespace.test.name
-  proxy_label = "test-proxy"
-  rule_list {
-    rules {
-      metadata {
-        name = "rule1"
-      }
-      spec {
-        action      = "ALLOW"
-        any_client  = true
-        any_dst     = true
-        rule_description = "Allow all"
-      }
-    }
-  }
+  any_proxy = {}
+  allow_all = {}
 }
 
 data "xcsh_forward_proxy_policy" "test" {

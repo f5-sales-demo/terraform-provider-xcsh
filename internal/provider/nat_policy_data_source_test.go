@@ -55,20 +55,11 @@ resource "xcsh_nat_policy" "test" {
   depends_on = [time_sleep.wait_for_namespace]
   name       = %[2]q
   namespace  = xcsh_namespace.test.name
-  rule_list {
-    rules {
-      metadata {
-        name = "test-rule"
-      }
-      spec {
-        src_ip_match = "ANY"
-        action {
-          snat_pool {
-            any_vip = true
-          }
-        }
-      }
-    }
+  rules {
+    name = "fixture"
+    enable = {}
+    criteria { any = {} }
+    action { virtual_cidr = "192.0.2.0/24" }
   }
 }
 

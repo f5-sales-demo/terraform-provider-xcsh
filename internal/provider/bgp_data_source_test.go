@@ -57,7 +57,7 @@ resource "xcsh_bgp" "test" {
   namespace  = xcsh_namespace.test.name
   bgp_parameters {
     asn          = 65000
-    bgp_router_id_type = "BGP_ROUTER_ID_FROM_INTERFACE"
+    from_site = {}
   }
   where {
     site {

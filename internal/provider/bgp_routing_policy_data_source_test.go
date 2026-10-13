@@ -55,16 +55,8 @@ resource "xcsh_bgp_routing_policy" "test" {
   depends_on = [time_sleep.wait_for_namespace]
   name       = %[2]q
   namespace  = xcsh_namespace.test.name
-  policy_rule {
-    description = "test rule"
-    match {
-      community_string {
-        values = ["65000:100"]
-      }
-    }
-    action {
-      permit = true
-    }
+  rules {
+    action { allow = {} }
   }
 }
 
