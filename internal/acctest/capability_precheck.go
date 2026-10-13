@@ -77,7 +77,7 @@ func precheckLiveCapability(t *testing.T) {
 			continue
 		}
 		key := requirement.Method + " " + path
-		decision := capabilityInconclusive
+		var decision capabilityDecision
 		if cached, ok := capabilityProbeCache.Load(key); ok {
 			decision = cached.(capabilityDecision)
 		} else {

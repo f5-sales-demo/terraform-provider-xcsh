@@ -126,7 +126,7 @@ func (j *OwnershipJournal) save() error {
 		return err
 	}
 	temp := f.Name()
-	defer os.Remove(temp)
+	defer func() { _ = os.Remove(temp) }()
 	if err = f.Chmod(0600); err == nil {
 		_, err = f.Write(data)
 	}
@@ -147,7 +147,7 @@ func (j *OwnershipJournal) save() error {
 	if err != nil {
 		return err
 	}
-	defer dir.Close()
+	defer func() { _ = dir.Close() }()
 	return dir.Sync()
 }
 func (j *OwnershipJournal) Intent(r OwnedResource) error {

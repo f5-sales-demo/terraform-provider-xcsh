@@ -94,7 +94,7 @@ func (t *ownershipTransport) RoundTrip(req *http.Request) (*http.Response, error
 			return response, err
 		}
 		data, err := io.ReadAll(response.Body)
-		response.Body.Close()
+		_ = response.Body.Close()
 		if err != nil {
 			return nil, err
 		}
@@ -119,7 +119,7 @@ func (t *ownershipTransport) RoundTrip(req *http.Request) (*http.Response, error
 	if err != nil {
 		return nil, err
 	}
-	req.Body.Close()
+	_ = req.Body.Close()
 	req.Body = io.NopCloser(bytes.NewReader(data))
 	var document struct {
 		Metadata client.Metadata        `json:"metadata"`
@@ -194,11 +194,11 @@ func (t *ownershipTransport) RoundTrip(req *http.Request) (*http.Response, error
 	if response.StatusCode >= 200 && response.StatusCode < 300 {
 		metadata, readErr := backend.Read(req.Context(), r)
 		if readErr != nil || metadata.Annotations[ownershipAnnotation] != t.j.RunID {
-			response.Body.Close()
+			_ = response.Body.Close()
 			return nil, errors.New("creation ownership readback failed")
 		}
 		if err = t.j.Confirm(r, metadata.UID); err != nil {
-			response.Body.Close()
+			_ = response.Body.Close()
 			return nil, errors.New("creation ownership journal confirmation failed")
 		}
 	}

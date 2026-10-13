@@ -12,11 +12,6 @@ import (
 	"strings"
 )
 
-type fixtureDefinition struct {
-	Name   string
-	Config func() string
-}
-
 var acceptanceFixtures = map[string]func() string{}
 var acceptanceTestFixtures = map[string][]string{}
 
@@ -160,7 +155,7 @@ func (s *FixtureSchema) Validate(name, config string) []FixtureDiagnostic {
 		}
 		copyBody.Blocks = filtered
 		walk(&copyBody, schema, block.Labels[0], "")
-		hclsyntax.VisitAll(block.Body, func(node hclsyntax.Node) hcl.Diagnostics {
+		_ = hclsyntax.VisitAll(block.Body, func(node hclsyntax.Node) hcl.Diagnostics {
 			expr, ok := node.(hclsyntax.Expression)
 			if !ok {
 				return nil
