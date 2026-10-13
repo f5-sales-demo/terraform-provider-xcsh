@@ -96,3 +96,26 @@ typed NOT_FOUND during deletion races. Regressions, focused mocks, installed-sch
 audits, lint, and recovered cleanup receipts validate these repairs. Current full runs
 continue on their pinned earlier source; a second pinned qualification binary set is
 being built from the corrected source. No full run is yet qualified.
+
+The remaining NAT issue exposed an HCL-reserved provider block name. API dynamic
+NAT creation passed with a correctly shaped pools object, but the Terraform schema
+block named dynamic could not be configured and expansion triggered a Terraform
+panic. The schema generator now exposes dynamic_pool while retaining the dynamic
+wire key. Only NAT resource/datasource generated schemas changed. Generator
+regressions and schema/code-generation race tests passed, positive fixture audits
+and focused mocks passed, and both NAT resource/import and datasource live tests
+passed. Recovered cleanup confirmed all ten owned entries absent twice.
+
+Successful quota probes are now deleted and verified absent before live tests;
+repository live jobs serialize across branches. Two overlapping earlier private
+runs were interrupted because their retained CRL probes consumed the tenant's
+two-object quota. Their complete sanitized failed reports and two-pass cleanup
+receipts are retained: 352 and 96 journal entries absent. The original full
+repository run completed exactly 657 tests: 444 passed, 17 failed, 196 skipped;
+all 432 journal entries were absent twice. Later focused repairs address its
+fixture and ownership-read failures.
+
+Latest full mock/live runs use pinned binaries at 5dabfeae333. Sales Demo credentials
+remain session-only; repository scheduled credentials are unchanged. Final full
+comparison, latest source CI, main acceptance, and new immutable artifact
+qualification remain required. Keep issue 2539 open and PR 2544 draft.
