@@ -211,6 +211,24 @@ func (t *ownershipTransport) RoundTrip(req *http.Request) (*http.Response, error
 	if document.Metadata.Name == "-" {
 		return t.base.RoundTrip(req)
 	}
+	if req.URL.Path == "/api/config/namespaces/system/securemesh_site_v2s" {
+		if entries, ok := document.Spec["segment_vrf"].([]interface{}); ok {
+			for _, item := range entries {
+				m, _ := item.(map[string]interface{})
+				ref, _ := m["segment_network"].(map[string]interface{})
+				name, _ := ref["name"].(string)
+				ns, _ := ref["namespace"].(string)
+				valid := true
+				for _, ch := range name {
+					if !(ch >= 'a' && ch <= 'z' || ch >= '0' && ch <= '9' || ch == '-') {
+						valid = false
+					}
+				}
+				evidence, _ := json.Marshal(map[string]interface{}{"name_length": len(name), "valid_characters": valid, "namespace_system": ns == "system", "name_present": name != ""})
+				_ = os.WriteFile(os.Getenv("XCSH_ACC_PRIVATE")+"/segment-reference-facts.json", evidence, 0600)
+			}
+		}
+	}
 	resourceType := ""
 	for typ, route := range ownedCollectionRoutes {
 		ns := document.Metadata.Namespace

@@ -420,7 +420,9 @@ jobs:
 
       - name: Preserve fixed error contract diagnostics
         if: always()
-        run: cp "$XCSH_ACC_PRIVATE/fixed-api-errors.jsonl" test-reports/fixed-api-errors.jsonl
+        run: |
+          cp "$XCSH_ACC_PRIVATE/fixed-api-errors.jsonl" test-reports/fixed-api-errors.jsonl
+          cp "$XCSH_ACC_PRIVATE/segment-reference-facts.json" test-reports/segment-reference-facts.json
 
       - name: Verify journal-owned cleanup
         id: cleanup
@@ -453,6 +455,7 @@ jobs:
             test-reports/real-tests.md
             test-reports/cleanup.json
             test-reports/fixed-api-errors.jsonl
+            test-reports/segment-reference-facts.json
           retention-days: 30
 
 
