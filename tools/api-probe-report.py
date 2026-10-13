@@ -2,6 +2,14 @@ from pathlib import Path
 import json, os
 private = Path(os.environ['XCSH_ACC_PRIVATE'])
 patterns = {
+    'metadata_rejected': ['metadata','annotations','labels'],
+    'invalid_parameters': ['invalid request parameters'],
+    'not_allowed_namespace': ['not allowed in namespace','not supported in namespace','shared namespace','namespace shared','invalid namespace'],
+    'name_rejected': ['invalid name','name is','name must','name too','name length'],
+    'request_rejected': ['bad request','invalid request','invalid argument','validation failed'],
+    'already_exists': ['already exists','conflict'],
+    'permission_missing': ['permission','not authorized','forbidden'],
+    'empty_definition': ['no api','no swagger','must provide','at least one'],
     'pattern_constraint': ['pattern','regex','must match','does not match'],
     'namespace_constraint': ['namespace'],
     'url_scheme_constraint': ['url','uri','scheme'],

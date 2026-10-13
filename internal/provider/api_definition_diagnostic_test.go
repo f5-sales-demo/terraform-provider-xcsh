@@ -4,8 +4,10 @@ package provider_test
 import (
 	"context"
 	"encoding/json"
+	"errors"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/acctest"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
+	xcsherrors "github.com/f5-sales-demo/terraform-provider-xcsh/internal/errors"
 	"os"
 	"strings"
 	"testing"
@@ -44,7 +46,15 @@ func TestAccAPIDefinitionDiagnostic(t *testing.T) {
 		_, err := c.CreateAPIDefinition(ctx, &client.APIDefinition{Metadata: client.Metadata{Name: name, Namespace: "shared"}, Spec: spec})
 		if err != nil {
 			// Raw error remains inside the private workspace and never reaches artifacts.
-			data, _ := json.Marshal(map[string]string{"variant": variant, "error": err.Error()})
+			message := err.Error()
+			var apiErr *xcsherrors.XCSHError
+			if errors.As(err, &apiErr) {
+				message = apiErr.Message
+				if raw, ok := apiErr.Details["raw_response"].(string); ok {
+					message = raw
+				}
+			}
+			data, _ := json.Marshal(map[string]string{"variant": variant, "error": message})
 			if os.WriteFile(os.Getenv("XCSH_ACC_PRIVATE")+"/api-probe-"+variant+".json", data, 0600) != nil {
 				t.Fatal("private diagnostic persistence failed")
 			}
