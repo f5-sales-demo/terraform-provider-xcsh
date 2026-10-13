@@ -1,0 +1,209 @@
+{
+  "version": 1,
+  "source": "ab5412f2d2fd31f567b1726486bc955b8bb05e14",
+  "repairs": ["customer_edge_site_selection", "connector_candidate_inventory", "recognized_prerequisite_diagnostic"],
+  "results": [
+    {
+      "route": "session_private",
+      "total": 4,
+      "passed": 4,
+      "failed": 0,
+      "skipped": 0,
+      "stream_completeness": {
+        "complete": true,
+        "events": 67,
+        "malformed_lines": 0,
+        "invalid_events": 0,
+        "scanner_error": false,
+        "incomplete_tests": 0,
+        "incomplete_packages": 0,
+        "package_failures": 0
+      },
+      "tests": [
+        {
+          "name": "TestAccExternalConnectorDataSource_basic",
+          "status": "pass",
+          "prerequisites": [
+            {
+              "outcome": "tested",
+              "method": "POST",
+              "resource_type": "xcsh_external_connector"
+            },
+            {
+              "outcome": "tested",
+              "method": "GET",
+              "resource_type": "connector_endpoint"
+            }
+          ]
+        },
+        {
+          "name": "TestAccExternalConnectorResource_basic",
+          "status": "pass",
+          "prerequisites": [
+            {
+              "outcome": "tested",
+              "method": "POST",
+              "resource_type": "xcsh_external_connector"
+            },
+            {
+              "outcome": "tested",
+              "method": "GET",
+              "resource_type": "connector_endpoint"
+            }
+          ]
+        },
+        {
+          "name": "TestAccNatPolicyDataSource_basic",
+          "status": "pass",
+          "prerequisites": [
+            {
+              "outcome": "tested",
+              "method": "POST",
+              "resource_type": "xcsh_virtual_network"
+            },
+            {
+              "outcome": "tested",
+              "method": "POST",
+              "resource_type": "xcsh_nat_policy"
+            },
+            {
+              "outcome": "infrastructure_verified",
+              "method": "GET",
+              "resource_type": "customer_edge_site"
+            }
+          ]
+        },
+        {
+          "name": "TestAccNatPolicyResource_basic",
+          "status": "pass",
+          "prerequisites": [
+            {
+              "outcome": "tested",
+              "method": "POST",
+              "resource_type": "xcsh_namespace"
+            },
+            {
+              "outcome": "tested",
+              "method": "POST",
+              "resource_type": "xcsh_virtual_network"
+            },
+            {
+              "outcome": "infrastructure_verified",
+              "method": "GET",
+              "resource_type": "customer_edge_site"
+            }
+          ]
+        }
+      ],
+      "cleanup": {
+        "version": 1,
+        "journal_sha256": "fdc338d146b40db129fea55633286b47138e9146717c4506e95a8ca4a0081172",
+        "complete": true,
+        "owned": 12,
+        "confirmed_absent": 12,
+        "failures": 0,
+        "second_pass_remaining": 0
+      },
+      "digests": {
+        "tests.json": "657e8428eec7641c8df86d97ff661e5c795bd000feffe927a4dcba131346b9dc",
+        "tests.md": "0f6033083ee87b5dc5503f6e2a0ffffa9c633c10ea6aa3c858ec660ab7527b9f",
+        "cleanup.json": "401b9df56a796bd8b368df5d3fcc4aa8c92afdae00114ba3728d3474a60e8d9b"
+      }
+    },
+    {
+      "route": "repository_route",
+      "total": 4,
+      "passed": 2,
+      "failed": 0,
+      "skipped": 2,
+      "stream_completeness": {
+        "complete": true,
+        "events": 52,
+        "malformed_lines": 0,
+        "invalid_events": 0,
+        "scanner_error": false,
+        "incomplete_tests": 0,
+        "incomplete_packages": 0,
+        "package_failures": 0
+      },
+      "tests": [
+        {
+          "name": "TestAccExternalConnectorDataSource_basic",
+          "status": "pass",
+          "prerequisites": [
+            {
+              "outcome": "tested",
+              "method": "POST",
+              "resource_type": "xcsh_external_connector"
+            },
+            {
+              "outcome": "tested",
+              "method": "GET",
+              "resource_type": "connector_endpoint"
+            }
+          ]
+        },
+        {
+          "name": "TestAccExternalConnectorResource_basic",
+          "status": "skip",
+          "prerequisites": [
+            {
+              "outcome": "operation_denied",
+              "method": "POST",
+              "resource_type": "xcsh_external_connector",
+              "http_status": 403
+            }
+          ]
+        },
+        {
+          "name": "TestAccNatPolicyDataSource_basic",
+          "status": "pass",
+          "prerequisites": [
+            {
+              "outcome": "tested",
+              "method": "POST",
+              "resource_type": "xcsh_virtual_network"
+            },
+            {
+              "outcome": "tested",
+              "method": "POST",
+              "resource_type": "xcsh_nat_policy"
+            },
+            {
+              "outcome": "infrastructure_verified",
+              "method": "GET",
+              "resource_type": "customer_edge_site"
+            }
+          ]
+        },
+        {
+          "name": "TestAccNatPolicyResource_basic",
+          "status": "skip",
+          "prerequisites": [
+            {
+              "outcome": "operation_denied",
+              "method": "POST",
+              "resource_type": "xcsh_namespace",
+              "http_status": 403
+            }
+          ]
+        }
+      ],
+      "cleanup": {
+        "version": 1,
+        "journal_sha256": "933711ee0bee5f7c0ecb3157743b216a2c07785d292aac46d76423ec1716870f",
+        "complete": true,
+        "owned": 8,
+        "confirmed_absent": 8,
+        "failures": 0,
+        "second_pass_remaining": 0
+      },
+      "digests": {
+        "real-tests.json": "c8aa0474bef5bc228176038c9019adb6d7fbf3a4855733cd663fea5ac6d396a1",
+        "real-tests.md": "6cff7b129e1408e15717f0117cae84652ed870b5ddba4789b4e32cacbd4597ac",
+        "cleanup.json": "a14ab80896c0bc3fde01e5904c2527314047f4b87690615eab31bbdfc982bf3b"
+      }
+    }
+  ],
+  "qualification": "Focused route repair passes; complete latest-source workflow, protected-main, and artifact qualification remain."
+}
