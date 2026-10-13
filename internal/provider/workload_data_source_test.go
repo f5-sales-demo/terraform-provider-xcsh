@@ -42,17 +42,7 @@ func testAccWorkloadDataSourceConfig_basic(name string) string {
 resource "xcsh_workload" "test" {
   name      = %[1]q
   namespace = "shared"
-  service {
-    advertise_options { do_not_advertise = {} }
-    containers {
-      name = "fixture"
-      image {
-        name = "nginx:stable"
-        public = {}
-      }
-    }
-
-  }
+  simple_service {}
 }
 
 data "xcsh_workload" "test" {

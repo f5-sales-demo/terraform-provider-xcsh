@@ -518,17 +518,7 @@ var resourceConfigs = map[string]string{
 	"waf_exclusion_policy": ``,
 
 	"workload": `
-  service {
-    advertise_options { do_not_advertise = {} }
-    containers {
-      name = "fixture"
-      image {
-        name = "nginx:stable"
-        public = {}
-      }
-    }
-
-  }`,
+  simple_service {}`,
 
 	"workload_flavor": ``,
 }
@@ -630,6 +620,7 @@ var systemLevelResources = map[string]bool{
 
 // Resources that MUST use namespace = "system" (not custom namespace)
 var systemNamespaceResources = map[string]bool{
+	"waf_exclusion_policy": true,
 	"global_log_receiver":  true,
 	"crl":                  true,
 	"api_crawler":          true,
