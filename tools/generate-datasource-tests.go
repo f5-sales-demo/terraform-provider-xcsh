@@ -617,6 +617,8 @@ var systemLevelResources = map[string]bool{
 
 // Resources that MUST use namespace = "system" (not custom namespace)
 var systemNamespaceResources = map[string]bool{
+ "crl": true,
+ "api_crawler": true,
 	"network_firewall":     true,
 	"forward_proxy_policy": true,
 	"token":                true,

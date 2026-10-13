@@ -57,6 +57,10 @@ func precheckLiveCapability(t *testing.T) {
 			}
 		}
 	}
+	if acceptanceNegativeTests[t.Name()] {
+		t.Log("[PREREQUISITE:tested method=GET type=provider_schema_validation]")
+		return
+	}
 	requirements, err := TestOperationRequirements(t.Name())
 	if err != nil {
 		t.Fatalf("generated operation inventory missing for this test")

@@ -17,7 +17,7 @@ func TestAccCRLResource_basic(t *testing.T) {
 	acctest.PreCheck(t)
 
 	rName := acctest.RandomName("tf-acc-test-crl")
-	nsName := "shared"
+	nsName := "system"
 	resourceName := "xcsh_crl.test"
 
 	resource.ParallelTest(t, resource.TestCase{
@@ -57,7 +57,7 @@ func TestAccCRLResource_emptyPlan(t *testing.T) {
 	acctest.PreCheck(t)
 
 	rName := acctest.RandomName("tf-acc-test-crl")
-	nsName := "shared"
+	nsName := "system"
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -90,7 +90,7 @@ func testAccCRLConfig_basic(nsName, name string) string {
 
 resource "xcsh_crl" "test" {
   name       = %[2]q
-  namespace  = "shared"
+  namespace  = "system"
 
   server_address   = "crl.example.com"
   server_port      = 80
