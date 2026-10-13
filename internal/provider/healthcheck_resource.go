@@ -31,6 +31,7 @@ import (
 
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
 	xcsherrors "github.com/f5-sales-demo/terraform-provider-xcsh/internal/errors"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/planmodifiers"
 	inttimeouts "github.com/f5-sales-demo/terraform-provider-xcsh/internal/timeouts"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/validators"
 )
@@ -302,6 +303,7 @@ func (r *HealthcheckResource) Schema(ctx context.Context, req resource.SchemaReq
 						Optional:            true,
 						Computed:            true,
 						PlanModifiers: []planmodifier.Object{
+							planmodifiers.DefaultOneOfMarker("use_origin_server_name", []string{"use_origin_server_name", "host_header"}),
 							objectplanmodifier.UseStateForUnknown(),
 						},
 						AttributeTypes: map[string]attr.Type{},

@@ -2924,3 +2924,32 @@ func TestDefaultOneOfMarkerPlanningIsSpecDriven(t *testing.T) {
 		t.Fatal("configured-only markers must not be rewritten")
 	}
 }
+
+func TestNestedDefaultOneOfMarkerPlanning(t *testing.T) {
+	attrs := []openapi.TerraformAttribute{
+		{Name: "enable", GoName: "Enable", TfsdkTag: "enable", Type: "object", Optional: true, Computed: true, EmptyObjectMarker: true, PlanModifier: "UseStateForUnknown", ConflictsWith: []string{"disable"}},
+		{Name: "disable", GoName: "Disable", TfsdkTag: "disable", Type: "object", Optional: true, EmptyObjectMarker: true, ConflictsWith: []string{"enable"}},
+	}
+	text := RenderNestedAttributes(attrs, "")
+	if !strings.Contains(text, `planmodifiers.DefaultOneOfMarker("enable", []string{"enable","disable"})`) {
+		t.Fatal("nested computed marker lacks sibling cutover modifier")
+	}
+	if strings.Contains(text, `DefaultOneOfMarker("disable"`) {
+		t.Fatal("configured-only marker must stay untouched")
+	}
+	resource := &openapi.ResourceTemplate{Name: "nested_marker_probe", TitleCase: "NestedMarkerProbe", HasBlocks: true, Attributes: []openapi.TerraformAttribute{
+		{Name: "name", GoName: "Name", TfsdkTag: "name", Type: "string", Required: true},
+		{Name: "settings", GoName: "Settings", TfsdkTag: "settings", Type: "object", IsBlock: true, NestedBlockType: "single", Optional: true, NestedAttributes: attrs},
+	}}
+	dir := t.TempDir()
+	if err := GenerateResourceFile(resource, dir); err != nil {
+		t.Fatal(err)
+	}
+	body, err := os.ReadFile(filepath.Join(dir, "nested_marker_probe_resource.go"))
+	if err != nil {
+		t.Fatal(err)
+	}
+	if !strings.Contains(string(body), `"github.com/f5-sales-demo/terraform-provider-xcsh/internal/planmodifiers"`) {
+		t.Fatal("nested-only marker modifier import missing")
+	}
+}

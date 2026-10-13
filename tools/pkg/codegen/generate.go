@@ -154,6 +154,9 @@ func GenerateResourceFile(resource *openapi.ResourceTemplate, outputDir string) 
 			return fmt.Sprintf("planmodifiers.DefaultOneOfMarker(%q, []string{%s})", attribute.TfsdkTag, strings.Join(members, ","))
 		},
 		"hasDefaultOneOfMarker": func() bool {
+			if hasNestedDefaultOneOfMarker(resource.Attributes) {
+				return true
+			}
 			for _, attribute := range resource.Attributes {
 				if attribute.EmptyObjectMarker && attribute.Computed && (attribute.OneOfGroup != "" || len(resource.OneOfGroups) > 0) {
 					return true

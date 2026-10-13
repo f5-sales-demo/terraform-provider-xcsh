@@ -29,6 +29,7 @@ import (
 
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
 	xcsherrors "github.com/f5-sales-demo/terraform-provider-xcsh/internal/errors"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/planmodifiers"
 	inttimeouts "github.com/f5-sales-demo/terraform-provider-xcsh/internal/timeouts"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/validators"
 )
@@ -554,6 +555,7 @@ func (r *FastACLResource) Schema(ctx context.Context, req resource.SchemaRequest
 						Optional:            true,
 						Computed:            true,
 						PlanModifiers: []planmodifier.Object{
+							planmodifiers.DefaultOneOfMarker("all_public_vips", []string{"all_public_vips", "default_tenant_vip", "selected_tenant_vip"}),
 							objectplanmodifier.UseStateForUnknown(),
 						},
 						AttributeTypes: map[string]attr.Type{},
