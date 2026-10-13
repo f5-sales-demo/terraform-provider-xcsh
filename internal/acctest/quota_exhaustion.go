@@ -43,6 +43,10 @@ func provisionQuotaBoundCapabilities(ctx context.Context, c *client.Client) erro
 			_, err := c.CreateCRL(ctx, &client.CRL{Metadata: client.Metadata{Name: name, Namespace: "system"}, Spec: map[string]interface{}{"server_address": "crl.example.com", "server_port": 80, "refresh_interval": 24, "timeout": 30, "http_access": map[string]interface{}{"path": "/fixture.crl"}}})
 			return err
 		}},
+		{"xcsh_container_registry", func(name string) error {
+			_, err := c.CreateContainerRegistry(ctx, &client.ContainerRegistry{Metadata: client.Metadata{Name: name, Namespace: "shared"}, Spec: map[string]interface{}{"registry": "registry.example.com", "user_name": "testuser", "email": "test@example.com", "password": map[string]interface{}{"clear_secret_info": map[string]interface{}{"url": "string:///dGVzdC1wYXNzd29yZA=="}}}})
+			return err
+		}},
 	}
 	for _, operation := range operations {
 		err := operation.create(CompactRandomName(20))
