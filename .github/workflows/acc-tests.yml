@@ -147,13 +147,12 @@ jobs:
           TEST_STATUS=0
           TF_ACC=1 XCSH_MOCK_MODE=1 go test -json \
             -p 1 \
-            -gcflags='all=-N -l' \
             -parallel 1 \
             -count=1 \
             -timeout "${TIMEOUT}m" \
             -run "${INPUT_TEST_PATTERN:-^(TestAcc|TestMock)}" \
             ./internal/provider/... \
-            2>&1 | tee test-reports/test-output-mock.json || TEST_STATUS=${PIPESTATUS[0]}
+            > test-reports/test-output-mock.json 2> test-reports/test-stderr-mock.log || TEST_STATUS=$?
 
           JSON_REPORT_STATUS=0
           cat test-reports/test-output-mock.json | go run ./tools/test-report \
@@ -349,13 +348,19 @@ jobs:
             ./internal/provider/... \
             > "$RAW_TEST_OUTPUT" 2>&1 || TEST_STATUS=$?
 
+          # Full runs must account for every generated acceptance test.
+          EXPECTED_ARGS=()
+          if [[ -z "${INPUT_TEST_PATTERN:-}" ]]; then
+            EXPECTED_ARGS=(-expected-tests=internal/acctest/acceptance_test_inventory.json)
+          fi
+
           # Never emit the raw live-tenant stream to logs or artifacts.
           JSON_REPORT_STATUS=0
           cat "$RAW_TEST_OUTPUT" | go run ./tools/test-report \
-            -tenant-safe -schema="$XCSH_ACC_SCHEMA" -format=json -output=test-reports/real-tests.json || JSON_REPORT_STATUS=$?
+            -tenant-safe "${EXPECTED_ARGS[@]}" -schema="$XCSH_ACC_SCHEMA" -format=json -output=test-reports/real-tests.json || JSON_REPORT_STATUS=$?
           MARKDOWN_REPORT_STATUS=0
           cat "$RAW_TEST_OUTPUT" | go run ./tools/test-report \
-            -tenant-safe -schema="$XCSH_ACC_SCHEMA" -format=markdown -all -output=test-reports/real-tests.md || MARKDOWN_REPORT_STATUS=$?
+            -tenant-safe "${EXPECTED_ARGS[@]}" -schema="$XCSH_ACC_SCHEMA" -format=markdown -all -output=test-reports/real-tests.md || MARKDOWN_REPORT_STATUS=$?
           jq -e '
             (.stream_completeness.complete == true) and
             (.total_tests > 0) and

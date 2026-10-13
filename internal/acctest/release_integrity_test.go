@@ -1772,8 +1772,8 @@ func TestScheduledAcceptanceFailureFailsWorkflow(t *testing.T) {
 	if !strings.Contains(mockScript, "go test -json \\\n  -p 1 \\") {
 		t.Fatal("mock acceptance tests do not serialize package builds for the constrained runner")
 	}
-	if !strings.Contains(mockScript, "-gcflags='all=-N -l'") {
-		t.Fatal("mock acceptance tests do not disable memory-heavy compiler optimization")
+	if strings.Contains(mockScript, "-gcflags") {
+		t.Fatal("acceptance comparison should use the normal compiled provider")
 	}
 	mockStepFound := false
 	for _, step := range workflow.Jobs["mock-tests"].Steps {

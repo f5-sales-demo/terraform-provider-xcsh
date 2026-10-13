@@ -53,11 +53,17 @@ func discoverReadOnlyInfrastructure(ctx context.Context, c *client.Client, colle
 		return readOnlySiteReference{}, errors.New("existing infrastructure absent")
 	}
 	sort.Strings(names)
-	name := names[0]
-	if _, err := readOwnershipProjection(ctx, c, path+"/"+name, "system", name); err != nil {
-		return readOnlySiteReference{}, err
+	for _, name := range names {
+		_, err := readOwnershipProjection(ctx, c, path+"/"+name, "system", name)
+		if authoritativeOwnedAbsence(err) {
+			continue
+		}
+		if err != nil {
+			return readOnlySiteReference{}, err
+		}
+		return readOnlySiteReference{Name: name, Namespace: "system"}, nil
 	}
-	return readOnlySiteReference{Name: name, Namespace: "system"}, nil
+	return readOnlySiteReference{}, errors.New("existing infrastructure absent")
 }
 
 func requireReadOnlySite(t *testing.T) { requireReadOnlyReference(t, "site", "sites") }
