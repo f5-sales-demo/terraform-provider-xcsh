@@ -43,7 +43,9 @@ resource "xcsh_route" "test" {
   name      = %[1]q
   namespace = "system"
   routes {
+    disable_location_add = false
     match {
+      http_method = "ANY"
       path { prefix = "/" }
       incoming_port { no_port_match = {} }
     }

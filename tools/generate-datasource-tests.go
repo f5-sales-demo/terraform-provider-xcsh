@@ -68,7 +68,9 @@ var resourceConfigs = map[string]string{
 
 	"route": `
   routes {
+    disable_location_add = false
     match {
+      http_method = "ANY"
       path { prefix = "/" }
       incoming_port { no_port_match = {} }
     }
