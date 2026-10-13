@@ -42,7 +42,7 @@ func testAccSubnetDataSourceConfig_basic(name string, siteName string) string {
 
 resource "xcsh_subnet" "test" {
   name      = %[1]q
-  namespace = "shared"
+  namespace = "system"
   isolated_nw = {}
   site_subnet_params {
     static_ip = {}

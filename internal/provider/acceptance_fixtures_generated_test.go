@@ -538,7 +538,9 @@ func init() {
 	acctest.RegisterFixture("testAccSubnetDataSourceConfig_basic", func() string {
 		return testAccSubnetDataSourceConfig_basic("tf-acc-test-fixture", "tf-acc-test-fixture")
 	})
-	acctest.RegisterFixture("testAccSubnetResourceConfig_basic", func() string { return testAccSubnetResourceConfig_basic("tf-acc-test-fixture", "tf-acc-test-fixture") })
+	acctest.RegisterFixture("testAccSubnetResourceConfig_basic", func() string {
+		return testAccSubnetResourceConfig_basic("tf-acc-test-fixture", "tf-acc-test-fixture", "tf-acc-test-fixture")
+	})
 	acctest.RegisterFixture("testAccTCPLoadBalancerConfig_allAttributesSystem", func() string { return testAccTCPLoadBalancerConfig_allAttributesSystem("tf-acc-test-fixture") })
 	acctest.RegisterFixture("testAccTCPLoadBalancerConfig_basicSystem", func() string { return testAccTCPLoadBalancerConfig_basicSystem("tf-acc-test-fixture") })
 	acctest.RegisterFixture("testAccTCPLoadBalancerConfig_withAnnotationsSystem", func() string {

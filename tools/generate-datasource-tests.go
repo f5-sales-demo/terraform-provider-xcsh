@@ -668,6 +668,7 @@ var systemLevelResources = map[string]bool{
 
 // Resources that MUST use namespace = "system" (not custom namespace)
 var systemNamespaceResources = map[string]bool{
+	"tcp_loadbalancer":     true,
 	"tunnel":               true,
 	"waf_exclusion_policy": true,
 	"global_log_receiver":  true,
@@ -741,7 +742,7 @@ func main() {
 				panic(err)
 			}
 			if resource.Name == "subnet" {
-				ns = "shared"
+				ns = "system"
 			}
 			if systemNamespaceResources[resource.Name] {
 				ns = "system"

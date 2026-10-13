@@ -54,7 +54,7 @@ resource "xcsh_origin_pool" "test" {
 
 resource "xcsh_tcp_loadbalancer" "test" {
   name      = %[1]q
-  namespace = "shared"
+  namespace = "system"
   domains = ["%[1]s.example.com"]
   tcp = {}
   listen_port = 80
