@@ -262,7 +262,15 @@ func (t *ownershipTransport) RoundTrip(req *http.Request) (*http.Response, error
 func containsOwnedReference(value interface{}, name string) bool {
 	switch v := value.(type) {
 	case string:
-		return v == name
+		if v == name {
+			return true
+		}
+		for _, component := range strings.Split(v, "/") {
+			if component == name {
+				return true
+			}
+		}
+		return false
 	case map[string]interface{}:
 		for _, child := range v {
 			if containsOwnedReference(child, name) {

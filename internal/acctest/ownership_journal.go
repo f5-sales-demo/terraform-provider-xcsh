@@ -2,6 +2,7 @@
 package acctest
 
 import (
+	"bytes"
 	"context"
 	"crypto/sha256"
 	"encoding/hex"
@@ -10,6 +11,7 @@ import (
 	"fmt"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
 	xcsherrors "github.com/f5-sales-demo/terraform-provider-xcsh/internal/errors"
+	"io"
 	"os"
 	"path/filepath"
 	"regexp"
@@ -89,8 +91,14 @@ func LoadOwnershipJournal(path, run string) (*OwnershipJournal, error) {
 		return nil, err
 	}
 	var j OwnershipJournal
-	if err = json.Unmarshal(data, &j); err != nil {
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	if err = decoder.Decode(&j); err != nil {
 		return nil, errors.New("malformed ownership journal")
+	}
+	var trailing interface{}
+	if err = decoder.Decode(&trailing); err != io.EOF {
+		return nil, errors.New("trailing ownership journal data")
 	}
 	if j.Version != 1 || j.RunID != run || !ownershipRunPattern.MatchString(run) || j.Resources == nil {
 		return nil, errors.New("ownership journal version or run mismatch")
