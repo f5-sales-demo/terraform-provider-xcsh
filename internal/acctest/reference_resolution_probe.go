@@ -8,6 +8,7 @@ import (
 	"net/url"
 	"os"
 	"path/filepath"
+	"regexp"
 	"strings"
 
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
@@ -74,10 +75,112 @@ func ProbeReferenceResolution(ctx context.Context) error {
 			record["mentions_segment_name"] = strings.Contains(raw, segmentName)
 			record["mentions_qualified_reference"] = strings.Contains(raw, tenant+"/system/"+segmentName)
 			record["invalid_dns_label"] = strings.Contains(strings.ToLower(raw), "dns label")
+			allow := map[string]bool{}
+			for _, word := range strings.Fields("message code details failed object for error no in namespace system not dns label must be longer than characters segment configuration wrong kind name reference tenant required missing must specify config network resolver found get store timeout unknown invalid is a valid field value create unavailable interface constraints") {
+				allow[word] = true
+			}
+			words := []string{}
+			for _, word := range regexp.MustCompile(`[a-z][a-z0-9_]*`).FindAllString(strings.ToLower(raw), -1) {
+				if allow[word] {
+					words = append(words, word)
+				} else {
+					words = append(words, "_")
+				}
+			}
+			record["words"] = words
 		}
 		records = append(records, record)
 	}
 	facts["segment_variants"] = records
+	var sites struct {
+		Items []struct {
+			Name, Namespace string
+			Metadata        client.Metadata
+		}
+	}
+	if err = c.Get(ctx, "/api/config/namespaces/system/sites", &sites); err != nil {
+		return errors.New("site inventory failed")
+	}
+	readOK, eligible := 0, 0
+	for _, item := range sites.Items {
+		name := item.Name
+		ns := item.Namespace
+		if name == "" {
+			name = item.Metadata.Name
+		}
+		if ns == "" {
+			ns = item.Metadata.Namespace
+		}
+		if ns == "" {
+			ns = "system"
+		}
+		if strings.HasPrefix(name, TestResourcePrefix) {
+			continue
+		}
+		var object struct {
+			Metadata       client.Metadata
+			Spec           map[string]interface{}
+			SystemMetadata struct {
+				UID string `json:"uid"`
+			} `json:"system_metadata"`
+		}
+		readErr := c.Get(ctx, "/api/config/namespaces/"+ns+"/sites/"+name, &object)
+		if readErr != nil {
+			continue
+		}
+		readOK++
+		typ, _ := object.Spec["site_type"].(string)
+		if typ == "CUSTOMER_EDGE" {
+			eligible++
+			data, _ := json.Marshal(map[string]interface{}{"metadata": object.Metadata, "spec": object.Spec})
+			if writeErr := os.WriteFile(filepath.Join(os.Getenv("XCSH_ACC_PRIVATE"), "eligible-site.json"), data, 0600); writeErr != nil {
+				return writeErr
+			}
+		}
+	}
+	facts["sites_read_ok"] = readOK
+	facts["customer_edge_sites"] = eligible
+	var inventory struct {
+		Items []struct {
+			Name, Namespace string
+			Metadata        client.Metadata
+		}
+	}
+	if err = c.Get(ctx, "/api/config/namespaces/system/virtual_sites", &inventory); err != nil {
+		return errors.New("virtual inventory failed")
+	}
+	selectorFacts := []map[string]interface{}{}
+	for _, item := range inventory.Items {
+		name := item.Name
+		ns := item.Namespace
+		if name == "" {
+			name = item.Metadata.Name
+		}
+		if ns == "" {
+			ns = item.Metadata.Namespace
+		}
+		if ns == "" {
+			ns = "system"
+		}
+		if strings.HasPrefix(name, TestResourcePrefix) {
+			continue
+		}
+		var vs client.VirtualSite
+		if readErr := c.Get(ctx, "/api/config/namespaces/"+ns+"/virtual_sites/"+name, &vs); readErr != nil {
+			continue
+		}
+		if vs.Spec["site_type"] != "CUSTOMER_EDGE" {
+			continue
+		}
+		var expansion struct {
+			Items []map[string]interface{}
+			Error json.RawMessage
+		}
+		readErr := c.Get(ctx, "/api/config/namespaces/"+ns+"/virtual_sites/"+name+"/selectees", &expansion)
+		fact := map[string]interface{}{"selected": len(expansion.Items), "complete": readErr == nil && expansion.Items != nil, "system_namespace": ns == "system"}
+		selectorFacts = append(selectorFacts, fact)
+	}
+	facts["customer_edge_selectors"] = selectorFacts
 	ref, err := discoverMeshVirtualSite(ctx, c)
 	if err != nil {
 		return errors.New("probe virtual site discovery failed")
