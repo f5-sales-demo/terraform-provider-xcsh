@@ -79,6 +79,7 @@ resource "xcsh_bgp" "test" {
     external {
       asn     = 64512
       address = "192.168.1.1"
+      port = 179
       no_authentication = {}
     }
     bfd_disabled = {}
