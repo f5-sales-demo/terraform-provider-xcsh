@@ -521,7 +521,18 @@ var resourceConfigs = map[string]string{
   }`,
 
 	"workload": `
-  simple_service { do_not_advertise = {} }`,
+  simple_service {
+    do_not_advertise = {}
+    disabled = {}
+    container {
+      name = "fixture"
+      default_flavor = {}
+      image {
+        name = "nginx:stable"
+        public = {}
+      }
+    }
+  }`,
 
 	"workload_flavor": ``,
 }
