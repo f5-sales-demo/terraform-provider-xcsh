@@ -275,6 +275,16 @@ func (j *OwnershipJournal) Cleanup(ctx context.Context, b OwnershipBackend, atte
 	j.mu.Lock()
 	defer j.mu.Unlock()
 	receipt := CleanupReceipt{Version: 1, Owned: len(j.Resources), Diagnostics: map[string]int{}}
+	interrupted := func() bool {
+		if ctx.Err() == nil {
+			return false
+		}
+		if receipt.Diagnostics["cleanup_interrupted"] == 0 {
+			receipt.Diagnostics["cleanup_interrupted"]++
+			receipt.Failures++
+		}
+		return true
+	}
 	order, err := j.cleanupOrder()
 	if err != nil {
 		receipt.Failures++
@@ -283,6 +293,9 @@ func (j *OwnershipJournal) Cleanup(ctx context.Context, b OwnershipBackend, atte
 	}
 	failedResources := map[string]bool{}
 	for _, i := range order {
+		if interrupted() {
+			break
+		}
 		r := j.Resources[i]
 		blocked := false
 		for _, child := range j.Resources {
@@ -303,7 +316,15 @@ func (j *OwnershipJournal) Cleanup(ctx context.Context, b OwnershipBackend, atte
 		absent := false
 		fatal := false
 		for attempt := 0; attempt < attempts; attempt++ {
+			if interrupted() {
+				fatal = true
+				break
+			}
 			metadata, readErr := b.Read(ctx, r)
+			if interrupted() {
+				fatal = true
+				break
+			}
 			if errors.Is(readErr, errOwnedAbsent) {
 				absent = true
 				break
@@ -331,6 +352,10 @@ func (j *OwnershipJournal) Cleanup(ctx context.Context, b OwnershipBackend, atte
 					break
 				}
 			}
+			if interrupted() {
+				fatal = true
+				break
+			}
 			if deleteErr := b.Delete(ctx, r); deleteErr != nil && !errors.Is(deleteErr, errOwnedAbsent) {
 				receipt.Diagnostics["delete_failed"]++
 				receipt.Diagnostics[cleanupDeleteCategory(deleteErr)]++
@@ -346,7 +371,11 @@ func (j *OwnershipJournal) Cleanup(ctx context.Context, b OwnershipBackend, atte
 		// Verify after the final delete as well.
 		if !absent && !fatal {
 			_, readErr := b.Read(ctx, r)
-			absent = errors.Is(readErr, errOwnedAbsent)
+			if interrupted() {
+				fatal = true
+			} else {
+				absent = errors.Is(readErr, errOwnedAbsent)
+			}
 		}
 		if !absent && !fatal {
 			receipt.Diagnostics["resource_remains_visible"]++
@@ -362,8 +391,13 @@ func (j *OwnershipJournal) Cleanup(ctx context.Context, b OwnershipBackend, atte
 	if err = j.save(); err != nil {
 		receipt.Failures++
 	}
-	for _, r := range j.Resources {
-		if _, readErr := b.Read(ctx, r); !errors.Is(readErr, errOwnedAbsent) {
+	for index, r := range j.Resources {
+		if interrupted() {
+			receipt.SecondPassRemaining += len(j.Resources) - index
+			break
+		}
+		_, readErr := b.Read(ctx, r)
+		if interrupted() || !errors.Is(readErr, errOwnedAbsent) {
 			receipt.Diagnostics["second_pass_not_absent"]++
 			receipt.SecondPassRemaining++
 		}
@@ -375,6 +409,7 @@ func (j *OwnershipJournal) Cleanup(ctx context.Context, b OwnershipBackend, atte
 		digest := sha256.Sum256(data)
 		receipt.JournalSHA256 = hex.EncodeToString(digest[:])
 	}
+	interrupted()
 	receipt.Complete = receipt.Failures == 0 && receipt.ConfirmedAbsent == receipt.Owned && receipt.SecondPassRemaining == 0
 	if !receipt.Complete {
 		return receipt, errors.New("ownership cleanup verification failed")
