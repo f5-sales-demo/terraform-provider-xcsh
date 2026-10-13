@@ -133,7 +133,25 @@ func requireReadOnlyReference(t *testing.T, kind, collection string) {
 	var ref readOnlySiteReference
 	var errDiscover error
 	if kind == "virtual_site" {
-		ref, errDiscover = discoverMeshVirtualSite(ctx, c)
+		data, readErr := os.ReadFile(filepath.Join(os.Getenv("XCSH_ACC_PRIVATE"), "mesh-owned-reference.json"))
+		if readErr == nil {
+			if json.Unmarshal(data, &ref) != nil || ref.Name == "" || ref.Namespace != "system" {
+				t.Fatal("owned selector reference malformed")
+			}
+			projection, readErr := readOwnershipProjection(ctx, c, "/api/config/namespaces/system/virtual_sites/"+ref.Name, ref.Namespace, ref.Name)
+			if readErr != nil || projection.Annotations[ownershipAnnotation] != os.Getenv("XCSH_ACC_RUN_ID") {
+				t.Fatal("owned selector identity unverified")
+			}
+			count, readErr := verifyMeshSelectorExpansion(ctx, c, ref)
+			if readErr != nil || count == 0 {
+				t.Fatal("owned selector expansion unverified")
+			}
+			ref.SelectedSites = count
+		} else if os.IsNotExist(readErr) {
+			ref, errDiscover = discoverMeshVirtualSite(ctx, c)
+		} else {
+			t.Fatal("owned selector reference unavailable")
+		}
 	} else {
 		ref, errDiscover = discoverReadOnlyInfrastructure(ctx, c, collection)
 	}
