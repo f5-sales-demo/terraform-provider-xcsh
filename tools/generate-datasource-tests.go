@@ -374,6 +374,7 @@ var resourceConfigs = map[string]string{
 	"http_loadbalancer": `
   domains = ["test.example.com"]
   http {
+    port = 80
     dns_volterra_managed = false
   }
   default_route_pools {
@@ -713,6 +714,7 @@ var systemLevelResources = map[string]bool{
 
 // Resources that MUST use namespace = "system" (not custom namespace)
 var systemNamespaceResources = map[string]bool{
+	"http_loadbalancer":    true,
 	"network_interface":    true,
 	"discovery":            true,
 	"nat_policy":           true,

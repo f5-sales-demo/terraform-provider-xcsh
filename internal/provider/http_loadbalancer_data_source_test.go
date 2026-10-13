@@ -54,9 +54,10 @@ resource "xcsh_origin_pool" "test" {
 
 resource "xcsh_http_loadbalancer" "test" {
   name      = %[1]q
-  namespace = "shared"
+  namespace = "system"
   domains = ["test.example.com"]
   http {
+    port = 80
     dns_volterra_managed = false
   }
   default_route_pools {
