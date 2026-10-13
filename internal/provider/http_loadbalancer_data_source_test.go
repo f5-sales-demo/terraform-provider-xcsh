@@ -60,6 +60,7 @@ resource "xcsh_http_loadbalancer" "test" {
     port = 80
     dns_volterra_managed = false
   }
+  advertise_on_public_default_vip = {}
   default_route_pools {
     pool {
       name      = xcsh_origin_pool.test.name

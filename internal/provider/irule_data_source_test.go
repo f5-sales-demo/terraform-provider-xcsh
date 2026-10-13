@@ -56,7 +56,7 @@ resource "xcsh_irule" "test" {
   name       = %[2]q
   namespace  = xcsh_namespace.test.name
   description_spec = "Acceptance fixture"
-  irule = "when HTTP_REQUEST { return }"
+  irule = base64encode("when HTTP_REQUEST { return }")
 }
 
 data "xcsh_irule" "test" {

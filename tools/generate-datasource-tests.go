@@ -160,7 +160,7 @@ var resourceConfigs = map[string]string{
 	"ike_phase2_profile":       "",
 	"irule": `
   description_spec = "Acceptance fixture"
-  irule = "when HTTP_REQUEST { return }"`,
+  irule = base64encode("when HTTP_REQUEST { return }")`,
 	"malicious_user_mitigation": "",
 	"namespace":                 "",
 	"rate_limiter":              "",
@@ -397,6 +397,7 @@ var resourceConfigs = map[string]string{
     port = 80
     dns_volterra_managed = false
   }
+  advertise_on_public_default_vip = {}
   default_route_pools {
     pool {
       name      = xcsh_origin_pool.test.name
@@ -411,6 +412,13 @@ var resourceConfigs = map[string]string{
   }`,
 
 	"log_receiver": `
+  syslog {
+    udp_server {
+      server_name = "syslog.example.com"
+      port = 514
+    }
+    syslog_rfc5424 = 500
+  }
   site_local {}`,
 
 	"nat_policy": `
