@@ -152,7 +152,7 @@ var resourceConfigs = map[string]string{
 	"cluster":               "",
 	"code_base_integration": "",
 	"dns_compliance_checks": `
-  domain_denylist = ["blocked.example.com"]`,
+  domain_denylist = ["example.com"]`,
 	"enhanced_firewall_policy": "",
 	"ike1":                     "",
 	"ike2":                     "",
@@ -271,10 +271,20 @@ var resourceConfigs = map[string]string{
   }`,
 
 	"discovery": `
+  no_cluster_id = {}
   discovery_consul {
     access_info {
-      connection_info {
-        api_server = "http://consul.example.com:8500"
+      connection_info { api_server = "http://consul.example.com:8500" }
+    }
+    publish_info { disable_spec = {} }
+  }
+  where {
+    site {
+      network_type = "VIRTUAL_NETWORK_SITE_LOCAL_INSIDE"
+      disable_internet_vip = {}
+      ref {
+        name = %[2]q
+        namespace = "system"
       }
     }
   }`,
@@ -307,15 +317,9 @@ var resourceConfigs = map[string]string{
   }`,
 
 	"endpoint": `
-  where {
-    site {
-      network_type = "VIRTUAL_NETWORK_SITE_LOCAL_INSIDE"
-      ref {
-        name = "example-site"
-        namespace = "system"
-      }
-    }
-  }`,
+  ip = "192.0.2.10"
+  port = 8080
+  protocol = "TCP"`,
 
 	"fast_acl": `
   re_acl {}`,
@@ -389,6 +393,12 @@ var resourceConfigs = map[string]string{
   site_local {}`,
 
 	"nat_policy": `
+  site {
+    refs {
+      name = %[2]q
+      namespace = "system"
+    }
+  }
   rules {
     name = "fixture"
     enable = {}
@@ -418,12 +428,16 @@ var resourceConfigs = map[string]string{
 
 	"network_interface": `
   ethernet_interface {
-    device    = "eth0"
-    dhcp_server {
-      dhcp_networks {
-        network_prefix = "10.0.0.0/24"
-      }
-    }
+    device = "eth0"
+    mtu = 0
+    priority = 0
+    cluster = {}
+    untagged = {}
+    dhcp_client = {}
+    site_local_inside_network = {}
+    monitor_disabled = {}
+    not_primary = {}
+    no_ipv6_address = {}
   }`,
 
 	"network_policy": `
@@ -695,6 +709,9 @@ var systemLevelResources = map[string]bool{
 
 // Resources that MUST use namespace = "system" (not custom namespace)
 var systemNamespaceResources = map[string]bool{
+	"network_interface":    true,
+	"discovery":            true,
+	"nat_policy":           true,
 	"network_connector":    true,
 	"tcp_loadbalancer":     true,
 	"tunnel":               true,
@@ -812,7 +829,7 @@ import (
 func {{.TestFuncName}}(t *testing.T) {
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
- {{if eq .Name "site_mesh_group"}}acctest.RequireReadOnlyVirtualSite(t){{else if eq .Name "subnet"}}acctest.RequireExistingInfrastructure(t,"site"){{end}}
+ {{if eq .Name "site_mesh_group"}}acctest.RequireReadOnlyVirtualSite(t){{else if or (eq .Name "subnet") (eq .Name "nat_policy") (eq .Name "discovery")}}acctest.RequireExistingInfrastructure(t,"site"){{end}}
 
 	{{if eq .Name "api_definition"}}rName := acctest.CompactRandomName(20){{else}}rName := acctest.RandomName("tf-acc-test"){{end}}
 {{- if and .NeedsNamespace (not .IsNamespace) (not .UseSystemNamespace)}}
@@ -838,7 +855,7 @@ func {{.TestFuncName}}(t *testing.T) {
 {{- if .IsNamespace}}
 				Config: {{.ConfigFuncName}}(rName),
 {{- else if .UseSystemNamespace}}
-				Config: {{.ConfigFuncName}}(rName{{if eq .Name "site_mesh_group"}}, acctest.ReadOnlyVirtualSiteName(), acctest.ReadOnlyVirtualSiteNamespace(){{else if eq .Name "subnet"}}, acctest.ReadOnlySiteName(){{end}}),
+				Config: {{.ConfigFuncName}}(rName{{if eq .Name "site_mesh_group"}}, acctest.ReadOnlyVirtualSiteName(), acctest.ReadOnlyVirtualSiteNamespace(){{else if or (eq .Name "subnet") (eq .Name "nat_policy") (eq .Name "discovery")}}, acctest.ReadOnlySiteName(){{end}}),
 {{- else if .NeedsNamespace}}
 				Config: {{.ConfigFuncName}}(nsName, rName),
 {{- else}}
@@ -879,7 +896,7 @@ data "{{.ResourceName}}" "test" {
 }
 {{- else if .UseSystemNamespace}}
 
-func {{.ConfigFuncName}}(name string{{if eq .Name "site_mesh_group"}}, virtualSiteName, virtualSiteNamespace string{{else if eq .Name "subnet"}}, siteName string{{end}}) string {
+func {{.ConfigFuncName}}(name string{{if eq .Name "site_mesh_group"}}, virtualSiteName, virtualSiteNamespace string{{else if or (eq .Name "subnet") (eq .Name "nat_policy") (eq .Name "discovery")}}, siteName string{{end}}) string {
 {{- if or (eq .Name "certificate") (eq .Name "certificate_chain")}}
  certs := acctest.MustGenerateTestCertificates()
 {{- end}}
@@ -897,7 +914,7 @@ data "{{.ResourceName}}" "test" {
   name       = {{.ResourceName}}.test.name
   namespace  = {{.ResourceName}}.test.namespace
 }
-` + "`" + `, name{{if eq .Name "site_mesh_group"}}, virtualSiteName, virtualSiteNamespace{{else if eq .Name "subnet"}}, siteName{{end}}{{if eq .Name "certificate"}}, certs.ServerCertBase64, certs.ServerKeyBase64{{else if eq .Name "certificate_chain"}}, certs.IntermediateCABase64{{end}}))
+` + "`" + `, name{{if eq .Name "site_mesh_group"}}, virtualSiteName, virtualSiteNamespace{{else if or (eq .Name "subnet") (eq .Name "nat_policy") (eq .Name "discovery")}}, siteName{{end}}{{if eq .Name "certificate"}}, certs.ServerCertBase64, certs.ServerKeyBase64{{else if eq .Name "certificate_chain"}}, certs.IntermediateCABase64{{end}}))
 }
 {{- else if and .NeedsNamespace (not .Skip)}}
 

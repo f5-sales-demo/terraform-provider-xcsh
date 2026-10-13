@@ -42,15 +42,9 @@ func testAccEndpointDataSourceConfig_basic(name string) string {
 resource "xcsh_endpoint" "test" {
   name      = %[1]q
   namespace = "shared"
-  where {
-    site {
-      network_type = "VIRTUAL_NETWORK_SITE_LOCAL_INSIDE"
-      ref {
-        name = "example-site"
-        namespace = "system"
-      }
-    }
-  }
+  ip = "192.0.2.10"
+  port = 8080
+  protocol = "TCP"
 }
 
 data "xcsh_endpoint" "test" {

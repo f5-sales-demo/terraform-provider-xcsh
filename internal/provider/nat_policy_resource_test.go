@@ -14,9 +14,9 @@ import (
 
 func TestAccNatPolicyResource_basic(t *testing.T) {
 
-	acctest.RequireExistingInfrastructure(t, "site")
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
+	acctest.RequireExistingInfrastructure(t, "site")
 
 	rName := acctest.RandomName("tf-acc-test-nat")
 	nsName := acctest.RandomName("tf-acc-test-ns")
@@ -31,7 +31,7 @@ func TestAccNatPolicyResource_basic(t *testing.T) {
 		CheckDestroy: acctest.CheckResourceDestroyed("xcsh_nat_policy"),
 		Steps: []resource.TestStep{
 			{
-				Config: testAccNatPolicyConfig_basic(nsName, rName),
+				Config: testAccNatPolicyConfig_basic(nsName, rName, acctest.ReadOnlySiteName()),
 				Check: resource.ComposeAggregateTestCheckFunc(
 					acctest.CheckResourceExists(resourceName),
 					resource.TestCheckResourceAttr(resourceName, "name", rName),
@@ -62,7 +62,7 @@ func testAccNatPolicyImportStateIdFunc(resourceName string) resource.ImportState
 	}
 }
 
-func testAccNatPolicyConfig_basic(nsName, name string) string {
+func testAccNatPolicyConfig_basic(nsName, name, siteName string) string {
 	return acctest.ConfigCompose(
 		acctest.ProviderConfig(),
 		fmt.Sprintf(`
@@ -84,6 +84,12 @@ resource "xcsh_nat_policy" "test" {
   name       = %[2]q
   namespace  = xcsh_namespace.test.name
 
+  site {
+    refs {
+ name = %[3]q
+ namespace = "system"
+}
+  }
   rules {
     name = "rule1"
     enable = {}
@@ -104,5 +110,5 @@ resource "xcsh_nat_policy" "test" {
     }
   }
 }
-`, nsName, name))
+`, nsName, name, siteName))
 }

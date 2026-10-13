@@ -42,7 +42,7 @@ func testAccDnsComplianceChecksDataSourceConfig_basic(name string) string {
 resource "xcsh_dns_compliance_checks" "test" {
   name      = %[1]q
   namespace = "shared"
-  domain_denylist = ["blocked.example.com"]
+  domain_denylist = ["example.com"]
 }
 
 data "xcsh_dns_compliance_checks" "test" {
