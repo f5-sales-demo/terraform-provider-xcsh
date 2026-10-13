@@ -12828,8 +12828,23 @@ func (r *CDNLoadBalancerResource) ValidateConfig(ctx context.Context, req resour
 		)
 	}
 
+	if data.ActiveServicePolicies != nil && !data.NoServicePolicies.IsNull() && !data.NoServicePolicies.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(path.Root("active_service_policies"), "Conflicting Configuration", "active_service_policies and no_service_policies are mutually exclusive.")
+	}
+	if data.ActiveServicePolicies != nil && !data.ServicePoliciesFromNamespace.IsNull() && !data.ServicePoliciesFromNamespace.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(path.Root("active_service_policies"), "Conflicting Configuration", "active_service_policies and service_policies_from_namespace are mutually exclusive.")
+	}
+	if data.APIRateLimit != nil && !data.DisableRateLimit.IsNull() && !data.DisableRateLimit.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(path.Root("api_rate_limit"), "Conflicting Configuration", "api_rate_limit and disable_rate_limit are mutually exclusive.")
+	}
 	if data.APIRateLimit != nil && data.RateLimit != nil {
 		resp.Diagnostics.AddAttributeError(path.Root("api_rate_limit"), "Conflicting Configuration", "api_rate_limit and rate_limit are mutually exclusive.")
+	}
+	if data.APISpecification != nil && !data.DisableAPIDefinition.IsNull() && !data.DisableAPIDefinition.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(path.Root("api_specification"), "Conflicting Configuration", "api_specification and disable_api_definition are mutually exclusive.")
+	}
+	if data.AppFirewall != nil && !data.DisableWAF.IsNull() && !data.DisableWAF.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(path.Root("app_firewall"), "Conflicting Configuration", "app_firewall and disable_waf are mutually exclusive.")
 	}
 	if data.CaptchaChallenge != nil && data.EnableChallenge != nil {
 		resp.Diagnostics.AddAttributeError(path.Root("captcha_challenge"), "Conflicting Configuration", "captcha_challenge and enable_challenge are mutually exclusive.")
@@ -12837,11 +12852,32 @@ func (r *CDNLoadBalancerResource) ValidateConfig(ctx context.Context, req resour
 	if data.CaptchaChallenge != nil && data.JsChallenge != nil {
 		resp.Diagnostics.AddAttributeError(path.Root("captcha_challenge"), "Conflicting Configuration", "captcha_challenge and js_challenge are mutually exclusive.")
 	}
+	if data.CaptchaChallenge != nil && !data.NoChallenge.IsNull() && !data.NoChallenge.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(path.Root("captcha_challenge"), "Conflicting Configuration", "captcha_challenge and no_challenge are mutually exclusive.")
+	}
 	if data.CaptchaChallenge != nil && data.PolicyBasedChallenge != nil {
 		resp.Diagnostics.AddAttributeError(path.Root("captcha_challenge"), "Conflicting Configuration", "captcha_challenge and policy_based_challenge are mutually exclusive.")
 	}
+	if data.ClientSideDefense != nil && !data.DisableClientSideDefense.IsNull() && !data.DisableClientSideDefense.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(path.Root("client_side_defense"), "Conflicting Configuration", "client_side_defense and disable_client_side_defense are mutually exclusive.")
+	}
+	if !data.DefaultSensitiveDataPolicy.IsNull() && !data.DefaultSensitiveDataPolicy.IsUnknown() && data.SensitiveDataPolicy != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("default_sensitive_data_policy"), "Conflicting Configuration", "default_sensitive_data_policy and sensitive_data_policy are mutually exclusive.")
+	}
+	if !data.DisableAPIDiscovery.IsNull() && !data.DisableAPIDiscovery.IsUnknown() && data.EnableAPIDiscovery != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("disable_api_discovery"), "Conflicting Configuration", "disable_api_discovery and enable_api_discovery are mutually exclusive.")
+	}
+	if !data.DisableIPReputation.IsNull() && !data.DisableIPReputation.IsUnknown() && data.EnableIPReputation != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("disable_ip_reputation"), "Conflicting Configuration", "disable_ip_reputation and enable_ip_reputation are mutually exclusive.")
+	}
+	if !data.DisableRateLimit.IsNull() && !data.DisableRateLimit.IsUnknown() && data.RateLimit != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("disable_rate_limit"), "Conflicting Configuration", "disable_rate_limit and rate_limit are mutually exclusive.")
+	}
 	if data.EnableChallenge != nil && data.JsChallenge != nil {
 		resp.Diagnostics.AddAttributeError(path.Root("enable_challenge"), "Conflicting Configuration", "enable_challenge and js_challenge are mutually exclusive.")
+	}
+	if data.EnableChallenge != nil && !data.NoChallenge.IsNull() && !data.NoChallenge.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(path.Root("enable_challenge"), "Conflicting Configuration", "enable_challenge and no_challenge are mutually exclusive.")
 	}
 	if data.EnableChallenge != nil && data.PolicyBasedChallenge != nil {
 		resp.Diagnostics.AddAttributeError(path.Root("enable_challenge"), "Conflicting Configuration", "enable_challenge and policy_based_challenge are mutually exclusive.")
@@ -12855,8 +12891,26 @@ func (r *CDNLoadBalancerResource) ValidateConfig(ctx context.Context, req resour
 	if data.HTTPS != nil && data.HTTPSAutoCert != nil {
 		resp.Diagnostics.AddAttributeError(path.Root("https"), "Conflicting Configuration", "https and https_auto_cert are mutually exclusive.")
 	}
+	if data.JsChallenge != nil && !data.NoChallenge.IsNull() && !data.NoChallenge.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(path.Root("js_challenge"), "Conflicting Configuration", "js_challenge and no_challenge are mutually exclusive.")
+	}
 	if data.JsChallenge != nil && data.PolicyBasedChallenge != nil {
 		resp.Diagnostics.AddAttributeError(path.Root("js_challenge"), "Conflicting Configuration", "js_challenge and policy_based_challenge are mutually exclusive.")
+	}
+	if !data.L7DDOSActionBlock.IsNull() && !data.L7DDOSActionBlock.IsUnknown() && data.L7DDOSActionJsChallenge != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("l7_ddos_action_block"), "Conflicting Configuration", "l7_ddos_action_block and l7_ddos_action_js_challenge are mutually exclusive.")
+	}
+	if !data.L7DDOSActionDefault.IsNull() && !data.L7DDOSActionDefault.IsUnknown() && data.L7DDOSActionJsChallenge != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("l7_ddos_action_default"), "Conflicting Configuration", "l7_ddos_action_default and l7_ddos_action_js_challenge are mutually exclusive.")
+	}
+	if !data.NoChallenge.IsNull() && !data.NoChallenge.IsUnknown() && data.PolicyBasedChallenge != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("no_challenge"), "Conflicting Configuration", "no_challenge and policy_based_challenge are mutually exclusive.")
+	}
+	if data.SlowDDOSMitigation != nil && !data.SystemDefaultTimeouts.IsNull() && !data.SystemDefaultTimeouts.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(path.Root("slow_ddos_mitigation"), "Conflicting Configuration", "slow_ddos_mitigation and system_default_timeouts are mutually exclusive.")
+	}
+	if !data.UserIDClientIP.IsNull() && !data.UserIDClientIP.IsUnknown() && data.UserIdentification != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("user_id_client_ip"), "Conflicting Configuration", "user_id_client_ip and user_identification are mutually exclusive.")
 	}
 
 }

@@ -1987,8 +1987,38 @@ func (r *ServicePolicyRuleResource) ValidateConfig(ctx context.Context, req reso
 		)
 	}
 
+	if !data.AnyAsn.IsNull() && !data.AnyAsn.IsUnknown() && data.AsnList != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("any_asn"), "Conflicting Configuration", "any_asn and asn_list are mutually exclusive.")
+	}
+	if !data.AnyAsn.IsNull() && !data.AnyAsn.IsUnknown() && data.AsnMatcher != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("any_asn"), "Conflicting Configuration", "any_asn and asn_matcher are mutually exclusive.")
+	}
+	if !data.AnyClient.IsNull() && !data.AnyClient.IsUnknown() && data.ClientNameMatcher != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("any_client"), "Conflicting Configuration", "any_client and client_name_matcher are mutually exclusive.")
+	}
+	if !data.AnyClient.IsNull() && !data.AnyClient.IsUnknown() && data.ClientSelector != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("any_client"), "Conflicting Configuration", "any_client and client_selector are mutually exclusive.")
+	}
+	if !data.AnyClient.IsNull() && !data.AnyClient.IsUnknown() && data.IPThreatCategoryList != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("any_client"), "Conflicting Configuration", "any_client and ip_threat_category_list are mutually exclusive.")
+	}
+	if !data.AnyIP.IsNull() && !data.AnyIP.IsUnknown() && data.IPMatcher != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("any_ip"), "Conflicting Configuration", "any_ip and ip_matcher are mutually exclusive.")
+	}
+	if !data.AnyIP.IsNull() && !data.AnyIP.IsUnknown() && data.IPPrefixList != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("any_ip"), "Conflicting Configuration", "any_ip and ip_prefix_list are mutually exclusive.")
+	}
 	if data.AsnList != nil && data.AsnMatcher != nil {
 		resp.Diagnostics.AddAttributeError(path.Root("asn_list"), "Conflicting Configuration", "asn_list and asn_matcher are mutually exclusive.")
+	}
+	if !data.ClientName.IsNull() && !data.ClientName.IsUnknown() && data.ClientNameMatcher != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("client_name"), "Conflicting Configuration", "client_name and client_name_matcher are mutually exclusive.")
+	}
+	if !data.ClientName.IsNull() && !data.ClientName.IsUnknown() && data.ClientSelector != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("client_name"), "Conflicting Configuration", "client_name and client_selector are mutually exclusive.")
+	}
+	if !data.ClientName.IsNull() && !data.ClientName.IsUnknown() && data.IPThreatCategoryList != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("client_name"), "Conflicting Configuration", "client_name and ip_threat_category_list are mutually exclusive.")
 	}
 	if data.ClientNameMatcher != nil && data.ClientSelector != nil {
 		resp.Diagnostics.AddAttributeError(path.Root("client_name_matcher"), "Conflicting Configuration", "client_name_matcher and client_selector are mutually exclusive.")

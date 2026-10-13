@@ -3481,6 +3481,9 @@ func (r *GlobalLogReceiverResource) ValidateConfig(ctx context.Context, req reso
 		)
 	}
 
+	if !data.AuditLogs.IsNull() && !data.AuditLogs.IsUnknown() && data.RequestLogs != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("audit_logs"), "Conflicting Configuration", "audit_logs and request_logs are mutually exclusive.")
+	}
 	if data.AWSCloudWatchReceiver != nil && data.AzureEventHubsReceiver != nil {
 		resp.Diagnostics.AddAttributeError(path.Root("aws_cloud_watch_receiver"), "Conflicting Configuration", "aws_cloud_watch_receiver and azure_event_hubs_receiver are mutually exclusive.")
 	}
@@ -3595,6 +3598,9 @@ func (r *GlobalLogReceiverResource) ValidateConfig(ctx context.Context, req reso
 	if data.DatadogReceiver != nil && data.SumoLogicReceiver != nil {
 		resp.Diagnostics.AddAttributeError(path.Root("datadog_receiver"), "Conflicting Configuration", "datadog_receiver and sumo_logic_receiver are mutually exclusive.")
 	}
+	if !data.DNSLogs.IsNull() && !data.DNSLogs.IsUnknown() && data.RequestLogs != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("dns_logs"), "Conflicting Configuration", "dns_logs and request_logs are mutually exclusive.")
+	}
 	if data.GCPBucketReceiver != nil && data.HTTPReceiver != nil {
 		resp.Diagnostics.AddAttributeError(path.Root("gcp_bucket_receiver"), "Conflicting Configuration", "gcp_bucket_receiver and http_receiver are mutually exclusive.")
 	}
@@ -3661,6 +3667,12 @@ func (r *GlobalLogReceiverResource) ValidateConfig(ctx context.Context, req reso
 	if data.NewRelicReceiver != nil && data.SumoLogicReceiver != nil {
 		resp.Diagnostics.AddAttributeError(path.Root("new_relic_receiver"), "Conflicting Configuration", "new_relic_receiver and sumo_logic_receiver are mutually exclusive.")
 	}
+	if !data.NsAll.IsNull() && !data.NsAll.IsUnknown() && data.NsList != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("ns_all"), "Conflicting Configuration", "ns_all and ns_list are mutually exclusive.")
+	}
+	if !data.NsCurrent.IsNull() && !data.NsCurrent.IsUnknown() && data.NsList != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("ns_current"), "Conflicting Configuration", "ns_current and ns_list are mutually exclusive.")
+	}
 	if data.QradarReceiver != nil && data.S3Receiver != nil {
 		resp.Diagnostics.AddAttributeError(path.Root("qradar_receiver"), "Conflicting Configuration", "qradar_receiver and s3_receiver are mutually exclusive.")
 	}
@@ -3669,6 +3681,9 @@ func (r *GlobalLogReceiverResource) ValidateConfig(ctx context.Context, req reso
 	}
 	if data.QradarReceiver != nil && data.SumoLogicReceiver != nil {
 		resp.Diagnostics.AddAttributeError(path.Root("qradar_receiver"), "Conflicting Configuration", "qradar_receiver and sumo_logic_receiver are mutually exclusive.")
+	}
+	if data.RequestLogs != nil && !data.SecurityEvents.IsNull() && !data.SecurityEvents.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(path.Root("request_logs"), "Conflicting Configuration", "request_logs and security_events are mutually exclusive.")
 	}
 	if data.S3Receiver != nil && data.SplunkReceiver != nil {
 		resp.Diagnostics.AddAttributeError(path.Root("s3_receiver"), "Conflicting Configuration", "s3_receiver and splunk_receiver are mutually exclusive.")

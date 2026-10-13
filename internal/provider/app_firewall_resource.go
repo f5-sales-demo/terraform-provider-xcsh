@@ -856,6 +856,28 @@ func (r *AppFirewallResource) ValidateConfig(ctx context.Context, req resource.V
 		)
 	}
 
+	if !data.AllowAllResponseCodes.IsNull() && !data.AllowAllResponseCodes.IsUnknown() && data.AllowedResponseCodes != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("allow_all_response_codes"), "Conflicting Configuration", "allow_all_response_codes and allowed_response_codes are mutually exclusive.")
+	}
+	if data.BlockingPage != nil && !data.UseDefaultBlockingPage.IsNull() && !data.UseDefaultBlockingPage.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(path.Root("blocking_page"), "Conflicting Configuration", "blocking_page and use_default_blocking_page are mutually exclusive.")
+	}
+	if data.BotProtectionSetting != nil && !data.DefaultBotSetting.IsNull() && !data.DefaultBotSetting.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(path.Root("bot_protection_setting"), "Conflicting Configuration", "bot_protection_setting and default_bot_setting are mutually exclusive.")
+	}
+	if data.CustomAnonymization != nil && !data.DefaultAnonymization.IsNull() && !data.DefaultAnonymization.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(path.Root("custom_anonymization"), "Conflicting Configuration", "custom_anonymization and default_anonymization are mutually exclusive.")
+	}
+	if data.CustomAnonymization != nil && !data.DisableAnonymization.IsNull() && !data.DisableAnonymization.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(path.Root("custom_anonymization"), "Conflicting Configuration", "custom_anonymization and disable_anonymization are mutually exclusive.")
+	}
+	if !data.DefaultDetectionSettings.IsNull() && !data.DefaultDetectionSettings.IsUnknown() && data.DetectionSettings != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("default_detection_settings"), "Conflicting Configuration", "default_detection_settings and detection_settings are mutually exclusive.")
+	}
+	if !data.DisableAiEnhancements.IsNull() && !data.DisableAiEnhancements.IsUnknown() && data.EnableAiEnhancements != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("disable_ai_enhancements"), "Conflicting Configuration", "disable_ai_enhancements and enable_ai_enhancements are mutually exclusive.")
+	}
+
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan

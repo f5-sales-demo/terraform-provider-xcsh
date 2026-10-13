@@ -336,6 +336,13 @@ func (r *CertificateResource) ValidateConfig(ctx context.Context, req resource.V
 		)
 	}
 
+	if data.CustomHashAlgorithms != nil && !data.DisableOCSPStapling.IsNull() && !data.DisableOCSPStapling.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(path.Root("custom_hash_algorithms"), "Conflicting Configuration", "custom_hash_algorithms and disable_ocsp_stapling are mutually exclusive.")
+	}
+	if data.CustomHashAlgorithms != nil && !data.UseSystemDefaults.IsNull() && !data.UseSystemDefaults.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(path.Root("custom_hash_algorithms"), "Conflicting Configuration", "custom_hash_algorithms and use_system_defaults are mutually exclusive.")
+	}
+
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan

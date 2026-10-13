@@ -184,6 +184,10 @@ func (r *GeoLocationSetResource) ValidateConfig(ctx context.Context, req resourc
 	if resp.Diagnostics.HasError() {
 		return
 	}
+	if data.CustomGeoLocationSelector != nil && !data.Global.IsNull() && !data.Global.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(path.Root("custom_geo_location_selector"), "Conflicting Configuration", "custom_geo_location_selector and global are mutually exclusive.")
+	}
+
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan

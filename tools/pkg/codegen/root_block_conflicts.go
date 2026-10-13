@@ -55,7 +55,7 @@ func RenderRootBlockConflicts(attributes []openapi.TerraformAttribute) string {
 	var output strings.Builder
 	for _, pair := range keys {
 		a, b := byName[pair[0]], byName[pair[1]]
-		if !a.IsBlock || !b.IsBlock {
+		if !a.IsBlock && !b.IsBlock {
 			continue
 		}
 		fmt.Fprintf(&output, "\tif %s && %s {\n\t\tresp.Diagnostics.AddAttributeError(path.Root(%q), \"Conflicting Configuration\", %q)\n\t}\n", configured(a), configured(b), pair[0], pair[0]+" and "+pair[1]+" are mutually exclusive.")

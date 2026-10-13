@@ -816,6 +816,28 @@ func (r *K8SClusterResource) ValidateConfig(ctx context.Context, req resource.Va
 		)
 	}
 
+	if data.ClusterWideAppList != nil && !data.NoClusterWideApps.IsNull() && !data.NoClusterWideApps.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(path.Root("cluster_wide_app_list"), "Conflicting Configuration", "cluster_wide_app_list and no_cluster_wide_apps are mutually exclusive.")
+	}
+	if data.InsecureRegistryList != nil && !data.NoInsecureRegistries.IsNull() && !data.NoInsecureRegistries.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(path.Root("insecure_registry_list"), "Conflicting Configuration", "insecure_registry_list and no_insecure_registries are mutually exclusive.")
+	}
+	if data.LocalAccessConfig != nil && !data.NoLocalAccess.IsNull() && !data.NoLocalAccess.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(path.Root("local_access_config"), "Conflicting Configuration", "local_access_config and no_local_access are mutually exclusive.")
+	}
+	if data.UseCustomClusterRoleBindings != nil && !data.UseDefaultClusterRoleBindings.IsNull() && !data.UseDefaultClusterRoleBindings.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(path.Root("use_custom_cluster_role_bindings"), "Conflicting Configuration", "use_custom_cluster_role_bindings and use_default_cluster_role_bindings are mutually exclusive.")
+	}
+	if data.UseCustomClusterRoleList != nil && !data.UseDefaultClusterRoles.IsNull() && !data.UseDefaultClusterRoles.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(path.Root("use_custom_cluster_role_list"), "Conflicting Configuration", "use_custom_cluster_role_list and use_default_cluster_roles are mutually exclusive.")
+	}
+	if data.UseCustomPodSecurityAdmission != nil && !data.UseDefaultPodSecurityAdmission.IsNull() && !data.UseDefaultPodSecurityAdmission.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(path.Root("use_custom_pod_security_admission"), "Conflicting Configuration", "use_custom_pod_security_admission and use_default_pod_security_admission are mutually exclusive.")
+	}
+	if data.UseCustomPspList != nil && !data.UseDefaultPsp.IsNull() && !data.UseDefaultPsp.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(path.Root("use_custom_psp_list"), "Conflicting Configuration", "use_custom_psp_list and use_default_psp are mutually exclusive.")
+	}
+
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan

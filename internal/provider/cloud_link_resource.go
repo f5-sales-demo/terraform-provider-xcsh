@@ -681,6 +681,9 @@ func (r *CloudLinkResource) ValidateConfig(ctx context.Context, req resource.Val
 	if data.AWS != nil && data.GCP != nil {
 		resp.Diagnostics.AddAttributeError(path.Root("aws"), "Conflicting Configuration", "aws and gcp are mutually exclusive.")
 	}
+	if !data.Disabled.IsNull() && !data.Disabled.IsUnknown() && data.Enabled != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("disabled"), "Conflicting Configuration", "disabled and enabled are mutually exclusive.")
+	}
 
 }
 
