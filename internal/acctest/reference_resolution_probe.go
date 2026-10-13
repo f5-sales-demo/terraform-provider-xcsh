@@ -194,6 +194,7 @@ func ProbeReferenceResolution(ctx context.Context) error {
 	}
 	facts["selectees_present"] = selectees.Items != nil
 	facts["selected_count"] = len(selectees.Items)
+	facts["chosen_selector_system_namespace"] = ref.Namespace == "system"
 	facts["expansion_error_present"] = len(selectees.Error) > 0 && string(selectees.Error) != "null" && string(selectees.Error) != "{}"
 	siteKinds := map[string]int{}
 	for _, site := range selectees.Items {
@@ -223,6 +224,33 @@ func ProbeReferenceResolution(ctx context.Context) error {
 		records = append(records, record)
 	}
 	facts["mesh_variants"] = records
+	var eligibleSite struct {
+		Metadata client.Metadata
+		Spec     map[string]interface{}
+	}
+	if data, readErr := os.ReadFile(filepath.Join(os.Getenv("XCSH_ACC_PRIVATE"), "eligible-site.json")); readErr == nil && json.Unmarshal(data, &eligibleSite) == nil {
+		selectorName := CompactRandomName(20)
+		expression := "ves.io/siteName in (" + eligibleSite.Metadata.Name + ")"
+		_, createErr := c.CreateVirtualSite(ctx, &client.VirtualSite{Metadata: client.Metadata{Name: selectorName, Namespace: "system"}, Spec: map[string]interface{}{
+			"site_type": "CUSTOMER_EDGE", "site_selector": map[string]interface{}{"expressions": []string{expression}},
+		}})
+		facts["disposable_selector_created"] = createErr == nil
+		if createErr == nil {
+			var expansion struct{ Items []map[string]interface{} }
+			readErr := c.Get(ctx, "/api/config/namespaces/system/virtual_sites/"+selectorName+"/selectees", &expansion)
+			facts["disposable_selector_read_complete"] = readErr == nil && expansion.Items != nil
+			facts["disposable_selector_selected_count"] = len(expansion.Items)
+			_, meshErr := c.CreateSiteMeshGroup(ctx, &client.SiteMeshGroup{Metadata: client.Metadata{Name: RandomName("tf-acc-test-selector-mesh"), Namespace: "system"}, Spec: map[string]interface{}{
+				"bfd_disabled": map[string]interface{}{}, "disable_re_fallback": map[string]interface{}{},
+				"virtual_site": []interface{}{map[string]interface{}{"name": selectorName, "namespace": "system"}}, "full_mesh": map[string]interface{}{"control_and_data_plane_mesh": map[string]interface{}{}},
+			}})
+			facts["disposable_selector_mesh_created"] = meshErr == nil
+			var apiErr *xcsherrors.XCSHError
+			if errors.As(meshErr, &apiErr) {
+				facts["disposable_selector_mesh_status"] = apiErr.StatusCode
+			}
+		}
+	}
 	encoded, err := json.MarshalIndent(facts, "", "  ")
 	if err != nil {
 		return err
