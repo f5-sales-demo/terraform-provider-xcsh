@@ -1,6 +1,16 @@
 from pathlib import Path
 import json,os
 patterns={
+ "missing_selected_sites":["no site","no matching","empty"],
+ "invalid_spec":["invalid","incorrect","bad"],
+ "not_existing":["not found","does not exist","not exist"],
+ "wrong_namespace":["namespace","system","shared"],
+ "site_rule":["rule","expression","filter"],
+ "site_set":["set","match","list","selected"],
+ "reference_failure":["reference","ref","resolve"],
+ "sites_unavailable":["site","sites","exist"],
+ "one_virtual_site":["one","exactly","at least"],
+ "special_namespace":["ves.io","system"],
  "site_selector":["selector","selection","select"],
  "site_constraints":["constraint","criteria","site_type"],
  "site_role":["ingress","egress","appstack","app stack","customer","edge"],
