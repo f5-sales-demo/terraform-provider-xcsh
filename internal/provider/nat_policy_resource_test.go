@@ -102,12 +102,12 @@ resource "xcsh_nat_policy" "test" {
     }
 
     criteria {
-      source_cidr = ["10.0.0.0/8"]
+      source_cidr = ["192.0.2.0/24"]
       any = {}
     }
 
     action {
-      virtual_cidr = "100.64.0.0/10"
+      virtual_cidr = "198.51.100.0/24"
     }
   }
 }

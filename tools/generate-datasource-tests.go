@@ -408,8 +408,11 @@ var resourceConfigs = map[string]string{
         namespace = xcsh_virtual_network.fixture.namespace
       }
     }
-    criteria { any = {} }
-    action { virtual_cidr = "192.0.2.0/24" }
+    criteria {
+      any = {}
+      source_cidr = ["192.0.2.0/24"]
+    }
+    action { virtual_cidr = "198.51.100.0/24" }
   }`,
 
 	"network_connector": `
