@@ -60,7 +60,7 @@ resource "xcsh_udp_loadbalancer" "test" {
   origin_pools_weights {
     pool {
       name      = xcsh_origin_pool.test.name
-      namespace = "system"
+      namespace = xcsh_origin_pool.test.namespace
     }
     weight = 1
   }

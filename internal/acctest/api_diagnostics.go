@@ -48,6 +48,22 @@ func logAcceptanceAPIDiagnostic(response *http.Response) {
 		}
 	}
 	if schema, err := LoadFixtureSchema(os.Getenv("XCSH_ACC_SCHEMA")); err == nil {
+		if response.Request != nil {
+			for typ, route := range ownedCollectionRoutes {
+				parts := strings.Split(response.Request.URL.Path, "/")
+				ns := ""
+				for i, p := range parts {
+					if p == "namespaces" && i+1 < len(parts) {
+						ns = parts[i+1]
+						break
+					}
+				}
+				if strings.ReplaceAll(route, "%s", ns) == response.Request.URL.Path {
+					schema = &FixtureSchema{Resources: map[string]fixtureBlockSchema{typ: schema.Resources[typ]}}
+					break
+				}
+			}
+		}
 		for _, field := range diagnosticSchemaFields(schema, text) {
 			acceptanceDiagnosticTest.RLock()
 			test := acceptanceDiagnosticTest.test

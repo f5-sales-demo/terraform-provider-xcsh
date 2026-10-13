@@ -49,6 +49,8 @@ resource "xcsh_network_policy_view" "test" {
   egress_rules {
     action = "ALLOW"
     any = {}
+    all_traffic = {}
+    metadata { name = "allow-egress" }
   }
 }
 

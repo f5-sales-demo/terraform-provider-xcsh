@@ -70,7 +70,10 @@ resource "xcsh_cdn_loadbalancer" "test" {
   }
 
   domains = ["%[1]s.example.com"]
-  http { port = 80 }
+  http {
+    port = 80
+    dns_volterra_managed = false
+  }
   origin_pool {
     origin_servers {
       port = 80

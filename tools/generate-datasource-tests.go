@@ -394,6 +394,8 @@ var resourceConfigs = map[string]string{
   egress_rules {
     action = "ALLOW"
     any = {}
+    all_traffic = {}
+    metadata { name = "allow-egress" }
   }`,
 
 	"origin_pool": `
@@ -466,7 +468,7 @@ var resourceConfigs = map[string]string{
   origin_pools_weights {
     pool {
       name      = xcsh_origin_pool.test.name
-      namespace = "system"
+      namespace = xcsh_origin_pool.test.namespace
     }
     weight = 1
   }
