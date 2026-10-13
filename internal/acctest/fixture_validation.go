@@ -14,6 +14,9 @@ import (
 
 var acceptanceFixtures = map[string]func() string{}
 var acceptanceTestFixtures = map[string][]string{}
+var acceptanceNegativeTests = map[string]bool{}
+
+func RegisterNegativeTest(name string) { acceptanceNegativeTests[name] = true }
 
 func RegisterFixture(name string, config func() string)   { acceptanceFixtures[name] = config }
 func RegisterTestFixtures(name string, fixtures []string) { acceptanceTestFixtures[name] = fixtures }

@@ -113,6 +113,19 @@ func main() {
 			fmt.Fprintf(&out, "%q,", fixture)
 		}
 		out.WriteString("})\n")
+		negative := false
+		ast.Inspect(tests[name].Body, func(node ast.Node) bool {
+			pair, ok := node.(*ast.KeyValueExpr)
+			if ok {
+				if key, ok := pair.Key.(*ast.Ident); ok && key.Name == "ExpectError" {
+					negative = true
+				}
+			}
+			return true
+		})
+		if negative {
+			fmt.Fprintf(&out, "acctest.RegisterNegativeTest(%q)\n", name)
+		}
 	}
 	out.WriteString("}\n")
 	data, err := format.Source([]byte(out.String()))
