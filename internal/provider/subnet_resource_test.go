@@ -67,6 +67,9 @@ resource "xcsh_subnet" "test" {
   isolated_nw = {}
   site_subnet_params {
     dhcp = {}
+    subnet_dhcp_server_params {
+      dhcp_networks { network_prefix = "192.0.2.0/24" }
+    }
     site {
       name = %[3]q
       namespace = "system"

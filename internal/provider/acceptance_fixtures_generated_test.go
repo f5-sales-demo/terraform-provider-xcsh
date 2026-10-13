@@ -462,9 +462,6 @@ func init() {
 	acctest.RegisterFixture("testAccRateLimiterPolicyDataSourceConfig_basic", func() string { return testAccRateLimiterPolicyDataSourceConfig_basic("tf-acc-test-fixture") })
 	acctest.RegisterFixture("testAccRouteDataSourceConfig_basic", func() string { return testAccRouteDataSourceConfig_basic("tf-acc-test-fixture") })
 	acctest.RegisterFixture("testAccRouteResourceConfig_basic", func() string { return testAccRouteResourceConfig_basic("tf-acc-test-fixture", "tf-acc-test-fixture") })
-	acctest.RegisterFixture("testAccSecretManagementAccessDataSourceConfig_basic", func() string {
-		return testAccSecretManagementAccessDataSourceConfig_basic("tf-acc-test-fixture", "tf-acc-test-fixture")
-	})
 	acctest.RegisterFixture("testAccSecuremeshSiteV2DataSourceConfig_basic", func() string { return testAccSecuremeshSiteV2DataSourceConfig_basic("tf-acc-test-fixture") })
 	acctest.RegisterFixture("testAccSecuremeshSiteV2ResourceConfig_segmentVRF", func() string {
 		return testAccSecuremeshSiteV2ResourceConfig_segmentVRF("tf-acc-test-fixture", "tf-acc-test-fixture")
@@ -1252,7 +1249,7 @@ func init() {
 	acctest.RegisterTestFixtures("TestAccRateLimiterResource_updateLabels", []string{"testAccRateLimiterConfig_withLabelsSystem"})
 	acctest.RegisterTestFixtures("TestAccRouteDataSource_basic", []string{"testAccRouteDataSourceConfig_basic"})
 	acctest.RegisterTestFixtures("TestAccRouteResource_basic", []string{"testAccRouteResourceConfig_basic"})
-	acctest.RegisterTestFixtures("TestAccSecretManagementAccessDataSource_basic", []string{"testAccSecretManagementAccessDataSourceConfig_basic"})
+	acctest.RegisterTestFixtures("TestAccSecretManagementAccessDataSource_basic", []string{})
 	acctest.RegisterTestFixtures("TestAccSecretManagementAccessResource_basic", []string{})
 	acctest.RegisterTestFixtures("TestAccSecretManagementAccessResource_withAccessInfo", []string{})
 	acctest.RegisterTestFixtures("TestAccSecretManagementAccessResource_withDescriptionAndLabels", []string{})

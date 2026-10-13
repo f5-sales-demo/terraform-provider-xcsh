@@ -74,6 +74,9 @@ var resourceConfigs = map[string]string{
   isolated_nw = {}
   site_subnet_params {
     dhcp = {}
+    subnet_dhcp_server_params {
+      dhcp_networks { network_prefix = "192.0.2.0/24" }
+    }
     site {
       name = %[2]q
       namespace = "system"
@@ -571,6 +574,7 @@ var resourceConfigs = map[string]string{
 
 // Resources to skip (FORBIDDEN errors, special permissions required)
 var skipResources = map[string]string{
+	"secret_management_access": "External secret-management authentication is required",
 
 	"cloud_credentials": "Requires system-level namespace access",
 	"cminstance":        "Requires CM instance management permissions",
@@ -766,6 +770,7 @@ func {{.TestFuncName}}(t *testing.T) {
 	{{if eq .Name "tenant_configuration"}}acctest.RequireNonDisposableScope(t)
 {{else if eq .Name "cloud_credentials"}}acctest.RequireExternalCredential(t, "cloud")
 {{else if eq .Name "cminstance"}}acctest.RequireExternalCredential(t, "central_manager")
+{{else if eq .Name "secret_management_access"}}acctest.RequireExternalCredential(t, "secret_management")
 {{else}}acctest.FailHistoricalPrerequisite(t)
 {{end}}
 }
