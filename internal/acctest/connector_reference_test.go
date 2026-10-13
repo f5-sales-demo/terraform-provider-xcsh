@@ -15,14 +15,16 @@ func TestConnectorEndpointCorrelatesSiteUID(t *testing.T) {
 		name, owner string
 		want        bool
 	}{
-		{"matching", "site-uid", true}, {"other site", "other-uid", false},
+		{"matching", "owner-uid", true}, {"other site", "other-uid", false},
 	} {
 		t.Run(tc.name, func(t *testing.T) {
 			server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 				w.Header().Set("Content-Type", "application/json")
 				switch r.URL.Path {
 				case "/api/config/namespaces/system/sites/fixture":
-					_, _ = w.Write([]byte(`{"metadata":{"name":"fixture","namespace":"system"},"system_metadata":{"uid":"site-uid"},"spec":{"site_type":"CUSTOMER_EDGE","main_nodes":[{"name":"fixture-node"}]}}`))
+					_, _ = w.Write([]byte(`{"metadata":{"name":"fixture","namespace":"system"},"system_metadata":{"uid":"site-uid","owner_view":{"kind":"securemesh_site_v2","name":"backing","namespace":"system","uid":"owner-uid"}},"spec":{"site_type":"CUSTOMER_EDGE","main_nodes":[{"name":"fixture-node"}]}}`))
+				case "/api/config/namespaces/system/securemesh_site_v2s/backing":
+					_, _ = w.Write([]byte(`{"metadata":{"name":"backing","namespace":"system"},"system_metadata":{"uid":"owner-uid"}}`))
 				case "/api/config/namespaces/system/network_interfaces":
 					_, _ = w.Write([]byte(`{"items":[{"owner_view":{"uid":"` + tc.owner + `"},"get_spec":{"type":"NETWORK_INTERFACE_ETHERNET","device_name":"eth1"}}],"errors":[]}`))
 				default:

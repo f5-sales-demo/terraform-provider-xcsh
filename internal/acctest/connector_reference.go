@@ -27,6 +27,14 @@ func discoverConnectorEndpoint(ctx context.Context, c *client.Client, ref readOn
 		return connectorEndpoint{}, err
 	}
 	var site struct {
+		SystemMetadata struct {
+			Owner struct {
+				Kind      string `json:"kind"`
+				UID       string `json:"uid"`
+				Namespace string `json:"namespace"`
+				Name      string `json:"name"`
+			} `json:"owner_view"`
+		} `json:"system_metadata"`
 		Spec struct {
 			Type  string `json:"site_type"`
 			Nodes []struct {
@@ -39,6 +47,20 @@ func discoverConnectorEndpoint(ctx context.Context, c *client.Client, ref readOn
 	}
 	if site.Spec.Type != "CUSTOMER_EDGE" || len(site.Spec.Nodes) != 1 || site.Spec.Nodes[0].Name == "" {
 		return connectorEndpoint{}, errors.New("connector requires a verified single-node customer edge")
+	}
+	ownerUID := metadata.UID
+	owner := site.SystemMetadata.Owner
+	if owner.UID != "" {
+		collections := map[string]string{"aws_vpc_site": "aws_vpc_sites", "azure_vnet_site": "azure_vnet_sites", "gcp_vpc_site": "gcp_vpc_sites", "securemesh_site_v2": "securemesh_site_v2s"}
+		collection, ok := collections[owner.Kind]
+		if !ok || owner.Name == "" || owner.Namespace != "system" {
+			return connectorEndpoint{}, errors.New("connector site backing owner unverified")
+		}
+		observed, readErr := readOwnershipProjection(ctx, c, "/api/config/namespaces/system/"+collection+"/"+owner.Name, "system", owner.Name)
+		if readErr != nil || observed.UID != owner.UID {
+			return connectorEndpoint{}, errors.New("connector site backing owner readback failed")
+		}
+		ownerUID = owner.UID
 	}
 	var inventory struct {
 		Items []struct {
@@ -60,7 +82,7 @@ func discoverConnectorEndpoint(ctx context.Context, c *client.Client, ref readOn
 	}
 	devices := []string{}
 	for _, item := range inventory.Items {
-		if item.Owner.UID == metadata.UID && item.Spec.Type == "NETWORK_INTERFACE_ETHERNET" && item.Spec.Device != "" {
+		if item.Owner.UID == ownerUID && item.Spec.Type == "NETWORK_INTERFACE_ETHERNET" && item.Spec.Device != "" {
 			devices = append(devices, item.Spec.Device)
 		}
 	}
