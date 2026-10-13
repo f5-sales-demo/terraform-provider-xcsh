@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "source": "b56b05d40bb",
+  "total": 1,
+  "passed": 1,
+  "failed": 0,
+  "skipped": 0,
+  "stream_completeness": {
+    "complete": true,
+    "events": 19,
+    "malformed_lines": 0,
+    "invalid_events": 0,
+    "scanner_error": false,
+    "incomplete_tests": 0,
+    "incomplete_packages": 0,
+    "package_failures": 0
+  },
+  "cleanup": {
+    "version": 1,
+    "journal_sha256": "3b1ff963b40aedf9e633ccb72e72709e6d5241cbf3cc5b4df60582c56bacb443",
+    "complete": true,
+    "owned": 7,
+    "confirmed_absent": 7,
+    "failures": 0,
+    "second_pass_remaining": 0
+  },
+  "digests": {
+    "tests.json": "d4abdf8724512934cb0804fba75eb4937ee60fb20d60f776b7df80e5cf4b8b3d",
+    "tests.md": "61e20005115dc2f8c7e9d256d418e6c1835dccd9544801ba14267a28655f9ad1",
+    "cleanup.json": "754a4a3cf51ac4a0acd927ea589873d34eb4b3b66f4f1ba51981735f57147cc4"
+  }
+}
