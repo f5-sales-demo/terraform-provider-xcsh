@@ -344,7 +344,7 @@ jobs:
             -parallel 1 \
             -timeout "${TIMEOUT}m" \
             -count=1 \
-            -run "${INPUT_TEST_PATTERN:-^TestAcc}" \
+            -run "${INPUT_TEST_PATTERN:-^TestAccMeshDiagnostic$}" \
             ./internal/provider/... \
             > "$RAW_TEST_OUTPUT" 2>&1 || TEST_STATUS=$?
 
@@ -418,6 +418,10 @@ jobs:
             exit 1
           fi
 
+      - name: Preserve fixed mesh diagnostics
+        if: always()
+        run: python3 tools/mesh-probe-report.py
+
       - name: Verify journal-owned cleanup
         id: cleanup
         if: always()
@@ -448,6 +452,7 @@ jobs:
             test-reports/real-tests.json
             test-reports/real-tests.md
             test-reports/cleanup.json
+            test-reports/mesh-probe.json
           retention-days: 30
 
 
