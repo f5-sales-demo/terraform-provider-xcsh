@@ -23,7 +23,7 @@ func TestAccMeshDiagnostic(t *testing.T) {
 	if err != nil {
 		t.Fatal("mesh probe client unavailable")
 	}
-	ref := map[string]interface{}{"name": acctest.ReadOnlyVirtualSiteName(), "namespace": "system"}
+	ref := map[string]interface{}{"name": acctest.ReadOnlyVirtualSiteName(), "namespace": acctest.ReadOnlyVirtualSiteNamespace()}
 	results := []map[string]interface{}{}
 	for _, variant := range []string{"base", "markers", "data_plane"} {
 		spec := map[string]interface{}{"virtual_site": []map[string]interface{}{ref}, "full_mesh": map[string]interface{}{"control_and_data_plane_mesh": map[string]interface{}{}}}
