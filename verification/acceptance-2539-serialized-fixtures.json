@@ -1,0 +1,68 @@
+{
+  "version": 1,
+  "source": "196fb31886d",
+  "total": 8,
+  "passed": 6,
+  "failed": 2,
+  "skipped": 0,
+  "tests": [
+    {
+      "name": "TestAccDNSComplianceChecksResource_basic",
+      "status": "pass"
+    },
+    {
+      "name": "TestAccDiscoveryDataSource_basic",
+      "status": "pass"
+    },
+    {
+      "name": "TestAccDnsComplianceChecksDataSource_basic",
+      "status": "pass"
+    },
+    {
+      "name": "TestAccEndpointDataSource_basic",
+      "status": "pass"
+    },
+    {
+      "name": "TestAccNamespaceResource_disappears",
+      "status": "pass"
+    },
+    {
+      "name": "TestAccNatPolicyDataSource_basic",
+      "status": "fail",
+      "failure_fingerprint": {
+        "class": "server_error",
+        "summary": "Create request failed",
+        "http_status": 500,
+        "source_location": "nat_policy_data_source_test.go:16"
+      }
+    },
+    {
+      "name": "TestAccNatPolicyResource_basic",
+      "status": "fail",
+      "failure_fingerprint": {
+        "class": "server_error",
+        "summary": "Create request failed",
+        "http_status": 500,
+        "source_location": "nat_policy_resource_test.go:18"
+      }
+    },
+    {
+      "name": "TestAccNetworkInterfaceDataSource_basic",
+      "status": "pass"
+    }
+  ],
+  "cleanup": {
+    "version": 1,
+    "journal_sha256": "31899914fe76d74d25390facfc7ea6d07605f9739dc322d7e3d4549399079f16",
+    "complete": true,
+    "owned": 17,
+    "confirmed_absent": 17,
+    "failures": 0,
+    "second_pass_remaining": 0
+  },
+  "digests": {
+    "tests.json": "69bca142e92c7a8c7026ded9c4e27930ca33fff505fce1969e2a49292d654e69",
+    "tests.md": "209e4e1d753eb5adcdd8f9baf0d82f6a81286da04dfbe30ac93ab04c01c2f1a5",
+    "cleanup.json": "b953369def72c019a188fd9e9fbaf2606d63c3addc580ac7783b1cded1974545"
+  }
+}
