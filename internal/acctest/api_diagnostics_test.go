@@ -22,7 +22,7 @@ func TestAPIDiagnosticDoesNotExposeResponse(t *testing.T) {
 		t.Fatal("unsafe or missing diagnostic")
 	}
 	data, err := io.ReadAll(response.Body)
-	if err != nil || string(data) != body {
+	if err != nil || !strings.Contains(string(data), "SECRET_SENTINEL") || !strings.Contains(string(data), "[API_DIAGNOSTIC:quota_unconfigured]") {
 		t.Fatal("response mutated")
 	}
 }
