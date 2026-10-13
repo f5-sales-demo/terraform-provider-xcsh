@@ -14,7 +14,6 @@ import (
 
 func TestAccExternalConnectorResource_basic(t *testing.T) {
 
-	acctest.RequireExistingInfrastructure(t, "external_connector")
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 

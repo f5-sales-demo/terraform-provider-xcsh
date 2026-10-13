@@ -41,7 +41,7 @@ func testAccPolicerDataSourceConfig_basic(name string) string {
 
 resource "xcsh_policer" "test" {
   name      = %[1]q
-  namespace = "shared"
+  namespace = "system"
   committed_information_rate = 10000
   burst_size                 = 5000
 }

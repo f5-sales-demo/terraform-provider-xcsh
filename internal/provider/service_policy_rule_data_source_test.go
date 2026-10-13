@@ -43,6 +43,7 @@ resource "xcsh_service_policy_rule" "test" {
   name      = %[1]q
   namespace = "shared"
   action = "ALLOW"
+  waf_action { none = {} }
 }
 
 data "xcsh_service_policy_rule" "test" {

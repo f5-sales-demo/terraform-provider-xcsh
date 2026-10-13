@@ -43,6 +43,7 @@ resource "xcsh_fast_acl_rule" "test" {
   name      = %[1]q
   namespace = "system"
   action { simple_action = "DENY" }
+  ip_prefix_set {}
 }
 
 data "xcsh_fast_acl_rule" "test" {

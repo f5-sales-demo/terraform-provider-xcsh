@@ -42,6 +42,10 @@ func testAccForwardingClassDataSourceConfig_basic(name string) string {
 resource "xcsh_forwarding_class" "test" {
   name      = %[1]q
   namespace = "system"
+  queue_id_to_use = "DSCP_BEST_EFFORT"
+  no_policer = {}
+  interface_group = "ANY_AVAILABLE_INTERFACE"
+  tos_value = 40
 }
 
 data "xcsh_forwarding_class" "test" {

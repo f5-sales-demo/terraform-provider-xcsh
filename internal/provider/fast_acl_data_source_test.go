@@ -42,11 +42,7 @@ func testAccFastAclDataSourceConfig_basic(name string) string {
 resource "xcsh_fast_acl" "test" {
   name      = %[1]q
   namespace = "system"
-  site_acl {
-    fast_acl_rules {
-      action { simple_action = "DENY" }
-    }
-  }
+  re_acl {}
 }
 
 data "xcsh_fast_acl" "test" {

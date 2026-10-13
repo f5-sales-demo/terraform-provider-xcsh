@@ -41,7 +41,7 @@ func testAccAppFirewallDataSourceConfig_basic(name string) string {
 
 resource "xcsh_app_firewall" "test" {
   name      = %[1]q
-  namespace = "shared"
+  namespace = "system"
 }
 
 data "xcsh_app_firewall" "test" {

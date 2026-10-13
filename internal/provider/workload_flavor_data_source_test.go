@@ -42,9 +42,6 @@ func testAccWorkloadFlavorDataSourceConfig_basic(name string) string {
 resource "xcsh_workload_flavor" "test" {
   name      = %[1]q
   namespace = "shared"
-  vcpus        = 1
-  memory       = "1024"
-  ephemeral_storage = "10Gi"
 }
 
 data "xcsh_workload_flavor" "test" {

@@ -42,14 +42,13 @@ func testAccNetworkPolicyDataSourceConfig_basic(name string) string {
 resource "xcsh_network_policy" "test" {
   name      = %[1]q
   namespace = "shared"
+  endpoint { any = {} }
   rules {
     ingress_rules {
       action = "ALLOW"
       any = {}
-    }
-    egress_rules {
-      action = "ALLOW"
-      any = {}
+      all_traffic = {}
+      metadata { name = "allow-all" }
     }
   }
 }

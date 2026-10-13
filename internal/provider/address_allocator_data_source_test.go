@@ -44,6 +44,11 @@ resource "xcsh_address_allocator" "test" {
   namespace = "system"
   address_pool = ["10.0.0.0/24"]
   mode = "LOCAL"
+  address_allocation_scheme {
+    allocation_unit = 0
+    local_interface_address_type = "LOCAL_INTERFACE_ADDRESS_OFFSET_FROM_SUBNET_BEGIN"
+    local_interface_address_offset = 0
+  }
 }
 
 data "xcsh_address_allocator" "test" {

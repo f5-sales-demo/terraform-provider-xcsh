@@ -7,6 +7,8 @@ import (
 	"io"
 	"log"
 	"net/http"
+	"os"
+	"regexp"
 	"sort"
 	"strings"
 )
@@ -45,6 +47,16 @@ func logAcceptanceAPIDiagnostic(response *http.Response) {
 			}
 		}
 	}
+	if schema, err := LoadFixtureSchema(os.Getenv("XCSH_ACC_SCHEMA")); err == nil {
+		for _, field := range diagnosticSchemaFields(schema, text) {
+			acceptanceDiagnosticTest.RLock()
+			test := acceptanceDiagnosticTest.test
+			acceptanceDiagnosticTest.RUnlock()
+			if test != nil {
+				test.Logf("[SCHEMA_FIELD:%s]", field)
+			}
+		}
+	}
 	sort.Strings(facts)
 	var body map[string]interface{}
 	if json.Unmarshal(data, &body) == nil {
@@ -58,4 +70,34 @@ func logAcceptanceAPIDiagnostic(response *http.Response) {
 			response.ContentLength = int64(len(serialized))
 		}
 	}
+}
+
+func diagnosticSchemaFields(schema *FixtureSchema, message string) []string {
+	tokens := map[string]bool{}
+	for _, token := range regexp.MustCompile(`[a-z][a-z0-9_]*`).FindAllString(strings.ToLower(message), -1) {
+		tokens[token] = true
+	}
+	result := []string{}
+	seen := map[string]bool{}
+	var walk func(fixtureBlockSchema, string)
+	walk = func(block fixtureBlockSchema, prefix string) {
+		for name := range block.Attributes {
+			if tokens[name] && !seen[prefix+name] {
+				seen[prefix+name] = true
+				result = append(result, prefix+name)
+			}
+		}
+		for name, nested := range block.Blocks {
+			if tokens[name] && !seen[prefix+name] {
+				seen[prefix+name] = true
+				result = append(result, prefix+name)
+			}
+			walk(nested.Block, prefix+name+".")
+		}
+	}
+	for _, block := range schema.Resources {
+		walk(block, "")
+	}
+	sort.Strings(result)
+	return result
 }

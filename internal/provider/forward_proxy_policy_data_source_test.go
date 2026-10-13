@@ -41,7 +41,7 @@ func testAccForwardProxyPolicyDataSourceConfig_basic(name string) string {
 
 resource "xcsh_forward_proxy_policy" "test" {
   name      = %[1]q
-  namespace = "shared"
+  namespace = "system"
   any_proxy = {}
   allow_all = {}
 }

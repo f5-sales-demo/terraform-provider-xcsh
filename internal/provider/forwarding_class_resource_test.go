@@ -457,6 +457,10 @@ func testAccForwardingClassImportStateIdFunc(resourceName string) resource.Impor
 func testAccForwardingClassResource_basicSystem(fcName string) string {
 	return fmt.Sprintf(`
 resource "xcsh_forwarding_class" "test" {
+  queue_id_to_use = "DSCP_BEST_EFFORT"
+  no_policer = {}
+  interface_group = "ANY_AVAILABLE_INTERFACE"
+
   name      = %[1]q
   namespace = "system"
 }
@@ -466,6 +470,10 @@ resource "xcsh_forwarding_class" "test" {
 func testAccForwardingClassResource_allAttributesSystem(fcName string) string {
 	return fmt.Sprintf(`
 resource "xcsh_forwarding_class" "test" {
+  queue_id_to_use = "DSCP_BEST_EFFORT"
+  no_policer = {}
+  interface_group = "ANY_AVAILABLE_INTERFACE"
+
   name        = %[1]q
   namespace   = "system"
   description = "Test forwarding_class with all attributes"
@@ -490,6 +498,10 @@ func testAccForwardingClassResource_withLabelsSystem(fcName string, labels map[s
 
 	return fmt.Sprintf(`
 resource "xcsh_forwarding_class" "test" {
+  queue_id_to_use = "DSCP_BEST_EFFORT"
+  no_policer = {}
+  interface_group = "ANY_AVAILABLE_INTERFACE"
+
   name      = %[1]q
   namespace = "system"
 
@@ -502,6 +514,10 @@ resource "xcsh_forwarding_class" "test" {
 func testAccForwardingClassResource_withDescriptionSystem(fcName, description string) string {
 	return fmt.Sprintf(`
 resource "xcsh_forwarding_class" "test" {
+  queue_id_to_use = "DSCP_BEST_EFFORT"
+  no_policer = {}
+  interface_group = "ANY_AVAILABLE_INTERFACE"
+
   name        = %[1]q
   namespace   = "system"
   description = %[2]q
@@ -517,6 +533,10 @@ func testAccForwardingClassResource_withAnnotationsSystem(fcName string, annotat
 
 	return fmt.Sprintf(`
 resource "xcsh_forwarding_class" "test" {
+  queue_id_to_use = "DSCP_BEST_EFFORT"
+  no_policer = {}
+  interface_group = "ANY_AVAILABLE_INTERFACE"
+
   name      = %[1]q
   namespace = "system"
 
@@ -529,6 +549,10 @@ resource "xcsh_forwarding_class" "test" {
 func testAccForwardingClassResource_qosSettingsSystem(fcName string) string {
 	return fmt.Sprintf(`
 resource "xcsh_forwarding_class" "test" {
+  queue_id_to_use = "DSCP_BEST_EFFORT"
+  no_policer = {}
+  interface_group = "ANY_AVAILABLE_INTERFACE"
+
   name        = %[1]q
   namespace   = "system"
   description = "Forwarding class with QoS settings"

@@ -41,7 +41,7 @@ func testAccOriginPoolDataSourceConfig_basic(name string) string {
 
 resource "xcsh_origin_pool" "test" {
   name      = %[1]q
-  namespace = "shared"
+  namespace = "system"
   port = 443
   origin_servers {
     public_name { dns_name = "example.com" }

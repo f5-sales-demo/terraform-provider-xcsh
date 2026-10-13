@@ -41,7 +41,7 @@ func testAccServicePolicyDataSourceConfig_basic(name string) string {
 
 resource "xcsh_service_policy" "test" {
   name      = %[1]q
-  namespace = "shared"
+  namespace = "system"
   allow_all_requests = {}
   any_server = {}
 }
