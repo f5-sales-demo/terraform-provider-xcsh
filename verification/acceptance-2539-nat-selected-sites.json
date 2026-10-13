@@ -1,0 +1,105 @@
+{
+  "variants": [
+    {
+      "accepted": false,
+      "mentions_dns_label": false,
+      "mentions_owned_network": false,
+      "mentions_owned_segment": false,
+      "mentions_ref_resolution": false,
+      "mentions_selected_site": false,
+      "status": 500,
+      "variant": "network"
+    },
+    {
+      "accepted": false,
+      "mentions_dns_label": false,
+      "mentions_owned_network": false,
+      "mentions_owned_segment": false,
+      "mentions_ref_resolution": false,
+      "mentions_selected_site": false,
+      "status": 500,
+      "variant": "segment"
+    },
+    {
+      "accepted": false,
+      "mentions_dns_label": false,
+      "mentions_owned_network": false,
+      "mentions_owned_segment": false,
+      "mentions_ref_resolution": false,
+      "mentions_selected_site": false,
+      "status": 500,
+      "variant": "disabled_network"
+    },
+    {
+      "accepted": false,
+      "mentions_dns_label": false,
+      "mentions_owned_network": false,
+      "mentions_owned_segment": false,
+      "mentions_ref_resolution": false,
+      "mentions_selected_site": false,
+      "status": 500,
+      "variant": "disabled_segment"
+    },
+    {
+      "accepted": false,
+      "mentions_dns_label": false,
+      "mentions_owned_network": false,
+      "mentions_owned_segment": false,
+      "mentions_ref_resolution": false,
+      "mentions_selected_site": false,
+      "status": 400,
+      "variant": "dynamic_network"
+    },
+    {
+      "accepted": false,
+      "mentions_dns_label": false,
+      "mentions_owned_network": false,
+      "mentions_owned_segment": false,
+      "mentions_ref_resolution": false,
+      "mentions_selected_site": false,
+      "status": 400,
+      "variant": "no_site_network"
+    },
+    {
+      "accepted": false,
+      "mentions_dns_label": false,
+      "mentions_owned_network": false,
+      "mentions_owned_segment": false,
+      "mentions_ref_resolution": false,
+      "mentions_selected_site": false,
+      "status": 400,
+      "variant": "no_site_segment"
+    },
+    {
+      "accepted": false,
+      "mentions_dns_label": false,
+      "mentions_owned_network": false,
+      "mentions_owned_segment": false,
+      "mentions_ref_resolution": false,
+      "mentions_selected_site": false,
+      "status": 400,
+      "variant": "site_only_dynamic"
+    },
+    {
+      "accepted": false,
+      "mentions_dns_label": false,
+      "mentions_owned_network": false,
+      "mentions_owned_segment": false,
+      "mentions_ref_resolution": false,
+      "mentions_selected_site": false,
+      "status": 500,
+      "variant": "inside_static_network"
+    }
+  ],
+  "version": 1,
+  "cleanup": {
+    "version": 1,
+    "journal_sha256": "628200896cd7e137db783ae06928456e063589b42f683a1fa5e6336b2a2f257e",
+    "complete": true,
+    "owned": 11,
+    "confirmed_absent": 11,
+    "failures": 0,
+    "second_pass_remaining": 0
+  },
+  "qualification": false
+}
