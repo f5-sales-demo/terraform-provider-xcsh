@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "source": "3145c6491f54cbe99689c6a722ecf06d7d030372",
+  "go": "1.25.13",
+  "serial": {
+    "package_parallelism": 1,
+    "test_parallelism": 1,
+    "count": 1
+  },
+  "total": 664,
+  "passed": 627,
+  "failed": 0,
+  "skipped": 37,
+  "stream_completeness": {
+    "complete": true,
+    "events": 7549,
+    "malformed_lines": 0,
+    "invalid_events": 0,
+    "scanner_error": false,
+    "incomplete_tests": 0,
+    "incomplete_packages": 0,
+    "package_failures": 0
+  },
+  "artifacts_sha256": {
+    "resume-full-mock.raw.json": "39859c36485bfd68310419b69045872aa4e1bda8a2e95b3f6b70aba6f337a22e",
+    "resume-full-mock.json": "ecec4d3de89114298e9b1715a4d8ab87d085a34a3257c6f74fd19fcfb80906dc",
+    "resume-full-mock.md": "dbb76bec3e4698e0d128e64a319d1dc5a10658ba5beb10ad8fedc3513d528799"
+  },
+  "final_source_qualified": false
+}
