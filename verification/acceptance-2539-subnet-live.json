@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "source": "6e31dbcefba",
+  "total": 2,
+  "passed": 2,
+  "failed": 0,
+  "skipped": 0,
+  "stream_completeness": {
+    "complete": true,
+    "events": 33,
+    "malformed_lines": 0,
+    "invalid_events": 0,
+    "scanner_error": false,
+    "incomplete_tests": 0,
+    "incomplete_packages": 0,
+    "package_failures": 0
+  },
+  "tests": [
+    {
+      "name": "TestAccSubnetDataSource_basic",
+      "status": "pass"
+    },
+    {
+      "name": "TestAccSubnetResource_basic",
+      "status": "pass"
+    }
+  ],
+  "cleanup": {
+    "version": 1,
+    "journal_sha256": "4541fa2542b4ea754663b4b7de0945ab86b71380500f1f4f0053e5b80f9edea5",
+    "complete": true,
+    "owned": 7,
+    "confirmed_absent": 7,
+    "failures": 0,
+    "second_pass_remaining": 0
+  },
+  "digests": {
+    "tests.json": "e9e7e9913cbd2bf418b831d98384ca388bff5ff11256e28d09884484ffa393f3",
+    "tests.md": "7a5fffddc92cf0d46b4ba41cdf2116349adc83a2ec7adba42cc5dccf2471df88",
+    "cleanup.json": "1b3c6e874690592c2406814e4e646d7b3be95ed9089925bc12ffe38b2df129d0"
+  }
+}
