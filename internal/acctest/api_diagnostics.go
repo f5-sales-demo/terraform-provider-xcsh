@@ -14,7 +14,7 @@ import (
 )
 
 func logAcceptanceAPIDiagnostic(response *http.Response) {
-	if response == nil || response.StatusCode < 400 || response.StatusCode >= 500 {
+	if response == nil || response.StatusCode < 400 || response.StatusCode >= 600 {
 		return
 	}
 	data, err := io.ReadAll(response.Body)
@@ -26,15 +26,16 @@ func logAcceptanceAPIDiagnostic(response *http.Response) {
 	response.Body = io.NopCloser(bytes.NewReader(data))
 	text := strings.ToLower(string(data))
 	signatures := map[string][]string{
-		"quota_unconfigured":     {"quota not configured"},
-		"quota_exceeded":         {"quota exceeded", "quota limit", "maximum number"},
-		"document_fetch_failed":  {"unable to download", "failed to download", "failed to fetch", "cannot fetch", "fetch failed", "file not found", "not found"},
-		"document_parse_failed":  {"failed to parse", "unable to parse", "parse error", "invalid spec", "invalid schema", "invalid format"},
-		"swagger_reference":      {"swagger", "openapi"},
-		"namespace_constraint":   {"namespace"},
-		"missing_required_input": {"required", "must specify", "cannot be empty"},
-		"schema_validation":      {"validation", "invalid request", "bad request"},
-		"authentication_denied":  {"unauthorized", "authentication", "invalid token"},
+		"resource_dependency_missing": {"not found", "does not exist", "failed to resolve", "no such"},
+		"quota_unconfigured":          {"quota not configured"},
+		"quota_exceeded":              {"quota exceeded", "quota limit", "maximum number"},
+		"document_fetch_failed":       {"unable to download", "failed to download", "failed to fetch", "cannot fetch", "fetch failed", "file not found", "not found"},
+		"document_parse_failed":       {"failed to parse", "unable to parse", "parse error", "invalid spec", "invalid schema", "invalid format"},
+		"swagger_reference":           {"swagger", "openapi"},
+		"namespace_constraint":        {"namespace"},
+		"missing_required_input":      {"required", "must specify", "cannot be empty"},
+		"schema_validation":           {"validation", "invalid request", "bad request"},
+		"authentication_denied":       {"unauthorized", "authentication", "invalid token"},
 	}
 	facts := []string{}
 	for name, patterns := range signatures {
