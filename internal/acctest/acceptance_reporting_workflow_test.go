@@ -19,6 +19,7 @@ func TestAcceptanceMockRetainsEvidenceBeforeIncompleteStreamGate(t *testing.T) {
 if [[ "$1" == "test" ]]; then
   printf '%s\n' "$@" > arguments
   echo '{"Action":"start","Package":"example.invalid/provider"}'
+echo COMPILER_SENTINEL >&2
   exit 1
 fi
 for arg in "$@"; do
@@ -50,6 +51,13 @@ exit 1
 		if data, err := os.ReadFile(filepath.Join(dir, "test-reports", name)); err != nil || len(data) == 0 {
 			t.Errorf("missing failed-run evidence %s", name)
 		}
+	}
+	stream, err := os.ReadFile(filepath.Join(dir, "test-reports", "test-output-mock.json"))
+	if err != nil {
+		t.Fatal(err)
+	}
+	if strings.Contains(string(stream), "COMPILER_SENTINEL") {
+		t.Error("compiler stderr contaminated JSON stream")
 	}
 	args, err := os.ReadFile(filepath.Join(dir, "arguments"))
 	if err != nil {

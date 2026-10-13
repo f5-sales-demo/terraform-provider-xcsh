@@ -147,13 +147,12 @@ jobs:
           TEST_STATUS=0
           TF_ACC=1 XCSH_MOCK_MODE=1 go test -json \
             -p 1 \
-            -gcflags='all=-N -l' \
             -parallel 1 \
             -count=1 \
             -timeout "${TIMEOUT}m" \
             -run "${INPUT_TEST_PATTERN:-^(TestAcc|TestMock)}" \
             ./internal/provider/... \
-            2>&1 | tee test-reports/test-output-mock.json || TEST_STATUS=${PIPESTATUS[0]}
+            > test-reports/test-output-mock.json 2> test-reports/test-stderr-mock.log || TEST_STATUS=$?
 
           JSON_REPORT_STATUS=0
           cat test-reports/test-output-mock.json | go run ./tools/test-report \
