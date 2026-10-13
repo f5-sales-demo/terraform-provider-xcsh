@@ -151,7 +151,9 @@ func extractPrerequisites(output string) []PrerequisiteOutcome {
 		}
 		seen[key] = true
 		status := 0
-		if match[4]!="" { status,_=strconv.Atoi(match[4]) }
+		if match[4] != "" {
+			status, _ = strconv.Atoi(match[4])
+		}
 		result = append(result, PrerequisiteOutcome{Outcome: match[1], Method: match[2], ResourceType: match[3], HTTPStatus: status})
 	}
 	return result
@@ -458,6 +460,28 @@ func parseTestOutputReader(reader io.Reader, slowestCount int, tenantSafe bool) 
 	var durations []float64
 	for _, result := range testResults {
 		result.Prerequisites = extractPrerequisites(strings.Join(testOutputs[result.Package+"/"+result.Name], ""))
+		if result.Status == "skip" {
+			for _, prerequisite := range result.Prerequisites {
+				switch prerequisite.Outcome {
+				case "quota_exhausted":
+					result.SkipReasonType = SkipReasonType("QUOTA_EXHAUSTED")
+				case "quota_unconfigured":
+					result.SkipReasonType = SkipReasonType("QUOTA_UNCONFIGURED")
+				case "operation_denied":
+					if prerequisite.HTTPStatus == 403 {
+						result.SkipReasonType = SkipReasonType("OPERATION_DENIED")
+					}
+				case "infrastructure_absent":
+					result.SkipReasonType = SkipReasonInfra
+				case "external_credential_missing":
+					result.SkipReasonType = SkipReasonCredentials
+				case "non_disposable_scope":
+					result.SkipReasonType = SkipReasonEnvironment
+				case "cloud_appliance_out_of_scope":
+					result.SkipReasonType = SkipReasonType("OUT_OF_SCOPE")
+				}
+			}
+		}
 		if result.Status == "" {
 			report.Stream.IncompleteTests++
 			result.Status = "fail"
@@ -573,7 +597,7 @@ func classifyFailureFingerprint(output string) FailureFingerprint {
 		SourceLocation: extractPublicSourceLocation(output),
 	}
 	lower := strings.ToLower(output)
-	for _, fact := range []string{"resource_limit_exhausted", "namespace_required_default", "namespace_required_shared", "site_selector_unavailable","resource_dependency_missing", "quota_unconfigured", "quota_exceeded", "swagger_reference", "document_fetch_failed", "document_parse_failed", "namespace_constraint", "missing_required_input", "schema_validation", "authentication_denied"} {
+	for _, fact := range []string{"resource_limit_exhausted", "namespace_required_default", "namespace_required_shared", "site_selector_unavailable", "resource_dependency_missing", "quota_unconfigured", "quota_exceeded", "swagger_reference", "document_fetch_failed", "document_parse_failed", "namespace_constraint", "missing_required_input", "schema_validation", "authentication_denied"} {
 		if strings.Contains(output, "[API_DIAGNOSTIC:"+fact+"]") {
 			fingerprint.DiagnosticFacts = append(fingerprint.DiagnosticFacts, fact)
 		}
