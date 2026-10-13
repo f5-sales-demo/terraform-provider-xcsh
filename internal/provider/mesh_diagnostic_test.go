@@ -24,6 +24,18 @@ func TestAccMeshDiagnostic(t *testing.T) {
 		t.Fatal("mesh probe client unavailable")
 	}
 	ref := map[string]interface{}{"name": acctest.ReadOnlyVirtualSiteName(), "namespace": acctest.ReadOnlyVirtualSiteNamespace()}
+	var virtualSite client.VirtualSite
+	if err := c.Get(context.Background(), "/api/config/namespaces/"+acctest.ReadOnlyVirtualSiteNamespace()+"/virtual_sites/"+acctest.ReadOnlyVirtualSiteName(), &virtualSite); err != nil && !acctest.IsMockMode() {
+		t.Fatal("virtual site readback failed")
+	}
+	siteType, _ := virtualSite.Spec["site_type"].(string)
+	selector, _ := virtualSite.Spec["site_selector"].(map[string]interface{})
+	expressions, _ := selector["expressions"].([]interface{})
+	facts := map[string]interface{}{"customer_edge": siteType == "CUSTOMER_EDGE", "regional_edge": siteType == "REGIONAL_EDGE", "selector_present": selector != nil, "selector_count": len(expressions)}
+	data, _ := json.Marshal(facts)
+	if os.WriteFile(os.Getenv("XCSH_ACC_PRIVATE")+"/virtual-site-facts.json", data, 0600) != nil {
+		t.Fatal("private facts persistence failed")
+	}
 	results := []map[string]interface{}{}
 	for _, variant := range []string{"base", "markers", "data_plane"} {
 		spec := map[string]interface{}{"virtual_site": []map[string]interface{}{ref}, "full_mesh": map[string]interface{}{"control_and_data_plane_mesh": map[string]interface{}{}}}
@@ -49,7 +61,7 @@ func TestAccMeshDiagnostic(t *testing.T) {
 		}
 		results = append(results, row)
 	}
-	data, err := json.Marshal(results)
+	data, err = json.Marshal(results)
 	if err != nil {
 		t.Fatal("mesh probe encoding failed")
 	}

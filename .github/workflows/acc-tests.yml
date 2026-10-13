@@ -420,7 +420,9 @@ jobs:
 
       - name: Preserve fixed mesh diagnostics
         if: always()
-        run: python3 tools/mesh-probe-report.py
+        run: |
+          python3 tools/mesh-probe-report.py
+          cp "$XCSH_ACC_PRIVATE/virtual-site-facts.json" test-reports/virtual-site-facts.json
 
       - name: Verify journal-owned cleanup
         id: cleanup
@@ -453,6 +455,7 @@ jobs:
             test-reports/real-tests.md
             test-reports/cleanup.json
             test-reports/mesh-probe.json
+            test-reports/virtual-site-facts.json
           retention-days: 30
 
 
