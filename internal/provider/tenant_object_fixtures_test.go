@@ -3,6 +3,8 @@ package provider_test
 
 import (
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/acctest"
+	"os"
+	"strings"
 	"testing"
 )
 
@@ -68,4 +70,20 @@ func TestMeshDataSourceFixtureHasRequiredSelection(t *testing.T) {
 		return
 	}
 	t.Fatal("mesh datasource fixture has no creating resource")
+}
+
+// Segment names are composed with the owning site name by the API; keep both
+// disposable identities compact enough for the resulting DNS label.
+func TestSegmentVRFFixtureUsesCompactSiteIdentity(t *testing.T) {
+	data, err := os.ReadFile("securemesh_site_v2_resource_test.go")
+	if err != nil {
+		t.Fatal(err)
+	}
+	source := string(data)
+	start := strings.Index(source, "func TestAccSecuremeshSiteV2Resource_segmentVRF(")
+	end := strings.Index(source[start:], "func testAccSecuremeshSiteV2ImportStateIdFunc")
+	body := source[start : start+end]
+	if strings.Count(body, "acctest.CompactRandomName(20)") != 2 {
+		t.Fatal("segment VRF site identity can exceed derived API label limit")
+	}
 }
