@@ -1,0 +1,208 @@
+{
+  "version": 1,
+  "source": "5dabfeae333f74fb82520cd7f9bf9757f7cab476",
+  "total": 657,
+  "passed": 567,
+  "failed": 17,
+  "skipped": 73,
+  "stream_completeness": {
+    "complete": false,
+    "events": 8875,
+    "malformed_lines": 0,
+    "invalid_events": 0,
+    "scanner_error": false,
+    "incomplete_tests": 0,
+    "incomplete_packages": 0,
+    "package_failures": 1
+  },
+  "cleanup": {
+    "version": 1,
+    "journal_sha256": "cf61955011f886811b2b7286331ef4051f40257485533fec28c747a86f142f1c",
+    "complete": true,
+    "owned": 659,
+    "confirmed_absent": 659,
+    "failures": 0,
+    "second_pass_remaining": 0
+  },
+  "coverage_increase": 258,
+  "failed_tests": [
+    {
+      "name": "TestAccAdvertisePolicyDataSource_basic",
+      "failure_fingerprint": {
+        "class": "http_error",
+        "summary": "Create request failed",
+        "http_status": 400,
+        "source_location": "advertise_policy_data_source_test.go:16",
+        "schema_fields": ["protocol"]
+      }
+    },
+    {
+      "name": "TestAccAppSettingDataSource_basic",
+      "failure_fingerprint": {
+        "class": "http_error",
+        "summary": "Create request failed",
+        "http_status": 400,
+        "source_location": "app_setting_data_source_test.go:16",
+        "diagnostic_facts": ["namespace_required_shared", "namespace_constraint"],
+        "schema_fields": ["features.type", "namespace"]
+      }
+    },
+    {
+      "name": "TestAccAppSettingResource_basic",
+      "failure_fingerprint": {
+        "class": "http_error",
+        "summary": "Create request failed",
+        "http_status": 404,
+        "source_location": "app_setting_resource_test.go:17",
+        "diagnostic_facts": ["resource_dependency_missing", "namespace_constraint"],
+        "schema_fields": ["app_type_settings.app_type_ref.namespace", "namespace"]
+      }
+    },
+    {
+      "name": "TestAccAppTypeDataSource_basic",
+      "failure_fingerprint": {
+        "class": "http_error",
+        "summary": "Create request failed",
+        "http_status": 400,
+        "source_location": "app_type_data_source_test.go:16",
+        "diagnostic_facts": ["namespace_required_shared", "namespace_constraint"],
+        "schema_fields": ["features.type", "namespace"]
+      }
+    },
+    {
+      "name": "TestAccAuthenticationDataSource_basic",
+      "failure_fingerprint": {
+        "class": "http_error",
+        "summary": "Create request failed",
+        "http_status": 400,
+        "source_location": "authentication_data_source_test.go:16",
+        "diagnostic_facts": ["missing_required_input"]
+      }
+    },
+    {
+      "name": "TestAccAuthenticationResource_basic",
+      "failure_fingerprint": {
+        "class": "http_error",
+        "summary": "Create request failed",
+        "http_status": 400,
+        "source_location": "authentication_resource_test.go:17",
+        "diagnostic_facts": ["missing_required_input"]
+      }
+    },
+    {
+      "name": "TestAccBGPResource_basic",
+      "failure_fingerprint": {
+        "class": "http_error",
+        "summary": "Create request failed",
+        "http_status": 400,
+        "source_location": "bgp_resource_test.go:17",
+        "diagnostic_facts": ["missing_required_input"],
+        "schema_fields": ["bgp_parameters"]
+      }
+    },
+    {
+      "name": "TestAccBgpDataSource_basic",
+      "failure_fingerprint": {
+        "class": "http_error",
+        "summary": "Create request failed",
+        "http_status": 400,
+        "source_location": "bgp_data_source_test.go:16"
+      }
+    },
+    {
+      "name": "TestAccBgpRoutingPolicyDataSource_basic",
+      "failure_fingerprint": {
+        "class": "http_error",
+        "summary": "Create request failed",
+        "http_status": 400,
+        "source_location": "bgp_routing_policy_data_source_test.go:16"
+      }
+    },
+    {
+      "name": "TestAccCloudElasticIpDataSource_basic",
+      "failure_fingerprint": {
+        "class": "http_error",
+        "summary": "Create request failed",
+        "http_status": 400,
+        "source_location": "cloud_elastic_ip_data_source_test.go:16"
+      }
+    },
+    {
+      "name": "TestAccCloudLinkDataSource_basic",
+      "failure_fingerprint": {
+        "class": "http_error",
+        "summary": "Create request failed",
+        "http_status": 400,
+        "source_location": "cloud_link_data_source_test.go:16",
+        "diagnostic_facts": ["missing_required_input"]
+      }
+    },
+    {
+      "name": "TestAccExternalConnectorDataSource_basic",
+      "failure_fingerprint": {
+        "class": "http_error",
+        "summary": "Create request failed",
+        "http_status": 400,
+        "source_location": "external_connector_data_source_test.go:16",
+        "diagnostic_facts": ["missing_required_input"],
+        "schema_fields": ["ce_site_reference"]
+      }
+    },
+    {
+      "name": "TestAccExternalConnectorResource_basic",
+      "failure_fingerprint": {
+        "class": "http_error",
+        "summary": "Create request failed",
+        "http_status": 400,
+        "source_location": "external_connector_resource_test.go:18",
+        "diagnostic_facts": ["missing_required_input"],
+        "schema_fields": ["ce_site_reference"]
+      }
+    },
+    {
+      "name": "TestAccFleetDataSource_basic",
+      "failure_fingerprint": {
+        "class": "http_error",
+        "summary": "Create request failed",
+        "http_status": 400,
+        "source_location": "fleet_data_source_test.go:16"
+      }
+    },
+    {
+      "name": "TestAccIruleDataSource_basic",
+      "failure_fingerprint": {
+        "class": "http_error",
+        "summary": "Create request failed",
+        "http_status": 400,
+        "source_location": "irule_data_source_test.go:16",
+        "schema_fields": ["irule"]
+      }
+    },
+    {
+      "name": "TestAccIruleResource_basic",
+      "failure_fingerprint": {
+        "class": "http_error",
+        "summary": "Create request failed",
+        "http_status": 400,
+        "source_location": "irule_resource_test.go:17",
+        "schema_fields": ["irule"]
+      }
+    },
+    {
+      "name": "TestAccLogReceiverDataSource_basic",
+      "failure_fingerprint": {
+        "class": "http_error",
+        "summary": "Create request failed",
+        "http_status": 400,
+        "source_location": "log_receiver_data_source_test.go:16",
+        "diagnostic_facts": ["missing_required_input"]
+      }
+    }
+  ],
+  "digests": {
+    "tests.json": "596d1ac68f1bc8b1304c127bea6c304bbe86c9808e67a38196e43efeb3c14c6c",
+    "tests.md": "1dce197336c35c2fa3f342a83b68a209c283dab2fb0162bc855a4de37ddc185b",
+    "cleanup.json": "aeb0c3ae4d4b28abf9b36f616ce8c67649efeb728179614d3de1c230f7e371ca"
+  },
+  "qualification": "Earlier-source checkpoint, rejected by failures and package gate. All owned entries confirmed absent twice. Later-source replay required."
+}

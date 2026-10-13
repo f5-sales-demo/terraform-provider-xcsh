@@ -1,0 +1,63 @@
+{
+  "version": 1,
+  "source": "95053ca74efd02b14a40ebbb142f64921369043b",
+  "total": 7,
+  "passed": 7,
+  "failed": 0,
+  "skipped": 0,
+  "stream_completeness": {
+    "complete": true,
+    "events": 107,
+    "malformed_lines": 0,
+    "invalid_events": 0,
+    "scanner_error": false,
+    "incomplete_tests": 0,
+    "incomplete_packages": 0,
+    "package_failures": 0
+  },
+  "tests": [
+    {
+      "name": "TestAccExternalConnectorDataSource_basic",
+      "status": "pass"
+    },
+    {
+      "name": "TestAccExternalConnectorResource_basic",
+      "status": "pass"
+    },
+    {
+      "name": "TestAccFleetDataSource_basic",
+      "status": "pass"
+    },
+    {
+      "name": "TestAccHttpLoadbalancerDataSource_basic",
+      "status": "pass"
+    },
+    {
+      "name": "TestAccIruleDataSource_basic",
+      "status": "pass"
+    },
+    {
+      "name": "TestAccIruleResource_basic",
+      "status": "pass"
+    },
+    {
+      "name": "TestAccLogReceiverDataSource_basic",
+      "status": "pass"
+    }
+  ],
+  "cleanup": {
+    "version": 1,
+    "journal_sha256": "5960ebd7bb524a89e4cd7840cb9175aa6bae3ad6d1eb4e618b4ee5146a6e44b4",
+    "complete": true,
+    "owned": 16,
+    "confirmed_absent": 16,
+    "failures": 0,
+    "second_pass_remaining": 0
+  },
+  "digests": {
+    "tests.json": "4a5c5a152d1463b684bd805194b10d502ef05ed2bfec40807bb3e9b59c101bfd",
+    "tests.md": "9aa24a924152250ad0e1825cd2338d9a8b9c7ce442cd1394114f9d99addde601",
+    "cleanup.json": "2899e6f8c3ddac98dc9c07d4e6a41f42692cae81c6ccdee3f426fe613dbab3cd"
+  },
+  "qualification": "Focused live repairs passed. Full-source comparison and protected-main artifact qualification remain required."
+}
