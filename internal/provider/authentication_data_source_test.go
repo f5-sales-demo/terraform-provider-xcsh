@@ -55,6 +55,12 @@ resource "xcsh_authentication" "test" {
   depends_on = [time_sleep.wait_for_namespace]
   name       = %[2]q
   namespace  = xcsh_namespace.test.name
+  cookie_params {
+    cookie_expiry = 3600
+    cookie_refresh_interval = 1800
+    session_expiry = 86400
+    kms_key_hmac = {}
+  }
   oidc_auth {
     oidc_client_id = "fixture"
     client_secret {

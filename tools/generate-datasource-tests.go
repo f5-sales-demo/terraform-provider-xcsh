@@ -207,6 +207,12 @@ var resourceConfigs = map[string]string{
   }`,
 
 	"authentication": `
+  cookie_params {
+    cookie_expiry = 3600
+    cookie_refresh_interval = 1800
+    session_expiry = 86400
+    kms_key_hmac = {}
+  }
   oidc_auth {
     oidc_client_id = "fixture"
     client_secret {

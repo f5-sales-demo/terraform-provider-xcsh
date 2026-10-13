@@ -76,20 +76,6 @@ resource "xcsh_bgp" "test" {
     asn = 65000
     from_site = {}
   }
-  peers {
-    metadata {
-      name = "test-peer"
-    }
-    external {
-      asn     = 64512
-      port = 179
-      no_authentication = {}
-      from_site = {}
-    }
-    bfd_disabled = {}
-    passive_mode_disabled = {}
-    disable_spec = {}
-  }
 
   where {
     site {
