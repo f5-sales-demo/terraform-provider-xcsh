@@ -1,0 +1,67 @@
+{
+  "version": 1,
+  "source": "670d7e990a0",
+  "total": 4,
+  "passed": 3,
+  "failed": 1,
+  "skipped": 0,
+  "stream_completeness": {
+    "complete": false,
+    "events": 88,
+    "malformed_lines": 0,
+    "invalid_events": 0,
+    "scanner_error": false,
+    "incomplete_tests": 0,
+    "incomplete_packages": 0,
+    "package_failures": 1
+  },
+  "tests": [
+    {
+      "name": "TestAccDiscoveryResource_basic",
+      "status": "pass"
+    },
+    {
+      "name": "TestAccSiteMeshGroupDataSource_basic",
+      "status": "pass"
+    },
+    {
+      "name": "TestAccSiteMeshGroupResource_basic",
+      "status": "pass"
+    },
+    {
+      "name": "TestAccWorkloadDataSource_basic",
+      "status": "fail",
+      "failure_fingerprint": {
+        "class": "http_error",
+        "summary": "Create request failed",
+        "http_status": 400,
+        "source_location": "workload_data_source_test.go:16",
+        "diagnostic_facts": ["missing_required_input"],
+        "schema_fields": [
+          "job.configuration.parameters.env_var.value",
+          "job.deploy_options",
+          "service",
+          "service.configuration.parameters.env_var.value",
+          "service.deploy_options",
+          "simple_service.configuration.parameters.env_var.value",
+          "stateful_service.configuration.parameters.env_var.value",
+          "stateful_service.deploy_options"
+        ]
+      }
+    }
+  ],
+  "cleanup": {
+    "version": 1,
+    "journal_sha256": "8d3d55bc958fc67117848b32f1d91d5efb390ca7ca751e596b7bb2ebcd59046a",
+    "complete": true,
+    "owned": 9,
+    "confirmed_absent": 9,
+    "failures": 0,
+    "second_pass_remaining": 0
+  },
+  "digests": {
+    "tests.json": "0eaf91d8433aeec1e5227cad51aefff159e85eb369529581c4658e383302f7b6",
+    "tests.md": "17637cf91cc21ac3255260fe4dec435b556624ba94f22ad4f3a063a8177ef3c8",
+    "cleanup.json": "5a5578433cc1e252075a54b40ca4f0be1a7f47e939db1f60612876080398ab23"
+  }
+}
