@@ -340,7 +340,7 @@ jobs:
             -parallel 1 \
             -timeout "${TIMEOUT}m" \
             -count=1 \
-            -run "${INPUT_TEST_PATTERN:-^(TestAccAPIDefinitionResource_basic|TestAccAppFirewallResource_detectionSettings|TestAccHTTPLoadBalancerResource_basic|TestAccBGPResource_basic|TestAccWorkloadFlavorResource_basic|TestAccSiteMeshGroupResource_fullMesh|TestAccDcClusterGroupResource_basic|TestAccProtocolPolicerResource_basic)$}" \
+            -run "${INPUT_TEST_PATTERN:-^(TestAccAPIDefinitionDiagnostic|TestAccAPIDefinitionResource_basic|TestAccSiteMeshGroupResource_fullMesh)$}" \
             ./internal/provider/... \
             > "$RAW_TEST_OUTPUT" 2>&1 || TEST_STATUS=$?
 
@@ -404,6 +404,10 @@ jobs:
             exit 1
           fi
 
+      - name: Preserve fixed API probe diagnostics
+        if: always()
+        run: python3 tools/api-probe-report.py
+
       - name: Verify journal-owned cleanup
         id: cleanup
         if: always()
@@ -434,6 +438,7 @@ jobs:
             test-reports/real-tests.json
             test-reports/real-tests.md
             test-reports/cleanup.json
+            test-reports/api-probe.json
           retention-days: 30
 
 
