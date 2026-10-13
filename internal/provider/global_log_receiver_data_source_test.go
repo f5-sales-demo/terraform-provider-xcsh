@@ -41,7 +41,7 @@ func testAccGlobalLogReceiverDataSourceConfig_basic(name string) string {
 
 resource "xcsh_global_log_receiver" "test" {
   name      = %[1]q
-  namespace = "shared"
+  namespace = "system"
   http_receiver {
     uri = "http://logs.example.com/fixture"
     auth_none = {}

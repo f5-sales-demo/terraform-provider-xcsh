@@ -41,7 +41,7 @@ func testAccContainerRegistryDataSourceConfig_basic(name string) string {
 
 resource "xcsh_container_registry" "test" {
   name      = %[1]q
-  namespace = "shared"
+  namespace = "system"
   registry          = "registry.example.com"
   user_name         = "testuser"
   password {
