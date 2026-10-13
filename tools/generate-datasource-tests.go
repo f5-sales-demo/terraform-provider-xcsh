@@ -365,7 +365,7 @@ var resourceConfigs = map[string]string{
   gre {
     gre_parameters {
       peer_ip_address { addr = "192.0.2.2" }
-      site_local_network = {}
+      site_local_inside_network = {}
       tunnel_mtu = 1370
       tunnel_eps {
         node = %[3]q

@@ -76,7 +76,7 @@ resource "xcsh_external_connector" "test" {
   gre {
     gre_parameters {
       peer_ip_address { addr = "192.0.2.2" }
-      site_local_network = {}
+      site_local_inside_network = {}
       tunnel_mtu = 1370
       tunnel_eps {
         node = %[4]q

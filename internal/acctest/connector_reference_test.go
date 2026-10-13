@@ -25,8 +25,10 @@ func TestConnectorEndpointCorrelatesSiteUID(t *testing.T) {
 					_, _ = w.Write([]byte(`{"metadata":{"name":"fixture","namespace":"system"},"system_metadata":{"uid":"site-uid","owner_view":{"kind":"securemesh_site_v2","name":"backing","namespace":"system","uid":"owner-uid"}},"spec":{"site_type":"CUSTOMER_EDGE","main_nodes":[{"name":"fixture-node"}]}}`))
 				case "/api/config/namespaces/system/securemesh_site_v2s/backing":
 					_, _ = w.Write([]byte(`{"metadata":{"name":"backing","namespace":"system"},"system_metadata":{"uid":"owner-uid"}}`))
+				case "/api/config/namespaces/system/virtual_networks/ves-io-site-local-inside":
+					_, _ = w.Write([]byte(`{"spec":{"site_local_inside_network":{}}}`))
 				case "/api/config/namespaces/system/network_interfaces":
-					_, _ = w.Write([]byte(`{"items":[{"name":"fixture-interface","owner_view":{"uid":"` + tc.owner + `"},"get_spec":{"type":"NETWORK_INTERFACE_ETHERNET","device_name":"eth1"}}],"errors":[]}`))
+					_, _ = w.Write([]byte(`{"items":[{"name":"fixture-interface","owner_view":{"uid":"` + tc.owner + `"},"get_spec":{"type":"NETWORK_INTERFACE_ETHERNET","device_name":"eth1","virtual_network":[{"kind":"virtual_network","name":"ves-io-site-local-inside","namespace":"system"}]}}],"errors":[]}`))
 				default:
 					t.Errorf("unexpected read")
 					w.WriteHeader(http.StatusNotFound)

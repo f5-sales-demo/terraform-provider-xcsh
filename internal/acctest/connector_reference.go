@@ -69,8 +69,13 @@ func discoverConnectorEndpoint(ctx context.Context, c *client.Client, ref readOn
 				UID string `json:"uid"`
 			} `json:"owner_view"`
 			Spec struct {
-				Type   string `json:"type"`
-				Device string `json:"device_name"`
+				Type     string `json:"type"`
+				Device   string `json:"device_name"`
+				Networks []struct {
+					Kind      string `json:"kind"`
+					Name      string `json:"name"`
+					Namespace string `json:"namespace"`
+				} `json:"virtual_network"`
 			} `json:"get_spec"`
 		} `json:"items"`
 		Errors []json.RawMessage `json:"errors"`
@@ -84,7 +89,26 @@ func discoverConnectorEndpoint(ctx context.Context, c *client.Client, ref readOn
 	devices := []string{}
 	for _, item := range inventory.Items {
 		if item.Owner.UID == ownerUID && item.Spec.Type == "NETWORK_INTERFACE_ETHERNET" && item.Spec.Device != "" && item.Name != "" {
-			devices = append(devices, item.Name)
+			inside := false
+			for _, network := range item.Spec.Networks {
+				if network.Kind != "virtual_network" || network.Name == "" || network.Namespace != "system" {
+					continue
+				}
+				var observed struct {
+					Spec struct {
+						Inside map[string]interface{} `json:"site_local_inside_network"`
+					} `json:"spec"`
+				}
+				if err = c.Get(ctx, "/api/config/namespaces/system/virtual_networks/"+network.Name, &observed); err != nil {
+					return connectorEndpoint{}, err
+				}
+				if observed.Spec.Inside != nil {
+					inside = true
+				}
+			}
+			if inside {
+				devices = append(devices, item.Name)
+			}
 		}
 	}
 	if len(devices) == 0 {
