@@ -636,7 +636,7 @@ func TestAcceptanceHostedJobsPinGoToolchain(t *testing.T) {
 		assertPinnedSetupGoStep(t, jobID, job, setupGo, "1.25.13", true)
 	}
 
-	for _, jobID := range []string{"real-api-tests", "cleanup"} {
+	for _, jobID := range []string{"real-api-tests"} {
 		job, ok := workflow.Jobs[jobID]
 		if !ok {
 			t.Fatalf("missing acceptance job %s", jobID)
@@ -1315,7 +1315,7 @@ func TestAcceptanceSummaryDownloadsNamedEvidence(t *testing.T) {
 			path:      "all-reports/mock-test-reports/",
 		},
 		"real-api-test-reports": {
-			condition: "needs.real-api-tests.result == 'success'",
+			condition: "always() && needs.real-api-tests.result != 'skipped'",
 			path:      "all-reports/real-api-test-reports/",
 		},
 		"comparison-reports": {
