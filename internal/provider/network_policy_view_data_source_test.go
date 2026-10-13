@@ -46,6 +46,8 @@ resource "xcsh_network_policy_view" "test" {
   ingress_rules {
     action = "ALLOW"
     any = {}
+    all_traffic = {}
+    metadata { name = "allow-ingress" }
   }
   egress_rules {
     action = "ALLOW"

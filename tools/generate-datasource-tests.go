@@ -395,6 +395,8 @@ var resourceConfigs = map[string]string{
   ingress_rules {
     action = "ALLOW"
     any = {}
+    all_traffic = {}
+    metadata { name = "allow-ingress" }
   }
   egress_rules {
     action = "ALLOW"
@@ -470,6 +472,8 @@ var resourceConfigs = map[string]string{
 	"udp_loadbalancer": `
   domains     = ["%[1]s.example.com"]
   listen_port = 53
+  dns_volterra_managed = false
+  idle_timeout = 30000
   origin_pools_weights {
     pool {
       name      = xcsh_origin_pool.test.name
@@ -477,7 +481,7 @@ var resourceConfigs = map[string]string{
     }
     weight = 1
   }
-  advertise_on_public_default_vip = {}`,
+  do_not_advertise = {}`,
 
 	"usb_policy": ``,
 

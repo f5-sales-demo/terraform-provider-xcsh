@@ -56,6 +56,10 @@ func extractPublicSchemaFields(output string) []string {
 	seen := map[string]bool{}
 	matches := diffAttributePattern.FindAllStringSubmatch(output, -1)
 	matches = append(matches, regexp.MustCompile(`\[SCHEMA_FIELD:([a-z0-9_.]+)\]`).FindAllStringSubmatch(output, -1)...)
+	for _, match := range regexp.MustCompile(`\.([a-z][a-z0-9_]*(?:\[[0-9]+\])?(?:\.[a-z][a-z0-9_]*(?:\[[0-9]+\])?)*)\s*:`).FindAllStringSubmatch(output, -1) {
+		match[1] = regexp.MustCompile(`\[([0-9]+)\]`).ReplaceAllString(match[1], ".$1")
+		matches = append(matches, match)
+	}
 	for _, match := range matches {
 		parts := []string{}
 		for _, part := range strings.Split(match[1], ".") {
