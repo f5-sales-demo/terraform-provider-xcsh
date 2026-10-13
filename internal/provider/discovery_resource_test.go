@@ -19,10 +19,10 @@ func TestAccDiscoveryResource_basic(t *testing.T) {
 	// Skip: discovery requires site/virtual_site with k8s or consul infrastructure
 	// This cannot be tested without real k8s cluster or Consul server attached to a site
 
-	acctest.RequireExistingInfrastructure(t, "discovery")
+	acctest.RequireExistingInfrastructure(t, "site")
 
 	rName := acctest.RandomName("tf-acc-test-disc")
-	nsName := acctest.RandomName("tf-acc-test-ns")
+	nsName := "system"
 	resourceName := "xcsh_discovery.test"
 
 	resource.ParallelTest(t, resource.TestCase{
@@ -34,7 +34,7 @@ func TestAccDiscoveryResource_basic(t *testing.T) {
 		CheckDestroy: acctest.CheckResourceDestroyed("xcsh_discovery"),
 		Steps: []resource.TestStep{
 			{
-				Config: testAccDiscoveryConfig_basic(nsName, rName),
+				Config: testAccDiscoveryConfig_basic(nsName, rName, acctest.ReadOnlySiteName()),
 				Check: resource.ComposeAggregateTestCheckFunc(
 					acctest.CheckResourceExists(resourceName),
 					resource.TestCheckResourceAttr(resourceName, "name", rName),
@@ -65,23 +65,30 @@ func testAccDiscoveryImportStateIdFunc(resourceName string) resource.ImportState
 	}
 }
 
-func testAccDiscoveryConfig_basic(nsName, name string) string {
+func testAccDiscoveryConfig_basic(nsName, name, siteName string) string {
 	return acctest.ConfigCompose(
 		acctest.ProviderConfig(),
 		fmt.Sprintf(`
-resource "xcsh_namespace" "test" {
-  name = %[1]q
-}
-
-resource "time_sleep" "wait_for_namespace" {
-  depends_on      = [xcsh_namespace.test]
-  create_duration = "5s"
-}
-
 resource "xcsh_discovery" "test" {
-  depends_on = [time_sleep.wait_for_namespace]
   name       = %[2]q
-  namespace  = xcsh_namespace.test.name
+  namespace  = "system"
+  discovery_consul {
+    access_info {
+      connection_info { api_server = "http://consul.example.com:8500" }
+    }
+    publish_info { disable_spec = {} }
+  }
+  no_cluster_id = {}
+  where {
+    site {
+      network_type = "VIRTUAL_NETWORK_SITE_LOCAL_INSIDE"
+      disable_internet_vip = {}
+      ref {
+        name = %[3]q
+        namespace = "system"
+      }
+    }
+  }
 }
-`, nsName, name))
+`, nsName, name, siteName))
 }

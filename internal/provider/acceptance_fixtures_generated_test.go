@@ -188,7 +188,9 @@ func init() {
 	acctest.RegisterFixture("testAccDataTypeDataSourceConfig_basic", func() string { return testAccDataTypeDataSourceConfig_basic("tf-acc-test-fixture") })
 	acctest.RegisterFixture("testAccDcClusterGroupConfig_basic", func() string { return testAccDcClusterGroupConfig_basic("tf-acc-test-fixture", "tf-acc-test-fixture") })
 	acctest.RegisterFixture("testAccDcClusterGroupDataSourceConfig_basic", func() string { return testAccDcClusterGroupDataSourceConfig_basic("tf-acc-test-fixture") })
-	acctest.RegisterFixture("testAccDiscoveryConfig_basic", func() string { return testAccDiscoveryConfig_basic("tf-acc-test-fixture", "tf-acc-test-fixture") })
+	acctest.RegisterFixture("testAccDiscoveryConfig_basic", func() string {
+		return testAccDiscoveryConfig_basic("tf-acc-test-fixture", "tf-acc-test-fixture", "tf-acc-test-fixture")
+	})
 	acctest.RegisterFixture("testAccDiscoveryDataSourceConfig_basic", func() string {
 		return testAccDiscoveryDataSourceConfig_basic("tf-acc-test-fixture", "tf-acc-test-fixture")
 	})

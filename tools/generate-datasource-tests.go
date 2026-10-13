@@ -519,6 +519,7 @@ var resourceConfigs = map[string]string{
 
 	"workload": `
   service {
+    advertise_options { do_not_advertise = {} }
     containers {
       name = "fixture"
       image {

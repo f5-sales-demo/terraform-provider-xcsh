@@ -43,6 +43,7 @@ resource "xcsh_workload" "test" {
   name      = %[1]q
   namespace = "shared"
   service {
+    advertise_options { do_not_advertise = {} }
     containers {
       name = "fixture"
       image {
