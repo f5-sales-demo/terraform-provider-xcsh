@@ -88,6 +88,38 @@ type ownershipTransport struct {
 }
 
 func (t *ownershipTransport) RoundTrip(req *http.Request) (*http.Response, error) {
+	if req.Method == http.MethodPost && strings.HasPrefix(req.URL.Path, "/api/web/namespaces/") && strings.HasSuffix(req.URL.Path, "/cascade_delete") {
+		path := strings.TrimSuffix(req.URL.Path, "/cascade_delete")
+		check := req.Clone(req.Context())
+		check.Method = http.MethodDelete
+		check.URL = req.URL.JoinPath()
+		check.URL.Path = path
+		if err := t.verifyOwnedDelete(check); err != nil {
+			return nil, err
+		}
+		t.j.mu.Lock()
+		var owned OwnedResource
+		for _, r := range t.j.Resources {
+			if r.Type == "xcsh_namespace" && path == "/api/web/namespaces/"+r.Name {
+				owned = r
+				break
+			}
+		}
+		t.j.mu.Unlock()
+		if owned.Name == "" {
+			return nil, errors.New("namespace command ownership missing")
+		}
+		var document struct {
+			ReferringObjects []json.RawMessage `json:"referring_objects"`
+		}
+		if err := t.c.Get(context.WithValue(req.Context(), ownershipReadContextKey{}, true), path, &document); err != nil {
+			return nil, err
+		}
+		if document.ReferringObjects == nil || len(document.ReferringObjects) != 0 {
+			return nil, errors.New("namespace command has unverified child objects")
+		}
+		return t.base.RoundTrip(req)
+	}
 	if req.Method == http.MethodDelete {
 		if err := t.verifyOwnedDelete(req); err != nil {
 			return nil, err
