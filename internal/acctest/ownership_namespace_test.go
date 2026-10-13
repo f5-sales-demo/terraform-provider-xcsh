@@ -6,6 +6,7 @@ import (
 	"encoding/json"
 	"errors"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
+	xcsherrors "github.com/f5-sales-demo/terraform-provider-xcsh/internal/errors"
 	"net/http"
 	"net/http/httptest"
 	"path/filepath"
@@ -20,7 +21,10 @@ func TestOwnedNamespaceCleanupUsesVerifiedEmptyCascade(t *testing.T) {
 		{"empty", `[]`, `{"items":[]}`, true},
 		{"unrelated child", `[{"name":"unrelated","namespace":"fixture"}]`, `{"items":[]}`, false},
 		{"missing references", `null`, `{"items":[]}`, false},
-		{"malformed response", `[]`, `{}`, false},
+		{"empty omitted items", `[]`, `{}`, true},
+		{"null response", `[]`, `null`, false},
+		{"unknown response", `[]`, `{"error":"uncertain"}`, false},
+		{"malformed items", `[]`, `{"items":"invalid"}`, false},
 		{"failed response", `[]`, `{"items":[{"error_message":"failure"}]}`, false},
 	} {
 		t.Run(tc.name, func(t *testing.T) {
@@ -81,5 +85,26 @@ func TestOwnedNamespaceDeletionRaceAcceptsTypedAbsence(t *testing.T) {
 	err := (apiOwnershipBackend{c: c}).Delete(context.Background(), OwnedResource{Type: "xcsh_namespace", Name: "tf-acc-test-runone-ns", UID: ownershipUIDDigest("immutable")})
 	if !errors.Is(err, errOwnedAbsent) {
 		t.Fatal("typed namespace absence rejected during deletion race")
+	}
+}
+
+func TestNamespaceDeletionInProgressRequiresTypedExactDiagnostic(t *testing.T) {
+	for _, tc := range []struct {
+		status int
+		body   string
+		want   bool
+	}{
+		{400, `{"message":"Namespace synthetic already mark for deletion"}`, true},
+		{400, `{"message":"Namespace synthetic already marked for deletion"}`, true},
+		{400, `{"message":"Namespace synthetic already scheduled for deletion"}`, true},
+		{400, `{"message":"Namespace deletion failed"}`, false},
+		{403, `{"message":"Namespace synthetic already scheduled for deletion"}`, false},
+		{400, `{"message":"Other object already scheduled for deletion"}`, false},
+		{400, `invalid`, false},
+	} {
+		err := xcsherrors.NewAPIError(tc.status, []byte(tc.body), "synthetic", "POST")
+		if namespaceDeletionInProgress(err) != tc.want {
+			t.Fatal("uncertain namespace error treated as acknowledged deletion")
+		}
 	}
 }

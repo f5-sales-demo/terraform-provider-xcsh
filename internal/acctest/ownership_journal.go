@@ -333,6 +333,7 @@ func (j *OwnershipJournal) Cleanup(ctx context.Context, b OwnershipBackend, atte
 			}
 			if deleteErr := b.Delete(ctx, r); deleteErr != nil && !errors.Is(deleteErr, errOwnedAbsent) {
 				receipt.Diagnostics["delete_failed"]++
+				receipt.Diagnostics[cleanupDeleteCategory(deleteErr)]++
 				fatal = true
 				break
 			}
@@ -461,4 +462,31 @@ func readOwnershipProjection(ctx context.Context, c *client.Client, path, namesp
 		return client.Metadata{}, errors.New("invalid ownership readback")
 	}
 	return metadata, nil
+}
+
+func cleanupDeleteCategory(err error) string {
+	switch err.Error() {
+	case "namespace cascade ownership or empty inventory unverified":
+		return "namespace_empty_inventory_unverified"
+	case "namespace cascade response malformed":
+		return "namespace_command_response_malformed"
+	case "namespace cascade item failed":
+		return "namespace_command_item_failed"
+	}
+	var apiErr *xcsherrors.XCSHError
+	if errors.As(err, &apiErr) {
+		switch apiErr.StatusCode {
+		case 400:
+			return "delete_http_400"
+		case 403:
+			return "delete_http_403"
+		case 404:
+			return "delete_http_404"
+		case 429:
+			return "delete_http_429"
+		default:
+			return "delete_api_error"
+		}
+	}
+	return "delete_error_unclassified"
 }
