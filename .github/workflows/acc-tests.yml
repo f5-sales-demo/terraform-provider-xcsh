@@ -30,27 +30,27 @@ jobs:
               except urllib.error.HTTPError as error:
                   try:body=json.loads(error.read())
                   except ValueError:body={}
-                  return error.code,body
+                  return error.code,body or {}
           receipt=[]
           for typ,collection in [("xcsh_origin_pool","origin_pools"),("xcsh_service_policy_rule","service_policy_rules")]:
               status,listing=get("/api/config/namespaces/system/"+collection)
-              row={"type":typ,"list_status":status,"matched":0,"readbacks":[]}
-              for item in listing.get("items",[]):
-                  metadata=item.get("metadata",item)
+              row={"type":typ,"list_status":status,"items_present":isinstance(listing.get("items"),list),"matched":0,"readbacks":[]}
+              for item in listing.get("items",[]) or []:
+                  metadata=item.get("metadata") or item
                   name=metadata.get("name","")
                   if not name.startswith("tf-acc-test-"+run+"-"):continue
                   row["matched"]+=1
                   code,body=get("/api/config/namespaces/system/"+collection+"/"+name)
                   record={"status":code}
                   for location in ["metadata","system_metadata","replace_form"]:
-                      block=body.get(location,{})
+                      block=body.get(location) or {}
                       record[location+"_present"]=isinstance(block,dict) and bool(block)
                       record[location+"_uid_present"]=bool(block.get("uid")) if isinstance(block,dict) else False
                       record[location+"_name_matches"]=block.get("name")==name if isinstance(block,dict) else False
-                      record[location+"_run_matches"]=block.get("annotations",{}).get("f5-sales-demo.com/acceptance-run")==run if isinstance(block,dict) else False
+                      record[location+"_run_matches"]=(block.get("annotations") or {}).get("f5-sales-demo.com/acceptance-run")==run if isinstance(block,dict) else False
                       if location=="replace_form" and isinstance(block,dict):
-                          record["replace_metadata_uid_present"]=bool(block.get("metadata",{}).get("uid"))
-                          record["replace_system_uid_present"]=bool(block.get("system_metadata",{}).get("uid"))
+                          record["replace_metadata_uid_present"]=bool((block.get("metadata") or {}).get("uid"))
+                          record["replace_system_uid_present"]=bool((block.get("system_metadata") or {}).get("uid"))
                   row["readbacks"].append(record)
               receipt.append(row)
           with open("test-reports/readback.json","w") as output:json.dump(receipt,output,indent=2)
