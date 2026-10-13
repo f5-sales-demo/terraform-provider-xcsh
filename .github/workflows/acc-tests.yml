@@ -42,6 +42,11 @@ on:
           - real-only      # Sequential real API tests (repository-scoped ARC)
           - full           # Both mock and real API tests
           - pr-subset      # Mock tests only (safe for PRs)
+      test_pattern:
+        description: Focused acceptance regex (empty runs the full suite)
+        required: false
+        default: ""
+        type: string
       parallel:
         description: 'Parallelism for mock tests'
         required: false
