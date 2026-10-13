@@ -1,6 +1,14 @@
 from pathlib import Path
 import json,os
 patterns={
+ "site_selector":["selector","selection","select"],
+ "site_constraints":["constraint","criteria","site_type"],
+ "site_role":["ingress","egress","appstack","app stack","customer","edge"],
+ "site_location":["regional","region","virtual"],
+ "site_expansion":["expand","resolve","empty","match"],
+ "reference_kind":["kind","uid","tenant"],
+ "unsupported_virtual_site":["virtual site","virtual_site"],
+ "name_length":["length","max"],
  **{"name_limit_"+str(v):[str(v)] for v in [20,32,63,64]},
  "site_missing":["not found","no sites","empty","does not exist"],
  "site_incompatible":["not supported","not allowed","unsupported","invalid"],
