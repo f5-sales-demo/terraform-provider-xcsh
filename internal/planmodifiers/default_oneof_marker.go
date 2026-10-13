@@ -4,8 +4,10 @@ import (
 	"context"
 	"fmt"
 
+	"github.com/hashicorp/terraform-plugin-framework/path"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/planmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/types"
+	"github.com/hashicorp/terraform-plugin-go/tftypes"
 )
 
 // DefaultOneOfMarker clears an omitted computed marker when configuration
@@ -34,11 +36,47 @@ func (m defaultOneOfMarker) PlanModifyObject(ctx context.Context, req planmodifi
 		if sibling == m.member {
 			continue
 		}
-		value, err := selectionMember(req.Config.Raw, sibling)
+		parent := req.Config.Raw
+		steps := req.Path.ParentPath().Steps()
+		for _, step := range steps {
+			var rawStep tftypes.AttributePathStep
+			switch typed := step.(type) {
+			case path.PathStepAttributeName:
+				rawStep = tftypes.AttributeName(typed)
+			case path.PathStepElementKeyInt:
+				rawStep = tftypes.ElementKeyInt(typed)
+			case path.PathStepElementKeyString:
+				rawStep = tftypes.ElementKeyString(typed)
+			case path.PathStepElementKeyValue:
+				value, err := typed.ToTerraformValue(ctx)
+				if err != nil {
+					resp.Diagnostics.AddError("Invalid Default Selection Contract", err.Error())
+					return
+				}
+				rawStep = tftypes.ElementKeyValue(value)
+			default:
+				resp.Diagnostics.AddError("Invalid Default Selection Contract", fmt.Sprintf("Unsupported path step %T", step))
+				return
+			}
+			if !parent.IsKnown() || parent.IsNull() {
+				return
+			}
+			next, err := parent.ApplyTerraform5AttributePathStep(rawStep)
+			if err != nil {
+				resp.Diagnostics.AddError("Invalid Default Selection Contract", err.Error())
+				return
+			}
+			parent = next.(tftypes.Value)
+		}
+		if !parent.IsKnown() || parent.IsNull() {
+			return
+		}
+		value, err := selectionMember(parent, sibling)
 		if err != nil {
 			resp.Diagnostics.AddError("Invalid Default Selection Contract", fmt.Sprintf("Cannot inspect sibling %s: %s", sibling, err))
 			return
 		}
+
 		if value.IsKnown() && !value.IsNull() {
 			resp.PlanValue = types.ObjectNull(req.PlanValue.AttributeTypes(ctx))
 			return

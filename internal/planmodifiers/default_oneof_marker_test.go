@@ -4,6 +4,7 @@ import (
 	"context"
 	"testing"
 
+	"github.com/hashicorp/terraform-plugin-framework/path"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/planmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/tfsdk"
 	"github.com/hashicorp/terraform-plugin-framework/types"
@@ -40,5 +41,47 @@ func TestDefaultOneOfMarker(t *testing.T) {
 				t.Fatalf("clear=%v want %v", resp.PlanValue.IsNull(), test.clear)
 			}
 		})
+	}
+}
+
+func TestDefaultOneOfMarkerNestedSiblingCutover(t *testing.T) {
+	empty := tftypes.Object{AttributeTypes: map[string]tftypes.Type{}}
+	settings := tftypes.Object{AttributeTypes: map[string]tftypes.Type{"default": empty, "custom": empty}}
+	root := tftypes.Object{AttributeTypes: map[string]tftypes.Type{"settings": settings}}
+	values := map[string]tftypes.Value{"default": tftypes.NewValue(empty, nil), "custom": tftypes.NewValue(empty, map[string]tftypes.Value{})}
+	config := tftypes.NewValue(root, map[string]tftypes.Value{"settings": tftypes.NewValue(settings, values)})
+	prior := types.ObjectValueMust(nil, nil)
+	req := planmodifier.ObjectRequest{Path: path.Root("settings").AtName("default"), Config: tfsdk.Config{Raw: config}, ConfigValue: types.ObjectNull(nil), PlanValue: prior, StateValue: prior}
+	resp := planmodifier.ObjectResponse{PlanValue: prior}
+	DefaultOneOfMarker("default", []string{"default", "custom"}).PlanModifyObject(context.Background(), req, &resp)
+	if resp.Diagnostics.HasError() {
+		t.Fatal(resp.Diagnostics)
+	}
+	if !resp.PlanValue.IsNull() {
+		t.Fatal("prior nested default survived explicit sibling")
+	}
+}
+
+func TestDefaultOneOfMarkerListNestedCutover(t *testing.T) {
+	empty := tftypes.Object{AttributeTypes: map[string]tftypes.Type{}}
+	settings := tftypes.Object{AttributeTypes: map[string]tftypes.Type{"default": empty, "custom": empty}}
+	root := tftypes.Object{AttributeTypes: map[string]tftypes.Type{"settings": tftypes.List{ElementType: settings}}}
+	for _, unknown := range []bool{false, true} {
+		var sibling interface{} = map[string]tftypes.Value{}
+		if unknown {
+			sibling = tftypes.UnknownValue
+		}
+		values := map[string]tftypes.Value{"default": tftypes.NewValue(empty, nil), "custom": tftypes.NewValue(empty, sibling)}
+		config := tftypes.NewValue(root, map[string]tftypes.Value{"settings": tftypes.NewValue(tftypes.List{ElementType: settings}, []tftypes.Value{tftypes.NewValue(settings, values)})})
+		prior := types.ObjectValueMust(nil, nil)
+		req := planmodifier.ObjectRequest{Path: path.Root("settings").AtListIndex(0).AtName("default"), Config: tfsdk.Config{Raw: config}, ConfigValue: types.ObjectNull(nil), PlanValue: prior, StateValue: prior}
+		resp := planmodifier.ObjectResponse{PlanValue: prior}
+		DefaultOneOfMarker("default", []string{"default", "custom"}).PlanModifyObject(context.Background(), req, &resp)
+		if resp.Diagnostics.HasError() {
+			t.Fatal(resp.Diagnostics)
+		}
+		if resp.PlanValue.IsNull() == unknown {
+			t.Fatalf("unknown sibling=%v must only clear known selection", unknown)
+		}
 	}
 }
