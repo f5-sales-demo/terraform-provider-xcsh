@@ -107,7 +107,9 @@ resource "xcsh_nat_policy" "test" {
     }
 
     action {
-      virtual_cidr = "198.51.100.0/24"
+      dynamic_pool {
+        pools { prefixes = ["198.51.100.0/24"] }
+      }
     }
   }
 }

@@ -332,6 +332,11 @@ func ConvertToTerraformAttributeWithDepth(name string, schema openapi.Schema, re
 		goName = "DisableSpec"
 		tfsdkName = "disable_spec"
 	}
+	// HCL treats dynamic as an expansion block rather than a provider block.
+	// Keep the API wire key; use a safe practitioner-facing schema tag.
+	if strings.ToLower(name) == "dynamic" {
+		tfsdkName = "dynamic_pool"
+	}
 
 	attr := openapi.TerraformAttribute{
 		Name:          name,

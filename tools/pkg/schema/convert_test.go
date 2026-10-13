@@ -630,3 +630,13 @@ func TestEmptyConflictingObjectUsesNullableAttribute(t *testing.T) {
 		})
 	}
 }
+
+// HCL reserves dynamic for expansion, so API blocks with that name need a
+// Terraform-safe tag while preserving their wire key.
+func TestReservedDynamicBlockKeepsWireName(t *testing.T) {
+	input := openapi.Schema{Type: "object", Properties: map[string]openapi.Schema{"pools": {Type: "object", Properties: map[string]openapi.Schema{"prefixes": {Type: "array", Items: &openapi.Schema{Type: "string"}}}}}}
+	attr := ConvertToTerraformAttribute("dynamic", input, false, "", &openapi.Spec{})
+	if attr.TfsdkTag != "dynamic_pool" || attr.JsonName != "dynamic" {
+		t.Fatalf("reserved block conversion = %+v", attr)
+	}
+}

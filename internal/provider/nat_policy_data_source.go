@@ -80,7 +80,7 @@ func (d *NATPolicyDataSource) Schema(ctx context.Context, req datasource.SchemaR
 						"action": schema.SingleNestedAttribute{
 							MarkdownDescription: "Action to apply on the packet if the NAT rule is applied.",
 							Attributes: map[string]schema.Attribute{
-								"dynamic": schema.SingleNestedAttribute{
+								"dynamic_pool": schema.SingleNestedAttribute{
 									MarkdownDescription: "Dynamic Pool. Dynamic Pool Configuration.",
 									Attributes: map[string]schema.Attribute{
 										"elastic_ips": schema.SingleNestedAttribute{
@@ -549,26 +549,26 @@ func (d *NATPolicyDataSource) Read(ctx context.Context, req datasource.ReadReque
 					Action: func() *NATPolicyRulesActionModel {
 						if ActionData, ok := itemMap["action"].(map[string]interface{}); ok {
 							return &NATPolicyRulesActionModel{
-								Dynamic: func() *NATPolicyRulesActionDynamicModel {
+								Dynamic: func() *NATPolicyRulesActionDynamicPoolModel {
 									if DynamicData, ok := ActionData["dynamic"].(map[string]interface{}); ok {
-										return &NATPolicyRulesActionDynamicModel{
-											ElasticIps: func() *NATPolicyRulesActionDynamicElasticIpsModel {
+										return &NATPolicyRulesActionDynamicPoolModel{
+											ElasticIps: func() *NATPolicyRulesActionDynamicPoolElasticIpsModel {
 												if ElasticIpsData, ok := DynamicData["elastic_ips"].(map[string]interface{}); ok {
-													return &NATPolicyRulesActionDynamicElasticIpsModel{
+													return &NATPolicyRulesActionDynamicPoolElasticIpsModel{
 														Refs: func() types.List {
 															if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Action != nil && existingRulesItems[listIdx].Action.Dynamic != nil && existingRulesItems[listIdx].Action.Dynamic.ElasticIps != nil && (existingRulesItems[listIdx].Action.Dynamic.ElasticIps.Refs.IsNull() || len(existingRulesItems[listIdx].Action.Dynamic.ElasticIps.Refs.Elements()) == 0) {
-																return types.ListNull(types.ObjectType{AttrTypes: NATPolicyRulesActionDynamicElasticIpsRefsModelAttrTypes})
+																return types.ListNull(types.ObjectType{AttrTypes: NATPolicyRulesActionDynamicPoolElasticIpsRefsModelAttrTypes})
 															}
-															var RefsExisting []NATPolicyRulesActionDynamicElasticIpsRefsModel
+															var RefsExisting []NATPolicyRulesActionDynamicPoolElasticIpsRefsModel
 															if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Action != nil && existingRulesItems[listIdx].Action.Dynamic != nil && existingRulesItems[listIdx].Action.Dynamic.ElasticIps != nil && !existingRulesItems[listIdx].Action.Dynamic.ElasticIps.Refs.IsNull() && !existingRulesItems[listIdx].Action.Dynamic.ElasticIps.Refs.IsUnknown() {
 																existingRulesItems[listIdx].Action.Dynamic.ElasticIps.Refs.ElementsAs(ctx, &RefsExisting, false)
 															}
 															if rawList, ok := ElasticIpsData["refs"].([]interface{}); ok && len(rawList) > 0 {
-																var RefsResult []NATPolicyRulesActionDynamicElasticIpsRefsModel
+																var RefsResult []NATPolicyRulesActionDynamicPoolElasticIpsRefsModel
 																for RefsIdx, RefsItem := range rawList {
 																	_ = RefsIdx
 																	if RefsItemMap, ok := RefsItem.(map[string]interface{}); ok {
-																		RefsResult = append(RefsResult, NATPolicyRulesActionDynamicElasticIpsRefsModel{
+																		RefsResult = append(RefsResult, NATPolicyRulesActionDynamicPoolElasticIpsRefsModel{
 																			Kind: func() types.String {
 																				if v, ok := RefsItemMap["kind"].(string); ok && v != "" {
 																					return types.StringValue(v)
@@ -602,18 +602,18 @@ func (d *NATPolicyDataSource) Read(ctx context.Context, req datasource.ReadReque
 																		})
 																	}
 																}
-																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: NATPolicyRulesActionDynamicElasticIpsRefsModelAttrTypes}, RefsResult)
+																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: NATPolicyRulesActionDynamicPoolElasticIpsRefsModelAttrTypes}, RefsResult)
 																return listVal
 															}
-															return types.ListNull(types.ObjectType{AttrTypes: NATPolicyRulesActionDynamicElasticIpsRefsModelAttrTypes})
+															return types.ListNull(types.ObjectType{AttrTypes: NATPolicyRulesActionDynamicPoolElasticIpsRefsModelAttrTypes})
 														}(),
 													}
 												}
 												return nil
 											}(),
-											Pools: func() *NATPolicyRulesActionDynamicPoolsModel {
+											Pools: func() *NATPolicyRulesActionDynamicPoolPoolsModel {
 												if PoolsData, ok := DynamicData["pools"].(map[string]interface{}); ok {
-													return &NATPolicyRulesActionDynamicPoolsModel{
+													return &NATPolicyRulesActionDynamicPoolPoolsModel{
 														Prefixes: func() types.List {
 															if v, ok := PoolsData["prefixes"].([]interface{}); ok && len(v) > 0 {
 																var items []string

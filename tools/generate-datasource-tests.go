@@ -413,7 +413,11 @@ var resourceConfigs = map[string]string{
       any = {}
       source_cidr = ["192.0.2.0/24"]
     }
-    action { virtual_cidr = "198.51.100.0/24" }
+    action {
+      dynamic_pool {
+        pools { prefixes = ["198.51.100.0/24"] }
+      }
+    }
   }`,
 
 	"network_connector": `
