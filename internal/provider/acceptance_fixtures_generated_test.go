@@ -772,9 +772,7 @@ func init() {
 	acctest.RegisterFixture("testAccWorkloadDataSourceConfig_basic", func() string {
 		return testAccWorkloadDataSourceConfig_basic("tf-acc-test-fixture", "tf-acc-test-fixture")
 	})
-	acctest.RegisterFixture("testAccWorkloadFlavorDataSourceConfig_basic", func() string {
-		return testAccWorkloadFlavorDataSourceConfig_basic("tf-acc-test-fixture", "tf-acc-test-fixture")
-	})
+	acctest.RegisterFixture("testAccWorkloadFlavorDataSourceConfig_basic", func() string { return testAccWorkloadFlavorDataSourceConfig_basic("tf-acc-test-fixture") })
 	acctest.RegisterFixture("testAccWorkloadFlavorResourceConfig_allAttributes", func() string {
 		return testAccWorkloadFlavorResourceConfig_allAttributes("tf-acc-test-fixture", "tf-acc-test-fixture", "tf-acc-test-fixture")
 	})

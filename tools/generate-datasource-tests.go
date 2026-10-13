@@ -17,6 +17,8 @@ package main
 import (
 	"bytes"
 	"fmt"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/openapi"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/schema"
 	"go/format"
 	"os"
 	"path/filepath"
@@ -47,7 +49,7 @@ func shouldRegenerateDataSourceTest(content []byte) bool {
 // Resource configurations based on OpenAPI specs
 // Key is the resource name (without xcsh_ prefix)
 var resourceConfigs = map[string]string{
- "bot_defense_app_infrastructure": `
+	"bot_defense_app_infrastructure": `
  environment_type = "PRODUCTION"
  traffic_type = "WEB"
  cloud_hosted {
@@ -64,7 +66,7 @@ var resourceConfigs = map[string]string{
  }
 `,
 
- "route": `
+	"route": `
   routes {
     route_direct_response {
       response_code = 200
@@ -89,23 +91,23 @@ var resourceConfigs = map[string]string{
 	// Simple resources - just name/namespace
 	"alert_policy": "",
 
-	"api_crawler":               "",
-	"api_definition":            "\n  swagger_specs = [xcsh_swagger_object.fixture.path]",
-	"api_discovery":             "",
-	"api_testing":               "",
-	"app_api_group":             "",
-	"app_firewall":              "",
-	"cdn_cache_rule":            "",
-	"cluster":                   "",
-	"code_base_integration":     "",
-	"dns_compliance_checks":     `
+	"api_crawler":           "",
+	"api_definition":        "\n  swagger_specs = [xcsh_swagger_object.fixture.path]",
+	"api_discovery":         "",
+	"api_testing":           "",
+	"app_api_group":         "",
+	"app_firewall":          "",
+	"cdn_cache_rule":        "",
+	"cluster":               "",
+	"code_base_integration": "",
+	"dns_compliance_checks": `
   domain_denylist = ["blocked.example.com"]`,
-	"enhanced_firewall_policy":  "",
-	"ike1":                      "",
-	"ike2":                      "",
-	"ike_phase1_profile":        "",
-	"ike_phase2_profile":        "",
-	"irule":                     `
+	"enhanced_firewall_policy": "",
+	"ike1":                     "",
+	"ike2":                     "",
+	"ike_phase1_profile":       "",
+	"ike_phase2_profile":       "",
+	"irule": `
   description_spec = "Acceptance fixture"
   irule = "when HTTP_REQUEST { return }"`,
 	"malicious_user_mitigation": "",
@@ -507,20 +509,20 @@ var skipResources = map[string]string{
 	"cloud_credentials": "Requires system-level namespace access",
 	"cminstance":        "Requires CM instance management permissions",
 
-	"registration": "Requires site registration permissions",
+	"registration":         "Requires site registration permissions",
 	"tenant_configuration": "API returns 500 errors",
 }
 
 // Resources that need special dependencies in the config
 var resourceDependencies = map[string]string{
- "api_definition": `
+	"api_definition": `
 resource "xcsh_swagger_object" "fixture" {
  name = "%[1]s-spec"
  namespace = "shared"
  content = "{\"openapi\":\"3.0.3\",\"info\":{\"title\":\"Acceptance API\",\"version\":\"1.0.0\"},\"servers\":[{\"url\":\"https://example.com\"}],\"paths\":{\"/health\":{\"get\":{\"responses\":{\"200\":{\"description\":\"OK\"}}}}}}"
 }
 `,
- "protocol_policer": `
+	"protocol_policer": `
 resource "xcsh_policer" "test" {
  name = "%[1]s-policer"
  namespace = "system"
@@ -598,34 +600,34 @@ var systemLevelResources = map[string]bool{
 
 // Resources that MUST use namespace = "system" (not custom namespace)
 var systemNamespaceResources = map[string]bool{
- "network_firewall": true,
- "forward_proxy_policy": true,
- "token": true,
- "site_mesh_group": true,
- "address_allocator": true,
- "forwarding_class": true,
- "protocol_policer": true,
- "route": true,
- "udp_loadbalancer": true,
- "fast_acl": true,
- "fast_acl_rule": true,
- "dc_cluster_group": true,
- "network_policy_view": true,
- "segment": true,
-	"virtual_network":     true,
-	"policer":             true,
-	"user_identification": true,
-	"bgp_asn_set":         true,
-	"geo_location_set":    true,
-	"healthcheck":         true,
-	"rate_limiter":        true,
-	"service_policy":      true,
-	"data_group":          true,
-	"data_type":           true,
-	"filter_set":          true,
-	"origin_pool":         true,
-	"app_firewall":        true,
-	"securemesh_site_v2":  true,
+	"network_firewall":     true,
+	"forward_proxy_policy": true,
+	"token":                true,
+	"site_mesh_group":      true,
+	"address_allocator":    true,
+	"forwarding_class":     true,
+	"protocol_policer":     true,
+	"route":                true,
+	"udp_loadbalancer":     true,
+	"fast_acl":             true,
+	"fast_acl_rule":        true,
+	"dc_cluster_group":     true,
+	"network_policy_view":  true,
+	"segment":              true,
+	"virtual_network":      true,
+	"policer":              true,
+	"user_identification":  true,
+	"bgp_asn_set":          true,
+	"geo_location_set":     true,
+	"healthcheck":          true,
+	"rate_limiter":         true,
+	"service_policy":       true,
+	"data_group":           true,
+	"data_type":            true,
+	"filter_set":           true,
+	"origin_pool":          true,
+	"app_firewall":         true,
+	"securemesh_site_v2":   true,
 }
 
 func toStructName(name string) string {
@@ -640,6 +642,36 @@ func toStructName(name string) string {
 }
 
 func main() {
+	specDir := os.Getenv("XCSH_SPEC_DIR")
+	if specDir == "" {
+		specDir = "docs/specifications/api"
+	}
+	if err := openapi.RequireSpecs(specDir); err != nil {
+		panic(err)
+	}
+	fixtureNamespaces := map[string]string{}
+	domains, err := openapi.FindDomainSpecFiles(specDir)
+	if err != nil {
+		panic(err)
+	}
+	for _, path := range domains {
+		domain, err := openapi.ExtractResourcesFromDomain(path)
+		if err != nil {
+			panic(err)
+		}
+		for _, resource := range domain.Resources {
+			if _, err := os.Stat(filepath.Join("internal/provider", resource.Name+"_resource.go")); os.IsNotExist(err) {
+				continue
+			}
+			ns, err := schema.AcceptanceFixtureNamespace(domain.Spec, resource.Name)
+			if err != nil {
+				panic(err)
+			}
+			if ns != "" {
+				fixtureNamespaces[resource.Name] = ns
+			}
+		}
+	}
 	// Template for the test file
 	const testTemplate = `// Copyright (c) 2026 Robin Mordasiewicz. MIT License.
 
@@ -744,7 +776,7 @@ func {{.ConfigFuncName}}(name string) string {
 {{.Dependencies}}
 resource "{{.ResourceName}}" "test" {
   name      = %[1]q
-  namespace = "system"{{.ResourceConfig}}
+  namespace = {{if .FixedNamespace}}{{printf "%q" .FixedNamespace}}{{else}}"system"{{end}}{{.ResourceConfig}}
 }
 
 data "{{.ResourceName}}" "test" {
@@ -883,6 +915,7 @@ data "{{.ResourceName}}" "test" {
 			NeedsNamespace     bool
 			IsNamespace        bool
 			UseSystemNamespace bool
+			FixedNamespace     string
 			RunSequential      bool
 			ResourceConfig     string
 			Skip               bool
@@ -899,7 +932,8 @@ data "{{.ResourceName}}" "test" {
 			ConfigFuncName:     config.ConfigFuncName,
 			NeedsNamespace:     config.NeedsNamespace,
 			IsNamespace:        config.IsNamespace,
-			UseSystemNamespace: systemNamespaceResources[resourceName],
+			UseSystemNamespace: systemNamespaceResources[resourceName] || fixtureNamespaces[resourceName] != "",
+			FixedNamespace:     fixtureNamespaces[resourceName],
 			RunSequential:      resourceName == "securemesh_site_v2",
 			ResourceConfig:     config.ResourceConfig,
 			Skip:               config.Skip,
