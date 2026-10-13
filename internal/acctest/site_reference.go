@@ -25,8 +25,9 @@ func discoverReadOnlySite(ctx context.Context, c *client.Client) (readOnlySiteRe
 func discoverReadOnlyInfrastructure(ctx context.Context, c *client.Client, collection string) (readOnlySiteReference, error) {
 	var listing struct {
 		Items []struct {
-			Name     string          `json:"name"`
-			Metadata client.Metadata `json:"metadata"`
+			Name      string          `json:"name"`
+			Namespace string          `json:"namespace"`
+			Metadata  client.Metadata `json:"metadata"`
 		} `json:"items"`
 	}
 	path := "/api/config/namespaces/system/" + collection
@@ -37,6 +38,7 @@ func discoverReadOnlyInfrastructure(ctx context.Context, c *client.Client, colle
 		return readOnlySiteReference{}, errors.New("infrastructure inventory malformed")
 	}
 	names := []string{}
+	refs := map[string]readOnlySiteReference{}
 	for _, item := range listing.Items {
 		name := item.Name
 		if name == "" {
@@ -46,22 +48,35 @@ func discoverReadOnlyInfrastructure(ctx context.Context, c *client.Client, colle
 			return readOnlySiteReference{}, errors.New("infrastructure inventory malformed")
 		}
 		if !strings.HasPrefix(name, TestResourcePrefix) {
-			names = append(names, name)
+			namespace := item.Namespace
+			if namespace == "" {
+				namespace = item.Metadata.Namespace
+			}
+			if namespace == "" {
+				namespace = "system"
+			}
+			if strings.ContainsAny(namespace, "/?# \t\r\n") {
+				return readOnlySiteReference{}, errors.New("infrastructure inventory malformed")
+			}
+			key := namespace + "/" + name
+			names = append(names, key)
+			refs[key] = readOnlySiteReference{Name: name, Namespace: namespace}
 		}
 	}
 	if len(names) == 0 {
 		return readOnlySiteReference{}, errors.New("existing infrastructure absent")
 	}
 	sort.Strings(names)
-	for _, name := range names {
-		_, err := readOwnershipProjection(ctx, c, path+"/"+name, "system", name)
+	for _, key := range names {
+		ref := refs[key]
+		_, err := readOwnershipProjection(ctx, c, "/api/config/namespaces/"+ref.Namespace+"/"+collection+"/"+ref.Name, ref.Namespace, ref.Name)
 		if authoritativeOwnedAbsence(err) {
 			continue
 		}
 		if err != nil {
 			return readOnlySiteReference{}, err
 		}
-		return readOnlySiteReference{Name: name, Namespace: "system"}, nil
+		return ref, nil
 	}
 	return readOnlySiteReference{}, errors.New("existing infrastructure absent")
 }
@@ -110,15 +125,17 @@ func requireReadOnlyReference(t *testing.T, kind, collection string) {
 
 // ReadOnlySiteName returns a verified private reference. It never imports or
 // journals the appliance. Fixture audits supply their own synthetic argument.
-func ReadOnlySiteName() string        { return readOnlyReferenceName("site") }
-func ReadOnlyVirtualSiteName() string { return readOnlyReferenceName("virtual_site") }
-func readOnlyReferenceName(kind string) string {
+func ReadOnlySiteName() string                 { return readOnlyReferenceName("site") }
+func ReadOnlyVirtualSiteName() string          { return readOnlyReference("virtual_site").Name }
+func ReadOnlyVirtualSiteNamespace() string     { return readOnlyReference("virtual_site").Namespace }
+func readOnlyReferenceName(kind string) string { return readOnlyReference(kind).Name }
+func readOnlyReference(kind string) readOnlySiteReference {
 	ref := readOnlySiteReference{Name: "example-site", Namespace: "system"}
 	if !IsMockMode() {
 		data, err := os.ReadFile(filepath.Join(os.Getenv("XCSH_ACC_PRIVATE"), kind+"-reference.json"))
-		if err != nil || json.Unmarshal(data, &ref) != nil || ref.Namespace != "system" || ref.Name == "" {
+		if err != nil || json.Unmarshal(data, &ref) != nil || ref.Namespace == "" || ref.Name == "" {
 			panic("verified site reference unavailable")
 		}
 	}
-	return ref.Name
+	return ref
 }
