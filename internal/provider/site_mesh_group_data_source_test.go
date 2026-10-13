@@ -44,13 +44,13 @@ resource "xcsh_site_mesh_group" "test" {
   name      = %[1]q
   namespace = "system"
   bfd_disabled = {}
-  disable_re_fallback = {}
+  enable_re_fallback = {}
   virtual_site {
     name = %[2]q
     namespace = %[3]q
   }
   full_mesh {
-    control_and_data_plane_mesh = {}
+    data_plane_mesh = {}
   }
 }
 

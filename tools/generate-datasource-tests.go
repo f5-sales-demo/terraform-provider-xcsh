@@ -51,13 +51,13 @@ func shouldRegenerateDataSourceTest(content []byte) bool {
 var resourceConfigs = map[string]string{
 	"site_mesh_group": `
   bfd_disabled = {}
-  disable_re_fallback = {}
+  enable_re_fallback = {}
   virtual_site {
     name = %[2]q
     namespace = %[3]q
   }
   full_mesh {
-    control_and_data_plane_mesh = {}
+    data_plane_mesh = {}
   }`,
 
 	"bot_defense_app_infrastructure": `

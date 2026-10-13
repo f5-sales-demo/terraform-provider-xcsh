@@ -55,7 +55,7 @@ func TestMeshDataSourceFixtureHasRequiredSelection(t *testing.T) {
 		if block.Type != "resource" || block.Labels[0] != "xcsh_site_mesh_group" {
 			continue
 		}
-		for _, name := range []string{"bfd_disabled", "disable_re_fallback"} {
+		for _, name := range []string{"bfd_disabled", "enable_re_fallback"} {
 			if block.Body.Attributes[name] == nil {
 				t.Errorf("mesh datasource missing required %s", name)
 			}

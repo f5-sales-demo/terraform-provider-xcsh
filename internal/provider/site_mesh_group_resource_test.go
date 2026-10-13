@@ -126,7 +126,7 @@ func TestAccSiteMeshGroupResource_fullMesh(t *testing.T) {
 					resource.TestCheckResourceAttr(resourceName, "annotations.purpose", "acceptance-testing"),
 					resource.TestCheckResourceAttr(resourceName, "annotations.owner", "ci-cd"),
 					// Verify full_mesh block exists
-					resource.TestCheckResourceAttr(resourceName, "full_mesh.control_and_data_plane_mesh.%", "0"),
+					resource.TestCheckResourceAttr(resourceName, "full_mesh.data_plane_mesh.%", "0"),
 				),
 			},
 			// Import verification for all attributes
@@ -640,7 +640,7 @@ resource "xcsh_site_mesh_group" "test" {
   namespace = "system"
 
   bfd_disabled = {}
-  disable_re_fallback = {}
+  enable_re_fallback = {}
 
   virtual_site {
     name = %[3]q
@@ -648,7 +648,7 @@ resource "xcsh_site_mesh_group" "test" {
   }
 
   full_mesh {
-    control_and_data_plane_mesh = {}
+    data_plane_mesh = {}
   }
 }
 `, nsName, name, virtualSiteName, virtualSiteNamespace))
@@ -675,7 +675,7 @@ resource "xcsh_site_mesh_group" "test" {
   }
 
   bfd_disabled = {}
-  disable_re_fallback = {}
+  enable_re_fallback = {}
 
   virtual_site {
     name = %[4]q
@@ -683,7 +683,7 @@ resource "xcsh_site_mesh_group" "test" {
   }
 
   full_mesh {
-    control_and_data_plane_mesh = {}
+    data_plane_mesh = {}
   }
 }
 `, nsName, name, description, virtualSiteName, virtualSiteNamespace))
@@ -704,7 +704,7 @@ resource "xcsh_site_mesh_group" "test" {
   }
 
   bfd_disabled = {}
-  disable_re_fallback = {}
+  enable_re_fallback = {}
 
   virtual_site {
     name = %[5]q
@@ -712,7 +712,7 @@ resource "xcsh_site_mesh_group" "test" {
   }
 
   full_mesh {
-    control_and_data_plane_mesh = {}
+    data_plane_mesh = {}
   }
 }
 `, nsName, name, environment, managedBy, virtualSiteName, virtualSiteNamespace))
@@ -729,7 +729,7 @@ resource "xcsh_site_mesh_group" "test" {
   description = %[3]q
 
   bfd_disabled = {}
-  disable_re_fallback = {}
+  enable_re_fallback = {}
 
   virtual_site {
     name = %[4]q
@@ -737,7 +737,7 @@ resource "xcsh_site_mesh_group" "test" {
   }
 
   full_mesh {
-    control_and_data_plane_mesh = {}
+    data_plane_mesh = {}
   }
 }
 `, nsName, name, description, virtualSiteName, virtualSiteNamespace))
@@ -758,7 +758,7 @@ resource "xcsh_site_mesh_group" "test" {
   }
 
   bfd_disabled = {}
-  disable_re_fallback = {}
+  enable_re_fallback = {}
 
   virtual_site {
     name = %[5]q
@@ -766,7 +766,7 @@ resource "xcsh_site_mesh_group" "test" {
   }
 
   full_mesh {
-    control_and_data_plane_mesh = {}
+    data_plane_mesh = {}
   }
 }
 `, nsName, name, value1, value2, virtualSiteName, virtualSiteNamespace))
