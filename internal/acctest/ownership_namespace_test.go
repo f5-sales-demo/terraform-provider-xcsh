@@ -4,6 +4,7 @@ package acctest
 import (
 	"context"
 	"encoding/json"
+	"errors"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
 	"net/http"
 	"net/http/httptest"
@@ -66,5 +67,19 @@ func TestOwnedNamespaceCleanupUsesVerifiedEmptyCascade(t *testing.T) {
 				t.Fatal("cascade command unavailable")
 			}
 		})
+	}
+}
+
+func TestOwnedNamespaceDeletionRaceAcceptsTypedAbsence(t *testing.T) {
+	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Content-Type", "application/json")
+		w.WriteHeader(404)
+		w.Write([]byte(`{"code":"NOT_FOUND"}`))
+	}))
+	defer server.Close()
+	c := client.NewClient(server.URL, "synthetic")
+	err := (apiOwnershipBackend{c: c}).Delete(context.Background(), OwnedResource{Type: "xcsh_namespace", Name: "tf-acc-test-runone-ns", UID: ownershipUIDDigest("immutable")})
+	if !errors.Is(err, errOwnedAbsent) {
+		t.Fatal("typed namespace absence rejected during deletion race")
 	}
 }

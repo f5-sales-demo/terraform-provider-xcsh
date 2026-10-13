@@ -402,7 +402,11 @@ func (b apiOwnershipBackend) Read(ctx context.Context, r OwnedResource) (client.
 }
 func (b apiOwnershipBackend) Delete(ctx context.Context, r OwnedResource) error {
 	if r.Type == "xcsh_namespace" {
-		return deleteOwnedNamespace(ctx, b.c, r)
+		err := deleteOwnedNamespace(ctx, b.c, r)
+		if authoritativeOwnedAbsence(err) {
+			return errOwnedAbsent
+		}
+		return err
 	}
 	if r.Type == "xcsh_swagger_object" {
 		return b.deleteSwagger(ctx, r)
