@@ -20,13 +20,16 @@ type readOnlySiteReference struct {
 }
 
 func discoverReadOnlySite(ctx context.Context, c *client.Client) (readOnlySiteReference, error) {
+	return discoverReadOnlyInfrastructure(ctx, c, "sites")
+}
+func discoverReadOnlyInfrastructure(ctx context.Context, c *client.Client, collection string) (readOnlySiteReference, error) {
 	var listing struct {
 		Items []struct {
 			Name     string          `json:"name"`
 			Metadata client.Metadata `json:"metadata"`
 		} `json:"items"`
 	}
-	const path = "/api/config/namespaces/system/sites"
+	path := "/api/config/namespaces/system/" + collection
 	if err := c.Get(ctx, path, &listing); err != nil {
 		return readOnlySiteReference{}, err
 	}
@@ -57,7 +60,15 @@ func discoverReadOnlySite(ctx context.Context, c *client.Client) (readOnlySiteRe
 	return readOnlySiteReference{Name: name, Namespace: "system"}, nil
 }
 
-func requireReadOnlySite(t *testing.T) {
+func requireReadOnlySite(t *testing.T) { requireReadOnlyReference(t, "site", "sites") }
+func RequireReadOnlyVirtualSite(t *testing.T) {
+	t.Helper()
+	if IsMockMode() {
+		return
+	}
+	requireReadOnlyReference(t, "virtual_site", "virtual_sites")
+}
+func requireReadOnlyReference(t *testing.T, kind, collection string) {
 	t.Helper()
 	c, err := GetTestClient()
 	if err != nil {
@@ -65,14 +76,14 @@ func requireReadOnlySite(t *testing.T) {
 	}
 	ctx, cancel := context.WithTimeout(context.Background(), 30*time.Second)
 	defer cancel()
-	ref, err := discoverReadOnlySite(ctx, c)
+	ref, err := discoverReadOnlyInfrastructure(ctx, c, collection)
 	if err != nil {
 		if classifyCapabilityProbe(err) == capabilityDenied {
-			t.Log("[PREREQUISITE:operation_denied method=GET type=site status=403]")
+			t.Logf("[PREREQUISITE:operation_denied method=GET type=%s status=403]", kind)
 			t.Skip("existing site read denied")
 		}
 		if err.Error() == "existing infrastructure absent" {
-			t.Log("[PREREQUISITE:infrastructure_absent method=GET type=site]")
+			t.Logf("[PREREQUISITE:infrastructure_absent method=GET type=%s]", kind)
 			t.Skip("no independently owned site available")
 		}
 		t.Fatal("existing site reference readback failed")
@@ -85,18 +96,20 @@ func requireReadOnlySite(t *testing.T) {
 	if err != nil {
 		t.Fatal("site reference encoding failed")
 	}
-	if err = os.WriteFile(filepath.Join(private, "site-reference.json"), data, 0600); err != nil {
+	if err = os.WriteFile(filepath.Join(private, kind+"-reference.json"), data, 0600); err != nil {
 		t.Fatal("private site reference persistence failed")
 	}
-	t.Log("[PREREQUISITE:infrastructure_verified method=GET type=site]")
+	t.Logf("[PREREQUISITE:infrastructure_verified method=GET type=%s]", kind)
 }
 
 // ReadOnlySiteName returns a verified private reference. It never imports or
 // journals the appliance. Fixture audits supply their own synthetic argument.
-func ReadOnlySiteName() string {
+func ReadOnlySiteName() string        { return readOnlyReferenceName("site") }
+func ReadOnlyVirtualSiteName() string { return readOnlyReferenceName("virtual_site") }
+func readOnlyReferenceName(kind string) string {
 	ref := readOnlySiteReference{Name: "example-site", Namespace: "system"}
 	if !IsMockMode() {
-		data, err := os.ReadFile(filepath.Join(os.Getenv("XCSH_ACC_PRIVATE"), "site-reference.json"))
+		data, err := os.ReadFile(filepath.Join(os.Getenv("XCSH_ACC_PRIVATE"), kind+"-reference.json"))
 		if err != nil || json.Unmarshal(data, &ref) != nil || ref.Namespace != "system" || ref.Name == "" {
 			panic("verified site reference unavailable")
 		}
