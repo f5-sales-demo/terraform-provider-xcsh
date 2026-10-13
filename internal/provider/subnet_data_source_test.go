@@ -55,6 +55,7 @@ resource "xcsh_subnet" "test" {
   depends_on = [time_sleep.wait_for_namespace]
   name       = %[2]q
   namespace  = xcsh_namespace.test.name
+  isolated_nw = {}
 }
 
 data "xcsh_subnet" "test" {

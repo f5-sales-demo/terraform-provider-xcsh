@@ -49,6 +49,8 @@ func shouldRegenerateDataSourceTest(content []byte) bool {
 // Resource configurations based on OpenAPI specs
 // Key is the resource name (without xcsh_ prefix)
 var resourceConfigs = map[string]string{
+	"subnet": `
+  isolated_nw = {}`,
 	"site_mesh_group": `
   bfd_disabled = {}
   enable_re_fallback = {}
