@@ -31,7 +31,7 @@ func TestAccAPIDefinitionResource_basic(t *testing.T) {
 				Check: resource.ComposeAggregateTestCheckFunc(
 					acctest.CheckResourceExists(resourceName),
 					resource.TestCheckResourceAttr(resourceName, "name", rName),
-					resource.TestCheckResourceAttr(resourceName, "namespace", "shared"),
+					resource.TestCheckResourceAttr(resourceName, "namespace", "system"),
 					resource.TestCheckResourceAttrSet(resourceName, "id"),
 				),
 			},
@@ -259,14 +259,14 @@ func testAccAPIDefinitionConfig_withLabels(name string) string {
 	return fmt.Sprintf(`
 resource "xcsh_swagger_object" "fixture" {
   name = "%[1]s-spec"
-  namespace = "shared"
+  namespace = "system"
   content = "{\"openapi\":\"3.0.3\",\"info\":{\"title\":\"Acceptance API\",\"version\":\"1.0.0\"},\"servers\":[{\"url\":\"https://example.com\"}],\"paths\":{\"/health\":{\"get\":{\"responses\":{\"200\":{\"description\":\"OK\"}}}}}}"
 }
 
 resource "xcsh_api_definition" "test" {
   swagger_specs = [xcsh_swagger_object.fixture.path]
   name      = %[1]q
-  namespace = "shared"
+  namespace = "system"
 
   labels = {
     environment = "test"
@@ -279,14 +279,14 @@ func testAccAPIDefinitionConfig_strictSchema(name string) string {
 	return fmt.Sprintf(`
 resource "xcsh_swagger_object" "fixture" {
   name = "%[1]s-spec"
-  namespace = "shared"
+  namespace = "system"
   content = "{\"openapi\":\"3.0.3\",\"info\":{\"title\":\"Acceptance API\",\"version\":\"1.0.0\"},\"servers\":[{\"url\":\"https://example.com\"}],\"paths\":{\"/health\":{\"get\":{\"responses\":{\"200\":{\"description\":\"OK\"}}}}}}"
 }
 
 resource "xcsh_api_definition" "test" {
   swagger_specs = [xcsh_swagger_object.fixture.path]
   name      = %[1]q
-  namespace = "shared"
+  namespace = "system"
 
   strict_schema_origin = {}
 }
@@ -297,14 +297,14 @@ func testAccAPIDefinitionConfig_basic(name string) string {
 	return fmt.Sprintf(`
 resource "xcsh_swagger_object" "fixture" {
   name = "%[1]s-spec"
-  namespace = "shared"
+  namespace = "system"
   content = "{\"openapi\":\"3.0.3\",\"info\":{\"title\":\"Acceptance API\",\"version\":\"1.0.0\"},\"servers\":[{\"url\":\"https://example.com\"}],\"paths\":{\"/health\":{\"get\":{\"responses\":{\"200\":{\"description\":\"OK\"}}}}}}"
 }
 
 resource "xcsh_api_definition" "test" {
   swagger_specs = [xcsh_swagger_object.fixture.path]
   name      = %[1]q
-  namespace = "shared"
+  namespace = "system"
 }
 `, name)
 }

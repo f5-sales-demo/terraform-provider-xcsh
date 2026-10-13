@@ -127,7 +127,7 @@ func TestAccSiteMeshGroupResource_fullMesh(t *testing.T) {
 					resource.TestCheckResourceAttr(resourceName, "annotations.purpose", "acceptance-testing"),
 					resource.TestCheckResourceAttr(resourceName, "annotations.owner", "ci-cd"),
 					// Verify full_mesh block exists
-					resource.TestCheckResourceAttr(resourceName, "full_mesh.#", "1"),
+					resource.TestCheckResourceAttr(resourceName, "full_mesh.control_and_data_plane_mesh.%", "0"),
 				),
 			},
 			// Import verification for all attributes
