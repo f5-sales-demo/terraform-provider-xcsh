@@ -30,6 +30,7 @@ import (
 
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
 	xcsherrors "github.com/f5-sales-demo/terraform-provider-xcsh/internal/errors"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/planmodifiers"
 	inttimeouts "github.com/f5-sales-demo/terraform-provider-xcsh/internal/timeouts"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/validators"
 )
@@ -10784,6 +10785,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 								Optional:            true,
 								Computed:            true,
 								PlanModifiers: []planmodifier.Object{
+									planmodifiers.DefaultOneOfMarker("default_session_key_caching", []string{"default_session_key_caching", "disable_session_key_caching", "max_session_keys"}),
 									objectplanmodifier.UseStateForUnknown(),
 								},
 								AttributeTypes: map[string]attr.Type{},
@@ -10810,6 +10812,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 								Optional:            true,
 								Computed:            true,
 								PlanModifiers: []planmodifier.Object{
+									planmodifiers.DefaultOneOfMarker("no_mtls", []string{"no_mtls", "use_mtls", "use_mtls_obj"}),
 									objectplanmodifier.UseStateForUnknown(),
 								},
 								AttributeTypes: map[string]attr.Type{},
@@ -10831,6 +10834,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 								Optional:            true,
 								Computed:            true,
 								PlanModifiers: []planmodifier.Object{
+									planmodifiers.DefaultOneOfMarker("use_host_header_as_sni", []string{"use_host_header_as_sni", "disable_sni", "sni"}),
 									objectplanmodifier.UseStateForUnknown(),
 								},
 								AttributeTypes: map[string]attr.Type{},
@@ -10840,6 +10844,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 								Optional:            true,
 								Computed:            true,
 								PlanModifiers: []planmodifier.Object{
+									planmodifiers.DefaultOneOfMarker("volterra_trusted_ca", []string{"volterra_trusted_ca", "skip_server_verification", "use_server_verification"}),
 									objectplanmodifier.UseStateForUnknown(),
 								},
 								AttributeTypes: map[string]attr.Type{},
@@ -12112,6 +12117,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 						Optional:            true,
 						Computed:            true,
 						PlanModifiers: []planmodifier.Object{
+							planmodifiers.DefaultOneOfMarker("no_ip_allowed_list", []string{"no_ip_allowed_list", "custom_ip_allowed_list", "ip_allowed_list"}),
 							objectplanmodifier.UseStateForUnknown(),
 						},
 						AttributeTypes: map[string]attr.Type{},
@@ -12121,6 +12127,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 						Optional:            true,
 						Computed:            true,
 						PlanModifiers: []planmodifier.Object{
+							planmodifiers.DefaultOneOfMarker("no_policies", []string{"no_policies", "policies"}),
 							objectplanmodifier.UseStateForUnknown(),
 						},
 						AttributeTypes: map[string]attr.Type{},

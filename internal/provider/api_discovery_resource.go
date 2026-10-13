@@ -25,6 +25,7 @@ import (
 
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
 	xcsherrors "github.com/f5-sales-demo/terraform-provider-xcsh/internal/errors"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/planmodifiers"
 	inttimeouts "github.com/f5-sales-demo/terraform-provider-xcsh/internal/timeouts"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/validators"
 )
@@ -242,6 +243,7 @@ func (r *APIDiscoveryResource) Schema(ctx context.Context, req resource.SchemaRe
 						Optional:            true,
 						Computed:            true,
 						PlanModifiers: []planmodifier.Object{
+							planmodifiers.DefaultOneOfMarker("inclusive", []string{"inclusive", "exclusive"}),
 							objectplanmodifier.UseStateForUnknown(),
 						},
 						AttributeTypes: map[string]attr.Type{},

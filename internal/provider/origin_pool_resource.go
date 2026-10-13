@@ -1836,6 +1836,7 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 						Optional:            true,
 						Computed:            true,
 						PlanModifiers: []planmodifier.Object{
+							planmodifiers.DefaultOneOfMarker("auto_http_config", []string{"auto_http_config", "http1_config", "http2_options"}),
 							objectplanmodifier.UseStateForUnknown(),
 						},
 						AttributeTypes: map[string]attr.Type{},
@@ -1856,6 +1857,7 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 						Optional:            true,
 						Computed:            true,
 						PlanModifiers: []planmodifier.Object{
+							planmodifiers.DefaultOneOfMarker("default_circuit_breaker", []string{"default_circuit_breaker", "circuit_breaker", "disable_circuit_breaker"}),
 							objectplanmodifier.UseStateForUnknown(),
 						},
 						AttributeTypes: map[string]attr.Type{},
@@ -1875,6 +1877,7 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 						Optional:            true,
 						Computed:            true,
 						PlanModifiers: []planmodifier.Object{
+							planmodifiers.DefaultOneOfMarker("disable_outlier_detection", []string{"disable_outlier_detection", "outlier_detection"}),
 							objectplanmodifier.UseStateForUnknown(),
 						},
 						AttributeTypes: map[string]attr.Type{},
@@ -1889,6 +1892,7 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 						Optional:            true,
 						Computed:            true,
 						PlanModifiers: []planmodifier.Object{
+							planmodifiers.DefaultOneOfMarker("disable_subsets", []string{"disable_subsets", "enable_subsets"}),
 							objectplanmodifier.UseStateForUnknown(),
 						},
 						AttributeTypes: map[string]attr.Type{},
@@ -1921,6 +1925,7 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 						Optional:            true,
 						Computed:            true,
 						PlanModifiers: []planmodifier.Object{
+							planmodifiers.DefaultOneOfMarker("no_panic_threshold", []string{"no_panic_threshold", "panic_threshold"}),
 							objectplanmodifier.UseStateForUnknown(),
 						},
 						AttributeTypes: map[string]attr.Type{},
@@ -1930,6 +1935,7 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 						Optional:            true,
 						Computed:            true,
 						PlanModifiers: []planmodifier.Object{
+							planmodifiers.DefaultOneOfMarker("no_request_limit_per_connection", []string{"no_request_limit_per_connection", "max_requests_per_connection"}),
 							objectplanmodifier.UseStateForUnknown(),
 						},
 						AttributeTypes: map[string]attr.Type{},
@@ -2141,6 +2147,7 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 						Optional:            true,
 						Computed:            true,
 						PlanModifiers: []planmodifier.Object{
+							planmodifiers.DefaultOneOfMarker("default_session_key_caching", []string{"default_session_key_caching", "disable_session_key_caching", "max_session_keys"}),
 							objectplanmodifier.UseStateForUnknown(),
 						},
 						AttributeTypes: map[string]attr.Type{},
@@ -2167,6 +2174,7 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 						Optional:            true,
 						Computed:            true,
 						PlanModifiers: []planmodifier.Object{
+							planmodifiers.DefaultOneOfMarker("no_mtls", []string{"no_mtls", "use_mtls", "use_mtls_obj"}),
 							objectplanmodifier.UseStateForUnknown(),
 						},
 						AttributeTypes: map[string]attr.Type{},
@@ -2188,6 +2196,7 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 						Optional:            true,
 						Computed:            true,
 						PlanModifiers: []planmodifier.Object{
+							planmodifiers.DefaultOneOfMarker("use_host_header_as_sni", []string{"use_host_header_as_sni", "disable_sni", "sni"}),
 							objectplanmodifier.UseStateForUnknown(),
 						},
 						AttributeTypes: map[string]attr.Type{},
@@ -2197,6 +2206,7 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 						Optional:            true,
 						Computed:            true,
 						PlanModifiers: []planmodifier.Object{
+							planmodifiers.DefaultOneOfMarker("volterra_trusted_ca", []string{"volterra_trusted_ca", "skip_server_verification", "use_server_verification"}),
 							objectplanmodifier.UseStateForUnknown(),
 						},
 						AttributeTypes: map[string]attr.Type{},
