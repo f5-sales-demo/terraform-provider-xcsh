@@ -16,6 +16,14 @@ func TestMeshReferenceRequiresCustomerEdgeSelector(t *testing.T) {
 			_, _ = w.Write([]byte(`{"items":[{"name":"regional"},{"name":"customer"}]}`))
 			return
 		}
+		if r.URL.Path == "/api/config/namespaces/system/virtual_sites/customer/selectees" {
+			_, _ = w.Write([]byte(`{"items":[{"name":"fixture-site","namespace":"system","kind":"site"}]}`))
+			return
+		}
+		if r.URL.Path == "/api/config/namespaces/system/sites/fixture-site" {
+			_, _ = w.Write([]byte(`{"metadata":{"name":"fixture-site","namespace":"system"},"system_metadata":{"uid":"immutable-site"}}`))
+			return
+		}
 		typ := "REGIONAL_EDGE"
 		name := "regional"
 		if r.URL.Path == "/api/config/namespaces/system/virtual_sites/customer" {

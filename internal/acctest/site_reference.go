@@ -15,8 +15,9 @@ import (
 )
 
 type readOnlySiteReference struct {
-	Name      string `json:"name"`
-	Namespace string `json:"namespace"`
+	Name          string `json:"name"`
+	Namespace     string `json:"namespace"`
+	SelectedSites int    `json:"selected_sites,omitempty"`
 }
 
 func discoverReadOnlySite(ctx context.Context, c *client.Client) (readOnlySiteReference, error) {
@@ -99,6 +100,14 @@ func discoverInfrastructureWithEligibility(ctx context.Context, c *client.Client
 			if len(expressions) == 0 {
 				continue
 			}
+			count, err := verifyMeshSelectorExpansion(ctx, c, ref)
+			if err != nil {
+				return readOnlySiteReference{}, err
+			}
+			if count == 0 {
+				continue
+			}
+			ref.SelectedSites = count
 		}
 		return ref, nil
 	}
@@ -169,4 +178,40 @@ func readOnlyReference(kind string) readOnlySiteReference {
 		}
 	}
 	return ref
+}
+
+// verifyMeshSelectorExpansion uses the API's resolved selection and exact site
+// readback. Empty successful selections are absent; uncertain expansion fails.
+func verifyMeshSelectorExpansion(ctx context.Context, c *client.Client, ref readOnlySiteReference) (int, error) {
+	var expansion struct {
+		Items []struct {
+			Name      string `json:"name"`
+			Namespace string `json:"namespace"`
+			Kind      string `json:"kind"`
+		} `json:"items"`
+		Error json.RawMessage `json:"error"`
+	}
+	path := "/api/config/namespaces/" + ref.Namespace + "/virtual_sites/" + ref.Name + "/selectees"
+	if err := c.Get(ctx, path, &expansion); err != nil {
+		return 0, err
+	}
+	if expansion.Items == nil || (len(expansion.Error) > 0 && string(expansion.Error) != "null" && string(expansion.Error) != "{}") {
+		return 0, errors.New("mesh selector expansion malformed")
+	}
+	seen := map[string]bool{}
+	for _, item := range expansion.Items {
+		if item.Name == "" || item.Namespace == "" || strings.ContainsAny(item.Name+item.Namespace, "/?# \t\r\n") || (item.Kind != "site" && !strings.HasSuffix(item.Kind, ".site")) {
+			return 0, errors.New("mesh selector site identity malformed")
+		}
+		key := item.Namespace + "/" + item.Name
+		if seen[key] {
+			return 0, errors.New("mesh selector duplicate site")
+		}
+		seen[key] = true
+		if _, err := readOwnershipProjection(ctx, c, "/api/config/namespaces/"+item.Namespace+"/sites/"+item.Name, item.Namespace, item.Name); err != nil {
+			// A selected stale site is an inconsistent expansion, never an absent selector.
+			return 0, errors.New("mesh selector selected-site readback failed")
+		}
+	}
+	return len(expansion.Items), nil
 }
