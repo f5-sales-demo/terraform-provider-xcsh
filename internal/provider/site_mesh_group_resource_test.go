@@ -47,6 +47,7 @@ import (
 func TestAccSiteMeshGroupResource_basic(t *testing.T) {
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
+	acctest.RequireReadOnlyVirtualSite(t)
 
 	// Skip: site_mesh_group requires site references (full_mesh or hub type with sites)
 	// Cannot test without actual site infrastructure
@@ -65,7 +66,7 @@ func TestAccSiteMeshGroupResource_basic(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Step 1: Create site mesh group with minimal configuration
 			{
-				Config: testAccSiteMeshGroupResourceConfig_basic(nsName, rName),
+				Config: testAccSiteMeshGroupResourceConfig_basic(nsName, rName, acctest.ReadOnlyVirtualSiteName()),
 				Check: resource.ComposeAggregateTestCheckFunc(
 					// Verify resource exists in Terraform state
 					acctest.CheckResourceExists(resourceName),
@@ -96,6 +97,7 @@ func TestAccSiteMeshGroupResource_basic(t *testing.T) {
 func TestAccSiteMeshGroupResource_fullMesh(t *testing.T) {
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
+	acctest.RequireReadOnlyVirtualSite(t)
 
 	nsName := "system"
 	rName := acctest.RandomName("tf-acc-test-smg")
@@ -111,7 +113,7 @@ func TestAccSiteMeshGroupResource_fullMesh(t *testing.T) {
 		},
 		Steps: []resource.TestStep{
 			{
-				Config: testAccSiteMeshGroupResourceConfig_fullMesh(nsName, rName, description),
+				Config: testAccSiteMeshGroupResourceConfig_fullMesh(nsName, rName, description, acctest.ReadOnlyVirtualSiteName()),
 				Check: resource.ComposeAggregateTestCheckFunc(
 					acctest.CheckResourceExists(resourceName),
 					// Verify all attributes in Terraform state
@@ -147,6 +149,7 @@ func TestAccSiteMeshGroupResource_fullMesh(t *testing.T) {
 func TestAccSiteMeshGroupResource_updateLabels(t *testing.T) {
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
+	acctest.RequireReadOnlyVirtualSite(t)
 
 	nsName := "system"
 	rName := acctest.RandomName("tf-acc-test-smg")
@@ -162,7 +165,7 @@ func TestAccSiteMeshGroupResource_updateLabels(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Step 1: Create with initial labels
 			{
-				Config: testAccSiteMeshGroupResourceConfig_withLabels(nsName, rName, "test", "terraform"),
+				Config: testAccSiteMeshGroupResourceConfig_withLabels(nsName, rName, "test", "terraform", acctest.ReadOnlyVirtualSiteName()),
 				Check: resource.ComposeAggregateTestCheckFunc(
 					acctest.CheckResourceExists(resourceName),
 					resource.TestCheckResourceAttr(resourceName, "labels.environment", "test"),
@@ -171,7 +174,7 @@ func TestAccSiteMeshGroupResource_updateLabels(t *testing.T) {
 			},
 			// Step 2: Update labels
 			{
-				Config: testAccSiteMeshGroupResourceConfig_withLabels(nsName, rName, "staging", "terraform-updated"),
+				Config: testAccSiteMeshGroupResourceConfig_withLabels(nsName, rName, "staging", "terraform-updated", acctest.ReadOnlyVirtualSiteName()),
 				Check: resource.ComposeAggregateTestCheckFunc(
 					acctest.CheckResourceExists(resourceName),
 					resource.TestCheckResourceAttr(resourceName, "labels.environment", "staging"),
@@ -180,7 +183,7 @@ func TestAccSiteMeshGroupResource_updateLabels(t *testing.T) {
 			},
 			// Step 3: Remove all labels
 			{
-				Config: testAccSiteMeshGroupResourceConfig_basic(nsName, rName),
+				Config: testAccSiteMeshGroupResourceConfig_basic(nsName, rName, acctest.ReadOnlyVirtualSiteName()),
 				Check: resource.ComposeAggregateTestCheckFunc(
 					acctest.CheckResourceExists(resourceName),
 					resource.TestCheckNoResourceAttr(resourceName, "labels.environment"),
@@ -200,6 +203,7 @@ func TestAccSiteMeshGroupResource_updateLabels(t *testing.T) {
 func TestAccSiteMeshGroupResource_updateDescription(t *testing.T) {
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
+	acctest.RequireReadOnlyVirtualSite(t)
 
 	nsName := "system"
 	rName := acctest.RandomName("tf-acc-test-smg")
@@ -215,7 +219,7 @@ func TestAccSiteMeshGroupResource_updateDescription(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Step 1: Create without description
 			{
-				Config: testAccSiteMeshGroupResourceConfig_basic(nsName, rName),
+				Config: testAccSiteMeshGroupResourceConfig_basic(nsName, rName, acctest.ReadOnlyVirtualSiteName()),
 				Check: resource.ComposeAggregateTestCheckFunc(
 					acctest.CheckResourceExists(resourceName),
 					resource.TestCheckNoResourceAttr(resourceName, "description"),
@@ -223,7 +227,7 @@ func TestAccSiteMeshGroupResource_updateDescription(t *testing.T) {
 			},
 			// Step 2: Add description
 			{
-				Config: testAccSiteMeshGroupResourceConfig_withDescription(nsName, rName, "Initial description"),
+				Config: testAccSiteMeshGroupResourceConfig_withDescription(nsName, rName, "Initial description", acctest.ReadOnlyVirtualSiteName()),
 				Check: resource.ComposeAggregateTestCheckFunc(
 					acctest.CheckResourceExists(resourceName),
 					resource.TestCheckResourceAttr(resourceName, "description", "Initial description"),
@@ -231,7 +235,7 @@ func TestAccSiteMeshGroupResource_updateDescription(t *testing.T) {
 			},
 			// Step 3: Update description
 			{
-				Config: testAccSiteMeshGroupResourceConfig_withDescription(nsName, rName, "Updated description"),
+				Config: testAccSiteMeshGroupResourceConfig_withDescription(nsName, rName, "Updated description", acctest.ReadOnlyVirtualSiteName()),
 				Check: resource.ComposeAggregateTestCheckFunc(
 					acctest.CheckResourceExists(resourceName),
 					resource.TestCheckResourceAttr(resourceName, "description", "Updated description"),
@@ -239,7 +243,7 @@ func TestAccSiteMeshGroupResource_updateDescription(t *testing.T) {
 			},
 			// Step 4: Remove description
 			{
-				Config: testAccSiteMeshGroupResourceConfig_basic(nsName, rName),
+				Config: testAccSiteMeshGroupResourceConfig_basic(nsName, rName, acctest.ReadOnlyVirtualSiteName()),
 				Check: resource.ComposeAggregateTestCheckFunc(
 					acctest.CheckResourceExists(resourceName),
 				),
@@ -257,6 +261,7 @@ func TestAccSiteMeshGroupResource_updateDescription(t *testing.T) {
 func TestAccSiteMeshGroupResource_updateAnnotations(t *testing.T) {
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
+	acctest.RequireReadOnlyVirtualSite(t)
 
 	nsName := "system"
 	rName := acctest.RandomName("tf-acc-test-smg")
@@ -272,7 +277,7 @@ func TestAccSiteMeshGroupResource_updateAnnotations(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Step 1: Create with annotations
 			{
-				Config: testAccSiteMeshGroupResourceConfig_withAnnotations(nsName, rName, "value1", "value2"),
+				Config: testAccSiteMeshGroupResourceConfig_withAnnotations(nsName, rName, "value1", "value2", acctest.ReadOnlyVirtualSiteName()),
 				Check: resource.ComposeAggregateTestCheckFunc(
 					acctest.CheckResourceExists(resourceName),
 					resource.TestCheckResourceAttr(resourceName, "annotations.key1", "value1"),
@@ -281,7 +286,7 @@ func TestAccSiteMeshGroupResource_updateAnnotations(t *testing.T) {
 			},
 			// Step 2: Update annotations
 			{
-				Config: testAccSiteMeshGroupResourceConfig_withAnnotations(nsName, rName, "updated1", "updated2"),
+				Config: testAccSiteMeshGroupResourceConfig_withAnnotations(nsName, rName, "updated1", "updated2", acctest.ReadOnlyVirtualSiteName()),
 				Check: resource.ComposeAggregateTestCheckFunc(
 					acctest.CheckResourceExists(resourceName),
 					resource.TestCheckResourceAttr(resourceName, "annotations.key1", "updated1"),
@@ -290,7 +295,7 @@ func TestAccSiteMeshGroupResource_updateAnnotations(t *testing.T) {
 			},
 			// Step 3: Remove annotations
 			{
-				Config: testAccSiteMeshGroupResourceConfig_basic(nsName, rName),
+				Config: testAccSiteMeshGroupResourceConfig_basic(nsName, rName, acctest.ReadOnlyVirtualSiteName()),
 				Check: resource.ComposeAggregateTestCheckFunc(
 					acctest.CheckResourceExists(resourceName),
 				),
@@ -308,6 +313,7 @@ func TestAccSiteMeshGroupResource_updateAnnotations(t *testing.T) {
 func TestAccSiteMeshGroupResource_emptyPlan(t *testing.T) {
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
+	acctest.RequireReadOnlyVirtualSite(t)
 
 	nsName := "system"
 	rName := acctest.RandomName("tf-acc-test-smg")
@@ -323,14 +329,14 @@ func TestAccSiteMeshGroupResource_emptyPlan(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Step 1: Create resource
 			{
-				Config: testAccSiteMeshGroupResourceConfig_fullMesh(nsName, rName, "Empty plan test"),
+				Config: testAccSiteMeshGroupResourceConfig_fullMesh(nsName, rName, "Empty plan test", acctest.ReadOnlyVirtualSiteName()),
 				Check: resource.ComposeAggregateTestCheckFunc(
 					acctest.CheckResourceExists(resourceName),
 				),
 			},
 			// Step 2: Apply same config again - should produce empty plan
 			{
-				Config: testAccSiteMeshGroupResourceConfig_fullMesh(nsName, rName, "Empty plan test"),
+				Config: testAccSiteMeshGroupResourceConfig_fullMesh(nsName, rName, "Empty plan test", acctest.ReadOnlyVirtualSiteName()),
 				ConfigPlanChecks: resource.ConfigPlanChecks{
 					PreApply: []plancheck.PlanCheck{
 						plancheck.ExpectEmptyPlan(),
@@ -350,6 +356,7 @@ func TestAccSiteMeshGroupResource_emptyPlan(t *testing.T) {
 func TestAccSiteMeshGroupResource_planChecks(t *testing.T) {
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
+	acctest.RequireReadOnlyVirtualSite(t)
 
 	nsName := "system"
 	rName := acctest.RandomName("tf-acc-test-smg")
@@ -365,7 +372,7 @@ func TestAccSiteMeshGroupResource_planChecks(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Step 1: Create - verify create action planned
 			{
-				Config: testAccSiteMeshGroupResourceConfig_basic(nsName, rName),
+				Config: testAccSiteMeshGroupResourceConfig_basic(nsName, rName, acctest.ReadOnlyVirtualSiteName()),
 				ConfigPlanChecks: resource.ConfigPlanChecks{
 					PreApply: []plancheck.PlanCheck{
 						plancheck.ExpectResourceAction(resourceName, plancheck.ResourceActionCreate),
@@ -377,7 +384,7 @@ func TestAccSiteMeshGroupResource_planChecks(t *testing.T) {
 			},
 			// Step 2: Update - verify update action planned
 			{
-				Config: testAccSiteMeshGroupResourceConfig_withDescription(nsName, rName, "Updated for plan check"),
+				Config: testAccSiteMeshGroupResourceConfig_withDescription(nsName, rName, "Updated for plan check", acctest.ReadOnlyVirtualSiteName()),
 				ConfigPlanChecks: resource.ConfigPlanChecks{
 					PreApply: []plancheck.PlanCheck{
 						plancheck.ExpectResourceAction(resourceName, plancheck.ResourceActionUpdate),
@@ -386,7 +393,7 @@ func TestAccSiteMeshGroupResource_planChecks(t *testing.T) {
 			},
 			// Step 3: No change - verify no-op planned
 			{
-				Config: testAccSiteMeshGroupResourceConfig_withDescription(nsName, rName, "Updated for plan check"),
+				Config: testAccSiteMeshGroupResourceConfig_withDescription(nsName, rName, "Updated for plan check", acctest.ReadOnlyVirtualSiteName()),
 				ConfigPlanChecks: resource.ConfigPlanChecks{
 					PreApply: []plancheck.PlanCheck{
 						plancheck.ExpectResourceAction(resourceName, plancheck.ResourceActionNoop),
@@ -406,6 +413,7 @@ func TestAccSiteMeshGroupResource_planChecks(t *testing.T) {
 func TestAccSiteMeshGroupResource_knownValues(t *testing.T) {
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
+	acctest.RequireReadOnlyVirtualSite(t)
 
 	nsName := "system"
 	rName := acctest.RandomName("tf-acc-test-smg")
@@ -420,7 +428,7 @@ func TestAccSiteMeshGroupResource_knownValues(t *testing.T) {
 		},
 		Steps: []resource.TestStep{
 			{
-				Config: testAccSiteMeshGroupResourceConfig_withDescription(nsName, rName, "Known value test"),
+				Config: testAccSiteMeshGroupResourceConfig_withDescription(nsName, rName, "Known value test", acctest.ReadOnlyVirtualSiteName()),
 				ConfigPlanChecks: resource.ConfigPlanChecks{
 					PreApply: []plancheck.PlanCheck{
 						plancheck.ExpectKnownValue(resourceName,
@@ -463,7 +471,7 @@ func TestAccSiteMeshGroupResource_invalidName(t *testing.T) {
 		Steps: []resource.TestStep{
 			{
 				// Name with invalid characters (uppercase)
-				Config:      testAccSiteMeshGroupResourceConfig_basic(nsName, "Invalid-NAME-Test"),
+				Config:      testAccSiteMeshGroupResourceConfig_basic(nsName, "Invalid-NAME-Test", "example-virtual-site"),
 				ExpectError: regexp.MustCompile(`(?i)(invalid|name|must)`),
 			},
 		},
@@ -492,7 +500,7 @@ func TestAccSiteMeshGroupResource_nameTooLong(t *testing.T) {
 		},
 		Steps: []resource.TestStep{
 			{
-				Config:      testAccSiteMeshGroupResourceConfig_basic(nsName, longName),
+				Config:      testAccSiteMeshGroupResourceConfig_basic(nsName, longName, "example-virtual-site"),
 				ExpectError: regexp.MustCompile(`(?i)(invalid|name|length|long|exceed|character)`),
 			},
 		},
@@ -519,7 +527,7 @@ func TestAccSiteMeshGroupResource_emptyName(t *testing.T) {
 		},
 		Steps: []resource.TestStep{
 			{
-				Config:      testAccSiteMeshGroupResourceConfig_basic(nsName, ""),
+				Config:      testAccSiteMeshGroupResourceConfig_basic(nsName, "", "example-virtual-site"),
 				ExpectError: regexp.MustCompile(`(?i)(invalid|name|empty|required|blank)`),
 			},
 		},
@@ -535,6 +543,7 @@ func TestAccSiteMeshGroupResource_emptyName(t *testing.T) {
 func TestAccSiteMeshGroupResource_requiresReplaceName(t *testing.T) {
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
+	acctest.RequireReadOnlyVirtualSite(t)
 
 	nsName := "system"
 	rName1 := acctest.RandomName("tf-acc-test-smg")
@@ -551,7 +560,7 @@ func TestAccSiteMeshGroupResource_requiresReplaceName(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Step 1: Create with first name
 			{
-				Config: testAccSiteMeshGroupResourceConfig_basic(nsName, rName1),
+				Config: testAccSiteMeshGroupResourceConfig_basic(nsName, rName1, acctest.ReadOnlyVirtualSiteName()),
 				Check: resource.ComposeAggregateTestCheckFunc(
 					acctest.CheckResourceExists(resourceName),
 					resource.TestCheckResourceAttr(resourceName, "name", rName1),
@@ -559,7 +568,7 @@ func TestAccSiteMeshGroupResource_requiresReplaceName(t *testing.T) {
 			},
 			// Step 2: Change name - should force replacement
 			{
-				Config: testAccSiteMeshGroupResourceConfig_basic(nsName, rName2),
+				Config: testAccSiteMeshGroupResourceConfig_basic(nsName, rName2, acctest.ReadOnlyVirtualSiteName()),
 				ConfigPlanChecks: resource.ConfigPlanChecks{
 					PreApply: []plancheck.PlanCheck{
 						plancheck.ExpectResourceAction(resourceName, plancheck.ResourceActionDestroyBeforeCreate),
@@ -583,9 +592,10 @@ func TestAccSiteMeshGroupResource_requiresReplaceName(t *testing.T) {
 func TestAccSiteMeshGroupResource_requiresReplaceNamespace(t *testing.T) {
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
+	acctest.RequireReadOnlyVirtualSite(t)
 
 	nsName1 := "system"
-	nsName2 := "system"
+	nsName2 := "shared"
 	rName := acctest.RandomName("tf-acc-test-smg")
 	resourceName := "xcsh_site_mesh_group.test"
 
@@ -599,24 +609,17 @@ func TestAccSiteMeshGroupResource_requiresReplaceNamespace(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Step 1: Create with first namespace
 			{
-				Config: testAccSiteMeshGroupResourceConfig_basic(nsName1, rName),
+				Config: testAccSiteMeshGroupResourceConfig_basic(nsName1, rName, acctest.ReadOnlyVirtualSiteName()),
 				Check: resource.ComposeAggregateTestCheckFunc(
 					acctest.CheckResourceExists(resourceName),
 					resource.TestCheckResourceAttr(resourceName, "namespace", nsName1),
 				),
 			},
-			// Step 2: Change namespace - should force replacement
+			// Step 2: Verify replacement in the plan without applying an unsupported namespace.
 			{
-				Config: testAccSiteMeshGroupResourceConfig_basic(nsName2, rName),
-				ConfigPlanChecks: resource.ConfigPlanChecks{
-					PreApply: []plancheck.PlanCheck{
-						plancheck.ExpectResourceAction(resourceName, plancheck.ResourceActionDestroyBeforeCreate),
-					},
-				},
-				Check: resource.ComposeAggregateTestCheckFunc(
-					acctest.CheckResourceExists(resourceName),
-					resource.TestCheckResourceAttr(resourceName, "namespace", nsName2),
-				),
+				Config:             testAccSiteMeshGroupResourceConfig_basic(nsName2, rName, acctest.ReadOnlyVirtualSiteName()),
+				PlanOnly:           true,
+				ExpectNonEmptyPlan: true,
 			},
 		},
 	})
@@ -626,23 +629,28 @@ func TestAccSiteMeshGroupResource_requiresReplaceNamespace(t *testing.T) {
 // Test Configuration Functions
 // =============================================================================
 
-func testAccSiteMeshGroupResourceConfig_basic(nsName, name string) string {
+func testAccSiteMeshGroupResourceConfig_basic(nsName, name string, virtualSiteName string) string {
 	return acctest.ConfigCompose(
 		acctest.ProviderConfig(),
 		fmt.Sprintf(`
 
 resource "xcsh_site_mesh_group" "test" {
   name       = %[2]q
-  namespace = "system"
+  namespace = %[1]q
+
+  virtual_site {
+    name = %[3]q
+    namespace = "system"
+  }
 
   full_mesh {
     control_and_data_plane_mesh = {}
   }
 }
-`, nsName, name))
+`, nsName, name, virtualSiteName))
 }
 
-func testAccSiteMeshGroupResourceConfig_fullMesh(nsName, name, description string) string {
+func testAccSiteMeshGroupResourceConfig_fullMesh(nsName, name, description string, virtualSiteName string) string {
 	return acctest.ConfigCompose(
 		acctest.ProviderConfig(),
 		fmt.Sprintf(`
@@ -662,14 +670,19 @@ resource "xcsh_site_mesh_group" "test" {
     owner   = "ci-cd"
   }
 
+  virtual_site {
+    name = %[4]q
+    namespace = "system"
+  }
+
   full_mesh {
     control_and_data_plane_mesh = {}
   }
 }
-`, nsName, name, description))
+`, nsName, name, description, virtualSiteName))
 }
 
-func testAccSiteMeshGroupResourceConfig_withLabels(nsName, name, environment, managedBy string) string {
+func testAccSiteMeshGroupResourceConfig_withLabels(nsName, name, environment, managedBy string, virtualSiteName string) string {
 	return acctest.ConfigCompose(
 		acctest.ProviderConfig(),
 		fmt.Sprintf(`
@@ -683,14 +696,19 @@ resource "xcsh_site_mesh_group" "test" {
     managed_by  = %[4]q
   }
 
+  virtual_site {
+    name = %[5]q
+    namespace = "system"
+  }
+
   full_mesh {
     control_and_data_plane_mesh = {}
   }
 }
-`, nsName, name, environment, managedBy))
+`, nsName, name, environment, managedBy, virtualSiteName))
 }
 
-func testAccSiteMeshGroupResourceConfig_withDescription(nsName, name, description string) string {
+func testAccSiteMeshGroupResourceConfig_withDescription(nsName, name, description string, virtualSiteName string) string {
 	return acctest.ConfigCompose(
 		acctest.ProviderConfig(),
 		fmt.Sprintf(`
@@ -700,14 +718,19 @@ resource "xcsh_site_mesh_group" "test" {
   namespace = "system"
   description = %[3]q
 
+  virtual_site {
+    name = %[4]q
+    namespace = "system"
+  }
+
   full_mesh {
     control_and_data_plane_mesh = {}
   }
 }
-`, nsName, name, description))
+`, nsName, name, description, virtualSiteName))
 }
 
-func testAccSiteMeshGroupResourceConfig_withAnnotations(nsName, name, value1, value2 string) string {
+func testAccSiteMeshGroupResourceConfig_withAnnotations(nsName, name, value1, value2 string, virtualSiteName string) string {
 	return acctest.ConfigCompose(
 		acctest.ProviderConfig(),
 		fmt.Sprintf(`
@@ -721,11 +744,16 @@ resource "xcsh_site_mesh_group" "test" {
     key2 = %[4]q
   }
 
+  virtual_site {
+    name = %[5]q
+    namespace = "system"
+  }
+
   full_mesh {
     control_and_data_plane_mesh = {}
   }
 }
-`, nsName, name, value1, value2))
+`, nsName, name, value1, value2, virtualSiteName))
 }
 
 // testAccSiteMeshGroupResourceImportStateIdFunc returns the import ID format: namespace/name

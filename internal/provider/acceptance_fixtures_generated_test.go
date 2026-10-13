@@ -561,19 +561,19 @@ func init() {
 	})
 	acctest.RegisterFixture("testAccSiteMeshGroupDataSourceConfig_basic", func() string { return testAccSiteMeshGroupDataSourceConfig_basic("tf-acc-test-fixture") })
 	acctest.RegisterFixture("testAccSiteMeshGroupResourceConfig_basic", func() string {
-		return testAccSiteMeshGroupResourceConfig_basic("tf-acc-test-fixture", "tf-acc-test-fixture")
+		return testAccSiteMeshGroupResourceConfig_basic("tf-acc-test-fixture", "tf-acc-test-fixture", "tf-acc-test-fixture")
 	})
 	acctest.RegisterFixture("testAccSiteMeshGroupResourceConfig_fullMesh", func() string {
-		return testAccSiteMeshGroupResourceConfig_fullMesh("tf-acc-test-fixture", "tf-acc-test-fixture", "tf-acc-test-fixture")
+		return testAccSiteMeshGroupResourceConfig_fullMesh("tf-acc-test-fixture", "tf-acc-test-fixture", "tf-acc-test-fixture", "tf-acc-test-fixture")
 	})
 	acctest.RegisterFixture("testAccSiteMeshGroupResourceConfig_withAnnotations", func() string {
-		return testAccSiteMeshGroupResourceConfig_withAnnotations("tf-acc-test-fixture", "tf-acc-test-fixture", "tf-acc-test-fixture", "tf-acc-test-fixture")
+		return testAccSiteMeshGroupResourceConfig_withAnnotations("tf-acc-test-fixture", "tf-acc-test-fixture", "tf-acc-test-fixture", "tf-acc-test-fixture", "tf-acc-test-fixture")
 	})
 	acctest.RegisterFixture("testAccSiteMeshGroupResourceConfig_withDescription", func() string {
-		return testAccSiteMeshGroupResourceConfig_withDescription("tf-acc-test-fixture", "tf-acc-test-fixture", "tf-acc-test-fixture")
+		return testAccSiteMeshGroupResourceConfig_withDescription("tf-acc-test-fixture", "tf-acc-test-fixture", "tf-acc-test-fixture", "tf-acc-test-fixture")
 	})
 	acctest.RegisterFixture("testAccSiteMeshGroupResourceConfig_withLabels", func() string {
-		return testAccSiteMeshGroupResourceConfig_withLabels("tf-acc-test-fixture", "tf-acc-test-fixture", "tf-acc-test-fixture", "tf-acc-test-fixture")
+		return testAccSiteMeshGroupResourceConfig_withLabels("tf-acc-test-fixture", "tf-acc-test-fixture", "tf-acc-test-fixture", "tf-acc-test-fixture", "tf-acc-test-fixture")
 	})
 	acctest.RegisterFixture("testAccSubnetDataSourceConfig_basic", func() string {
 		return testAccSubnetDataSourceConfig_basic("tf-acc-test-fixture", "tf-acc-test-fixture")
