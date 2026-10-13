@@ -1,0 +1,142 @@
+{
+  "version": 1,
+  "run": 38349354346,
+  "total": 8,
+  "passed": 5,
+  "failed": 2,
+  "skipped": 1,
+  "stream_completeness": {
+    "complete": false,
+    "events": 151,
+    "malformed_lines": 0,
+    "invalid_events": 0,
+    "scanner_error": false,
+    "incomplete_tests": 0,
+    "incomplete_packages": 0,
+    "package_failures": 1
+  },
+  "tests": [
+    {
+      "name": "TestAccAPIDefinitionResource_basic",
+      "status": "fail",
+      "prerequisites": [
+        {
+          "outcome": "tested",
+          "method": "POST",
+          "resource_type": "xcsh_api_definition"
+        }
+      ],
+      "failure_fingerprint": {
+        "class": "http_error",
+        "summary": "Create request failed",
+        "http_status": 400,
+        "source_location": "api_definition_resource_test.go:19"
+      }
+    },
+    {
+      "name": "TestAccAppFirewallResource_detectionSettings",
+      "status": "pass",
+      "prerequisites": [
+        {
+          "outcome": "tested",
+          "method": "POST",
+          "resource_type": "xcsh_app_firewall"
+        }
+      ]
+    },
+    {
+      "name": "TestAccBGPResource_basic",
+      "status": "skip",
+      "prerequisites": [
+        {
+          "outcome": "operation_denied",
+          "method": "POST",
+          "resource_type": "xcsh_bgp",
+          "http_status": 403
+        }
+      ]
+    },
+    {
+      "name": "TestAccDcClusterGroupResource_basic",
+      "status": "pass",
+      "prerequisites": [
+        {
+          "outcome": "tested",
+          "method": "POST",
+          "resource_type": "xcsh_dc_cluster_group"
+        }
+      ]
+    },
+    {
+      "name": "TestAccHTTPLoadBalancerResource_basic",
+      "status": "pass",
+      "prerequisites": [
+        {
+          "outcome": "tested",
+          "method": "POST",
+          "resource_type": "xcsh_http_loadbalancer"
+        }
+      ]
+    },
+    {
+      "name": "TestAccProtocolPolicerResource_basic",
+      "status": "pass",
+      "prerequisites": [
+        {
+          "outcome": "tested",
+          "method": "POST",
+          "resource_type": "xcsh_policer"
+        },
+        {
+          "outcome": "tested",
+          "method": "POST",
+          "resource_type": "xcsh_protocol_policer"
+        }
+      ]
+    },
+    {
+      "name": "TestAccSiteMeshGroupResource_fullMesh",
+      "status": "fail",
+      "prerequisites": [
+        {
+          "outcome": "tested",
+          "method": "POST",
+          "resource_type": "xcsh_site_mesh_group"
+        }
+      ],
+      "failure_fingerprint": {
+        "class": "http_error",
+        "summary": "Create request failed",
+        "http_status": 400,
+        "source_location": "site_mesh_group_resource_test.go:98",
+        "diagnostic_facts": ["missing_required_input"]
+      }
+    },
+    {
+      "name": "TestAccWorkloadFlavorResource_basic",
+      "status": "pass",
+      "prerequisites": [
+        {
+          "outcome": "tested",
+          "method": "POST",
+          "resource_type": "xcsh_workload_flavor"
+        }
+      ]
+    }
+  ],
+  "cleanup": {
+    "version": 1,
+    "journal_sha256": "c6fcc2e349e728b31124ea3cd8f62e4d8e93de9893c3f37bf70cc1e7f2c60988",
+    "complete": true,
+    "owned": 10,
+    "confirmed_absent": 10,
+    "failures": 0,
+    "second_pass_remaining": 0
+  },
+  "complete": false,
+  "artifacts_sha256": {
+    "real-tests.json": "29450009ff5d92100148240c90caf11dcf57358d790ef5f257facaddf4b962bd",
+    "real-tests.md": "ca459d85cf886dca8ac57de7575bc4ae95b9d349125d86799d5da25640ab7fe5",
+    "cleanup.json": "0671771011f3250b042ec77dc655d4a9dd97dd4d7b81e8591283fc407c145890"
+  }
+}

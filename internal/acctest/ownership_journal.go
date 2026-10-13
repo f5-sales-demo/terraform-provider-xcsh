@@ -113,6 +113,22 @@ func LoadOwnershipJournal(path, run string) (*OwnershipJournal, error) {
 			return nil, errors.New("duplicate ownership resource")
 		}
 		seen[ownedKey(r)] = true
+		if r.Type != "xcsh_swagger_object" {
+			if _, ok := ownedReaderRegistry[r.Type]; !ok {
+				return nil, errors.New("ownership journal verifier unavailable")
+			}
+			if _, ok := resourceDeleterRegistry[r.Type]; !ok {
+				return nil, errors.New("ownership journal deleter unavailable")
+			}
+		}
+		if r.UID != "" {
+			if !regexp.MustCompile(`^[0-9a-f]{64}$`).MatchString(r.UID) {
+				return nil, errors.New("ownership journal UID is not a digest")
+			}
+		}
+		if r.Status == "created" && r.UID == "" {
+			return nil, errors.New("ownership journal created identity is unconfirmed")
+		}
 		switch r.Status {
 		case "intent", "created", "absent":
 		default:

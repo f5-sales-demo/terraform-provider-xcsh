@@ -1,0 +1,107 @@
+{
+  "version": 1,
+  "run": 38341637137,
+  "total": 6,
+  "passed": 5,
+  "failed": 1,
+  "skipped": 0,
+  "stream_completeness": {
+    "complete": false,
+    "events": 103,
+    "malformed_lines": 0,
+    "invalid_events": 0,
+    "scanner_error": false,
+    "incomplete_tests": 0,
+    "incomplete_packages": 0,
+    "package_failures": 1
+  },
+  "tests": [
+    {
+      "name": "TestAccAPIDefinitionResource_basic",
+      "status": "fail",
+      "prerequisites": [
+        {
+          "outcome": "tested",
+          "method": "POST",
+          "resource_type": "xcsh_api_definition"
+        }
+      ],
+      "failure_fingerprint": {
+        "class": "http_error",
+        "summary": "Create request failed",
+        "http_status": 400,
+        "source_location": "api_definition_resource_test.go:19"
+      }
+    },
+    {
+      "name": "TestAccFilterSetResource_basic",
+      "status": "pass",
+      "prerequisites": [
+        {
+          "outcome": "tested",
+          "method": "POST",
+          "resource_type": "xcsh_filter_set"
+        }
+      ]
+    },
+    {
+      "name": "TestAccHTTPLoadBalancerResource_basic",
+      "status": "pass",
+      "prerequisites": [
+        {
+          "outcome": "tested",
+          "method": "POST",
+          "resource_type": "xcsh_http_loadbalancer"
+        }
+      ]
+    },
+    {
+      "name": "TestAccHealthcheckResource_basic",
+      "status": "pass",
+      "prerequisites": [
+        {
+          "outcome": "tested",
+          "method": "POST",
+          "resource_type": "xcsh_healthcheck"
+        }
+      ]
+    },
+    {
+      "name": "TestAccOriginPoolResource_basic",
+      "status": "pass",
+      "prerequisites": [
+        {
+          "outcome": "tested",
+          "method": "POST",
+          "resource_type": "xcsh_origin_pool"
+        }
+      ]
+    },
+    {
+      "name": "TestAccServicePolicyRuleResource_updateLabels",
+      "status": "pass",
+      "prerequisites": [
+        {
+          "outcome": "tested",
+          "method": "POST",
+          "resource_type": "xcsh_service_policy_rule"
+        }
+      ]
+    }
+  ],
+  "cleanup": {
+    "version": 1,
+    "journal_sha256": "f55bdc203bc06451795e7124607d42223d3d9d58806f7476c629cdd096d70aa9",
+    "complete": true,
+    "owned": 8,
+    "confirmed_absent": 8,
+    "failures": 0,
+    "second_pass_remaining": 0
+  },
+  "complete": false,
+  "artifacts_sha256": {
+    "real-tests.json": "743214af436feb5ab9fdc25fcbe60f290f49628af746c8436c79d46275c741b3",
+    "real-tests.md": "f2a551bde905e757ab3ecbdecb80450a08fd968a3353839a02fcc099a8630950",
+    "cleanup.json": "4a42449e22f5e77c5e3f9cb07a25e1b385f5769e21692baefbfd80fb38ecce97"
+  }
+}

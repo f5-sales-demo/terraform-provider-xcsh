@@ -1149,7 +1149,7 @@ func outputMarkdown(out *os.File, report *Report, showAll bool) {
 
 	// Overall summary
 	overallStatus := "✅ PASS"
-	if report.TotalFailed > 0 {
+	if report.TotalFailed > 0 || !report.Stream.Complete {
 		overallStatus = "❌ FAIL"
 	}
 	fmt.Fprintf(out, "## Overall: %s\n\n", overallStatus)
@@ -1247,6 +1247,30 @@ func outputMarkdown(out *os.File, report *Report, showAll bool) {
 		fmt.Fprintln(out)
 	}
 
+	// Preserve fixed prerequisite outcomes for every test, including denied operations.
+	hasPrerequisites := false
+	for _, test := range report.Tests {
+		if len(test.Prerequisites) > 0 {
+			hasPrerequisites = true
+			break
+		}
+	}
+	if hasPrerequisites {
+		fmt.Fprintln(out, "## Prerequisite Evidence")
+		fmt.Fprintln(out)
+		fmt.Fprintln(out, "| Test | Outcome | Method | Resource Type | HTTP Status |")
+		fmt.Fprintln(out, "|------|---------|--------|---------------|------------:|")
+		for _, test := range report.Tests {
+			for _, prerequisite := range test.Prerequisites {
+				status := "-"
+				if prerequisite.HTTPStatus != 0 {
+					status = strconv.Itoa(prerequisite.HTTPStatus)
+				}
+				fmt.Fprintf(out, "| `%s` | %s | %s | %s | %s |\n", test.Name, prerequisite.Outcome, prerequisite.Method, prerequisite.ResourceType, status)
+			}
+		}
+		fmt.Fprintln(out)
+	}
 	// Skip reasons
 	if len(report.SkipReasons) > 0 {
 		fmt.Fprintln(out, "## Skip Reasons")
