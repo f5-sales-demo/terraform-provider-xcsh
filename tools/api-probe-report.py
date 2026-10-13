@@ -2,6 +2,7 @@ from pathlib import Path
 import json, os
 private = Path(os.environ['XCSH_ACC_PRIVATE'])
 patterns = {
+ **{f"name_limit_{value}": [str(value)] for value in [16,20,24,30,31,32,36,40,48,50,52,54,56,60,63,64]},
     'length_limit': ['length','longer','characters','too long'],
     'size_limit': ['size','bytes','too large'],
     'name_field': ['name'],

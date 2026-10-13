@@ -26,7 +26,7 @@ func TestAccAPIDefinitionDiagnostic(t *testing.T) {
 	}
 	ctx := context.Background()
 	for _, variant := range []string{"empty", "relative", "absolute"} {
-		name := acctest.RandomName("tf-acc-test-api-probe")
+		name := acctest.RandomName("tf-acc-test")
 		spec := map[string]interface{}{}
 		if variant != "empty" {
 			content := `{"openapi":"3.0.3","info":{"title":"Acceptance API","version":"1.0.0"},"servers":[{"url":"https://example.com"}],"paths":{"/health":{"get":{"responses":{"200":{"description":"OK"}}}}}}`
