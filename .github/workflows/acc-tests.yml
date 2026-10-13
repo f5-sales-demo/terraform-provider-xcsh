@@ -216,6 +216,9 @@ jobs:
   # ═══════════════════════════════════════════════════════════════════════════
   real-api-tests:
     name: Real API Tests (Sequential)
+    concurrency:
+      group: acceptance-live-tenant
+      cancel-in-progress: false
     environment: acceptance-tests
     # Runner selection: repository-scoped socketless ARC scale set
     runs-on: managed-socketless

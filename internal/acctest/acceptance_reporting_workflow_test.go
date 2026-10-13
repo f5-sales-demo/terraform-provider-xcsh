@@ -67,3 +67,17 @@ exit 1
 		t.Error("focused input was not transported to go test")
 	}
 }
+
+func TestAcceptanceLiveConcurrencyDoesNotDependOnBranch(t *testing.T) {
+	data, err := os.ReadFile("../../.github/workflows/acc-tests.yml")
+	if err != nil {
+		t.Fatal(err)
+	}
+	source := string(data)
+	start := strings.Index(source, "  real-api-tests:")
+	end := strings.Index(source[start:], "    steps:")
+	job := source[start : start+end]
+	if !strings.Contains(job, "group: acceptance-live-tenant") || !strings.Contains(job, "cancel-in-progress: false") {
+		t.Fatal("tenant live mutation jobs can overlap across branches")
+	}
+}
