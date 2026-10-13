@@ -1,54 +1,25 @@
 # Issue 2539 verification checkpoint
 
-The acceptance repair is in progress. Keep issue 2539 open and PR 2544 in draft.
+Acceptance repair is in progress. Keep issue 2539 open and PR 2544 in draft until the full suite, cleanup, protected-main, and artifact gates pass.
 
-The preserved baseline is run 38223043899 at
-0b26d94a220f21580a4cc579327e178f01280d84: 657 tests, 309 passed, 112 failed,
-236 skipped. Its archive SHA-256 is
-5999c68ecf47240161829adf0cc24debfa09b266a124a1914ef158885ce7e831.
+The preserved baseline is run 38223043899 at source 0b26d94a220f21580a4cc579327e178f01280d84: 657 tests, 309 passed, 112 failed, and 236 skipped. Its archive SHA-256 is 5999c68ecf47240161829adf0cc24debfa09b266a124a1914ef158885ce7e831.
 
-The ownership journal, generated read/delete handlers, exact operation inventory,
-fixture validation, and strict reporter are implemented. Cleanup executes in the
-real-test job and uses typed absence in two passes. Unknown output and incomplete
-streams remain failures. Test-issued deletes now require exact journal ownership
-and matching UID readback; loaded journals reject raw UIDs, unconfirmed created
-identities, and unavailable verifiers.
+The implementation includes a private ownership journal, generated CRUD read/delete handlers, operation-specific prerequisite inventory, positive fixture validation, and strict sanitized reporting. Cleanup runs in the real-test workspace, deletes exact journal-owned identities in dependency order, and verifies absence twice. Unknown diagnostics, incomplete streams, missing verifiers, uncertain writes, and incomplete cleanup fail closed.
 
-Reporter regressions reproduced missing package starts and missing Markdown on
-incomplete mock streams; the repairs passed. Focused dispatch arguments are
-transported through environment variables. Datasource fixture namespaces now use
-the provider's verified spec constraint resolver. Appliance references use exact
-read-only API readback and remain private.
+The completed serial mock checkpoint contains 664 tests: 627 passed, zero failed, and 37 skipped, with a complete stream. This checkpoint predates later fixture and prerequisite changes and does not qualify final source.
 
-Measured live replays:
+The broad live checkpoint at run 38357531909 contains 659 tests: 392 passed, 27 failed, and 240 skipped. Two passing qualification diagnostics were extra suite members, so actual acceptance coverage was 390 passes, an increase of 81 against the preserved baseline. The exact-inventory gate correctly rejected that run. Its 417 owned objects were confirmed absent twice. Final acceptance must contain exactly the 657 inventoried acceptance tests.
 
-| Run | Passed | Failed | Skipped | Owned objects absent twice |
-| --- | ---: | ---: | ---: | ---: |
-| 38333807450 | 2 | 0 | 1 | 2 |
-| 38334365131 | 276 | 90 | 291 | 307 |
-| 38347540472 | 2 | 1 | 0 | 5 |
-| 38349354346 | 5 | 2 | 1 | 10 |
-| 38341637137 | 5 | 1 | 0 | 8 |
+Subsequent focused repairs passed API-definition lifecycles, certificate/chain cases, WAF import, route, UDP, policy-view, allocator, ACL, service-policy-rule, workload-flavor, CDN, and external-connector cases. New receipts in acceptance-2539-latest-replays.json preserve the measured focused results and digests, including failures.
 
-WAF import verification, HTTP load balancer lifecycle, cluster groups, protocol
-policers, and workload flavors passed focused live tests. All eight API-definition lifecycle tests passed in run 38356340525 after
-compact identities satisfied the measured 20-character API name limit. The latest mesh-group replay returned HTTP 400 for a missing
-input; its verified virtual-site selector now skips typed stale inventory entries. Three
-mesh lifecycle cases still fail HTTP 400 for a required input. That run confirmed
-20 owned objects absent twice. BGP skipped on an operation-specific POST 403.
+Disposable crawler, CRL, and registry probes returned typed HTTP 429 responses explicitly stating that the object kind exhausted limits. Forwarding-class has no entry in the typed quota inventory, and global receiver's verified count equals its configured maximum. These outcomes provide specific prerequisite evidence without inferring why collection counts and object-limit enforcement differ. Generic rate limiting, validation failures, and HTTP 500 responses remain failures.
 
-Older full comparison 38337641132 timed out after two hours with 187 unfinished
-tests; its incomplete artifact is preserved. The older local mock completed with
-664 tests: 610 passed, 17 failed, 37 skipped. All 17 failures have subsequent focused
-repairs; this is not final acceptance.
+Run 38384379873 confirmed that the segment reference emitted by the provider had a present 20-character name, valid characters, and namespace system. The API still rejected the reference with HTTP 400. Mesh creation still returned HTTP 500. All seven journal entries were confirmed absent twice. This diagnostic branch selected five tests but retained the full expected inventory; completeness correctly failed and the run is not suite qualification.
 
-Go 1.25.13 support regressions, installed-schema fixture audits, focused mocks,
-namespace/schema/codegen tests, and the resumed broad lint passed. Full serial
-mock/live acceptance on final source, evidence for every skip, final CI, release
-and immutable artifact installation, and protected-main acceptance remain required.
-Production generator changes require a new qualified provider release.
+Fresh regressions reproduced acceptance of empty or failed mesh selector expansions. Mesh discovery now uses the read-only selectees endpoint and exact selected-site UID readback; empty successful expansion can establish absence, while malformed responses, authorization failures, server errors, and stale selected sites fail. Focused tests, race checks, support/reporter/comparison tests, and lint passed.
 
-Docs-control PR 2489 and manifest PR 2490 merged. Provider reconciliation PR 2548
-pairs the canonical policy with the focused dispatch declaration; its exact trigger
-and mutation tests pass under race detection. Full CI and merge remain pending.
-The resumed complete serial mock and full live run 38357531909 are active.
+A separate regression reproduced missing BFD, fallback, mesh mode, and virtual-site reference in the generated mesh datasource fixture. Its generator now emits those fields and requires the verified read-only reference. Regeneration, the positive installed-schema audit, and focused mock passed; provider lint reported zero issues.
+
+Canonical focused-dispatch policy delivery is complete through docs-control PRs 2489/2490 and provider reconciliation PR 2548. The canonical policy blob is 27a3e0a8a9715cec313d7c7c82a507750ec135fc.
+
+Outstanding work: resolve segment reference handling and mesh eligibility using live evidence; qualify current registry and mesh prerequisite handling; complete final-source serial mock/live comparison with exact accounting and evidence for every skip; finish CI and merge only after gates pass; run protected-main acceptance and cleanup; release and qualify the immutable provider artifact because earlier production generator behavior changed. Existing task and qualification worktrees remain preserved while their runs or evidence are needed.
