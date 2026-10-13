@@ -422,21 +422,21 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/app_firewall/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "Reads App Firewall information from F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_app_firewall",
       "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["app_firewallCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
       "aliases": ["app firewall"],
       "body_bytes": 27623,
-      "body_sha256": "sha256:0d35b92301279f8dcc3e091625aa293337cd0c909e4ef713de8e0e243d5a94e8",
+      "body_sha256": "sha256:076b6d759e90f348d8e376e3c9c8f9d157a384ae2654806a6295c711915cb0f6",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -816,14 +816,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/app_firewall/properties/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "Property reference for xcsh_app_firewall.",
       "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["app_firewallCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
@@ -856,20 +856,20 @@
       "schema_path": ["allow_all_response_codes"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/app_firewall/properties/allow_all_response_codes/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "allow_all_response_codes",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["app_firewallCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
       "aliases": ["allowed response codes"],
       "body_bytes": 2104,
-      "body_sha256": "sha256:b6a98a3857190b9e0a76b1fdd924eb36c323bc2db3a76190eef0d9f5a2592f84",
+      "body_sha256": "sha256:57e0e6be385d50b19ee7fe0fc235f08613baef530c787c7a6a16723424fee8cd",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -913,14 +913,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/app_firewall/properties/allowed_response_codes/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "List of HTTP response status codes that are allowed.",
       "tasks": ["configuration"],
       "title": "allowed_response_codes",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["app_firewallCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
@@ -953,20 +953,20 @@
       "schema_path": ["blocking"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/app_firewall/properties/blocking/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "blocking",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["app_firewallCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
       "aliases": ["blocking page"],
       "body_bytes": 8177,
-      "body_sha256": "sha256:587937048245297d95040b2422719695a0c09b8a2f30824f6309194637fa5cf9",
+      "body_sha256": "sha256:12fb880123014963103fb2418e999ac2b5f910d80bd4e3c5a237e09b81531bc0",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -1026,14 +1026,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/app_firewall/properties/blocking_page/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "Custom blocking response page body.",
       "tasks": ["configuration"],
       "title": "blocking_page",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["app_firewallCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
@@ -1115,14 +1115,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/app_firewall/properties/bot_protection_setting/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "Configuration of WAF Bot Protection.",
       "tasks": ["configuration"],
       "title": "bot_protection_setting",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["app_firewallCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
@@ -1172,20 +1172,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/app_firewall/properties/custom_anonymization/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "Anonymization settings which is a list of HTTP headers, parameters and cookies.",
       "tasks": ["configuration"],
       "title": "custom_anonymization",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["app_firewallCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
       "aliases": ["custom anonymization anonymization config"],
       "body_bytes": 2167,
-      "body_sha256": "sha256:82d7aaadb7500f14d62d13dac7c91d98c37176f79ee9947f2ed50103e7fa1855",
+      "body_sha256": "sha256:8a5af13d87e40fdeb178f3a804b8a806ccaf6f8bf10d5473cdf6d4cba57a50b3",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -1265,20 +1265,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/app_firewall/properties/custom_anonymization/anonymization_config/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "List of HTTP headers, cookies and query parameters whose values will be masked.",
       "tasks": ["configuration"],
       "title": "custom_anonymization.anonymization_config",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["app_firewallCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
       "aliases": ["custom anonymization anonymization config cookie"],
       "body_bytes": 2149,
-      "body_sha256": "sha256:fc698fb0eb9cb2c0248237b08825e42a54abb391f9e75f3580c8fc58f64a6134",
+      "body_sha256": "sha256:32f13b90f630b73b467930e692a893c0a9a6ffbe3f8163432fecd36eaf71ddaf",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -1322,20 +1322,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/app_firewall/properties/custom_anonymization/anonymization_config/cookie/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "Configure anonymization for HTTP Cookies.",
       "tasks": ["configuration"],
       "title": "custom_anonymization.anonymization_config.cookie",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["app_firewallCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
       "aliases": ["custom anonymization anonymization config http header"],
       "body_bytes": 2157,
-      "body_sha256": "sha256:cd77e18eb02d0d6e624a2b81a74f993358a24f3d039f5136f918521e620a1805",
+      "body_sha256": "sha256:8afd22565b680c8884b3d7b4ad7cc7473d7a192b787b98d31112c55e1417ba11",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -1379,20 +1379,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/app_firewall/properties/custom_anonymization/anonymization_config/http_header/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "Configure anonymization for HTTP Headers.",
       "tasks": ["configuration"],
       "title": "custom_anonymization.anonymization_config.http_header",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["app_firewallCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
       "aliases": ["custom anonymization anonymization config query parameter"],
       "body_bytes": 2225,
-      "body_sha256": "sha256:e6a4996c89937ae2d2be78f91db39409777496fe6f8c5342d299dfab4aa51936",
+      "body_sha256": "sha256:4a98cde0869a13f6ee89a65669042476ab8f5db292da38797612268bc3b30d2e",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -1436,14 +1436,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/app_firewall/properties/custom_anonymization/anonymization_config/query_parameter/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "Configure anonymization for HTTP Parameters.",
       "tasks": ["configuration"],
       "title": "custom_anonymization.anonymization_config.query_parameter",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["app_firewallCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
@@ -1476,14 +1476,14 @@
       "schema_path": ["default_anonymization"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/app_firewall/properties/default_anonymization/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "default_anonymization",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["app_firewallCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
@@ -1516,14 +1516,14 @@
       "schema_path": ["default_bot_setting"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/app_firewall/properties/default_bot_setting/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "default_bot_setting",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["app_firewallCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
@@ -1556,14 +1556,14 @@
       "schema_path": ["default_detection_settings"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/app_firewall/properties/default_detection_settings/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "default_detection_settings",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["app_firewallCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
@@ -1819,14 +1819,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/app_firewall/properties/detection_settings/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "Specifies detection settings to be used by WAF.",
       "tasks": ["configuration"],
       "title": "detection_settings",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["app_firewallCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
@@ -1908,14 +1908,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/app_firewall/properties/detection_settings/bot_protection_setting/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "Configuration of WAF Bot Protection.",
       "tasks": ["configuration"],
       "title": "detection_settings.bot_protection_setting",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["app_firewallCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
@@ -1948,14 +1948,14 @@
       "schema_path": ["detection_settings", "default_bot_setting"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/app_firewall/properties/detection_settings/default_bot_setting/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "detection_settings.default_bot_setting",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["app_firewallCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
@@ -1988,14 +1988,14 @@
       "schema_path": ["detection_settings", "default_violation_settings"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/app_firewall/properties/detection_settings/default_violation_settings/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "detection_settings.default_violation_settings",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["app_firewallCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
@@ -2028,14 +2028,14 @@
       "schema_path": ["detection_settings", "disable_staging"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/app_firewall/properties/detection_settings/disable_staging/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "detection_settings.disable_staging",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["app_firewallCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
@@ -2068,14 +2068,14 @@
       "schema_path": ["detection_settings", "disable_suppression"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/app_firewall/properties/detection_settings/disable_suppression/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "detection_settings.disable_suppression",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["app_firewallCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
@@ -2108,14 +2108,14 @@
       "schema_path": ["detection_settings", "disable_threat_campaigns"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/app_firewall/properties/detection_settings/disable_threat_campaigns/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "detection_settings.disable_threat_campaigns",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["app_firewallCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
@@ -2148,14 +2148,14 @@
       "schema_path": ["detection_settings", "enable_suppression"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/app_firewall/properties/detection_settings/enable_suppression/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "detection_settings.enable_suppression",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["app_firewallCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
@@ -2188,14 +2188,14 @@
       "schema_path": ["detection_settings", "enable_threat_campaigns"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/app_firewall/properties/detection_settings/enable_threat_campaigns/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "detection_settings.enable_threat_campaigns",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["app_firewallCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
@@ -2349,20 +2349,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/app_firewall/properties/detection_settings/signature_selection_setting/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "Attack Signatures are patterns that identify attacks on a web application and its components.",
       "tasks": ["configuration"],
       "title": "detection_settings.signature_selection_setting",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["app_firewallCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
       "aliases": ["detection settings signature selection setting attack type settings"],
       "body_bytes": 4349,
-      "body_sha256": "sha256:77c94b5a2e0f4c56a3dc033db9ec84cb4735d07ce6d9e6e1fdf8b69c6b76afbe",
+      "body_sha256": "sha256:44f95d65ff5eb5f09e2687d6f732bb37646017dc0ef85bd9970bfb8287eb50e2",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -2411,14 +2411,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/app_firewall/properties/detection_settings/signature_selection_setting/attack_type_settings/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "Specifies attack-type settings to be used by WAF.",
       "tasks": ["configuration"],
       "title": "detection_settings.signature_selection_setting.attack_type_settings",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["app_firewallCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
@@ -2451,14 +2451,14 @@
       "schema_path": ["detection_settings", "signature_selection_setting", "default_attack_type_settings"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/app_firewall/properties/detection_settings/signature_selection_setting/default_attack_type_settings/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "detection_settings.signature_selection_setting.default_attack_type_settings",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["app_firewallCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
@@ -2491,14 +2491,14 @@
       "schema_path": ["detection_settings", "signature_selection_setting", "default_signature_setting"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/app_firewall/properties/detection_settings/signature_selection_setting/default_signature_setting/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "detection_settings.signature_selection_setting.default_signature_setting",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["app_firewallCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
@@ -2531,14 +2531,14 @@
       "schema_path": ["detection_settings", "signature_selection_setting", "high_medium_accuracy_signatures"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/app_firewall/properties/detection_settings/signature_selection_setting/high_medium_accuracy_signatures/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "detection_settings.signature_selection_setting.high_medium_accuracy_signatures",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["app_firewallCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
@@ -2571,14 +2571,14 @@
       "schema_path": ["detection_settings", "signature_selection_setting", "high_medium_low_accuracy_signatures"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/app_firewall/properties/detection_settings/signature_selection_setting/high_medium_low_accuracy_signatures/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "detection_settings.signature_selection_setting.high_medium_low_accuracy_signatures",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["app_firewallCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
@@ -2611,14 +2611,14 @@
       "schema_path": ["detection_settings", "signature_selection_setting", "only_high_accuracy_signatures"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/app_firewall/properties/detection_settings/signature_selection_setting/only_high_accuracy_signatures/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "detection_settings.signature_selection_setting.only_high_accuracy_signatures",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["app_firewallCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
@@ -2721,20 +2721,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/app_firewall/properties/detection_settings/signature_selection_setting/signature_settings_by_accuracy/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "Configuration of WAF Signature Protection.",
       "tasks": ["configuration"],
       "title": "detection_settings.signature_selection_setting.signature_settings_by_accuracy",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["app_firewallCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
       "aliases": ["detection settings stage new and updated signatures"],
       "body_bytes": 2099,
-      "body_sha256": "sha256:28461ee8a4b36c30b6ced6777c691b25bf27d8896f3709be0c562b88ffdf5604",
+      "body_sha256": "sha256:afb203de2b0046d5b3c93fede7e1befe91bdb4f408c0aaf58acf0c47d61f5a26",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -2778,20 +2778,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/app_firewall/properties/detection_settings/stage_new_and_updated_signatures/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "Attack Signatures staging configuration.",
       "tasks": ["configuration"],
       "title": "detection_settings.stage_new_and_updated_signatures",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["app_firewallCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
       "aliases": ["detection settings stage new signatures"],
       "body_bytes": 2063,
-      "body_sha256": "sha256:954074489654d193b8be58c281ea05ebf3a84c1be9d4775238570ed2e1755775",
+      "body_sha256": "sha256:e0231c90b01e074fcaabbee208d55c81fd352e6eac818f69b43fa20b8e86c472",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -2835,20 +2835,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/app_firewall/properties/detection_settings/stage_new_signatures/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "Attack Signatures staging configuration.",
       "tasks": ["configuration"],
       "title": "detection_settings.stage_new_signatures",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["app_firewallCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
       "aliases": ["detection settings violation settings"],
       "body_bytes": 4237,
-      "body_sha256": "sha256:e176952f694ed19790fb706e5aa3917602d7e0823e522a11be0b7634e1790790",
+      "body_sha256": "sha256:13dc02c418e1d2373919a899aed2933871c49a992e0ad3c07be1529eb59e5397",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -2892,20 +2892,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/app_firewall/properties/detection_settings/violation_settings/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "Specifies violation settings to be used by WAF.",
       "tasks": ["configuration"],
       "title": "detection_settings.violation_settings",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["app_firewallCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
       "aliases": ["detection settings violations view"],
       "body_bytes": 3996,
-      "body_sha256": "sha256:72fc00c3fd5127e200c2ffaf2235769c93a0b6655701cbf0317faedcce330a5e",
+      "body_sha256": "sha256:210653a177333d8b12cffdca073e165d0d357c2392e3b1d38b2837cb05ef91ca",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -3013,14 +3013,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/app_firewall/properties/detection_settings/violations_view/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "List of violation checks that are performed on HTTP request to ensure the requests are properly formatted, detection of evasion techniques and other violations.",
       "tasks": ["configuration"],
       "title": "detection_settings.violations_view",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["app_firewallCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
@@ -3053,14 +3053,14 @@
       "schema_path": ["disable_ai_enhancements"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/app_firewall/properties/disable_ai_enhancements/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "disable_ai_enhancements",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["app_firewallCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
@@ -3093,14 +3093,14 @@
       "schema_path": ["disable_anonymization"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/app_firewall/properties/disable_anonymization/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "disable_anonymization",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["app_firewallCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
@@ -3169,14 +3169,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/app_firewall/properties/enable_ai_enhancements/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "Actions complimented by the additional intelligence of the F5 AI Powered Risk-based analysis.",
       "tasks": ["configuration"],
       "title": "enable_ai_enhancements",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["app_firewallCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
@@ -3209,14 +3209,14 @@
       "schema_path": ["enable_ai_enhancements", "mitigate_high_medium_risk_action"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/app_firewall/properties/enable_ai_enhancements/mitigate_high_medium_risk_action/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "enable_ai_enhancements.mitigate_high_medium_risk_action",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["app_firewallCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
@@ -3249,14 +3249,14 @@
       "schema_path": ["enable_ai_enhancements", "mitigate_high_risk_action"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/app_firewall/properties/enable_ai_enhancements/mitigate_high_risk_action/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "enable_ai_enhancements.mitigate_high_risk_action",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["app_firewallCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
@@ -3289,14 +3289,14 @@
       "schema_path": ["monitoring"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/app_firewall/properties/monitoring/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "monitoring",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["app_firewallCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
@@ -3329,14 +3329,14 @@
       "schema_path": ["use_default_blocking_page"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/app_firewall/properties/use_default_blocking_page/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "use_default_blocking_page",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["app_firewallCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
@@ -3369,14 +3369,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/app_firewall/examples/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "Examples for xcsh_app_firewall.",
       "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["app_firewallCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
@@ -3416,14 +3416,14 @@
       "schema_path": ["data-source"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/app_firewall/examples/data-source/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "Data source for xcsh_app_firewall.",
       "tasks": ["configuration"],
       "title": "Data source",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["app_firewallCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     }
   ],

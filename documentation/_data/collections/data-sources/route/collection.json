@@ -1150,21 +1150,21 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "Reads route rules that match incoming requests and select the corresponding actions.",
       "tasks": ["configuration"],
       "title": "xcsh_route",
       "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
       "aliases": ["route"],
       "body_bytes": 64435,
-      "body_sha256": "sha256:a83fa816d98904f2c3793f72aca71bf1bf4cb21af308ee559ee0cbfa05a8fbbc",
+      "body_sha256": "sha256:cc61caa371536917839bbf8fad3eb11612028760e51446fa5d399b500da10ceb",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": ["xcsh-docs:data-sources:route:properties:routes"],
@@ -1304,20 +1304,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "Property reference for xcsh_route.",
       "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
       "aliases": ["routes"],
       "body_bytes": 8848,
-      "body_sha256": "sha256:93706422bcfca633776ff54e9a5172c18032c18c7e5624a068e68f5515f6e603",
+      "body_sha256": "sha256:b82e61a9c9a1836a9ccbbef3f2bff95d090efc50e6096f30862715a16040b133",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -1664,14 +1664,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "List of routes to match for incoming request.",
       "tasks": ["configuration"],
       "title": "routes",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
@@ -1737,20 +1737,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/bot_defense_javascript_injection/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "Bot Defense Javascript Injection Configuration for inline bot defense deployments.",
       "tasks": ["configuration"],
       "title": "routes.bot_defense_javascript_injection",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
       "aliases": ["routes bot defense javascript injection javascript tags"],
       "body_bytes": 3268,
-      "body_sha256": "sha256:22bb719ff950d6d106c0dc20e133d19d5fecd0fe09249215464367e641e66b03",
+      "body_sha256": "sha256:841f55f495107b880d35c7c527328b136a4013139380c46c2927e42c2c3d4d41",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -1812,20 +1812,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/bot_defense_javascript_injection/javascript_tags/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "Select Add item to configure your javascript tag. If adding both Bot Adv and Fraud, the Bot Javascript should be added first.",
       "tasks": ["configuration"],
       "title": "routes.bot_defense_javascript_injection.javascript_tags",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
       "aliases": ["routes bot defense javascript injection javascript tags tag attributes"],
       "body_bytes": 3683,
-      "body_sha256": "sha256:1b21bedc31a894407d0a222ca56ec8efd57dd9a3011e5638ce0f826c675745ba",
+      "body_sha256": "sha256:cdfe461fc5d60c675d1da72109ea9e3596ec71a7a49e321647de0d64328c939c",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -1897,14 +1897,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/bot_defense_javascript_injection/javascript_tags/tag_attributes/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "Add the tag attributes you want to include in your Javascript tag.",
       "tasks": ["configuration"],
       "title": "routes.bot_defense_javascript_injection.javascript_tags.tag_attributes",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
@@ -1937,14 +1937,14 @@
       "schema_path": ["routes", "inherited_bot_defense_javascript_injection"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/inherited_bot_defense_javascript_injection/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "routes.inherited_bot_defense_javascript_injection",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
@@ -1977,20 +1977,20 @@
       "schema_path": ["routes", "inherited_waf_exclusion"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/inherited_waf_exclusion/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "routes.inherited_waf_exclusion",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
       "aliases": ["routes match"],
       "body_bytes": 2568,
-      "body_sha256": "sha256:0caa8273f066add0e4907771eb8161f97b63a0a6cf1ab157ae49d5c788b9eda8",
+      "body_sha256": "sha256:35e03f2d9f555eaae013aca0aff255af9ae09c24c71939d835bff5af98715b30",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -2103,20 +2103,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/match/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "Route match condition.",
       "tasks": ["configuration"],
       "title": "routes.match",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
       "aliases": ["routes match headers"],
       "body_bytes": 5820,
-      "body_sha256": "sha256:9b21c4d0851e57879c5ccfeb0d5996827cff71a2e04ba565bc1b99e9b00dcf68",
+      "body_sha256": "sha256:a002648169970b45e180a1312dbe5573a5116e28118d31394cafe6a7fe946081",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -2224,20 +2224,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/match/headers/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "List of (key, value) headers.",
       "tasks": ["configuration"],
       "title": "routes.match.headers",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
       "aliases": ["routes match incoming port"],
       "body_bytes": 3027,
-      "body_sha256": "sha256:e9de19c84b9dd1df0964f0d39959673014a50ae81065a1aac09904b89c20df3b",
+      "body_sha256": "sha256:548df7a4ba516235d613ac54486554244da68b5a8e2e868acf469e0661bd8948",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": ["xcsh-docs:data-sources:route:properties:routes:match:incoming_port:no_port_match"],
@@ -2313,14 +2313,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/match/incoming_port/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "Port match of the request can be a range or a specific port.",
       "tasks": ["configuration"],
       "title": "routes.match.incoming_port",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
@@ -2353,20 +2353,20 @@
       "schema_path": ["routes", "match", "incoming_port", "no_port_match"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/match/incoming_port/no_port_match/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "routes.match.incoming_port.no_port_match",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
       "aliases": ["routes match path"],
       "body_bytes": 3992,
-      "body_sha256": "sha256:6372160cf859db3656dd7e48c2c0eb97c454e3ddf55ac7c4ef5af244758a805e",
+      "body_sha256": "sha256:c5d17ccb8595bb9f8fa9bfa52f94d085d8b2339592eb8ec8a78fb16c3d205257",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -2442,20 +2442,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/match/path/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "Path match of the URI can be either be, Prefix match or exact match or regular expression match.",
       "tasks": ["configuration"],
       "title": "routes.match.path",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
       "aliases": ["routes match query params"],
       "body_bytes": 4276,
-      "body_sha256": "sha256:707763c43cae7dbe74e49daa395a7f4693952322fbc47ef03dac58d736441530",
+      "body_sha256": "sha256:46a5c6d59a68b359c19127308cf44bba64205bd46866a486ae4a1ee9d66e696f",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -2531,20 +2531,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/match/query_params/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "List of (key, value) query parameters.",
       "tasks": ["configuration"],
       "title": "routes.match.query_params",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
       "aliases": ["routes request cookies to add"],
       "body_bytes": 4463,
-      "body_sha256": "sha256:19dcbf4e447be7983ecdc6608978c23920dabad03a7278b84f3391f90f89f2be",
+      "body_sha256": "sha256:e4b5957335bfe3528afc28adebbcfd21584fb6e3f501327fd21d327200069089",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": ["xcsh-docs:data-sources:route:properties:routes:request_cookies_to_add:secret_value"],
@@ -2636,14 +2636,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/request_cookies_to_add/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "Cookies are key-value pairs to be added to HTTP request being routed towards upstream.",
       "tasks": ["configuration"],
       "title": "routes.request_cookies_to_add",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
@@ -2712,20 +2712,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/request_cookies_to_add/secret_value/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "SecretType is used in an object to indicate a sensitive/confidential field.",
       "tasks": ["configuration"],
       "title": "routes.request_cookies_to_add.secret_value",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
       "aliases": ["routes request cookies to add secret value blindfold secret info"],
       "body_bytes": 4037,
-      "body_sha256": "sha256:cb5d026631881e99171f4fdb0c2fd625dd3d9bd2895bf557992b5c7869887dc7",
+      "body_sha256": "sha256:b2c18d2337e1bff324a3ae8ba6388c2b9e45676293f84726738262571fcad396",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -2813,20 +2813,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/request_cookies_to_add/secret_value/blindfold_secret_info/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
       "tasks": ["configuration"],
       "title": "routes.request_cookies_to_add.secret_value.blindfold_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
       "aliases": ["routes request cookies to add secret value clear secret info"],
       "body_bytes": 3047,
-      "body_sha256": "sha256:b1757f3a8af9404b5498278bb6aa34e14d13811884096a322c603954b6f37a8a",
+      "body_sha256": "sha256:9bd4f1b0efaeec30e113c3d63406c3494a9d8324973aa1c26158976587d51e41",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -2886,20 +2886,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/request_cookies_to_add/secret_value/clear_secret_info/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
       "tasks": ["configuration"],
       "title": "routes.request_cookies_to_add.secret_value.clear_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
       "aliases": ["routes request headers to add"],
       "body_bytes": 4296,
-      "body_sha256": "sha256:c0cdd405e0cd85dd5b791f18ece4d2533e81033789509b1a7b045df34a99c832",
+      "body_sha256": "sha256:faac9f961ba79b6b67e047371400860c3424ec662b5fc9adca8c1fbf7cb4443b",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": ["xcsh-docs:data-sources:route:properties:routes:request_headers_to_add:secret_value"],
@@ -2991,14 +2991,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/request_headers_to_add/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "Headers are key-value pairs to be added to HTTP requests being sent towards upstream. Headers specified at this level are applied before headers from the enclosing VirtualHost object level.",
       "tasks": ["configuration"],
       "title": "routes.request_headers_to_add",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
@@ -3067,20 +3067,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/request_headers_to_add/secret_value/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "SecretType is used in an object to indicate a sensitive/confidential field.",
       "tasks": ["configuration"],
       "title": "routes.request_headers_to_add.secret_value",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
       "aliases": ["routes request headers to add secret value blindfold secret info"],
       "body_bytes": 4037,
-      "body_sha256": "sha256:67aed3e8dafc28897d18370c8b8dffd637fb7f2a8f1c29db3b5a0f56e350bb8b",
+      "body_sha256": "sha256:de8c94b9229b2a4b969b073d9b9842bf99e288e3f1697ea52bba6701af0571a0",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -3168,20 +3168,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/request_headers_to_add/secret_value/blindfold_secret_info/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
       "tasks": ["configuration"],
       "title": "routes.request_headers_to_add.secret_value.blindfold_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
       "aliases": ["routes request headers to add secret value clear secret info"],
       "body_bytes": 3047,
-      "body_sha256": "sha256:0b145dc95be7aebee6a2d00ccfebe3453e62072bb9167a8a548a415e48fe9813",
+      "body_sha256": "sha256:af92bebdf6c2f257a7822d59927306bdaf7de73a07d9712b8879fb91050cd4c5",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -3241,20 +3241,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/request_headers_to_add/secret_value/clear_secret_info/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
       "tasks": ["configuration"],
       "title": "routes.request_headers_to_add.secret_value.clear_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
       "aliases": ["routes response cookies to add"],
       "body_bytes": 10857,
-      "body_sha256": "sha256:03edbd15084d2c55fed20e099ed36fc3d75bdb9653dd069b7300fea2e856e25e",
+      "body_sha256": "sha256:5eb89bf74ad6fe27880eebdacd7242563fa997c7d4000cf0fa37994d3069d5cc",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -3667,14 +3667,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/response_cookies_to_add/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "Cookies are name-value pairs along with optional attribute parameters to be added to HTTP response being sent towards downstream.",
       "tasks": ["configuration"],
       "title": "routes.response_cookies_to_add",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
@@ -3707,14 +3707,14 @@
       "schema_path": ["routes", "response_cookies_to_add", "add_httponly"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/response_cookies_to_add/add_httponly/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "routes.response_cookies_to_add.add_httponly",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
@@ -3747,14 +3747,14 @@
       "schema_path": ["routes", "response_cookies_to_add", "add_partitioned"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/response_cookies_to_add/add_partitioned/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "routes.response_cookies_to_add.add_partitioned",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
@@ -3787,14 +3787,14 @@
       "schema_path": ["routes", "response_cookies_to_add", "add_secure"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/response_cookies_to_add/add_secure/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "routes.response_cookies_to_add.add_secure",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
@@ -3827,14 +3827,14 @@
       "schema_path": ["routes", "response_cookies_to_add", "ignore_domain"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/response_cookies_to_add/ignore_domain/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "routes.response_cookies_to_add.ignore_domain",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
@@ -3867,14 +3867,14 @@
       "schema_path": ["routes", "response_cookies_to_add", "ignore_expiry"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/response_cookies_to_add/ignore_expiry/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "routes.response_cookies_to_add.ignore_expiry",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
@@ -3907,14 +3907,14 @@
       "schema_path": ["routes", "response_cookies_to_add", "ignore_httponly"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/response_cookies_to_add/ignore_httponly/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "routes.response_cookies_to_add.ignore_httponly",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
@@ -3947,14 +3947,14 @@
       "schema_path": ["routes", "response_cookies_to_add", "ignore_max_age"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/response_cookies_to_add/ignore_max_age/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "routes.response_cookies_to_add.ignore_max_age",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
@@ -3987,14 +3987,14 @@
       "schema_path": ["routes", "response_cookies_to_add", "ignore_partitioned"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/response_cookies_to_add/ignore_partitioned/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "routes.response_cookies_to_add.ignore_partitioned",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
@@ -4027,14 +4027,14 @@
       "schema_path": ["routes", "response_cookies_to_add", "ignore_path"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/response_cookies_to_add/ignore_path/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "routes.response_cookies_to_add.ignore_path",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
@@ -4067,14 +4067,14 @@
       "schema_path": ["routes", "response_cookies_to_add", "ignore_samesite"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/response_cookies_to_add/ignore_samesite/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "routes.response_cookies_to_add.ignore_samesite",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
@@ -4107,14 +4107,14 @@
       "schema_path": ["routes", "response_cookies_to_add", "ignore_secure"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/response_cookies_to_add/ignore_secure/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "routes.response_cookies_to_add.ignore_secure",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
@@ -4147,14 +4147,14 @@
       "schema_path": ["routes", "response_cookies_to_add", "ignore_value"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/response_cookies_to_add/ignore_value/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "routes.response_cookies_to_add.ignore_value",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
@@ -4187,14 +4187,14 @@
       "schema_path": ["routes", "response_cookies_to_add", "samesite_lax"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/response_cookies_to_add/samesite_lax/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "routes.response_cookies_to_add.samesite_lax",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
@@ -4227,14 +4227,14 @@
       "schema_path": ["routes", "response_cookies_to_add", "samesite_none"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/response_cookies_to_add/samesite_none/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "routes.response_cookies_to_add.samesite_none",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
@@ -4267,14 +4267,14 @@
       "schema_path": ["routes", "response_cookies_to_add", "samesite_strict"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/response_cookies_to_add/samesite_strict/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "routes.response_cookies_to_add.samesite_strict",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
@@ -4343,20 +4343,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/response_cookies_to_add/secret_value/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "SecretType is used in an object to indicate a sensitive/confidential field.",
       "tasks": ["configuration"],
       "title": "routes.response_cookies_to_add.secret_value",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
       "aliases": ["routes response cookies to add secret value blindfold secret info"],
       "body_bytes": 4046,
-      "body_sha256": "sha256:cabd10de8d79032c28566b7da5702024995dbd0ec62fa987a31d65d5f366d29c",
+      "body_sha256": "sha256:be9e2a3c996cf9356c0cd16a08a757815acc7dfebcd3f53d6d02c2c1288852a7",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -4444,20 +4444,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/response_cookies_to_add/secret_value/blindfold_secret_info/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
       "tasks": ["configuration"],
       "title": "routes.response_cookies_to_add.secret_value.blindfold_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
       "aliases": ["routes response cookies to add secret value clear secret info"],
       "body_bytes": 3055,
-      "body_sha256": "sha256:8a56711b591deb96491bb57d111bb553b07cc08dc9704f5d6092cb531c05934a",
+      "body_sha256": "sha256:0cc0db764a7d830e06ec15883ed3449da01ab2d0df11a0edba2449d23fa97a90",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -4517,20 +4517,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/response_cookies_to_add/secret_value/clear_secret_info/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
       "tasks": ["configuration"],
       "title": "routes.response_cookies_to_add.secret_value.clear_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
       "aliases": ["routes response headers to add"],
       "body_bytes": 4304,
-      "body_sha256": "sha256:18d3992ea23a33d00c98cb7f01b103e7a7c8792a0debaa475e51ff6d9ef571cf",
+      "body_sha256": "sha256:23639077cde5e417d87885fb1ef2e20dc084265d73efb62c7da0e85ef2a2c42c",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": ["xcsh-docs:data-sources:route:properties:routes:response_headers_to_add:secret_value"],
@@ -4622,14 +4622,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/response_headers_to_add/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "Headers are key-value pairs to be added to HTTP response being sent towards downstream. Headers specified at this level are applied before headers from the enclosing VirtualHost object level.",
       "tasks": ["configuration"],
       "title": "routes.response_headers_to_add",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
@@ -4698,20 +4698,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/response_headers_to_add/secret_value/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "SecretType is used in an object to indicate a sensitive/confidential field.",
       "tasks": ["configuration"],
       "title": "routes.response_headers_to_add.secret_value",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
       "aliases": ["routes response headers to add secret value blindfold secret info"],
       "body_bytes": 4046,
-      "body_sha256": "sha256:68398d6347e2ceb235582d8a2c917d832b1a8ad9b772191550bff15a77a1a0f9",
+      "body_sha256": "sha256:7fba6802963a46666e52f00a3432c185e68242a7f64c454c56c3b5c396b429a0",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -4799,20 +4799,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/response_headers_to_add/secret_value/blindfold_secret_info/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
       "tasks": ["configuration"],
       "title": "routes.response_headers_to_add.secret_value.blindfold_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
       "aliases": ["routes response headers to add secret value clear secret info"],
       "body_bytes": 3055,
-      "body_sha256": "sha256:d7be0baaa89a42ab8e7ccac734876d1443465d715b2e570810c8c4e7f8f6742a",
+      "body_sha256": "sha256:57cf91bbb667ea28b0a97ea46cc44439d897b459ac560bed3c0462a096f7def7",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -4872,20 +4872,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/response_headers_to_add/secret_value/clear_secret_info/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
       "tasks": ["configuration"],
       "title": "routes.response_headers_to_add.secret_value.clear_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
       "aliases": ["routes route destination"],
       "body_bytes": 8431,
-      "body_sha256": "sha256:b37cf9902bbf81ad7ef0132042677468a0d563c6d48ed80d74b1c7f549afe603",
+      "body_sha256": "sha256:d193012373807ec589f7467354d365346295b8943ff120202feba6a806e4bc80",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -5232,20 +5232,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/route_destination/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "List of destination to choose if the route is match.",
       "tasks": ["configuration"],
       "title": "routes.route_destination",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
       "aliases": ["routes route destination buffer policy"],
       "body_bytes": 2651,
-      "body_sha256": "sha256:3c9240e92c80291b8d5db1261ca384f4d0519f988119e5e310369994bf71af26",
+      "body_sha256": "sha256:6384b50285a112591ced0c9b1a8b20f71837e08077e0fe4e2987387f2f3545c8",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -5305,20 +5305,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/route_destination/buffer_policy/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "Some upstream applications are not capable of handling streamed data. This config enables buffering the entire request before sending to upstream application. We can specify the maximum buffer size and buffer interval with this config. Buffering can be enabled and disabled at VirtualHost and Route levels Route level",
       "tasks": ["configuration"],
       "title": "routes.route_destination.buffer_policy",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
       "aliases": ["duration", "routes route destination cors policy"],
       "body_bytes": 9405,
-      "body_sha256": "sha256:b43f12ad2038dcf91488f139a04f7c2165cab297371642d9289f2b5e09101a60",
+      "body_sha256": "sha256:8e9412b3954a3a24ff3c92de70a1d8d5a4886072aa81fd4ca521f2d5caaba1b9",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -5489,14 +5489,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/route_destination/cors_policy/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "Cross-Origin Resource Sharing requests configuration specified at Virtual-host or Route level. Route level configuration takes precedence. An example of an Cross origin HTTP request GET /resources/public-data/ HTTP/1.1 Host: bar.other User-Agent: Mozilla/5.0 (Macintosh; U; Intel MAC OS X 10.5; en-US; rv:1.9.1b3pre)",
       "tasks": ["configuration"],
       "title": "routes.route_destination.cors_policy",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
@@ -5582,14 +5582,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/route_destination/csrf_policy/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "To mitigate CSRF attack , the policy checks where a request is coming from to determine if the request's origin is the same as its destination.the policy relies on two pieces of information used in determining if a request originated from the same host. 1. The origin that caused the user agent to issue the request",
       "tasks": ["configuration"],
       "title": "routes.route_destination.csrf_policy",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
@@ -5622,20 +5622,20 @@
       "schema_path": ["routes", "route_destination", "csrf_policy", "all_load_balancer_domains"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/route_destination/csrf_policy/all_load_balancer_domains/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "routes.route_destination.csrf_policy.all_load_balancer_domains",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
       "aliases": ["routes route destination csrf policy custom domain list"],
       "body_bytes": 2841,
-      "body_sha256": "sha256:0877c2410ef32a6c6a0c7296f5cd73ca642bc735c07db2a3b48bae76f833242f",
+      "body_sha256": "sha256:67ef95c8070adfc20cfc757326d39947f5ae7b3d693e965951acb4e62bb5c057",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -5679,14 +5679,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/route_destination/csrf_policy/custom_domain_list/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "List of domain names used for Host header matching.",
       "tasks": ["configuration"],
       "title": "routes.route_destination.csrf_policy.custom_domain_list",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
@@ -5719,20 +5719,20 @@
       "schema_path": ["routes", "route_destination", "csrf_policy", "disabled"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/route_destination/csrf_policy/disabled/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "routes.route_destination.csrf_policy.disabled",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
       "aliases": ["routes route destination destinations"],
       "body_bytes": 5172,
-      "body_sha256": "sha256:3e0234e7a5bcba40d2523dbc0d9c4274408c7e42b3e3b1be012283d9d1655b1b",
+      "body_sha256": "sha256:7bd7a7f967f580b183fe878c93fcac323d5455256bd8a26c3988e938ff55c776",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -5827,20 +5827,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/route_destination/destinations/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "When requests have to distributed among multiple upstream clusters, multiple destinations are configured, each having its own cluster and weight. Traffic is distributed among clusters based on the weight configured. Example: destinations: - cluster: - kind: F5 xc.vega.cfg.adc.cluster.object uid: cluster-1 weight: 20 -",
       "tasks": ["configuration"],
       "title": "routes.route_destination.destinations",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
       "aliases": ["routes route destination destinations cluster"],
       "body_bytes": 5835,
-      "body_sha256": "sha256:ca03716b550f390f4b2509ddaebb4267b0e096f7dad6e9b005ed9cc3cdd251c4",
+      "body_sha256": "sha256:9a49badb4acc8e5b433eab214fd0dc370c4dade855f54d78247293c1dbaf390e",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -5983,14 +5983,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/route_destination/destinations/cluster/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "Indicates the upstream cluster to which the request should be sent. If the cluster does not exist ServiceUnavailable response will be sent.",
       "tasks": ["configuration"],
       "title": "routes.route_destination.destinations.cluster",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
@@ -6023,14 +6023,14 @@
       "schema_path": ["routes", "route_destination", "destinations", "endpoint_subsets"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/route_destination/destinations/endpoint_subsets/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "Upstream cluster may be configured to divide its endpoints into subsets based on metadata attached to the endpoints. Routes may then specify the metadata that a endpoint must match in order to be selected by the load balancer Labels field of endpoint object's metadata is used for subset matching. For endpoints which",
       "tasks": ["configuration"],
       "title": "routes.route_destination.destinations.endpoint_subsets",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
@@ -6063,14 +6063,14 @@
       "schema_path": ["routes", "route_destination", "do_not_retract_cluster"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/route_destination/do_not_retract_cluster/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "routes.route_destination.do_not_retract_cluster",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
@@ -6103,20 +6103,20 @@
       "schema_path": ["routes", "route_destination", "endpoint_subsets"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/route_destination/endpoint_subsets/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "Upstream cluster may be configured to divide its endpoints into subsets based on metadata attached to the endpoints. Routes may then specify the metadata that a endpoint must match in order to be selected by the load balancer Labels field of endpoint object's metadata is used for subset matching. For endpoint's which",
       "tasks": ["configuration"],
       "title": "routes.route_destination.endpoint_subsets",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
       "aliases": ["routes route destination hash policy"],
       "body_bytes": 3396,
-      "body_sha256": "sha256:c9df8c8521ae70839205793f9b25c2051927d0ce4020882bc480a43cf85d23c1",
+      "body_sha256": "sha256:1ac49e07c07e9f1b5bef70a7e3594a57936511c280c08bded72b4573d14b9625",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": ["xcsh-docs:data-sources:route:properties:routes:route_destination:hash_policy:cookie"],
@@ -6208,20 +6208,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/route_destination/hash_policy/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "Specifies a list of hash policies to use for ring hash load balancing. Each hash policy is evaluated individually and the combined result is used to route the request.",
       "tasks": ["configuration"],
       "title": "routes.route_destination.hash_policy",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
       "aliases": ["routes route destination hash policy cookie"],
       "body_bytes": 6467,
-      "body_sha256": "sha256:0d34411bb54c1b4c103048ea44354fb0e16685c06ceca28a3d22c92dab4ab470",
+      "body_sha256": "sha256:4c4da636429f66fe0ca3ba0d6388a4d9844bab94320a674e07a426aaa365f59d",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -6434,14 +6434,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/route_destination/hash_policy/cookie/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "Two types of cookie affinity: 1. Passive. Takes a cookie that's present in the cookies header and hashes on its value. 2. Generated. Generates and sets a cookie with an expiration (TTL) on the first request from the client in its response to the client, based on the endpoint the request gets sent to. The client then",
       "tasks": ["configuration"],
       "title": "routes.route_destination.hash_policy.cookie",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
@@ -6474,14 +6474,14 @@
       "schema_path": ["routes", "route_destination", "hash_policy", "cookie", "add_httponly"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/route_destination/hash_policy/cookie/add_httponly/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "routes.route_destination.hash_policy.cookie.add_httponly",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
@@ -6514,14 +6514,14 @@
       "schema_path": ["routes", "route_destination", "hash_policy", "cookie", "add_secure"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/route_destination/hash_policy/cookie/add_secure/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "routes.route_destination.hash_policy.cookie.add_secure",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
@@ -6554,14 +6554,14 @@
       "schema_path": ["routes", "route_destination", "hash_policy", "cookie", "ignore_httponly"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/route_destination/hash_policy/cookie/ignore_httponly/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "routes.route_destination.hash_policy.cookie.ignore_httponly",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
@@ -6594,14 +6594,14 @@
       "schema_path": ["routes", "route_destination", "hash_policy", "cookie", "ignore_samesite"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/route_destination/hash_policy/cookie/ignore_samesite/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "routes.route_destination.hash_policy.cookie.ignore_samesite",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
@@ -6634,14 +6634,14 @@
       "schema_path": ["routes", "route_destination", "hash_policy", "cookie", "ignore_secure"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/route_destination/hash_policy/cookie/ignore_secure/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "routes.route_destination.hash_policy.cookie.ignore_secure",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
@@ -6674,14 +6674,14 @@
       "schema_path": ["routes", "route_destination", "hash_policy", "cookie", "samesite_lax"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/route_destination/hash_policy/cookie/samesite_lax/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "routes.route_destination.hash_policy.cookie.samesite_lax",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
@@ -6714,14 +6714,14 @@
       "schema_path": ["routes", "route_destination", "hash_policy", "cookie", "samesite_none"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/route_destination/hash_policy/cookie/samesite_none/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "routes.route_destination.hash_policy.cookie.samesite_none",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
@@ -6754,14 +6754,14 @@
       "schema_path": ["routes", "route_destination", "hash_policy", "cookie", "samesite_strict"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/route_destination/hash_policy/cookie/samesite_strict/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "routes.route_destination.hash_policy.cookie.samesite_strict",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
@@ -6830,20 +6830,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/route_destination/mirror_policy/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "MirrorPolicy is used for shadowing traffic from one cluster to another. The approach used is \"fire and forget\", meaning it will not wait for the shadow cluster to respond before returning the response from the primary cluster. All normal statistics are collected for the shadow cluster making this feature useful for",
       "tasks": ["configuration"],
       "title": "routes.route_destination.mirror_policy",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
       "aliases": ["routes route destination mirror policy cluster"],
       "body_bytes": 5816,
-      "body_sha256": "sha256:9af4355c2654fa4b66e1ffb41f9dd4403e4dc48c395e3fa553ebdb6a1bef03c1",
+      "body_sha256": "sha256:10430dfd53941b6e0828b5987524d03c1d04787670f0962736adf300211d1f54",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -6986,14 +6986,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/route_destination/mirror_policy/cluster/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "Specifies the cluster to which the requests will be mirrored. The cluster object referred here must be present.",
       "tasks": ["configuration"],
       "title": "routes.route_destination.mirror_policy.cluster",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
@@ -7059,20 +7059,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/route_destination/mirror_policy/percent/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "Fraction used where sampling percentages are needed. Example sampled requests.",
       "tasks": ["configuration"],
       "title": "routes.route_destination.mirror_policy.percent",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
       "aliases": ["routes route destination query params"],
       "body_bytes": 2405,
-      "body_sha256": "sha256:1319eae580d7651e40692f59ef594ffc149097f026a42c7b877b08b2aa6e404b",
+      "body_sha256": "sha256:f7ea46bbb64e082ee6a58c43e8c776644f4474898af989ec3f583fcc21b37650",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -7151,14 +7151,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/route_destination/query_params/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "Handling of incoming query parameters in simple route.",
       "tasks": ["configuration"],
       "title": "routes.route_destination.query_params",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
@@ -7191,14 +7191,14 @@
       "schema_path": ["routes", "route_destination", "query_params", "remove_all_params"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/route_destination/query_params/remove_all_params/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "routes.route_destination.query_params.remove_all_params",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
@@ -7231,20 +7231,20 @@
       "schema_path": ["routes", "route_destination", "query_params", "retain_all_params"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/route_destination/query_params/retain_all_params/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "routes.route_destination.query_params.retain_all_params",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
       "aliases": ["routes route destination regex rewrite"],
       "body_bytes": 2988,
-      "body_sha256": "sha256:87377204e6a84ea4ccad9126d1f6a489acad09718e33f797650ee3b4483bc64d",
+      "body_sha256": "sha256:ec61f755bd2422424221b2b9b7820e84904b7aabb5d73216a6981695f489ed9f",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -7304,14 +7304,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/route_destination/regex_rewrite/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "RegexMatchRewrite describes how to match a string and then produce a new string using a regular expression and a substitution string.",
       "tasks": ["configuration"],
       "title": "routes.route_destination.regex_rewrite",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
@@ -7344,20 +7344,20 @@
       "schema_path": ["routes", "route_destination", "retract_cluster"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/route_destination/retract_cluster/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "routes.route_destination.retract_cluster",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
       "aliases": ["routes route destination retry policy"],
       "body_bytes": 6834,
-      "body_sha256": "sha256:acd1377457b6c04b4cee1f07a35e38f34b2806c306a99dc8df1ff3cc91d6ff54",
+      "body_sha256": "sha256:e4857940dce83e28e38cb20d6b00c0d8c149fb2bc45a12815bc1d257d9dec67b",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": ["xcsh-docs:data-sources:route:properties:routes:route_destination:retry_policy:back_off"],
@@ -7465,20 +7465,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/route_destination/retry_policy/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "Retry policy configuration for route destination.",
       "tasks": ["configuration"],
       "title": "routes.route_destination.retry_policy",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
       "aliases": ["routes route destination retry policy back off"],
       "body_bytes": 2522,
-      "body_sha256": "sha256:c8d44695221baff4b0ed19b8ec6b594931957031d16e648f04bd3bc5dfcb9d76",
+      "body_sha256": "sha256:faef0895ebe8311d5291626f4071bf4a240c7511e99482e1fd1b857430a1d279",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -7538,14 +7538,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/route_destination/retry_policy/back_off/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "Specifies parameters that control retry back off.",
       "tasks": ["configuration"],
       "title": "routes.route_destination.retry_policy.back_off",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
@@ -7595,14 +7595,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/route_destination/spdy_config/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "Request headers of such upgrade looks like below 'connection', 'Upgrade' 'upgrade', 'SPDY/3.1' Configuration to allow UPGRADE of connection to SPDY and any additional tuning With configuration to allow SPDY upgrade, ADC will produce following response 'HTTP/1.1 101 Switching Protocols 'Upgrade': 'SPDY/3.1'",
       "tasks": ["configuration"],
       "title": "routes.route_destination.spdy_config",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
@@ -7652,20 +7652,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/route_destination/web_socket_config/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "Configuration to allow Websocket Request headers of such upgrade looks like below 'connection', 'Upgrade' 'upgrade', 'websocket' With configuration to allow websocket upgrade, ADC will produce following response 'HTTP/1.1 101 Switching Protocols 'Upgrade': 'websocket' 'Connection': 'Upgrade'",
       "tasks": ["configuration"],
       "title": "routes.route_destination.web_socket_config",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
       "aliases": ["routes route direct response"],
       "body_bytes": 2916,
-      "body_sha256": "sha256:00274802bfee2155be06db8fdb5159d6491996593f8ee902de78a8cebfa39b60",
+      "body_sha256": "sha256:b0740d129970200d6b17e976b7cfc628f880859c34a9d33367dc37478d178d1a",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -7725,20 +7725,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/route_direct_response/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "Send this direct response in case of route match action is direct response.",
       "tasks": ["configuration"],
       "title": "routes.route_direct_response",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
       "aliases": ["routes route redirect"],
       "body_bytes": 6717,
-      "body_sha256": "sha256:3ea91288fae6eb6978e499dd67d9265c5dc661956baec63eeb2ca8389e4cc69a",
+      "body_sha256": "sha256:ef12d34916b45a78b7ded70994bc4d3ee094ccd13a93be73b5bb0105264bcfd2",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -7897,14 +7897,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/route_redirect/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "Route redirect parameters when match action is redirect.",
       "tasks": ["configuration"],
       "title": "routes.route_redirect",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
@@ -7937,14 +7937,14 @@
       "schema_path": ["routes", "route_redirect", "remove_all_params"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/route_redirect/remove_all_params/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "routes.route_redirect.remove_all_params",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
@@ -7977,14 +7977,14 @@
       "schema_path": ["routes", "route_redirect", "retain_all_params"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/route_redirect/retain_all_params/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "routes.route_redirect.retain_all_params",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
@@ -8034,20 +8034,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/service_policy/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "ServicePolicy configuration details at route level.",
       "tasks": ["configuration"],
       "title": "routes.service_policy",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
       "aliases": ["routes waf exclusion policy"],
       "body_bytes": 4397,
-      "body_sha256": "sha256:2a441c59fcced75da225521ec440ecc68ec61aa8976d8c97dda7db019d372828",
+      "body_sha256": "sha256:3d781ff1d4d0ecd6ba0b0d5e367e614d2b84f2bb6b2a54ef7e29e3265026f94a",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -8144,14 +8144,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/waf_exclusion_policy/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "routes.waf_exclusion_policy",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
@@ -8237,14 +8237,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/waf_type/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "WAF instance will be pointing to an app_firewall object.",
       "tasks": ["configuration"],
       "title": "routes.waf_type",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
@@ -8294,20 +8294,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/waf_type/app_firewall/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "A list of references to the app_firewall configuration objects.",
       "tasks": ["configuration"],
       "title": "routes.waf_type.app_firewall",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
       "aliases": ["routes waf type app firewall app firewall"],
       "body_bytes": 5409,
-      "body_sha256": "sha256:ece65e88dc547fad012b58a1eec073d63577703ff50b1f6ceb8377fb0cf5bde5",
+      "body_sha256": "sha256:eb02b054ca1aec9aca0b2b68cbeecc72846399f47a23911e91ff3e6e5a259204",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -8450,14 +8450,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/waf_type/app_firewall/app_firewall/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "References to an Application Firewall configuration object.",
       "tasks": ["configuration"],
       "title": "routes.waf_type.app_firewall.app_firewall",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
@@ -8490,14 +8490,14 @@
       "schema_path": ["routes", "waf_type", "disable_waf"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/waf_type/disable_waf/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "routes.waf_type.disable_waf",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
@@ -8530,14 +8530,14 @@
       "schema_path": ["routes", "waf_type", "inherit_waf"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/properties/routes/waf_type/inherit_waf/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "routes.waf_type.inherit_waf",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
@@ -8570,14 +8570,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/examples/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "Examples for xcsh_route.",
       "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     },
     {
@@ -8617,14 +8617,14 @@
       "schema_path": ["data-source"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/route/examples/data-source/index.txt",
-      "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d",
+      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
       "summary": "Data source for xcsh_route.",
       "tasks": ["configuration"],
       "title": "Data source",
       "upstream_identity": {
-        "release_tag": "v12.0.5",
+        "release_tag": "v12.0.6",
         "schema_components": ["routeCreateRequest"],
-        "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"
+        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
       }
     }
   ],

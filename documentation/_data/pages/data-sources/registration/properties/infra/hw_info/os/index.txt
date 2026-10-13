@@ -2,7 +2,7 @@
 page_title: "infra.hw_info.os"
 subcategory: ""
 description: "Details of Operating System."
-xcsh_docs: {"aliases": ["infra hw info os"], "body_bytes": 4192, "body_sha256": "sha256:9249ab1a09b82f59c5975b8bf23083e68f8ccdb1bf0fc7df9b41903a372feb20", "capabilities": ["infrastructure"], "category": "infrastructure", "child_ids": [], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:data-sources:registration:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:os", "parent_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info", "path": "documentation/data-sources/registration/properties/infra/hw_info/os/index.md", "product": "distributed-cloud", "provider_name": "registration", "provider_schema_digest": "sha256:1b9ea59a790d92083efb68ff1abebe57ebbb3f7b716b91cdb7b0416134676174", "provider_type": "data-sources", "registry_anchor": "canonical-2023302323122322-3003210101112121-2100312221020002-2332203332311233-0010331003002231-0120201232012120-2332013030003023-0101232230013331", "registry_path": "docs/guides/data-sources--registration--reference--group-001.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["infra", "hw_info", "os"], "schema_version": 1, "sections": [{"aliases": ["infra hw info os architecture"], "anchor": "schema-infra--hw_info--os--architecture", "description": "Architecture of OS.", "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:os", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["infra", "hw_info", "os", "architecture"], "syntax": "attribute", "type": "string"}, {"aliases": ["infra hw info os name"], "anchor": "schema-infra--hw_info--os--name", "description": "Name of OS.", "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:os", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["infra", "hw_info", "os", "name"], "syntax": "attribute", "type": "string"}, {"aliases": ["infra hw info os release"], "anchor": "schema-infra--hw_info--os--release", "description": "Release of the OS.", "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:os", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["infra", "hw_info", "os", "release"], "syntax": "attribute", "type": "string"}, {"aliases": ["infra hw info os vendor"], "anchor": "schema-infra--hw_info--os--vendor", "description": "Vendor of OS.", "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:os", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["infra", "hw_info", "os", "vendor"], "syntax": "attribute", "type": "string"}, {"aliases": ["infra hw info os version"], "anchor": "schema-infra--hw_info--os--version", "description": "Version of OS.", "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:os", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["infra", "hw_info", "os", "version"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/registration/properties/infra/hw_info/os/index.txt", "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d", "summary": "Details of Operating System.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.5", "schema_components": ["registrationCreateRequest"], "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"}}
+xcsh_docs: {"aliases": ["infra hw info os"], "body_bytes": 4192, "body_sha256": "sha256:07ac5556ff5d8d9a17f3c431f9df0a960e9bc4e3984118ef985c7a4821512bf0", "capabilities": ["infrastructure"], "category": "infrastructure", "child_ids": [], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:data-sources:registration:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:os", "parent_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info", "path": "documentation/data-sources/registration/properties/infra/hw_info/os/index.md", "product": "distributed-cloud", "provider_name": "registration", "provider_schema_digest": "sha256:1b9ea59a790d92083efb68ff1abebe57ebbb3f7b716b91cdb7b0416134676174", "provider_type": "data-sources", "registry_anchor": "canonical-2023302323122322-3003210101112121-2100312221020002-2332203332311233-0010331003002231-0120201232012120-2332013030003023-0101232230013331", "registry_path": "docs/guides/data-sources--registration--reference--group-001.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["infra", "hw_info", "os"], "schema_version": 1, "sections": [{"aliases": ["infra hw info os architecture"], "anchor": "schema-infra--hw_info--os--architecture", "description": "Architecture of OS.", "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:os", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["infra", "hw_info", "os", "architecture"], "syntax": "attribute", "type": "string"}, {"aliases": ["infra hw info os name"], "anchor": "schema-infra--hw_info--os--name", "description": "Name of OS.", "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:os", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["infra", "hw_info", "os", "name"], "syntax": "attribute", "type": "string"}, {"aliases": ["infra hw info os release"], "anchor": "schema-infra--hw_info--os--release", "description": "Release of the OS.", "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:os", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["infra", "hw_info", "os", "release"], "syntax": "attribute", "type": "string"}, {"aliases": ["infra hw info os vendor"], "anchor": "schema-infra--hw_info--os--vendor", "description": "Vendor of OS.", "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:os", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["infra", "hw_info", "os", "vendor"], "syntax": "attribute", "type": "string"}, {"aliases": ["infra hw info os version"], "anchor": "schema-infra--hw_info--os--version", "description": "Version of OS.", "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:os", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["infra", "hw_info", "os", "version"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/registration/properties/infra/hw_info/os/index.txt", "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b", "summary": "Details of Operating System.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.6", "schema_components": ["registrationCreateRequest"], "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -59,7 +59,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-10-10T03:47:03+00:00"
+      "validatedAt": "2026-10-13T13:24:52+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -99,7 +99,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "inferred",
-      "validatedAt": "2026-10-10T03:47:03+00:00"
+      "validatedAt": "2026-10-13T13:24:52+00:00"
     },
     "minLength": 1,
     "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
@@ -136,7 +136,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-10-10T03:47:03+00:00"
+      "validatedAt": "2026-10-13T13:24:52+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -167,7 +167,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-10-10T03:47:03+00:00"
+      "validatedAt": "2026-10-13T13:24:52+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -198,7 +198,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-10-10T03:47:03+00:00"
+      "validatedAt": "2026-10-13T13:24:52+00:00"
     }
   },
   "x-f5xc-required-for": {
