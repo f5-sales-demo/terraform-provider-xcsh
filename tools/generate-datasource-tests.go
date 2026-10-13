@@ -130,6 +130,10 @@ var resourceConfigs = map[string]string{
   where {
     site {
       network_type = "VIRTUAL_NETWORK_SITE_LOCAL_INSIDE"
+      ref {
+        name = "example-site"
+        namespace = "system"
+      }
     }
   }`,
 
@@ -219,6 +223,10 @@ var resourceConfigs = map[string]string{
   where {
     site {
       network_type = "VIRTUAL_NETWORK_SITE_LOCAL_INSIDE"
+      ref {
+        name = "example-site"
+        namespace = "system"
+      }
     }
   }`,
 

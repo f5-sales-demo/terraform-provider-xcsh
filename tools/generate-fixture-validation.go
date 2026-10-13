@@ -1,7 +1,6 @@
 //go:build ignore
 
 // Copyright (c) 2026 Robin Mordasiewicz. MIT License.
-//
 package main
 
 import (
@@ -41,7 +40,7 @@ func main() {
 			if strings.HasPrefix(fn.Name.Name, "TestAcc") {
 				tests[fn.Name.Name] = fn
 			}
-			if strings.HasPrefix(fn.Name.Name, "testAcc") && strings.Contains(fn.Name.Name, "Config") && fn.Type.Results != nil && len(fn.Type.Results.List) == 1 {
+			if strings.HasPrefix(fn.Name.Name, "testAcc") && fn.Type.Results != nil && len(fn.Type.Results.List) == 1 {
 				if typ, ok := fn.Type.Results.List[0].Type.(*ast.Ident); ok && typ.Name == "string" {
 					fixtures[fn.Name.Name] = fn
 				}
