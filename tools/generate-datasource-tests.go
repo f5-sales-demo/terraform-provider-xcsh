@@ -392,6 +392,12 @@ var resourceConfigs = map[string]string{
   rules {
     name = "fixture"
     enable = {}
+    segment {
+      refs {
+        name = xcsh_segment.fixture.name
+        namespace = xcsh_segment.fixture.namespace
+      }
+    }
     criteria { any = {} }
     action { virtual_cidr = "192.0.2.0/24" }
   }`,
@@ -461,7 +467,11 @@ var resourceConfigs = map[string]string{
   committed_information_rate = 10000
   burst_size                 = 5000`,
 
-	"policy_based_routing": ``,
+	"policy_based_routing": `
+  forwarding_class_list {
+    name = xcsh_forwarding_class.fixture.name
+    namespace = xcsh_forwarding_class.fixture.namespace
+  }`,
 
 	"protocol_inspection": `
   enable_disable_compliance_checks {
@@ -585,6 +595,21 @@ var skipResources = map[string]string{
 
 // Resources that need special dependencies in the config
 var resourceDependencies = map[string]string{
+	"policy_based_routing": `
+resource "xcsh_forwarding_class" "fixture" {
+ name = "%[1]s-fc"
+ namespace = "system"
+ queue_id_to_use = "DSCP_BEST_EFFORT"
+ no_policer = {}
+ interface_group = "ANY_AVAILABLE_INTERFACE"
+}`,
+
+	"nat_policy": `
+resource "xcsh_segment" "fixture" {
+ name = "%[1]s-segment"
+ namespace = "system"
+}`,
+
 	"api_definition": `
 resource "xcsh_swagger_object" "fixture" {
  name = "%[1]s-spec"

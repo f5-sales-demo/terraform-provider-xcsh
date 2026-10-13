@@ -75,6 +75,10 @@ resource "time_sleep" "wait_for_namespace" {
   create_duration = "5s"
 }
 
+resource "xcsh_segment" "fixture" {
+ name = "%[2]s-segment"
+ namespace = "system"
+}
 resource "xcsh_nat_policy" "test" {
   depends_on = [time_sleep.wait_for_namespace]
   name       = %[2]q
@@ -82,6 +86,13 @@ resource "xcsh_nat_policy" "test" {
 
   rules {
     name = "rule1"
+    enable = {}
+    segment {
+      refs {
+        name = xcsh_segment.fixture.name
+        namespace = xcsh_segment.fixture.namespace
+      }
+    }
 
     criteria {
       source_cidr = ["10.0.0.0/8"]
