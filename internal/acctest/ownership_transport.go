@@ -220,7 +220,7 @@ func (t *ownershipTransport) RoundTrip(req *http.Request) (*http.Response, error
 				ns, _ := ref["namespace"].(string)
 				valid := true
 				for _, ch := range name {
-					if !(ch >= 'a' && ch <= 'z' || ch >= '0' && ch <= '9' || ch == '-') {
+					if (ch < 'a' || ch > 'z') && (ch < '0' || ch > '9') && ch != '-' {
 						valid = false
 					}
 				}
