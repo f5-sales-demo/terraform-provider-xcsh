@@ -1,0 +1,139 @@
+{
+  "version": 1,
+  "runs": [
+    {
+      "label": "workload-waf-choice",
+      "total": 2,
+      "passed": 1,
+      "failed": 1,
+      "skipped": 0,
+      "stream_completeness": {
+        "complete": false,
+        "events": 55,
+        "malformed_lines": 0,
+        "invalid_events": 0,
+        "scanner_error": false,
+        "incomplete_tests": 0,
+        "incomplete_packages": 0,
+        "package_failures": 1
+      },
+      "tests": [
+        {
+          "name": "TestAccWafExclusionPolicyDataSource_basic",
+          "status": "pass"
+        },
+        {
+          "name": "TestAccWorkloadDataSource_basic",
+          "status": "fail",
+          "failure_fingerprint": {
+            "class": "http_error",
+            "summary": "Create request failed",
+            "http_status": 400,
+            "source_location": "workload_data_source_test.go:16",
+            "diagnostic_facts": ["missing_required_input"],
+            "schema_fields": [
+              "job.configuration.parameters.env_var.value",
+              "service.configuration.parameters.env_var.value",
+              "simple_service",
+              "simple_service.configuration.parameters.env_var.value",
+              "simple_service.container",
+              "stateful_service.configuration.parameters.env_var.value"
+            ]
+          }
+        }
+      ],
+      "cleanup": {
+        "version": 1,
+        "journal_sha256": "43030e6f76d42f608823b9a8ffd8aaf6d545b9d5950983ae1d78532fe2f76fc4",
+        "complete": true,
+        "owned": 7,
+        "confirmed_absent": 7,
+        "failures": 0,
+        "second_pass_remaining": 0
+      },
+      "digests": {
+        "tests.json": "8e0cb7880a30b7cf232a79f43fa085f026eecdaffe289918164cfa9de6ec1746",
+        "tests.md": "aa55327e02d8c862f6c12410e7918e77f1d79ed2186129cb99cadd4e86b161b8"
+      }
+    },
+    {
+      "label": "workload-container",
+      "total": 1,
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0,
+      "stream_completeness": {
+        "complete": true,
+        "events": 17,
+        "malformed_lines": 0,
+        "invalid_events": 0,
+        "scanner_error": false,
+        "incomplete_tests": 0,
+        "incomplete_packages": 0,
+        "package_failures": 0
+      },
+      "tests": [
+        {
+          "name": "TestAccWorkloadDataSource_basic",
+          "status": "pass"
+        }
+      ],
+      "cleanup": {
+        "version": 1,
+        "journal_sha256": "106bcf63439c49eabe0fe12060c41aabb196f8ee8857c1e159dbc0b64d3f1b4f",
+        "complete": true,
+        "owned": 6,
+        "confirmed_absent": 6,
+        "failures": 0,
+        "second_pass_remaining": 0
+      },
+      "digests": {
+        "tests.json": "5b15b34581615fc86017d93c0b8d14e87086f8b4d80c682d4731857cd7e73fe4",
+        "tests.md": "6d8ff2a997ae588ed6b1a3873ceb733715fe1c26322c6ccce5e21811111cb6ef"
+      }
+    },
+    {
+      "label": "subnet-isolated",
+      "total": 1,
+      "passed": 0,
+      "failed": 1,
+      "skipped": 0,
+      "stream_completeness": {
+        "complete": false,
+        "events": 34,
+        "malformed_lines": 0,
+        "invalid_events": 0,
+        "scanner_error": false,
+        "incomplete_tests": 0,
+        "incomplete_packages": 0,
+        "package_failures": 1
+      },
+      "tests": [
+        {
+          "name": "TestAccSubnetDataSource_basic",
+          "status": "fail",
+          "failure_fingerprint": {
+            "class": "http_error",
+            "summary": "Create request failed",
+            "http_status": 400,
+            "source_location": "subnet_data_source_test.go:16",
+            "schema_fields": ["site_subnet_params"]
+          }
+        }
+      ],
+      "cleanup": {
+        "version": 1,
+        "journal_sha256": "9b2efba6f17e26ede1567fcea33d48334c7b16bf3ad5fcbb7030ee6b774088fb",
+        "complete": true,
+        "owned": 7,
+        "confirmed_absent": 7,
+        "failures": 0,
+        "second_pass_remaining": 0
+      },
+      "digests": {
+        "tests.json": "20cc77a1675a44edce24fed0c8b1afc7627d52033504d7441b835fc9fdc6d676",
+        "tests.md": "047bf244f7bc7d0a5a49a34ddc8b8a5ca8af1d6cfbd9872eeb5691f846ce7403"
+      }
+    }
+  ]
+}
