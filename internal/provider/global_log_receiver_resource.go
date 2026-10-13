@@ -2990,6 +2990,7 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 						Optional:            true,
 						Computed:            true,
 						PlanModifiers: []planmodifier.Object{
+							planmodifiers.DefaultOneOfMarker("sampled", []string{"sampled", "unsampled"}),
 							objectplanmodifier.UseStateForUnknown(),
 						},
 						AttributeTypes: map[string]attr.Type{},
