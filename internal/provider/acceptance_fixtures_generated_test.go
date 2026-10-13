@@ -221,7 +221,7 @@ func init() {
 		return testAccFilterSetResource_withLabelsSystem("tf-acc-test-fixture", map[string]string{"environment": "test"})
 	})
 	acctest.RegisterFixture("testAccFleetConfig_basic", func() string { return testAccFleetConfig_basic("tf-acc-test-fixture", "tf-acc-test-fixture") })
-	acctest.RegisterFixture("testAccFleetDataSourceConfig_basic", func() string { return testAccFleetDataSourceConfig_basic("tf-acc-test-fixture", "tf-acc-test-fixture") })
+	acctest.RegisterFixture("testAccFleetDataSourceConfig_basic", func() string { return testAccFleetDataSourceConfig_basic("tf-acc-test-fixture") })
 	acctest.RegisterFixture("testAccForwardProxyPolicyConfig_basic", func() string {
 		return testAccForwardProxyPolicyConfig_basic("tf-acc-test-fixture", "tf-acc-test-fixture")
 	})

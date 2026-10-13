@@ -746,6 +746,7 @@ var systemLevelResources = map[string]bool{
 
 // Resources that MUST use namespace = "system" (not custom namespace)
 var systemNamespaceResources = map[string]bool{
+	"fleet":                true,
 	"bgp":                  true,
 	"bgp_routing_policy":   true,
 	"http_loadbalancer":    true,
