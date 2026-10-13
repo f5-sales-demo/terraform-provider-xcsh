@@ -18,7 +18,8 @@ import (
 // - F5 XC API access with AWS integration
 // - Significant time for AWS resource provisioning (10-20 minutes)
 func TestAccAWSTGWSiteResource_basic(t *testing.T) {
-	t.Skip("Skipping: requires AWS cloud credentials and cloud_credentials resource")
+
+	acctest.RequireExternalCredential(t, "cloud")
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 

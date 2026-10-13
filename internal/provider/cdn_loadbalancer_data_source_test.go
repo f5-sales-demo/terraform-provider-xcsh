@@ -58,7 +58,9 @@ resource "xcsh_cdn_loadbalancer" "test" {
   domains = ["%[1]s.example.com"]
   http {}
   origin_pool {
-    public_name { dns_name = "example.com" }
+    origin_servers {
+      public_name { dns_name = "example.com" }
+    }
     no_tls = {}
   }
 }

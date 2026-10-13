@@ -105,6 +105,14 @@ resource "xcsh_bot_defense_app_infrastructure" "test" {
   cloud_hosted {
     infra_host_name = "test.example.com"
     region          = "US"
+    egress {
+      ip_address = "192.0.2.1"
+      location = "AWS_US_EAST_1"
+    }
+    ingress {
+      host_name = "test.example.com"
+      location = "AWS_US_EAST_1"
+    }
   }
 }
 `, nsName, name))

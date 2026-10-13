@@ -150,6 +150,18 @@ func (j *OwnershipJournal) save() error {
 	defer func() { _ = dir.Close() }()
 	return dir.Sync()
 }
+func (j *OwnershipJournal) ResetAfterVerifiedAbsence(r OwnedResource) error {
+	j.mu.Lock()
+	defer j.mu.Unlock()
+	for i, existing := range j.Resources {
+		if ownedKey(existing) == ownedKey(r) {
+			j.Resources[i].UID = ""
+			j.Resources[i].Status = "intent"
+			return j.save()
+		}
+	}
+	return nil
+}
 func (j *OwnershipJournal) Intent(r OwnedResource) error {
 	j.mu.Lock()
 	defer j.mu.Unlock()
@@ -169,12 +181,17 @@ func (j *OwnershipJournal) Intent(r OwnedResource) error {
 	j.Resources = append(j.Resources, r)
 	return j.save()
 }
+func ownershipUIDDigest(uid string) string {
+	digest := sha256.Sum256([]byte(uid))
+	return hex.EncodeToString(digest[:])
+}
 func (j *OwnershipJournal) Confirm(r OwnedResource, uid string) error {
 	j.mu.Lock()
 	defer j.mu.Unlock()
 	if uid == "" {
 		return errors.New("ownership readback lacks UID")
 	}
+	uid = ownershipUIDDigest(uid)
 	for i, existing := range j.Resources {
 		if ownedKey(existing) == ownedKey(r) {
 			if existing.UID != "" && existing.UID != uid {
@@ -261,7 +278,7 @@ func (j *OwnershipJournal) Cleanup(ctx context.Context, b OwnershipBackend, atte
 				absent = true
 				break
 			}
-			if readErr != nil || metadata.Name != r.Name || metadata.UID == "" || (r.UID != "" && metadata.UID != r.UID) {
+			if readErr != nil || metadata.Name != r.Name || metadata.UID == "" || (r.UID != "" && ownershipUIDDigest(metadata.UID) != r.UID) {
 				break
 			}
 			if r.Status == "absent" {
@@ -271,7 +288,7 @@ func (j *OwnershipJournal) Cleanup(ctx context.Context, b OwnershipBackend, atte
 				break
 			}
 			if r.UID == "" {
-				r.UID = metadata.UID
+				r.UID = ownershipUIDDigest(metadata.UID)
 				r.Status = "created"
 				j.Resources[i] = r
 				if j.save() != nil {

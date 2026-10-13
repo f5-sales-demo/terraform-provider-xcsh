@@ -144,7 +144,7 @@ func TestAccSecuremeshSiteV2Resource_segmentVRF(t *testing.T) {
 
 	segmentName := os.Getenv("XCSH_TEST_SEGMENT_NAME")
 	if segmentName == "" {
-		t.Skip("XCSH_TEST_SEGMENT_NAME must name an existing system Segment")
+		acctest.RequireDisposableSegment(t)
 	}
 	rName := acctest.RandomName("tf-acc-test-smsite-v2-segment")
 	resourceName := "xcsh_securemesh_site_v2.test"

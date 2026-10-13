@@ -136,7 +136,7 @@ func CheckResourceDisappears(resourceType, resourceName string) resource.TestChe
 		}
 		ctx, cancel := context.WithTimeout(context.Background(), 60*time.Second)
 		defer cancel()
-		if err := retryIdempotentDelete(ctx, c, deleter, ns, name, 3, 5*time.Second); err != nil && !isNotFoundError(err) {
+		if err := retryIdempotentDelete(ctx, c, deleter, ns, name, 3, 5*time.Second); err != nil && !authoritativeOwnedAbsence(err) {
 			return fmt.Errorf("delete %s %s/%s: %w", resourceType, ns, name, err)
 		}
 		if err := waitForResourceDisappearance(ctx, c, verifier, ns, name, 6, 3*time.Second); err != nil {
@@ -168,7 +168,7 @@ func waitForResourceDisappearance(ctx context.Context, c *client.Client, verifie
 	var lastErr error
 	for attempt := 0; attempt < maxAttempts; attempt++ {
 		lastErr = verifier(ctx, c, ns, name)
-		if isNotFoundError(lastErr) {
+		if authoritativeOwnedAbsence(lastErr) {
 			return nil
 		}
 		if lastErr != nil {

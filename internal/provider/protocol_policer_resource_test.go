@@ -19,7 +19,6 @@ func TestAccProtocolPolicerResource_basic(t *testing.T) {
 	// Skip: protocol_policer requires policer reference but API validation is
 	// rejecting the request format (BAD_REQUEST). Need further investigation of
 	// the exact API payload structure for the policer reference.
-	t.Skip("Skipping: protocol_policer API validation needs investigation (BAD_REQUEST)")
 
 	rName := acctest.RandomName("tf-acc-test-pp")
 	nsName := acctest.RandomName("tf-acc-test-ns")

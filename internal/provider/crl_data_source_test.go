@@ -57,7 +57,7 @@ resource "xcsh_crl" "test" {
   namespace  = xcsh_namespace.test.name
   server_address = "crl.example.com"
   server_port = 80
-  refresh_interval = 3600
+  refresh_interval = 24
   timeout = 10
   http_access { path = "/fixture.crl" }
 }

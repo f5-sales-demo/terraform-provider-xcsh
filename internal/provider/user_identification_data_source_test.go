@@ -38,6 +38,7 @@ func testAccUserIdentificationDataSourceConfig_basic(name string) string {
 	return acctest.ConfigCompose(
 		acctest.ProviderConfig(),
 		fmt.Sprintf(`
+
 resource "xcsh_user_identification" "test" {
   name      = %[1]q
   namespace = "system"

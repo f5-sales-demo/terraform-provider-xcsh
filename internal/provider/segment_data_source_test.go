@@ -16,18 +16,14 @@ func TestAccSegmentDataSource_basic(t *testing.T) {
 	acctest.PreCheck(t)
 
 	rName := acctest.RandomName("tf-acc-test")
-	nsName := acctest.RandomName("tf-acc-test-ns")
 	resourceName := "xcsh_segment.test"
 	dataSourceName := "data.xcsh_segment.test"
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
 		ProtoV6ProviderFactories: acctest.ProtoV6ProviderFactories,
-		ExternalProviders: map[string]resource.ExternalProvider{
-			"time": {Source: "hashicorp/time"},
-		},
 		Steps: []resource.TestStep{
 			{
-				Config: testAccSegmentDataSourceConfig_basic(nsName, rName),
+				Config: testAccSegmentDataSourceConfig_basic(rName),
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttrPair(dataSourceName, "name", resourceName, "name"),
 					resource.TestCheckResourceAttrPair(dataSourceName, "namespace", resourceName, "namespace"),
@@ -38,23 +34,14 @@ func TestAccSegmentDataSource_basic(t *testing.T) {
 	})
 }
 
-func testAccSegmentDataSourceConfig_basic(nsName, name string) string {
+func testAccSegmentDataSourceConfig_basic(name string) string {
 	return acctest.ConfigCompose(
 		acctest.ProviderConfig(),
 		fmt.Sprintf(`
-resource "xcsh_namespace" "test" {
-  name = %[1]q
-}
-
-resource "time_sleep" "wait_for_namespace" {
-  depends_on      = [xcsh_namespace.test]
-  create_duration = "5s"
-}
 
 resource "xcsh_segment" "test" {
-  depends_on = [time_sleep.wait_for_namespace]
-  name       = %[2]q
-  namespace  = xcsh_namespace.test.name
+  name      = %[1]q
+  namespace = "system"
 }
 
 data "xcsh_segment" "test" {
@@ -62,5 +49,5 @@ data "xcsh_segment" "test" {
   name       = xcsh_segment.test.name
   namespace  = xcsh_segment.test.namespace
 }
-`, nsName, name))
+`, name))
 }

@@ -48,7 +48,7 @@ func TestOwnershipTransportJournalsIntentAndReadback(t *testing.T) {
 	c.HTTPClient.Transport = &ownershipTransport{base: http.DefaultTransport, c: c, j: j}
 	var result client.OriginPool
 	err = c.Post(context.Background(), "/api/config/namespaces/system/origin_pools", map[string]interface{}{"metadata": map[string]interface{}{"name": "tf-acc-test-runone-pool", "namespace": "system"}, "spec": map[string]interface{}{}}, &result)
-	if err != nil || len(j.Resources) != 1 || j.Resources[0].Status != "created" || j.Resources[0].UID != "uid-one" {
+	if err != nil || len(j.Resources) != 1 || j.Resources[0].Status != "created" || j.Resources[0].UID != ownershipUIDDigest("uid-one") {
 		t.Fatalf("journal %#v %v", j.Resources, err)
 	}
 	// Provider-facing reads omit only the internal ownership marker.

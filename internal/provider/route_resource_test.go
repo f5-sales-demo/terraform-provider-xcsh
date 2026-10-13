@@ -15,7 +15,6 @@ import (
 func TestAccRouteResource_basic(t *testing.T) {
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
-	t.Skip("Skipping: route resource has state drift on waf_type.inherit_waf empty block (generator issue with nested empty blocks)")
 
 	resourceName := "xcsh_route.test"
 	nsName := acctest.RandomName("tf-acc-test-ns")

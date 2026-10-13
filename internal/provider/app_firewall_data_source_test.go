@@ -38,6 +38,7 @@ func testAccAppFirewallDataSourceConfig_basic(name string) string {
 	return acctest.ConfigCompose(
 		acctest.ProviderConfig(),
 		fmt.Sprintf(`
+
 resource "xcsh_app_firewall" "test" {
   name      = %[1]q
   namespace = "system"

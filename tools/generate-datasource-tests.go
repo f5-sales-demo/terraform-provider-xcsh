@@ -47,6 +47,32 @@ func shouldRegenerateDataSourceTest(content []byte) bool {
 // Resource configurations based on OpenAPI specs
 // Key is the resource name (without xcsh_ prefix)
 var resourceConfigs = map[string]string{
+ "bot_defense_app_infrastructure": `
+ environment_type = "PRODUCTION"
+ traffic_type = "WEB"
+ cloud_hosted {
+  infra_host_name = "test.example.com"
+  region = "US"
+  ingress {
+   host_name = "test.example.com"
+   location = "AWS_US_EAST_1"
+  }
+  egress {
+   ip_address = "192.0.2.1"
+   location = "AWS_US_EAST_1"
+  }
+ }
+`,
+
+ "route": `
+  routes {
+    route_direct_response {
+      response_code = 200
+      response_body_encoded = "T0s="
+    }
+    waf_type { inherit_waf = {} }
+  }`,
+
 	"secret_management_access": `
   provider_name = "fixture"`,
 	"cloud_elastic_ip": `
@@ -55,7 +81,9 @@ var resourceConfigs = map[string]string{
   domains = ["%[1]s.example.com"]
   http {}
   origin_pool {
-    public_name { dns_name = "example.com" }
+    origin_servers {
+      public_name { dns_name = "example.com" }
+    }
     no_tls = {}
   }`,
 	// Simple resources - just name/namespace
@@ -117,7 +145,7 @@ var resourceConfigs = map[string]string{
 
 	"app_type": `
   business_logic_markup_setting {
-    enable = true
+    enable = {}
   }`,
 
 	"authentication": ``,
@@ -168,7 +196,7 @@ var resourceConfigs = map[string]string{
 	"crl": `
   server_address = "crl.example.com"
   server_port = 80
-  refresh_interval = 3600
+  refresh_interval = 24
   timeout = 10
   http_access { path = "/fixture.crl" }`,
 
@@ -259,8 +287,7 @@ var resourceConfigs = map[string]string{
   any_proxy = {}
   allow_all = {}`,
 
-	"forwarding_class": `
-  dscp_class = "EF"`,
+	"forwarding_class": ``,
 
 	"geo_location_set": ``,
 
@@ -375,19 +402,19 @@ var resourceConfigs = map[string]string{
 	"policy_based_routing": ``,
 
 	"protocol_inspection": `
-  protocol_list = ["HTTP"]`,
+  enable_disable_compliance_checks {
+    disable_compliance_checks = {}
+  }
+  enable_disable_signatures {
+    disable_signature = {}
+  }`,
 
 	"protocol_policer": `
   protocol_policer {
-    match {
-      any_ip {}
-    }
-    protocol {
-      dns {}
-    }
+    protocol { dns = {} }
     policer {
-      bandwidth = 1000
-      burst     = 1000
+      name = xcsh_policer.test.name
+      namespace = "system"
     }
   }`,
 
@@ -422,7 +449,7 @@ var resourceConfigs = map[string]string{
   }`,
 
 	"token": `
-  type = "JWT"`,
+  type = 0`,
 
 	"udp_loadbalancer": `
   domains     = ["%[1]s.example.com"]
@@ -434,7 +461,7 @@ var resourceConfigs = map[string]string{
     }
     weight = 1
   }
-  advertise_on_public_default_vip {}`,
+  advertise_on_public_default_vip = {}`,
 
 	"usb_policy": ``,
 
@@ -469,7 +496,7 @@ var resourceConfigs = map[string]string{
   }`,
 
 	"workload_flavor": `
-  vcpus        = "1"
+  vcpus        = 1
   memory       = "1024"
   ephemeral_storage = "10Gi"`,
 }
@@ -477,48 +504,38 @@ var resourceConfigs = map[string]string{
 // Resources to skip (FORBIDDEN errors, special permissions required)
 var skipResources = map[string]string{
 
-	"address_allocator": "API returns BAD_REQUEST - requires specific infrastructure",
-
-	"bot_defense_app_infrastructure": "Requires Bot Defense subscription",
-
 	"cloud_credentials": "Requires system-level namespace access",
 	"cminstance":        "Requires CM instance management permissions",
 
-	"forwarding_class": "Requires tenant quota configuration",
-
-	"protocol_inspection": "Resource test has schema mismatch - needs fixing",
-	"protocol_policer":    "Resource test has schema mismatch - needs fixing",
-
 	"registration": "Requires site registration permissions",
-
-	"site_mesh_group":      "API returns 500 errors",
-	"route":                "API returns 500 errors",
 	"tenant_configuration": "API returns 500 errors",
-
-	"token": "Resource test has schema mismatch - needs fixing",
-
-	"udp_loadbalancer":     "Requires system namespace template with dependencies - needs template fix",
-	"usb_policy":           "Resource test fails - API returns BAD_REQUEST",
-	"waf_exclusion_policy": "No resource test exists - config unknown",
 }
 
 // Resources that need special dependencies in the config
 var resourceDependencies = map[string]string{
+ "protocol_policer": `
+resource "xcsh_policer" "test" {
+ name = "%[1]s-policer"
+ namespace = "system"
+ burst_size = 1000
+ committed_information_rate = 1000
+}
+`,
+
 	"app_setting": `
 resource "xcsh_app_type" "test" {
   depends_on = [time_sleep.wait_for_namespace]
   name       = "${%[2]q}-apptype"
   namespace  = xcsh_namespace.test.name
   business_logic_markup_setting {
-    enable = true
+    enable = {}
   }
 }
 `,
 	"http_loadbalancer": `
 resource "xcsh_origin_pool" "test" {
-  depends_on = [time_sleep.wait_for_namespace]
-  name       = "${%[2]q}-pool"
-  namespace  = xcsh_namespace.test.name
+  name       = "%[1]s-pool"
+  namespace  = "system"
   origin_servers {
     public_ip {
       ip = "192.0.2.1"
@@ -531,9 +548,8 @@ resource "xcsh_origin_pool" "test" {
 `,
 	"tcp_loadbalancer": `
 resource "xcsh_origin_pool" "test" {
-  depends_on = [time_sleep.wait_for_namespace]
-  name       = "${%[2]q}-pool"
-  namespace  = xcsh_namespace.test.name
+  name       = "%[1]s-pool"
+  namespace  = "system"
   origin_servers {
     public_ip {
       ip = "192.0.2.1"
@@ -546,9 +562,8 @@ resource "xcsh_origin_pool" "test" {
 `,
 	"udp_loadbalancer": `
 resource "xcsh_origin_pool" "test" {
-  depends_on = [time_sleep.wait_for_namespace]
-  name       = "${%[2]q}-pool"
-  namespace  = xcsh_namespace.test.name
+  name       = "%[1]s-pool"
+  namespace  = "system"
   origin_servers {
     public_ip {
       ip = "192.0.2.1"
@@ -576,6 +591,18 @@ var systemLevelResources = map[string]bool{
 
 // Resources that MUST use namespace = "system" (not custom namespace)
 var systemNamespaceResources = map[string]bool{
+ "token": true,
+ "site_mesh_group": true,
+ "address_allocator": true,
+ "forwarding_class": true,
+ "protocol_policer": true,
+ "route": true,
+ "udp_loadbalancer": true,
+ "fast_acl": true,
+ "fast_acl_rule": true,
+ "dc_cluster_group": true,
+ "network_policy_view": true,
+ "segment": true,
 	"virtual_network":     true,
 	"policer":             true,
 	"user_identification": true,
@@ -612,10 +639,15 @@ package provider_test
 {{if .Skip}}
 import (
 	"testing"
+ "github.com/f5-sales-demo/terraform-provider-xcsh/internal/acctest"
 )
 
 func {{.TestFuncName}}(t *testing.T) {
-	t.Skip("{{.SkipReason}}")
+	{{if eq .Name "tenant_configuration"}}acctest.RequireNonDisposableScope(t)
+{{else if eq .Name "cloud_credentials"}}acctest.RequireExternalCredential(t, "cloud")
+{{else if eq .Name "cminstance"}}acctest.RequireExternalCredential(t, "central_manager")
+{{else}}acctest.FailHistoricalPrerequisite(t)
+{{end}}
 }
 {{else}}
 import (
@@ -700,6 +732,7 @@ func {{.ConfigFuncName}}(name string) string {
 	return acctest.ConfigCompose(
 		acctest.ProviderConfig(),
 		fmt.Sprintf(` + "`" + `
+{{.Dependencies}}
 resource "{{.ResourceName}}" "test" {
   name      = %[1]q
   namespace = "system"{{.ResourceConfig}}

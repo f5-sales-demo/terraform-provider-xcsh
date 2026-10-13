@@ -295,8 +295,6 @@ func (r *{{.TitleCase}}Resource) ValidateConfig(ctx context.Context, req resourc
 		return
 	}
 {{- if eq .Name "app_firewall"}}
- // Mixed block/marker conflict: the generic scalar conflict emitter excludes
- // nested model pointers, so this demonstrated blocking-page choice needs both.
  if data.BlockingPage != nil && !data.UseDefaultBlockingPage.IsNull() && !data.UseDefaultBlockingPage.IsUnknown() {
   resp.Diagnostics.AddAttributeError(path.Root("blocking_page"), "Conflicting Configuration", "blocking_page and use_default_blocking_page are mutually exclusive.")
  }
@@ -322,6 +320,10 @@ func (r *{{.TitleCase}}Resource) ValidateConfig(ctx context.Context, req resourc
 {{- end}}
 {{- if .HasConflicts}}
 {{.ConflictCheckCode}}
+{{- end}}
+{{- $rootConflicts := renderRootBlockConflicts .Attributes}}
+{{- if $rootConflicts}}
+{{$rootConflicts}}
 {{- end}}
 {{- if eq .Name "securemesh_site_v2"}}
 	validateSecuremeshSiteV2AWSContract(ctx, data, resp)

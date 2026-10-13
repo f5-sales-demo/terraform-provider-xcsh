@@ -2,15 +2,17 @@
 package acctest
 
 import (
+	"encoding/json"
 	"reflect"
 	"testing"
 )
 
 func TestFixtureValidationRejectsSchemaAndReferences(t *testing.T) {
 	schema := &FixtureSchema{Resources: map[string]fixtureBlockSchema{"xcsh_" + "probe": {Attributes: map[string]struct {
-		Required bool `json:"required"`
-		Computed bool `json:"computed"`
-		Optional bool `json:"optional"`
+		Required bool            `json:"required"`
+		Computed bool            `json:"computed"`
+		Optional bool            `json:"optional"`
+		Type     json.RawMessage `json:"type,omitempty"`
 	}{
 		"name": {Required: true}, "namespace": {Required: true},
 	}}}}

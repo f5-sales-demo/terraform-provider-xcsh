@@ -12,7 +12,8 @@ import (
 )
 
 func TestAccSubnetResource_basic(t *testing.T) {
-	t.Skip("Skipping: subnet requires site infrastructure (site_subnet_params with existing site reference)")
+
+	acctest.RequireExistingInfrastructure(t, "site")
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 

@@ -13,7 +13,8 @@ import (
 )
 
 func TestAccCloudElasticIPResource_basic(t *testing.T) {
-	t.Skip("Skipping: requires cloud site infrastructure (AWS VPC site with elastic IP)")
+
+	acctest.RequireExistingInfrastructure(t, "cloud_site")
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 

@@ -1,0 +1,5467 @@
+{
+  "version": 1,
+  "issue": 2539,
+  "run": 38223043899,
+  "source": "0b26d94a220f21580a4cc579327e178f01280d84",
+  "artifact_sha256": "5999c68ecf47240161829adf0cc24debfa09b266a124a1914ef158885ce7e831",
+  "baseline": {
+    "total": 657,
+    "passed": 309,
+    "failed": 112,
+    "skipped": 236
+  },
+  "tests": [
+    {
+      "test": "TestAccAPICrawlerResource_basic",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/api_crawler_resource_test.go",
+          "resource_types": [
+            "xcsh_api_crawler"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccAPIDefinitionResource_basic",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "unclassified",
+        "source_location": "api_definition_resource_test.go:19"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/api_definition_resource_test.go",
+          "resource_types": [
+            "xcsh_api_definition"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccAPIDefinitionResource_emptyPlan",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "unclassified",
+        "source_location": "api_definition_resource_test.go:125"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/api_definition_resource_test.go",
+          "resource_types": [
+            "xcsh_api_definition"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccAPIDefinitionResource_fullLifecycle",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "unclassified",
+        "source_location": "api_definition_resource_test.go:86"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/api_definition_resource_test.go",
+          "resource_types": [
+            "xcsh_api_definition"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccAPIDefinitionResource_planChecks",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "unclassified",
+        "source_location": "api_definition_resource_test.go:148"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/api_definition_resource_test.go",
+          "resource_types": [
+            "xcsh_api_definition"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccAPIDefinitionResource_requiresReplace",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "unclassified",
+        "source_location": "api_definition_resource_test.go:204"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/api_definition_resource_test.go",
+          "resource_types": [
+            "xcsh_api_definition"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccAPIDefinitionResource_strictSchemaOrigin",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "unclassified",
+        "source_location": "api_definition_resource_test.go:233"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/api_definition_resource_test.go",
+          "resource_types": [
+            "xcsh_api_definition"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccAPIDefinitionResource_withLabels",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "unclassified",
+        "source_location": "api_definition_resource_test.go:63"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/api_definition_resource_test.go",
+          "resource_types": [
+            "xcsh_api_definition"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccAPIDiscoveryResource_basic",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "unclassified",
+        "source_location": "api_discovery_resource_test.go:19"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/api_discovery_resource_test.go",
+          "resource_types": [
+            "xcsh_api_discovery"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccAPIDiscoveryResource_emptyPlan",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "unclassified",
+        "source_location": "api_discovery_resource_test.go:86"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/api_discovery_resource_test.go",
+          "resource_types": [
+            "xcsh_api_discovery"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccAPIDiscoveryResource_planChecks",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "unclassified",
+        "source_location": "api_discovery_resource_test.go:103"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/api_discovery_resource_test.go",
+          "resource_types": [
+            "xcsh_api_discovery"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccAPIDiscoveryResource_requiresReplace",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "unclassified",
+        "source_location": "api_discovery_resource_test.go:150"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/api_discovery_resource_test.go",
+          "resource_types": [
+            "xcsh_api_discovery"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccAPIDiscoveryResource_withLabels",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "unclassified",
+        "source_location": "api_discovery_resource_test.go:63"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/api_discovery_resource_test.go",
+          "resource_types": [
+            "xcsh_api_discovery"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccAPITestingResource_basic",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "unclassified",
+        "source_location": "api_testing_resource_test.go:17"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/api_testing_resource_test.go",
+          "resource_types": [
+            "xcsh_api_testing"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccAWSTGWSiteResource_basic",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "MISSING_CREDENTIALS",
+      "source_inventory": [
+        {
+          "source": "internal/provider/aws_tgw_site_resource_test.go",
+          "resource_types": [
+            "xcsh_aws_tgw_site",
+            "xcsh_namespace"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccAddressAllocatorDataSource_basic",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/address_allocator_data_source_test.go",
+          "resource_types": []
+        }
+      ]
+    },
+    {
+      "test": "TestAccAddressAllocatorResource_basic",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "unclassified",
+        "source_location": "address_allocator_resource_test.go:17"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/address_allocator_resource_test.go",
+          "resource_types": [
+            "xcsh_address_allocator"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccAdvertisePolicyDataSource_basic",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "http_error",
+        "summary": "Create request failed",
+        "http_status": 403,
+        "source_location": "advertise_policy_data_source_test.go:16"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/advertise_policy_data_source_test.go",
+          "resource_types": [
+            "xcsh_advertise_policy",
+            "xcsh_namespace"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccAdvertisePolicyResource_basic",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "unclassified",
+        "source_location": "advertise_policy_resource_test.go:19"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/advertise_policy_resource_test.go",
+          "resource_types": [
+            "xcsh_advertise_policy"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccAdvertisePolicyResource_emptyPlan",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "unclassified",
+        "source_location": "advertise_policy_resource_test.go:86"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/advertise_policy_resource_test.go",
+          "resource_types": [
+            "xcsh_advertise_policy"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccAdvertisePolicyResource_planChecks",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "unclassified",
+        "source_location": "advertise_policy_resource_test.go:103"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/advertise_policy_resource_test.go",
+          "resource_types": [
+            "xcsh_advertise_policy"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccAdvertisePolicyResource_requiresReplace",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "unclassified",
+        "source_location": "advertise_policy_resource_test.go:150"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/advertise_policy_resource_test.go",
+          "resource_types": [
+            "xcsh_advertise_policy"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccAdvertisePolicyResource_updatePort",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "unclassified",
+        "source_location": "advertise_policy_resource_test.go:174"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/advertise_policy_resource_test.go",
+          "resource_types": [
+            "xcsh_advertise_policy"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccAdvertisePolicyResource_withLabels",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "unclassified",
+        "source_location": "advertise_policy_resource_test.go:63"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/advertise_policy_resource_test.go",
+          "resource_types": [
+            "xcsh_advertise_policy"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccAlertPolicyDataSource_basic",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/alert_policy_data_source_test.go",
+          "resource_types": [
+            "xcsh_alert_policy",
+            "xcsh_namespace"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccAlertPolicyResource_disappears",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "assertion",
+        "source_location": "alert_policy_resource_test.go:219"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/alert_policy_resource_test.go",
+          "resource_types": [
+            "xcsh_alert_policy"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccAlertReceiverDataSource_basic",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/alert_receiver_data_source_test.go",
+          "resource_types": [
+            "xcsh_alert_receiver",
+            "xcsh_namespace"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccApiCrawlerDataSource_basic",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/api_crawler_data_source_test.go",
+          "resource_types": [
+            "xcsh_api_crawler",
+            "xcsh_namespace"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccApiDefinitionDataSource_basic",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/api_definition_data_source_test.go",
+          "resource_types": [
+            "xcsh_api_definition",
+            "xcsh_namespace"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccApiDiscoveryDataSource_basic",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/api_discovery_data_source_test.go",
+          "resource_types": [
+            "xcsh_api_discovery",
+            "xcsh_namespace"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccApiTestingDataSource_basic",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/api_testing_data_source_test.go",
+          "resource_types": [
+            "xcsh_api_testing",
+            "xcsh_namespace"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccAppAPIGroupResource_basic",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "unclassified",
+        "source_location": "app_api_group_resource_test.go:17"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/app_api_group_resource_test.go",
+          "resource_types": [
+            "xcsh_app_api_group"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccAppApiGroupDataSource_basic",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/app_api_group_data_source_test.go",
+          "resource_types": [
+            "xcsh_app_api_group",
+            "xcsh_namespace"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccAppFirewallResource_detectionSettings",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "unclassified",
+        "source_location": "app_firewall_resource_test.go:977"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/app_firewall_resource_test.go",
+          "resource_types": [
+            "xcsh_app_firewall"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccAppSettingDataSource_basic",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "framework_diagnostic",
+        "source_location": "app_setting_data_source_test.go:16"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/app_setting_data_source_test.go",
+          "resource_types": [
+            "xcsh_app_setting",
+            "xcsh_app_type",
+            "xcsh_namespace"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccAppSettingResource_basic",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/app_setting_resource_test.go",
+          "resource_types": [
+            "xcsh_app_setting"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccAppTypeDataSource_basic",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "framework_diagnostic",
+        "source_location": "app_type_data_source_test.go:16"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/app_type_data_source_test.go",
+          "resource_types": [
+            "xcsh_app_type",
+            "xcsh_namespace"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccAppTypeResource_basic",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "unclassified",
+        "source_location": "app_type_resource_test.go:17"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/app_type_resource_test.go",
+          "resource_types": [
+            "xcsh_app_type"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccAuthenticationDataSource_basic",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "framework_diagnostic",
+        "source_location": "authentication_data_source_test.go:16"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/authentication_data_source_test.go",
+          "resource_types": [
+            "xcsh_authentication",
+            "xcsh_namespace"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccAuthenticationResource_basic",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "MISSING_CREDENTIALS",
+      "source_inventory": [
+        {
+          "source": "internal/provider/authentication_resource_test.go",
+          "resource_types": [
+            "xcsh_authentication",
+            "xcsh_namespace"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccAwsTgwSiteDataSource_basic",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "http_error",
+        "summary": "Create request failed",
+        "http_status": 403,
+        "source_location": "aws_tgw_site_data_source_test.go:16"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/aws_tgw_site_data_source_test.go",
+          "resource_types": [
+            "xcsh_aws_tgw_site",
+            "xcsh_namespace"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccBGPResource_basic",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "INFRASTRUCTURE",
+      "source_inventory": [
+        {
+          "source": "internal/provider/bgp_resource_test.go",
+          "resource_types": [
+            "xcsh_bgp"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccBGPRoutingPolicyResource_basic",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "unclassified",
+        "source_location": "bgp_routing_policy_resource_test.go:17"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/bgp_routing_policy_resource_test.go",
+          "resource_types": [
+            "xcsh_bgp_routing_policy"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccBgpDataSource_basic",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "framework_diagnostic",
+        "summary": "Unsupported argument",
+        "source_location": "bgp_data_source_test.go:16"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/bgp_data_source_test.go",
+          "resource_types": [
+            "xcsh_bgp",
+            "xcsh_namespace"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccBgpRoutingPolicyDataSource_basic",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "framework_diagnostic",
+        "source_location": "bgp_routing_policy_data_source_test.go:16"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/bgp_routing_policy_data_source_test.go",
+          "resource_types": [
+            "xcsh_bgp_routing_policy",
+            "xcsh_namespace"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccBotDefenseAppInfrastructureDataSource_basic",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/bot_defense_app_infrastructure_data_source_test.go",
+          "resource_types": []
+        }
+      ]
+    },
+    {
+      "test": "TestAccBotDefenseAppInfrastructureResource_basic",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/bot_defense_app_infrastructure_resource_test.go",
+          "resource_types": [
+            "xcsh_bot_defense_app_infrastructure",
+            "xcsh_namespace"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccBotDefenseAppInfrastructureResource_emptyPlan",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/bot_defense_app_infrastructure_resource_test.go",
+          "resource_types": [
+            "xcsh_bot_defense_app_infrastructure",
+            "xcsh_namespace"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccCDNCacheRuleResource_basic",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/cdn_cache_rule_resource_test.go",
+          "resource_types": [
+            "xcsh_cdn_cache_rule",
+            "xcsh_namespace"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccCDNLoadBalancerResource_basic",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "ENVIRONMENT",
+      "source_inventory": [
+        {
+          "source": "internal/provider/cdn_loadbalancer_resource_test.go",
+          "resource_types": [
+            "xcsh_cdn_loadbalancer"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccCRLResource_basic",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/crl_resource_test.go",
+          "resource_types": [
+            "xcsh_crl",
+            "xcsh_namespace"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccCRLResource_emptyPlan",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/crl_resource_test.go",
+          "resource_types": [
+            "xcsh_crl",
+            "xcsh_namespace"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccCdnCacheRuleDataSource_basic",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/cdn_cache_rule_data_source_test.go",
+          "resource_types": [
+            "xcsh_cdn_cache_rule",
+            "xcsh_namespace"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccCdnLoadbalancerDataSource_basic",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "framework_diagnostic",
+        "summary": "Missing required argument",
+        "source_location": "cdn_loadbalancer_data_source_test.go:16"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/cdn_loadbalancer_data_source_test.go",
+          "resource_types": [
+            "xcsh_cdn_loadbalancer",
+            "xcsh_namespace"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccCertificateChainDataSource_basic",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/certificate_chain_data_source_test.go",
+          "resource_types": [
+            "xcsh_certificate_chain",
+            "xcsh_namespace"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccCertificateChainResource_basic",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/certificate_chain_resource_test.go",
+          "resource_types": [
+            "xcsh_certificate_chain",
+            "xcsh_namespace"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccCertificateChainResource_emptyPlan",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/certificate_chain_resource_test.go",
+          "resource_types": [
+            "xcsh_certificate_chain",
+            "xcsh_namespace"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccCertificateDataSource_basic",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/certificate_data_source_test.go",
+          "resource_types": [
+            "xcsh_certificate",
+            "xcsh_namespace"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccCertificateResource_basic",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/certificate_resource_test.go",
+          "resource_types": [
+            "xcsh_certificate",
+            "xcsh_namespace"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccCertificateResource_emptyPlan",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/certificate_resource_test.go",
+          "resource_types": [
+            "xcsh_certificate",
+            "xcsh_namespace"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccCertificateResource_withLabels",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/certificate_resource_test.go",
+          "resource_types": [
+            "xcsh_certificate",
+            "xcsh_namespace"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccCloudCredentialsDataSource_basic",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "MISSING_CREDENTIALS",
+      "source_inventory": [
+        {
+          "source": "internal/provider/cloud_credentials_data_source_test.go",
+          "resource_types": []
+        }
+      ]
+    },
+    {
+      "test": "TestAccCloudCredentialsResource_allAttributes",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "MISSING_CREDENTIALS",
+      "source_inventory": [
+        {
+          "source": "internal/provider/cloud_credentials_resource_test.go",
+          "resource_types": [
+            "xcsh_cloud_credentials"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccCloudCredentialsResource_awsAssumeRole",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "MISSING_CREDENTIALS",
+      "source_inventory": [
+        {
+          "source": "internal/provider/cloud_credentials_resource_test.go",
+          "resource_types": [
+            "xcsh_cloud_credentials"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccCloudCredentialsResource_basic",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "MISSING_CREDENTIALS",
+      "source_inventory": [
+        {
+          "source": "internal/provider/cloud_credentials_resource_test.go",
+          "resource_types": [
+            "xcsh_cloud_credentials"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccCloudCredentialsResource_disappears",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "MISSING_CREDENTIALS",
+      "source_inventory": [
+        {
+          "source": "internal/provider/cloud_credentials_resource_test.go",
+          "resource_types": [
+            "xcsh_cloud_credentials"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccCloudCredentialsResource_emptyName",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "MISSING_CREDENTIALS",
+      "source_inventory": [
+        {
+          "source": "internal/provider/cloud_credentials_resource_test.go",
+          "resource_types": [
+            "xcsh_cloud_credentials"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccCloudCredentialsResource_emptyPlan",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "MISSING_CREDENTIALS",
+      "source_inventory": [
+        {
+          "source": "internal/provider/cloud_credentials_resource_test.go",
+          "resource_types": [
+            "xcsh_cloud_credentials"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccCloudCredentialsResource_invalidName",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "MISSING_CREDENTIALS",
+      "source_inventory": [
+        {
+          "source": "internal/provider/cloud_credentials_resource_test.go",
+          "resource_types": [
+            "xcsh_cloud_credentials"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccCloudCredentialsResource_knownValues",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "MISSING_CREDENTIALS",
+      "source_inventory": [
+        {
+          "source": "internal/provider/cloud_credentials_resource_test.go",
+          "resource_types": [
+            "xcsh_cloud_credentials"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccCloudCredentialsResource_nameTooLong",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "MISSING_CREDENTIALS",
+      "source_inventory": [
+        {
+          "source": "internal/provider/cloud_credentials_resource_test.go",
+          "resource_types": [
+            "xcsh_cloud_credentials"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccCloudCredentialsResource_planChecks",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "MISSING_CREDENTIALS",
+      "source_inventory": [
+        {
+          "source": "internal/provider/cloud_credentials_resource_test.go",
+          "resource_types": [
+            "xcsh_cloud_credentials"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccCloudCredentialsResource_requiresReplace",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "MISSING_CREDENTIALS",
+      "source_inventory": [
+        {
+          "source": "internal/provider/cloud_credentials_resource_test.go",
+          "resource_types": [
+            "xcsh_cloud_credentials"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccCloudCredentialsResource_updateAnnotations",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "MISSING_CREDENTIALS",
+      "source_inventory": [
+        {
+          "source": "internal/provider/cloud_credentials_resource_test.go",
+          "resource_types": [
+            "xcsh_cloud_credentials"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccCloudCredentialsResource_updateDescription",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "MISSING_CREDENTIALS",
+      "source_inventory": [
+        {
+          "source": "internal/provider/cloud_credentials_resource_test.go",
+          "resource_types": [
+            "xcsh_cloud_credentials"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccCloudCredentialsResource_updateLabels",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "MISSING_CREDENTIALS",
+      "source_inventory": [
+        {
+          "source": "internal/provider/cloud_credentials_resource_test.go",
+          "resource_types": [
+            "xcsh_cloud_credentials"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccCloudElasticIPResource_basic",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "INFRASTRUCTURE",
+      "source_inventory": [
+        {
+          "source": "internal/provider/cloud_elastic_ip_resource_test.go",
+          "resource_types": [
+            "xcsh_cloud_elastic_ip",
+            "xcsh_namespace"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccCloudElasticIpDataSource_basic",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "framework_diagnostic",
+        "summary": "Missing required argument",
+        "source_location": "cloud_elastic_ip_data_source_test.go:16"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/cloud_elastic_ip_data_source_test.go",
+          "resource_types": [
+            "xcsh_cloud_elastic_ip",
+            "xcsh_namespace"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccCloudLinkDataSource_basic",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "http_error",
+        "summary": "Create request failed",
+        "http_status": 403,
+        "source_location": "cloud_link_data_source_test.go:16"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/cloud_link_data_source_test.go",
+          "resource_types": [
+            "xcsh_cloud_link",
+            "xcsh_namespace"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccCloudLinkResource_basic",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "INFRASTRUCTURE",
+      "source_inventory": [
+        {
+          "source": "internal/provider/cloud_link_resource_test.go",
+          "resource_types": [
+            "xcsh_cloud_link",
+            "xcsh_namespace"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccClusterDataSource_basic",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/cluster_data_source_test.go",
+          "resource_types": [
+            "xcsh_cluster",
+            "xcsh_namespace"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccClusterResource_basic",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/cluster_resource_test.go",
+          "resource_types": [
+            "xcsh_cluster",
+            "xcsh_namespace"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccCminstanceDataSource_basic",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/cminstance_data_source_test.go",
+          "resource_types": []
+        }
+      ]
+    },
+    {
+      "test": "TestAccCminstanceResource_basic",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "MISSING_CREDENTIALS",
+      "source_inventory": [
+        {
+          "source": "internal/provider/cminstance_resource_test.go",
+          "resource_types": [
+            "xcsh_cminstance",
+            "xcsh_namespace"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccCodeBaseIntegrationDataSource_basic",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/code_base_integration_data_source_test.go",
+          "resource_types": [
+            "xcsh_code_base_integration",
+            "xcsh_namespace"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccCodeBaseIntegrationResource_basic",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "MISSING_CREDENTIALS",
+      "source_inventory": [
+        {
+          "source": "internal/provider/code_base_integration_resource_test.go",
+          "resource_types": [
+            "xcsh_code_base_integration",
+            "xcsh_namespace"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccContainerRegistryDataSource_basic",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/container_registry_data_source_test.go",
+          "resource_types": [
+            "xcsh_container_registry",
+            "xcsh_namespace"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccContainerRegistryResource_basic",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/container_registry_resource_test.go",
+          "resource_types": [
+            "xcsh_container_registry",
+            "xcsh_namespace"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccCrlDataSource_basic",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/crl_data_source_test.go",
+          "resource_types": [
+            "xcsh_crl",
+            "xcsh_namespace"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccDNSComplianceChecksResource_basic",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/dns_compliance_checks_resource_test.go",
+          "resource_types": [
+            "xcsh_dns_compliance_checks",
+            "xcsh_namespace"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccDcClusterGroupDataSource_basic",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "framework_diagnostic",
+        "source_location": "dc_cluster_group_data_source_test.go:16"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/dc_cluster_group_data_source_test.go",
+          "resource_types": [
+            "xcsh_dc_cluster_group",
+            "xcsh_namespace"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccDcClusterGroupResource_basic",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "INFRASTRUCTURE",
+      "source_inventory": [
+        {
+          "source": "internal/provider/dc_cluster_group_resource_test.go",
+          "resource_types": [
+            "xcsh_dc_cluster_group",
+            "xcsh_namespace"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccDiscoveryDataSource_basic",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "http_error",
+        "summary": "Create request failed",
+        "http_status": 403,
+        "source_location": "discovery_data_source_test.go:16"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/discovery_data_source_test.go",
+          "resource_types": [
+            "xcsh_discovery",
+            "xcsh_namespace"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccDiscoveryResource_basic",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "INFRASTRUCTURE",
+      "source_inventory": [
+        {
+          "source": "internal/provider/discovery_resource_test.go",
+          "resource_types": [
+            "xcsh_discovery",
+            "xcsh_namespace"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccDnsComplianceChecksDataSource_basic",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/dns_compliance_checks_data_source_test.go",
+          "resource_types": [
+            "xcsh_dns_compliance_checks",
+            "xcsh_namespace"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccEndpointDataSource_basic",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "framework_diagnostic",
+        "source_location": "endpoint_data_source_test.go:16"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/endpoint_data_source_test.go",
+          "resource_types": [
+            "xcsh_endpoint",
+            "xcsh_namespace"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccEndpointResource_basic",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/endpoint_resource_test.go",
+          "resource_types": [
+            "xcsh_endpoint",
+            "xcsh_namespace"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccEnhancedFirewallPolicyDataSource_basic",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/enhanced_firewall_policy_data_source_test.go",
+          "resource_types": [
+            "xcsh_enhanced_firewall_policy",
+            "xcsh_namespace"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccEnhancedFirewallPolicyResource_basic",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/enhanced_firewall_policy_resource_test.go",
+          "resource_types": [
+            "xcsh_enhanced_firewall_policy",
+            "xcsh_namespace"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccExternalConnectorDataSource_basic",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "http_error",
+        "summary": "Create request failed",
+        "http_status": 403,
+        "source_location": "external_connector_data_source_test.go:16"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/external_connector_data_source_test.go",
+          "resource_types": [
+            "xcsh_external_connector",
+            "xcsh_namespace"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccExternalConnectorResource_basic",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "INFRASTRUCTURE",
+      "source_inventory": [
+        {
+          "source": "internal/provider/external_connector_resource_test.go",
+          "resource_types": [
+            "xcsh_external_connector"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccFastACLResource_basic",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "unclassified",
+        "source_location": "fast_acl_resource_test.go:17"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/fast_acl_resource_test.go",
+          "resource_types": [
+            "xcsh_fast_acl"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccFastACLRuleResource_basic",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "unclassified",
+        "source_location": "fast_acl_rule_resource_test.go:17"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/fast_acl_rule_resource_test.go",
+          "resource_types": [
+            "xcsh_fast_acl_rule"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccFastAclDataSource_basic",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "framework_diagnostic",
+        "summary": "Unsupported argument",
+        "source_location": "fast_acl_data_source_test.go:16"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/fast_acl_data_source_test.go",
+          "resource_types": [
+            "xcsh_fast_acl",
+            "xcsh_namespace"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccFastAclRuleDataSource_basic",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "framework_diagnostic",
+        "summary": "Unsupported argument",
+        "source_location": "fast_acl_rule_data_source_test.go:16"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/fast_acl_rule_data_source_test.go",
+          "resource_types": [
+            "xcsh_fast_acl_rule",
+            "xcsh_namespace"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccFleetDataSource_basic",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "framework_diagnostic",
+        "summary": "Unsupported argument",
+        "source_location": "fleet_data_source_test.go:16"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/fleet_data_source_test.go",
+          "resource_types": [
+            "xcsh_fleet",
+            "xcsh_namespace"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccFleetResource_basic",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "unclassified",
+        "source_location": "fleet_resource_test.go:17"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/fleet_resource_test.go",
+          "resource_types": [
+            "xcsh_fleet"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccForwardProxyPolicyDataSource_basic",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "framework_diagnostic",
+        "summary": "Unsupported argument",
+        "source_location": "forward_proxy_policy_data_source_test.go:16"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/forward_proxy_policy_data_source_test.go",
+          "resource_types": [
+            "xcsh_forward_proxy_policy",
+            "xcsh_namespace"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccForwardProxyPolicyResource_basic",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "unclassified",
+        "source_location": "forward_proxy_policy_resource_test.go:17"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/forward_proxy_policy_resource_test.go",
+          "resource_types": [
+            "xcsh_forward_proxy_policy"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccForwardingClassDataSource_basic",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/forwarding_class_data_source_test.go",
+          "resource_types": []
+        }
+      ]
+    },
+    {
+      "test": "TestAccForwardingClassResource_allAttributes",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/forwarding_class_resource_test.go",
+          "resource_types": [
+            "xcsh_forwarding_class"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccForwardingClassResource_basic",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/forwarding_class_resource_test.go",
+          "resource_types": [
+            "xcsh_forwarding_class"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccForwardingClassResource_disappears",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/forwarding_class_resource_test.go",
+          "resource_types": [
+            "xcsh_forwarding_class"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccForwardingClassResource_emptyName",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/forwarding_class_resource_test.go",
+          "resource_types": [
+            "xcsh_forwarding_class"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccForwardingClassResource_emptyPlan",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/forwarding_class_resource_test.go",
+          "resource_types": [
+            "xcsh_forwarding_class"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccForwardingClassResource_invalidName",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/forwarding_class_resource_test.go",
+          "resource_types": [
+            "xcsh_forwarding_class"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccForwardingClassResource_knownValues",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/forwarding_class_resource_test.go",
+          "resource_types": [
+            "xcsh_forwarding_class"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccForwardingClassResource_nameTooLong",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/forwarding_class_resource_test.go",
+          "resource_types": [
+            "xcsh_forwarding_class"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccForwardingClassResource_planChecks",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/forwarding_class_resource_test.go",
+          "resource_types": [
+            "xcsh_forwarding_class"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccForwardingClassResource_qosSettings",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/forwarding_class_resource_test.go",
+          "resource_types": [
+            "xcsh_forwarding_class"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccForwardingClassResource_requiresReplace",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/forwarding_class_resource_test.go",
+          "resource_types": [
+            "xcsh_forwarding_class"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccForwardingClassResource_updateAnnotations",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/forwarding_class_resource_test.go",
+          "resource_types": [
+            "xcsh_forwarding_class"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccForwardingClassResource_updateDescription",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/forwarding_class_resource_test.go",
+          "resource_types": [
+            "xcsh_forwarding_class"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccForwardingClassResource_updateLabels",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/forwarding_class_resource_test.go",
+          "resource_types": [
+            "xcsh_forwarding_class"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccGlobalLogReceiverDataSource_basic",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/global_log_receiver_data_source_test.go",
+          "resource_types": [
+            "xcsh_global_log_receiver",
+            "xcsh_namespace"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccGlobalLogReceiverResource_basic",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/global_log_receiver_resource_test.go",
+          "resource_types": [
+            "xcsh_global_log_receiver",
+            "xcsh_namespace"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccHTTPLoadBalancerResource_httpsAutoCertAdvertiseCustomVirtualSite",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "INFRASTRUCTURE",
+      "source_inventory": [
+        {
+          "source": "internal/provider/http_loadbalancer_resource_test.go",
+          "resource_types": [
+            "xcsh_http_loadbalancer",
+            "xcsh_origin_pool",
+            "xcsh_virtual_site"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccHttpLoadbalancerDataSource_basic",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "http_error",
+        "summary": "Create request failed",
+        "http_status": 403,
+        "source_location": "http_loadbalancer_data_source_test.go:16"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/http_loadbalancer_data_source_test.go",
+          "resource_types": [
+            "xcsh_http_loadbalancer",
+            "xcsh_namespace",
+            "xcsh_origin_pool"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccIPPrefixSetResource_allAttributes",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/ip_prefix_set_resource_test.go",
+          "resource_types": [
+            "xcsh_ip_prefix_set",
+            "xcsh_namespace"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccIPPrefixSetResource_basic",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/ip_prefix_set_resource_test.go",
+          "resource_types": [
+            "xcsh_ip_prefix_set",
+            "xcsh_namespace"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccIPPrefixSetResource_disappears",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/ip_prefix_set_resource_test.go",
+          "resource_types": [
+            "xcsh_ip_prefix_set",
+            "xcsh_namespace"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccIPPrefixSetResource_emptyPlan",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/ip_prefix_set_resource_test.go",
+          "resource_types": [
+            "xcsh_ip_prefix_set",
+            "xcsh_namespace"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccIPPrefixSetResource_ipv4Prefixes",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/ip_prefix_set_resource_test.go",
+          "resource_types": [
+            "xcsh_ip_prefix_set",
+            "xcsh_namespace"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccIPPrefixSetResource_knownValues",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/ip_prefix_set_resource_test.go",
+          "resource_types": [
+            "xcsh_ip_prefix_set",
+            "xcsh_namespace"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccIPPrefixSetResource_planChecks",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/ip_prefix_set_resource_test.go",
+          "resource_types": [
+            "xcsh_ip_prefix_set",
+            "xcsh_namespace"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccIPPrefixSetResource_requiresReplace",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/ip_prefix_set_resource_test.go",
+          "resource_types": [
+            "xcsh_ip_prefix_set",
+            "xcsh_namespace"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccIPPrefixSetResource_updateAnnotations",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/ip_prefix_set_resource_test.go",
+          "resource_types": [
+            "xcsh_ip_prefix_set",
+            "xcsh_namespace"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccIPPrefixSetResource_updateDescription",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/ip_prefix_set_resource_test.go",
+          "resource_types": [
+            "xcsh_ip_prefix_set",
+            "xcsh_namespace"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccIPPrefixSetResource_updateLabels",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/ip_prefix_set_resource_test.go",
+          "resource_types": [
+            "xcsh_ip_prefix_set",
+            "xcsh_namespace"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccIpPrefixSetDataSource_basic",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/ip_prefix_set_data_source_test.go",
+          "resource_types": [
+            "xcsh_ip_prefix_set",
+            "xcsh_namespace"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccIruleDataSource_basic",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/irule_data_source_test.go",
+          "resource_types": [
+            "xcsh_irule",
+            "xcsh_namespace"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccIruleResource_basic",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/irule_resource_test.go",
+          "resource_types": [
+            "xcsh_irule",
+            "xcsh_namespace"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccLogReceiverDataSource_basic",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/log_receiver_data_source_test.go",
+          "resource_types": [
+            "xcsh_log_receiver",
+            "xcsh_namespace"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccLogReceiverResource_basic",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/log_receiver_resource_test.go",
+          "resource_types": [
+            "xcsh_log_receiver",
+            "xcsh_namespace"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccMaliciousUserMitigationDataSource_basic",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/malicious_user_mitigation_data_source_test.go",
+          "resource_types": [
+            "xcsh_malicious_user_mitigation",
+            "xcsh_namespace"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccMaliciousUserMitigationResource_allAttributes",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/malicious_user_mitigation_resource_test.go",
+          "resource_types": [
+            "xcsh_malicious_user_mitigation",
+            "xcsh_namespace"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccMaliciousUserMitigationResource_basic",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/malicious_user_mitigation_resource_test.go",
+          "resource_types": [
+            "xcsh_malicious_user_mitigation",
+            "xcsh_namespace"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccMaliciousUserMitigationResource_disappears",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/malicious_user_mitigation_resource_test.go",
+          "resource_types": [
+            "xcsh_malicious_user_mitigation",
+            "xcsh_namespace"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccMaliciousUserMitigationResource_emptyPlan",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/malicious_user_mitigation_resource_test.go",
+          "resource_types": [
+            "xcsh_malicious_user_mitigation",
+            "xcsh_namespace"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccMaliciousUserMitigationResource_knownValues",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/malicious_user_mitigation_resource_test.go",
+          "resource_types": [
+            "xcsh_malicious_user_mitigation",
+            "xcsh_namespace"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccMaliciousUserMitigationResource_mitigationRules",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/malicious_user_mitigation_resource_test.go",
+          "resource_types": [
+            "xcsh_malicious_user_mitigation",
+            "xcsh_namespace"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccMaliciousUserMitigationResource_planChecks",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/malicious_user_mitigation_resource_test.go",
+          "resource_types": [
+            "xcsh_malicious_user_mitigation",
+            "xcsh_namespace"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccMaliciousUserMitigationResource_requiresReplace",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/malicious_user_mitigation_resource_test.go",
+          "resource_types": [
+            "xcsh_malicious_user_mitigation",
+            "xcsh_namespace"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccMaliciousUserMitigationResource_updateAnnotations",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/malicious_user_mitigation_resource_test.go",
+          "resource_types": [
+            "xcsh_malicious_user_mitigation",
+            "xcsh_namespace"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccMaliciousUserMitigationResource_updateDescription",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/malicious_user_mitigation_resource_test.go",
+          "resource_types": [
+            "xcsh_malicious_user_mitigation",
+            "xcsh_namespace"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccMaliciousUserMitigationResource_updateLabels",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/malicious_user_mitigation_resource_test.go",
+          "resource_types": [
+            "xcsh_malicious_user_mitigation",
+            "xcsh_namespace"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccNFVServiceResource_basic",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "INFRASTRUCTURE",
+      "source_inventory": [
+        {
+          "source": "internal/provider/nfv_service_resource_test.go",
+          "resource_types": [
+            "xcsh_namespace",
+            "xcsh_nfv_service"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccNamespaceDataSource_basic",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/namespace_data_source_test.go",
+          "resource_types": [
+            "xcsh_namespace"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccNamespaceResource_allAttributes",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/namespace_resource_test.go",
+          "resource_types": [
+            "xcsh_namespace"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccNamespaceResource_basic",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/namespace_resource_test.go",
+          "resource_types": [
+            "xcsh_namespace"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccNamespaceResource_disappears",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/namespace_resource_test.go",
+          "resource_types": [
+            "xcsh_namespace"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccNamespaceResource_emptyPlan",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/namespace_resource_test.go",
+          "resource_types": [
+            "xcsh_namespace"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccNamespaceResource_knownValues",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/namespace_resource_test.go",
+          "resource_types": [
+            "xcsh_namespace"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccNamespaceResource_planChecks",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/namespace_resource_test.go",
+          "resource_types": [
+            "xcsh_namespace"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccNamespaceResource_requiresReplace",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/namespace_resource_test.go",
+          "resource_types": [
+            "xcsh_namespace"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccNamespaceResource_updateAnnotations",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/namespace_resource_test.go",
+          "resource_types": [
+            "xcsh_namespace"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccNamespaceResource_updateDescription",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/namespace_resource_test.go",
+          "resource_types": [
+            "xcsh_namespace"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccNamespaceResource_updateLabels",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/namespace_resource_test.go",
+          "resource_types": [
+            "xcsh_namespace"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccNatPolicyDataSource_basic",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "framework_diagnostic",
+        "source_location": "nat_policy_data_source_test.go:16"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/nat_policy_data_source_test.go",
+          "resource_types": [
+            "xcsh_namespace",
+            "xcsh_nat_policy"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccNatPolicyResource_basic",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "INFRASTRUCTURE",
+      "source_inventory": [
+        {
+          "source": "internal/provider/nat_policy_resource_test.go",
+          "resource_types": [
+            "xcsh_namespace",
+            "xcsh_nat_policy"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccNetworkConnectorDataSource_basic",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "http_error",
+        "summary": "Create request failed",
+        "http_status": 403,
+        "source_location": "network_connector_data_source_test.go:16"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/network_connector_data_source_test.go",
+          "resource_types": [
+            "xcsh_namespace",
+            "xcsh_network_connector"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccNetworkFirewallDataSource_basic",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "framework_diagnostic",
+        "summary": "Unsupported argument",
+        "source_location": "network_firewall_data_source_test.go:16"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/network_firewall_data_source_test.go",
+          "resource_types": [
+            "xcsh_forward_proxy_policy",
+            "xcsh_namespace",
+            "xcsh_network_firewall"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccNetworkFirewallResource_basic",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "unclassified",
+        "source_location": "network_firewall_resource_test.go:17"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/network_firewall_resource_test.go",
+          "resource_types": [
+            "xcsh_network_firewall"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccNetworkInterfaceDataSource_basic",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "http_error",
+        "summary": "Create request failed",
+        "http_status": 403,
+        "source_location": "network_interface_data_source_test.go:16"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/network_interface_data_source_test.go",
+          "resource_types": [
+            "xcsh_namespace",
+            "xcsh_network_interface"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccNetworkInterfaceResource_basic",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "unclassified",
+        "source_location": "network_interface_resource_test.go:17"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/network_interface_resource_test.go",
+          "resource_types": [
+            "xcsh_network_interface"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccNetworkPolicyDataSource_basic",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/network_policy_data_source_test.go",
+          "resource_types": [
+            "xcsh_namespace",
+            "xcsh_network_policy"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccNetworkPolicyResource_basic",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/network_policy_resource_test.go",
+          "resource_types": [
+            "xcsh_namespace",
+            "xcsh_network_policy"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccNetworkPolicyRuleDataSource_basic",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "framework_diagnostic",
+        "summary": "Unsupported argument",
+        "source_location": "network_policy_rule_data_source_test.go:16"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/network_policy_rule_data_source_test.go",
+          "resource_types": [
+            "xcsh_namespace",
+            "xcsh_network_policy_rule"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccNetworkPolicyRuleResource_basic",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "unclassified",
+        "source_location": "network_policy_rule_resource_test.go:17"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/network_policy_rule_resource_test.go",
+          "resource_types": [
+            "xcsh_network_policy_rule"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccNetworkPolicyViewDataSource_basic",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "framework_diagnostic",
+        "source_location": "network_policy_view_data_source_test.go:16"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/network_policy_view_data_source_test.go",
+          "resource_types": [
+            "xcsh_namespace",
+            "xcsh_network_policy_view"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccNetworkPolicyViewResource_basic",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "unclassified",
+        "source_location": "network_policy_view_resource_test.go:17"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/network_policy_view_resource_test.go",
+          "resource_types": [
+            "xcsh_network_policy_view"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccNfvServiceDataSource_basic",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "http_error",
+        "summary": "Create request failed",
+        "http_status": 403,
+        "source_location": "nfv_service_data_source_test.go:16"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/nfv_service_data_source_test.go",
+          "resource_types": [
+            "xcsh_namespace",
+            "xcsh_nfv_service"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccOriginPoolDataSource_basic",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "framework_diagnostic",
+        "source_location": "origin_pool_data_source_test.go:16"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/origin_pool_data_source_test.go",
+          "resource_types": [
+            "xcsh_origin_pool"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccPolicyBasedRoutingDataSource_basic",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "framework_diagnostic",
+        "source_location": "policy_based_routing_data_source_test.go:16"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/policy_based_routing_data_source_test.go",
+          "resource_types": [
+            "xcsh_namespace",
+            "xcsh_policy_based_routing"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccPolicyBasedRoutingResource_basic",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "ENVIRONMENT",
+      "source_inventory": [
+        {
+          "source": "internal/provider/policy_based_routing_resource_test.go",
+          "resource_types": [
+            "xcsh_namespace",
+            "xcsh_policy_based_routing"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccProtocolInspectionDataSource_basic",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/protocol_inspection_data_source_test.go",
+          "resource_types": []
+        }
+      ]
+    },
+    {
+      "test": "TestAccProtocolInspectionResource_basic",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/protocol_inspection_resource_test.go",
+          "resource_types": [
+            "xcsh_namespace",
+            "xcsh_protocol_inspection"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccProtocolPolicerDataSource_basic",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/protocol_policer_data_source_test.go",
+          "resource_types": []
+        }
+      ]
+    },
+    {
+      "test": "TestAccProtocolPolicerResource_basic",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/protocol_policer_resource_test.go",
+          "resource_types": [
+            "xcsh_namespace",
+            "xcsh_policer",
+            "xcsh_protocol_policer"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccProxyDataSource_basic",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/proxy_data_source_test.go",
+          "resource_types": [
+            "xcsh_namespace",
+            "xcsh_proxy"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccProxyResource_basic",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/proxy_resource_test.go",
+          "resource_types": [
+            "xcsh_namespace",
+            "xcsh_proxy"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccRateLimiterPolicyDataSource_basic",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/rate_limiter_policy_data_source_test.go",
+          "resource_types": [
+            "xcsh_namespace",
+            "xcsh_rate_limiter_policy"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccRateLimiterPolicyResource_basic",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/rate_limiter_policy_resource_test.go",
+          "resource_types": [
+            "xcsh_namespace",
+            "xcsh_rate_limiter_policy"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccRouteDataSource_basic",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/route_data_source_test.go",
+          "resource_types": []
+        }
+      ]
+    },
+    {
+      "test": "TestAccRouteResource_basic",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/route_resource_test.go",
+          "resource_types": [
+            "xcsh_route"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccSecretManagementAccessDataSource_basic",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "framework_diagnostic",
+        "summary": "Missing required argument",
+        "source_location": "secret_management_access_data_source_test.go:16"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/secret_management_access_data_source_test.go",
+          "resource_types": [
+            "xcsh_namespace",
+            "xcsh_secret_management_access"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccSecretManagementAccessResource_basic",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "INFRASTRUCTURE",
+      "source_inventory": [
+        {
+          "source": "internal/provider/secret_management_access_resource_test.go",
+          "resource_types": []
+        }
+      ]
+    },
+    {
+      "test": "TestAccSecretManagementAccessResource_withAccessInfo",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "INFRASTRUCTURE",
+      "source_inventory": [
+        {
+          "source": "internal/provider/secret_management_access_resource_test.go",
+          "resource_types": []
+        }
+      ]
+    },
+    {
+      "test": "TestAccSecretManagementAccessResource_withDescriptionAndLabels",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "INFRASTRUCTURE",
+      "source_inventory": [
+        {
+          "source": "internal/provider/secret_management_access_resource_test.go",
+          "resource_types": []
+        }
+      ]
+    },
+    {
+      "test": "TestAccSecuremeshSiteV2Resource_segmentVRF",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "INFRASTRUCTURE",
+      "source_inventory": [
+        {
+          "source": "internal/provider/securemesh_site_v2_resource_test.go",
+          "resource_types": [
+            "xcsh_securemesh_site_v2"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccSegmentDataSource_basic",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "framework_diagnostic",
+        "source_location": "segment_data_source_test.go:16"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/segment_data_source_test.go",
+          "resource_types": [
+            "xcsh_namespace",
+            "xcsh_segment"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccSensitiveDataPolicyDataSource_basic",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/sensitive_data_policy_data_source_test.go",
+          "resource_types": [
+            "xcsh_namespace",
+            "xcsh_sensitive_data_policy"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccSensitiveDataPolicyResource_allAttributes",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/sensitive_data_policy_resource_test.go",
+          "resource_types": [
+            "xcsh_namespace",
+            "xcsh_sensitive_data_policy"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccSensitiveDataPolicyResource_basic",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/sensitive_data_policy_resource_test.go",
+          "resource_types": [
+            "xcsh_namespace",
+            "xcsh_sensitive_data_policy"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccSensitiveDataPolicyResource_disappears",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/sensitive_data_policy_resource_test.go",
+          "resource_types": [
+            "xcsh_namespace",
+            "xcsh_sensitive_data_policy"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccSensitiveDataPolicyResource_emptyPlan",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/sensitive_data_policy_resource_test.go",
+          "resource_types": [
+            "xcsh_namespace",
+            "xcsh_sensitive_data_policy"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccSensitiveDataPolicyResource_knownValues",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/sensitive_data_policy_resource_test.go",
+          "resource_types": [
+            "xcsh_namespace",
+            "xcsh_sensitive_data_policy"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccSensitiveDataPolicyResource_planChecks",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/sensitive_data_policy_resource_test.go",
+          "resource_types": [
+            "xcsh_namespace",
+            "xcsh_sensitive_data_policy"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccSensitiveDataPolicyResource_requiresReplace",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/sensitive_data_policy_resource_test.go",
+          "resource_types": [
+            "xcsh_namespace",
+            "xcsh_sensitive_data_policy"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccSensitiveDataPolicyResource_updateAnnotations",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/sensitive_data_policy_resource_test.go",
+          "resource_types": [
+            "xcsh_namespace",
+            "xcsh_sensitive_data_policy"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccSensitiveDataPolicyResource_updateCompliances",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/sensitive_data_policy_resource_test.go",
+          "resource_types": [
+            "xcsh_namespace",
+            "xcsh_sensitive_data_policy"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccSensitiveDataPolicyResource_updateDescription",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/sensitive_data_policy_resource_test.go",
+          "resource_types": [
+            "xcsh_namespace",
+            "xcsh_sensitive_data_policy"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccSensitiveDataPolicyResource_updateLabels",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/sensitive_data_policy_resource_test.go",
+          "resource_types": [
+            "xcsh_namespace",
+            "xcsh_sensitive_data_policy"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccServicePolicyDataSource_basic",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "framework_diagnostic",
+        "source_location": "service_policy_data_source_test.go:16"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/service_policy_data_source_test.go",
+          "resource_types": [
+            "xcsh_service_policy"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccServicePolicyRuleDataSource_basic",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "http_error",
+        "summary": "Create request failed",
+        "http_status": 403,
+        "source_location": "service_policy_rule_data_source_test.go:16"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/service_policy_rule_data_source_test.go",
+          "resource_types": [
+            "xcsh_namespace",
+            "xcsh_service_policy_rule"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccServicePolicyRuleResource_allAttributes",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "framework_diagnostic",
+        "summary": "Missing required argument",
+        "source_location": "service_policy_rule_resource_test.go:82"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/service_policy_rule_resource_test.go",
+          "resource_types": [
+            "xcsh_service_policy_rule"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccServicePolicyRuleResource_basic",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "framework_diagnostic",
+        "summary": "Missing required argument",
+        "source_location": "service_policy_rule_resource_test.go:37"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/service_policy_rule_resource_test.go",
+          "resource_types": [
+            "xcsh_service_policy_rule"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccServicePolicyRuleResource_requiresReplace",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "framework_diagnostic",
+        "summary": "Missing required argument",
+        "source_location": "service_policy_rule_resource_test.go:287"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/service_policy_rule_resource_test.go",
+          "resource_types": [
+            "xcsh_service_policy_rule"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccServicePolicyRuleResource_updateAction",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "framework_diagnostic",
+        "summary": "Missing required argument",
+        "source_location": "service_policy_rule_resource_test.go:130"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/service_policy_rule_resource_test.go",
+          "resource_types": [
+            "xcsh_service_policy_rule"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccServicePolicyRuleResource_updateDescription",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "framework_diagnostic",
+        "summary": "Missing required argument",
+        "source_location": "service_policy_rule_resource_test.go:179"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/service_policy_rule_resource_test.go",
+          "resource_types": [
+            "xcsh_service_policy_rule"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccServicePolicyRuleResource_updateLabels",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "framework_diagnostic",
+        "summary": "Missing required argument",
+        "source_location": "service_policy_rule_resource_test.go:235"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/service_policy_rule_resource_test.go",
+          "resource_types": [
+            "xcsh_service_policy_rule"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccSiteMeshGroupDataSource_basic",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "INFRASTRUCTURE",
+      "source_inventory": [
+        {
+          "source": "internal/provider/site_mesh_group_data_source_test.go",
+          "resource_types": []
+        }
+      ]
+    },
+    {
+      "test": "TestAccSiteMeshGroupResource_basic",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "INFRASTRUCTURE",
+      "source_inventory": [
+        {
+          "source": "internal/provider/site_mesh_group_resource_test.go",
+          "resource_types": [
+            "xcsh_namespace",
+            "xcsh_site_mesh_group"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccSiteMeshGroupResource_emptyPlan",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "INFRASTRUCTURE",
+      "source_inventory": [
+        {
+          "source": "internal/provider/site_mesh_group_resource_test.go",
+          "resource_types": [
+            "xcsh_namespace",
+            "xcsh_site_mesh_group"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccSiteMeshGroupResource_fullMesh",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "INFRASTRUCTURE",
+      "source_inventory": [
+        {
+          "source": "internal/provider/site_mesh_group_resource_test.go",
+          "resource_types": [
+            "xcsh_namespace",
+            "xcsh_site_mesh_group"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccSiteMeshGroupResource_knownValues",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "INFRASTRUCTURE",
+      "source_inventory": [
+        {
+          "source": "internal/provider/site_mesh_group_resource_test.go",
+          "resource_types": [
+            "xcsh_namespace",
+            "xcsh_site_mesh_group"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccSiteMeshGroupResource_planChecks",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "INFRASTRUCTURE",
+      "source_inventory": [
+        {
+          "source": "internal/provider/site_mesh_group_resource_test.go",
+          "resource_types": [
+            "xcsh_namespace",
+            "xcsh_site_mesh_group"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccSiteMeshGroupResource_requiresReplaceName",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "INFRASTRUCTURE",
+      "source_inventory": [
+        {
+          "source": "internal/provider/site_mesh_group_resource_test.go",
+          "resource_types": [
+            "xcsh_namespace",
+            "xcsh_site_mesh_group"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccSiteMeshGroupResource_requiresReplaceNamespace",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "INFRASTRUCTURE",
+      "source_inventory": [
+        {
+          "source": "internal/provider/site_mesh_group_resource_test.go",
+          "resource_types": [
+            "xcsh_namespace",
+            "xcsh_site_mesh_group"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccSiteMeshGroupResource_updateAnnotations",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "INFRASTRUCTURE",
+      "source_inventory": [
+        {
+          "source": "internal/provider/site_mesh_group_resource_test.go",
+          "resource_types": [
+            "xcsh_namespace",
+            "xcsh_site_mesh_group"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccSiteMeshGroupResource_updateDescription",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "INFRASTRUCTURE",
+      "source_inventory": [
+        {
+          "source": "internal/provider/site_mesh_group_resource_test.go",
+          "resource_types": [
+            "xcsh_namespace",
+            "xcsh_site_mesh_group"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccSiteMeshGroupResource_updateLabels",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "INFRASTRUCTURE",
+      "source_inventory": [
+        {
+          "source": "internal/provider/site_mesh_group_resource_test.go",
+          "resource_types": [
+            "xcsh_namespace",
+            "xcsh_site_mesh_group"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccSubnetDataSource_basic",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "http_error",
+        "summary": "Create request failed",
+        "http_status": 403,
+        "source_location": "subnet_data_source_test.go:16"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/subnet_data_source_test.go",
+          "resource_types": [
+            "xcsh_namespace",
+            "xcsh_subnet"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccSubnetResource_basic",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "INFRASTRUCTURE",
+      "source_inventory": [
+        {
+          "source": "internal/provider/subnet_resource_test.go",
+          "resource_types": [
+            "xcsh_namespace",
+            "xcsh_subnet"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccTCPLoadBalancerResource_allAttributes",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "unclassified",
+        "source_location": "tcp_loadbalancer_resource_test.go:92"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/tcp_loadbalancer_resource_test.go",
+          "resource_types": [
+            "xcsh_healthcheck",
+            "xcsh_origin_pool",
+            "xcsh_tcp_loadbalancer"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccTCPLoadBalancerResource_basic",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "unclassified",
+        "source_location": "tcp_loadbalancer_resource_test.go:38"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/tcp_loadbalancer_resource_test.go",
+          "resource_types": [
+            "xcsh_healthcheck",
+            "xcsh_origin_pool",
+            "xcsh_tcp_loadbalancer"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccTCPLoadBalancerResource_emptyPlan",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "unclassified",
+        "source_location": "tcp_loadbalancer_resource_test.go:263"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/tcp_loadbalancer_resource_test.go",
+          "resource_types": [
+            "xcsh_healthcheck",
+            "xcsh_origin_pool",
+            "xcsh_tcp_loadbalancer"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccTCPLoadBalancerResource_fullLifecycle",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "unclassified",
+        "source_location": "tcp_loadbalancer_resource_test.go:770"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/tcp_loadbalancer_resource_test.go",
+          "resource_types": [
+            "xcsh_healthcheck",
+            "xcsh_origin_pool",
+            "xcsh_tcp_loadbalancer"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccTCPLoadBalancerResource_knownValues",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "unclassified",
+        "source_location": "tcp_loadbalancer_resource_test.go:329"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/tcp_loadbalancer_resource_test.go",
+          "resource_types": [
+            "xcsh_healthcheck",
+            "xcsh_origin_pool",
+            "xcsh_tcp_loadbalancer"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccTCPLoadBalancerResource_listenPort",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "unclassified",
+        "source_location": "tcp_loadbalancer_resource_test.go:457"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/tcp_loadbalancer_resource_test.go",
+          "resource_types": [
+            "xcsh_healthcheck",
+            "xcsh_origin_pool",
+            "xcsh_tcp_loadbalancer"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccTCPLoadBalancerResource_planChecks",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "unclassified",
+        "source_location": "tcp_loadbalancer_resource_test.go:293"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/tcp_loadbalancer_resource_test.go",
+          "resource_types": [
+            "xcsh_healthcheck",
+            "xcsh_origin_pool",
+            "xcsh_tcp_loadbalancer"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccTCPLoadBalancerResource_requiresReplace",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "unclassified",
+        "source_location": "tcp_loadbalancer_resource_test.go:418"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/tcp_loadbalancer_resource_test.go",
+          "resource_types": [
+            "xcsh_healthcheck",
+            "xcsh_origin_pool",
+            "xcsh_tcp_loadbalancer"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccTCPLoadBalancerResource_updateAnnotations",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "unclassified",
+        "source_location": "tcp_loadbalancer_resource_test.go:202"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/tcp_loadbalancer_resource_test.go",
+          "resource_types": [
+            "xcsh_healthcheck",
+            "xcsh_origin_pool",
+            "xcsh_tcp_loadbalancer"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccTCPLoadBalancerResource_updateDescription",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "unclassified",
+        "source_location": "tcp_loadbalancer_resource_test.go:169"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/tcp_loadbalancer_resource_test.go",
+          "resource_types": [
+            "xcsh_healthcheck",
+            "xcsh_origin_pool",
+            "xcsh_tcp_loadbalancer"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccTCPLoadBalancerResource_updateLabels",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "unclassified",
+        "source_location": "tcp_loadbalancer_resource_test.go:134"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/tcp_loadbalancer_resource_test.go",
+          "resource_types": [
+            "xcsh_healthcheck",
+            "xcsh_origin_pool",
+            "xcsh_tcp_loadbalancer"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccTCPLoadBalancerResource_withHealthcheck",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "unclassified",
+        "source_location": "tcp_loadbalancer_resource_test.go:729"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/tcp_loadbalancer_resource_test.go",
+          "resource_types": [
+            "xcsh_healthcheck",
+            "xcsh_origin_pool",
+            "xcsh_tcp_loadbalancer"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccTcpLoadbalancerDataSource_basic",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "framework_diagnostic",
+        "source_location": "tcp_loadbalancer_data_source_test.go:16"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/tcp_loadbalancer_data_source_test.go",
+          "resource_types": [
+            "xcsh_namespace",
+            "xcsh_origin_pool",
+            "xcsh_tcp_loadbalancer"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccTenantConfigurationDataSource_basic",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "ENVIRONMENT",
+      "source_inventory": [
+        {
+          "source": "internal/provider/tenant_configuration_data_source_test.go",
+          "resource_types": []
+        }
+      ]
+    },
+    {
+      "test": "TestAccTenantConfigurationResource_allAttributes",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "INFRASTRUCTURE",
+      "source_inventory": [
+        {
+          "source": "internal/provider/tenant_configuration_resource_test.go",
+          "resource_types": [
+            "xcsh_namespace",
+            "xcsh_tenant_configuration"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccTenantConfigurationResource_basic",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "INFRASTRUCTURE",
+      "source_inventory": [
+        {
+          "source": "internal/provider/tenant_configuration_resource_test.go",
+          "resource_types": [
+            "xcsh_namespace",
+            "xcsh_tenant_configuration"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccTenantConfigurationResource_disappears",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "INFRASTRUCTURE",
+      "source_inventory": [
+        {
+          "source": "internal/provider/tenant_configuration_resource_test.go",
+          "resource_types": [
+            "xcsh_namespace",
+            "xcsh_tenant_configuration"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccTenantConfigurationResource_emptyPlan",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "INFRASTRUCTURE",
+      "source_inventory": [
+        {
+          "source": "internal/provider/tenant_configuration_resource_test.go",
+          "resource_types": [
+            "xcsh_namespace",
+            "xcsh_tenant_configuration"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccTenantConfigurationResource_invalidName",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "INFRASTRUCTURE",
+      "source_inventory": [
+        {
+          "source": "internal/provider/tenant_configuration_resource_test.go",
+          "resource_types": [
+            "xcsh_namespace",
+            "xcsh_tenant_configuration"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccTenantConfigurationResource_knownValues",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "INFRASTRUCTURE",
+      "source_inventory": [
+        {
+          "source": "internal/provider/tenant_configuration_resource_test.go",
+          "resource_types": [
+            "xcsh_namespace",
+            "xcsh_tenant_configuration"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccTenantConfigurationResource_nameTooLong",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "INFRASTRUCTURE",
+      "source_inventory": [
+        {
+          "source": "internal/provider/tenant_configuration_resource_test.go",
+          "resource_types": [
+            "xcsh_namespace",
+            "xcsh_tenant_configuration"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccTenantConfigurationResource_planChecks",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "INFRASTRUCTURE",
+      "source_inventory": [
+        {
+          "source": "internal/provider/tenant_configuration_resource_test.go",
+          "resource_types": [
+            "xcsh_namespace",
+            "xcsh_tenant_configuration"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccTenantConfigurationResource_requiresReplace",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "INFRASTRUCTURE",
+      "source_inventory": [
+        {
+          "source": "internal/provider/tenant_configuration_resource_test.go",
+          "resource_types": [
+            "xcsh_namespace",
+            "xcsh_tenant_configuration"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccTenantConfigurationResource_updateBruteForceDetection",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "INFRASTRUCTURE",
+      "source_inventory": [
+        {
+          "source": "internal/provider/tenant_configuration_resource_test.go",
+          "resource_types": [
+            "xcsh_namespace",
+            "xcsh_tenant_configuration"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccTenantConfigurationResource_updateDescription",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "INFRASTRUCTURE",
+      "source_inventory": [
+        {
+          "source": "internal/provider/tenant_configuration_resource_test.go",
+          "resource_types": [
+            "xcsh_namespace",
+            "xcsh_tenant_configuration"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccTenantConfigurationResource_updateLabels",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "INFRASTRUCTURE",
+      "source_inventory": [
+        {
+          "source": "internal/provider/tenant_configuration_resource_test.go",
+          "resource_types": [
+            "xcsh_namespace",
+            "xcsh_tenant_configuration"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccTenantConfigurationResource_updatePasswordPolicy",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "INFRASTRUCTURE",
+      "source_inventory": [
+        {
+          "source": "internal/provider/tenant_configuration_resource_test.go",
+          "resource_types": [
+            "xcsh_namespace",
+            "xcsh_tenant_configuration"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccTenantConfigurationResource_updateTenantDetails",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "INFRASTRUCTURE",
+      "source_inventory": [
+        {
+          "source": "internal/provider/tenant_configuration_resource_test.go",
+          "resource_types": [
+            "xcsh_namespace",
+            "xcsh_tenant_configuration"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccTokenDataSource_basic",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/token_data_source_test.go",
+          "resource_types": []
+        }
+      ]
+    },
+    {
+      "test": "TestAccTrustedCaListDataSource_basic",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/trusted_ca_list_data_source_test.go",
+          "resource_types": [
+            "xcsh_namespace",
+            "xcsh_trusted_ca_list"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccTrustedCaListResource_allAttributes",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/trusted_ca_list_resource_test.go",
+          "resource_types": [
+            "xcsh_namespace",
+            "xcsh_trusted_ca_list"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccTrustedCaListResource_basic",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/trusted_ca_list_resource_test.go",
+          "resource_types": [
+            "xcsh_namespace",
+            "xcsh_trusted_ca_list"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccTrustedCaListResource_emptyPlan",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/trusted_ca_list_resource_test.go",
+          "resource_types": [
+            "xcsh_namespace",
+            "xcsh_trusted_ca_list"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccTrustedCaListResource_fullLifecycle",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/trusted_ca_list_resource_test.go",
+          "resource_types": [
+            "xcsh_namespace",
+            "xcsh_trusted_ca_list"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccTrustedCaListResource_planChecks",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/trusted_ca_list_resource_test.go",
+          "resource_types": [
+            "xcsh_namespace",
+            "xcsh_trusted_ca_list"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccTrustedCaListResource_updateAnnotations",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/trusted_ca_list_resource_test.go",
+          "resource_types": [
+            "xcsh_namespace",
+            "xcsh_trusted_ca_list"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccTrustedCaListResource_updateDescription",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/trusted_ca_list_resource_test.go",
+          "resource_types": [
+            "xcsh_namespace",
+            "xcsh_trusted_ca_list"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccTrustedCaListResource_updateLabels",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/trusted_ca_list_resource_test.go",
+          "resource_types": [
+            "xcsh_namespace",
+            "xcsh_trusted_ca_list"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccTunnelDataSource_basic",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "http_error",
+        "summary": "Create request failed",
+        "http_status": 403,
+        "source_location": "tunnel_data_source_test.go:16"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/tunnel_data_source_test.go",
+          "resource_types": [
+            "xcsh_namespace",
+            "xcsh_tunnel"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccUDPLoadBalancerResource_allAttributes",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "unclassified",
+        "source_location": "udp_loadbalancer_resource_test.go:92"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/udp_loadbalancer_resource_test.go",
+          "resource_types": [
+            "xcsh_origin_pool",
+            "xcsh_udp_loadbalancer"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccUDPLoadBalancerResource_basic",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "unclassified",
+        "source_location": "udp_loadbalancer_resource_test.go:38"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/udp_loadbalancer_resource_test.go",
+          "resource_types": [
+            "xcsh_origin_pool",
+            "xcsh_udp_loadbalancer"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccUDPLoadBalancerResource_emptyPlan",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "unclassified",
+        "source_location": "udp_loadbalancer_resource_test.go:263"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/udp_loadbalancer_resource_test.go",
+          "resource_types": [
+            "xcsh_origin_pool",
+            "xcsh_udp_loadbalancer"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccUDPLoadBalancerResource_knownValues",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "unclassified",
+        "source_location": "udp_loadbalancer_resource_test.go:329"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/udp_loadbalancer_resource_test.go",
+          "resource_types": [
+            "xcsh_origin_pool",
+            "xcsh_udp_loadbalancer"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccUDPLoadBalancerResource_listenPort",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "unclassified",
+        "source_location": "udp_loadbalancer_resource_test.go:457"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/udp_loadbalancer_resource_test.go",
+          "resource_types": [
+            "xcsh_origin_pool",
+            "xcsh_udp_loadbalancer"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccUDPLoadBalancerResource_planChecks",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "unclassified",
+        "source_location": "udp_loadbalancer_resource_test.go:293"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/udp_loadbalancer_resource_test.go",
+          "resource_types": [
+            "xcsh_origin_pool",
+            "xcsh_udp_loadbalancer"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccUDPLoadBalancerResource_requiresReplace",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "unclassified",
+        "source_location": "udp_loadbalancer_resource_test.go:418"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/udp_loadbalancer_resource_test.go",
+          "resource_types": [
+            "xcsh_origin_pool",
+            "xcsh_udp_loadbalancer"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccUDPLoadBalancerResource_updateAnnotations",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "unclassified",
+        "source_location": "udp_loadbalancer_resource_test.go:202"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/udp_loadbalancer_resource_test.go",
+          "resource_types": [
+            "xcsh_origin_pool",
+            "xcsh_udp_loadbalancer"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccUDPLoadBalancerResource_updateDescription",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "unclassified",
+        "source_location": "udp_loadbalancer_resource_test.go:169"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/udp_loadbalancer_resource_test.go",
+          "resource_types": [
+            "xcsh_origin_pool",
+            "xcsh_udp_loadbalancer"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccUDPLoadBalancerResource_updateLabels",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "unclassified",
+        "source_location": "udp_loadbalancer_resource_test.go:134"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/udp_loadbalancer_resource_test.go",
+          "resource_types": [
+            "xcsh_origin_pool",
+            "xcsh_udp_loadbalancer"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccUdpLoadbalancerDataSource_basic",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/udp_loadbalancer_data_source_test.go",
+          "resource_types": []
+        }
+      ]
+    },
+    {
+      "test": "TestAccUsbPolicyDataSource_basic",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/usb_policy_data_source_test.go",
+          "resource_types": []
+        }
+      ]
+    },
+    {
+      "test": "TestAccUsbPolicyResource_allAttributes",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "INFRASTRUCTURE",
+      "source_inventory": [
+        {
+          "source": "internal/provider/usb_policy_resource_test.go",
+          "resource_types": [
+            "xcsh_namespace",
+            "xcsh_usb_policy"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccUsbPolicyResource_basic",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "INFRASTRUCTURE",
+      "source_inventory": [
+        {
+          "source": "internal/provider/usb_policy_resource_test.go",
+          "resource_types": [
+            "xcsh_namespace",
+            "xcsh_usb_policy"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccUsbPolicyResource_updateAllowedDevices",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "INFRASTRUCTURE",
+      "source_inventory": [
+        {
+          "source": "internal/provider/usb_policy_resource_test.go",
+          "resource_types": [
+            "xcsh_namespace",
+            "xcsh_usb_policy"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccUsbPolicyResource_updateDescription",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "INFRASTRUCTURE",
+      "source_inventory": [
+        {
+          "source": "internal/provider/usb_policy_resource_test.go",
+          "resource_types": [
+            "xcsh_namespace",
+            "xcsh_usb_policy"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccUsbPolicyResource_updateLabels",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "INFRASTRUCTURE",
+      "source_inventory": [
+        {
+          "source": "internal/provider/usb_policy_resource_test.go",
+          "resource_types": [
+            "xcsh_namespace",
+            "xcsh_usb_policy"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccUserIdentificationDataSource_basic",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "framework_diagnostic",
+        "source_location": "user_identification_data_source_test.go:16"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/user_identification_data_source_test.go",
+          "resource_types": [
+            "xcsh_user_identification"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccVirtualHostDataSource_basic",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/virtual_host_data_source_test.go",
+          "resource_types": [
+            "xcsh_namespace",
+            "xcsh_virtual_host"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccVirtualHostResource_allAttributes",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/virtual_host_resource_test.go",
+          "resource_types": [
+            "xcsh_namespace",
+            "xcsh_virtual_host"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccVirtualHostResource_basic",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/virtual_host_resource_test.go",
+          "resource_types": [
+            "xcsh_namespace",
+            "xcsh_virtual_host"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccVirtualHostResource_domainsWildcard",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/virtual_host_resource_test.go",
+          "resource_types": [
+            "xcsh_namespace",
+            "xcsh_virtual_host"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccVirtualHostResource_emptyPlan",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/virtual_host_resource_test.go",
+          "resource_types": [
+            "xcsh_namespace",
+            "xcsh_virtual_host"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccVirtualHostResource_knownValues",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/virtual_host_resource_test.go",
+          "resource_types": [
+            "xcsh_namespace",
+            "xcsh_virtual_host"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccVirtualHostResource_planChecks",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/virtual_host_resource_test.go",
+          "resource_types": [
+            "xcsh_namespace",
+            "xcsh_virtual_host"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccVirtualHostResource_requiresReplace",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/virtual_host_resource_test.go",
+          "resource_types": [
+            "xcsh_namespace",
+            "xcsh_virtual_host"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccVirtualHostResource_updateAnnotations",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/virtual_host_resource_test.go",
+          "resource_types": [
+            "xcsh_namespace",
+            "xcsh_virtual_host"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccVirtualHostResource_updateDescription",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/virtual_host_resource_test.go",
+          "resource_types": [
+            "xcsh_namespace",
+            "xcsh_virtual_host"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccVirtualHostResource_updateDomains",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/virtual_host_resource_test.go",
+          "resource_types": [
+            "xcsh_namespace",
+            "xcsh_virtual_host"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccVirtualHostResource_updateLabels",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/virtual_host_resource_test.go",
+          "resource_types": [
+            "xcsh_namespace",
+            "xcsh_virtual_host"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccVirtualNetworkDataSource_basic",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "framework_diagnostic",
+        "source_location": "virtual_network_data_source_test.go:16"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/virtual_network_data_source_test.go",
+          "resource_types": [
+            "xcsh_virtual_network"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccVirtualNetworkResource_allAttributes",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "unclassified",
+        "source_location": "virtual_network_resource_test.go:105"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/virtual_network_resource_test.go",
+          "resource_types": [
+            "xcsh_virtual_network"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccVirtualNetworkResource_basic",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "unclassified",
+        "source_location": "virtual_network_resource_test.go:61"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/virtual_network_resource_test.go",
+          "resource_types": [
+            "xcsh_virtual_network"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccVirtualNetworkResource_emptyPlan",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "unclassified",
+        "source_location": "virtual_network_resource_test.go:299"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/virtual_network_resource_test.go",
+          "resource_types": [
+            "xcsh_virtual_network"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccVirtualNetworkResource_knownValues",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "unclassified",
+        "source_location": "virtual_network_resource_test.go:389"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/virtual_network_resource_test.go",
+          "resource_types": [
+            "xcsh_virtual_network"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccVirtualNetworkResource_planChecks",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "unclassified",
+        "source_location": "virtual_network_resource_test.go:337"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/virtual_network_resource_test.go",
+          "resource_types": [
+            "xcsh_virtual_network"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccVirtualNetworkResource_requiresReplace",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "unclassified",
+        "source_location": "virtual_network_resource_test.go:500"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/virtual_network_resource_test.go",
+          "resource_types": [
+            "xcsh_virtual_network"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccVirtualNetworkResource_updateAnnotations",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "unclassified",
+        "source_location": "virtual_network_resource_test.go:252"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/virtual_network_resource_test.go",
+          "resource_types": [
+            "xcsh_virtual_network"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccVirtualNetworkResource_updateDescription",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "unclassified",
+        "source_location": "virtual_network_resource_test.go:199"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/virtual_network_resource_test.go",
+          "resource_types": [
+            "xcsh_virtual_network"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccVirtualNetworkResource_updateLabels",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "unclassified",
+        "source_location": "virtual_network_resource_test.go:150"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/virtual_network_resource_test.go",
+          "resource_types": [
+            "xcsh_virtual_network"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccVirtualSiteDataSource_basic",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "INFRASTRUCTURE",
+      "source_inventory": [
+        {
+          "source": "internal/provider/virtual_site_data_source_test.go",
+          "resource_types": [
+            "xcsh_namespace",
+            "xcsh_virtual_site"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccVirtualSiteResource_allAttributes",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "INFRASTRUCTURE",
+      "source_inventory": [
+        {
+          "source": "internal/provider/virtual_site_resource_test.go",
+          "resource_types": [
+            "xcsh_virtual_site"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccVirtualSiteResource_basic",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "INFRASTRUCTURE",
+      "source_inventory": [
+        {
+          "source": "internal/provider/virtual_site_resource_test.go",
+          "resource_types": [
+            "xcsh_virtual_site"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccVirtualSiteResource_emptyPlan",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "INFRASTRUCTURE",
+      "source_inventory": [
+        {
+          "source": "internal/provider/virtual_site_resource_test.go",
+          "resource_types": [
+            "xcsh_virtual_site"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccVirtualSiteResource_knownValues",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "INFRASTRUCTURE",
+      "source_inventory": [
+        {
+          "source": "internal/provider/virtual_site_resource_test.go",
+          "resource_types": [
+            "xcsh_virtual_site"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccVirtualSiteResource_planChecks",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "INFRASTRUCTURE",
+      "source_inventory": [
+        {
+          "source": "internal/provider/virtual_site_resource_test.go",
+          "resource_types": [
+            "xcsh_virtual_site"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccVirtualSiteResource_requiresReplace",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "INFRASTRUCTURE",
+      "source_inventory": [
+        {
+          "source": "internal/provider/virtual_site_resource_test.go",
+          "resource_types": [
+            "xcsh_virtual_site"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccVirtualSiteResource_updateAnnotations",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "INFRASTRUCTURE",
+      "source_inventory": [
+        {
+          "source": "internal/provider/virtual_site_resource_test.go",
+          "resource_types": [
+            "xcsh_virtual_site"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccVirtualSiteResource_updateDescription",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "INFRASTRUCTURE",
+      "source_inventory": [
+        {
+          "source": "internal/provider/virtual_site_resource_test.go",
+          "resource_types": [
+            "xcsh_virtual_site"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccVirtualSiteResource_updateLabels",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "INFRASTRUCTURE",
+      "source_inventory": [
+        {
+          "source": "internal/provider/virtual_site_resource_test.go",
+          "resource_types": [
+            "xcsh_virtual_site"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccVirtualSiteResource_updateSiteSelector",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "INFRASTRUCTURE",
+      "source_inventory": [
+        {
+          "source": "internal/provider/virtual_site_resource_test.go",
+          "resource_types": [
+            "xcsh_virtual_site"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccWAFExclusionPolicyResource_emptyPlan",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "unclassified",
+        "source_location": "waf_exclusion_policy_resource_test.go:343"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/waf_exclusion_policy_resource_test.go",
+          "resource_types": [
+            "xcsh_waf_exclusion_policy"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccWAFExclusionPolicyResource_fullLifecycle",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "unclassified",
+        "source_location": "waf_exclusion_policy_resource_test.go:419"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/waf_exclusion_policy_resource_test.go",
+          "resource_types": [
+            "xcsh_waf_exclusion_policy"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccWAFExclusionPolicyResource_planChecks",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "unclassified",
+        "source_location": "waf_exclusion_policy_resource_test.go:364"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/waf_exclusion_policy_resource_test.go",
+          "resource_types": [
+            "xcsh_waf_exclusion_policy"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccWafExclusionPolicyDataSource_basic",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "UNKNOWN",
+      "source_inventory": [
+        {
+          "source": "internal/provider/waf_exclusion_policy_data_source_test.go",
+          "resource_types": []
+        }
+      ]
+    },
+    {
+      "test": "TestAccWorkloadDataSource_basic",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "framework_diagnostic",
+        "source_location": "workload_data_source_test.go:16"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/workload_data_source_test.go",
+          "resource_types": [
+            "xcsh_namespace",
+            "xcsh_workload"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccWorkloadFlavorDataSource_basic",
+      "baseline_status": "fail",
+      "failure_fingerprint": {
+        "class": "framework_diagnostic",
+        "source_location": "workload_flavor_data_source_test.go:16"
+      },
+      "skip_reason_type": null,
+      "source_inventory": [
+        {
+          "source": "internal/provider/workload_flavor_data_source_test.go",
+          "resource_types": [
+            "xcsh_namespace",
+            "xcsh_workload_flavor"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccWorkloadFlavorResource_allAttributes",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "INFRASTRUCTURE",
+      "source_inventory": [
+        {
+          "source": "internal/provider/workload_flavor_resource_test.go",
+          "resource_types": [
+            "xcsh_namespace",
+            "xcsh_workload_flavor"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccWorkloadFlavorResource_basic",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "INFRASTRUCTURE",
+      "source_inventory": [
+        {
+          "source": "internal/provider/workload_flavor_resource_test.go",
+          "resource_types": [
+            "xcsh_namespace",
+            "xcsh_workload_flavor"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccWorkloadFlavorResource_emptyName",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "INFRASTRUCTURE",
+      "source_inventory": [
+        {
+          "source": "internal/provider/workload_flavor_resource_test.go",
+          "resource_types": [
+            "xcsh_namespace",
+            "xcsh_workload_flavor"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccWorkloadFlavorResource_emptyPlan",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "INFRASTRUCTURE",
+      "source_inventory": [
+        {
+          "source": "internal/provider/workload_flavor_resource_test.go",
+          "resource_types": [
+            "xcsh_namespace",
+            "xcsh_workload_flavor"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccWorkloadFlavorResource_invalidName",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "INFRASTRUCTURE",
+      "source_inventory": [
+        {
+          "source": "internal/provider/workload_flavor_resource_test.go",
+          "resource_types": [
+            "xcsh_namespace",
+            "xcsh_workload_flavor"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccWorkloadFlavorResource_knownValues",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "INFRASTRUCTURE",
+      "source_inventory": [
+        {
+          "source": "internal/provider/workload_flavor_resource_test.go",
+          "resource_types": [
+            "xcsh_namespace",
+            "xcsh_workload_flavor"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccWorkloadFlavorResource_nameTooLong",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "INFRASTRUCTURE",
+      "source_inventory": [
+        {
+          "source": "internal/provider/workload_flavor_resource_test.go",
+          "resource_types": [
+            "xcsh_namespace",
+            "xcsh_workload_flavor"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccWorkloadFlavorResource_planChecks",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "INFRASTRUCTURE",
+      "source_inventory": [
+        {
+          "source": "internal/provider/workload_flavor_resource_test.go",
+          "resource_types": [
+            "xcsh_namespace",
+            "xcsh_workload_flavor"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccWorkloadFlavorResource_requiresReplace",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "INFRASTRUCTURE",
+      "source_inventory": [
+        {
+          "source": "internal/provider/workload_flavor_resource_test.go",
+          "resource_types": [
+            "xcsh_namespace",
+            "xcsh_workload_flavor"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccWorkloadFlavorResource_updateAnnotations",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "INFRASTRUCTURE",
+      "source_inventory": [
+        {
+          "source": "internal/provider/workload_flavor_resource_test.go",
+          "resource_types": [
+            "xcsh_namespace",
+            "xcsh_workload_flavor"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccWorkloadFlavorResource_updateDescription",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "INFRASTRUCTURE",
+      "source_inventory": [
+        {
+          "source": "internal/provider/workload_flavor_resource_test.go",
+          "resource_types": [
+            "xcsh_namespace",
+            "xcsh_workload_flavor"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccWorkloadFlavorResource_updateLabels",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "INFRASTRUCTURE",
+      "source_inventory": [
+        {
+          "source": "internal/provider/workload_flavor_resource_test.go",
+          "resource_types": [
+            "xcsh_namespace",
+            "xcsh_workload_flavor"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccWorkloadFlavorResource_updateSpecFields",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "INFRASTRUCTURE",
+      "source_inventory": [
+        {
+          "source": "internal/provider/workload_flavor_resource_test.go",
+          "resource_types": [
+            "xcsh_namespace",
+            "xcsh_workload_flavor"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccWorkloadResource_allAttributes",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "INFRASTRUCTURE",
+      "source_inventory": [
+        {
+          "source": "internal/provider/workload_resource_test.go",
+          "resource_types": [
+            "xcsh_namespace",
+            "xcsh_workload"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccWorkloadResource_basic",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "INFRASTRUCTURE",
+      "source_inventory": [
+        {
+          "source": "internal/provider/workload_resource_test.go",
+          "resource_types": [
+            "xcsh_namespace",
+            "xcsh_workload"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccWorkloadResource_updateAnnotations",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "INFRASTRUCTURE",
+      "source_inventory": [
+        {
+          "source": "internal/provider/workload_resource_test.go",
+          "resource_types": [
+            "xcsh_namespace",
+            "xcsh_workload"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccWorkloadResource_updateDescription",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "INFRASTRUCTURE",
+      "source_inventory": [
+        {
+          "source": "internal/provider/workload_resource_test.go",
+          "resource_types": [
+            "xcsh_namespace",
+            "xcsh_workload"
+          ]
+        }
+      ]
+    },
+    {
+      "test": "TestAccWorkloadResource_updateLabels",
+      "baseline_status": "skip",
+      "failure_fingerprint": null,
+      "skip_reason_type": "INFRASTRUCTURE",
+      "source_inventory": [
+        {
+          "source": "internal/provider/workload_resource_test.go",
+          "resource_types": [
+            "xcsh_namespace",
+            "xcsh_workload"
+          ]
+        }
+      ]
+    }
+  ]
+}

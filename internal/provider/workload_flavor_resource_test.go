@@ -45,7 +45,8 @@ import (
 // -----------------------------------------------------------------------------
 
 func TestAccWorkloadFlavorResource_basic(t *testing.T) {
-	t.Skip("Skipping: requires vK8s infrastructure - workload_flavor resources require a pre-configured virtual Kubernetes (vK8s) environment which is not available in standard test environments")
+
+	acctest.RequireExistingInfrastructure(t, "vk8s")
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 
@@ -93,7 +94,8 @@ func TestAccWorkloadFlavorResource_basic(t *testing.T) {
 // -----------------------------------------------------------------------------
 
 func TestAccWorkloadFlavorResource_allAttributes(t *testing.T) {
-	t.Skip("Skipping: requires vK8s infrastructure - workload_flavor resources require a pre-configured virtual Kubernetes (vK8s) environment which is not available in standard test environments")
+
+	acctest.RequireExistingInfrastructure(t, "vk8s")
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 
@@ -147,7 +149,8 @@ func TestAccWorkloadFlavorResource_allAttributes(t *testing.T) {
 // -----------------------------------------------------------------------------
 
 func TestAccWorkloadFlavorResource_updateLabels(t *testing.T) {
-	t.Skip("Skipping: requires vK8s infrastructure - workload_flavor resources require a pre-configured virtual Kubernetes (vK8s) environment which is not available in standard test environments")
+
+	acctest.RequireExistingInfrastructure(t, "vk8s")
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 
@@ -202,7 +205,8 @@ func TestAccWorkloadFlavorResource_updateLabels(t *testing.T) {
 // -----------------------------------------------------------------------------
 
 func TestAccWorkloadFlavorResource_updateDescription(t *testing.T) {
-	t.Skip("Skipping: requires vK8s infrastructure - workload_flavor resources require a pre-configured virtual Kubernetes (vK8s) environment which is not available in standard test environments")
+
+	acctest.RequireExistingInfrastructure(t, "vk8s")
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 
@@ -261,7 +265,8 @@ func TestAccWorkloadFlavorResource_updateDescription(t *testing.T) {
 // -----------------------------------------------------------------------------
 
 func TestAccWorkloadFlavorResource_updateAnnotations(t *testing.T) {
-	t.Skip("Skipping: requires vK8s infrastructure - workload_flavor resources require a pre-configured virtual Kubernetes (vK8s) environment which is not available in standard test environments")
+
+	acctest.RequireExistingInfrastructure(t, "vk8s")
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 
@@ -314,7 +319,8 @@ func TestAccWorkloadFlavorResource_updateAnnotations(t *testing.T) {
 // -----------------------------------------------------------------------------
 
 func TestAccWorkloadFlavorResource_updateSpecFields(t *testing.T) {
-	t.Skip("Skipping: requires vK8s infrastructure - workload_flavor resources require a pre-configured virtual Kubernetes (vK8s) environment which is not available in standard test environments")
+
+	acctest.RequireExistingInfrastructure(t, "vk8s")
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 
@@ -362,7 +368,8 @@ func TestAccWorkloadFlavorResource_updateSpecFields(t *testing.T) {
 // -----------------------------------------------------------------------------
 
 func TestAccWorkloadFlavorResource_emptyPlan(t *testing.T) {
-	t.Skip("Skipping: requires vK8s infrastructure - workload_flavor resources require a pre-configured virtual Kubernetes (vK8s) environment which is not available in standard test environments")
+
+	acctest.RequireExistingInfrastructure(t, "vk8s")
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 
@@ -406,7 +413,8 @@ func TestAccWorkloadFlavorResource_emptyPlan(t *testing.T) {
 // -----------------------------------------------------------------------------
 
 func TestAccWorkloadFlavorResource_planChecks(t *testing.T) {
-	t.Skip("Skipping: requires vK8s infrastructure - workload_flavor resources require a pre-configured virtual Kubernetes (vK8s) environment which is not available in standard test environments")
+
+	acctest.RequireExistingInfrastructure(t, "vk8s")
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 
@@ -464,7 +472,8 @@ func TestAccWorkloadFlavorResource_planChecks(t *testing.T) {
 // -----------------------------------------------------------------------------
 
 func TestAccWorkloadFlavorResource_knownValues(t *testing.T) {
-	t.Skip("Skipping: requires vK8s infrastructure - workload_flavor resources require a pre-configured virtual Kubernetes (vK8s) environment which is not available in standard test environments")
+
+	acctest.RequireExistingInfrastructure(t, "vk8s")
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 
@@ -511,7 +520,8 @@ func TestAccWorkloadFlavorResource_knownValues(t *testing.T) {
 // -----------------------------------------------------------------------------
 
 func TestAccWorkloadFlavorResource_invalidName(t *testing.T) {
-	t.Skip("Skipping: requires vK8s infrastructure - workload_flavor resources require a pre-configured virtual Kubernetes (vK8s) environment which is not available in standard test environments")
+
+	acctest.RequireExistingInfrastructure(t, "vk8s")
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 
@@ -542,7 +552,8 @@ func TestAccWorkloadFlavorResource_invalidName(t *testing.T) {
 // -----------------------------------------------------------------------------
 
 func TestAccWorkloadFlavorResource_nameTooLong(t *testing.T) {
-	t.Skip("Skipping: requires vK8s infrastructure - workload_flavor resources require a pre-configured virtual Kubernetes (vK8s) environment which is not available in standard test environments")
+
+	acctest.RequireExistingInfrastructure(t, "vk8s")
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 
@@ -574,7 +585,8 @@ func TestAccWorkloadFlavorResource_nameTooLong(t *testing.T) {
 // -----------------------------------------------------------------------------
 
 func TestAccWorkloadFlavorResource_emptyName(t *testing.T) {
-	t.Skip("Skipping: requires vK8s infrastructure - workload_flavor resources require a pre-configured virtual Kubernetes (vK8s) environment which is not available in standard test environments")
+
+	acctest.RequireExistingInfrastructure(t, "vk8s")
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 
@@ -604,7 +616,8 @@ func TestAccWorkloadFlavorResource_emptyName(t *testing.T) {
 // -----------------------------------------------------------------------------
 
 func TestAccWorkloadFlavorResource_requiresReplace(t *testing.T) {
-	t.Skip("Skipping: requires vK8s infrastructure - workload_flavor resources require a pre-configured virtual Kubernetes (vK8s) environment which is not available in standard test environments")
+
+	acctest.RequireExistingInfrastructure(t, "vk8s")
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 

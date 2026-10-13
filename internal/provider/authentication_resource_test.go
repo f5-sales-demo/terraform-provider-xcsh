@@ -17,7 +17,6 @@ func TestAccAuthenticationResource_basic(t *testing.T) {
 	acctest.PreCheck(t)
 
 	// Skip: authentication resource requires complex cookie_params/auth_hmac configuration with secrets
-	t.Skip("Skipping: authentication resource requires complex cookie_params configuration (blindfold secrets, HMAC keys) that needs further investigation")
 
 	rName := acctest.RandomName("tf-acc-test-auth")
 	nsName := acctest.RandomName("tf-acc-test-ns")

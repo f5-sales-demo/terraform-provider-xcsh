@@ -18,7 +18,6 @@ func TestAccPolicyBasedRoutingResource_basic(t *testing.T) {
 
 	// Skip: policy_based_routing requires additional configuration (rules/routes)
 	// Need to investigate required spec fields for successful creation
-	t.Skip("Skipping: policy_based_routing requires additional configuration - BAD_REQUEST")
 
 	rName := acctest.RandomName("tf-acc-test-pbr")
 	nsName := acctest.RandomName("tf-acc-test-ns")

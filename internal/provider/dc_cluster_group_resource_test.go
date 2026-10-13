@@ -19,7 +19,8 @@ func TestAccDcClusterGroupResource_basic(t *testing.T) {
 	// Skip: dc_cluster_group is used for connecting physical sites or App Stack sites
 	// via underlay networks with MPLSoUDP encapsulation. Requires deployed sites with
 	// Ingress/Egress Gateway (Two Interface) or App Stack Cluster configuration.
-	t.Skip("Skipping: dc_cluster_group resource requires deployed site infrastructure with underlay network connectivity which is not available in standard acceptance tests")
+
+	acctest.RequireExistingInfrastructure(t, "site")
 
 	rName := acctest.RandomName("tf-acc-test-dcg")
 	nsName := acctest.RandomName("tf-acc-test-ns")

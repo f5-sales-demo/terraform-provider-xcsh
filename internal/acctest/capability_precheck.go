@@ -68,6 +68,12 @@ func precheckLiveCapability(t *testing.T) {
 	capabilityProbeMu.Lock()
 	defer capabilityProbeMu.Unlock()
 	for _, requirement := range requirements {
+		switch requirement.Type {
+		case "xcsh_aws_tgw_site", "xcsh_nfv_service":
+			t.Logf("[PREREQUISITE:cloud_appliance_out_of_scope method=POST type=%s]", requirement.Type)
+			t.Skip("new cloud appliance provisioning is excluded from this run")
+		}
+
 		// Resolve references within the disposable namespace only after the namespace
 		// create operation has been checked. Never guess mutation rights from GET.
 		path := requirement.Path

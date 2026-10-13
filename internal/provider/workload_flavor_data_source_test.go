@@ -55,7 +55,7 @@ resource "xcsh_workload_flavor" "test" {
   depends_on = [time_sleep.wait_for_namespace]
   name       = %[2]q
   namespace  = xcsh_namespace.test.name
-  vcpus        = "1"
+  vcpus        = 1
   memory       = "1024"
   ephemeral_storage = "10Gi"
 }

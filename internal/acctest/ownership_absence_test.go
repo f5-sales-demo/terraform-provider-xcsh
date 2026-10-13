@@ -2,7 +2,6 @@
 package acctest
 
 import (
-	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
 	xcsherrors "github.com/f5-sales-demo/terraform-provider-xcsh/internal/errors"
 	"net/http"
 	"testing"
@@ -23,6 +22,5 @@ func TestOwnedAbsenceRejectsMalformedAndWrongStatus(t *testing.T) {
 		if got := authoritativeOwnedAbsence(err); got != tc.want {
 			t.Fatalf("status %d body %q=%v", tc.status, tc.body, got)
 		}
-		_ = client.HasHTTPStatus
 	}
 }

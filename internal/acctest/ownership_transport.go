@@ -162,6 +162,9 @@ func (t *ownershipTransport) RoundTrip(req *http.Request) (*http.Response, error
 		}
 	}
 	t.j.mu.Unlock()
+	if err = t.j.ResetAfterVerifiedAbsence(r); err != nil {
+		return nil, err
+	}
 	if err = t.j.Intent(r); err != nil {
 		return nil, err
 	}

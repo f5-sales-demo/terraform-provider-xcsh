@@ -56,7 +56,7 @@ resource "xcsh_app_type" "test" {
   name       = %[2]q
   namespace  = xcsh_namespace.test.name
   business_logic_markup_setting {
-    enable = true
+    enable = {}
   }
 }
 

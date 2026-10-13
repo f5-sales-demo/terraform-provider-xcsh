@@ -17,7 +17,8 @@ func TestAccBGPResource_basic(t *testing.T) {
 	acctest.PreCheck(t)
 
 	// Skip: BGP requires a real site reference which is infrastructure-dependent
-	t.Skip("Skipping: bgp resource requires site infrastructure (CE/RE site) which is not available in acceptance tests")
+
+	acctest.RequireExistingInfrastructure(t, "site")
 
 	rName := acctest.RandomName("tf-acc-test-bgp")
 	nsName := "system"

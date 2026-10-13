@@ -13,6 +13,7 @@ func init() {
 	acctest.RegisterFixture("testAccAPITestingConfig_basic", func() string { return testAccAPITestingConfig_basic("tf-acc-test-fixture") })
 	acctest.RegisterFixture("testAccAWSTGWSiteConfig_basic", func() string { return testAccAWSTGWSiteConfig_basic("tf-acc-test-fixture", "tf-acc-test-fixture") })
 	acctest.RegisterFixture("testAccAddressAllocatorConfig_basic", func() string { return testAccAddressAllocatorConfig_basic("tf-acc-test-fixture") })
+	acctest.RegisterFixture("testAccAddressAllocatorDataSourceConfig_basic", func() string { return testAccAddressAllocatorDataSourceConfig_basic("tf-acc-test-fixture") })
 	acctest.RegisterFixture("testAccAdvertisePolicyConfig_basic", func() string { return testAccAdvertisePolicyConfig_basic("tf-acc-test-fixture") })
 	acctest.RegisterFixture("testAccAdvertisePolicyConfig_port", func() string { return testAccAdvertisePolicyConfig_port("tf-acc-test-fixture", 1) })
 	acctest.RegisterFixture("testAccAdvertisePolicyConfig_withLabels", func() string { return testAccAdvertisePolicyConfig_withLabels("tf-acc-test-fixture") })
@@ -114,6 +115,9 @@ func init() {
 	acctest.RegisterFixture("testAccBotDefenseAppInfrastructureConfig_basic", func() string {
 		return testAccBotDefenseAppInfrastructureConfig_basic("tf-acc-test-fixture", "tf-acc-test-fixture")
 	})
+	acctest.RegisterFixture("testAccBotDefenseAppInfrastructureDataSourceConfig_basic", func() string {
+		return testAccBotDefenseAppInfrastructureDataSourceConfig_basic("tf-acc-test-fixture", "tf-acc-test-fixture")
+	})
 	acctest.RegisterFixture("testAccCDNCacheRuleConfig_basic", func() string { return testAccCDNCacheRuleConfig_basic("tf-acc-test-fixture", "tf-acc-test-fixture") })
 	acctest.RegisterFixture("testAccCDNLoadBalancerConfig_basic", func() string { return testAccCDNLoadBalancerConfig_basic("tf-acc-test-fixture") })
 	acctest.RegisterFixture("testAccCRLConfig_basic", func() string { return testAccCRLConfig_basic("tf-acc-test-fixture", "tf-acc-test-fixture") })
@@ -203,9 +207,7 @@ func init() {
 	acctest.RegisterFixture("testAccDataTypeConfig_withPiiFlagsSystem", func() string { return testAccDataTypeConfig_withPiiFlagsSystem("tf-acc-test-fixture", false, false) })
 	acctest.RegisterFixture("testAccDataTypeDataSourceConfig_basic", func() string { return testAccDataTypeDataSourceConfig_basic("tf-acc-test-fixture") })
 	acctest.RegisterFixture("testAccDcClusterGroupConfig_basic", func() string { return testAccDcClusterGroupConfig_basic("tf-acc-test-fixture", "tf-acc-test-fixture") })
-	acctest.RegisterFixture("testAccDcClusterGroupDataSourceConfig_basic", func() string {
-		return testAccDcClusterGroupDataSourceConfig_basic("tf-acc-test-fixture", "tf-acc-test-fixture")
-	})
+	acctest.RegisterFixture("testAccDcClusterGroupDataSourceConfig_basic", func() string { return testAccDcClusterGroupDataSourceConfig_basic("tf-acc-test-fixture") })
 	acctest.RegisterFixture("testAccDiscoveryConfig_basic", func() string { return testAccDiscoveryConfig_basic("tf-acc-test-fixture", "tf-acc-test-fixture") })
 	acctest.RegisterFixture("testAccDiscoveryDataSourceConfig_basic", func() string {
 		return testAccDiscoveryDataSourceConfig_basic("tf-acc-test-fixture", "tf-acc-test-fixture")
@@ -231,12 +233,8 @@ func init() {
 	})
 	acctest.RegisterFixture("testAccFastACLConfig_basic", func() string { return testAccFastACLConfig_basic("tf-acc-test-fixture", "tf-acc-test-fixture") })
 	acctest.RegisterFixture("testAccFastACLRuleConfig_basic", func() string { return testAccFastACLRuleConfig_basic("tf-acc-test-fixture", "tf-acc-test-fixture") })
-	acctest.RegisterFixture("testAccFastAclDataSourceConfig_basic", func() string {
-		return testAccFastAclDataSourceConfig_basic("tf-acc-test-fixture", "tf-acc-test-fixture")
-	})
-	acctest.RegisterFixture("testAccFastAclRuleDataSourceConfig_basic", func() string {
-		return testAccFastAclRuleDataSourceConfig_basic("tf-acc-test-fixture", "tf-acc-test-fixture")
-	})
+	acctest.RegisterFixture("testAccFastAclDataSourceConfig_basic", func() string { return testAccFastAclDataSourceConfig_basic("tf-acc-test-fixture") })
+	acctest.RegisterFixture("testAccFastAclRuleDataSourceConfig_basic", func() string { return testAccFastAclRuleDataSourceConfig_basic("tf-acc-test-fixture") })
 	acctest.RegisterFixture("testAccFilterSetDataSourceConfig_basic", func() string { return testAccFilterSetDataSourceConfig_basic("tf-acc-test-fixture") })
 	acctest.RegisterFixture("testAccFilterSetResource_allAttributesSystem", func() string { return testAccFilterSetResource_allAttributesSystem("tf-acc-test-fixture") })
 	acctest.RegisterFixture("testAccFilterSetResource_basicSystem", func() string { return testAccFilterSetResource_basicSystem("tf-acc-test-fixture") })
@@ -258,6 +256,7 @@ func init() {
 	acctest.RegisterFixture("testAccForwardProxyPolicyDataSourceConfig_basic", func() string {
 		return testAccForwardProxyPolicyDataSourceConfig_basic("tf-acc-test-fixture", "tf-acc-test-fixture")
 	})
+	acctest.RegisterFixture("testAccForwardingClassDataSourceConfig_basic", func() string { return testAccForwardingClassDataSourceConfig_basic("tf-acc-test-fixture") })
 	acctest.RegisterFixture("testAccForwardingClassResource_allAttributesSystem", func() string { return testAccForwardingClassResource_allAttributesSystem("tf-acc-test-fixture") })
 	acctest.RegisterFixture("testAccForwardingClassResource_basicSystem", func() string { return testAccForwardingClassResource_basicSystem("tf-acc-test-fixture") })
 	acctest.RegisterFixture("testAccForwardingClassResource_qosSettingsSystem", func() string { return testAccForwardingClassResource_qosSettingsSystem("tf-acc-test-fixture") })
@@ -435,9 +434,7 @@ func init() {
 	acctest.RegisterFixture("testAccNetworkPolicyViewConfig_basic", func() string {
 		return testAccNetworkPolicyViewConfig_basic("tf-acc-test-fixture", "tf-acc-test-fixture")
 	})
-	acctest.RegisterFixture("testAccNetworkPolicyViewDataSourceConfig_basic", func() string {
-		return testAccNetworkPolicyViewDataSourceConfig_basic("tf-acc-test-fixture", "tf-acc-test-fixture")
-	})
+	acctest.RegisterFixture("testAccNetworkPolicyViewDataSourceConfig_basic", func() string { return testAccNetworkPolicyViewDataSourceConfig_basic("tf-acc-test-fixture") })
 	acctest.RegisterFixture("testAccNfvServiceDataSourceConfig_basic", func() string {
 		return testAccNfvServiceDataSourceConfig_basic("tf-acc-test-fixture", "tf-acc-test-fixture")
 	})
@@ -475,7 +472,11 @@ func init() {
 	acctest.RegisterFixture("testAccProtocolInspectionConfig_basic", func() string {
 		return testAccProtocolInspectionConfig_basic("tf-acc-test-fixture", "tf-acc-test-fixture")
 	})
+	acctest.RegisterFixture("testAccProtocolInspectionDataSourceConfig_basic", func() string {
+		return testAccProtocolInspectionDataSourceConfig_basic("tf-acc-test-fixture", "tf-acc-test-fixture")
+	})
 	acctest.RegisterFixture("testAccProtocolPolicerConfig_basic", func() string { return testAccProtocolPolicerConfig_basic("tf-acc-test-fixture", "tf-acc-test-fixture") })
+	acctest.RegisterFixture("testAccProtocolPolicerDataSourceConfig_basic", func() string { return testAccProtocolPolicerDataSourceConfig_basic("tf-acc-test-fixture") })
 	acctest.RegisterFixture("testAccProxyConfig_basic", func() string { return testAccProxyConfig_basic("tf-acc-test-fixture", "tf-acc-test-fixture") })
 	acctest.RegisterFixture("testAccProxyDataSourceConfig_basic", func() string { return testAccProxyDataSourceConfig_basic("tf-acc-test-fixture", "tf-acc-test-fixture") })
 	acctest.RegisterFixture("testAccRateLimiterConfig_allAttributesSystem", func() string { return testAccRateLimiterConfig_allAttributesSystem("tf-acc-test-fixture") })
@@ -501,6 +502,7 @@ func init() {
 	acctest.RegisterFixture("testAccRateLimiterPolicyDataSourceConfig_basic", func() string {
 		return testAccRateLimiterPolicyDataSourceConfig_basic("tf-acc-test-fixture", "tf-acc-test-fixture")
 	})
+	acctest.RegisterFixture("testAccRouteDataSourceConfig_basic", func() string { return testAccRouteDataSourceConfig_basic("tf-acc-test-fixture") })
 	acctest.RegisterFixture("testAccRouteResourceConfig_basic", func() string { return testAccRouteResourceConfig_basic("tf-acc-test-fixture", "tf-acc-test-fixture") })
 	acctest.RegisterFixture("testAccSecretManagementAccessDataSourceConfig_basic", func() string {
 		return testAccSecretManagementAccessDataSourceConfig_basic("tf-acc-test-fixture", "tf-acc-test-fixture")
@@ -512,9 +514,7 @@ func init() {
 	acctest.RegisterFixture("testAccSecuremeshSiteV2ResourceConfig_withLabels", func() string {
 		return testAccSecuremeshSiteV2ResourceConfig_withLabels("tf-acc-test-fixture", "tf-acc-test-fixture", map[string]string{"environment": "test"})
 	})
-	acctest.RegisterFixture("testAccSegmentDataSourceConfig_basic", func() string {
-		return testAccSegmentDataSourceConfig_basic("tf-acc-test-fixture", "tf-acc-test-fixture")
-	})
+	acctest.RegisterFixture("testAccSegmentDataSourceConfig_basic", func() string { return testAccSegmentDataSourceConfig_basic("tf-acc-test-fixture") })
 	acctest.RegisterFixture("testAccSegmentResourceConfig_basic", func() string { return testAccSegmentResourceConfig_basic("tf-acc-test-fixture", "tf-acc-test-fixture") })
 	acctest.RegisterFixture("testAccSensitiveDataPolicyDataSourceConfig_basic", func() string {
 		return testAccSensitiveDataPolicyDataSourceConfig_basic("tf-acc-test-fixture", "tf-acc-test-fixture")
@@ -561,6 +561,7 @@ func init() {
 	acctest.RegisterFixture("testAccServicePolicyRuleResourceConfig_withLabels", func() string {
 		return testAccServicePolicyRuleResourceConfig_withLabels("tf-acc-test-fixture", "tf-acc-test-fixture", "tf-acc-test-fixture", "tf-acc-test-fixture")
 	})
+	acctest.RegisterFixture("testAccSiteMeshGroupDataSourceConfig_basic", func() string { return testAccSiteMeshGroupDataSourceConfig_basic("tf-acc-test-fixture") })
 	acctest.RegisterFixture("testAccSiteMeshGroupResourceConfig_basic", func() string {
 		return testAccSiteMeshGroupResourceConfig_basic("tf-acc-test-fixture", "tf-acc-test-fixture")
 	})
@@ -617,6 +618,7 @@ func init() {
 	acctest.RegisterFixture("testAccTenantConfigurationResourceConfig_withTenantDetails", func() string {
 		return testAccTenantConfigurationResourceConfig_withTenantDetails("tf-acc-test-fixture", "tf-acc-test-fixture", "tf-acc-test-fixture")
 	})
+	acctest.RegisterFixture("testAccTokenDataSourceConfig_basic", func() string { return testAccTokenDataSourceConfig_basic("tf-acc-test-fixture") })
 	acctest.RegisterFixture("testAccTrustedCaListDataSourceConfig_basic", func() string {
 		return testAccTrustedCaListDataSourceConfig_basic("tf-acc-test-fixture", "tf-acc-test-fixture")
 	})
@@ -654,6 +656,10 @@ func init() {
 		return testAccUDPLoadBalancerConfig_withLabelsSystem("tf-acc-test-fixture", "tf-acc-test-fixture", "tf-acc-test-fixture")
 	})
 	acctest.RegisterFixture("testAccUDPLoadBalancerConfig_withListenPortSystem", func() string { return testAccUDPLoadBalancerConfig_withListenPortSystem("tf-acc-test-fixture", 1) })
+	acctest.RegisterFixture("testAccUdpLoadbalancerDataSourceConfig_basic", func() string { return testAccUdpLoadbalancerDataSourceConfig_basic("tf-acc-test-fixture") })
+	acctest.RegisterFixture("testAccUsbPolicyDataSourceConfig_basic", func() string {
+		return testAccUsbPolicyDataSourceConfig_basic("tf-acc-test-fixture", "tf-acc-test-fixture")
+	})
 	acctest.RegisterFixture("testAccUsbPolicyResourceConfig_allAttributes", func() string {
 		return testAccUsbPolicyResourceConfig_allAttributes("tf-acc-test-fixture", "tf-acc-test-fixture", "tf-acc-test-fixture")
 	})
@@ -762,6 +768,9 @@ func init() {
 	acctest.RegisterFixture("testAccWAFExclusionPolicyResourceConfig_withLabels", func() string {
 		return testAccWAFExclusionPolicyResourceConfig_withLabels("tf-acc-test-fixture", "tf-acc-test-fixture", "tf-acc-test-fixture", "tf-acc-test-fixture")
 	})
+	acctest.RegisterFixture("testAccWafExclusionPolicyDataSourceConfig_basic", func() string {
+		return testAccWafExclusionPolicyDataSourceConfig_basic("tf-acc-test-fixture", "tf-acc-test-fixture")
+	})
 	acctest.RegisterFixture("testAccWorkloadDataSourceConfig_basic", func() string {
 		return testAccWorkloadDataSourceConfig_basic("tf-acc-test-fixture", "tf-acc-test-fixture")
 	})
@@ -818,7 +827,7 @@ func init() {
 	acctest.RegisterTestFixtures("TestAccAPIDiscoveryResource_withLabels", []string{"testAccAPIDiscoveryConfig_withLabels"})
 	acctest.RegisterTestFixtures("TestAccAPITestingResource_basic", []string{"testAccAPITestingConfig_basic"})
 	acctest.RegisterTestFixtures("TestAccAWSTGWSiteResource_basic", []string{"testAccAWSTGWSiteConfig_basic"})
-	acctest.RegisterTestFixtures("TestAccAddressAllocatorDataSource_basic", []string{})
+	acctest.RegisterTestFixtures("TestAccAddressAllocatorDataSource_basic", []string{"testAccAddressAllocatorDataSourceConfig_basic"})
 	acctest.RegisterTestFixtures("TestAccAddressAllocatorResource_basic", []string{"testAccAddressAllocatorConfig_basic"})
 	acctest.RegisterTestFixtures("TestAccAdvertisePolicyDataSource_basic", []string{"testAccAdvertisePolicyDataSourceConfig_basic"})
 	acctest.RegisterTestFixtures("TestAccAdvertisePolicyResource_basic", []string{"testAccAdvertisePolicyConfig_basic"})
@@ -915,7 +924,7 @@ func init() {
 	acctest.RegisterTestFixtures("TestAccBgpAsnSetDataSource_basic", []string{"testAccBgpAsnSetDataSourceConfig_basic"})
 	acctest.RegisterTestFixtures("TestAccBgpDataSource_basic", []string{"testAccBgpDataSourceConfig_basic"})
 	acctest.RegisterTestFixtures("TestAccBgpRoutingPolicyDataSource_basic", []string{"testAccBgpRoutingPolicyDataSourceConfig_basic"})
-	acctest.RegisterTestFixtures("TestAccBotDefenseAppInfrastructureDataSource_basic", []string{})
+	acctest.RegisterTestFixtures("TestAccBotDefenseAppInfrastructureDataSource_basic", []string{"testAccBotDefenseAppInfrastructureDataSourceConfig_basic"})
 	acctest.RegisterTestFixtures("TestAccBotDefenseAppInfrastructureResource_basic", []string{"testAccBotDefenseAppInfrastructureConfig_basic"})
 	acctest.RegisterTestFixtures("TestAccBotDefenseAppInfrastructureResource_emptyPlan", []string{"testAccBotDefenseAppInfrastructureConfig_basic"})
 	acctest.RegisterTestFixtures("TestAccCDNCacheRuleResource_basic", []string{"testAccCDNCacheRuleConfig_basic"})
@@ -1024,7 +1033,7 @@ func init() {
 	acctest.RegisterTestFixtures("TestAccFleetResource_basic", []string{"testAccFleetConfig_basic"})
 	acctest.RegisterTestFixtures("TestAccForwardProxyPolicyDataSource_basic", []string{"testAccForwardProxyPolicyDataSourceConfig_basic"})
 	acctest.RegisterTestFixtures("TestAccForwardProxyPolicyResource_basic", []string{"testAccForwardProxyPolicyConfig_basic"})
-	acctest.RegisterTestFixtures("TestAccForwardingClassDataSource_basic", []string{})
+	acctest.RegisterTestFixtures("TestAccForwardingClassDataSource_basic", []string{"testAccForwardingClassDataSourceConfig_basic"})
 	acctest.RegisterTestFixtures("TestAccForwardingClassResource_allAttributes", []string{"testAccForwardingClassResource_allAttributesSystem"})
 	acctest.RegisterTestFixtures("TestAccForwardingClassResource_basic", []string{"testAccForwardingClassResource_basicSystem"})
 	acctest.RegisterTestFixtures("TestAccForwardingClassResource_disappears", []string{"testAccForwardingClassResource_basicSystem"})
@@ -1209,9 +1218,9 @@ func init() {
 	acctest.RegisterTestFixtures("TestAccPolicerResource_updateLabels", []string{"testAccPolicerConfig_withLabelsSystem"})
 	acctest.RegisterTestFixtures("TestAccPolicyBasedRoutingDataSource_basic", []string{"testAccPolicyBasedRoutingDataSourceConfig_basic"})
 	acctest.RegisterTestFixtures("TestAccPolicyBasedRoutingResource_basic", []string{"testAccPolicyBasedRoutingConfig_basic"})
-	acctest.RegisterTestFixtures("TestAccProtocolInspectionDataSource_basic", []string{})
+	acctest.RegisterTestFixtures("TestAccProtocolInspectionDataSource_basic", []string{"testAccProtocolInspectionDataSourceConfig_basic"})
 	acctest.RegisterTestFixtures("TestAccProtocolInspectionResource_basic", []string{"testAccProtocolInspectionConfig_basic"})
-	acctest.RegisterTestFixtures("TestAccProtocolPolicerDataSource_basic", []string{})
+	acctest.RegisterTestFixtures("TestAccProtocolPolicerDataSource_basic", []string{"testAccProtocolPolicerDataSourceConfig_basic"})
 	acctest.RegisterTestFixtures("TestAccProtocolPolicerResource_basic", []string{"testAccProtocolPolicerConfig_basic"})
 	acctest.RegisterTestFixtures("TestAccProxyDataSource_basic", []string{"testAccProxyDataSourceConfig_basic"})
 	acctest.RegisterTestFixtures("TestAccProxyResource_basic", []string{"testAccProxyConfig_basic"})
@@ -1236,7 +1245,7 @@ func init() {
 	acctest.RegisterTestFixtures("TestAccRateLimiterResource_updateAnnotations", []string{"testAccRateLimiterConfig_withAnnotationsSystem"})
 	acctest.RegisterTestFixtures("TestAccRateLimiterResource_updateDescription", []string{"testAccRateLimiterConfig_withDescriptionSystem"})
 	acctest.RegisterTestFixtures("TestAccRateLimiterResource_updateLabels", []string{"testAccRateLimiterConfig_withLabelsSystem"})
-	acctest.RegisterTestFixtures("TestAccRouteDataSource_basic", []string{})
+	acctest.RegisterTestFixtures("TestAccRouteDataSource_basic", []string{"testAccRouteDataSourceConfig_basic"})
 	acctest.RegisterTestFixtures("TestAccRouteResource_basic", []string{"testAccRouteResourceConfig_basic"})
 	acctest.RegisterTestFixtures("TestAccSecretManagementAccessDataSource_basic", []string{"testAccSecretManagementAccessDataSourceConfig_basic"})
 	acctest.RegisterTestFixtures("TestAccSecretManagementAccessResource_basic", []string{})
@@ -1284,7 +1293,7 @@ func init() {
 	acctest.RegisterTestFixtures("TestAccServicePolicyRuleResource_updateAction", []string{"testAccServicePolicyRuleResourceConfig_basic", "testAccServicePolicyRuleResourceConfig_withAction"})
 	acctest.RegisterTestFixtures("TestAccServicePolicyRuleResource_updateDescription", []string{"testAccServicePolicyRuleResourceConfig_basic", "testAccServicePolicyRuleResourceConfig_withDescription"})
 	acctest.RegisterTestFixtures("TestAccServicePolicyRuleResource_updateLabels", []string{"testAccServicePolicyRuleResourceConfig_basic", "testAccServicePolicyRuleResourceConfig_withLabels"})
-	acctest.RegisterTestFixtures("TestAccSiteMeshGroupDataSource_basic", []string{})
+	acctest.RegisterTestFixtures("TestAccSiteMeshGroupDataSource_basic", []string{"testAccSiteMeshGroupDataSourceConfig_basic"})
 	acctest.RegisterTestFixtures("TestAccSiteMeshGroupResource_basic", []string{"testAccSiteMeshGroupResourceConfig_basic"})
 	acctest.RegisterTestFixtures("TestAccSiteMeshGroupResource_emptyName", []string{"testAccSiteMeshGroupResourceConfig_basic"})
 	acctest.RegisterTestFixtures("TestAccSiteMeshGroupResource_emptyPlan", []string{"testAccSiteMeshGroupResourceConfig_fullMesh"})
@@ -1333,7 +1342,7 @@ func init() {
 	acctest.RegisterTestFixtures("TestAccTenantConfigurationResource_updateLabels", []string{"testAccTenantConfigurationResourceConfig_basic", "testAccTenantConfigurationResourceConfig_withLabels"})
 	acctest.RegisterTestFixtures("TestAccTenantConfigurationResource_updatePasswordPolicy", []string{"testAccTenantConfigurationResourceConfig_withPasswordPolicy"})
 	acctest.RegisterTestFixtures("TestAccTenantConfigurationResource_updateTenantDetails", []string{"testAccTenantConfigurationResourceConfig_basic", "testAccTenantConfigurationResourceConfig_withTenantDetails"})
-	acctest.RegisterTestFixtures("TestAccTokenDataSource_basic", []string{})
+	acctest.RegisterTestFixtures("TestAccTokenDataSource_basic", []string{"testAccTokenDataSourceConfig_basic"})
 	acctest.RegisterTestFixtures("TestAccTrustedCaListDataSource_basic", []string{"testAccTrustedCaListDataSourceConfig_basic"})
 	acctest.RegisterTestFixtures("TestAccTrustedCaListResource_allAttributes", []string{"testAccTrustedCaListResourceConfig_allAttributes"})
 	acctest.RegisterTestFixtures("TestAccTrustedCaListResource_basic", []string{"testAccTrustedCaListResourceConfig_basic"})
@@ -1358,8 +1367,8 @@ func init() {
 	acctest.RegisterTestFixtures("TestAccUDPLoadBalancerResource_updateAnnotations", []string{"testAccUDPLoadBalancerConfig_withAnnotationsSystem"})
 	acctest.RegisterTestFixtures("TestAccUDPLoadBalancerResource_updateDescription", []string{"testAccUDPLoadBalancerConfig_withDescriptionSystem"})
 	acctest.RegisterTestFixtures("TestAccUDPLoadBalancerResource_updateLabels", []string{"testAccUDPLoadBalancerConfig_withLabelsSystem"})
-	acctest.RegisterTestFixtures("TestAccUdpLoadbalancerDataSource_basic", []string{})
-	acctest.RegisterTestFixtures("TestAccUsbPolicyDataSource_basic", []string{})
+	acctest.RegisterTestFixtures("TestAccUdpLoadbalancerDataSource_basic", []string{"testAccUdpLoadbalancerDataSourceConfig_basic"})
+	acctest.RegisterTestFixtures("TestAccUsbPolicyDataSource_basic", []string{"testAccUsbPolicyDataSourceConfig_basic"})
 	acctest.RegisterTestFixtures("TestAccUsbPolicyResource_allAttributes", []string{"testAccUsbPolicyResourceConfig_allAttributes"})
 	acctest.RegisterTestFixtures("TestAccUsbPolicyResource_basic", []string{"testAccUsbPolicyResourceConfig_basic"})
 	acctest.RegisterTestFixtures("TestAccUsbPolicyResource_updateAllowedDevices", []string{"testAccUsbPolicyResourceConfig_basic", "testAccUsbPolicyResourceConfig_withDeviceAttributes", "testAccUsbPolicyResourceConfig_withMultipleDevices", "testAccUsbPolicyResourceConfig_withSingleDevice"})
@@ -1437,7 +1446,7 @@ func init() {
 	acctest.RegisterTestFixtures("TestAccWAFExclusionPolicyResource_updateDescription", []string{"testAccWAFExclusionPolicyResourceConfig_basic", "testAccWAFExclusionPolicyResourceConfig_withDescription"})
 	acctest.RegisterTestFixtures("TestAccWAFExclusionPolicyResource_updateLabels", []string{"testAccWAFExclusionPolicyResourceConfig_basic", "testAccWAFExclusionPolicyResourceConfig_withLabels"})
 	acctest.RegisterTestFixtures("TestAccWAFExclusionPolicyResource_withExclusionRules", []string{"testAccWAFExclusionPolicyResourceConfig_withExclusionRules"})
-	acctest.RegisterTestFixtures("TestAccWafExclusionPolicyDataSource_basic", []string{})
+	acctest.RegisterTestFixtures("TestAccWafExclusionPolicyDataSource_basic", []string{"testAccWafExclusionPolicyDataSourceConfig_basic"})
 	acctest.RegisterTestFixtures("TestAccWorkloadDataSource_basic", []string{"testAccWorkloadDataSourceConfig_basic"})
 	acctest.RegisterTestFixtures("TestAccWorkloadFlavorDataSource_basic", []string{"testAccWorkloadFlavorDataSourceConfig_basic"})
 	acctest.RegisterTestFixtures("TestAccWorkloadFlavorResource_allAttributes", []string{"testAccWorkloadFlavorResourceConfig_allAttributes"})

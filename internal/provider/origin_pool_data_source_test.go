@@ -38,6 +38,7 @@ func testAccOriginPoolDataSourceConfig_basic(name string) string {
 	return acctest.ConfigCompose(
 		acctest.ProviderConfig(),
 		fmt.Sprintf(`
+
 resource "xcsh_origin_pool" "test" {
   name      = %[1]q
   namespace = "system"

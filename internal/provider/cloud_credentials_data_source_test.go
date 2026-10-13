@@ -3,9 +3,11 @@
 package provider_test
 
 import (
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/acctest"
 	"testing"
 )
 
 func TestAccCloudCredentialsDataSource_basic(t *testing.T) {
-	t.Skip("Requires system-level namespace access")
+	acctest.RequireExternalCredential(t, "cloud")
+
 }

@@ -26,9 +26,10 @@ type FixtureDiagnostic struct {
 }
 type fixtureBlockSchema struct {
 	Attributes map[string]struct {
-		Required bool `json:"required"`
-		Computed bool `json:"computed"`
-		Optional bool `json:"optional"`
+		Required bool            `json:"required"`
+		Computed bool            `json:"computed"`
+		Optional bool            `json:"optional"`
+		Type     json.RawMessage `json:"type,omitempty"`
 	} `json:"attributes"`
 	Blocks map[string]struct {
 		Block    fixtureBlockSchema `json:"block"`
@@ -98,6 +99,33 @@ func (s *FixtureSchema) Validate(name, config string) []FixtureDiagnostic {
 				result = append(result, FixtureDiagnostic{name, typ, path + key, "unsupported_argument"})
 			} else if attribute.Computed && !attribute.Optional && !attribute.Required {
 				result = append(result, FixtureDiagnostic{name, typ, path + key, "read_only_argument"})
+			} else if attribute.Type != nil {
+				value, diags := body.Attributes[key].Expr.Value(nil)
+				if !diags.HasErrors() && value.IsKnown() && !value.IsNull() {
+					var expected interface{}
+					if json.Unmarshal(attribute.Type, &expected) == nil {
+						kind, _ := expected.(string)
+						if compound, ok := expected.([]interface{}); ok && len(compound) > 0 {
+							kind, _ = compound[0].(string)
+						}
+						valid := true
+						switch kind {
+						case "string":
+							valid = value.Type() == cty.String
+						case "number":
+							valid = value.Type() == cty.Number
+						case "bool":
+							valid = value.Type() == cty.Bool
+						case "object", "map":
+							valid = value.Type().IsObjectType() || value.Type().IsMapType()
+						case "list", "set", "tuple":
+							valid = value.Type().IsTupleType() || value.Type().IsListType() || value.Type().IsSetType()
+						}
+						if !valid {
+							result = append(result, FixtureDiagnostic{name, typ, path + key, "incorrect_attribute_type"})
+						}
+					}
+				}
 			}
 		}
 		counts := map[string]int{}

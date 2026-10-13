@@ -13,7 +13,8 @@ import (
 )
 
 func TestAccNatPolicyResource_basic(t *testing.T) {
-	t.Skip("Skipping: NAT policy requires site infrastructure - NAT policies can only be applied to existing F5XC sites with network connectivity")
+
+	acctest.RequireExistingInfrastructure(t, "site")
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 

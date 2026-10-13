@@ -1,0 +1,76 @@
+{
+  "version": 1,
+  "run": 38333807450,
+  "total": 3,
+  "passed": 2,
+  "failed": 0,
+  "skipped": 1,
+  "stream_completeness": {
+    "complete": true,
+    "events": 40,
+    "malformed_lines": 0,
+    "invalid_events": 0,
+    "scanner_error": false,
+    "incomplete_tests": 0,
+    "incomplete_packages": 0,
+    "package_failures": 0
+  },
+  "tests": [
+    {
+      "name": "TestAccBgpDataSource_basic",
+      "status": "skip",
+      "prerequisites": [
+        {
+          "outcome": "operation_denied",
+          "method": "POST",
+          "resource_type": "xcsh_namespace",
+          "http_status": 403
+        }
+      ]
+    },
+    {
+      "name": "TestAccOriginPoolResource_basic",
+      "status": "pass",
+      "prerequisites": [
+        {
+          "outcome": "tested",
+          "method": "POST",
+          "resource_type": "xcsh_origin_pool"
+        }
+      ]
+    },
+    {
+      "name": "TestAccServicePolicyRuleResource_basic",
+      "status": "pass",
+      "prerequisites": [
+        {
+          "outcome": "tested",
+          "method": "POST",
+          "resource_type": "xcsh_service_policy_rule"
+        }
+      ]
+    }
+  ],
+  "cleanup": {
+    "version": 1,
+    "journal_sha256": "0e4efb55e40f744267f3d26973ca1aea1f74457c83b6f01435b3be6689567dd6",
+    "complete": true,
+    "owned": 2,
+    "confirmed_absent": 2,
+    "failures": 0,
+    "second_pass_remaining": 0
+  },
+  "recovery": {
+    "run": 38333467770,
+    "original_digest_matches": true,
+    "cleanup": {
+      "version": 1,
+      "journal_sha256": "22f555b789cb92f067f8c52895e81d7d4fe080d1b2c052a6d7d236cf560c3d88",
+      "complete": true,
+      "owned": 2,
+      "confirmed_absent": 2,
+      "failures": 0,
+      "second_pass_remaining": 0
+    }
+  }
+}

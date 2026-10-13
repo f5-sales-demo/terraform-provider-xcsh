@@ -52,9 +52,8 @@ resource "time_sleep" "wait_for_namespace" {
 }
 
 resource "xcsh_origin_pool" "test" {
-  depends_on = [time_sleep.wait_for_namespace]
-  name       = "${%[2]q}-pool"
-  namespace  = xcsh_namespace.test.name
+  name       = "%[1]s-pool"
+  namespace  = "system"
   origin_servers {
     public_ip {
       ip = "192.0.2.1"

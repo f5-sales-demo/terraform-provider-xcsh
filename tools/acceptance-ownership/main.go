@@ -18,6 +18,8 @@ func main() {
 	flag.Parse()
 	var err error
 	switch *mode {
+	case "provision":
+		err = acctest.ProvisionDisposablePrerequisites(context.Background())
 	case "schema":
 		err = acctest.ExportAcceptanceSchema(*receipt)
 	case "init":

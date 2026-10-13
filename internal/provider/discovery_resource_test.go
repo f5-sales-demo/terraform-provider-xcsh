@@ -18,7 +18,8 @@ func TestAccDiscoveryResource_basic(t *testing.T) {
 
 	// Skip: discovery requires site/virtual_site with k8s or consul infrastructure
 	// This cannot be tested without real k8s cluster or Consul server attached to a site
-	t.Skip("Skipping: discovery resource requires site infrastructure with k8s or consul which is not available in acceptance tests")
+
+	acctest.RequireExistingInfrastructure(t, "discovery")
 
 	rName := acctest.RandomName("tf-acc-test-disc")
 	nsName := acctest.RandomName("tf-acc-test-ns")
