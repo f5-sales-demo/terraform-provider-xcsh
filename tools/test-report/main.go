@@ -526,6 +526,15 @@ var frameworkSummaries = []string{
 	"Unsupported block type",
 	"Provider produced inconsistent result after apply",
 	"Provider returned invalid result object",
+	"blindfold write outcome unresolved",
+	"blindfold provenance readback failed",
+	"creation ownership readback failed",
+	"create target is not authoritatively absent",
+	"invalid ownership readback",
+	"existing owned identity requires verified replacement",
+	"cannot reuse deleted run identity",
+	"Provider produced inconsistent final plan",
+	"ImportStateVerify attributes not equivalent",
 }
 
 // classifyFailureFingerprint reduces arbitrary failure output to a single safe
