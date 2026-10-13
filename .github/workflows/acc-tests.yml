@@ -42,6 +42,11 @@ on:
           - real-only      # Sequential real API tests (repository-scoped ARC)
           - full           # Both mock and real API tests
           - pr-subset      # Mock tests only (safe for PRs)
+      test_pattern:
+        description: Focused acceptance regex (empty runs the full suite)
+        required: false
+        default: ""
+        type: string
       parallel:
         description: 'Parallelism for mock tests'
         required: false
@@ -124,7 +129,7 @@ jobs:
           GOMAXPROCS: "1"
           INPUT_PARALLEL: ${{ github.event.inputs.parallel }}
           INPUT_TIMEOUT: ${{ github.event.inputs.timeout }}
-          INPUT_TEST_PATTERN: ${{ github.event.inputs.test_pattern }}
+          INPUT_TEST_PATTERN: ${{ inputs.test_pattern }}
         run: |
           set -o pipefail
           mkdir -p test-reports
@@ -315,7 +320,7 @@ jobs:
           # See the mock-tests job: dispatch inputs and step outputs are passed as
           # env so they cannot expand into the run body as shell.
           INPUT_TIMEOUT: ${{ github.event.inputs.timeout }}
-          INPUT_TEST_PATTERN: ${{ github.event.inputs.test_pattern }}
+          INPUT_TEST_PATTERN: ${{ inputs.test_pattern }}
         run: |
           set -o pipefail
           mkdir -p test-reports
