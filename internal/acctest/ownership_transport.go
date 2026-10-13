@@ -88,6 +88,11 @@ type ownershipTransport struct {
 }
 
 func (t *ownershipTransport) RoundTrip(req *http.Request) (*http.Response, error) {
+	if req.Method == http.MethodDelete {
+		if err := t.verifyOwnedDelete(req); err != nil {
+			return nil, err
+		}
+	}
 	if req.Method == http.MethodPut && strings.HasPrefix(req.URL.Path, "/api/object_store/") {
 		return t.createSwagger(req)
 	}
@@ -325,4 +330,45 @@ func stripOwnershipAnnotation(value interface{}) {
 			stripOwnershipAnnotation(child)
 		}
 	}
+}
+
+func (t *ownershipTransport) verifyOwnedDelete(req *http.Request) error {
+	t.j.mu.Lock()
+	var owned OwnedResource
+	found := false
+	for _, r := range t.j.Resources {
+		var path string
+		if r.Type == "xcsh_swagger_object" {
+			if r.Version == "" {
+				continue
+			}
+			path, _ = client.SwaggerIdentity(r.Namespace, r.Name, r.Version)
+		} else if route, ok := ownedCollectionRoutes[r.Type]; ok {
+			path = strings.ReplaceAll(route, "%s", r.Namespace) + "/" + r.Name
+		}
+		if path == req.URL.Path {
+			owned = r
+			found = true
+			break
+		}
+	}
+	t.j.mu.Unlock()
+	if !found {
+		return errors.New("delete target is not journal-owned")
+	}
+	metadata, err := (apiOwnershipBackend{c: t.c}).Read(req.Context(), owned)
+	if errors.Is(err, errOwnedAbsent) {
+		return nil
+	}
+	if err != nil || metadata.Name != owned.Name || metadata.UID == "" {
+		return errors.New("delete ownership readback failed")
+	}
+	if owned.UID != "" {
+		if ownershipUIDDigest(metadata.UID) != owned.UID {
+			return errors.New("delete ownership UID changed")
+		}
+	} else if metadata.Annotations[ownershipAnnotation] != t.j.RunID {
+		return errors.New("delete creation ownership unconfirmed")
+	}
+	return nil
 }
