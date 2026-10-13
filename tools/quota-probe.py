@@ -28,5 +28,12 @@ for namespace in ['system','shared']:
      item['numbers']={name:number for name,number in value.items() if name in ['limit','usage','used','max','maximum','value','current','available','quota','count','remaining'] and isinstance(number,(int,float))}
      item['text_shapes']={name:type(field).__name__ for name,field in value.items() if name in ['limit','usage','used','max','maximum','value','current','available','quota','count','remaining','name']}
     row['matching_entries'].append(item)
+  route={"api_crawler":"api_crawlers","crl":"crls","container_registry":"container_registrys","global_log_receiver":"global_log_receivers","tcp_loadbalancer":"tcp_loadbalancers","udp_loadbalancer":"udp_loadbalancers","forwarding_class":"forwarding_classs"}[target]
+  read_request=urllib.request.Request(os.environ["XCSH_API_URL"].rstrip("/")+"/api/config/namespaces/"+namespace+"/"+route,headers={"Authorization":"APIToken "+os.environ["XCSH_API_TOKEN"],"Accept":"application/json"})
+  try:
+   with urllib.request.urlopen(read_request,timeout=30) as response:listing=json.load(response)
+   row["list_valid"]=isinstance(listing.get("items"),list)
+   if row["list_valid"]:row["object_count"]=len(listing["items"])
+  except urllib.error.HTTPError as error:row["list_status"]=error.code
   rows.append(row)
 Path('test-reports/quota-evidence.json').write_text(json.dumps({'version':1,'resources':rows},indent=2)+'\n')
