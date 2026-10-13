@@ -82,6 +82,17 @@ resource "xcsh_authentication" "test" {
 
   name      = %[2]q
   namespace = xcsh_namespace.test.name
+  oidc_auth {
+    oidc_client_id = "fixture"
+    client_secret {
+      clear_secret_info { url = "string:///c3ludGhldGljLWNsaWVudC1zZWNyZXQ=" }
+    }
+    oidc_auth_params {
+      auth_endpoint_url = "https://id.example.com/auth"
+      token_endpoint_url = "https://id.example.com/token"
+      end_session_endpoint_url = "https://id.example.com/logout"
+    }
+  }
 }
 `, nsName, name))
 }

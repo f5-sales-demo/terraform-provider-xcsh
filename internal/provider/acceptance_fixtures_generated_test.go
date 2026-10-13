@@ -66,14 +66,12 @@ func init() {
 	acctest.RegisterFixture("testAccAppFirewallConfig_withLabelsSystem", func() string { return testAccAppFirewallConfig_withLabelsSystem("tf-acc-test-fixture") })
 	acctest.RegisterFixture("testAccAppFirewallConfig_withUpdatedLabelsSystem", func() string { return testAccAppFirewallConfig_withUpdatedLabelsSystem("tf-acc-test-fixture") })
 	acctest.RegisterFixture("testAccAppFirewallDataSourceConfig_basic", func() string { return testAccAppFirewallDataSourceConfig_basic("tf-acc-test-fixture") })
-	acctest.RegisterFixture("testAccAppSettingConfig_basic", func() string { return testAccAppSettingConfig_basic("tf-acc-test-fixture") })
+	acctest.RegisterFixture("testAccAppSettingConfig_basic", func() string { return testAccAppSettingConfig_basic("tf-acc-test-fixture", "tf-acc-test-fixture") })
 	acctest.RegisterFixture("testAccAppSettingDataSourceConfig_basic", func() string {
 		return testAccAppSettingDataSourceConfig_basic("tf-acc-test-fixture", "tf-acc-test-fixture")
 	})
 	acctest.RegisterFixture("testAccAppTypeConfig_basic", func() string { return testAccAppTypeConfig_basic("tf-acc-test-fixture", "tf-acc-test-fixture") })
-	acctest.RegisterFixture("testAccAppTypeDataSourceConfig_basic", func() string {
-		return testAccAppTypeDataSourceConfig_basic("tf-acc-test-fixture", "tf-acc-test-fixture")
-	})
+	acctest.RegisterFixture("testAccAppTypeDataSourceConfig_basic", func() string { return testAccAppTypeDataSourceConfig_basic("tf-acc-test-fixture") })
 	acctest.RegisterFixture("testAccAuthenticationConfig_basic", func() string { return testAccAuthenticationConfig_basic("tf-acc-test-fixture", "tf-acc-test-fixture") })
 	acctest.RegisterFixture("testAccAuthenticationDataSourceConfig_basic", func() string {
 		return testAccAuthenticationDataSourceConfig_basic("tf-acc-test-fixture", "tf-acc-test-fixture")

@@ -197,7 +197,7 @@ var resourceConfigs = map[string]string{
   app_type_settings {
     app_type_ref {
       name = xcsh_app_type.test.name
-      namespace = xcsh_namespace.test.name
+      namespace = xcsh_app_type.test.namespace
     }
   }`,
 
@@ -206,7 +206,19 @@ var resourceConfigs = map[string]string{
     enable = {}
   }`,
 
-	"authentication": ``,
+	"authentication": `
+  oidc_auth {
+    oidc_client_id = "fixture"
+    client_secret {
+      clear_secret_info { url = "string:///c3ludGhldGljLWNsaWVudC1zZWNyZXQ=" }
+    }
+    oidc_auth_params {
+      auth_endpoint_url = "https://id.example.com/auth"
+      token_endpoint_url = "https://id.example.com/token"
+      end_session_endpoint_url = "https://id.example.com/logout"
+    }
+  }
+`,
 
 	"bgp": `
   bgp_parameters {
@@ -654,7 +666,7 @@ resource "xcsh_policer" "test" {
 resource "xcsh_app_type" "test" {
   depends_on = [time_sleep.wait_for_namespace]
   name       = "${%[2]q}-apptype"
-  namespace  = xcsh_namespace.test.name
+  namespace  = "shared"
   business_logic_markup_setting {
     enable = {}
   }
@@ -798,6 +810,9 @@ func main() {
 			ns, err := schema.AcceptanceReusableFixtureNamespace(domain.Spec, resource.Name)
 			if err != nil {
 				panic(err)
+			}
+			if resource.Name == "app_type" {
+				ns = "shared"
 			}
 			if resource.Name == "subnet" {
 				ns = "system"

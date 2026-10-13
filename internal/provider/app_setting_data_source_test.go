@@ -54,7 +54,7 @@ resource "time_sleep" "wait_for_namespace" {
 resource "xcsh_app_type" "test" {
   depends_on = [time_sleep.wait_for_namespace]
   name       = "${%[2]q}-apptype"
-  namespace  = xcsh_namespace.test.name
+  namespace  = "shared"
   business_logic_markup_setting {
     enable = {}
   }
@@ -67,7 +67,7 @@ resource "xcsh_app_setting" "test" {
   app_type_settings {
     app_type_ref {
       name = xcsh_app_type.test.name
-      namespace = xcsh_namespace.test.name
+      namespace = xcsh_app_type.test.namespace
     }
   }
 }
