@@ -2,7 +2,7 @@
 page_title: "mx_pool.members"
 subcategory: ""
 description: "Configuration parameter for members"
-xcsh_docs: {"aliases": ["mx pool members"], "body_bytes": 5497, "body_sha256": "sha256:915fad941ce3abd990f1aeb39e171c821340fb0ea8056b55a318b805f062cb3a", "capabilities": ["dns"], "category": "dns", "child_ids": [], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:data-sources:dns_lb_pool:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:dns_lb_pool:properties:mx_pool:members", "parent_id": "xcsh-docs:data-sources:dns_lb_pool:properties:mx_pool", "path": "documentation/data-sources/dns_lb_pool/properties/mx_pool/members/index.md", "product": "distributed-cloud", "provider_name": "dns_lb_pool", "provider_schema_digest": "sha256:500e603af7c92c2c213b5cbdb574fdea5ac4e4825db9ce520b047c223b245685", "provider_type": "data-sources", "registry_anchor": "canonical-3023221002033333-3232100131120122-0301000012212322-0003001123112213-3212210200012321-0031220002200321-2100301333101023-1032233113001220", "registry_path": "docs/guides/data-sources--dns_lb_pool--reference--group-001.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["mx_pool", "members"], "schema_version": 1, "sections": [{"aliases": ["mx pool members domain"], "anchor": "schema-mx_pool--members--domain", "description": "Domain name for routing and identification", "document_id": "xcsh-docs:data-sources:dns_lb_pool:properties:mx_pool:members", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["mx_pool", "members", "domain"], "syntax": "attribute", "type": "string"}, {"aliases": ["mx pool members name"], "anchor": "schema-mx_pool--members--name", "description": "Pool member name.", "document_id": "xcsh-docs:data-sources:dns_lb_pool:properties:mx_pool:members", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["mx_pool", "members", "name"], "syntax": "attribute", "type": "string"}, {"aliases": ["mx pool members priority"], "anchor": "schema-mx_pool--members--priority", "description": "MX Record priority.", "document_id": "xcsh-docs:data-sources:dns_lb_pool:properties:mx_pool:members", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["mx_pool", "members", "priority"], "syntax": "attribute", "type": "number"}, {"aliases": ["mx pool members ratio"], "anchor": "schema-mx_pool--members--ratio", "description": "Load Balancing Ratio.", "document_id": "xcsh-docs:data-sources:dns_lb_pool:properties:mx_pool:members", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["mx_pool", "members", "ratio"], "syntax": "attribute", "type": "number"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_lb_pool/properties/mx_pool/members/index.txt", "spec_pin_digest": "sha256:ba30301dbe17345dfb4303bb66013effc7812eafc55ed39ca25a02278fc1ac8d", "summary": "Configuration parameter for members", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.5", "schema_components": ["dns_lb_poolCreateRequest"], "target_commit": "d0d1579f49a5777ad35f6cd777a0f12db4b2442f"}}
+xcsh_docs: {"aliases": ["mx pool members"], "body_bytes": 5497, "body_sha256": "sha256:f16e344c06178b2ef5f4de605fd077f78a86fe62b31fd96b0dfb4151847357be", "capabilities": ["dns"], "category": "dns", "child_ids": [], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:data-sources:dns_lb_pool:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:dns_lb_pool:properties:mx_pool:members", "parent_id": "xcsh-docs:data-sources:dns_lb_pool:properties:mx_pool", "path": "documentation/data-sources/dns_lb_pool/properties/mx_pool/members/index.md", "product": "distributed-cloud", "provider_name": "dns_lb_pool", "provider_schema_digest": "sha256:500e603af7c92c2c213b5cbdb574fdea5ac4e4825db9ce520b047c223b245685", "provider_type": "data-sources", "registry_anchor": "canonical-3023221002033333-3232100131120122-0301000012212322-0003001123112213-3212210200012321-0031220002200321-2100301333101023-1032233113001220", "registry_path": "docs/guides/data-sources--dns_lb_pool--reference--group-001.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["mx_pool", "members"], "schema_version": 1, "sections": [{"aliases": ["mx pool members domain"], "anchor": "schema-mx_pool--members--domain", "description": "Domain name for routing and identification", "document_id": "xcsh-docs:data-sources:dns_lb_pool:properties:mx_pool:members", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["mx_pool", "members", "domain"], "syntax": "attribute", "type": "string"}, {"aliases": ["mx pool members name"], "anchor": "schema-mx_pool--members--name", "description": "Pool member name.", "document_id": "xcsh-docs:data-sources:dns_lb_pool:properties:mx_pool:members", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["mx_pool", "members", "name"], "syntax": "attribute", "type": "string"}, {"aliases": ["mx pool members priority"], "anchor": "schema-mx_pool--members--priority", "description": "MX Record priority.", "document_id": "xcsh-docs:data-sources:dns_lb_pool:properties:mx_pool:members", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["mx_pool", "members", "priority"], "syntax": "attribute", "type": "number"}, {"aliases": ["mx pool members ratio"], "anchor": "schema-mx_pool--members--ratio", "description": "Load Balancing Ratio.", "document_id": "xcsh-docs:data-sources:dns_lb_pool:properties:mx_pool:members", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["mx_pool", "members", "ratio"], "syntax": "attribute", "type": "number"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_lb_pool/properties/mx_pool/members/index.txt", "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b", "summary": "Configuration parameter for members", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.6", "schema_components": ["dns_lb_poolCreateRequest"], "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -38,7 +38,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-10T03:47:03+00:00"
+      "validatedAt": "2026-10-13T13:24:52+00:00"
     },
     "minItems": 1,
     "uniqueItems": true
@@ -87,7 +87,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-10T03:47:03+00:00"
+      "validatedAt": "2026-10-13T13:24:52+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -136,7 +136,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-10T03:47:03+00:00"
+      "validatedAt": "2026-10-13T13:24:52+00:00"
     },
     "minLength": 1,
     "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
@@ -180,7 +180,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "api-probed",
-      "validatedAt": "2026-10-10T03:47:03+00:00"
+      "validatedAt": "2026-10-13T13:24:52+00:00"
     },
     "minimum": 0,
     "multipleOf": 1
@@ -222,7 +222,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "api-probed",
-      "validatedAt": "2026-10-10T03:47:03+00:00"
+      "validatedAt": "2026-10-13T13:24:52+00:00"
     },
     "minimum": 0
   },
