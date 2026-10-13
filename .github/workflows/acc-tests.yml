@@ -354,7 +354,11 @@ jobs:
           jq -e '
             (.stream_completeness.complete == true) and
             (.total_tests > 0) and
-            (all(.tests[]; .status != "skip" or (.prerequisites | length > 0))) and
+            (all(.tests[]; .status != "skip" or
+              any(.prerequisites[]?;
+                (.outcome == "operation_denied" and .http_status == 403) or
+                (.outcome | IN("external_credential_missing", "non_disposable_scope",
+                               "infrastructure_absent", "cloud_appliance_out_of_scope"))))) and
             (.total_passed | type == "number") and
             (.total_failed | type == "number") and
             ((.failed_tests // []) | type == "array") and
