@@ -60,3 +60,27 @@ func TestOwnershipTransportJournalsIntentAndReadback(t *testing.T) {
 		t.Fatal("unowned creation allowed")
 	}
 }
+
+// Ownership prerequisites must bypass provider-facing annotation stripping.
+func TestOwnershipReferenceReadContextPreservesRunMarker(t *testing.T) {
+	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Content-Type", "application/json")
+		w.Write([]byte(`{"metadata":{"name":"selector","namespace":"system","annotations":{"f5-sales-demo.com/acceptance-run":"runone"}},"system_metadata":{"uid":"immutable"}}`))
+	}))
+	defer server.Close()
+	j, err := CreateOwnershipJournal(t.TempDir()+"/journal.json", "runone")
+	if err != nil {
+		t.Fatal(err)
+	}
+	c := client.NewClient(server.URL, "synthetic")
+	c.HTTPClient.Transport = &ownershipTransport{base: http.DefaultTransport, c: c, j: j}
+	ctx := context.WithValue(context.Background(), ownershipReadContextKey{}, true)
+	got, err := readOwnershipProjection(ctx, c, "/api/config/namespaces/system/virtual_sites/selector", "system", "selector")
+	if err != nil || got.Annotations[ownershipAnnotation] != "runone" {
+		t.Fatal("ownership read lost run marker")
+	}
+	normal, err := c.GetVirtualSite(context.Background(), "system", "selector")
+	if err != nil || normal.Metadata.Annotations[ownershipAnnotation] != "" {
+		t.Fatal("provider read leaked ownership marker")
+	}
+}

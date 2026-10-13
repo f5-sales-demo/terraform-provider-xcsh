@@ -138,7 +138,7 @@ func requireReadOnlyReference(t *testing.T, kind, collection string) {
 			if json.Unmarshal(data, &ref) != nil || ref.Name == "" || ref.Namespace != "system" {
 				t.Fatal("owned selector reference malformed")
 			}
-			projection, readErr := readOwnershipProjection(ctx, c, "/api/config/namespaces/system/virtual_sites/"+ref.Name, ref.Namespace, ref.Name)
+			projection, readErr := readOwnershipProjection(context.WithValue(ctx, ownershipReadContextKey{}, true), c, "/api/config/namespaces/system/virtual_sites/"+ref.Name, ref.Namespace, ref.Name)
 			if readErr != nil || projection.Annotations[ownershipAnnotation] != os.Getenv("XCSH_ACC_RUN_ID") {
 				t.Fatal("owned selector identity unverified")
 			}
