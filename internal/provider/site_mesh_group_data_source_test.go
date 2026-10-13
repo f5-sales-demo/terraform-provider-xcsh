@@ -14,6 +14,7 @@ import (
 func TestAccSiteMeshGroupDataSource_basic(t *testing.T) {
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
+	acctest.RequireReadOnlyVirtualSite(t)
 
 	rName := acctest.RandomName("tf-acc-test")
 	resourceName := "xcsh_site_mesh_group.test"
@@ -23,7 +24,7 @@ func TestAccSiteMeshGroupDataSource_basic(t *testing.T) {
 		ProtoV6ProviderFactories: acctest.ProtoV6ProviderFactories,
 		Steps: []resource.TestStep{
 			{
-				Config: testAccSiteMeshGroupDataSourceConfig_basic(rName),
+				Config: testAccSiteMeshGroupDataSourceConfig_basic(rName, acctest.ReadOnlyVirtualSiteName(), acctest.ReadOnlyVirtualSiteNamespace()),
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttrPair(dataSourceName, "name", resourceName, "name"),
 					resource.TestCheckResourceAttrPair(dataSourceName, "namespace", resourceName, "namespace"),
@@ -34,7 +35,7 @@ func TestAccSiteMeshGroupDataSource_basic(t *testing.T) {
 	})
 }
 
-func testAccSiteMeshGroupDataSourceConfig_basic(name string) string {
+func testAccSiteMeshGroupDataSourceConfig_basic(name string, virtualSiteName, virtualSiteNamespace string) string {
 	return acctest.ConfigCompose(
 		acctest.ProviderConfig(),
 		fmt.Sprintf(`
@@ -42,6 +43,15 @@ func testAccSiteMeshGroupDataSourceConfig_basic(name string) string {
 resource "xcsh_site_mesh_group" "test" {
   name      = %[1]q
   namespace = "system"
+  bfd_disabled = {}
+  disable_re_fallback = {}
+  virtual_site {
+    name = %[2]q
+    namespace = %[3]q
+  }
+  full_mesh {
+    control_and_data_plane_mesh = {}
+  }
 }
 
 data "xcsh_site_mesh_group" "test" {
@@ -49,5 +59,5 @@ data "xcsh_site_mesh_group" "test" {
   name       = xcsh_site_mesh_group.test.name
   namespace  = xcsh_site_mesh_group.test.namespace
 }
-`, name))
+`, name, virtualSiteName, virtualSiteNamespace))
 }

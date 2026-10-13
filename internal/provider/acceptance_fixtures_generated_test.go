@@ -515,7 +515,9 @@ func init() {
 	acctest.RegisterFixture("testAccServicePolicyRuleResourceConfig_withLabels", func() string {
 		return testAccServicePolicyRuleResourceConfig_withLabels("tf-acc-test-fixture", "tf-acc-test-fixture", "tf-acc-test-fixture", "tf-acc-test-fixture")
 	})
-	acctest.RegisterFixture("testAccSiteMeshGroupDataSourceConfig_basic", func() string { return testAccSiteMeshGroupDataSourceConfig_basic("tf-acc-test-fixture") })
+	acctest.RegisterFixture("testAccSiteMeshGroupDataSourceConfig_basic", func() string {
+		return testAccSiteMeshGroupDataSourceConfig_basic("tf-acc-test-fixture", "tf-acc-test-fixture", "tf-acc-test-fixture")
+	})
 	acctest.RegisterFixture("testAccSiteMeshGroupResourceConfig_basic", func() string {
 		return testAccSiteMeshGroupResourceConfig_basic("tf-acc-test-fixture", "tf-acc-test-fixture", "tf-acc-test-fixture", "tf-acc-test-fixture")
 	})

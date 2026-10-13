@@ -49,6 +49,17 @@ func shouldRegenerateDataSourceTest(content []byte) bool {
 // Resource configurations based on OpenAPI specs
 // Key is the resource name (without xcsh_ prefix)
 var resourceConfigs = map[string]string{
+	"site_mesh_group": `
+  bfd_disabled = {}
+  disable_re_fallback = {}
+  virtual_site {
+    name = %[2]q
+    namespace = %[3]q
+  }
+  full_mesh {
+    control_and_data_plane_mesh = {}
+  }`,
+
 	"bot_defense_app_infrastructure": `
  environment_type = "PRODUCTION"
  traffic_type = "WEB"
@@ -195,7 +206,7 @@ var resourceConfigs = map[string]string{
     }
   }
   disable_ocsp_stapling = {}`,
- "certificate_chain": `
+	"certificate_chain": `
   certificate_url = "string:///%[2]s"`,
 
 	"container_registry": `
@@ -618,9 +629,9 @@ var systemLevelResources = map[string]bool{
 
 // Resources that MUST use namespace = "system" (not custom namespace)
 var systemNamespaceResources = map[string]bool{
- "global_log_receiver": true,
- "crl": true,
- "api_crawler": true,
+	"global_log_receiver":  true,
+	"crl":                  true,
+	"api_crawler":          true,
 	"network_firewall":     true,
 	"forward_proxy_policy": true,
 	"token":                true,
@@ -688,7 +699,9 @@ func main() {
 			if err != nil {
 				panic(err)
 			}
-			if systemNamespaceResources[resource.Name] { ns="system" }
+			if systemNamespaceResources[resource.Name] {
+				ns = "system"
+			}
 			if ns != "" {
 				fixtureNamespaces[resource.Name] = ns
 			}
@@ -725,6 +738,7 @@ import (
 func {{.TestFuncName}}(t *testing.T) {
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
+ {{if eq .Name "site_mesh_group"}}acctest.RequireReadOnlyVirtualSite(t){{end}}
 
 	{{if eq .Name "api_definition"}}rName := acctest.CompactRandomName(20){{else}}rName := acctest.RandomName("tf-acc-test"){{end}}
 {{- if and .NeedsNamespace (not .IsNamespace) (not .UseSystemNamespace)}}
@@ -750,7 +764,7 @@ func {{.TestFuncName}}(t *testing.T) {
 {{- if .IsNamespace}}
 				Config: {{.ConfigFuncName}}(rName),
 {{- else if .UseSystemNamespace}}
-				Config: {{.ConfigFuncName}}(rName),
+				Config: {{.ConfigFuncName}}(rName{{if eq .Name "site_mesh_group"}}, acctest.ReadOnlyVirtualSiteName(), acctest.ReadOnlyVirtualSiteNamespace(){{end}}),
 {{- else if .NeedsNamespace}}
 				Config: {{.ConfigFuncName}}(nsName, rName),
 {{- else}}
@@ -791,7 +805,7 @@ data "{{.ResourceName}}" "test" {
 }
 {{- else if .UseSystemNamespace}}
 
-func {{.ConfigFuncName}}(name string) string {
+func {{.ConfigFuncName}}(name string{{if eq .Name "site_mesh_group"}}, virtualSiteName, virtualSiteNamespace string{{end}}) string {
 {{- if or (eq .Name "certificate") (eq .Name "certificate_chain")}}
  certs := acctest.MustGenerateTestCertificates()
 {{- end}}
@@ -809,7 +823,7 @@ data "{{.ResourceName}}" "test" {
   name       = {{.ResourceName}}.test.name
   namespace  = {{.ResourceName}}.test.namespace
 }
-` + "`" + `, name{{if eq .Name "certificate"}}, certs.ServerCertBase64, certs.ServerKeyBase64{{else if eq .Name "certificate_chain"}}, certs.IntermediateCABase64{{end}}))
+` + "`" + `, name{{if eq .Name "site_mesh_group"}}, virtualSiteName, virtualSiteNamespace{{end}}{{if eq .Name "certificate"}}, certs.ServerCertBase64, certs.ServerKeyBase64{{else if eq .Name "certificate_chain"}}, certs.IntermediateCABase64{{end}}))
 }
 {{- else if and .NeedsNamespace (not .Skip)}}
 
@@ -949,9 +963,9 @@ data "{{.ResourceName}}" "test" {
 			DependsOnExtra     string
 		}
 
-		if ns:=fixtureNamespaces[resourceName];ns!="" {
-			config.ResourceConfig=strings.ReplaceAll(config.ResourceConfig,"xcsh_namespace.test.name",fmt.Sprintf("%q",ns))
-			deps=strings.ReplaceAll(deps,"xcsh_namespace.test.name",fmt.Sprintf("%q",ns))
+		if ns := fixtureNamespaces[resourceName]; ns != "" {
+			config.ResourceConfig = strings.ReplaceAll(config.ResourceConfig, "xcsh_namespace.test.name", fmt.Sprintf("%q", ns))
+			deps = strings.ReplaceAll(deps, "xcsh_namespace.test.name", fmt.Sprintf("%q", ns))
 		}
 		data := templateData{
 			Name:               config.Name,

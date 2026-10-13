@@ -41,3 +41,31 @@ func TestTenantObjectFixturesUseSupportedNamespacesWithoutAppliances(t *testing.
 		})
 	}
 }
+
+// The datasource's creating resource must use the same mesh prerequisite as
+// resource lifecycle tests rather than silently exercising an invalid fixture.
+func TestMeshDataSourceFixtureHasRequiredSelection(t *testing.T) {
+	body, err := acctest.ParseFixture(testAccSiteMeshGroupDataSourceConfig_basic("tf-acc-test-fixture", "example-virtual-site", "system"))
+	if err != nil {
+		t.Fatal(err)
+	}
+	for _, block := range body.Blocks {
+		if block.Type != "resource" || block.Labels[0] != "xcsh_site_mesh_group" {
+			continue
+		}
+		for _, name := range []string{"bfd_disabled", "disable_re_fallback"} {
+			if block.Body.Attributes[name] == nil {
+				t.Errorf("mesh datasource missing required %s", name)
+			}
+		}
+		found := map[string]bool{}
+		for _, nested := range block.Body.Blocks {
+			found[nested.Type] = true
+		}
+		if !found["virtual_site"] || !found["full_mesh"] {
+			t.Error("mesh datasource missing selector or mesh mode")
+		}
+		return
+	}
+	t.Fatal("mesh datasource fixture has no creating resource")
+}
