@@ -5,6 +5,7 @@ package provider_test
 import (
 	"fmt"
 	"regexp"
+	"strings"
 	"testing"
 
 	"github.com/hashicorp/terraform-plugin-testing/helper/resource"
@@ -617,7 +618,7 @@ func TestAccSiteMeshGroupResource_requiresReplaceNamespace(t *testing.T) {
 			},
 			// Step 2: Verify replacement in the plan without applying an unsupported namespace.
 			{
-				Config:             testAccSiteMeshGroupResourceConfig_basic(nsName2, rName, acctest.ReadOnlyVirtualSiteName()),
+				Config:             strings.Replace(testAccSiteMeshGroupResourceConfig_basic(nsName2, rName, acctest.ReadOnlyVirtualSiteName()), `namespace = "system"`, `namespace = "shared"`, 1),
 				PlanOnly:           true,
 				ExpectNonEmptyPlan: true,
 			},
@@ -636,7 +637,10 @@ func testAccSiteMeshGroupResourceConfig_basic(nsName, name string, virtualSiteNa
 
 resource "xcsh_site_mesh_group" "test" {
   name       = %[2]q
-  namespace = %[1]q
+  namespace = "system"
+
+  bfd_disabled = {}
+  disable_re_fallback = {}
 
   virtual_site {
     name = %[3]q
@@ -670,6 +674,9 @@ resource "xcsh_site_mesh_group" "test" {
     owner   = "ci-cd"
   }
 
+  bfd_disabled = {}
+  disable_re_fallback = {}
+
   virtual_site {
     name = %[4]q
     namespace = "system"
@@ -696,6 +703,9 @@ resource "xcsh_site_mesh_group" "test" {
     managed_by  = %[4]q
   }
 
+  bfd_disabled = {}
+  disable_re_fallback = {}
+
   virtual_site {
     name = %[5]q
     namespace = "system"
@@ -717,6 +727,9 @@ resource "xcsh_site_mesh_group" "test" {
   name        = %[2]q
   namespace = "system"
   description = %[3]q
+
+  bfd_disabled = {}
+  disable_re_fallback = {}
 
   virtual_site {
     name = %[4]q
@@ -743,6 +756,9 @@ resource "xcsh_site_mesh_group" "test" {
     key1 = %[3]q
     key2 = %[4]q
   }
+
+  bfd_disabled = {}
+  disable_re_fallback = {}
 
   virtual_site {
     name = %[5]q
