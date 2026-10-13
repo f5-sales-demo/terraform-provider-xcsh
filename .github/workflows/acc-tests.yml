@@ -349,13 +349,19 @@ jobs:
             ./internal/provider/... \
             > "$RAW_TEST_OUTPUT" 2>&1 || TEST_STATUS=$?
 
+          # Full runs must account for every generated acceptance test.
+          EXPECTED_ARGS=()
+          if [[ -z "${INPUT_TEST_PATTERN:-}" ]]; then
+            EXPECTED_ARGS=(-expected-tests=internal/acctest/acceptance_test_inventory.json)
+          fi
+
           # Never emit the raw live-tenant stream to logs or artifacts.
           JSON_REPORT_STATUS=0
           cat "$RAW_TEST_OUTPUT" | go run ./tools/test-report \
-            -tenant-safe -schema="$XCSH_ACC_SCHEMA" -format=json -output=test-reports/real-tests.json || JSON_REPORT_STATUS=$?
+            -tenant-safe "${EXPECTED_ARGS[@]}" -schema="$XCSH_ACC_SCHEMA" -format=json -output=test-reports/real-tests.json || JSON_REPORT_STATUS=$?
           MARKDOWN_REPORT_STATUS=0
           cat "$RAW_TEST_OUTPUT" | go run ./tools/test-report \
-            -tenant-safe -schema="$XCSH_ACC_SCHEMA" -format=markdown -all -output=test-reports/real-tests.md || MARKDOWN_REPORT_STATUS=$?
+            -tenant-safe "${EXPECTED_ARGS[@]}" -schema="$XCSH_ACC_SCHEMA" -format=markdown -all -output=test-reports/real-tests.md || MARKDOWN_REPORT_STATUS=$?
           jq -e '
             (.stream_completeness.complete == true) and
             (.total_tests > 0) and

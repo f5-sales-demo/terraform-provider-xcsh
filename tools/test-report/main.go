@@ -268,6 +268,7 @@ func main() {
 	slowestCount := flag.Int("slowest", 10, "Number of slowest tests to show")
 	tenantSafe := flag.Bool("tenant-safe", false, "Omit raw diagnostic and skip output; retain only allowlisted failure fingerprints")
 	schemaPath := flag.String("schema", "", "Installed schema for allowlisted field-only diagnostics")
+	expectedPath := flag.String("expected-tests", "", "Exact test inventory for complete suite accounting")
 	flag.Parse()
 
 	if *schemaPath != "" {
@@ -277,6 +278,15 @@ func main() {
 		}
 	}
 	report := parseTestOutput(*slowestCount, *tenantSafe)
+	if *expectedPath != "" {
+		names, err := loadSuiteInventory(*expectedPath)
+		if err != nil {
+			report.Stream.InvalidEvents++
+			report.Stream.Complete = false
+		} else {
+			verifySuiteInventory(report, names)
+		}
+	}
 
 	var out *os.File
 	var err error

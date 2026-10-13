@@ -4,6 +4,7 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"go/ast"
 	"go/format"
@@ -133,6 +134,13 @@ func main() {
 		panic(err)
 	}
 	if err = os.WriteFile("internal/provider/acceptance_fixtures_generated_test.go", data, 0644); err != nil {
+		panic(err)
+	}
+	inventory, err := json.MarshalIndent(keys(tests), "", "  ")
+	if err != nil {
+		panic(err)
+	}
+	if err = os.WriteFile("internal/acctest/acceptance_test_inventory.json", append(inventory, '\n'), 0644); err != nil {
 		panic(err)
 	}
 	fmt.Println("Generated", len(fixtures), "fixtures and", len(tests), "test mappings")
