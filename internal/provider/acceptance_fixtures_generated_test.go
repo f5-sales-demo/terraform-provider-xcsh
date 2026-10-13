@@ -103,7 +103,9 @@ func init() {
 	acctest.RegisterFixture("testAccBGPAsnSetResourceConfig_withLabelsSystem", func() string {
 		return testAccBGPAsnSetResourceConfig_withLabelsSystem("tf-acc-test-fixture", "tf-acc-test-fixture", "tf-acc-test-fixture")
 	})
-	acctest.RegisterFixture("testAccBGPConfig_basic", func() string { return testAccBGPConfig_basic("tf-acc-test-fixture", "tf-acc-test-fixture") })
+	acctest.RegisterFixture("testAccBGPConfig_basic", func() string {
+		return testAccBGPConfig_basic("tf-acc-test-fixture", "tf-acc-test-fixture", "tf-acc-test-fixture")
+	})
 	acctest.RegisterFixture("testAccBGPRoutingPolicyConfig_basic", func() string {
 		return testAccBGPRoutingPolicyConfig_basic("tf-acc-test-fixture", "tf-acc-test-fixture")
 	})

@@ -20,10 +20,8 @@ func TestAccDcClusterGroupResource_basic(t *testing.T) {
 	// via underlay networks with MPLSoUDP encapsulation. Requires deployed sites with
 	// Ingress/Egress Gateway (Two Interface) or App Stack Cluster configuration.
 
-	acctest.RequireExistingInfrastructure(t, "site")
-
 	rName := acctest.RandomName("tf-acc-test-dcg")
-	nsName := acctest.RandomName("tf-acc-test-ns")
+	nsName := "system"
 	resourceName := "xcsh_dc_cluster_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
@@ -70,17 +68,8 @@ func testAccDcClusterGroupConfig_basic(nsName, name string) string {
 	return acctest.ConfigCompose(
 		acctest.ProviderConfig(),
 		fmt.Sprintf(`
-resource "xcsh_namespace" "test" {
-  name = %[1]q
-}
-
-resource "time_sleep" "wait_for_namespace" {
-  depends_on      = [xcsh_namespace.test]
-  create_duration = "5s"
-}
 
 resource "xcsh_dc_cluster_group" "test" {
-  depends_on = [time_sleep.wait_for_namespace]
   name       = %[2]q
   namespace  = "system"
 

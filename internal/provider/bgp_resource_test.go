@@ -33,7 +33,7 @@ func TestAccBGPResource_basic(t *testing.T) {
 		CheckDestroy: acctest.CheckResourceDestroyed("xcsh_bgp"),
 		Steps: []resource.TestStep{
 			{
-				Config: testAccBGPConfig_basic(nsName, rName),
+				Config: testAccBGPConfig_basic(nsName, rName, acctest.ReadOnlySiteName()),
 				Check: resource.ComposeAggregateTestCheckFunc(
 					acctest.CheckResourceExists(resourceName),
 					resource.TestCheckResourceAttr(resourceName, "name", rName),
@@ -64,7 +64,7 @@ func testAccBGPImportStateIdFunc(resourceName string) resource.ImportStateIdFunc
 	}
 }
 
-func testAccBGPConfig_basic(nsName, name string) string {
+func testAccBGPConfig_basic(nsName, name, siteName string) string {
 	return acctest.ConfigCompose(
 		acctest.ProviderConfig(),
 		fmt.Sprintf(`
@@ -90,11 +90,11 @@ resource "xcsh_bgp" "test" {
   where {
     site {
       ref {
-        name = "example-site"
+        name = %[3]q
         namespace = "system"
       }
     }
   }
 }
-`, nsName, name))
+`, nsName, name, siteName))
 }

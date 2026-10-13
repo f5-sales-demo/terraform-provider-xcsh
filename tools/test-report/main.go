@@ -139,7 +139,7 @@ type PrerequisiteOutcome struct {
 	HTTPStatus   int    `json:"http_status,omitempty"`
 }
 
-var prerequisitePattern = regexp.MustCompile(`\[PREREQUISITE:(operation_denied|tested|external_credential_missing|non_disposable_scope|infrastructure_absent|cloud_appliance_out_of_scope) method=(POST|GET) type=([a-z][a-z0-9_]+)(?: status=(403))?\]`)
+var prerequisitePattern = regexp.MustCompile(`\[PREREQUISITE:(operation_denied|tested|external_credential_missing|non_disposable_scope|infrastructure_absent|infrastructure_verified|cloud_appliance_out_of_scope) method=(POST|GET) type=([a-z][a-z0-9_]+)(?: status=(403))?\]`)
 
 func extractPrerequisites(output string) []PrerequisiteOutcome {
 	result := []PrerequisiteOutcome{}
@@ -559,7 +559,7 @@ func classifyFailureFingerprint(output string) FailureFingerprint {
 		SourceLocation: extractPublicSourceLocation(output),
 	}
 	lower := strings.ToLower(output)
-	for _, fact := range []string{"quota_unconfigured", "quota_exceeded", "swagger_reference", "namespace_constraint", "missing_required_input", "schema_validation", "authentication_denied"} {
+	for _, fact := range []string{"quota_unconfigured", "quota_exceeded", "swagger_reference", "document_fetch_failed", "document_parse_failed", "namespace_constraint", "missing_required_input", "schema_validation", "authentication_denied"} {
 		if strings.Contains(output, "[API_DIAGNOSTIC:"+fact+"]") {
 			fingerprint.DiagnosticFacts = append(fingerprint.DiagnosticFacts, fact)
 		}

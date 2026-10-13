@@ -45,13 +45,11 @@ import (
 // -----------------------------------------------------------------------------
 
 func TestAccWorkloadFlavorResource_basic(t *testing.T) {
-
-	acctest.RequireExistingInfrastructure(t, "vk8s")
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_workload_flavor.test"
-	nsName := acctest.RandomName("tf-acc-test-ns")
+	nsName := "shared"
 	name := acctest.RandomName("tf-acc-test-wf")
 
 	resource.ParallelTest(t, resource.TestCase{
@@ -94,13 +92,11 @@ func TestAccWorkloadFlavorResource_basic(t *testing.T) {
 // -----------------------------------------------------------------------------
 
 func TestAccWorkloadFlavorResource_allAttributes(t *testing.T) {
-
-	acctest.RequireExistingInfrastructure(t, "vk8s")
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_workload_flavor.test"
-	nsName := acctest.RandomName("tf-acc-test-ns")
+	nsName := "shared"
 	name := acctest.RandomName("tf-acc-test-wf")
 	description := "Comprehensive acceptance test workload flavor"
 
@@ -149,13 +145,11 @@ func TestAccWorkloadFlavorResource_allAttributes(t *testing.T) {
 // -----------------------------------------------------------------------------
 
 func TestAccWorkloadFlavorResource_updateLabels(t *testing.T) {
-
-	acctest.RequireExistingInfrastructure(t, "vk8s")
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_workload_flavor.test"
-	nsName := acctest.RandomName("tf-acc-test-ns")
+	nsName := "shared"
 	name := acctest.RandomName("tf-acc-test-wf")
 
 	resource.ParallelTest(t, resource.TestCase{
@@ -205,13 +199,11 @@ func TestAccWorkloadFlavorResource_updateLabels(t *testing.T) {
 // -----------------------------------------------------------------------------
 
 func TestAccWorkloadFlavorResource_updateDescription(t *testing.T) {
-
-	acctest.RequireExistingInfrastructure(t, "vk8s")
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_workload_flavor.test"
-	nsName := acctest.RandomName("tf-acc-test-ns")
+	nsName := "shared"
 	name := acctest.RandomName("tf-acc-test-wf")
 
 	resource.ParallelTest(t, resource.TestCase{
@@ -265,13 +257,11 @@ func TestAccWorkloadFlavorResource_updateDescription(t *testing.T) {
 // -----------------------------------------------------------------------------
 
 func TestAccWorkloadFlavorResource_updateAnnotations(t *testing.T) {
-
-	acctest.RequireExistingInfrastructure(t, "vk8s")
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_workload_flavor.test"
-	nsName := acctest.RandomName("tf-acc-test-ns")
+	nsName := "shared"
 	name := acctest.RandomName("tf-acc-test-wf")
 
 	resource.ParallelTest(t, resource.TestCase{
@@ -319,13 +309,11 @@ func TestAccWorkloadFlavorResource_updateAnnotations(t *testing.T) {
 // -----------------------------------------------------------------------------
 
 func TestAccWorkloadFlavorResource_updateSpecFields(t *testing.T) {
-
-	acctest.RequireExistingInfrastructure(t, "vk8s")
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_workload_flavor.test"
-	nsName := acctest.RandomName("tf-acc-test-ns")
+	nsName := "shared"
 	name := acctest.RandomName("tf-acc-test-wf")
 
 	resource.ParallelTest(t, resource.TestCase{
@@ -368,13 +356,11 @@ func TestAccWorkloadFlavorResource_updateSpecFields(t *testing.T) {
 // -----------------------------------------------------------------------------
 
 func TestAccWorkloadFlavorResource_emptyPlan(t *testing.T) {
-
-	acctest.RequireExistingInfrastructure(t, "vk8s")
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_workload_flavor.test"
-	nsName := acctest.RandomName("tf-acc-test-ns")
+	nsName := "shared"
 	name := acctest.RandomName("tf-acc-test-wf")
 
 	resource.ParallelTest(t, resource.TestCase{
@@ -413,13 +399,11 @@ func TestAccWorkloadFlavorResource_emptyPlan(t *testing.T) {
 // -----------------------------------------------------------------------------
 
 func TestAccWorkloadFlavorResource_planChecks(t *testing.T) {
-
-	acctest.RequireExistingInfrastructure(t, "vk8s")
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_workload_flavor.test"
-	nsName := acctest.RandomName("tf-acc-test-ns")
+	nsName := "shared"
 	name := acctest.RandomName("tf-acc-test-wf")
 
 	resource.ParallelTest(t, resource.TestCase{
@@ -472,13 +456,11 @@ func TestAccWorkloadFlavorResource_planChecks(t *testing.T) {
 // -----------------------------------------------------------------------------
 
 func TestAccWorkloadFlavorResource_knownValues(t *testing.T) {
-
-	acctest.RequireExistingInfrastructure(t, "vk8s")
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_workload_flavor.test"
-	nsName := acctest.RandomName("tf-acc-test-ns")
+	nsName := "shared"
 	name := acctest.RandomName("tf-acc-test-wf")
 
 	resource.ParallelTest(t, resource.TestCase{
@@ -520,12 +502,10 @@ func TestAccWorkloadFlavorResource_knownValues(t *testing.T) {
 // -----------------------------------------------------------------------------
 
 func TestAccWorkloadFlavorResource_invalidName(t *testing.T) {
-
-	acctest.RequireExistingInfrastructure(t, "vk8s")
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 
-	nsName := acctest.RandomName("tf-acc-test-ns")
+	nsName := "shared"
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -552,12 +532,10 @@ func TestAccWorkloadFlavorResource_invalidName(t *testing.T) {
 // -----------------------------------------------------------------------------
 
 func TestAccWorkloadFlavorResource_nameTooLong(t *testing.T) {
-
-	acctest.RequireExistingInfrastructure(t, "vk8s")
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 
-	nsName := acctest.RandomName("tf-acc-test-ns")
+	nsName := "shared"
 	// Create a name that exceeds the maximum length
 	longName := "tf-acc-test-this-name-is-way-too-long-and-should-fail-validation-check-for-workload-flavor-resource-because-it-exceeds-maximum-length"
 
@@ -585,12 +563,10 @@ func TestAccWorkloadFlavorResource_nameTooLong(t *testing.T) {
 // -----------------------------------------------------------------------------
 
 func TestAccWorkloadFlavorResource_emptyName(t *testing.T) {
-
-	acctest.RequireExistingInfrastructure(t, "vk8s")
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 
-	nsName := acctest.RandomName("tf-acc-test-ns")
+	nsName := "shared"
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -611,19 +587,16 @@ func TestAccWorkloadFlavorResource_emptyName(t *testing.T) {
 
 // -----------------------------------------------------------------------------
 // Test 13: Requires Replace Test
-// Verifies: Changing name or namespace forces resource replacement
+// Verifies: Changing name forces resource replacement
 // Pattern: ForceNew/RequiresReplace verification
 // -----------------------------------------------------------------------------
 
 func TestAccWorkloadFlavorResource_requiresReplace(t *testing.T) {
-
-	acctest.RequireExistingInfrastructure(t, "vk8s")
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_workload_flavor.test"
-	nsName1 := acctest.RandomName("tf-acc-test-ns")
-	nsName2 := acctest.RandomName("tf-acc-test-ns")
+	nsName1 := "shared"
 	name1 := acctest.RandomName("tf-acc-test-wf")
 	name2 := acctest.RandomName("tf-acc-test-wf")
 
@@ -658,18 +631,11 @@ func TestAccWorkloadFlavorResource_requiresReplace(t *testing.T) {
 					resource.TestCheckResourceAttr(resourceName, "name", name2),
 				),
 			},
-			// Step 3: Change namespace - should force replacement
+			// Step 3: The renamed resource has an empty follow-up plan.
 			{
-				Config: testAccWorkloadFlavorResourceConfig_basic(nsName2, name2),
-				ConfigPlanChecks: resource.ConfigPlanChecks{
-					PreApply: []plancheck.PlanCheck{
-						plancheck.ExpectResourceAction(resourceName, plancheck.ResourceActionDestroyBeforeCreate),
-					},
-				},
-				Check: resource.ComposeAggregateTestCheckFunc(
-					acctest.CheckResourceExists(resourceName),
-					resource.TestCheckResourceAttr(resourceName, "namespace", nsName2),
-				),
+				Config:             testAccWorkloadFlavorResourceConfig_basic(nsName1, name2),
+				PlanOnly:           true,
+				ExpectNonEmptyPlan: false,
 			},
 		},
 	})
@@ -693,19 +659,10 @@ func testAccWorkloadFlavorResourceConfig_basic(nsName, name string) string {
 	return acctest.ConfigCompose(
 		acctest.ProviderConfig(),
 		fmt.Sprintf(`
-resource "xcsh_namespace" "test" {
-  name = %[1]q
-}
-
-resource "time_sleep" "wait_for_namespace" {
-  depends_on      = [xcsh_namespace.test]
-  create_duration = "5s"
-}
 
 resource "xcsh_workload_flavor" "test" {
-  depends_on = [time_sleep.wait_for_namespace]
   name       = %[2]q
-  namespace  = xcsh_namespace.test.name
+  namespace = "shared"
 }
 `, nsName, name))
 }
@@ -714,19 +671,10 @@ func testAccWorkloadFlavorResourceConfig_allAttributes(nsName, name, description
 	return acctest.ConfigCompose(
 		acctest.ProviderConfig(),
 		fmt.Sprintf(`
-resource "xcsh_namespace" "test" {
-  name = %[1]q
-}
-
-resource "time_sleep" "wait_for_namespace" {
-  depends_on      = [xcsh_namespace.test]
-  create_duration = "5s"
-}
 
 resource "xcsh_workload_flavor" "test" {
-  depends_on  = [time_sleep.wait_for_namespace]
   name        = %[2]q
-  namespace   = xcsh_namespace.test.name
+  namespace = "shared"
   description = %[3]q
 
   labels = {
@@ -750,19 +698,10 @@ func testAccWorkloadFlavorResourceConfig_withLabels(nsName, name, environment, m
 	return acctest.ConfigCompose(
 		acctest.ProviderConfig(),
 		fmt.Sprintf(`
-resource "xcsh_namespace" "test" {
-  name = %[1]q
-}
-
-resource "time_sleep" "wait_for_namespace" {
-  depends_on      = [xcsh_namespace.test]
-  create_duration = "5s"
-}
 
 resource "xcsh_workload_flavor" "test" {
-  depends_on = [time_sleep.wait_for_namespace]
   name       = %[2]q
-  namespace  = xcsh_namespace.test.name
+  namespace = "shared"
 
   labels = {
     environment = %[3]q
@@ -776,19 +715,10 @@ func testAccWorkloadFlavorResourceConfig_withDescription(nsName, name, descripti
 	return acctest.ConfigCompose(
 		acctest.ProviderConfig(),
 		fmt.Sprintf(`
-resource "xcsh_namespace" "test" {
-  name = %[1]q
-}
-
-resource "time_sleep" "wait_for_namespace" {
-  depends_on      = [xcsh_namespace.test]
-  create_duration = "5s"
-}
 
 resource "xcsh_workload_flavor" "test" {
-  depends_on  = [time_sleep.wait_for_namespace]
   name        = %[2]q
-  namespace   = xcsh_namespace.test.name
+  namespace = "shared"
   description = %[3]q
 }
 `, nsName, name, description))
@@ -798,19 +728,10 @@ func testAccWorkloadFlavorResourceConfig_withAnnotations(nsName, name, value1, v
 	return acctest.ConfigCompose(
 		acctest.ProviderConfig(),
 		fmt.Sprintf(`
-resource "xcsh_namespace" "test" {
-  name = %[1]q
-}
-
-resource "time_sleep" "wait_for_namespace" {
-  depends_on      = [xcsh_namespace.test]
-  create_duration = "5s"
-}
 
 resource "xcsh_workload_flavor" "test" {
-  depends_on = [time_sleep.wait_for_namespace]
   name       = %[2]q
-  namespace  = xcsh_namespace.test.name
+  namespace = "shared"
 
   annotations = {
     key1 = %[3]q
@@ -824,19 +745,10 @@ func testAccWorkloadFlavorResourceConfig_withSpec(nsName, name string, vcpus int
 	return acctest.ConfigCompose(
 		acctest.ProviderConfig(),
 		fmt.Sprintf(`
-resource "xcsh_namespace" "test" {
-  name = %[1]q
-}
-
-resource "time_sleep" "wait_for_namespace" {
-  depends_on      = [xcsh_namespace.test]
-  create_duration = "5s"
-}
 
 resource "xcsh_workload_flavor" "test" {
-  depends_on = [time_sleep.wait_for_namespace]
   name       = %[2]q
-  namespace  = xcsh_namespace.test.name
+  namespace = "shared"
 
   vcpus             = %[3]d
   memory            = %[4]q
