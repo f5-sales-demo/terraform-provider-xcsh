@@ -45,7 +45,7 @@ resource "xcsh_subnet" "test" {
   namespace = "system"
   isolated_nw = {}
   site_subnet_params {
-    static_ip = {}
+    dhcp = {}
     site {
       name = %[2]q
       namespace = "system"

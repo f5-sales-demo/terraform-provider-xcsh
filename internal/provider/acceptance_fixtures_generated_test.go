@@ -376,9 +376,7 @@ func init() {
 	acctest.RegisterFixture("testAccNetworkConnectorConfig_withLabels", func() string {
 		return testAccNetworkConnectorConfig_withLabels("tf-acc-test-fixture", "tf-acc-test-fixture")
 	})
-	acctest.RegisterFixture("testAccNetworkConnectorDataSourceConfig_basic", func() string {
-		return testAccNetworkConnectorDataSourceConfig_basic("tf-acc-test-fixture", "tf-acc-test-fixture")
-	})
+	acctest.RegisterFixture("testAccNetworkConnectorDataSourceConfig_basic", func() string { return testAccNetworkConnectorDataSourceConfig_basic("tf-acc-test-fixture") })
 	acctest.RegisterFixture("testAccNetworkFirewallConfig_basic", func() string { return testAccNetworkFirewallConfig_basic("tf-acc-test-fixture") })
 	acctest.RegisterFixture("testAccNetworkFirewallDataSourceConfig_basic", func() string { return testAccNetworkFirewallDataSourceConfig_basic("tf-acc-test-fixture") })
 	acctest.RegisterFixture("testAccNetworkInterfaceConfig_basic", func() string {

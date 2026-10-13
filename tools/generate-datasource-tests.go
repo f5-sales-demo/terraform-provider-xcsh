@@ -73,7 +73,7 @@ var resourceConfigs = map[string]string{
 	"subnet": `
   isolated_nw = {}
   site_subnet_params {
-    static_ip = {}
+    dhcp = {}
     site {
       name = %[2]q
       namespace = "system"
@@ -394,11 +394,9 @@ var resourceConfigs = map[string]string{
   }`,
 
 	"network_connector": `
-  sli_to_global_dr {
-    global_vn {
-      name      = "global-network"
-      namespace = "system"
-    }
+  disable_forward_proxy = {}
+  sli_to_slo_snat {
+    default_gw_snat {}
   }`,
 
 	"network_firewall": `
@@ -668,6 +666,7 @@ var systemLevelResources = map[string]bool{
 
 // Resources that MUST use namespace = "system" (not custom namespace)
 var systemNamespaceResources = map[string]bool{
+	"network_connector":    true,
 	"tcp_loadbalancer":     true,
 	"tunnel":               true,
 	"waf_exclusion_policy": true,
