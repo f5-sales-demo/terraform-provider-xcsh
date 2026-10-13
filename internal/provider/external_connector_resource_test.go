@@ -31,7 +31,7 @@ func TestAccExternalConnectorResource_basic(t *testing.T) {
 		CheckDestroy: acctest.CheckResourceDestroyed("xcsh_external_connector"),
 		Steps: []resource.TestStep{
 			{
-				Config: testAccExternalConnectorConfig_basic(nsName, rName),
+				Config: testAccExternalConnectorConfig_basic(nsName, rName, acctest.ReadOnlySiteName()),
 				Check: resource.ComposeAggregateTestCheckFunc(
 					acctest.CheckResourceExists(resourceName),
 					resource.TestCheckResourceAttr(resourceName, "name", rName),
@@ -62,7 +62,7 @@ func testAccExternalConnectorImportStateIdFunc(resourceName string) resource.Imp
 	}
 }
 
-func testAccExternalConnectorConfig_basic(nsName, name string) string {
+func testAccExternalConnectorConfig_basic(nsName, name, siteName string) string {
 	return acctest.ConfigCompose(
 		acctest.ProviderConfig(),
 		fmt.Sprintf(`
@@ -87,5 +87,5 @@ resource "xcsh_external_connector" "test" {
     }
   }
 }
-`, nsName, name, acctest.ReadOnlySiteName(), acctest.ReadOnlyConnectorNode(), acctest.ReadOnlyConnectorInterface()))
+`, nsName, name, siteName, acctest.ReadOnlyConnectorNode(), acctest.ReadOnlyConnectorInterface()))
 }

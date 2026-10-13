@@ -198,7 +198,7 @@ func init() {
 	})
 	acctest.RegisterFixture("testAccEnhancedFirewallPolicyDataSourceConfig_basic", func() string { return testAccEnhancedFirewallPolicyDataSourceConfig_basic("tf-acc-test-fixture") })
 	acctest.RegisterFixture("testAccExternalConnectorConfig_basic", func() string {
-		return testAccExternalConnectorConfig_basic("tf-acc-test-fixture", "tf-acc-test-fixture")
+		return testAccExternalConnectorConfig_basic("tf-acc-test-fixture", "tf-acc-test-fixture", "tf-acc-test-fixture")
 	})
 	acctest.RegisterFixture("testAccExternalConnectorDataSourceConfig_basic", func() string {
 		return testAccExternalConnectorDataSourceConfig_basic("tf-acc-test-fixture", "tf-acc-test-fixture")
