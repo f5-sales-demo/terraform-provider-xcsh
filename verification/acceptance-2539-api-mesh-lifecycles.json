@@ -1,0 +1,312 @@
+{
+  "version": 1,
+  "run": 38356340525,
+  "total": 21,
+  "passed": 8,
+  "failed": 3,
+  "skipped": 10,
+  "stream_completeness": {
+    "complete": false,
+    "events": 292,
+    "malformed_lines": 0,
+    "invalid_events": 0,
+    "scanner_error": false,
+    "incomplete_tests": 636,
+    "incomplete_packages": 0,
+    "package_failures": 1
+  },
+  "tests": [
+    {
+      "name": "TestAccAPIDefinitionResource_basic",
+      "status": "pass",
+      "prerequisites": [
+        {
+          "outcome": "tested",
+          "method": "POST",
+          "resource_type": "xcsh_api_definition"
+        }
+      ]
+    },
+    {
+      "name": "TestAccAPIDefinitionResource_emptyPlan",
+      "status": "pass",
+      "prerequisites": [
+        {
+          "outcome": "tested",
+          "method": "POST",
+          "resource_type": "xcsh_api_definition"
+        }
+      ]
+    },
+    {
+      "name": "TestAccAPIDefinitionResource_fullLifecycle",
+      "status": "pass",
+      "prerequisites": [
+        {
+          "outcome": "tested",
+          "method": "POST",
+          "resource_type": "xcsh_api_definition"
+        }
+      ]
+    },
+    {
+      "name": "TestAccAPIDefinitionResource_invalidName",
+      "status": "pass",
+      "prerequisites": [
+        {
+          "outcome": "tested",
+          "method": "POST",
+          "resource_type": "xcsh_api_definition"
+        }
+      ]
+    },
+    {
+      "name": "TestAccAPIDefinitionResource_planChecks",
+      "status": "pass",
+      "prerequisites": [
+        {
+          "outcome": "tested",
+          "method": "POST",
+          "resource_type": "xcsh_api_definition"
+        }
+      ]
+    },
+    {
+      "name": "TestAccAPIDefinitionResource_requiresReplace",
+      "status": "pass",
+      "prerequisites": [
+        {
+          "outcome": "tested",
+          "method": "POST",
+          "resource_type": "xcsh_api_definition"
+        }
+      ]
+    },
+    {
+      "name": "TestAccAPIDefinitionResource_strictSchemaOrigin",
+      "status": "pass",
+      "prerequisites": [
+        {
+          "outcome": "tested",
+          "method": "POST",
+          "resource_type": "xcsh_api_definition"
+        }
+      ]
+    },
+    {
+      "name": "TestAccAPIDefinitionResource_withLabels",
+      "status": "pass",
+      "prerequisites": [
+        {
+          "outcome": "tested",
+          "method": "POST",
+          "resource_type": "xcsh_api_definition"
+        }
+      ]
+    },
+    {
+      "name": "TestAccSiteMeshGroupResource_basic",
+      "status": "skip",
+      "prerequisites": [
+        {
+          "outcome": "operation_denied",
+          "method": "POST",
+          "resource_type": "xcsh_site_mesh_group",
+          "http_status": 403
+        }
+      ]
+    },
+    {
+      "name": "TestAccSiteMeshGroupResource_emptyName",
+      "status": "skip",
+      "prerequisites": [
+        {
+          "outcome": "operation_denied",
+          "method": "POST",
+          "resource_type": "xcsh_site_mesh_group",
+          "http_status": 403
+        }
+      ]
+    },
+    {
+      "name": "TestAccSiteMeshGroupResource_emptyPlan",
+      "status": "fail",
+      "prerequisites": [
+        {
+          "outcome": "tested",
+          "method": "POST",
+          "resource_type": "xcsh_site_mesh_group"
+        },
+        {
+          "outcome": "infrastructure_verified",
+          "method": "GET",
+          "resource_type": "virtual_site"
+        }
+      ],
+      "failure_fingerprint": {
+        "class": "http_error",
+        "summary": "Create request failed",
+        "http_status": 400,
+        "source_location": "site_mesh_group_resource_test.go:315",
+        "diagnostic_facts": ["missing_required_input"]
+      }
+    },
+    {
+      "name": "TestAccSiteMeshGroupResource_fullMesh",
+      "status": "fail",
+      "prerequisites": [
+        {
+          "outcome": "tested",
+          "method": "POST",
+          "resource_type": "xcsh_site_mesh_group"
+        },
+        {
+          "outcome": "infrastructure_verified",
+          "method": "GET",
+          "resource_type": "virtual_site"
+        }
+      ],
+      "failure_fingerprint": {
+        "class": "http_error",
+        "summary": "Create request failed",
+        "http_status": 400,
+        "source_location": "site_mesh_group_resource_test.go:99",
+        "diagnostic_facts": ["missing_required_input"]
+      }
+    },
+    {
+      "name": "TestAccSiteMeshGroupResource_invalidName",
+      "status": "skip",
+      "prerequisites": [
+        {
+          "outcome": "operation_denied",
+          "method": "POST",
+          "resource_type": "xcsh_site_mesh_group",
+          "http_status": 403
+        }
+      ]
+    },
+    {
+      "name": "TestAccSiteMeshGroupResource_knownValues",
+      "status": "fail",
+      "prerequisites": [
+        {
+          "outcome": "tested",
+          "method": "POST",
+          "resource_type": "xcsh_site_mesh_group"
+        },
+        {
+          "outcome": "infrastructure_verified",
+          "method": "GET",
+          "resource_type": "virtual_site"
+        }
+      ],
+      "failure_fingerprint": {
+        "class": "http_error",
+        "summary": "Create request failed",
+        "http_status": 400,
+        "source_location": "site_mesh_group_resource_test.go:415",
+        "diagnostic_facts": ["missing_required_input"]
+      }
+    },
+    {
+      "name": "TestAccSiteMeshGroupResource_nameTooLong",
+      "status": "skip",
+      "prerequisites": [
+        {
+          "outcome": "operation_denied",
+          "method": "POST",
+          "resource_type": "xcsh_site_mesh_group",
+          "http_status": 403
+        }
+      ]
+    },
+    {
+      "name": "TestAccSiteMeshGroupResource_planChecks",
+      "status": "skip",
+      "prerequisites": [
+        {
+          "outcome": "operation_denied",
+          "method": "POST",
+          "resource_type": "xcsh_site_mesh_group",
+          "http_status": 403
+        }
+      ]
+    },
+    {
+      "name": "TestAccSiteMeshGroupResource_requiresReplaceName",
+      "status": "skip",
+      "prerequisites": [
+        {
+          "outcome": "operation_denied",
+          "method": "POST",
+          "resource_type": "xcsh_site_mesh_group",
+          "http_status": 403
+        }
+      ]
+    },
+    {
+      "name": "TestAccSiteMeshGroupResource_requiresReplaceNamespace",
+      "status": "skip",
+      "prerequisites": [
+        {
+          "outcome": "operation_denied",
+          "method": "POST",
+          "resource_type": "xcsh_site_mesh_group",
+          "http_status": 403
+        }
+      ]
+    },
+    {
+      "name": "TestAccSiteMeshGroupResource_updateAnnotations",
+      "status": "skip",
+      "prerequisites": [
+        {
+          "outcome": "operation_denied",
+          "method": "POST",
+          "resource_type": "xcsh_site_mesh_group",
+          "http_status": 403
+        }
+      ]
+    },
+    {
+      "name": "TestAccSiteMeshGroupResource_updateDescription",
+      "status": "skip",
+      "prerequisites": [
+        {
+          "outcome": "operation_denied",
+          "method": "POST",
+          "resource_type": "xcsh_site_mesh_group",
+          "http_status": 403
+        }
+      ]
+    },
+    {
+      "name": "TestAccSiteMeshGroupResource_updateLabels",
+      "status": "skip",
+      "prerequisites": [
+        {
+          "outcome": "operation_denied",
+          "method": "POST",
+          "resource_type": "xcsh_site_mesh_group",
+          "http_status": 403
+        }
+      ]
+    }
+  ],
+  "cleanup": {
+    "version": 1,
+    "journal_sha256": "cb38bbf166d5cac5ddfad525c9c4b7f4595814eea1887778494e26506a149d68",
+    "complete": true,
+    "owned": 20,
+    "confirmed_absent": 20,
+    "failures": 0,
+    "second_pass_remaining": 0
+  },
+  "complete": false,
+  "artifacts_sha256": {
+    "real-tests.json": "65a6e6620bb2fdbf4efa0840a1d565acf099492da94b56aa5c30416417dccd7b",
+    "real-tests.md": "d5c80d0b3a215c60891e59fdce0e4fd49c7ea7fd891536a92e5720b81175ea71",
+    "cleanup.json": "82105d7c39c8548d094af9f19d71a36d3f701e4959c020a19847013fd33c4e99"
+  }
+}

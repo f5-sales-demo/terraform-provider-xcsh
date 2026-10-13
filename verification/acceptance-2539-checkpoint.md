@@ -31,10 +31,11 @@ Measured live replays:
 | 38341637137 | 5 | 1 | 0 | 8 |
 
 WAF import verification, HTTP load balancer lifecycle, cluster groups, protocol
-policers, and workload flavors passed focused live tests. API definition creation
-still returns HTTP 400. The latest mesh-group replay returned HTTP 400 for a missing
-input; its subsequent verified virtual-site fixture passed focused mocks and awaits
-live qualification. BGP skipped on an operation-specific POST 403.
+policers, and workload flavors passed focused live tests. All eight API-definition lifecycle tests passed in run 38356340525 after
+compact identities satisfied the measured 20-character API name limit. The latest mesh-group replay returned HTTP 400 for a missing
+input; its verified virtual-site selector now skips typed stale inventory entries. Three
+mesh lifecycle cases still fail HTTP 400 for a required input. That run confirmed
+20 owned objects absent twice. BGP skipped on an operation-specific POST 403.
 
 Older full comparison 38337641132 timed out after two hours with 187 unfinished
 tests; its incomplete artifact is preserved. The older local mock completed with
@@ -46,3 +47,8 @@ namespace/schema/codegen tests, and the resumed broad lint passed. Full serial
 mock/live acceptance on final source, evidence for every skip, final CI, release
 and immutable artifact installation, and protected-main acceptance remain required.
 Production generator changes require a new qualified provider release.
+
+Docs-control PR 2489 and manifest PR 2490 merged. Provider reconciliation PR 2548
+pairs the canonical policy with the focused dispatch declaration; its exact trigger
+and mutation tests pass under race detection. Full CI and merge remain pending.
+The resumed complete serial mock and full live run 38357531909 are active.
