@@ -345,7 +345,7 @@ jobs:
             -parallel 1 \
             -timeout "${TIMEOUT}m" \
             -count=1 \
-            -run "${INPUT_TEST_PATTERN:-^(TestAccAPIDefinitionDiagnostic|TestAccAPIDefinitionResource_basic|TestAccSiteMeshGroupResource_fullMesh)$}" \
+            -run "${INPUT_TEST_PATTERN:-^(TestAccReadOnlyInfrastructureDiagnostic|TestAccAPIDefinitionDiagnostic|TestAccAPIDefinitionResource_basic|TestAccSiteMeshGroupResource_fullMesh)$}" \
             ./internal/provider/... \
             > "$RAW_TEST_OUTPUT" 2>&1 || TEST_STATUS=$?
 
@@ -415,7 +415,9 @@ jobs:
 
       - name: Preserve fixed API probe diagnostics
         if: always()
-        run: python3 tools/api-probe-report.py
+        run: |
+          python3 tools/api-probe-report.py
+          cp "$XCSH_ACC_PRIVATE/infrastructure-diagnostic.json" test-reports/infrastructure-diagnostic.json
 
       - name: Verify journal-owned cleanup
         id: cleanup
@@ -448,6 +450,7 @@ jobs:
             test-reports/real-tests.md
             test-reports/cleanup.json
             test-reports/api-probe.json
+            test-reports/infrastructure-diagnostic.json
           retention-days: 30
 
 
