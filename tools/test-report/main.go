@@ -362,7 +362,7 @@ func parseTestOutputReader(reader io.Reader, slowestCount int, tenantSafe bool) 
 				}
 				packages[event.Package] = false
 			case "pass", "skip", "fail":
-				if packages[event.Package] {
+				if terminal, started := packages[event.Package]; !started || terminal {
 					report.Stream.InvalidEvents++
 				}
 				packages[event.Package] = true
@@ -373,6 +373,9 @@ func parseTestOutputReader(reader io.Reader, slowestCount int, tenantSafe bool) 
 			continue
 		}
 
+		if terminal, started := packages[event.Package]; !started || terminal {
+			report.Stream.InvalidEvents++
+		}
 		key := event.Package + "/" + event.Test
 		if event.Action != "run" {
 			if result, ok := testResults[key]; !ok || (result.Status != "" && event.Action != "output") {
