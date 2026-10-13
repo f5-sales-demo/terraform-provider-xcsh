@@ -43,9 +43,10 @@ resource "xcsh_cdn_loadbalancer" "test" {
   name      = %[1]q
   namespace = "shared"
   domains = ["%[1]s.example.com"]
-  http {}
+  http { port = 80 }
   origin_pool {
     origin_servers {
+      port = 80
       public_name { dns_name = "example.com" }
     }
     no_tls = {}
