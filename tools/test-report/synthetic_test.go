@@ -12,12 +12,14 @@ import (
 func TestSyntheticStreamRetainsClassificationsWithoutSecrets(t *testing.T) {
 	sentinel := "SECRET_SENTINEL \"quotes\" \x00\x01"
 	stream := strings.Join([]string{
+		goTestEvent("start", "", ""),
 		goTestEvent("run", "TestAccPanic", ""),
 		goTestEvent("output", "TestAccPanic", "panic: "+sentinel),
 		goTestEvent("fail", "TestAccPanic", ""),
 		goTestEvent("run", "TestAccUnknown", ""),
 		goTestEvent("output", "TestAccUnknown", "unrecognized "+sentinel),
 		goTestEvent("fail", "TestAccUnknown", ""),
+		goTestEvent("pass", "", ""),
 	}, "\n")
 	report := parseTestOutputReader(strings.NewReader(stream), 10, true)
 	if !report.Stream.Complete || report.TotalFailed != 2 {
@@ -51,7 +53,7 @@ func TestSyntheticStreamRetainsClassificationsWithoutSecrets(t *testing.T) {
 	}
 }
 func TestDuplicateTerminalIsIncomplete(t *testing.T) {
-	stream := goTestEvent("run", "TestAccDuplicate", "") + "\n" + goTestEvent("pass", "TestAccDuplicate", "") + "\n" + goTestEvent("fail", "TestAccDuplicate", "")
+	stream := goTestEvent("start", "", "") + "\n" + goTestEvent("run", "TestAccDuplicate", "") + "\n" + goTestEvent("pass", "TestAccDuplicate", "") + "\n" + goTestEvent("fail", "TestAccDuplicate", "")
 	report := parseTestOutputReader(strings.NewReader(stream), 10, true)
 	if report.Stream.Complete || report.Stream.InvalidEvents != 1 {
 		t.Fatal("duplicate terminal accepted")

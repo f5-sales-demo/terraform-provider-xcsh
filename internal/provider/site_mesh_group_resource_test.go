@@ -51,9 +51,7 @@ func TestAccSiteMeshGroupResource_basic(t *testing.T) {
 	// Skip: site_mesh_group requires site references (full_mesh or hub type with sites)
 	// Cannot test without actual site infrastructure
 
-	acctest.RequireExistingInfrastructure(t, "site")
-
-	nsName := acctest.RandomName("tf-acc-test-ns")
+	nsName := "system"
 	rName := acctest.RandomName("tf-acc-test-smg")
 	resourceName := "xcsh_site_mesh_group.test"
 
@@ -99,9 +97,7 @@ func TestAccSiteMeshGroupResource_fullMesh(t *testing.T) {
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 
-	acctest.RequireExistingInfrastructure(t, "site")
-
-	nsName := acctest.RandomName("tf-acc-test-ns")
+	nsName := "system"
 	rName := acctest.RandomName("tf-acc-test-smg")
 	resourceName := "xcsh_site_mesh_group.test"
 	description := "Full mesh site mesh group acceptance test"
@@ -152,9 +148,7 @@ func TestAccSiteMeshGroupResource_updateLabels(t *testing.T) {
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 
-	acctest.RequireExistingInfrastructure(t, "site")
-
-	nsName := acctest.RandomName("tf-acc-test-ns")
+	nsName := "system"
 	rName := acctest.RandomName("tf-acc-test-smg")
 	resourceName := "xcsh_site_mesh_group.test"
 
@@ -207,9 +201,7 @@ func TestAccSiteMeshGroupResource_updateDescription(t *testing.T) {
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 
-	acctest.RequireExistingInfrastructure(t, "site")
-
-	nsName := acctest.RandomName("tf-acc-test-ns")
+	nsName := "system"
 	rName := acctest.RandomName("tf-acc-test-smg")
 	resourceName := "xcsh_site_mesh_group.test"
 
@@ -266,9 +258,7 @@ func TestAccSiteMeshGroupResource_updateAnnotations(t *testing.T) {
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 
-	acctest.RequireExistingInfrastructure(t, "site")
-
-	nsName := acctest.RandomName("tf-acc-test-ns")
+	nsName := "system"
 	rName := acctest.RandomName("tf-acc-test-smg")
 	resourceName := "xcsh_site_mesh_group.test"
 
@@ -319,9 +309,7 @@ func TestAccSiteMeshGroupResource_emptyPlan(t *testing.T) {
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 
-	acctest.RequireExistingInfrastructure(t, "site")
-
-	nsName := acctest.RandomName("tf-acc-test-ns")
+	nsName := "system"
 	rName := acctest.RandomName("tf-acc-test-smg")
 	resourceName := "xcsh_site_mesh_group.test"
 
@@ -363,9 +351,7 @@ func TestAccSiteMeshGroupResource_planChecks(t *testing.T) {
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 
-	acctest.RequireExistingInfrastructure(t, "site")
-
-	nsName := acctest.RandomName("tf-acc-test-ns")
+	nsName := "system"
 	rName := acctest.RandomName("tf-acc-test-smg")
 	resourceName := "xcsh_site_mesh_group.test"
 
@@ -421,9 +407,7 @@ func TestAccSiteMeshGroupResource_knownValues(t *testing.T) {
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 
-	acctest.RequireExistingInfrastructure(t, "site")
-
-	nsName := acctest.RandomName("tf-acc-test-ns")
+	nsName := "system"
 	rName := acctest.RandomName("tf-acc-test-smg")
 	resourceName := "xcsh_site_mesh_group.test"
 
@@ -468,7 +452,7 @@ func TestAccSiteMeshGroupResource_invalidName(t *testing.T) {
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 
-	nsName := acctest.RandomName("tf-acc-test-ns")
+	nsName := "system"
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -496,7 +480,7 @@ func TestAccSiteMeshGroupResource_nameTooLong(t *testing.T) {
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 
-	nsName := acctest.RandomName("tf-acc-test-ns")
+	nsName := "system"
 	// Create a name that exceeds the maximum length (typically 63 characters for K8s-style names)
 	longName := "tf-acc-test-this-name-is-way-too-long-and-should-fail-validation-check"
 
@@ -525,7 +509,7 @@ func TestAccSiteMeshGroupResource_emptyName(t *testing.T) {
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 
-	nsName := acctest.RandomName("tf-acc-test-ns")
+	nsName := "system"
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -552,9 +536,7 @@ func TestAccSiteMeshGroupResource_requiresReplaceName(t *testing.T) {
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 
-	acctest.RequireExistingInfrastructure(t, "site")
-
-	nsName := acctest.RandomName("tf-acc-test-ns")
+	nsName := "system"
 	rName1 := acctest.RandomName("tf-acc-test-smg")
 	rName2 := acctest.RandomName("tf-acc-test-smg")
 	resourceName := "xcsh_site_mesh_group.test"
@@ -602,10 +584,8 @@ func TestAccSiteMeshGroupResource_requiresReplaceNamespace(t *testing.T) {
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 
-	acctest.RequireExistingInfrastructure(t, "site")
-
-	nsName1 := acctest.RandomName("tf-acc-test-ns")
-	nsName2 := acctest.RandomName("tf-acc-test-ns")
+	nsName1 := "system"
+	nsName2 := "system"
 	rName := acctest.RandomName("tf-acc-test-smg")
 	resourceName := "xcsh_site_mesh_group.test"
 
@@ -650,19 +630,10 @@ func testAccSiteMeshGroupResourceConfig_basic(nsName, name string) string {
 	return acctest.ConfigCompose(
 		acctest.ProviderConfig(),
 		fmt.Sprintf(`
-resource "xcsh_namespace" "test" {
-  name = %[1]q
-}
-
-resource "time_sleep" "wait_for_namespace" {
-  depends_on      = [xcsh_namespace.test]
-  create_duration = "5s"
-}
 
 resource "xcsh_site_mesh_group" "test" {
-  depends_on = [time_sleep.wait_for_namespace]
   name       = %[2]q
-  namespace  = xcsh_namespace.test.name
+  namespace = "system"
 
   full_mesh {
     control_and_data_plane_mesh = {}
@@ -675,19 +646,10 @@ func testAccSiteMeshGroupResourceConfig_fullMesh(nsName, name, description strin
 	return acctest.ConfigCompose(
 		acctest.ProviderConfig(),
 		fmt.Sprintf(`
-resource "xcsh_namespace" "test" {
-  name = %[1]q
-}
-
-resource "time_sleep" "wait_for_namespace" {
-  depends_on      = [xcsh_namespace.test]
-  create_duration = "5s"
-}
 
 resource "xcsh_site_mesh_group" "test" {
-  depends_on  = [time_sleep.wait_for_namespace]
   name        = %[2]q
-  namespace   = xcsh_namespace.test.name
+  namespace = "system"
   description = %[3]q
 
   labels = {
@@ -711,19 +673,10 @@ func testAccSiteMeshGroupResourceConfig_withLabels(nsName, name, environment, ma
 	return acctest.ConfigCompose(
 		acctest.ProviderConfig(),
 		fmt.Sprintf(`
-resource "xcsh_namespace" "test" {
-  name = %[1]q
-}
-
-resource "time_sleep" "wait_for_namespace" {
-  depends_on      = [xcsh_namespace.test]
-  create_duration = "5s"
-}
 
 resource "xcsh_site_mesh_group" "test" {
-  depends_on = [time_sleep.wait_for_namespace]
   name       = %[2]q
-  namespace  = xcsh_namespace.test.name
+  namespace = "system"
 
   labels = {
     environment = %[3]q
@@ -741,19 +694,10 @@ func testAccSiteMeshGroupResourceConfig_withDescription(nsName, name, descriptio
 	return acctest.ConfigCompose(
 		acctest.ProviderConfig(),
 		fmt.Sprintf(`
-resource "xcsh_namespace" "test" {
-  name = %[1]q
-}
-
-resource "time_sleep" "wait_for_namespace" {
-  depends_on      = [xcsh_namespace.test]
-  create_duration = "5s"
-}
 
 resource "xcsh_site_mesh_group" "test" {
-  depends_on  = [time_sleep.wait_for_namespace]
   name        = %[2]q
-  namespace   = xcsh_namespace.test.name
+  namespace = "system"
   description = %[3]q
 
   full_mesh {
@@ -767,19 +711,10 @@ func testAccSiteMeshGroupResourceConfig_withAnnotations(nsName, name, value1, va
 	return acctest.ConfigCompose(
 		acctest.ProviderConfig(),
 		fmt.Sprintf(`
-resource "xcsh_namespace" "test" {
-  name = %[1]q
-}
-
-resource "time_sleep" "wait_for_namespace" {
-  depends_on      = [xcsh_namespace.test]
-  create_duration = "5s"
-}
 
 resource "xcsh_site_mesh_group" "test" {
-  depends_on = [time_sleep.wait_for_namespace]
   name       = %[2]q
-  namespace  = xcsh_namespace.test.name
+  namespace = "system"
 
   annotations = {
     key1 = %[3]q

@@ -26,6 +26,8 @@ func logAcceptanceAPIDiagnostic(response *http.Response) {
 	signatures := map[string][]string{
 		"quota_unconfigured":     {"quota not configured"},
 		"quota_exceeded":         {"quota exceeded", "quota limit", "maximum number"},
+		"document_fetch_failed":  {"unable to download", "failed to download", "failed to fetch", "cannot fetch", "fetch failed", "file not found", "not found"},
+		"document_parse_failed":  {"failed to parse", "unable to parse", "parse error", "invalid spec", "invalid schema", "invalid format"},
 		"swagger_reference":      {"swagger", "openapi"},
 		"namespace_constraint":   {"namespace"},
 		"missing_required_input": {"required", "must specify", "cannot be empty"},

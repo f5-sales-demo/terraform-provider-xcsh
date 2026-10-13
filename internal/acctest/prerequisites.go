@@ -33,6 +33,10 @@ func RequireExistingInfrastructure(t *testing.T, kind string) {
 	if IsMockMode() {
 		return
 	}
+	if kind == "site" {
+		requireReadOnlySite(t)
+		return
+	}
 	paths := map[string]string{
 		"vk8s":               "/api/config/namespaces/system/virtual_k8ss",
 		"site":               "/api/config/namespaces/system/sites",
