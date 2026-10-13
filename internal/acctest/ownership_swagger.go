@@ -53,7 +53,10 @@ func (b apiOwnershipBackend) readSwagger(ctx context.Context, r OwnedResource) (
 	if err != nil || r.ContentSHA256 == "" || publicContentDigest(content) != r.ContentSHA256 {
 		return client.Metadata{}, errors.New("owned Swagger content mismatch")
 	}
-	run := strings.Split(strings.TrimPrefix(r.Name, TestResourcePrefix), "-")[0]
+	run := b.run
+	if run == "" {
+		run = strings.Split(strings.TrimPrefix(r.Name, TestResourcePrefix), "-")[0]
+	}
 	return client.Metadata{Name: r.Name, Namespace: r.Namespace, UID: version, Annotations: map[string]string{ownershipAnnotation: run}}, nil
 }
 func (b apiOwnershipBackend) deleteSwagger(ctx context.Context, r OwnedResource) error {
@@ -123,7 +126,7 @@ func (t *ownershipTransport) createSwagger(req *http.Request) (*http.Response, e
 		return nil, errors.New("swagger creation readback missing exact identity")
 	}
 	r.Version = object.Metadata.Version
-	metadata, err := (apiOwnershipBackend{c: t.c}).readSwagger(req.Context(), r)
+	metadata, err := (apiOwnershipBackend{c: t.c, run: t.j.RunID}).readSwagger(req.Context(), r)
 	if err != nil {
 		return nil, err
 	}

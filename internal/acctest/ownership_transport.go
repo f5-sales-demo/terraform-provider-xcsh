@@ -147,7 +147,7 @@ func (t *ownershipTransport) RoundTrip(req *http.Request) (*http.Response, error
 			if !found || owned.UID == "" || owned.Status != "created" {
 				return nil, errors.New("update target is not journal-owned")
 			}
-			observed, err := (apiOwnershipBackend{c: t.c}).Read(req.Context(), owned)
+			observed, err := (apiOwnershipBackend{c: t.c, run: t.j.RunID}).Read(req.Context(), owned)
 			if err != nil || ownershipUIDDigest(observed.UID) != owned.UID {
 				return nil, errors.New("update ownership readback failed")
 			}
@@ -230,7 +230,7 @@ func (t *ownershipTransport) RoundTrip(req *http.Request) (*http.Response, error
 	if err = t.j.validate(r); err != nil {
 		return nil, err
 	}
-	backend := apiOwnershipBackend{c: t.c}
+	backend := apiOwnershipBackend{c: t.c, run: t.j.RunID}
 	if _, err = backend.Read(req.Context(), r); !errors.Is(err, errOwnedAbsent) {
 		return nil, errors.New("create target is not authoritatively absent")
 	}
@@ -356,7 +356,7 @@ func (t *ownershipTransport) verifyOwnedDelete(req *http.Request) error {
 	if !found {
 		return errors.New("delete target is not journal-owned")
 	}
-	metadata, err := (apiOwnershipBackend{c: t.c}).Read(req.Context(), owned)
+	metadata, err := (apiOwnershipBackend{c: t.c, run: t.j.RunID}).Read(req.Context(), owned)
 	if errors.Is(err, errOwnedAbsent) {
 		return nil
 	}
