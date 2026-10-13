@@ -30,6 +30,9 @@ func RequireNonDisposableScope(t *testing.T) {
 }
 func RequireExistingInfrastructure(t *testing.T, kind string) {
 	t.Helper()
+	if strings.HasPrefix(t.Name(), "TestAcc") {
+		SkipIfNotAccTest(t)
+	}
 	if IsMockMode() {
 		return
 	}
