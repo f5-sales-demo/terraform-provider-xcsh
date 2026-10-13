@@ -72,6 +72,10 @@ func precheckLiveCapability(t *testing.T) {
 	capabilityProbeMu.Lock()
 	defer capabilityProbeMu.Unlock()
 	for _, requirement := range requirements {
+		if (requirement.Type == "xcsh_api_crawler" || requirement.Type == "xcsh_crl") && exhaustedCapabilityReceipt(requirement.Type) {
+			t.Logf("[PREREQUISITE:quota_exhausted method=POST type=%s status=429]", requirement.Type)
+			t.Skip("owned prerequisite creation returned typed exhausted object limits")
+		}
 		if requirement.Type == "xcsh_forwarding_class" || requirement.Type == "xcsh_global_log_receiver" {
 			ctx, cancel := context.WithTimeout(context.Background(), 30*time.Second)
 			quota, err := readQuotaPrerequisite(ctx, c, requirement.Type, requirement.Namespace)

@@ -14,7 +14,10 @@ func ProvisionDisposablePrerequisites(ctx context.Context) error {
 	if err := attachOwnership(c); err != nil {
 		return err
 	}
-	name := RandomName("tf-acc-test-segment")
+	if err := provisionQuotaBoundCapabilities(ctx, c); err != nil {
+		return err
+	}
+	name := CompactRandomName(20)
 	_, err := c.CreateSegment(ctx, &client.Segment{Metadata: client.Metadata{Name: name, Namespace: "system"}, Spec: map[string]interface{}{}})
 	if err != nil {
 		if classifyCapabilityProbe(err) == capabilityDenied {

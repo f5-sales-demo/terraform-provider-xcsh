@@ -141,7 +141,7 @@ func TestAccSecuremeshSiteV2Resource_segmentVRF(t *testing.T) {
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 
-	segmentName := acctest.RandomName("tf-acc-test-segment")
+	segmentName := acctest.CompactRandomName(20)
 	rName := acctest.RandomName("tf-acc-test-smsite-v2-segment")
 	resourceName := "xcsh_securemesh_site_v2.test"
 
