@@ -366,6 +366,8 @@ func parseTestOutputReader(reader io.Reader, slowestCount int, tenantSafe bool) 
 		// Only process test-level events (not package-level)
 		if event.Test == "" {
 			switch event.Action {
+			case "run", "pause", "cont":
+				report.Stream.InvalidEvents++
 			case "start":
 				if _, exists := packages[event.Package]; exists {
 					report.Stream.InvalidEvents++

@@ -10,7 +10,7 @@ func TestTenantObjectFixturesUseSupportedNamespacesWithoutAppliances(t *testing.
 	for _, tc := range []struct{ name, config, typ, namespace string }{
 		{"API definition", testAccAPIDefinitionConfig_basic("tf-acc-test-fixture"), "xcsh_api_definition", "shared"},
 		{"workload flavor", testAccWorkloadFlavorResourceConfig_basic("unused", "tf-acc-test-fixture"), "xcsh_workload_flavor", "shared"},
-		{"site mesh group", testAccSiteMeshGroupResourceConfig_fullMesh("unused", "tf-acc-test-fixture", "fixture", "example-virtual-site"), "xcsh_site_mesh_group", "system"},
+		{"site mesh group", testAccSiteMeshGroupResourceConfig_fullMesh("unused", "tf-acc-test-fixture", "fixture", "example-virtual-site", "system"), "xcsh_site_mesh_group", "system"},
 		{"cluster group", testAccDcClusterGroupConfig_basic("unused", "tf-acc-test-fixture"), "xcsh_dc_cluster_group", "system"},
 	} {
 		t.Run(tc.name, func(t *testing.T) {
