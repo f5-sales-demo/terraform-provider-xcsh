@@ -55,6 +55,10 @@ resource "xcsh_usb_policy" "test" {
   depends_on = [time_sleep.wait_for_namespace]
   name       = %[2]q
   namespace  = xcsh_namespace.test.name
+  allowed_devices {
+    id_vendor = "0x046d"
+    id_product = "0xc52b"
+  }
 }
 
 data "xcsh_usb_policy" "test" {

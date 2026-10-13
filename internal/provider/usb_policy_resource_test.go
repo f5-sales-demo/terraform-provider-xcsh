@@ -299,7 +299,7 @@ func TestAccUsbPolicyResource_updateAllowedDevices(t *testing.T) {
 					resource.TestCheckResourceAttr(resourceName, "allowed_devices.0.b_device_protocol", "0x00"),
 				),
 			},
-			// Step 4: Remove all allowed devices
+			// Step 4: Restore a minimal valid allowed-device list
 			{
 				Config: testAccUsbPolicyResourceConfig_basic(nsName, name),
 				Check: resource.ComposeAggregateTestCheckFunc(
@@ -341,6 +341,10 @@ resource "xcsh_usb_policy" "test" {
   depends_on = [time_sleep.wait_for_namespace]
   name       = %[2]q
   namespace  = xcsh_namespace.test.name
+  allowed_devices {
+    id_vendor = "0x046d"
+    id_product = "0xc52b"
+  }
 }
 `, nsName, name))
 }
@@ -405,6 +409,10 @@ resource "xcsh_usb_policy" "test" {
   depends_on = [time_sleep.wait_for_namespace]
   name       = %[2]q
   namespace  = xcsh_namespace.test.name
+  allowed_devices {
+    id_vendor = "0x046d"
+    id_product = "0xc52b"
+  }
 
   labels = {
     environment = %[3]q
@@ -431,6 +439,10 @@ resource "xcsh_usb_policy" "test" {
   depends_on  = [time_sleep.wait_for_namespace]
   name        = %[2]q
   namespace   = xcsh_namespace.test.name
+  allowed_devices {
+    id_vendor = "0x046d"
+    id_product = "0xc52b"
+  }
   description = %[3]q
 }
 `, nsName, name, description))

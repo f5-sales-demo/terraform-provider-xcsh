@@ -49,8 +49,36 @@ func shouldRegenerateDataSourceTest(content []byte) bool {
 // Resource configurations based on OpenAPI specs
 // Key is the resource name (without xcsh_ prefix)
 var resourceConfigs = map[string]string{
+	"tunnel": `
+  tunnel_type = "IPSEC_PSK"
+  local_ip {
+    ip_address {
+      auto = {}
+      virtual_network_type { site_local = {} }
+    }
+  }
+  remote_ip {
+    ip {
+      ipv4 { addr = "192.0.2.1" }
+    }
+  }
+  params {
+    ipsec {
+      ipsec_psk {
+        clear_secret_info { url = "string:///dGVzdC1wc2stc2VjcmV0" }
+      }
+    }
+  }`,
+
 	"subnet": `
-  isolated_nw = {}`,
+  isolated_nw = {}
+  site_subnet_params {
+    static_ip = {}
+    site {
+      name = %[2]q
+      namespace = "system"
+    }
+  }`,
 	"site_mesh_group": `
   bfd_disabled = {}
   enable_re_fallback = {}
@@ -499,7 +527,11 @@ var resourceConfigs = map[string]string{
   }
   do_not_advertise = {}`,
 
-	"usb_policy": ``,
+	"usb_policy": `
+  allowed_devices {
+    id_vendor = "0x046d"
+    id_product = "0xc52b"
+  }`,
 
 	"user_identification": `
   rules { client_ip = {} }`,
@@ -636,6 +668,7 @@ var systemLevelResources = map[string]bool{
 
 // Resources that MUST use namespace = "system" (not custom namespace)
 var systemNamespaceResources = map[string]bool{
+	"tunnel":               true,
 	"waf_exclusion_policy": true,
 	"global_log_receiver":  true,
 	"crl":                  true,
@@ -707,6 +740,9 @@ func main() {
 			if err != nil {
 				panic(err)
 			}
+			if resource.Name == "subnet" {
+				ns = "shared"
+			}
 			if systemNamespaceResources[resource.Name] {
 				ns = "system"
 			}
@@ -746,7 +782,7 @@ import (
 func {{.TestFuncName}}(t *testing.T) {
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
- {{if eq .Name "site_mesh_group"}}acctest.RequireReadOnlyVirtualSite(t){{end}}
+ {{if eq .Name "site_mesh_group"}}acctest.RequireReadOnlyVirtualSite(t){{else if eq .Name "subnet"}}acctest.RequireExistingInfrastructure(t,"site"){{end}}
 
 	{{if eq .Name "api_definition"}}rName := acctest.CompactRandomName(20){{else}}rName := acctest.RandomName("tf-acc-test"){{end}}
 {{- if and .NeedsNamespace (not .IsNamespace) (not .UseSystemNamespace)}}
@@ -772,7 +808,7 @@ func {{.TestFuncName}}(t *testing.T) {
 {{- if .IsNamespace}}
 				Config: {{.ConfigFuncName}}(rName),
 {{- else if .UseSystemNamespace}}
-				Config: {{.ConfigFuncName}}(rName{{if eq .Name "site_mesh_group"}}, acctest.ReadOnlyVirtualSiteName(), acctest.ReadOnlyVirtualSiteNamespace(){{end}}),
+				Config: {{.ConfigFuncName}}(rName{{if eq .Name "site_mesh_group"}}, acctest.ReadOnlyVirtualSiteName(), acctest.ReadOnlyVirtualSiteNamespace(){{else if eq .Name "subnet"}}, acctest.ReadOnlySiteName(){{end}}),
 {{- else if .NeedsNamespace}}
 				Config: {{.ConfigFuncName}}(nsName, rName),
 {{- else}}
@@ -813,7 +849,7 @@ data "{{.ResourceName}}" "test" {
 }
 {{- else if .UseSystemNamespace}}
 
-func {{.ConfigFuncName}}(name string{{if eq .Name "site_mesh_group"}}, virtualSiteName, virtualSiteNamespace string{{end}}) string {
+func {{.ConfigFuncName}}(name string{{if eq .Name "site_mesh_group"}}, virtualSiteName, virtualSiteNamespace string{{else if eq .Name "subnet"}}, siteName string{{end}}) string {
 {{- if or (eq .Name "certificate") (eq .Name "certificate_chain")}}
  certs := acctest.MustGenerateTestCertificates()
 {{- end}}
@@ -831,7 +867,7 @@ data "{{.ResourceName}}" "test" {
   name       = {{.ResourceName}}.test.name
   namespace  = {{.ResourceName}}.test.namespace
 }
-` + "`" + `, name{{if eq .Name "site_mesh_group"}}, virtualSiteName, virtualSiteNamespace{{end}}{{if eq .Name "certificate"}}, certs.ServerCertBase64, certs.ServerKeyBase64{{else if eq .Name "certificate_chain"}}, certs.IntermediateCABase64{{end}}))
+` + "`" + `, name{{if eq .Name "site_mesh_group"}}, virtualSiteName, virtualSiteNamespace{{else if eq .Name "subnet"}}, siteName{{end}}{{if eq .Name "certificate"}}, certs.ServerCertBase64, certs.ServerKeyBase64{{else if eq .Name "certificate_chain"}}, certs.IntermediateCABase64{{end}}))
 }
 {{- else if and .NeedsNamespace (not .Skip)}}
 

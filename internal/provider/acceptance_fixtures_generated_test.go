@@ -594,9 +594,7 @@ func init() {
 	acctest.RegisterFixture("testAccTrustedCaListResourceConfig_withLabels", func() string {
 		return testAccTrustedCaListResourceConfig_withLabels("tf-acc-test-fixture", "tf-acc-test-fixture", "tf-acc-test-fixture", "tf-acc-test-fixture")
 	})
-	acctest.RegisterFixture("testAccTunnelDataSourceConfig_basic", func() string {
-		return testAccTunnelDataSourceConfig_basic("tf-acc-test-fixture", "tf-acc-test-fixture")
-	})
+	acctest.RegisterFixture("testAccTunnelDataSourceConfig_basic", func() string { return testAccTunnelDataSourceConfig_basic("tf-acc-test-fixture") })
 	acctest.RegisterFixture("testAccTunnelResourceConfig_basic", func() string { return testAccTunnelResourceConfig_basic("tf-acc-test-fixture", "tf-acc-test-fixture") })
 	acctest.RegisterFixture("testAccUDPLoadBalancerConfig_allAttributesSystem", func() string { return testAccUDPLoadBalancerConfig_allAttributesSystem("tf-acc-test-fixture") })
 	acctest.RegisterFixture("testAccUDPLoadBalancerConfig_basicSystem", func() string { return testAccUDPLoadBalancerConfig_basicSystem("tf-acc-test-fixture") })
