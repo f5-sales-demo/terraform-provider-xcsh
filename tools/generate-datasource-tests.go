@@ -515,10 +515,13 @@ var resourceConfigs = map[string]string{
     expressions = ["site-type=ce"]
   }`,
 
-	"waf_exclusion_policy": ``,
+	"waf_exclusion_policy": `
+  waf_exclusion_rules {
+    metadata { name = "test-rule" }
+  }`,
 
 	"workload": `
-  simple_service {}`,
+  simple_service { do_not_advertise = {} }`,
 
 	"workload_flavor": ``,
 }

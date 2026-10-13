@@ -42,6 +42,9 @@ func testAccWafExclusionPolicyDataSourceConfig_basic(name string) string {
 resource "xcsh_waf_exclusion_policy" "test" {
   name      = %[1]q
   namespace = "system"
+  waf_exclusion_rules {
+    metadata { name = "test-rule" }
+  }
 }
 
 data "xcsh_waf_exclusion_policy" "test" {
