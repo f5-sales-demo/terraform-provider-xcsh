@@ -45,7 +45,7 @@ func TestAccAuthenticationResource_basic(t *testing.T) {
 				ResourceName:            resourceName,
 				ImportState:             true,
 				ImportStateVerify:       true,
-				ImportStateVerifyIgnore: []string{"timeouts", "oidc_auth.client_secret.clear_secret_info.url"},
+				ImportStateVerifyIgnore: []string{"timeouts", "oidc_auth.client_secret"},
 				ImportStateIdFunc:       testAccAuthenticationImportStateIdFunc(resourceName),
 			},
 		},
