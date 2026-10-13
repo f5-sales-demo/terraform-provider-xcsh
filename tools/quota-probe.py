@@ -21,6 +21,10 @@ for namespace in ['system','shared']:
     if isinstance(value,(int,float)):item['value']=value
     if isinstance(value,dict):
      item['field_count']=len(value)
+     item["fixed_fields"] = {key: data for key,data in value.items() if key in ["usage","used","count","limit","current","available","namespace_quota","tenant_quota"] and isinstance(data,(int,float))}
+     item["limit_numbers"]={key:data for key,data in value.get("limit",{}).items() if key in ["limit","value","max","maximum","count","quota","total","configured","namespace","tenant","global"] and isinstance(data,(int,float))} if isinstance(value.get("limit"),dict) else {}
+     item["limit_shape"]={key:type(data).__name__ for key,data in value.get("limit",{}).items() if key in ["limit","value","max","maximum","count","quota","total","configured","namespace","tenant","global","unlimited","no_limit","allowed"]} if isinstance(value.get("limit"),dict) else {}
+     item["shape"]={key:type(data).__name__ for key,data in value.items() if key in ["limit","usage","used","count","namespace","tenant","global","objects","namespace_quota","tenant_quota"]}
      item['numbers']={name:number for name,number in value.items() if name in ['limit','usage','used','max','maximum','value','current','available','quota','count','remaining'] and isinstance(number,(int,float))}
      item['text_shapes']={name:type(field).__name__ for name,field in value.items() if name in ['limit','usage','used','max','maximum','value','current','available','quota','count','remaining','name']}
     row['matching_entries'].append(item)
