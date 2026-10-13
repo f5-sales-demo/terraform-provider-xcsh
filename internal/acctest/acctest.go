@@ -452,7 +452,19 @@ func CheckNamespaceDisappears(resourceName string) resource.TestCheckFunc {
 			return fmt.Errorf("failed to cascade delete namespace %s: %w", name, err)
 		}
 
-		return nil
+		for attempt := 0; attempt < 12; attempt++ {
+			_, readErr := c.GetNamespace(ctx, "", name)
+			if authoritativeOwnedAbsence(readErr) {
+				return nil
+			}
+			if readErr != nil {
+				return fmt.Errorf("namespace disappearance readback failed")
+			}
+			if waitContext(ctx, time.Second) != nil {
+				return fmt.Errorf("namespace disappearance interrupted")
+			}
+		}
+		return fmt.Errorf("namespace still visible after external deletion")
 	}
 }
 

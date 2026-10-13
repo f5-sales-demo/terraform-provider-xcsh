@@ -10,6 +10,7 @@ import (
 	"os"
 	"path/filepath"
 	"strings"
+	"time"
 )
 
 func confirmedObjectExhaustion(err error) bool {
@@ -49,8 +50,28 @@ func provisionQuotaBoundCapabilities(ctx context.Context, c *client.Client) erro
 		}},
 	}
 	for _, operation := range operations {
-		err := operation.create(CompactRandomName(20))
+		probeName := CompactRandomName(20)
+		err := operation.create(probeName)
 		if err == nil {
+			journal, loadErr := acceptanceJournal()
+			if loadErr != nil {
+				return errors.New("quota probe ownership unavailable")
+			}
+			journal.mu.Lock()
+			var owned OwnedResource
+			for _, r := range journal.Resources {
+				if r.Type == operation.typ && r.Name == probeName && r.Status == "created" {
+					owned = r
+				}
+			}
+			journal.mu.Unlock()
+			if owned.Name == "" {
+				return errors.New("quota probe owned identity missing")
+			}
+			backend := apiOwnershipBackend{c: c, run: journal.RunID}
+			if err := releaseQuotaProbe(ctx, backend, owned, 12, time.Second); err != nil {
+				return err
+			}
 			continue
 		}
 		if !confirmedObjectExhaustion(err) {
@@ -76,4 +97,23 @@ func exhaustedCapabilityReceipt(typ string) bool {
 		Outcome string `json:"outcome"`
 	}
 	return json.Unmarshal(data, &receipt) == nil && receipt.Version == 1 && receipt.Type == typ && receipt.Status == 429 && receipt.Outcome == "object_limits_exhausted"
+}
+
+func releaseQuotaProbe(ctx context.Context, backend OwnershipBackend, owned OwnedResource, attempts int, delay time.Duration) error {
+	if err := backend.Delete(ctx, owned); err != nil && !errors.Is(err, errOwnedAbsent) {
+		return errors.New("quota probe deletion failed")
+	}
+	for attempt := 0; attempt < attempts; attempt++ {
+		_, err := backend.Read(ctx, owned)
+		if errors.Is(err, errOwnedAbsent) {
+			return nil
+		}
+		if err != nil {
+			return errors.New("quota probe cleanup read failed")
+		}
+		if waitContext(ctx, delay) != nil {
+			return errors.New("quota probe cleanup interrupted")
+		}
+	}
+	return errors.New("quota probe cleanup incomplete")
 }
