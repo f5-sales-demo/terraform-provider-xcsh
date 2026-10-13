@@ -10,6 +10,7 @@ import (
 	"os"
 	"regexp"
 	"sort"
+	"strconv"
 	"strings"
 )
 
@@ -41,6 +42,14 @@ func logAcceptanceAPIDiagnostic(response *http.Response) {
 	}
 	if private := os.Getenv("XCSH_ACC_PRIVATE"); private != "" {
 		record := map[string]interface{}{"status": response.StatusCode, "words": safe}
+		limits := []int{}
+		for _, match := range regexp.MustCompile(`(?i)(?:no (?:more|longer) than|at most|maximum length|length must be|must be no more than) ([0-9]{1,3})`).FindAllStringSubmatch(text, -1) {
+			n, _ := strconv.Atoi(match[1])
+			if n > 0 && n <= 128 {
+				limits = append(limits, n)
+			}
+		}
+		record["length_limits"] = limits
 		if response.Request != nil {
 			for typ, route := range ownedCollectionRoutes {
 				parts := strings.Split(response.Request.URL.Path, "/")
