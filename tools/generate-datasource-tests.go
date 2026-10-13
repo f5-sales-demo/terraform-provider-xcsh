@@ -619,7 +619,6 @@ var systemLevelResources = map[string]bool{
 // Resources that MUST use namespace = "system" (not custom namespace)
 var systemNamespaceResources = map[string]bool{
  "global_log_receiver": true,
- "container_registry": true,
  "crl": true,
  "api_crawler": true,
 	"network_firewall":     true,

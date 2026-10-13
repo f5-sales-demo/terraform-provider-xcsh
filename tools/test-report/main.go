@@ -139,7 +139,7 @@ type PrerequisiteOutcome struct {
 	HTTPStatus   int    `json:"http_status,omitempty"`
 }
 
-var prerequisitePattern = regexp.MustCompile(`\[PREREQUISITE:(operation_denied|tested|external_credential_missing|non_disposable_scope|infrastructure_absent|infrastructure_verified|quota_unconfigured|quota_exhausted|cloud_appliance_out_of_scope) method=(POST|GET) type=([a-z][a-z0-9_]+)(?: status=(403))?\]`)
+var prerequisitePattern = regexp.MustCompile(`\[PREREQUISITE:(operation_denied|tested|external_credential_missing|non_disposable_scope|infrastructure_absent|infrastructure_verified|quota_unconfigured|quota_exhausted|cloud_appliance_out_of_scope) method=(POST|GET) type=([a-z][a-z0-9_]+)(?: status=(403|429))?\]`)
 
 func extractPrerequisites(output string) []PrerequisiteOutcome {
 	result := []PrerequisiteOutcome{}
@@ -151,9 +151,7 @@ func extractPrerequisites(output string) []PrerequisiteOutcome {
 		}
 		seen[key] = true
 		status := 0
-		if match[4] == "403" {
-			status = 403
-		}
+		if match[4]!="" { status,_=strconv.Atoi(match[4]) }
 		result = append(result, PrerequisiteOutcome{Outcome: match[1], Method: match[2], ResourceType: match[3], HTTPStatus: status})
 	}
 	return result
