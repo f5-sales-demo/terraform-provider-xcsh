@@ -27,7 +27,12 @@ def generate(root):
             continue
         # Read/delete signatures with additional identifiers require explicit handlers.
         key = json.dumps("xcsh_" + name)
-        readers.append(f'{key}: func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {{ r, err := c.{get[1]}(ctx, ns, name); if err != nil {{ return client.Metadata{{}}, err }}; if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {{ return client.Metadata{{}}, fmt.Errorf("invalid ownership readback") }}; return r.Metadata, nil }},')
+        path = re.search(r'"(/api/[^"]+)"', create[1])
+        if not path:
+            raise RuntimeError("missing collection route: "+name)
+        route = path[1]+"/%s"
+        arguments = "ns, name" if path[1].count("%s") else "name"
+        readers.append(f'{key}: func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {{ return readOwnershipProjection(ctx, c, fmt.Sprintf({json.dumps(route)}, {arguments}), ns, name) }},')
         verifiers.append(f'{key}: func(ctx context.Context, c *client.Client, ns, name string) error {{ _, err := c.{get[1]}(ctx, ns, name); return err }},')
         deleters.append(f'{key}: func(ctx context.Context, c *client.Client, ns, name string) error {{ return c.{delete[1]}(ctx, ns, name) }},')
         path = re.search(r'"(/api/[^"]+)"', create[1])

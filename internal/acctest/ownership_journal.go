@@ -111,7 +111,7 @@ func LoadOwnershipJournal(path, run string) (*OwnershipJournal, error) {
 	return &j, nil
 }
 func (j *OwnershipJournal) validate(r OwnedResource) error {
-	if r.Type == "" || !strings.HasPrefix(r.Name, TestResourcePrefix+j.RunID+"-") {
+	if r.Type == "" || !strings.HasPrefix(r.Name, TestResourcePrefix+j.RunID+"-") || strings.ContainsAny(r.Name+r.Namespace, "/?# \t\r\n") {
 		return errors.New("resource outside ownership run")
 	}
 	return nil
@@ -363,4 +363,25 @@ func authoritativeOwnedAbsence(err error) bool {
 		return response.Code == float64(5) || response.Code == "NOT_FOUND" || response.Code == "5"
 	}
 	return false
+}
+
+// Ownership metadata is separate from mutable resource metadata in the API.
+func readOwnershipProjection(ctx context.Context, c *client.Client, path, namespace, name string) (client.Metadata, error) {
+	var projection struct {
+		Metadata       client.Metadata `json:"metadata"`
+		SystemMetadata struct {
+			UID string `json:"uid"`
+		} `json:"system_metadata"`
+	}
+	if err := c.Get(ctx, path, &projection); err != nil {
+		return client.Metadata{}, err
+	}
+	metadata := projection.Metadata
+	if metadata.UID == "" {
+		metadata.UID = projection.SystemMetadata.UID
+	}
+	if metadata.Name != name || metadata.UID == "" || (metadata.Namespace != "" && namespace != "" && metadata.Namespace != namespace) {
+		return client.Metadata{}, errors.New("invalid ownership readback")
+	}
+	return metadata, nil
 }

@@ -11,1224 +11,370 @@ type OwnedReader func(context.Context, *client.Client, string, string) (client.M
 
 var ownedReaderRegistry = map[string]OwnedReader{
 	"xcsh_address_allocator": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetAddressAllocator(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/namespaces/%s/address_allocators/%s", ns, name), ns, name)
 	},
 	"xcsh_advertise_policy": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetAdvertisePolicy(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/namespaces/%s/advertise_policys/%s", ns, name), ns, name)
 	},
 	"xcsh_alert_gen_policy": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetAlertGenPolicy(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/shape/alerts/namespaces/%s/alert_gen_policys/%s", ns, name), ns, name)
 	},
 	"xcsh_alert_policy": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetAlertPolicy(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/namespaces/%s/alert_policys/%s", ns, name), ns, name)
 	},
 	"xcsh_alert_receiver": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetAlertReceiver(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/namespaces/%s/alert_receivers/%s", ns, name), ns, name)
 	},
 	"xcsh_alert_template": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetAlertTemplate(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/shape/alerts/namespaces/%s/alert_templates/%s", ns, name), ns, name)
 	},
 	"xcsh_allowed_domain": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetAllowedDomain(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/shape/csd/namespaces/%s/allowed_domains/%s", ns, name), ns, name)
 	},
 	"xcsh_api_crawler": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetAPICrawler(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/namespaces/%s/api_crawlers/%s", ns, name), ns, name)
 	},
 	"xcsh_api_definition": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetAPIDefinition(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/namespaces/%s/api_definitions/%s", ns, name), ns, name)
 	},
 	"xcsh_api_discovery": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetAPIDiscovery(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/namespaces/%s/api_discoverys/%s", ns, name), ns, name)
 	},
 	"xcsh_api_testing": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetAPITesting(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/namespaces/%s/api_testings/%s", ns, name), ns, name)
 	},
 	"xcsh_app_api_group": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetAppAPIGroup(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/namespaces/%s/app_api_groups/%s", ns, name), ns, name)
 	},
 	"xcsh_app_firewall": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetAppFirewall(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/namespaces/%s/app_firewalls/%s", ns, name), ns, name)
 	},
 	"xcsh_app_setting": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetAppSetting(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/namespaces/%s/app_settings/%s", ns, name), ns, name)
 	},
 	"xcsh_app_type": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetAppType(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/namespaces/%s/app_types/%s", ns, name), ns, name)
 	},
 	"xcsh_application_profiles": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetApplicationProfiles(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/namespaces/%s/application_profiless/%s", ns, name), ns, name)
 	},
 	"xcsh_authentication": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetAuthentication(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/namespaces/%s/authentications/%s", ns, name), ns, name)
 	},
 	"xcsh_authorization_server": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetAuthorizationServer(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/namespaces/%s/authorization_servers/%s", ns, name), ns, name)
 	},
 	"xcsh_aws_tgw_site": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetAWSTGWSite(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/namespaces/%s/aws_tgw_sites/%s", ns, name), ns, name)
 	},
 	"xcsh_bgp": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetBGP(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/namespaces/%s/bgps/%s", ns, name), ns, name)
 	},
 	"xcsh_bgp_asn_set": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetBGPAsnSet(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/namespaces/%s/bgp_asn_sets/%s", ns, name), ns, name)
 	},
 	"xcsh_bgp_routing_policy": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetBGPRoutingPolicy(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/namespaces/%s/bgp_routing_policys/%s", ns, name), ns, name)
 	},
 	"xcsh_bigip_http_proxy": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetBigIPHTTPProxy(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/namespaces/%s/bigip_http_proxys/%s", ns, name), ns, name)
 	},
 	"xcsh_bot_defense_app_infrastructure": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetBotDefenseAppInfrastructure(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/namespaces/%s/bot_defense_app_infrastructures/%s", ns, name), ns, name)
 	},
 	"xcsh_bot_infrastructure": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetBotInfrastructure(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/shape/bot/namespaces/%s/bot_infrastructures/%s", ns, name), ns, name)
 	},
 	"xcsh_cdn_cache_rule": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetCDNCacheRule(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/namespaces/%s/cdn_cache_rules/%s", ns, name), ns, name)
 	},
 	"xcsh_cdn_loadbalancer": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetCDNLoadBalancer(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/namespaces/%s/cdn_loadbalancers/%s", ns, name), ns, name)
 	},
 	"xcsh_cdn_purge_command": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetCDNPurgeCommand(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/namespaces/%s/cdn_purge_commands/%s", ns, name), ns, name)
 	},
 	"xcsh_certificate": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetCertificate(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/namespaces/%s/certificates/%s", ns, name), ns, name)
 	},
 	"xcsh_certificate_chain": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetCertificateChain(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/namespaces/%s/certificate_chains/%s", ns, name), ns, name)
 	},
 	"xcsh_cloud_credentials": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetCloudCredentials(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/namespaces/%s/cloud_credentialss/%s", ns, name), ns, name)
 	},
 	"xcsh_cloud_elastic_ip": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetCloudElasticIP(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/namespaces/%s/cloud_elastic_ips/%s", ns, name), ns, name)
 	},
 	"xcsh_cloud_link": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetCloudLink(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/namespaces/%s/cloud_links/%s", ns, name), ns, name)
 	},
 	"xcsh_cloud_user_account": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetCloudUserAccount(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/namespaces/%s/cloud_user_accounts/%s", ns, name), ns, name)
 	},
 	"xcsh_cluster": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetCluster(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/namespaces/%s/clusters/%s", ns, name), ns, name)
 	},
 	"xcsh_cminstance": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetCminstance(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/namespaces/%s/cminstances/%s", ns, name), ns, name)
 	},
 	"xcsh_code_base_integration": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetCodeBaseIntegration(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/namespaces/%s/code_base_integrations/%s", ns, name), ns, name)
 	},
 	"xcsh_container_registry": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetContainerRegistry(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/namespaces/%s/container_registrys/%s", ns, name), ns, name)
 	},
 	"xcsh_crl": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetCRL(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/namespaces/%s/crls/%s", ns, name), ns, name)
 	},
 	"xcsh_data_group": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetDataGroup(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/namespaces/%s/data_groups/%s", ns, name), ns, name)
 	},
 	"xcsh_data_type": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetDataType(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/namespaces/%s/data_types/%s", ns, name), ns, name)
 	},
 	"xcsh_dc_cluster_group": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetDcClusterGroup(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/namespaces/%s/dc_cluster_groups/%s", ns, name), ns, name)
 	},
 	"xcsh_discovery": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetDiscovery(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/namespaces/%s/discoverys/%s", ns, name), ns, name)
 	},
 	"xcsh_dns_compliance_checks": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetDNSComplianceChecks(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/namespaces/%s/dns_compliance_checkss/%s", ns, name), ns, name)
 	},
 	"xcsh_dns_lb_health_check": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetDNSLBHealthCheck(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/dns/namespaces/%s/dns_lb_health_checks/%s", ns, name), ns, name)
 	},
 	"xcsh_dns_lb_pool": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetDNSLBPool(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/dns/namespaces/%s/dns_lb_pools/%s", ns, name), ns, name)
 	},
 	"xcsh_dns_load_balancer": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetDNSLoadBalancer(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/dns/namespaces/%s/dns_load_balancers/%s", ns, name), ns, name)
 	},
 	"xcsh_dns_proxy": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetDNSProxy(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/namespaces/%s/dns_proxys/%s", ns, name), ns, name)
 	},
 	"xcsh_dns_zone": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetDNSZone(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/dns/namespaces/%s/dns_zones/%s", ns, name), ns, name)
 	},
 	"xcsh_endpoint": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetEndpoint(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/namespaces/%s/endpoints/%s", ns, name), ns, name)
 	},
 	"xcsh_enhanced_firewall_policy": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetEnhancedFirewallPolicy(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/namespaces/%s/enhanced_firewall_policys/%s", ns, name), ns, name)
 	},
 	"xcsh_external_connector": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetExternalConnector(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/namespaces/%s/external_connectors/%s", ns, name), ns, name)
 	},
 	"xcsh_fast_acl": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetFastACL(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/namespaces/%s/fast_acls/%s", ns, name), ns, name)
 	},
 	"xcsh_fast_acl_rule": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetFastACLRule(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/namespaces/%s/fast_acl_rules/%s", ns, name), ns, name)
 	},
 	"xcsh_filter_set": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetFilterSet(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/namespaces/%s/filter_sets/%s", ns, name), ns, name)
 	},
 	"xcsh_fleet": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetFleet(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/namespaces/%s/fleets/%s", ns, name), ns, name)
 	},
 	"xcsh_forward_proxy_policy": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetForwardProxyPolicy(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/namespaces/%s/forward_proxy_policys/%s", ns, name), ns, name)
 	},
 	"xcsh_forwarding_class": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetForwardingClass(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/namespaces/%s/forwarding_classs/%s", ns, name), ns, name)
 	},
 	"xcsh_geo_location_set": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetGeoLocationSet(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/dns/namespaces/%s/geo_location_sets/%s", ns, name), ns, name)
 	},
 	"xcsh_global_log_receiver": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetGlobalLogReceiver(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/namespaces/%s/global_log_receivers/%s", ns, name), ns, name)
 	},
 	"xcsh_healthcheck": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetHealthcheck(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/namespaces/%s/healthchecks/%s", ns, name), ns, name)
 	},
 	"xcsh_http_loadbalancer": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetHTTPLoadBalancer(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/namespaces/%s/http_loadbalancers/%s", ns, name), ns, name)
 	},
 	"xcsh_ike1": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetIke1(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/namespaces/%s/ike1s/%s", ns, name), ns, name)
 	},
 	"xcsh_ike2": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetIke2(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/namespaces/%s/ike2s/%s", ns, name), ns, name)
 	},
 	"xcsh_ike_phase1_profile": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetIKEPhase1Profile(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/namespaces/%s/ike_phase1_profiles/%s", ns, name), ns, name)
 	},
 	"xcsh_ike_phase2_profile": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetIKEPhase2Profile(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/namespaces/%s/ike_phase2_profiles/%s", ns, name), ns, name)
 	},
 	"xcsh_ip_prefix_set": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetIPPrefixSet(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/namespaces/%s/ip_prefix_sets/%s", ns, name), ns, name)
 	},
 	"xcsh_irule": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetIrule(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/namespaces/%s/irules/%s", ns, name), ns, name)
 	},
 	"xcsh_k8s_cluster": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetK8SCluster(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/namespaces/%s/k8s_clusters/%s", ns, name), ns, name)
 	},
 	"xcsh_k8s_cluster_role": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetK8SClusterRole(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/namespaces/%s/k8s_cluster_roles/%s", ns, name), ns, name)
 	},
 	"xcsh_k8s_cluster_role_binding": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetK8SClusterRoleBinding(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/namespaces/%s/k8s_cluster_role_bindings/%s", ns, name), ns, name)
 	},
 	"xcsh_k8s_pod_security_admission": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetK8SPodSecurityAdmission(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/namespaces/%s/k8s_pod_security_admissions/%s", ns, name), ns, name)
 	},
 	"xcsh_k8s_pod_security_policy": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetK8SPodSecurityPolicy(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/namespaces/%s/k8s_pod_security_policys/%s", ns, name), ns, name)
 	},
 	"xcsh_log_receiver": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetLogReceiver(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/namespaces/%s/log_receivers/%s", ns, name), ns, name)
 	},
 	"xcsh_malicious_user_mitigation": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetMaliciousUserMitigation(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/namespaces/%s/malicious_user_mitigations/%s", ns, name), ns, name)
 	},
 	"xcsh_mitigated_domain": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetMitigatedDomain(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/shape/csd/namespaces/%s/mitigated_domains/%s", ns, name), ns, name)
 	},
 	"xcsh_namespace": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetNamespace(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/web/namespaces/%s", name), ns, name)
 	},
 	"xcsh_nat_policy": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetNATPolicy(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/namespaces/%s/nat_policys/%s", ns, name), ns, name)
 	},
 	"xcsh_network_connector": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetNetworkConnector(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/namespaces/%s/network_connectors/%s", ns, name), ns, name)
 	},
 	"xcsh_network_firewall": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetNetworkFirewall(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/namespaces/%s/network_firewalls/%s", ns, name), ns, name)
 	},
 	"xcsh_network_interface": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetNetworkInterface(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/namespaces/%s/network_interfaces/%s", ns, name), ns, name)
 	},
 	"xcsh_network_policy": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetNetworkPolicy(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/namespaces/%s/network_policys/%s", ns, name), ns, name)
 	},
 	"xcsh_network_policy_rule": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetNetworkPolicyRule(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/namespaces/%s/network_policy_rules/%s", ns, name), ns, name)
 	},
 	"xcsh_network_policy_view": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetNetworkPolicyView(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/namespaces/%s/network_policy_views/%s", ns, name), ns, name)
 	},
 	"xcsh_nfv_service": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetNfvService(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/namespaces/%s/nfv_services/%s", ns, name), ns, name)
 	},
 	"xcsh_nginx_service_discovery": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetNginxServiceDiscovery(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/namespaces/%s/nginx_service_discoverys/%s", ns, name), ns, name)
 	},
 	"xcsh_origin_pool": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetOriginPool(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/namespaces/%s/origin_pools/%s", ns, name), ns, name)
 	},
 	"xcsh_policer": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetPolicer(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/namespaces/%s/policers/%s", ns, name), ns, name)
 	},
 	"xcsh_policy_based_routing": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetPolicyBasedRouting(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/namespaces/%s/policy_based_routings/%s", ns, name), ns, name)
 	},
 	"xcsh_protected_application": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetProtectedApplication(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/shape/bot/namespaces/%s/protected_applications/%s", ns, name), ns, name)
 	},
 	"xcsh_protected_domain": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetProtectedDomain(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/shape/csd/namespaces/%s/protected_domains/%s", ns, name), ns, name)
 	},
 	"xcsh_protocol_inspection": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetProtocolInspection(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/namespaces/%s/protocol_inspections/%s", ns, name), ns, name)
 	},
 	"xcsh_protocol_policer": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetProtocolPolicer(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/namespaces/%s/protocol_policers/%s", ns, name), ns, name)
 	},
 	"xcsh_proxy": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetProxy(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/namespaces/%s/proxys/%s", ns, name), ns, name)
 	},
 	"xcsh_rate_limiter": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetRateLimiter(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/namespaces/%s/rate_limiters/%s", ns, name), ns, name)
 	},
 	"xcsh_rate_limiter_policy": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetRateLimiterPolicy(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/namespaces/%s/rate_limiter_policys/%s", ns, name), ns, name)
 	},
 	"xcsh_registration": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetRegistration(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/register/namespaces/%s/registrations/%s", ns, name), ns, name)
 	},
 	"xcsh_route": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetRoute(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/namespaces/%s/routes/%s", ns, name), ns, name)
 	},
 	"xcsh_secret_management_access": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetSecretManagementAccess(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/namespaces/%s/secret_management_accesss/%s", ns, name), ns, name)
 	},
 	"xcsh_securemesh_site_v2": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetSecuremeshSiteV2(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/namespaces/%s/securemesh_site_v2s/%s", ns, name), ns, name)
 	},
 	"xcsh_segment": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetSegment(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/namespaces/%s/segments/%s", ns, name), ns, name)
 	},
 	"xcsh_sensitive_data_policy": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetSensitiveDataPolicy(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/namespaces/%s/sensitive_data_policys/%s", ns, name), ns, name)
 	},
 	"xcsh_service_policy": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetServicePolicy(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/namespaces/%s/service_policys/%s", ns, name), ns, name)
 	},
 	"xcsh_service_policy_rule": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetServicePolicyRule(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/namespaces/%s/service_policy_rules/%s", ns, name), ns, name)
 	},
 	"xcsh_site_mesh_group": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetSiteMeshGroup(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/namespaces/%s/site_mesh_groups/%s", ns, name), ns, name)
 	},
 	"xcsh_srv6_network_slice": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetSrv6NetworkSlice(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/namespaces/%s/srv6_network_slices/%s", ns, name), ns, name)
 	},
 	"xcsh_subnet": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetSubnet(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/namespaces/%s/subnets/%s", ns, name), ns, name)
 	},
 	"xcsh_tcp_loadbalancer": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetTCPLoadBalancer(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/namespaces/%s/tcp_loadbalancers/%s", ns, name), ns, name)
 	},
 	"xcsh_tenant_configuration": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetTenantConfiguration(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/namespaces/%s/tenant_configurations/%s", ns, name), ns, name)
 	},
 	"xcsh_token": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetToken(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/register/namespaces/%s/tokens/%s", ns, name), ns, name)
 	},
 	"xcsh_trusted_ca_list": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetTrustedCAList(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/namespaces/%s/trusted_ca_lists/%s", ns, name), ns, name)
 	},
 	"xcsh_tunnel": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetTunnel(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/namespaces/%s/tunnels/%s", ns, name), ns, name)
 	},
 	"xcsh_udp_loadbalancer": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetUDPLoadBalancer(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/namespaces/%s/udp_loadbalancers/%s", ns, name), ns, name)
 	},
 	"xcsh_usb_policy": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetUsbPolicy(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/namespaces/%s/usb_policys/%s", ns, name), ns, name)
 	},
 	"xcsh_user_identification": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetUserIdentification(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/namespaces/%s/user_identifications/%s", ns, name), ns, name)
 	},
 	"xcsh_virtual_host": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetVirtualHost(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/namespaces/%s/virtual_hosts/%s", ns, name), ns, name)
 	},
 	"xcsh_virtual_k8s": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetVirtualK8S(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/namespaces/%s/virtual_k8ss/%s", ns, name), ns, name)
 	},
 	"xcsh_virtual_network": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetVirtualNetwork(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/namespaces/%s/virtual_networks/%s", ns, name), ns, name)
 	},
 	"xcsh_virtual_site": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetVirtualSite(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/namespaces/%s/virtual_sites/%s", ns, name), ns, name)
 	},
 	"xcsh_waf_exclusion_policy": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetWAFExclusionPolicy(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/namespaces/%s/waf_exclusion_policys/%s", ns, name), ns, name)
 	},
 	"xcsh_workload": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetWorkload(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/namespaces/%s/workloads/%s", ns, name), ns, name)
 	},
 	"xcsh_workload_flavor": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
-		r, err := c.GetWorkloadFlavor(ctx, ns, name)
-		if err != nil {
-			return client.Metadata{}, err
-		}
-		if r == nil || r.Metadata.Name != name || r.Metadata.UID == "" {
-			return client.Metadata{}, fmt.Errorf("invalid ownership readback")
-		}
-		return r.Metadata, nil
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/namespaces/%s/workload_flavors/%s", ns, name), ns, name)
 	},
 }
 var ownedCollectionRoutes = map[string]string{

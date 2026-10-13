@@ -183,7 +183,7 @@ func RandomName(prefix string) string {
 		suffix := strings.TrimPrefix(prefix, canonicalBase)
 		prefix = canonicalBase + "-" + run + suffix
 	}
-	if len(prefix) > 54 {
+	if run := os.Getenv("XCSH_ACC_RUN_ID"); run != "" && len(prefix) > 54 {
 		prefix = prefix[:54]
 	}
 	return fmt.Sprintf("%s-%s", prefix, acctest.RandStringFromCharSet(8, acctest.CharSetAlphaNum))
