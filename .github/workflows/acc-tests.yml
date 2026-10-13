@@ -150,7 +150,7 @@ jobs:
             2>&1 | tee test-reports/test-output-mock.json || TEST_STATUS=${PIPESTATUS[0]}
 
           JSON_REPORT_STATUS=0
-          cat test-reports/test-output-mock.json | go run tools/test-report/main.go \
+          cat test-reports/test-output-mock.json | go run ./tools/test-report \
             -format=json -output=test-reports/mock-tests.json || JSON_REPORT_STATUS=$?
           jq -e '.total_passed | numbers' test-reports/mock-tests.json >/dev/null || {
             echo "::error::Mock JSON report was not generated completely"
@@ -169,10 +169,10 @@ jobs:
           fi
 
           JUNIT_REPORT_STATUS=0
-          cat test-reports/test-output-mock.json | go run tools/test-report/main.go \
+          cat test-reports/test-output-mock.json | go run ./tools/test-report \
             -format=junit -output=test-reports/mock-tests.xml || JUNIT_REPORT_STATUS=$?
           MARKDOWN_REPORT_STATUS=0
-          cat test-reports/test-output-mock.json | go run tools/test-report/main.go \
+          cat test-reports/test-output-mock.json | go run ./tools/test-report \
             -format=markdown -all -output=test-reports/mock-tests.md || MARKDOWN_REPORT_STATUS=$?
           if [[ ! -s test-reports/mock-tests.xml || ! -s test-reports/mock-tests.md ||
                 "$JUNIT_REPORT_STATUS" -ne "$EXPECTED_REPORT_STATUS" ||
@@ -344,11 +344,11 @@ jobs:
 
           # Never emit the raw live-tenant stream to logs or artifacts.
           JSON_REPORT_STATUS=0
-          cat "$RAW_TEST_OUTPUT" | go run tools/test-report/main.go \
-            -tenant-safe -format=json -output=test-reports/real-tests.json || JSON_REPORT_STATUS=$?
+          cat "$RAW_TEST_OUTPUT" | go run ./tools/test-report \
+            -tenant-safe -schema="$XCSH_ACC_SCHEMA" -format=json -output=test-reports/real-tests.json || JSON_REPORT_STATUS=$?
           MARKDOWN_REPORT_STATUS=0
-          cat "$RAW_TEST_OUTPUT" | go run tools/test-report/main.go \
-            -tenant-safe -format=markdown -all -output=test-reports/real-tests.md || MARKDOWN_REPORT_STATUS=$?
+          cat "$RAW_TEST_OUTPUT" | go run ./tools/test-report \
+            -tenant-safe -schema="$XCSH_ACC_SCHEMA" -format=markdown -all -output=test-reports/real-tests.md || MARKDOWN_REPORT_STATUS=$?
           jq -e '
             (.stream_completeness.complete == true) and
             (.total_tests > 0) and

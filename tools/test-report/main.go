@@ -91,6 +91,7 @@ type FailureFingerprint struct {
 	HTTPStatus      int          `json:"http_status,omitempty"`
 	SourceLocation  string       `json:"source_location,omitempty"`
 	DiagnosticFacts []string     `json:"diagnostic_facts,omitempty"`
+	SchemaFields    []string     `json:"schema_fields,omitempty"`
 }
 
 // FailureFingerprintSummary deterministically groups identical safe failure
@@ -266,8 +267,15 @@ func main() {
 	showAll := flag.Bool("all", false, "Show all tests, not just summary")
 	slowestCount := flag.Int("slowest", 10, "Number of slowest tests to show")
 	tenantSafe := flag.Bool("tenant-safe", false, "Omit raw diagnostic and skip output; retain only allowlisted failure fingerprints")
+	schemaPath := flag.String("schema", "", "Installed schema for allowlisted field-only diagnostics")
 	flag.Parse()
 
+	if *schemaPath != "" {
+		if err := loadPublicSchemaFields(*schemaPath); err != nil {
+			fmt.Fprintln(os.Stderr, "Installed diagnostic schema unavailable")
+			os.Exit(1)
+		}
+	}
 	report := parseTestOutput(*slowestCount, *tenantSafe)
 
 	var out *os.File
@@ -544,6 +552,7 @@ var frameworkSummaries = []string{
 func classifyFailureFingerprint(output string) FailureFingerprint {
 	fingerprint := FailureFingerprint{
 		Summary:        extractPublicOperationSummary(output),
+		SchemaFields:   extractPublicSchemaFields(output),
 		SourceLocation: extractPublicSourceLocation(output),
 	}
 	lower := strings.ToLower(output)
