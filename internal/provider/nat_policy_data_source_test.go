@@ -40,9 +40,10 @@ func testAccNatPolicyDataSourceConfig_basic(name string, siteName string) string
 		acctest.ProviderConfig(),
 		fmt.Sprintf(`
 
-resource "xcsh_segment" "fixture" {
- name = "%[1]s-segment"
+resource "xcsh_virtual_network" "fixture" {
+ name = "%[1]s-network"
  namespace = "system"
+ global_network = {}
 }
 resource "xcsh_nat_policy" "test" {
   name      = %[1]q
@@ -56,10 +57,10 @@ resource "xcsh_nat_policy" "test" {
   rules {
     name = "fixture"
     enable = {}
-    segment {
+    virtual_network {
       refs {
-        name = xcsh_segment.fixture.name
-        namespace = xcsh_segment.fixture.namespace
+        name = xcsh_virtual_network.fixture.name
+        namespace = xcsh_virtual_network.fixture.namespace
       }
     }
     criteria { any = {} }

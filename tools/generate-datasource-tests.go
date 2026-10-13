@@ -402,10 +402,10 @@ var resourceConfigs = map[string]string{
   rules {
     name = "fixture"
     enable = {}
-    segment {
+    virtual_network {
       refs {
-        name = xcsh_segment.fixture.name
-        namespace = xcsh_segment.fixture.namespace
+        name = xcsh_virtual_network.fixture.name
+        namespace = xcsh_virtual_network.fixture.namespace
       }
     }
     criteria { any = {} }
@@ -619,9 +619,10 @@ resource "xcsh_forwarding_class" "fixture" {
 }`,
 
 	"nat_policy": `
-resource "xcsh_segment" "fixture" {
- name = "%[1]s-segment"
+resource "xcsh_virtual_network" "fixture" {
+ name = "%[1]s-network"
  namespace = "system"
+ global_network = {}
 }`,
 
 	"api_definition": `

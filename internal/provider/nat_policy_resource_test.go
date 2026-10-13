@@ -75,9 +75,10 @@ resource "time_sleep" "wait_for_namespace" {
   create_duration = "5s"
 }
 
-resource "xcsh_segment" "fixture" {
- name = "%[2]s-segment"
+resource "xcsh_virtual_network" "fixture" {
+ name = "%[2]s-network"
  namespace = "system"
+ global_network = {}
 }
 resource "xcsh_nat_policy" "test" {
   depends_on = [time_sleep.wait_for_namespace]
@@ -93,10 +94,10 @@ resource "xcsh_nat_policy" "test" {
   rules {
     name = "rule1"
     enable = {}
-    segment {
+    virtual_network {
       refs {
-        name = xcsh_segment.fixture.name
-        namespace = xcsh_segment.fixture.namespace
+        name = xcsh_virtual_network.fixture.name
+        namespace = xcsh_virtual_network.fixture.namespace
       }
     }
 
