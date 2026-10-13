@@ -25,6 +25,45 @@ func logAcceptanceAPIDiagnostic(response *http.Response) {
 	// Preserve the original response for the API client; only fixed facts are logged.
 	response.Body = io.NopCloser(bytes.NewReader(data))
 	text := strings.ToLower(string(data))
+	words := regexp.MustCompile(`[a-z][a-z0-9_]*`).FindAllString(text, -1)
+	vocabulary := strings.Fields("message code details quota quotas limit limits rate maximum minimum available allowed exceeded exceeding exhausted exhausted_resource exhaustion configured configuration configure namespace namespaces system shared default kind resource resources global tenant number count current total not no none missing found unknown unsupported invalid denied permission forbidden must should requires required need needs cannot unable failed failure create creation capacity max reached greater than too many exists exist existing object objects name value ref reference referred referring selector site virtual customer regional edge ce re segment network dns config field constraint constraints rule match selected expansion resolve internal server error operation format response status type specification pool port in from to for is are the a of be on with as undefined bad out range larger less zero negative per exhaustedresource enabled feature entitlement entitlements quota_limit quota_usage quota_used limit_exceeded")
+	allowed := map[string]bool{}
+	for _, word := range vocabulary {
+		allowed[word] = true
+	}
+	safe := []string{}
+	for _, word := range words {
+		if allowed[word] {
+			safe = append(safe, word)
+		} else {
+			safe = append(safe, "_")
+		}
+	}
+	if private := os.Getenv("XCSH_ACC_PRIVATE"); private != "" {
+		record := map[string]interface{}{"status": response.StatusCode, "words": safe}
+		if response.Request != nil {
+			for typ, route := range ownedCollectionRoutes {
+				parts := strings.Split(response.Request.URL.Path, "/")
+				ns := ""
+				for i, part := range parts {
+					if part == "namespaces" && i+1 < len(parts) {
+						ns = parts[i+1]
+						break
+					}
+				}
+				if strings.ReplaceAll(route, "%s", ns) == response.Request.URL.Path {
+					record["resource_type"] = typ
+					break
+				}
+			}
+		}
+		encoded, _ := json.Marshal(record)
+		f, err := os.OpenFile(private+"/fixed-api-errors.jsonl", os.O_CREATE|os.O_APPEND|os.O_WRONLY, 0600)
+		if err == nil {
+			_, _ = f.Write(append(encoded, '\n'))
+			_ = f.Close()
+		}
+	}
 	signatures := map[string][]string{
 		"resource_dependency_missing": {"not found", "does not exist", "failed to resolve", "no such"},
 		"quota_unconfigured":          {"quota not configured"},
