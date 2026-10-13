@@ -124,6 +124,7 @@ jobs:
           GOMAXPROCS: "1"
           INPUT_PARALLEL: ${{ github.event.inputs.parallel }}
           INPUT_TIMEOUT: ${{ github.event.inputs.timeout }}
+          INPUT_TEST_PATTERN: ${{ github.event.inputs.test_pattern }}
         run: |
           set -o pipefail
           mkdir -p test-reports
@@ -145,36 +146,36 @@ jobs:
             -parallel 1 \
             -count=1 \
             -timeout "${TIMEOUT}m" \
-            -run '^(TestAcc|TestMock)' \
+            -run "${INPUT_TEST_PATTERN:-^(TestAcc|TestMock)}" \
             ./internal/provider/... \
             2>&1 | tee test-reports/test-output-mock.json || TEST_STATUS=${PIPESTATUS[0]}
 
           JSON_REPORT_STATUS=0
           cat test-reports/test-output-mock.json | go run ./tools/test-report \
             -format=json -output=test-reports/mock-tests.json || JSON_REPORT_STATUS=$?
-          jq -e '.total_passed | numbers' test-reports/mock-tests.json >/dev/null || {
-            echo "::error::Mock JSON report was not generated completely"
-            exit 1
-          }
-
-          # Extract metrics for outputs
-          PASSED=$(jq -r '.total_passed // 0' test-reports/mock-tests.json)
-          FAILED=$(jq -r '.total_failed // 0' test-reports/mock-tests.json)
-
-          EXPECTED_REPORT_STATUS=0
-          if [[ "$FAILED" -ne 0 ]]; then EXPECTED_REPORT_STATUS=1; fi
-          if [[ "$JSON_REPORT_STATUS" -ne "$EXPECTED_REPORT_STATUS" ]]; then
-            echo "::error::Mock JSON reporter exit disagrees with its measured failures"
-            exit 1
-          fi
-
           JUNIT_REPORT_STATUS=0
           cat test-reports/test-output-mock.json | go run ./tools/test-report \
             -format=junit -output=test-reports/mock-tests.xml || JUNIT_REPORT_STATUS=$?
           MARKDOWN_REPORT_STATUS=0
           cat test-reports/test-output-mock.json | go run ./tools/test-report \
             -format=markdown -all -output=test-reports/mock-tests.md || MARKDOWN_REPORT_STATUS=$?
+
+          # Produce every report before evaluating completeness or test gates.
+          jq -e '
+            (.stream_completeness.complete == true) and
+            (.total_tests > 0) and
+            (.total_passed | type == "number") and
+            (.total_failed | type == "number")
+          ' test-reports/mock-tests.json >/dev/null || {
+            echo "::error::Mock JSON report was not generated completely"
+            exit 1
+          }
+          PASSED=$(jq -r '.total_passed' test-reports/mock-tests.json)
+          FAILED=$(jq -r '.total_failed' test-reports/mock-tests.json)
+          EXPECTED_REPORT_STATUS=0
+          if [[ "$FAILED" -ne 0 ]]; then EXPECTED_REPORT_STATUS=1; fi
           if [[ ! -s test-reports/mock-tests.xml || ! -s test-reports/mock-tests.md ||
+                "$JSON_REPORT_STATUS" -ne "$EXPECTED_REPORT_STATUS" ||
                 "$JUNIT_REPORT_STATUS" -ne "$EXPECTED_REPORT_STATUS" ||
                 "$MARKDOWN_REPORT_STATUS" -ne "$EXPECTED_REPORT_STATUS" ]]; then
             echo "::error::Mock evidence generation was incomplete or inconsistent"
@@ -314,6 +315,7 @@ jobs:
           # See the mock-tests job: dispatch inputs and step outputs are passed as
           # env so they cannot expand into the run body as shell.
           INPUT_TIMEOUT: ${{ github.event.inputs.timeout }}
+          INPUT_TEST_PATTERN: ${{ github.event.inputs.test_pattern }}
         run: |
           set -o pipefail
           mkdir -p test-reports
@@ -338,7 +340,7 @@ jobs:
             -parallel 1 \
             -timeout "${TIMEOUT}m" \
             -count=1 \
-            -run '^TestAcc' \
+            -run "${INPUT_TEST_PATTERN:-^TestAcc}" \
             ./internal/provider/... \
             > "$RAW_TEST_OUTPUT" 2>&1 || TEST_STATUS=$?
 
