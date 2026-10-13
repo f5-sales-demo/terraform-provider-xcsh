@@ -16,6 +16,7 @@ func TestAccExternalConnectorResource_basic(t *testing.T) {
 
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
+	acctest.RequireConnectorEndpoint(t)
 
 	rName := acctest.RandomName("tf-acc-test-ec")
 	nsName := "system"
@@ -68,6 +69,23 @@ func testAccExternalConnectorConfig_basic(nsName, name string) string {
 resource "xcsh_external_connector" "test" {
   name      = %[2]q
   namespace = %[1]q
+  ce_site_reference {
+    name = %[3]q
+    namespace = "system"
+  }
+  gre {
+    gre_parameters {
+      peer_ip_address { addr = "192.0.2.2" }
+      site_local_network = {}
+      tunnel_mtu = 1370
+      tunnel_eps {
+        node = %[4]q
+        interface = %[5]q
+        local_tunnel_ip = "192.0.2.1/30"
+        remote_tunnel_ip = "192.0.2.2/30"
+      }
+    }
+  }
 }
-`, nsName, name))
+`, nsName, name, acctest.ReadOnlySiteName(), acctest.ReadOnlyConnectorNode(), acctest.ReadOnlyConnectorInterface()))
 }
