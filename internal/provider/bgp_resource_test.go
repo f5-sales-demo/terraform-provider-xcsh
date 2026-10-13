@@ -79,6 +79,7 @@ resource "xcsh_bgp" "test" {
 
   where {
     site {
+      network_type = "VIRTUAL_NETWORK_SITE_LOCAL_INSIDE"
       ref {
         name = %[3]q
         namespace = "system"

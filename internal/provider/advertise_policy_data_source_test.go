@@ -56,6 +56,7 @@ resource "xcsh_advertise_policy" "test" {
   name       = %[2]q
   namespace  = xcsh_namespace.test.name
   port = 80
+  protocol = "TCP"
 }
 
 data "xcsh_advertise_policy" "test" {

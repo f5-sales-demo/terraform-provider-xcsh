@@ -186,7 +186,8 @@ var resourceConfigs = map[string]string{
   }`,
 
 	"advertise_policy": `
-  port = 80`,
+  port = 80
+  protocol = "TCP"`,
 
 	"alert_receiver": `
   email {
