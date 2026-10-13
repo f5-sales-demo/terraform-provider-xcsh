@@ -575,7 +575,7 @@ func classifyFailureFingerprint(output string) FailureFingerprint {
 		SourceLocation: extractPublicSourceLocation(output),
 	}
 	lower := strings.ToLower(output)
-	for _, fact := range []string{"resource_dependency_missing", "quota_unconfigured", "quota_exceeded", "swagger_reference", "document_fetch_failed", "document_parse_failed", "namespace_constraint", "missing_required_input", "schema_validation", "authentication_denied"} {
+	for _, fact := range []string{"resource_limit_exhausted", "namespace_required_default", "namespace_required_shared", "site_selector_unavailable","resource_dependency_missing", "quota_unconfigured", "quota_exceeded", "swagger_reference", "document_fetch_failed", "document_parse_failed", "namespace_constraint", "missing_required_input", "schema_validation", "authentication_denied"} {
 		if strings.Contains(output, "[API_DIAGNOSTIC:"+fact+"]") {
 			fingerprint.DiagnosticFacts = append(fingerprint.DiagnosticFacts, fact)
 		}

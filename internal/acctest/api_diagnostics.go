@@ -28,6 +28,10 @@ func logAcceptanceAPIDiagnostic(response *http.Response) {
 	signatures := map[string][]string{
 		"resource_dependency_missing": {"not found", "does not exist", "failed to resolve", "no such"},
 		"quota_unconfigured":          {"quota not configured"},
+		"resource_limit_exhausted":    {"resource exhausted", "resource_exhausted", "limit exceeded", "exceeds quota", "maximum allowed", "quota"},
+		"namespace_required_default":  {"default namespace", "namespace default"},
+		"namespace_required_shared":   {"shared namespace", "namespace shared"},
+		"site_selector_unavailable":   {"no matching site", "no sites", "site selector", "site-selector", "virtual-site"},
 		"quota_exceeded":              {"quota exceeded", "quota limit", "maximum number"},
 		"document_fetch_failed":       {"unable to download", "failed to download", "failed to fetch", "cannot fetch", "fetch failed", "file not found", "not found"},
 		"document_parse_failed":       {"failed to parse", "unable to parse", "parse error", "invalid spec", "invalid schema", "invalid format"},
