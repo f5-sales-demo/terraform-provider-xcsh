@@ -214,10 +214,7 @@
             "class": "framework_diagnostic",
             "summary": "Provider produced inconsistent result after apply",
             "source_location": "route_data_source_test.go:16",
-            "schema_fields": [
-              "routes.disable_location_add",
-              "routes.match.http_method"
-            ]
+            "schema_fields": ["routes.disable_location_add", "routes.match.http_method"]
           },
           "prerequisites": [
             {
@@ -439,9 +436,7 @@
             "summary": "Create request failed",
             "http_status": 400,
             "source_location": "securemesh_site_v2_resource_test.go:142",
-            "diagnostic_facts": [
-              "namespace_constraint"
-            ],
+            "diagnostic_facts": ["namespace_constraint"],
             "schema_fields": [
               "active_enhanced_firewall_policies.enhanced_firewall_policies.namespace",
               "active_forward_proxy_policies.forward_proxy_policies.namespace",

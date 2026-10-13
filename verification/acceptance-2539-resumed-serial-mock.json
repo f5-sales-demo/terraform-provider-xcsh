@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "source": "36c8e6f206229a843c3ea898983f521a7d43d0d2",
+  "total": 664,
+  "passed": 627,
+  "failed": 0,
+  "skipped": 37,
+  "stream_completeness": {
+    "complete": true,
+    "events": 7549,
+    "malformed_lines": 0,
+    "invalid_events": 0,
+    "scanner_error": false,
+    "incomplete_tests": 0,
+    "incomplete_packages": 0,
+    "package_failures": 0
+  },
+  "final_source_qualified": false,
+  "artifacts_sha256": {
+    "final-full-mock.json": "02c241cf7e2e19a441aad8b8bfee39bdf1e0e803ca0c066e068d30c064ce7b5d",
+    "final-full-mock.md": "14ca3a023cd08ebb6e009bc0714dafb11050196f467afe5ea375cc8bf4bbe6b7",
+    "final-full-mock.raw.json": "98a11bcbd9b91613a175034c5657420f0a1b778ee99c0a4a271c9b82b9eabad6"
+  }
+}

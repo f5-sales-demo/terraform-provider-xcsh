@@ -1,0 +1,269 @@
+{
+  "version": 1,
+  "credential_route": "session_private_ubuntu",
+  "runs": [
+    {
+      "label": "focused",
+      "source": "0745f96b091",
+      "total": 8,
+      "passed": 3,
+      "failed": 4,
+      "skipped": 1,
+      "stream_completeness": {
+        "complete": false,
+        "events": 190,
+        "malformed_lines": 0,
+        "invalid_events": 0,
+        "scanner_error": false,
+        "incomplete_tests": 0,
+        "incomplete_packages": 0,
+        "package_failures": 1
+      },
+      "tests": [
+        {
+          "name": "TestAccAPICrawlerResource_basic",
+          "status": "pass",
+          "prerequisites": [
+            {
+              "outcome": "tested",
+              "method": "POST",
+              "resource_type": "xcsh_api_crawler"
+            }
+          ]
+        },
+        {
+          "name": "TestAccCRLResource_basic",
+          "status": "pass",
+          "prerequisites": [
+            {
+              "outcome": "tested",
+              "method": "POST",
+              "resource_type": "xcsh_crl"
+            }
+          ]
+        },
+        {
+          "name": "TestAccContainerRegistryDataSource_basic",
+          "status": "pass",
+          "prerequisites": [
+            {
+              "outcome": "tested",
+              "method": "POST",
+              "resource_type": "xcsh_container_registry"
+            }
+          ]
+        },
+        {
+          "name": "TestAccForwardingClassResource_basic",
+          "status": "skip",
+          "prerequisites": [
+            {
+              "outcome": "quota_unconfigured",
+              "method": "GET",
+              "resource_type": "xcsh_forwarding_class"
+            }
+          ]
+        },
+        {
+          "name": "TestAccGlobalLogReceiverResource_basic",
+          "status": "fail",
+          "prerequisites": [
+            {
+              "outcome": "tested",
+              "method": "POST",
+              "resource_type": "xcsh_namespace"
+            }
+          ],
+          "failure_fingerprint": {
+            "class": "framework_diagnostic",
+            "source_location": "global_log_receiver_resource_test.go:17"
+          }
+        },
+        {
+          "name": "TestAccSecuremeshSiteV2Resource_segmentVRF",
+          "status": "fail",
+          "prerequisites": [
+            {
+              "outcome": "tested",
+              "method": "POST",
+              "resource_type": "xcsh_segment"
+            },
+            {
+              "outcome": "tested",
+              "method": "POST",
+              "resource_type": "xcsh_securemesh_site_v2"
+            }
+          ],
+          "failure_fingerprint": {
+            "class": "http_error",
+            "summary": "Create request failed",
+            "http_status": 400,
+            "source_location": "securemesh_site_v2_resource_test.go:142",
+            "diagnostic_facts": ["namespace_constraint"],
+            "schema_fields": [
+              "active_enhanced_firewall_policies.enhanced_firewall_policies.namespace",
+              "active_forward_proxy_policies.forward_proxy_policies.namespace",
+              "blocked_services.blocked_service.dns",
+              "dc_cluster_group_sli.namespace",
+              "dc_cluster_group_slo.namespace",
+              "local_vrf.sli_config.static_routes.static_routes.node_interface.list.interface.namespace",
+              "local_vrf.sli_config.static_v6_routes.static_routes.node_interface.list.interface.namespace",
+              "local_vrf.slo_config.static_routes.static_routes.node_interface.list.interface.namespace",
+              "local_vrf.slo_config.static_v6_routes.static_routes.node_interface.list.interface.namespace",
+              "log_receiver_with_net.log_receiver.namespace",
+              "namespace",
+              "segment_vrf.segment_config.static_routes.static_routes.node_interface.list.interface.namespace",
+              "segment_vrf.segment_config.static_v6_routes.static_routes.node_interface.list.interface.namespace",
+              "segment_vrf.segment_network.namespace",
+              "site_mesh_group_on_slo.site_mesh_group.namespace"
+            ]
+          }
+        },
+        {
+          "name": "TestAccSiteMeshGroupDataSource_basic",
+          "status": "fail",
+          "prerequisites": [
+            {
+              "outcome": "tested",
+              "method": "POST",
+              "resource_type": "xcsh_site_mesh_group"
+            },
+            {
+              "outcome": "infrastructure_verified",
+              "method": "GET",
+              "resource_type": "virtual_site"
+            }
+          ],
+          "failure_fingerprint": {
+            "class": "server_error",
+            "summary": "Create request failed",
+            "http_status": 500,
+            "source_location": "site_mesh_group_data_source_test.go:16"
+          }
+        },
+        {
+          "name": "TestAccSiteMeshGroupResource_fullMesh",
+          "status": "fail",
+          "prerequisites": [
+            {
+              "outcome": "tested",
+              "method": "POST",
+              "resource_type": "xcsh_site_mesh_group"
+            },
+            {
+              "outcome": "infrastructure_verified",
+              "method": "GET",
+              "resource_type": "virtual_site"
+            }
+          ],
+          "failure_fingerprint": {
+            "class": "server_error",
+            "summary": "Create request failed",
+            "http_status": 500,
+            "source_location": "site_mesh_group_resource_test.go:100"
+          }
+        }
+      ],
+      "cleanup_initial": {
+        "version": 1,
+        "diagnostics": {
+          "delete_failed": 1,
+          "second_pass_not_absent": 1
+        },
+        "journal_sha256": "b78ebf22735bbd4aaebeee1ee7faffa11bb1ab06238258379736edb35ce78486",
+        "complete": false,
+        "owned": 13,
+        "confirmed_absent": 12,
+        "failures": 1,
+        "second_pass_remaining": 1
+      },
+      "cleanup_recovered": {
+        "version": 1,
+        "journal_sha256": "37f848a866c03d7dfe1e3c524f8ab89d81b5c926b462f91b397f940c8182112a",
+        "complete": true,
+        "owned": 13,
+        "confirmed_absent": 13,
+        "failures": 0,
+        "second_pass_remaining": 0
+      },
+      "artifacts_sha256": {
+        "tests.json": "a2205082bec5be3593201bad230bb44cdab23515d377abff674c29b4cfe6aa36",
+        "tests.md": "18f175500a0f45c6f39146b58e8efb58051cd95200f8e988d173ca3ad5c8e281",
+        "cleanup-recovered.json": "9934868c496addd6b0f6cceff37345061fd4aee9986661d223f8465792dfccf4"
+      }
+    },
+    {
+      "label": "segment-replay-2",
+      "source": "a84332102ed",
+      "total": 2,
+      "passed": 2,
+      "failed": 0,
+      "skipped": 0,
+      "stream_completeness": {
+        "complete": true,
+        "events": 29,
+        "malformed_lines": 0,
+        "invalid_events": 0,
+        "scanner_error": false,
+        "incomplete_tests": 0,
+        "incomplete_packages": 0,
+        "package_failures": 0
+      },
+      "tests": [
+        {
+          "name": "TestAccGlobalLogReceiverResource_basic",
+          "status": "pass",
+          "prerequisites": [
+            {
+              "outcome": "tested",
+              "method": "POST",
+              "resource_type": "xcsh_namespace"
+            }
+          ]
+        },
+        {
+          "name": "TestAccSecuremeshSiteV2Resource_segmentVRF",
+          "status": "pass",
+          "prerequisites": [
+            {
+              "outcome": "tested",
+              "method": "POST",
+              "resource_type": "xcsh_segment"
+            },
+            {
+              "outcome": "tested",
+              "method": "POST",
+              "resource_type": "xcsh_securemesh_site_v2"
+            }
+          ]
+        }
+      ],
+      "cleanup_initial": {
+        "version": 1,
+        "diagnostics": {
+          "delete_failed": 1
+        },
+        "journal_sha256": "77b79a1714b25acf1ab6d791a45597a9bdeca97009d35c8648aa98f424e149f4",
+        "complete": false,
+        "owned": 8,
+        "confirmed_absent": 7,
+        "failures": 1,
+        "second_pass_remaining": 0
+      },
+      "cleanup_recovered": {
+        "version": 1,
+        "journal_sha256": "f40df8f9e0cb2a1c1457150c5a792a7df36589651539d9d1a527bd96588ec68a",
+        "complete": true,
+        "owned": 8,
+        "confirmed_absent": 8,
+        "failures": 0,
+        "second_pass_remaining": 0
+      },
+      "artifacts_sha256": {
+        "tests.json": "046b0f09af5c0252b5641ce67e0de3dfdf87bcb533685e9a90bd49448e5f7da4",
+        "tests.md": "737514a5d3d46e0509ee0641a9074062ada74fe4f6eb6a3742dce67491bcce56",
+        "cleanup-recovered.json": "c6be5d584bdfc59922aedd6a3c744aecb40522ea31362c4351a80a28726faf62"
+      }
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "selectors": [
+    {
+      "created": true,
+      "read_complete": true,
+      "selected": 3,
+      "system_namespace": true
+    },
+    {
+      "created": true,
+      "read_complete": true,
+      "selected": 3,
+      "system_namespace": false
+    }
+  ],
+  "variants": [
+    {
+      "accepted": false,
+      "selector_system_namespace": true,
+      "status": 500,
+      "variant": "markers"
+    },
+    {
+      "accepted": false,
+      "selector_system_namespace": true,
+      "status": 500,
+      "variant": "enabled"
+    },
+    {
+      "accepted": true,
+      "selector_system_namespace": true,
+      "variant": "data_plane"
+    },
+    {
+      "accepted": true,
+      "selector_system_namespace": true,
+      "variant": "explicit_type"
+    },
+    {
+      "accepted": true,
+      "selector_system_namespace": true,
+      "variant": "fallback_only"
+    },
+    {
+      "accepted": false,
+      "selector_system_namespace": false,
+      "status": 500,
+      "variant": "markers"
+    },
+    {
+      "accepted": false,
+      "selector_system_namespace": false,
+      "status": 500,
+      "variant": "enabled"
+    },
+    {
+      "accepted": true,
+      "selector_system_namespace": false,
+      "variant": "data_plane"
+    },
+    {
+      "accepted": true,
+      "selector_system_namespace": false,
+      "variant": "explicit_type"
+    },
+    {
+      "accepted": true,
+      "selector_system_namespace": false,
+      "variant": "fallback_only"
+    }
+  ],
+  "version": 1,
+  "cleanup": {
+    "version": 1,
+    "journal_sha256": "e60b0978a19f2fd136dc3acf5a8e5d580f91ed01be0661d8999237801412d852",
+    "complete": true,
+    "owned": 12,
+    "confirmed_absent": 12,
+    "failures": 0,
+    "second_pass_remaining": 0
+  },
+  "qualification": false
+}

@@ -1,0 +1,105 @@
+{
+  "version": 1,
+  "run": 38386445672,
+  "source": "369f837b060",
+  "facts": {
+    "expansion_error_present": false,
+    "mesh_variants": [
+      {
+        "accepted": false,
+        "status": 500,
+        "variant": "nested"
+      },
+      {
+        "accepted": false,
+        "status": 500,
+        "variant": "nested_tenant"
+      },
+      {
+        "accepted": false,
+        "status": 500,
+        "variant": "qualified_name"
+      }
+    ],
+    "segment_name_matches": true,
+    "segment_variants": [
+      {
+        "accepted": false,
+        "invalid_dns_label": false,
+        "mentions_qualified_reference": false,
+        "mentions_segment_name": true,
+        "status": 400,
+        "variant": "nested"
+      },
+      {
+        "accepted": false,
+        "invalid_dns_label": false,
+        "mentions_qualified_reference": false,
+        "mentions_segment_name": true,
+        "status": 400,
+        "variant": "nested_tenant"
+      },
+      {
+        "accepted": false,
+        "invalid_dns_label": false,
+        "mentions_qualified_reference": false,
+        "mentions_segment_name": true,
+        "status": 400,
+        "variant": "name_only"
+      },
+      {
+        "accepted": false,
+        "invalid_dns_label": false,
+        "mentions_qualified_reference": true,
+        "mentions_segment_name": true,
+        "status": 400,
+        "variant": "qualified_name"
+      },
+      {
+        "accepted": false,
+        "invalid_dns_label": false,
+        "mentions_qualified_reference": false,
+        "mentions_segment_name": true,
+        "status": 400,
+        "variant": "segment_config"
+      }
+    ],
+    "selected_count": 0,
+    "selected_sites": 0,
+    "selectees_present": true,
+    "tenant_available": true,
+    "version": 1
+  },
+  "cleanup": {
+    "version": 1,
+    "journal_sha256": "1609cdc06306992fb3ce69db1c99bf65f65d39b4dceae6cad521c064b12fd2c5",
+    "complete": true,
+    "owned": 13,
+    "confirmed_absent": 13,
+    "failures": 0,
+    "second_pass_remaining": 0
+  },
+  "test_counts": {
+    "total_tests": 1,
+    "total_passed": 0,
+    "total_failed": 0,
+    "total_skipped": 1
+  },
+  "stream_completeness": {
+    "complete": true,
+    "events": 12,
+    "malformed_lines": 0,
+    "invalid_events": 0,
+    "scanner_error": false,
+    "incomplete_tests": 0,
+    "incomplete_packages": 0,
+    "package_failures": 0
+  },
+  "artifacts_sha256": {
+    "reference-resolution-facts.json": "81d226406ba756b07cb8f678480010e8aefd12b9ad79c8e52806b8727fbcdbd0",
+    "real-tests.json": "0b2b04adc6d22c588d415748c22af78328bbef0a48ef521262d12226cb506f13",
+    "real-tests.md": "c708376abe15590caa68dd50900d35b9e4b18d944b06b179d5d4bae4cf38e6fc",
+    "cleanup.json": "6e892560f0bfe7785d63ab38c26206c34e13f72fb5cd9bbcdf55229b05bfd04c"
+  },
+  "qualification": false
+}
