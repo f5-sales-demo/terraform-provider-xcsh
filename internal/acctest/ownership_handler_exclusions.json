@@ -1,9 +1,25 @@
 {
   "version": 1,
-  "explicit_handlers_required": [
-    "public_ip_binding",
-    "registration_approval",
-    "smsv2_kvm_runtime_interface",
-    "swagger_object"
+  "resources": [
+    {
+      "type": "public_ip_binding",
+      "handler": "non_disposable_action_scope",
+      "reason": "mutates independently owned infrastructure; no disposable CRUD lifecycle"
+    },
+    {
+      "type": "registration_approval",
+      "handler": "non_disposable_action_scope",
+      "reason": "mutates independently owned infrastructure; no disposable CRUD lifecycle"
+    },
+    {
+      "type": "smsv2_kvm_runtime_interface",
+      "handler": "non_disposable_action_scope",
+      "reason": "mutates independently owned infrastructure; no disposable CRUD lifecycle"
+    },
+    {
+      "type": "swagger_object",
+      "handler": "exact_version_content_digest",
+      "reason": "immutable owned version"
+    }
   ]
 }

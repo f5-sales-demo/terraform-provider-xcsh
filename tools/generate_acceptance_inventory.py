@@ -77,7 +77,24 @@ def generate(root: pathlib.Path) -> None:
     )
     (root / "internal/acctest/ownership_handlers_generated.go").write_text(result)
     (root / "internal/acctest/ownership_handler_exclusions.json").write_text(
-        json.dumps({"version": 1, "explicit_handlers_required": exclusions}, indent=2)
+        json.dumps(
+            {
+                "version": 1,
+                "resources": [
+                    {
+                        "type": name,
+                        "handler": "exact_version_content_digest"
+                        if name == "swagger_object"
+                        else "non_disposable_action_scope",
+                        "reason": "immutable owned version"
+                        if name == "swagger_object"
+                        else "mutates independently owned infrastructure; no disposable CRUD lifecycle",
+                    }
+                    for name in exclusions
+                ],
+            },
+            indent=2,
+        )
         + "\n"
     )
 
