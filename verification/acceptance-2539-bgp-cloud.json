@@ -1,0 +1,107 @@
+{
+  "version": 1,
+  "source": "1774be98f2d",
+  "total": 5,
+  "passed": 2,
+  "failed": 1,
+  "skipped": 2,
+  "tests": [
+    {
+      "name": "TestAccBGPResource_basic",
+      "status": "fail",
+      "prerequisites": [
+        {
+          "outcome": "tested",
+          "method": "POST",
+          "resource_type": "xcsh_bgp"
+        },
+        {
+          "outcome": "infrastructure_verified",
+          "method": "GET",
+          "resource_type": "site"
+        }
+      ],
+      "failure_fingerprint": {
+        "class": "http_error",
+        "summary": "Create request failed",
+        "http_status": 400,
+        "source_location": "bgp_resource_test.go:17",
+        "diagnostic_facts": ["missing_required_input"],
+        "schema_fields": ["peers", "peers.external"]
+      }
+    },
+    {
+      "name": "TestAccBgpDataSource_basic",
+      "status": "pass",
+      "prerequisites": [
+        {
+          "outcome": "tested",
+          "method": "POST",
+          "resource_type": "xcsh_bgp"
+        },
+        {
+          "outcome": "infrastructure_verified",
+          "method": "GET",
+          "resource_type": "site"
+        }
+      ]
+    },
+    {
+      "name": "TestAccBgpRoutingPolicyDataSource_basic",
+      "status": "pass",
+      "prerequisites": [
+        {
+          "outcome": "tested",
+          "method": "POST",
+          "resource_type": "xcsh_bgp_routing_policy"
+        }
+      ]
+    },
+    {
+      "name": "TestAccCloudElasticIpDataSource_basic",
+      "status": "skip",
+      "prerequisites": [
+        {
+          "outcome": "tested",
+          "method": "POST",
+          "resource_type": "xcsh_namespace"
+        },
+        {
+          "outcome": "infrastructure_absent",
+          "method": "GET",
+          "resource_type": "cloud_site"
+        }
+      ]
+    },
+    {
+      "name": "TestAccCloudLinkDataSource_basic",
+      "status": "skip",
+      "prerequisites": [
+        {
+          "outcome": "tested",
+          "method": "POST",
+          "resource_type": "xcsh_namespace"
+        },
+        {
+          "outcome": "infrastructure_absent",
+          "method": "GET",
+          "resource_type": "cloud_site"
+        }
+      ]
+    }
+  ],
+  "cleanup": {
+    "version": 1,
+    "journal_sha256": "3ed3ec68b0e7410d53220a02e951ba4233890b2f8238b7820365b3054a5499d8",
+    "complete": true,
+    "owned": 8,
+    "confirmed_absent": 8,
+    "failures": 0,
+    "second_pass_remaining": 0
+  },
+  "digests": {
+    "tests.json": "ab047b29768a056c825965158e160e09e9f7741f927f8e7c5052bda44e927fbd",
+    "tests.md": "23538d15ee9783ab265209175e782ad5086401f87f6d3df23d3b762e095cdbf5",
+    "cleanup.json": "dfb06a30f4bbaf0d387126333e3bf39d4240be9a0241ea91aeb4b215b2f1de8b"
+  }
+}
