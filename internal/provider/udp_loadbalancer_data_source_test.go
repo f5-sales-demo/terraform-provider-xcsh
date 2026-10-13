@@ -47,7 +47,7 @@ resource "xcsh_origin_pool" "test" {
       ip = "192.0.2.1"
     }
   }
-  port               = 80
+  port               = 53
   endpoint_selection = "LOCAL_PREFERRED"
   loadbalancer_algorithm = "ROUND_ROBIN"
 }

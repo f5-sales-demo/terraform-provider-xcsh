@@ -49,7 +49,7 @@ resource "xcsh_route" "test" {
     }
     route_direct_response {
       response_code = 200
-      response_body_encoded = "T0s="
+      response_body_encoded = "string:///T0s="
     }
     waf_type { inherit_waf = {} }
   }

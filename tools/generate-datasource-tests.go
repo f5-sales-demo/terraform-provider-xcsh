@@ -74,7 +74,7 @@ var resourceConfigs = map[string]string{
     }
     route_direct_response {
       response_code = 200
-      response_body_encoded = "T0s="
+      response_body_encoded = "string:///T0s="
     }
     waf_type { inherit_waf = {} }
   }`,
@@ -391,6 +391,7 @@ var resourceConfigs = map[string]string{
   protocol = "TCP"`,
 
 	"network_policy_view": `
+  endpoint { any = {} }
   ingress_rules {
     action = "ALLOW"
     any = {}
@@ -588,7 +589,7 @@ resource "xcsh_origin_pool" "test" {
       ip = "192.0.2.1"
     }
   }
-  port               = 80
+  port               = 53
   endpoint_selection = "LOCAL_PREFERRED"
   loadbalancer_algorithm = "ROUND_ROBIN"
 }

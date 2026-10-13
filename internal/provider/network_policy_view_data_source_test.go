@@ -42,6 +42,7 @@ func testAccNetworkPolicyViewDataSourceConfig_basic(name string) string {
 resource "xcsh_network_policy_view" "test" {
   name      = %[1]q
   namespace = "system"
+  endpoint { any = {} }
   ingress_rules {
     action = "ALLOW"
     any = {}
