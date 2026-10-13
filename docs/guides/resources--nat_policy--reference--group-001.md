@@ -347,16 +347,16 @@ Each exact path has one authoritative reference destination. Collection element 
 | `namespace` | [namespace](resources--nat_policy--reference--group-001.md#canonical-2200223211211102-2323121031031230-0111022031310222-1130031212113032-2133312210210022-0022132323331320-0111202321223301-3013322002130122) |
 | `rules` | [rules](resources--nat_policy--reference--group-001.md#canonical-1213230032120130-1310201032022230-2210021020301121-2022301310033333-0312210220102203-0002001213333330-0032031233202320-3311221233122321) |
 | `rules.action` | [rules.action](resources--nat_policy--reference--group-001.md#canonical-3132032130003123-1023102133012110-3300213111331201-1022301232311113-1131330123030300-2311000022133200-3023200003111300-2202023003310132) |
-| `rules.action.dynamic` | [rules.action.dynamic](resources--nat_policy--reference--group-001.md#canonical-2022332100311212-1103130032012132-1022200020013013-3111222320303112-1202002300320222-1121211231120102-2201003221113102-1321231211112233) |
-| `rules.action.dynamic.elastic_ips` | [rules.action.dynamic.elastic_ips](resources--nat_policy--reference--group-001.md#canonical-1130011120302103-3120010010110020-2013030332331321-3103333032111003-1023333310312123-3130022330100002-3132221123211201-0113223100230020) |
-| `rules.action.dynamic.elastic_ips.refs` | [rules.action.dynamic.elastic_ips.refs](resources--nat_policy--reference--group-001.md#canonical-3230002133311231-2010102100120113-1113203231030110-1000220310213203-1312312323302111-2322303111211303-2222321233303012-0211011001102220) |
-| `rules.action.dynamic.elastic_ips.refs.kind` | [rules.action.dynamic.elastic_ips.refs.kind](resources--nat_policy--reference--group-001.md#canonical-1113212230003330-0031300331133012-3200033020012322-2330123011203102-1121220200102020-2132103212231022-3021013323231102-1211130323313032) |
-| `rules.action.dynamic.elastic_ips.refs.name` | [rules.action.dynamic.elastic_ips.refs.name](resources--nat_policy--reference--group-001.md#canonical-1213022111010220-1301111222110013-2203220211303222-0121212331203100-3020112210330330-2222103002310121-0230113100020023-2321002232022210) |
-| `rules.action.dynamic.elastic_ips.refs.namespace` | [rules.action.dynamic.elastic_ips.refs.namespace](resources--nat_policy--reference--group-001.md#canonical-1223231033310010-0101033100210003-1031311333032123-3233030032213303-3033230320330231-0322233213333232-1313113131202003-3100202010010330) |
-| `rules.action.dynamic.elastic_ips.refs.tenant` | [rules.action.dynamic.elastic_ips.refs.tenant](resources--nat_policy--reference--group-001.md#canonical-1021313213300012-3003022030012320-3231111020023113-0013332322111102-0221213030313230-0011300332103313-0320110330132121-3333032310131220) |
-| `rules.action.dynamic.elastic_ips.refs.uid` | [rules.action.dynamic.elastic_ips.refs.uid](resources--nat_policy--reference--group-001.md#canonical-0322010231113103-0223301132323002-3020223311312302-3210323030201020-0303202333010310-2302032211020123-2030031311203021-2203213223023120) |
-| `rules.action.dynamic.pools` | [rules.action.dynamic.pools](resources--nat_policy--reference--group-001.md#canonical-2333122032123311-2132123202201123-0002023121210131-2011022133331210-0213001020203103-0233132120101020-1000122210322003-1213012112103332) |
-| `rules.action.dynamic.pools.prefixes` | [rules.action.dynamic.pools.prefixes](resources--nat_policy--reference--group-001.md#canonical-3131030022302230-2321000123112123-0002113101103322-2103131111001120-1130201203233302-2221232123033023-0031131321022211-2213110303201200) |
+| `rules.action.dynamic_pool` | [rules.action.dynamic_pool](resources--nat_policy--reference--group-001.md#canonical-2211202111031320-3320132033320213-3222100123123003-2332113123210130-0220213313013112-0232010333300112-1332133311023211-0310031101300120) |
+| `rules.action.dynamic_pool.elastic_ips` | [rules.action.dynamic_pool.elastic_ips](resources--nat_policy--reference--group-001.md#canonical-1222222302232010-0110000001213302-2332100023121111-3033313330320123-1211313301223112-2330232201021211-2212322201010010-2312030311021011) |
+| `rules.action.dynamic_pool.elastic_ips.refs` | [rules.action.dynamic_pool.elastic_ips.refs](resources--nat_policy--reference--group-001.md#canonical-2301302112220101-0020313001132031-0131333100323310-1232030012222131-3220212030212201-0312123103133033-0102211033101330-2233113310222300) |
+| `rules.action.dynamic_pool.elastic_ips.refs.kind` | [rules.action.dynamic_pool.elastic_ips.refs.kind](resources--nat_policy--reference--group-001.md#canonical-3130303000113311-3321330303312012-2022230330020232-2200222002032332-0310001313323002-3033230103102023-3211330013330300-1320012120033320) |
+| `rules.action.dynamic_pool.elastic_ips.refs.name` | [rules.action.dynamic_pool.elastic_ips.refs.name](resources--nat_policy--reference--group-001.md#canonical-0010022122233231-1330312231332000-0333122333201300-2333032030211320-3311323311010120-0002110000111302-3120321230312110-1222122022301321) |
+| `rules.action.dynamic_pool.elastic_ips.refs.namespace` | [rules.action.dynamic_pool.elastic_ips.refs.namespace](resources--nat_policy--reference--group-001.md#canonical-0231212013320103-2322333211100112-3213310333011030-0130231320333321-2020200021320221-1320301331332120-0311232020201222-0320121212120100) |
+| `rules.action.dynamic_pool.elastic_ips.refs.tenant` | [rules.action.dynamic_pool.elastic_ips.refs.tenant](resources--nat_policy--reference--group-001.md#canonical-3322003220321032-0220233003130110-0332201020231330-3030330230232323-2101103021102123-1112310103210112-2310300200020301-3313012212301213) |
+| `rules.action.dynamic_pool.elastic_ips.refs.uid` | [rules.action.dynamic_pool.elastic_ips.refs.uid](resources--nat_policy--reference--group-001.md#canonical-2010310102312301-2012023322120313-1031120023222003-2110313202303111-1313321231320331-2112031131220310-3022233122201330-2203321220111230) |
+| `rules.action.dynamic_pool.pools` | [rules.action.dynamic_pool.pools](resources--nat_policy--reference--group-001.md#canonical-0102031303103022-2110002031031023-3212222223223212-1131113023203000-3020112132200203-1102120120223111-3233323013111000-0233333011101230) |
+| `rules.action.dynamic_pool.pools.prefixes` | [rules.action.dynamic_pool.pools.prefixes](resources--nat_policy--reference--group-001.md#canonical-1313133311010322-0232332310202331-1102130101310021-0313121101121002-2322030210300211-1130022321013231-3202213122312303-2013332222022120) |
 | `rules.action.virtual_cidr` | [rules.action.virtual_cidr](resources--nat_policy--reference--group-001.md#canonical-1203200121312221-0103022130321003-0132020131202300-0113311020012122-3230130211100231-2303030333302100-2023002312200303-2021223113202212) |
 | `rules.cloud_connect` | [rules.cloud_connect](resources--nat_policy--reference--group-001.md#canonical-1111312031133000-0013212212212233-3310210223200331-0313021033103133-1121003013233000-3300330003220212-2313222100113121-3030310310330302) |
 | `rules.cloud_connect.refs` | [rules.cloud_connect.refs](resources--nat_policy--reference--group-001.md#canonical-1311001123333020-0003323000131120-2023112330112021-0023023323332100-1220122112322101-1232131110302212-1102210202213233-0102000022110010) |
@@ -623,7 +623,7 @@ Provider validators and defaults (from schema source):
 
 ```go
 EnumExtractionComplete: false
-Validators: []validator.Object{validators.ConflictingObjectAttributes("dynamic",
+Validators: []validator.Object{validators.ConflictingObjectAttributes("dynamic_pool",
     "virtual_cidr")}
 ```
 
@@ -653,7 +653,7 @@ action {
 
 ### Direct properties for `rules.action`
 
-- [dynamic](resources--nat_policy--reference--group-001.md#canonical-0221213332001013-1211231020320202-2110123331210011-3311233300323212-0323332201123333-3023103321300300-1013003221001113-1100103221120012): complete subsection reference.
+- [dynamic_pool](resources--nat_policy--reference--group-001.md#canonical-0001302111202011-2132230122033202-3030010011233111-0223320203201202-3023020220121332-2233113020002132-1320211001201300-1230230011213313): complete subsection reference.
 
 <a id="canonical-1203200121312221-0103022130321003-0132020131202300-0113311020012122-3230130211100231-2303030333302100-2023002312200303-2021223113202212"></a>
 
@@ -709,13 +709,13 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-<a id="canonical-0221213332001013-1211231020320202-2110123331210011-3311233300323212-0323332201123333-3023103321300300-1013003221001113-1100103221120012"></a>
+<a id="canonical-0001302111202011-2132230122033202-3030010011233111-0223320203201202-3023020220121332-2233113020002132-1320211001201300-1230230011213313"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-## `rules.action.dynamic` properties
+## `rules.action.dynamic_pool` properties
 
 Breadcrumbs:
 
@@ -723,9 +723,9 @@ Breadcrumbs:
 - [Property reference](resources--nat_policy--reference--group-001.md#canonical-3020222133133201-3022303223012310-1120231003312300-0101031322031013-1020101232211220-3311111200100321-3011121133111320-0102131300033201)
 - [rules](resources--nat_policy--reference--group-001.md#canonical-2012000321231320-0111310003001103-1103213311023201-2231113112111332-1323003130112121-2020001112021003-1133301220231213-3111322002030132)
 - [rules.action](resources--nat_policy--reference--group-001.md#canonical-1122221021030123-2131233221312132-0230001013023100-0130321320322011-2220032330303113-0023002023013103-3130110202211032-1022000313331212)
-- rules.action.dynamic
+- rules.action.dynamic_pool
 
-<a id="canonical-2022332100311212-1103130032012132-1022200020013013-3111222320303112-1202002300320222-1121211231120102-2201003221113102-1321231211112233"></a>
+<a id="canonical-2211202111031320-3320132033320213-3222100123123003-2332113123210130-0220213313013112-0232010333300112-1332133311023211-0310031101300120"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -739,43 +739,29 @@ Validators: []validator.Object{validators.ConflictingObjectAttributes("elastic_i
     "pools")}
 ```
 
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-ves-oneof-field-pool_choice": "[\"elastic_ips\",\"pools\"]"
-}
-```
-
 Terraform syntax:
 
 ```terraform
-dynamic {
+dynamic_pool {
   # Configure direct properties listed below.
 }
 ```
 
-<a id="canonical-2223010222221211-0300002313231300-0100122212213201-3013133023311223-0220310030331320-3132311222021210-1220321113131232-3130000033301303"></a>
+<a id="canonical-1033130233201012-1230111011103032-3131300012031220-3233103122111213-2031123202222020-3232321213210023-3030103111132130-0110112332030010"></a>
 
-### Direct properties for `rules.action.dynamic`
+### Direct properties for `rules.action.dynamic_pool`
 
-- [elastic_ips](resources--nat_policy--reference--group-001.md#canonical-1320332012230123-1200023330031312-3010211321230103-0312220130203323-1021023110233100-1332012000310330-0322320302003223-2032133322302003): complete subsection reference.
+- [elastic_ips](resources--nat_policy--reference--group-001.md#canonical-1321030321131233-1211133330201130-1030020022332202-3210001332110133-2301303300323100-0022033302313303-0023333301233000-1113332222223113): complete subsection reference.
 
-- [pools](resources--nat_policy--reference--group-001.md#canonical-3101330020232121-1300120130322033-1120200032101230-0031011222111032-3100321032313012-3300112132101200-0333021110213112-2300123021320102): complete subsection reference.
+- [pools](resources--nat_policy--reference--group-001.md#canonical-1203231020021100-0311032330223312-0303233201201121-2330102332101102-2123101221333330-0231110331032012-1021232112103021-3130111102312233): complete subsection reference.
 
-<a id="canonical-1320332012230123-1200023330031312-3010211321230103-0312220130203323-1021023110233100-1332012000310330-0322320302003223-2032133322302003"></a>
+<a id="canonical-1321030321131233-1211133330201130-1030020022332202-3210001332110133-2301303300323100-0022033302313303-0023333301233000-1113332222223113"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-## `rules.action.dynamic.elastic_ips` properties
+## `rules.action.dynamic_pool.elastic_ips` properties
 
 Breadcrumbs:
 
@@ -783,10 +769,10 @@ Breadcrumbs:
 - [Property reference](resources--nat_policy--reference--group-001.md#canonical-3020222133133201-3022303223012310-1120231003312300-0101031322031013-1020101232211220-3311111200100321-3011121133111320-0102131300033201)
 - [rules](resources--nat_policy--reference--group-001.md#canonical-2012000321231320-0111310003001103-1103213311023201-2231113112111332-1323003130112121-2020001112021003-1133301220231213-3111322002030132)
 - [rules.action](resources--nat_policy--reference--group-001.md#canonical-1122221021030123-2131233221312132-0230001013023100-0130321320322011-2220032330303113-0023002023013103-3130110202211032-1022000313331212)
-- [rules.action.dynamic](resources--nat_policy--reference--group-001.md#canonical-0221213332001013-1211231020320202-2110123331210011-3311233300323212-0323332201123333-3023103321300300-1013003221001113-1100103221120012)
-- rules.action.dynamic.elastic_ips
+- [rules.action.dynamic_pool](resources--nat_policy--reference--group-001.md#canonical-0001302111202011-2132230122033202-3030010011233111-0223320203201202-3023020220121332-2233113020002132-1320211001201300-1230230011213313)
+- rules.action.dynamic_pool.elastic_ips
 
-<a id="canonical-1130011120302103-3120010010110020-2013030332331321-3103333032111003-1023333310312123-3130022330100002-3132221123211201-0113223100230020"></a>
+<a id="canonical-1222222302232010-0110000001213302-2332100023121111-3033313330320123-1211313301223112-2330232201021211-2212322201010010-2312030311021011"></a>
 
 Type: `"object"`. single nested block, Optional.
 
@@ -799,19 +785,6 @@ EnumExtractionComplete: false
 Validators: []validator.Object{validators.RequiredObjectAttributes("refs")}
 ```
 
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
 Terraform syntax:
 
 ```terraform
@@ -820,19 +793,19 @@ elastic_ips {
 }
 ```
 
-<a id="canonical-0311221232311232-1211320233102200-0221213130013211-0013102121123320-3313330213313322-1113123330303113-0133030110110301-0022031321222101"></a>
+<a id="canonical-3002133120132210-3331100011021123-0233210130301230-2001000101101133-0111113131320120-0010330223300101-0123201110211323-3210200312031303"></a>
 
-### Direct properties for `rules.action.dynamic.elastic_ips`
+### Direct properties for `rules.action.dynamic_pool.elastic_ips`
 
-- [refs](resources--nat_policy--reference--group-001.md#canonical-3021303223113021-3220020210100310-0021033122120022-2201011001330101-1320221000010220-0033132112200311-3031202133011201-1033121211131023): complete subsection reference.
+- [refs](resources--nat_policy--reference--group-001.md#canonical-2310022320312033-1010312320230231-2010102030010323-3303310021323023-2320010023303203-0301100120330003-0131303033223100-0012200102012303): complete subsection reference.
 
-<a id="canonical-3021303223113021-3220020210100310-0021033122120022-2201011001330101-1320221000010220-0033132112200311-3031202133011201-1033121211131023"></a>
+<a id="canonical-2310022320312033-1010312320230231-2010102030010323-3303310021323023-2320010023303203-0301100120330003-0131303033223100-0012200102012303"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-## `rules.action.dynamic.elastic_ips.refs` properties
+## `rules.action.dynamic_pool.elastic_ips.refs` properties
 
 Breadcrumbs:
 
@@ -840,48 +813,15 @@ Breadcrumbs:
 - [Property reference](resources--nat_policy--reference--group-001.md#canonical-3020222133133201-3022303223012310-1120231003312300-0101031322031013-1020101232211220-3311111200100321-3011121133111320-0102131300033201)
 - [rules](resources--nat_policy--reference--group-001.md#canonical-2012000321231320-0111310003001103-1103213311023201-2231113112111332-1323003130112121-2020001112021003-1133301220231213-3111322002030132)
 - [rules.action](resources--nat_policy--reference--group-001.md#canonical-1122221021030123-2131233221312132-0230001013023100-0130321320322011-2220032330303113-0023002023013103-3130110202211032-1022000313331212)
-- [rules.action.dynamic](resources--nat_policy--reference--group-001.md#canonical-0221213332001013-1211231020320202-2110123331210011-3311233300323212-0323332201123333-3023103321300300-1013003221001113-1100103221120012)
-- [rules.action.dynamic.elastic_ips](resources--nat_policy--reference--group-001.md#canonical-1320332012230123-1200023330031312-3010211321230103-0312220130203323-1021023110233100-1332012000310330-0322320302003223-2032133322302003)
-- rules.action.dynamic.elastic_ips.refs
+- [rules.action.dynamic_pool](resources--nat_policy--reference--group-001.md#canonical-0001302111202011-2132230122033202-3030010011233111-0223320203201202-3023020220121332-2233113020002132-1320211001201300-1230230011213313)
+- [rules.action.dynamic_pool.elastic_ips](resources--nat_policy--reference--group-001.md#canonical-1321030321131233-1211133330201130-1030020022332202-3210001332110133-2301303300323100-0022033302313303-0023333301233000-1113332222223113)
+- rules.action.dynamic_pool.elastic_ips.refs
 
-<a id="canonical-3230002133311231-2010102100120113-1113203231030110-1000220310213203-1312312323302111-2322303111211303-2222321233303012-0211011001102220"></a>
+<a id="canonical-2301302112220101-0020313001132031-0131333100323310-1232030012222131-3220212030212201-0312123103133033-0102211033101330-2233113310222300"></a>
 
 Type: `"object"`. list nested block, Optional.
 
 Reference to one or more cloud elastic IP objects.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxItems": 4,
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "array",
-    "deterministic": true,
-    "maxItems": 4,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-10-10T03:47:03+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": true,
-    "minimum_config": true,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.repeated.max_items": "4"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.repeated.max_items": "4"
-  }
-}
-```
 
 Terraform syntax:
 
@@ -891,86 +831,35 @@ refs {
 }
 ```
 
-<a id="canonical-3121331233303003-0313310010131030-1030121221321220-2310130222211220-1202021012231201-3320032011333323-1121221301222111-2201202100231100"></a>
+<a id="canonical-0231130012303322-3200002010321231-1322132022023302-1300223310202020-1113331131020302-2211210011121222-2101300130013130-0000300303320002"></a>
 
-### Direct properties for `rules.action.dynamic.elastic_ips.refs`
+### Direct properties for `rules.action.dynamic_pool.elastic_ips.refs`
 
-<a id="canonical-1113212230003330-0031300331133012-3200033020012322-2330123011203102-1121220200102020-2132103212231022-3021013323231102-1211130323313032"></a>
+<a id="canonical-3130303000113311-3321330303312012-2022230330020232-2200222002032332-0310001313323002-3033230103102023-3211330013330300-1320012120033320"></a>
 
-#### `rules.action.dynamic.elastic_ips.refs.kind` property
+#### `rules.action.dynamic_pool.elastic_ips.refs.kind` property
 
 Type: `"string"`. Computed.
 
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then kind will hold the
 referred object's kind (e.g. 'route').
 
-Additional upstream details:
+<a id="canonical-0010022122233231-1330312231332000-0333122333201300-2333032030211320-3311323311010120-0002110000111302-3120321230312110-1222122022301321"></a>
 
-Virtual\_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g.
-"route")
+<a id="canonical-0320301033330312-3003000301011003-2003102103202201-3122333320213003-3331000211122203-2210123313321020-1311301300032231-2110013122030232"></a>
 
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "string",
-    "maxLength": 1024,
-    "metadata": {
-      "confidence": 0.85,
-      "source": "inferred",
-      "validatedAt": "2026-10-10T03:47:03+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-1213022111010220-1301111222110013-2203220211303222-0121212331203100-3020112210330330-2222103002310121-0230113100020023-2321002232022210"></a>
-
-<a id="canonical-0210213302111223-1010211022303300-1232220100013203-0232003230211023-2000222333132210-0013112003302233-2121222102032023-3200133122311311"></a>
-
-#### `rules.action.dynamic.elastic_ips.refs.name` property
+#### `rules.action.dynamic_pool.elastic_ips.refs.name` property
 
 Type: `"string"`. Optional.
 
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
 referred object's(e.g. Route's) name.
 
-Receipt-pinned upstream constraints:
+<a id="canonical-0231212013320103-2322333211100112-3213310333011030-0130231320333321-2020200021320221-1320301331332120-0311232020201222-0320121212120100"></a>
 
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "string",
-    "maxLength": 1024,
-    "metadata": {
-      "confidence": 0.85,
-      "source": "inferred",
-      "validatedAt": "2026-10-10T03:47:03+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
+<a id="canonical-1223321223111212-0011033333032213-0001123201003131-3010232311031200-1331022211202032-3132311022313100-0203011113213212-0130002222031310"></a>
 
-<a id="canonical-1223231033310010-0101033100210003-1031311333032123-3233030032213303-3033230320330231-0322233213333232-1313113131202003-3100202010010330"></a>
-
-<a id="canonical-1001232232012223-0332002210013210-0210022123021222-2121202333320200-1202223323213000-3203222313103110-1100323313331210-2331020013012200"></a>
-
-#### `rules.action.dynamic.elastic_ips.refs.namespace` property
+#### `rules.action.dynamic_pool.elastic_ips.refs.namespace` property
 
 Type: `"string"`. Optional, Computed.
 
@@ -988,119 +877,35 @@ Validators: []validator.String{
 }
 ```
 
-Receipt-pinned upstream constraints:
+<a id="canonical-3322003220321032-0220233003130110-0332201020231330-3030330230232323-2101103021102123-1112310103210112-2310300200020301-3313012212301213"></a>
 
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "naming",
-    "characterSet": {
-      "allowed": "[a-z0-9-]",
-      "description": "Lowercase letter start, alphanumeric with hyphens, alphanumeric end",
-      "required": "[a-z0-9]",
-      "restricted": "[^a-z0-9-]"
-    },
-    "constraintType": "string",
-    "deterministic": true,
-    "format": "dns-label",
-    "formatDescription": "DNS-1035 label: must start with a lowercase letter",
-    "maxLength": 63,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "inferred",
-      "validatedAt": "2026-10-10T03:47:03+00:00"
-    },
-    "minLength": 1,
-    "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
-    "validation": {
-      "rfc": "RFC 1035",
-      "standard": "DNS-1035 label (alpha-first)"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
+<a id="canonical-2121312321221031-3031313103320131-0301223033321133-3231111202102012-1200110231130313-1010121021231100-0233110320010303-2112130031232223"></a>
 
-<a id="canonical-1021313213300012-3003022030012320-3231111020023113-0013332322111102-0221213030313230-0011300332103313-0320110330132121-3333032310131220"></a>
-
-<a id="canonical-1123313313311231-3133321323313120-0330021200231022-1222000322113310-0023220313111032-2020233111003022-2203033313333320-0011222332233333"></a>
-
-#### `rules.action.dynamic.elastic_ips.refs.tenant` property
+#### `rules.action.dynamic_pool.elastic_ips.refs.tenant` property
 
 Type: `"string"`. Computed.
 
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
 the referred object's(e.g. Route's) tenant.
 
-Receipt-pinned upstream constraints:
+<a id="canonical-2010310102312301-2012023322120313-1031120023222003-2110313202303111-1313321231320331-2112031131220310-3022233122201330-2203321220111230"></a>
 
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "string",
-    "maxLength": 1024,
-    "metadata": {
-      "confidence": 0.85,
-      "source": "inferred",
-      "validatedAt": "2026-10-10T03:47:03+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
+<a id="canonical-3102021303310333-1010200103100001-2020312131012331-1103322012001213-0313231212230112-0310000122101023-1320132321020030-1112022221031020"></a>
 
-<a id="canonical-0322010231113103-0223301132323002-3020223311312302-3210323030201020-0303202333010310-2302032211020123-2030031311203021-2203213223023120"></a>
-
-<a id="canonical-2203311331131103-0010220320213111-1311003020300101-1003231012020121-1312022201231123-1021312211123013-1121331310212230-3003022222321310"></a>
-
-#### `rules.action.dynamic.elastic_ips.refs.uid` property
+#### `rules.action.dynamic_pool.elastic_ips.refs.uid` property
 
 Type: `"string"`. Computed.
 
 When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then uid will hold the
 referred object's(e.g. Route's) uid.
 
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "string",
-    "maxLength": 1024,
-    "metadata": {
-      "confidence": 0.85,
-      "source": "inferred",
-      "validatedAt": "2026-10-10T03:47:03+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-3101330020232121-1300120130322033-1120200032101230-0031011222111032-3100321032313012-3300112132101200-0333021110213112-2300123021320102"></a>
+<a id="canonical-1203231020021100-0311032330223312-0303233201201121-2330102332101102-2123101221333330-0231110331032012-1021232112103021-3130111102312233"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
 
-## `rules.action.dynamic.pools` properties
+## `rules.action.dynamic_pool.pools` properties
 
 Breadcrumbs:
 
@@ -1108,27 +913,14 @@ Breadcrumbs:
 - [Property reference](resources--nat_policy--reference--group-001.md#canonical-3020222133133201-3022303223012310-1120231003312300-0101031322031013-1020101232211220-3311111200100321-3011121133111320-0102131300033201)
 - [rules](resources--nat_policy--reference--group-001.md#canonical-2012000321231320-0111310003001103-1103213311023201-2231113112111332-1323003130112121-2020001112021003-1133301220231213-3111322002030132)
 - [rules.action](resources--nat_policy--reference--group-001.md#canonical-1122221021030123-2131233221312132-0230001013023100-0130321320322011-2220032330303113-0023002023013103-3130110202211032-1022000313331212)
-- [rules.action.dynamic](resources--nat_policy--reference--group-001.md#canonical-0221213332001013-1211231020320202-2110123331210011-3311233300323212-0323332201123333-3023103321300300-1013003221001113-1100103221120012)
-- rules.action.dynamic.pools
+- [rules.action.dynamic_pool](resources--nat_policy--reference--group-001.md#canonical-0001302111202011-2132230122033202-3030010011233111-0223320203201202-3023020220121332-2233113020002132-1320211001201300-1230230011213313)
+- rules.action.dynamic_pool.pools
 
-<a id="canonical-2333122032123311-2132123202201123-0002023121210131-2011022133331210-0213001020203103-0233132120101020-1000122210322003-1213012112103332"></a>
+<a id="canonical-0102031303103022-2110002031031023-3212222223223212-1131113023203000-3020112132200203-1102120120223111-3233323013111000-0233333011101230"></a>
 
 Type: `"object"`. single nested block, Optional.
 
 List of IPv4 prefixes that represent an endpoint.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
 
 Terraform syntax:
 
@@ -1138,13 +930,13 @@ pools {
 }
 ```
 
-<a id="canonical-1223202332231000-1302321230010110-0100300031230002-1213103032000333-0231030033233302-0003220330303003-3201013111023222-0031231021002100"></a>
+<a id="canonical-1211100300303113-3212101213033221-0101100033111220-2030131303333303-0310111312230300-3100032330203123-3330210123213101-2000032323321123"></a>
 
-### Direct properties for `rules.action.dynamic.pools`
+### Direct properties for `rules.action.dynamic_pool.pools`
 
-<a id="canonical-3131030022302230-2321000123112123-0002113101103322-2103131111001120-1130201203233302-2221232123033023-0031131321022211-2213110303201200"></a>
+<a id="canonical-1313133311010322-0232332310202331-1102130101310021-0313121101121002-2322030210300211-1130022321013231-3202213122312303-2013332222022120"></a>
 
-#### `rules.action.dynamic.pools.prefixes` property
+#### `rules.action.dynamic_pool.pools.prefixes` property
 
 Type: `["list", "string"]`. Optional.
 
@@ -1156,42 +948,6 @@ Provider validators and defaults (from schema source):
 EnumExtractionComplete: false
 Validators: []validator.List{
   listvalidator.SizeAtMost(128),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxItems": 128,
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "array",
-    "deterministic": true,
-    "maxItems": 128,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-10-10T03:47:03+00:00"
-    },
-    "uniqueItems": true
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.repeated.items.string.ipv4_prefix": "true",
-    "ves.io.schema.rules.repeated.max_items": "128",
-    "ves.io.schema.rules.repeated.unique": "true"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.repeated.items.string.ipv4_prefix": "true",
-    "ves.io.schema.rules.repeated.max_items": "128",
-    "ves.io.schema.rules.repeated.unique": "true"
-  }
 }
 ```
 

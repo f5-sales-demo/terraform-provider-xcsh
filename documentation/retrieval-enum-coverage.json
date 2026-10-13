@@ -4,7 +4,7 @@
   "enum_fields": 339,
   "installed_fields": 35110,
   "runtime_registration_verified": false,
-  "schema_digest": "sha256:1b9ea59a790d92083efb68ff1abebe57ebbb3f7b716b91cdb7b0416134676174",
+  "schema_digest": "sha256:500e603af7c92c2c213b5cbdb574fdea5ac4e4825db9ce520b047c223b245685",
   "unresolved": [
     {
       "reason": "coverage-not-exported",
@@ -89653,52 +89653,52 @@
     },
     {
       "reason": "coverage-not-exported",
-      "schema_path": "rules.action.dynamic",
+      "schema_path": "rules.action.dynamic_pool",
       "source": "nat_policy_data_source.go"
     },
     {
       "reason": "coverage-not-exported",
-      "schema_path": "rules.action.dynamic.elastic_ips",
+      "schema_path": "rules.action.dynamic_pool.elastic_ips",
       "source": "nat_policy_data_source.go"
     },
     {
       "reason": "coverage-not-exported",
-      "schema_path": "rules.action.dynamic.elastic_ips.refs",
+      "schema_path": "rules.action.dynamic_pool.elastic_ips.refs",
       "source": "nat_policy_data_source.go"
     },
     {
       "reason": "coverage-not-exported",
-      "schema_path": "rules.action.dynamic.elastic_ips.refs.kind",
+      "schema_path": "rules.action.dynamic_pool.elastic_ips.refs.kind",
       "source": "nat_policy_data_source.go"
     },
     {
       "reason": "coverage-not-exported",
-      "schema_path": "rules.action.dynamic.elastic_ips.refs.name",
+      "schema_path": "rules.action.dynamic_pool.elastic_ips.refs.name",
       "source": "nat_policy_data_source.go"
     },
     {
       "reason": "coverage-not-exported",
-      "schema_path": "rules.action.dynamic.elastic_ips.refs.namespace",
+      "schema_path": "rules.action.dynamic_pool.elastic_ips.refs.namespace",
       "source": "nat_policy_data_source.go"
     },
     {
       "reason": "coverage-not-exported",
-      "schema_path": "rules.action.dynamic.elastic_ips.refs.tenant",
+      "schema_path": "rules.action.dynamic_pool.elastic_ips.refs.tenant",
       "source": "nat_policy_data_source.go"
     },
     {
       "reason": "coverage-not-exported",
-      "schema_path": "rules.action.dynamic.elastic_ips.refs.uid",
+      "schema_path": "rules.action.dynamic_pool.elastic_ips.refs.uid",
       "source": "nat_policy_data_source.go"
     },
     {
       "reason": "coverage-not-exported",
-      "schema_path": "rules.action.dynamic.pools",
+      "schema_path": "rules.action.dynamic_pool.pools",
       "source": "nat_policy_data_source.go"
     },
     {
       "reason": "coverage-not-exported",
-      "schema_path": "rules.action.dynamic.pools.prefixes",
+      "schema_path": "rules.action.dynamic_pool.pools.prefixes",
       "source": "nat_policy_data_source.go"
     },
     {
@@ -90078,52 +90078,52 @@
     },
     {
       "reason": "bounded-extraction-unresolved",
-      "schema_path": "rules.action.dynamic",
+      "schema_path": "rules.action.dynamic_pool",
       "source": "nat_policy_resource.go"
     },
     {
       "reason": "bounded-extraction-unresolved",
-      "schema_path": "rules.action.dynamic.elastic_ips",
+      "schema_path": "rules.action.dynamic_pool.elastic_ips",
       "source": "nat_policy_resource.go"
     },
     {
       "reason": "coverage-not-exported",
-      "schema_path": "rules.action.dynamic.elastic_ips.refs",
+      "schema_path": "rules.action.dynamic_pool.elastic_ips.refs",
       "source": "nat_policy_resource.go"
     },
     {
       "reason": "coverage-not-exported",
-      "schema_path": "rules.action.dynamic.elastic_ips.refs.kind",
+      "schema_path": "rules.action.dynamic_pool.elastic_ips.refs.kind",
       "source": "nat_policy_resource.go"
     },
     {
       "reason": "coverage-not-exported",
-      "schema_path": "rules.action.dynamic.elastic_ips.refs.name",
+      "schema_path": "rules.action.dynamic_pool.elastic_ips.refs.name",
       "source": "nat_policy_resource.go"
     },
     {
       "reason": "bounded-extraction-unresolved",
-      "schema_path": "rules.action.dynamic.elastic_ips.refs.namespace",
+      "schema_path": "rules.action.dynamic_pool.elastic_ips.refs.namespace",
       "source": "nat_policy_resource.go"
     },
     {
       "reason": "coverage-not-exported",
-      "schema_path": "rules.action.dynamic.elastic_ips.refs.tenant",
+      "schema_path": "rules.action.dynamic_pool.elastic_ips.refs.tenant",
       "source": "nat_policy_resource.go"
     },
     {
       "reason": "coverage-not-exported",
-      "schema_path": "rules.action.dynamic.elastic_ips.refs.uid",
+      "schema_path": "rules.action.dynamic_pool.elastic_ips.refs.uid",
       "source": "nat_policy_resource.go"
     },
     {
       "reason": "coverage-not-exported",
-      "schema_path": "rules.action.dynamic.pools",
+      "schema_path": "rules.action.dynamic_pool.pools",
       "source": "nat_policy_resource.go"
     },
     {
       "reason": "bounded-extraction-unresolved",
-      "schema_path": "rules.action.dynamic.pools.prefixes",
+      "schema_path": "rules.action.dynamic_pool.pools.prefixes",
       "source": "nat_policy_resource.go"
     },
     {
