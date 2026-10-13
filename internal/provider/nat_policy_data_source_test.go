@@ -14,7 +14,7 @@ import (
 func TestAccNatPolicyDataSource_basic(t *testing.T) {
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
-	acctest.RequireExistingInfrastructure(t, "site")
+	acctest.RequireCustomerEdgeSite(t)
 
 	rName := acctest.RandomName("tf-acc-test")
 	resourceName := "xcsh_nat_policy.test"

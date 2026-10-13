@@ -892,7 +892,7 @@ import (
 func {{.TestFuncName}}(t *testing.T) {
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
- {{if or (eq .Name "cloud_link") (eq .Name "cloud_elastic_ip")}}acctest.RequireExistingInfrastructure(t,"cloud_site"){{else if eq .Name "site_mesh_group"}}acctest.RequireReadOnlyVirtualSite(t){{else if eq .Name "external_connector"}}acctest.RequireConnectorEndpoint(t){{else if or (eq .Name "subnet") (eq .Name "nat_policy") (eq .Name "discovery") (eq .Name "bgp") (eq .Name "external_connector")}}acctest.RequireExistingInfrastructure(t,"site"){{end}}
+ {{if or (eq .Name "cloud_link") (eq .Name "cloud_elastic_ip")}}acctest.RequireExistingInfrastructure(t,"cloud_site"){{else if eq .Name "site_mesh_group"}}acctest.RequireReadOnlyVirtualSite(t){{else if eq .Name "nat_policy"}}acctest.RequireCustomerEdgeSite(t){{else if eq .Name "external_connector"}}acctest.RequireConnectorEndpoint(t){{else if or (eq .Name "subnet") (eq .Name "nat_policy") (eq .Name "discovery") (eq .Name "bgp") (eq .Name "external_connector")}}acctest.RequireExistingInfrastructure(t,"site"){{end}}
 
 	{{if eq .Name "api_definition"}}rName := acctest.CompactRandomName(20){{else}}rName := acctest.RandomName("tf-acc-test"){{end}}
 {{- if and .NeedsNamespace (not .IsNamespace) (not .UseSystemNamespace)}}

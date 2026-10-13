@@ -16,7 +16,7 @@ func TestAccNatPolicyResource_basic(t *testing.T) {
 
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
-	acctest.RequireExistingInfrastructure(t, "site")
+	acctest.RequireCustomerEdgeSite(t)
 
 	rName := acctest.RandomName("tf-acc-test-nat")
 	nsName := acctest.RandomName("tf-acc-test-ns")

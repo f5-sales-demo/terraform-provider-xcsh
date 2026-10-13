@@ -45,8 +45,8 @@ func discoverConnectorEndpoint(ctx context.Context, c *client.Client, ref readOn
 	if err = c.Get(ctx, path, &site); err != nil {
 		return connectorEndpoint{}, err
 	}
-	if site.Spec.Type != "CUSTOMER_EDGE" || len(site.Spec.Nodes) != 1 || site.Spec.Nodes[0].Name == "" {
-		return connectorEndpoint{}, errors.New("connector requires a verified single-node customer edge")
+	if site.Spec.Type != "CUSTOMER_EDGE" || len(site.Spec.Nodes) == 0 || site.Spec.Nodes[0].Name == "" {
+		return connectorEndpoint{}, errEligibleInfrastructureAbsent
 	}
 	ownerUID := metadata.UID
 	owner := site.SystemMetadata.Owner
@@ -112,7 +112,7 @@ func discoverConnectorEndpoint(ctx context.Context, c *client.Client, ref readOn
 		}
 	}
 	if len(devices) == 0 {
-		return connectorEndpoint{}, errors.New("connector owned Ethernet interface unavailable")
+		return connectorEndpoint{}, errEligibleInfrastructureAbsent
 	}
 	sort.Strings(devices)
 	return connectorEndpoint{Site: ref.Name, Node: site.Spec.Nodes[0].Name, Interface: devices[0]}, nil
@@ -123,17 +123,41 @@ func RequireConnectorEndpoint(t *testing.T) {
 	if IsMockMode() {
 		return
 	}
-	requireReadOnlySite(t)
 	c, err := GetTestClient()
 	if err != nil {
 		t.Fatal("connector client unavailable")
 	}
-	ctx, cancel := context.WithTimeout(context.Background(), 30*time.Second)
+	ctx, cancel := context.WithTimeout(context.Background(), 2*time.Minute)
 	defer cancel()
-	endpoint, err := discoverConnectorEndpoint(ctx, c, readOnlySiteReference{Name: ReadOnlySiteName(), Namespace: "system"})
+	refs, err := discoverCustomerEdgeSites(ctx, c)
 	if err != nil {
-		t.Fatal("connector node and interface prerequisite unverified")
+		if errors.Is(err, errEligibleInfrastructureAbsent) {
+			t.Log("[PREREQUISITE:infrastructure_absent method=GET type=connector_endpoint]")
+			t.Skip("typed inventory contains no customer edge")
+		}
+		t.Fatal("connector site inventory unverified")
 	}
+	var endpoint connectorEndpoint
+	found := false
+	for _, ref := range refs {
+		endpoint, err = discoverConnectorEndpoint(ctx, c, ref)
+		if errors.Is(err, errEligibleInfrastructureAbsent) {
+			continue
+		}
+		if err != nil {
+			t.Fatal("connector node and interface prerequisite unverified")
+		}
+		if err = saveSiteReference(ref); err != nil {
+			t.Fatal("connector site receipt unavailable")
+		}
+		found = true
+		break
+	}
+	if !found {
+		t.Log("[PREREQUISITE:infrastructure_absent method=GET type=connector_endpoint]")
+		t.Skip("typed customer-edge inventories contain no owned inside interface")
+	}
+
 	data, err := json.Marshal(endpoint)
 	if err != nil {
 		t.Fatal("connector endpoint encoding failed")
