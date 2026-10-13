@@ -201,6 +201,7 @@ var resourceConfigs = map[string]string{
 	"container_registry": `
   registry          = "registry.example.com"
   user_name         = "testuser"
+  email = "test@example.com"
   password {
     clear_secret_info {
       url = "string:///dGVzdC1wYXNzd29yZA=="
