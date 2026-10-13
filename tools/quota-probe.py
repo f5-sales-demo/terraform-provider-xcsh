@@ -1,10 +1,14 @@
-import json,os,urllib.request
+import json,os,urllib.request,urllib.error
 from pathlib import Path
 targets=['api_crawler','crl','container_registry','global_log_receiver','tcp_loadbalancer','udp_loadbalancer','forwarding_class']
 rows=[]
 for namespace in ['system','shared']:
  request=urllib.request.Request(os.environ['XCSH_API_URL'].rstrip('/')+'/api/web/namespaces/'+namespace+'/quota/limits',headers={'Authorization':'APIToken '+os.environ['XCSH_API_TOKEN'],'Accept':'application/json'})
- with urllib.request.urlopen(request,timeout=30) as response:document=json.load(response)
+ try:
+  with urllib.request.urlopen(request,timeout=30) as response:document=json.load(response)
+ except urllib.error.HTTPError as error:
+  rows.append({"namespace":namespace,"read_success":False,"http_status":error.code})
+  continue
  Path(os.environ['XCSH_ACC_PRIVATE']+'/quota-'+namespace+'.json').write_text(json.dumps(document))
  for target in targets:
   row={'namespace':namespace,'resource_type':target,'matching_entries':[]}
