@@ -43,6 +43,10 @@ resource "xcsh_route" "test" {
   name      = %[1]q
   namespace = "system"
   routes {
+    match {
+      path { prefix = "/" }
+      incoming_port { no_port_match = {} }
+    }
     route_direct_response {
       response_code = 200
       response_body_encoded = "T0s="
