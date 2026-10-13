@@ -43,7 +43,7 @@ resource "xcsh_address_allocator" "test" {
   name      = %[1]q
   namespace = "system"
   address_pool = ["10.0.0.0/24"]
-  mode = "SITE_LOCAL_ADDRESS_ALLOCATOR"
+  mode = "LOCAL"
 }
 
 data "xcsh_address_allocator" "test" {

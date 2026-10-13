@@ -125,7 +125,7 @@ var resourceConfigs = map[string]string{
 	// Resources with required fields
 	"address_allocator": `
   address_pool = ["10.0.0.0/24"]
-  mode = "SITE_LOCAL_ADDRESS_ALLOCATOR"`,
+  mode = "LOCAL"`,
 
 	"advertise_policy": `
   port = 80`,
