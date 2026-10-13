@@ -7,7 +7,13 @@ import (
 	helper "github.com/hashicorp/terraform-plugin-testing/helper/acctest"
 	"os"
 	"strings"
+	"sync"
 )
+
+var compactNames = struct {
+	sync.Mutex
+	names map[string]bool
+}{names: map[string]bool{}}
 
 func compactRunPrefix(run string) string {
 	digest := sha256.Sum256([]byte(run))
@@ -29,7 +35,16 @@ func CompactRandomName(limit int) string {
 	if remaining < 2 {
 		panic("API name limit cannot carry a run identity")
 	}
-	return prefix + helper.RandStringFromCharSet(remaining, helper.CharSetAlphaNum)
+	compactNames.Lock()
+	defer compactNames.Unlock()
+	for attempt := 0; attempt < 4096; attempt++ {
+		name := prefix + helper.RandStringFromCharSet(remaining, helper.CharSetAlphaNum)
+		if !compactNames.names[name] {
+			compactNames.names[name] = true
+			return name
+		}
+	}
+	panic("compact acceptance identity capacity exhausted")
 }
 func matchesOwnershipRun(name, run string) bool {
 	return strings.HasPrefix(name, TestResourcePrefix+run+"-") || strings.HasPrefix(name, compactRunPrefix(run))
