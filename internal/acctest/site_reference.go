@@ -23,6 +23,12 @@ func discoverReadOnlySite(ctx context.Context, c *client.Client) (readOnlySiteRe
 	return discoverReadOnlyInfrastructure(ctx, c, "sites")
 }
 func discoverReadOnlyInfrastructure(ctx context.Context, c *client.Client, collection string) (readOnlySiteReference, error) {
+	return discoverInfrastructureWithEligibility(ctx, c, collection, false)
+}
+func discoverMeshVirtualSite(ctx context.Context, c *client.Client) (readOnlySiteReference, error) {
+	return discoverInfrastructureWithEligibility(ctx, c, "virtual_sites", true)
+}
+func discoverInfrastructureWithEligibility(ctx context.Context, c *client.Client, collection string, meshOnly bool) (readOnlySiteReference, error) {
 	var listing struct {
 		Items []struct {
 			Name      string          `json:"name"`
@@ -76,6 +82,24 @@ func discoverReadOnlyInfrastructure(ctx context.Context, c *client.Client, colle
 		if err != nil {
 			return readOnlySiteReference{}, err
 		}
+		if meshOnly {
+			var object client.VirtualSite
+			if err := c.Get(ctx, "/api/config/namespaces/"+ref.Namespace+"/virtual_sites/"+ref.Name, &object); err != nil {
+				return readOnlySiteReference{}, err
+			}
+			typ, _ := object.Spec["site_type"].(string)
+			if typ == "" {
+				return readOnlySiteReference{}, errors.New("infrastructure inventory malformed")
+			}
+			if typ != "CUSTOMER_EDGE" {
+				continue
+			}
+			selector, _ := object.Spec["site_selector"].(map[string]interface{})
+			expressions, _ := selector["expressions"].([]interface{})
+			if len(expressions) == 0 {
+				continue
+			}
+		}
 		return ref, nil
 	}
 	return readOnlySiteReference{}, errors.New("existing infrastructure absent")
@@ -97,7 +121,14 @@ func requireReadOnlyReference(t *testing.T, kind, collection string) {
 	}
 	ctx, cancel := context.WithTimeout(context.Background(), 30*time.Second)
 	defer cancel()
-	ref, err := discoverReadOnlyInfrastructure(ctx, c, collection)
+	var ref readOnlySiteReference
+	var errDiscover error
+	if kind == "virtual_site" {
+		ref, errDiscover = discoverMeshVirtualSite(ctx, c)
+	} else {
+		ref, errDiscover = discoverReadOnlyInfrastructure(ctx, c, collection)
+	}
+	err = errDiscover
 	if err != nil {
 		if classifyCapabilityProbe(err) == capabilityDenied {
 			t.Logf("[PREREQUISITE:operation_denied method=GET type=%s status=403]", kind)
