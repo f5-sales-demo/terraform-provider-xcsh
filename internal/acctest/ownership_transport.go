@@ -123,6 +123,29 @@ func (t *ownershipTransport) RoundTrip(req *http.Request) (*http.Response, error
 			if !ok {
 				return nil, errors.New("acceptance update metadata missing")
 			}
+			name, _ := metadata["name"].(string)
+			namespace, _ := metadata["namespace"].(string)
+			var owned OwnedResource
+			found := false
+			t.j.mu.Lock()
+			for _, existing := range t.j.Resources {
+				if existing.Name == name && existing.Namespace == namespace {
+					expected := strings.ReplaceAll(ownedCollectionRoutes[existing.Type], "%s", namespace) + "/" + name
+					if expected == req.URL.Path {
+						owned = existing
+						found = true
+						break
+					}
+				}
+			}
+			t.j.mu.Unlock()
+			if !found || owned.UID == "" || owned.Status != "created" {
+				return nil, errors.New("update target is not journal-owned")
+			}
+			observed, err := (apiOwnershipBackend{c: t.c}).Read(req.Context(), owned)
+			if err != nil || ownershipUIDDigest(observed.UID) != owned.UID {
+				return nil, errors.New("update ownership readback failed")
+			}
 			annotations, _ := metadata["annotations"].(map[string]interface{})
 			if annotations == nil {
 				annotations = map[string]interface{}{}
