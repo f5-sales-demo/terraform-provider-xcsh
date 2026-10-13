@@ -368,7 +368,7 @@ jobs:
               any(.prerequisites[]?;
                 (.outcome == "operation_denied" and .http_status == 403) or
                 (.outcome | IN("external_credential_missing", "non_disposable_scope",
-                               "infrastructure_absent", "cloud_appliance_out_of_scope"))))) and
+                               "infrastructure_absent", "quota_unconfigured", "quota_exhausted", "cloud_appliance_out_of_scope"))))) and
             (.total_passed | type == "number") and
             (.total_failed | type == "number") and
             ((.failed_tests // []) | type == "array") and

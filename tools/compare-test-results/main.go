@@ -194,7 +194,7 @@ func loadReport(path string) (*Report, error) {
 				switch p.Outcome {
 				case "operation_denied":
 					justified = justified || p.HTTPStatus == 403
-				case "external_credential_missing", "non_disposable_scope", "infrastructure_absent", "cloud_appliance_out_of_scope":
+				case "external_credential_missing", "non_disposable_scope", "infrastructure_absent", "quota_unconfigured", "quota_exhausted", "cloud_appliance_out_of_scope":
 					justified = true
 				}
 			}

@@ -72,6 +72,22 @@ func precheckLiveCapability(t *testing.T) {
 	capabilityProbeMu.Lock()
 	defer capabilityProbeMu.Unlock()
 	for _, requirement := range requirements {
+		if requirement.Type == "xcsh_forwarding_class" || requirement.Type == "xcsh_global_log_receiver" {
+			ctx, cancel := context.WithTimeout(context.Background(), 30*time.Second)
+			quota, err := readQuotaPrerequisite(ctx, c, requirement.Type, requirement.Namespace)
+			cancel()
+			if err != nil {
+				t.Fatal("quota prerequisite evidence unavailable")
+			}
+			if quota.Unconfigured {
+				t.Logf("[PREREQUISITE:quota_unconfigured method=GET type=%s]", requirement.Type)
+				t.Skip("typed quota inventory has no resource entitlement")
+			}
+			if quota.Exhausted {
+				t.Logf("[PREREQUISITE:quota_exhausted method=GET type=%s]", requirement.Type)
+				t.Skip("typed object count reached configured quota")
+			}
+		}
 		switch requirement.Type {
 		case "xcsh_aws_tgw_site", "xcsh_nfv_service":
 			t.Logf("[PREREQUISITE:cloud_appliance_out_of_scope method=POST type=%s]", requirement.Type)
