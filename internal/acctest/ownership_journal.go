@@ -272,6 +272,7 @@ func (j *OwnershipJournal) Cleanup(ctx context.Context, b OwnershipBackend, atte
 			continue
 		}
 		absent := false
+		fatal := false
 		for attempt := 0; attempt < attempts; attempt++ {
 			metadata, readErr := b.Read(ctx, r)
 			if errors.Is(readErr, errOwnedAbsent) {
@@ -279,12 +280,15 @@ func (j *OwnershipJournal) Cleanup(ctx context.Context, b OwnershipBackend, atte
 				break
 			}
 			if readErr != nil || metadata.Name != r.Name || metadata.UID == "" || (r.UID != "" && ownershipUIDDigest(metadata.UID) != r.UID) {
+				fatal = true
 				break
 			}
 			if r.Status == "absent" {
+				fatal = true
 				break
 			}
 			if r.UID == "" && metadata.Annotations[ownershipAnnotation] != j.RunID {
+				fatal = true
 				break
 			}
 			if r.UID == "" {
@@ -292,18 +296,21 @@ func (j *OwnershipJournal) Cleanup(ctx context.Context, b OwnershipBackend, atte
 				r.Status = "created"
 				j.Resources[i] = r
 				if j.save() != nil {
+					fatal = true
 					break
 				}
 			}
 			if deleteErr := b.Delete(ctx, r); deleteErr != nil && !errors.Is(deleteErr, errOwnedAbsent) {
+				fatal = true
 				break
 			}
 			if waitContext(ctx, delay) != nil {
+				fatal = true
 				break
 			}
 		}
 		// Verify after the final delete as well.
-		if !absent {
+		if !absent && !fatal {
 			_, readErr := b.Read(ctx, r)
 			absent = errors.Is(readErr, errOwnedAbsent)
 		}

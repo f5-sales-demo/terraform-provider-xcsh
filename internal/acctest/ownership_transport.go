@@ -6,7 +6,6 @@ import (
 	"context"
 	"encoding/json"
 	"errors"
-	"fmt"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
 	"github.com/hashicorp/terraform-plugin-framework/action"
 	"github.com/hashicorp/terraform-plugin-framework/ephemeral"
@@ -14,6 +13,7 @@ import (
 	"io"
 	"net/http"
 	"os"
+	"strconv"
 	"strings"
 	"sync"
 )
@@ -88,6 +88,55 @@ type ownershipTransport struct {
 }
 
 func (t *ownershipTransport) RoundTrip(req *http.Request) (*http.Response, error) {
+	if req.Method == http.MethodPut {
+		route := false
+		for _, collection := range ownedCollectionRoutes {
+			expected := collection
+			if strings.Contains(expected, "%s") {
+				parts := strings.Split(req.URL.Path, "/")
+				for i, part := range parts {
+					if part == "namespaces" && i+1 < len(parts) {
+						expected = strings.ReplaceAll(expected, "%s", parts[i+1])
+						break
+					}
+				}
+			}
+			if strings.HasPrefix(req.URL.Path, expected+"/") {
+				route = true
+				break
+			}
+		}
+		if route && req.Body != nil {
+			data, err := io.ReadAll(req.Body)
+			if err != nil {
+				return nil, err
+			}
+			_ = req.Body.Close()
+			var payload map[string]interface{}
+			if err := json.Unmarshal(data, &payload); err != nil {
+				return nil, errors.New("invalid acceptance update request")
+			}
+			metadata, ok := payload["metadata"].(map[string]interface{})
+			if !ok {
+				return nil, errors.New("acceptance update metadata missing")
+			}
+			annotations, _ := metadata["annotations"].(map[string]interface{})
+			if annotations == nil {
+				annotations = map[string]interface{}{}
+			}
+			annotations[ownershipAnnotation] = t.j.RunID
+			metadata["annotations"] = annotations
+			data, err = json.Marshal(payload)
+			if err != nil {
+				return nil, err
+			}
+			clone := req.Clone(req.Context())
+			clone.Body = io.NopCloser(bytes.NewReader(data))
+			clone.ContentLength = int64(len(data))
+			clone.GetBody = func() (io.ReadCloser, error) { return io.NopCloser(bytes.NewReader(data)), nil }
+			return t.base.RoundTrip(clone)
+		}
+	}
 	if req.Method != http.MethodPost {
 		response, err := t.base.RoundTrip(req)
 		if err != nil || req.Method != http.MethodGet || req.Context().Value(ownershipReadContextKey{}) == true || response.StatusCode < 200 || response.StatusCode >= 300 {
@@ -108,7 +157,7 @@ func (t *ownershipTransport) RoundTrip(req *http.Request) (*http.Response, error
 		}
 		response.Body = io.NopCloser(bytes.NewReader(data))
 		response.ContentLength = int64(len(data))
-		response.Header.Set("Content-Length", fmt.Sprint(len(data)))
+		response.Header.Set("Content-Length", strconv.Itoa(len(data)))
 		return response, nil
 	}
 	path := req.URL.Path

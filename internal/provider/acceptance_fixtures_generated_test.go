@@ -253,9 +253,7 @@ func init() {
 	acctest.RegisterFixture("testAccForwardProxyPolicyConfig_basic", func() string {
 		return testAccForwardProxyPolicyConfig_basic("tf-acc-test-fixture", "tf-acc-test-fixture")
 	})
-	acctest.RegisterFixture("testAccForwardProxyPolicyDataSourceConfig_basic", func() string {
-		return testAccForwardProxyPolicyDataSourceConfig_basic("tf-acc-test-fixture", "tf-acc-test-fixture")
-	})
+	acctest.RegisterFixture("testAccForwardProxyPolicyDataSourceConfig_basic", func() string { return testAccForwardProxyPolicyDataSourceConfig_basic("tf-acc-test-fixture") })
 	acctest.RegisterFixture("testAccForwardingClassDataSourceConfig_basic", func() string { return testAccForwardingClassDataSourceConfig_basic("tf-acc-test-fixture") })
 	acctest.RegisterFixture("testAccForwardingClassResource_allAttributesSystem", func() string { return testAccForwardingClassResource_allAttributesSystem("tf-acc-test-fixture") })
 	acctest.RegisterFixture("testAccForwardingClassResource_basicSystem", func() string { return testAccForwardingClassResource_basicSystem("tf-acc-test-fixture") })
@@ -412,9 +410,7 @@ func init() {
 		return testAccNetworkConnectorDataSourceConfig_basic("tf-acc-test-fixture", "tf-acc-test-fixture")
 	})
 	acctest.RegisterFixture("testAccNetworkFirewallConfig_basic", func() string { return testAccNetworkFirewallConfig_basic("tf-acc-test-fixture") })
-	acctest.RegisterFixture("testAccNetworkFirewallDataSourceConfig_basic", func() string {
-		return testAccNetworkFirewallDataSourceConfig_basic("tf-acc-test-fixture", "tf-acc-test-fixture")
-	})
+	acctest.RegisterFixture("testAccNetworkFirewallDataSourceConfig_basic", func() string { return testAccNetworkFirewallDataSourceConfig_basic("tf-acc-test-fixture") })
 	acctest.RegisterFixture("testAccNetworkInterfaceConfig_basic", func() string {
 		return testAccNetworkInterfaceConfig_basic("tf-acc-test-fixture", "tf-acc-test-fixture")
 	})

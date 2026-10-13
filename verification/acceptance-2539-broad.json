@@ -1,0 +1,167 @@
+{
+  "version": 1,
+  "run": 38334365131,
+  "totals": {
+    "total": 657,
+    "passed": 276,
+    "failed": 90,
+    "skipped": 291
+  },
+  "stream_completeness": {
+    "complete": false,
+    "events": 8369,
+    "malformed_lines": 0,
+    "invalid_events": 0,
+    "scanner_error": false,
+    "incomplete_tests": 0,
+    "incomplete_packages": 0,
+    "package_failures": 1
+  },
+  "failure_fingerprints": [
+    {
+      "class": "assertion",
+      "count": 3,
+      "tests": [
+        "TestAccAlertPolicyResource_nameTooLong",
+        "TestAccRateLimiterResource_nameTooLong",
+        "TestAccUserIdentificationResource_nameTooLong"
+      ]
+    },
+    {
+      "class": "framework_diagnostic",
+      "count": 46,
+      "tests": [
+        "TestAccFilterSetResource_emptyPlan",
+        "TestAccFilterSetResource_filterFields",
+        "TestAccFilterSetResource_planChecks",
+        "TestAccFilterSetResource_requiresReplace",
+        "TestAccFleetResource_basic",
+        "TestAccForwardProxyPolicyResource_basic",
+        "TestAccHTTPLoadBalancerResource_basic",
+        "TestAccHTTPLoadBalancerResource_doNotAdvertise",
+        "TestAccHTTPLoadBalancerResource_fullLifecycle",
+        "TestAccHTTPLoadBalancerResource_httpsAutoCert",
+        "TestAccHTTPLoadBalancerResource_ipReputation",
+        "TestAccHTTPLoadBalancerResource_jsChallenge",
+        "TestAccHTTPLoadBalancerResource_leastActive",
+        "TestAccHTTPLoadBalancerResource_planChecks",
+        "TestAccHTTPLoadBalancerResource_requiresReplace",
+        "TestAccHTTPLoadBalancerResource_sourceIpStickiness",
+        "TestAccHTTPLoadBalancerResource_switchAlgorithm",
+        "TestAccHTTPLoadBalancerResource_updateLabels",
+        "TestAccHTTPLoadBalancerResource_withDomains",
+        "TestAccHTTPLoadBalancerResource_withLabels",
+        "TestAccHealthcheckDataSource_basic",
+        "TestAccHealthcheckResource_allAttributes",
+        "TestAccHealthcheckResource_basic",
+        "TestAccHealthcheckResource_description",
+        "TestAccHealthcheckResource_disappears",
+        "TestAccHealthcheckResource_emptyPlan",
+        "TestAccHealthcheckResource_fullLifecycle",
+        "TestAccHealthcheckResource_httpHealthCheck",
+        "TestAccHealthcheckResource_httpHealthCheck_headersRemove",
+        "TestAccHealthcheckResource_httpHealthCheck_http2",
+        "TestAccHealthcheckResource_httpHealthCheck_originServerName",
+        "TestAccHealthcheckResource_httpHealthCheck_statusCodes",
+        "TestAccHealthcheckResource_httpHealthCheck_switchHostToOrigin",
+        "TestAccHealthcheckResource_httpHealthCheck_updatePath",
+        "TestAccHealthcheckResource_jitterPercent",
+        "TestAccHealthcheckResource_knownValues",
+        "TestAccHealthcheckResource_planChecks",
+        "TestAccHealthcheckResource_requiresReplace",
+        "TestAccHealthcheckResource_switchType_httpToUdp",
+        "TestAccHealthcheckResource_switchType_tcpToHttp",
+        "TestAccHealthcheckResource_thresholds_update",
+        "TestAccHealthcheckResource_updateAnnotations",
+        "TestAccHealthcheckResource_updateLabels",
+        "TestAccMaliciousUserMitigationResource_captchaChallenge",
+        "TestAccMaliciousUserMitigationResource_fullLifecycle",
+        "TestAccMaliciousUserMitigationResource_switchAction"
+      ]
+    },
+    {
+      "class": "http_error",
+      "summary": "Create request failed",
+      "http_status": 400,
+      "count": 7,
+      "tests": [
+        "TestAccAPIDefinitionResource_basic",
+        "TestAccAPIDefinitionResource_emptyPlan",
+        "TestAccAPIDefinitionResource_fullLifecycle",
+        "TestAccAPIDefinitionResource_planChecks",
+        "TestAccAPIDefinitionResource_requiresReplace",
+        "TestAccAPIDefinitionResource_strictSchemaOrigin",
+        "TestAccAPIDefinitionResource_withLabels"
+      ]
+    },
+    {
+      "class": "http_error",
+      "summary": "Create request failed",
+      "http_status": 401,
+      "count": 9,
+      "tests": [
+        "TestAccFilterSetResource_knownValues",
+        "TestAccHTTPLoadBalancerResource_emptyPlan",
+        "TestAccHTTPLoadBalancerResource_knownValues",
+        "TestAccHTTPLoadBalancerResource_switchProtocol",
+        "TestAccHTTPLoadBalancerResource_withOriginPool",
+        "TestAccHealthcheckResource_conflictTcpAndHttp",
+        "TestAccHealthcheckResource_thresholds_boundary",
+        "TestAccHealthcheckResource_udpIcmpHealthCheck",
+        "TestAccMaliciousUserMitigationResource_jsChallenge"
+      ]
+    },
+    {
+      "class": "rate_limit",
+      "summary": "Create request failed",
+      "http_status": 429,
+      "count": 23,
+      "tests": [
+        "TestAccAPICrawlerResource_basic",
+        "TestAccTCPLoadBalancerResource_allAttributes",
+        "TestAccTCPLoadBalancerResource_basic",
+        "TestAccTCPLoadBalancerResource_emptyPlan",
+        "TestAccTCPLoadBalancerResource_fullLifecycle",
+        "TestAccTCPLoadBalancerResource_knownValues",
+        "TestAccTCPLoadBalancerResource_listenPort",
+        "TestAccTCPLoadBalancerResource_planChecks",
+        "TestAccTCPLoadBalancerResource_requiresReplace",
+        "TestAccTCPLoadBalancerResource_updateAnnotations",
+        "TestAccTCPLoadBalancerResource_updateDescription",
+        "TestAccTCPLoadBalancerResource_updateLabels",
+        "TestAccTCPLoadBalancerResource_withHealthcheck",
+        "TestAccUDPLoadBalancerResource_allAttributes",
+        "TestAccUDPLoadBalancerResource_basic",
+        "TestAccUDPLoadBalancerResource_emptyPlan",
+        "TestAccUDPLoadBalancerResource_knownValues",
+        "TestAccUDPLoadBalancerResource_listenPort",
+        "TestAccUDPLoadBalancerResource_planChecks",
+        "TestAccUDPLoadBalancerResource_requiresReplace",
+        "TestAccUDPLoadBalancerResource_updateAnnotations",
+        "TestAccUDPLoadBalancerResource_updateDescription",
+        "TestAccUDPLoadBalancerResource_updateLabels"
+      ]
+    },
+    {
+      "class": "timeout",
+      "count": 1,
+      "tests": ["TestAccNetworkConnectorResource_basic"]
+    },
+    {
+      "class": "unclassified",
+      "count": 1,
+      "tests": ["TestAccAppFirewallResource_detectionSettings"]
+    }
+  ],
+  "cleanup": {
+    "version": 1,
+    "journal_sha256": "448f7f19adb3f2ee73f02c89a4444a33ad8026aa82fc08ff7c544b873ef656d4",
+    "complete": true,
+    "owned": 307,
+    "confirmed_absent": 307,
+    "failures": 0,
+    "second_pass_remaining": 0
+  },
+  "complete": false,
+  "remaining": "Supported failures and prerequisite evidence must be repaired before final acceptance"
+}

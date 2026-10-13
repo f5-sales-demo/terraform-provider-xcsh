@@ -16,18 +16,14 @@ func TestAccNetworkFirewallDataSource_basic(t *testing.T) {
 	acctest.PreCheck(t)
 
 	rName := acctest.RandomName("tf-acc-test")
-	nsName := acctest.RandomName("tf-acc-test-ns")
 	resourceName := "xcsh_network_firewall.test"
 	dataSourceName := "data.xcsh_network_firewall.test"
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
 		ProtoV6ProviderFactories: acctest.ProtoV6ProviderFactories,
-		ExternalProviders: map[string]resource.ExternalProvider{
-			"time": {Source: "hashicorp/time"},
-		},
 		Steps: []resource.TestStep{
 			{
-				Config: testAccNetworkFirewallDataSourceConfig_basic(nsName, rName),
+				Config: testAccNetworkFirewallDataSourceConfig_basic(rName),
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttrPair(dataSourceName, "name", resourceName, "name"),
 					resource.TestCheckResourceAttrPair(dataSourceName, "namespace", resourceName, "namespace"),
@@ -38,34 +34,25 @@ func TestAccNetworkFirewallDataSource_basic(t *testing.T) {
 	})
 }
 
-func testAccNetworkFirewallDataSourceConfig_basic(nsName, name string) string {
+func testAccNetworkFirewallDataSourceConfig_basic(name string) string {
 	return acctest.ConfigCompose(
 		acctest.ProviderConfig(),
 		fmt.Sprintf(`
-resource "xcsh_namespace" "test" {
-  name = %[1]q
-}
-
-resource "time_sleep" "wait_for_namespace" {
-  depends_on      = [xcsh_namespace.test]
-  create_duration = "5s"
-}
 
 resource "xcsh_forward_proxy_policy" "test" {
   name = "%[1]s-forward-proxy"
-  namespace = xcsh_namespace.test.name
+  namespace = "system"
   any_proxy = {}
   allow_all = {}
 }
 
 resource "xcsh_network_firewall" "test" {
-  depends_on = [time_sleep.wait_for_namespace, xcsh_forward_proxy_policy.test]
-  name       = %[2]q
-  namespace  = xcsh_namespace.test.name
+  name      = %[1]q
+  namespace = "system"
   active_forward_proxy_policies {
     forward_proxy_policies {
       name      = xcsh_forward_proxy_policy.test.name
-      namespace = xcsh_namespace.test.name
+      namespace = xcsh_forward_proxy_policy.test.namespace
     }
   }
 }
@@ -75,5 +62,5 @@ data "xcsh_network_firewall" "test" {
   name       = xcsh_network_firewall.test.name
   namespace  = xcsh_network_firewall.test.namespace
 }
-`, nsName, name))
+`, name))
 }

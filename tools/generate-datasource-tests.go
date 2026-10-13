@@ -348,7 +348,7 @@ var resourceConfigs = map[string]string{
   active_forward_proxy_policies {
     forward_proxy_policies {
       name      = xcsh_forward_proxy_policy.test.name
-      namespace = xcsh_namespace.test.name
+      namespace = xcsh_forward_proxy_policy.test.namespace
     }
   }`,
 
@@ -577,7 +577,7 @@ resource "xcsh_origin_pool" "test" {
 	"network_firewall": `
 resource "xcsh_forward_proxy_policy" "test" {
   name = "%[1]s-forward-proxy"
-  namespace = xcsh_namespace.test.name
+  namespace = "system"
   any_proxy = {}
   allow_all = {}
 }
@@ -591,6 +591,8 @@ var systemLevelResources = map[string]bool{
 
 // Resources that MUST use namespace = "system" (not custom namespace)
 var systemNamespaceResources = map[string]bool{
+ "network_firewall": true,
+ "forward_proxy_policy": true,
  "token": true,
  "site_mesh_group": true,
  "address_allocator": true,

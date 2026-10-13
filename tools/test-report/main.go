@@ -587,6 +587,11 @@ func classifyFailureFingerprint(output string) FailureFingerprint {
 		fingerprint.HTTPStatus = status
 		return fingerprint
 	case strings.Contains(lower, "check failed") ||
+		strings.Contains(lower, "expected an error but got none") ||
+		strings.Contains(lower, "importstateverify") ||
+		strings.Contains(lower, "attributes not equivalent") ||
+		strings.Contains(lower, "expected empty plan") ||
+		strings.Contains(lower, "expected non-empty plan") ||
 		strings.Contains(lower, "testcheck") ||
 		(strings.Contains(lower, "expected") && strings.Contains(lower, "got")) ||
 		(strings.Contains(lower, "expected") && strings.Contains(lower, "actual")) ||
