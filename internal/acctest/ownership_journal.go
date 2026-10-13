@@ -39,13 +39,14 @@ type OwnershipJournal struct {
 	mu        sync.Mutex
 }
 type CleanupReceipt struct {
-	Version             int    `json:"version"`
-	JournalSHA256       string `json:"journal_sha256"`
-	Complete            bool   `json:"complete"`
-	Owned               int    `json:"owned"`
-	ConfirmedAbsent     int    `json:"confirmed_absent"`
-	Failures            int    `json:"failures"`
-	SecondPassRemaining int    `json:"second_pass_remaining"`
+	Version             int            `json:"version"`
+	Diagnostics         map[string]int `json:"diagnostics,omitempty"`
+	JournalSHA256       string         `json:"journal_sha256"`
+	Complete            bool           `json:"complete"`
+	Owned               int            `json:"owned"`
+	ConfirmedAbsent     int            `json:"confirmed_absent"`
+	Failures            int            `json:"failures"`
+	SecondPassRemaining int            `json:"second_pass_remaining"`
 }
 type OwnershipBackend interface {
 	Read(context.Context, OwnedResource) (client.Metadata, error)
@@ -249,10 +250,11 @@ func (j *OwnershipJournal) cleanupOrder() ([]int, error) {
 func (j *OwnershipJournal) Cleanup(ctx context.Context, b OwnershipBackend, attempts int, delay time.Duration) (CleanupReceipt, error) {
 	j.mu.Lock()
 	defer j.mu.Unlock()
-	receipt := CleanupReceipt{Version: 1, Owned: len(j.Resources)}
+	receipt := CleanupReceipt{Version: 1, Owned: len(j.Resources), Diagnostics: map[string]int{}}
 	order, err := j.cleanupOrder()
 	if err != nil {
 		receipt.Failures++
+		receipt.Diagnostics["invalid_dependency_order"]++
 		return receipt, err
 	}
 	failedResources := map[string]bool{}
@@ -269,6 +271,7 @@ func (j *OwnershipJournal) Cleanup(ctx context.Context, b OwnershipBackend, atte
 			}
 		}
 		if blocked {
+			receipt.Diagnostics["dependency_cleanup_failed"]++
 			receipt.Failures++
 			failedResources[ownedKey(r)] = true
 			continue
@@ -282,6 +285,7 @@ func (j *OwnershipJournal) Cleanup(ctx context.Context, b OwnershipBackend, atte
 				break
 			}
 			if readErr != nil || metadata.Name != r.Name || metadata.UID == "" || (r.UID != "" && ownershipUIDDigest(metadata.UID) != r.UID) {
+				receipt.Diagnostics["ownership_readback_failed"]++
 				fatal = true
 				break
 			}
@@ -290,6 +294,7 @@ func (j *OwnershipJournal) Cleanup(ctx context.Context, b OwnershipBackend, atte
 				break
 			}
 			if r.UID == "" && metadata.Annotations[ownershipAnnotation] != j.RunID {
+				receipt.Diagnostics["creation_ownership_unconfirmed"]++
 				fatal = true
 				break
 			}
@@ -303,10 +308,12 @@ func (j *OwnershipJournal) Cleanup(ctx context.Context, b OwnershipBackend, atte
 				}
 			}
 			if deleteErr := b.Delete(ctx, r); deleteErr != nil && !errors.Is(deleteErr, errOwnedAbsent) {
+				receipt.Diagnostics["delete_failed"]++
 				fatal = true
 				break
 			}
 			if waitContext(ctx, delay) != nil {
+				receipt.Diagnostics["cleanup_interrupted"]++
 				fatal = true
 				break
 			}
@@ -315,6 +322,9 @@ func (j *OwnershipJournal) Cleanup(ctx context.Context, b OwnershipBackend, atte
 		if !absent && !fatal {
 			_, readErr := b.Read(ctx, r)
 			absent = errors.Is(readErr, errOwnedAbsent)
+		}
+		if !absent && !fatal {
+			receipt.Diagnostics["resource_remains_visible"]++
 		}
 		if absent {
 			j.Resources[i].Status = "absent"
@@ -329,6 +339,7 @@ func (j *OwnershipJournal) Cleanup(ctx context.Context, b OwnershipBackend, atte
 	}
 	for _, r := range j.Resources {
 		if _, readErr := b.Read(ctx, r); !errors.Is(readErr, errOwnedAbsent) {
+			receipt.Diagnostics["second_pass_not_absent"]++
 			receipt.SecondPassRemaining++
 		}
 	}
