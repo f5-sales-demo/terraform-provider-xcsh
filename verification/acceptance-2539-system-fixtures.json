@@ -1,0 +1,60 @@
+{
+  "version": 1,
+  "source": "323e79af7f8",
+  "total": 3,
+  "passed": 1,
+  "failed": 2,
+  "skipped": 0,
+  "stream_completeness": {
+    "complete": false,
+    "events": 81,
+    "malformed_lines": 0,
+    "invalid_events": 0,
+    "scanner_error": false,
+    "incomplete_tests": 0,
+    "incomplete_packages": 0,
+    "package_failures": 1
+  },
+  "tests": [
+    {
+      "name": "TestAccSubnetDataSource_basic",
+      "status": "fail",
+      "failure_fingerprint": {
+        "class": "http_error",
+        "summary": "Create request failed",
+        "http_status": 400,
+        "source_location": "subnet_data_source_test.go:16",
+        "schema_fields": ["site_subnet_params.dhcp"]
+      }
+    },
+    {
+      "name": "TestAccSubnetResource_basic",
+      "status": "fail",
+      "failure_fingerprint": {
+        "class": "http_error",
+        "summary": "Create request failed",
+        "http_status": 400,
+        "source_location": "subnet_resource_test.go:18",
+        "schema_fields": ["site_subnet_params.dhcp"]
+      }
+    },
+    {
+      "name": "TestAccTcpLoadbalancerDataSource_basic",
+      "status": "pass"
+    }
+  ],
+  "cleanup": {
+    "version": 1,
+    "journal_sha256": "eab6ad2883a47186d6687610e94ab79eb98b9661da13eb8108110c9ac5e210ea",
+    "complete": true,
+    "owned": 9,
+    "confirmed_absent": 9,
+    "failures": 0,
+    "second_pass_remaining": 0
+  },
+  "digests": {
+    "tests.json": "330100cf5b3f1758bee56d474692363bc97c4cb3f93ddeacdfafe97ea4d2e42c",
+    "tests.md": "9b1599316629da760880b9c3decd15aacd5dcf6061cc00ba6ad9d46b9b947927",
+    "cleanup.json": "db681b2344c4f632f024f41de93f2925ff4903c10370a8db4b037ed981fb55c6"
+  }
+}
