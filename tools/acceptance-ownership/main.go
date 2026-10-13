@@ -18,6 +18,8 @@ func main() {
 	flag.Parse()
 	var err error
 	switch *mode {
+	case "reference-probe":
+		err = acctest.ProbeReferenceResolution(context.Background())
 	case "provision":
 		err = acctest.ProvisionDisposablePrerequisites(context.Background())
 	case "schema":
