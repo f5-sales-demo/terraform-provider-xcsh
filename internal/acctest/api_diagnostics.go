@@ -38,6 +38,7 @@ func logAcceptanceAPIDiagnostic(response *http.Response) {
 			if strings.Contains(text, pattern) {
 				facts = append(facts, name)
 				log.Printf("[API_DIAGNOSTIC:%s]", name)
+				logDiagnosticFact(name)
 				break
 			}
 		}

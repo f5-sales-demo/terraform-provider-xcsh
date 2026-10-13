@@ -111,6 +111,7 @@ func DetectAuthMethod() AuthMethod {
 // the global mock server instead of requiring real credentials.
 func PreCheck(t *testing.T) {
 	t.Helper()
+	bindDiagnosticTest(t)
 
 	// If mock mode is enabled, configure environment to use mock server
 	// This must happen before any credential checks

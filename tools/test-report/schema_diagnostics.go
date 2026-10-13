@@ -54,7 +54,9 @@ func loadPublicSchemaFields(path string) error {
 func extractPublicSchemaFields(output string) []string {
 	result := []string{}
 	seen := map[string]bool{}
-	for _, match := range diffAttributePattern.FindAllStringSubmatch(output, -1) {
+	matches := diffAttributePattern.FindAllStringSubmatch(output, -1)
+	matches = append(matches, regexp.MustCompile(`\[SCHEMA_FIELD:([a-z0-9_.]+)\]`).FindAllStringSubmatch(output, -1)...)
+	for _, match := range matches {
 		parts := []string{}
 		for _, part := range strings.Split(match[1], ".") {
 			if part == "#" || part == "%" {

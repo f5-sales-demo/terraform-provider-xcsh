@@ -978,6 +978,7 @@ func TestAccAppFirewallResource_detectionSettings(t *testing.T) {
 
 	resourceName := "xcsh_app_firewall.test"
 	rName := acctest.RandomName("tf-acc-test-waf")
+	capture, importDiagnostic := acctest.CaptureImportFieldDiagnostics(t, "xcsh_app_firewall", resourceName)
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -987,11 +988,12 @@ func TestAccAppFirewallResource_detectionSettings(t *testing.T) {
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAppFirewallConfig_detectionSettings(rName),
-				Check:  acctest.CheckAppFirewallExists(resourceName),
+				Check:  resource.ComposeAggregateTestCheckFunc(acctest.CheckAppFirewallExists(resourceName), capture),
 			},
 			{
 				ResourceName:            resourceName,
 				ImportState:             true,
+				ImportStateCheck:        importDiagnostic,
 				ImportStateVerify:       true,
 				ImportStateVerifyIgnore: []string{"timeouts"},
 				ImportStateIdFunc:       testAccAppFirewallImportStateIdFunc(resourceName),
