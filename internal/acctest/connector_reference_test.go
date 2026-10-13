@@ -26,7 +26,7 @@ func TestConnectorEndpointCorrelatesSiteUID(t *testing.T) {
 				case "/api/config/namespaces/system/securemesh_site_v2s/backing":
 					_, _ = w.Write([]byte(`{"metadata":{"name":"backing","namespace":"system"},"system_metadata":{"uid":"owner-uid"}}`))
 				case "/api/config/namespaces/system/network_interfaces":
-					_, _ = w.Write([]byte(`{"items":[{"owner_view":{"uid":"` + tc.owner + `"},"get_spec":{"type":"NETWORK_INTERFACE_ETHERNET","device_name":"eth1"}}],"errors":[]}`))
+					_, _ = w.Write([]byte(`{"items":[{"name":"fixture-interface","owner_view":{"uid":"` + tc.owner + `"},"get_spec":{"type":"NETWORK_INTERFACE_ETHERNET","device_name":"eth1"}}],"errors":[]}`))
 				default:
 					t.Errorf("unexpected read")
 					w.WriteHeader(http.StatusNotFound)
@@ -37,7 +37,7 @@ func TestConnectorEndpointCorrelatesSiteUID(t *testing.T) {
 			if (err == nil) != tc.want {
 				t.Fatal("unverified site interface accepted or verified interface rejected")
 			}
-			if tc.want && (ref.Node != "fixture-node" || ref.Interface != "eth1") {
+			if tc.want && (ref.Node != "fixture-node" || ref.Interface != "fixture-interface") {
 				t.Fatal("endpoint correlation lost")
 			}
 		})

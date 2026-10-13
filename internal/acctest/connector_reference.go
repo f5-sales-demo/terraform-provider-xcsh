@@ -64,6 +64,7 @@ func discoverConnectorEndpoint(ctx context.Context, c *client.Client, ref readOn
 	}
 	var inventory struct {
 		Items []struct {
+			Name  string `json:"name"`
 			Owner struct {
 				UID string `json:"uid"`
 			} `json:"owner_view"`
@@ -82,8 +83,8 @@ func discoverConnectorEndpoint(ctx context.Context, c *client.Client, ref readOn
 	}
 	devices := []string{}
 	for _, item := range inventory.Items {
-		if item.Owner.UID == ownerUID && item.Spec.Type == "NETWORK_INTERFACE_ETHERNET" && item.Spec.Device != "" {
-			devices = append(devices, item.Spec.Device)
+		if item.Owner.UID == ownerUID && item.Spec.Type == "NETWORK_INTERFACE_ETHERNET" && item.Spec.Device != "" && item.Name != "" {
+			devices = append(devices, item.Name)
 		}
 	}
 	if len(devices) == 0 {
