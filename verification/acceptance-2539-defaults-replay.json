@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "total": 3,
+  "passed": 2,
+  "failed": 1,
+  "skipped": 0,
+  "tests": [
+    {
+      "name": "TestAccAdvertisePolicyDataSource_basic",
+      "status": "pass"
+    },
+    {
+      "name": "TestAccAuthenticationResource_basic",
+      "status": "fail",
+      "failure_fingerprint": {
+        "class": "framework_diagnostic",
+        "summary": "ImportStateVerify attributes not equivalent",
+        "source_location": "authentication_resource_test.go:17"
+      }
+    },
+    {
+      "name": "TestAccBGPResource_basic",
+      "status": "pass"
+    }
+  ],
+  "cleanup_initial": {
+    "version": 1,
+    "diagnostics": {
+      "delete_failed": 1
+    },
+    "journal_sha256": "cb22a2cc5a9fa6a5b69990b9759422f15ff2b9a0b698f40ba624b0df2ffb1032",
+    "complete": false,
+    "owned": 10,
+    "confirmed_absent": 9,
+    "failures": 1,
+    "second_pass_remaining": 0
+  },
+  "cleanup_recovered": {
+    "version": 1,
+    "journal_sha256": "15f81726de7074522e6d2be6a8f08dc959dadf0298ec5cff4a896a78bce7fe94",
+    "complete": true,
+    "owned": 10,
+    "confirmed_absent": 10,
+    "failures": 0,
+    "second_pass_remaining": 0
+  }
+}
