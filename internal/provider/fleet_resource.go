@@ -4214,6 +4214,13 @@ func (r *FleetResource) ValidateConfig(ctx context.Context, req resource.Validat
 		)
 	}
 
+	if data.DcClusterGroup != nil && data.DcClusterGroupInside != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("dc_cluster_group"), "Conflicting Configuration", "dc_cluster_group and dc_cluster_group_inside are mutually exclusive.")
+	}
+	if data.DeviceList != nil && data.InterfaceList != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("device_list"), "Conflicting Configuration", "device_list and interface_list are mutually exclusive.")
+	}
+
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan

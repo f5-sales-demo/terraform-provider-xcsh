@@ -362,6 +362,10 @@ func (r *HealthcheckResource) ValidateConfig(ctx context.Context, req resource.V
 		)
 	}
 
+	if data.HTTPHealthCheck != nil && data.TCPHealthCheck != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("http_health_check"), "Conflicting Configuration", "http_health_check and tcp_health_check are mutually exclusive.")
+	}
+
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan

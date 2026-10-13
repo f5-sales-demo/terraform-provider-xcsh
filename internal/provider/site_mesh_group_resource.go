@@ -412,6 +412,16 @@ func (r *SiteMeshGroupResource) ValidateConfig(ctx context.Context, req resource
 		)
 	}
 
+	if data.FullMesh != nil && data.HubMesh != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("full_mesh"), "Conflicting Configuration", "full_mesh and hub_mesh are mutually exclusive.")
+	}
+	if data.FullMesh != nil && data.SpokeMesh != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("full_mesh"), "Conflicting Configuration", "full_mesh and spoke_mesh are mutually exclusive.")
+	}
+	if data.HubMesh != nil && data.SpokeMesh != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("hub_mesh"), "Conflicting Configuration", "hub_mesh and spoke_mesh are mutually exclusive.")
+	}
+
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan

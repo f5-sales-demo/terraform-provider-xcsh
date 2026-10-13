@@ -12828,6 +12828,37 @@ func (r *CDNLoadBalancerResource) ValidateConfig(ctx context.Context, req resour
 		)
 	}
 
+	if data.APIRateLimit != nil && data.RateLimit != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("api_rate_limit"), "Conflicting Configuration", "api_rate_limit and rate_limit are mutually exclusive.")
+	}
+	if data.CaptchaChallenge != nil && data.EnableChallenge != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("captcha_challenge"), "Conflicting Configuration", "captcha_challenge and enable_challenge are mutually exclusive.")
+	}
+	if data.CaptchaChallenge != nil && data.JsChallenge != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("captcha_challenge"), "Conflicting Configuration", "captcha_challenge and js_challenge are mutually exclusive.")
+	}
+	if data.CaptchaChallenge != nil && data.PolicyBasedChallenge != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("captcha_challenge"), "Conflicting Configuration", "captcha_challenge and policy_based_challenge are mutually exclusive.")
+	}
+	if data.EnableChallenge != nil && data.JsChallenge != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("enable_challenge"), "Conflicting Configuration", "enable_challenge and js_challenge are mutually exclusive.")
+	}
+	if data.EnableChallenge != nil && data.PolicyBasedChallenge != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("enable_challenge"), "Conflicting Configuration", "enable_challenge and policy_based_challenge are mutually exclusive.")
+	}
+	if data.HTTP != nil && data.HTTPS != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("http"), "Conflicting Configuration", "http and https are mutually exclusive.")
+	}
+	if data.HTTP != nil && data.HTTPSAutoCert != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("http"), "Conflicting Configuration", "http and https_auto_cert are mutually exclusive.")
+	}
+	if data.HTTPS != nil && data.HTTPSAutoCert != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("https"), "Conflicting Configuration", "https and https_auto_cert are mutually exclusive.")
+	}
+	if data.JsChallenge != nil && data.PolicyBasedChallenge != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("js_challenge"), "Conflicting Configuration", "js_challenge and policy_based_challenge are mutually exclusive.")
+	}
+
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan

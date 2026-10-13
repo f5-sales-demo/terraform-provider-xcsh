@@ -1275,6 +1275,10 @@ func (r *ClusterResource) ValidateConfig(ctx context.Context, req resource.Valid
 		)
 	}
 
+	if data.Http1Config != nil && data.Http2Options != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("http1_config"), "Conflicting Configuration", "http1_config and http2_options are mutually exclusive.")
+	}
+
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan

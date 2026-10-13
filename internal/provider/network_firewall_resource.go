@@ -450,6 +450,10 @@ func (r *NetworkFirewallResource) ValidateConfig(ctx context.Context, req resour
 	if resp.Diagnostics.HasError() {
 		return
 	}
+	if data.ActiveEnhancedFirewallPolicies != nil && data.ActiveNetworkPolicies != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("active_enhanced_firewall_policies"), "Conflicting Configuration", "active_enhanced_firewall_policies and active_network_policies are mutually exclusive.")
+	}
+
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan

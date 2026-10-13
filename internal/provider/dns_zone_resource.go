@@ -3386,6 +3386,10 @@ func (r *DNSZoneResource) ValidateConfig(ctx context.Context, req resource.Valid
 	if resp.Diagnostics.HasError() {
 		return
 	}
+	if data.Primary != nil && data.Secondary != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("primary"), "Conflicting Configuration", "primary and secondary are mutually exclusive.")
+	}
+
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan

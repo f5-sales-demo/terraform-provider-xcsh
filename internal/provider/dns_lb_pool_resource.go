@@ -739,6 +739,37 @@ func (r *DNSLBPoolResource) ValidateConfig(ctx context.Context, req resource.Val
 		)
 	}
 
+	if data.APool != nil && data.AaaaPool != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("a_pool"), "Conflicting Configuration", "a_pool and aaaa_pool are mutually exclusive.")
+	}
+	if data.APool != nil && data.CnamePool != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("a_pool"), "Conflicting Configuration", "a_pool and cname_pool are mutually exclusive.")
+	}
+	if data.APool != nil && data.MxPool != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("a_pool"), "Conflicting Configuration", "a_pool and mx_pool are mutually exclusive.")
+	}
+	if data.APool != nil && data.SrvPool != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("a_pool"), "Conflicting Configuration", "a_pool and srv_pool are mutually exclusive.")
+	}
+	if data.AaaaPool != nil && data.CnamePool != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("aaaa_pool"), "Conflicting Configuration", "aaaa_pool and cname_pool are mutually exclusive.")
+	}
+	if data.AaaaPool != nil && data.MxPool != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("aaaa_pool"), "Conflicting Configuration", "aaaa_pool and mx_pool are mutually exclusive.")
+	}
+	if data.AaaaPool != nil && data.SrvPool != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("aaaa_pool"), "Conflicting Configuration", "aaaa_pool and srv_pool are mutually exclusive.")
+	}
+	if data.CnamePool != nil && data.MxPool != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("cname_pool"), "Conflicting Configuration", "cname_pool and mx_pool are mutually exclusive.")
+	}
+	if data.CnamePool != nil && data.SrvPool != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("cname_pool"), "Conflicting Configuration", "cname_pool and srv_pool are mutually exclusive.")
+	}
+	if data.MxPool != nil && data.SrvPool != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("mx_pool"), "Conflicting Configuration", "mx_pool and srv_pool are mutually exclusive.")
+	}
+
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan

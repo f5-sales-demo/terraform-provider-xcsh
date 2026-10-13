@@ -3913,6 +3913,10 @@ func (r *ProxyResource) ValidateConfig(ctx context.Context, req resource.Validat
 		)
 	}
 
+	if data.DynamicProxy != nil && data.HTTPProxy != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("dynamic_proxy"), "Conflicting Configuration", "dynamic_proxy and http_proxy are mutually exclusive.")
+	}
+
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan

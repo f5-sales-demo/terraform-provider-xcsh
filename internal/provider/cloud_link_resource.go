@@ -678,6 +678,10 @@ func (r *CloudLinkResource) ValidateConfig(ctx context.Context, req resource.Val
 	if resp.Diagnostics.HasError() {
 		return
 	}
+	if data.AWS != nil && data.GCP != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("aws"), "Conflicting Configuration", "aws and gcp are mutually exclusive.")
+	}
+
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan

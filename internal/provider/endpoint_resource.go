@@ -646,6 +646,10 @@ func (r *EndpointResource) ValidateConfig(ctx context.Context, req resource.Vali
 		)
 	}
 
+	if data.DNSNameAdvanced != nil && data.ServiceInfo != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("dns_name_advanced"), "Conflicting Configuration", "dns_name_advanced and service_info are mutually exclusive.")
+	}
+
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan

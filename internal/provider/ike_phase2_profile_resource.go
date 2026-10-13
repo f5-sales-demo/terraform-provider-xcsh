@@ -244,6 +244,10 @@ func (r *IKEPhase2ProfileResource) ValidateConfig(ctx context.Context, req resou
 	if resp.Diagnostics.HasError() {
 		return
 	}
+	if data.IKEKeylifetimeHours != nil && data.IKEKeylifetimeMinutes != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("ike_keylifetime_hours"), "Conflicting Configuration", "ike_keylifetime_hours and ike_keylifetime_minutes are mutually exclusive.")
+	}
+
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan

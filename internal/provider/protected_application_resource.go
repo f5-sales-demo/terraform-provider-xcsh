@@ -3097,6 +3097,10 @@ func (r *ProtectedApplicationResource) ValidateConfig(ctx context.Context, req r
 		)
 	}
 
+	if data.Cloudflare != nil && data.Cloudfront != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("cloudflare"), "Conflicting Configuration", "cloudflare and cloudfront are mutually exclusive.")
+	}
+
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan

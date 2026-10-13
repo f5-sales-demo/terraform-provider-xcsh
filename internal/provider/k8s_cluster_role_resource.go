@@ -318,6 +318,10 @@ func (r *K8SClusterRoleResource) ValidateConfig(ctx context.Context, req resourc
 	if resp.Diagnostics.HasError() {
 		return
 	}
+	if data.K8SClusterRoleSelector != nil && data.PolicyRuleList != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("k8s_cluster_role_selector"), "Conflicting Configuration", "k8s_cluster_role_selector and policy_rule_list are mutually exclusive.")
+	}
+
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan

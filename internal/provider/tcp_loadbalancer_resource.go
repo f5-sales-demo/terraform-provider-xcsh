@@ -2406,6 +2406,13 @@ func (r *TCPLoadBalancerResource) ValidateConfig(ctx context.Context, req resour
 		)
 	}
 
+	if data.AdvertiseCustom != nil && data.AdvertiseOnPublic != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("advertise_custom"), "Conflicting Configuration", "advertise_custom and advertise_on_public are mutually exclusive.")
+	}
+	if data.TLSTCP != nil && data.TLSTCPAutoCert != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("tls_tcp"), "Conflicting Configuration", "tls_tcp and tls_tcp_auto_cert are mutually exclusive.")
+	}
+
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan

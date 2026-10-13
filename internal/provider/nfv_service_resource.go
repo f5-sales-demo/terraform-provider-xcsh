@@ -3149,6 +3149,10 @@ func (r *NfvServiceResource) ValidateConfig(ctx context.Context, req resource.Va
 	if resp.Diagnostics.HasError() {
 		return
 	}
+	if data.F5BigIPAWSService != nil && data.PaloAltoFwService != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("f5_big_ip_aws_service"), "Conflicting Configuration", "f5_big_ip_aws_service and palo_alto_fw_service are mutually exclusive.")
+	}
+
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan

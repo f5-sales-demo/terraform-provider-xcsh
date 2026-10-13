@@ -1036,6 +1036,10 @@ func (r *RateLimiterPolicyResource) ValidateConfig(ctx context.Context, req reso
 		)
 	}
 
+	if data.ServerNameMatcher != nil && data.ServerSelector != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("server_name_matcher"), "Conflicting Configuration", "server_name_matcher and server_selector are mutually exclusive.")
+	}
+
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan

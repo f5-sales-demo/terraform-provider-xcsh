@@ -3083,6 +3083,10 @@ func (r *AWSTGWSiteResource) ValidateConfig(ctx context.Context, req resource.Va
 		)
 	}
 
+	if data.DirectConnectEnabled != nil && data.PrivateConnectivity != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("direct_connect_enabled"), "Conflicting Configuration", "direct_connect_enabled and private_connectivity are mutually exclusive.")
+	}
+
 	// #1391: F5 XC authors these six labels on this object itself, and the Read filters
 	// them so that an empty labels block stops proposing their deletion. A configuration
 	// that sets one therefore cannot converge — the read-back removes it and the next plan

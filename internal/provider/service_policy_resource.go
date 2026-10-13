@@ -2663,6 +2663,19 @@ func (r *ServicePolicyResource) ValidateConfig(ctx context.Context, req resource
 		)
 	}
 
+	if data.AllowList != nil && data.DenyList != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("allow_list"), "Conflicting Configuration", "allow_list and deny_list are mutually exclusive.")
+	}
+	if data.AllowList != nil && data.RuleList != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("allow_list"), "Conflicting Configuration", "allow_list and rule_list are mutually exclusive.")
+	}
+	if data.DenyList != nil && data.RuleList != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("deny_list"), "Conflicting Configuration", "deny_list and rule_list are mutually exclusive.")
+	}
+	if data.ServerNameMatcher != nil && data.ServerSelector != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("server_name_matcher"), "Conflicting Configuration", "server_name_matcher and server_selector are mutually exclusive.")
+	}
+
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan

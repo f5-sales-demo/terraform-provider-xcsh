@@ -259,6 +259,13 @@ func (r *Ike1Resource) ValidateConfig(ctx context.Context, req resource.Validate
 	if resp.Diagnostics.HasError() {
 		return
 	}
+	if data.IKEKeylifetimeHours != nil && data.IKEKeylifetimeMinutes != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("ike_keylifetime_hours"), "Conflicting Configuration", "ike_keylifetime_hours and ike_keylifetime_minutes are mutually exclusive.")
+	}
+	if data.ReauthTimeoutDays != nil && data.ReauthTimeoutHours != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("reauth_timeout_days"), "Conflicting Configuration", "reauth_timeout_days and reauth_timeout_hours are mutually exclusive.")
+	}
+
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan

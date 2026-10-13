@@ -3050,6 +3050,13 @@ func (r *VirtualHostResource) ValidateConfig(ctx context.Context, req resource.V
 		)
 	}
 
+	if data.CaptchaChallenge != nil && data.JsChallenge != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("captcha_challenge"), "Conflicting Configuration", "captcha_challenge and js_challenge are mutually exclusive.")
+	}
+	if data.TLSCertParams != nil && data.TLSParameters != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("tls_cert_params"), "Conflicting Configuration", "tls_cert_params and tls_parameters are mutually exclusive.")
+	}
+
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan
