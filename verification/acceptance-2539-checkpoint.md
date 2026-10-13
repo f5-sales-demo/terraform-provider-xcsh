@@ -77,3 +77,22 @@ evidence for every skip; finish CI and merge only after gates pass; run protecte
 and cleanup; release and qualify the immutable provider artifact because earlier production
 generator behavior changed. Existing task and qualification worktrees remain preserved while their
 runs or evidence are needed.
+
+
+The first frozen corrected-source run exposed further generated fixture gaps:
+discovery lacked a verified site reference; workload lacked container and advertising
+choices; WAF exclusion policy lacked a rule; USB policy fixtures omitted a valid
+device list; tunnel omitted local/remote parameters; subnet lacked site DHCP networks;
+TCP used a cross-namespace pool; network connector used a placeholder network; secret
+management access omitted its external-authentication prerequisite. These errors remain
+in the original reports. Focused live repairs passed discovery, owned-selector mesh,
+workload, WAF policy, all USB cases, tunnel, TCP, network connector, and both subnet
+resource/datasource tests. Subnet's final replay confirmed seven entries absent twice;
+the network replay confirmed nineteen entries absent twice.
+
+The owned-selector check now uses the ownership read context, preserving the run
+marker while provider-facing reads strip it. Namespace command cleanup normalizes
+typed NOT_FOUND during deletion races. Regressions, focused mocks, installed-schema
+audits, lint, and recovered cleanup receipts validate these repairs. Current full runs
+continue on their pinned earlier source; a second pinned qualification binary set is
+being built from the corrected source. No full run is yet qualified.
