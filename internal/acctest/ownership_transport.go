@@ -88,6 +88,9 @@ type ownershipTransport struct {
 }
 
 func (t *ownershipTransport) RoundTrip(req *http.Request) (*http.Response, error) {
+	if req.Method == http.MethodPut && strings.HasPrefix(req.URL.Path, "/api/object_store/") {
+		return t.createSwagger(req)
+	}
 	if req.Method == http.MethodPut {
 		route := false
 		for _, collection := range ownedCollectionRoutes {

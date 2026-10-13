@@ -22,12 +22,14 @@ var errOwnedAbsent = errors.New("owned resource absent")
 var ownershipRunPattern = regexp.MustCompile(`^[a-z0-9]{1,24}$`)
 
 type OwnedResource struct {
-	Type         string   `json:"type"`
-	Namespace    string   `json:"namespace,omitempty"`
-	Name         string   `json:"name"`
-	Dependencies []string `json:"dependencies,omitempty"`
-	UID          string   `json:"uid,omitempty"`
-	Status       string   `json:"status"`
+	Type          string   `json:"type"`
+	Namespace     string   `json:"namespace,omitempty"`
+	Name          string   `json:"name"`
+	Dependencies  []string `json:"dependencies,omitempty"`
+	UID           string   `json:"uid,omitempty"`
+	Status        string   `json:"status"`
+	Version       string   `json:"version,omitempty"`
+	ContentSHA256 string   `json:"content_sha256,omitempty"`
 }
 type OwnershipJournal struct {
 	Version   int             `json:"version"`
@@ -347,6 +349,9 @@ func (j *OwnershipJournal) Cleanup(ctx context.Context, b OwnershipBackend, atte
 type apiOwnershipBackend struct{ c *client.Client }
 
 func (b apiOwnershipBackend) Read(ctx context.Context, r OwnedResource) (client.Metadata, error) {
+	if r.Type == "xcsh_swagger_object" {
+		return b.readSwagger(ctx, r)
+	}
 	read, ok := ownedReaderRegistry[r.Type]
 	if !ok {
 		return client.Metadata{}, fmt.Errorf("no API verifier registered for resource type")
@@ -358,6 +363,9 @@ func (b apiOwnershipBackend) Read(ctx context.Context, r OwnedResource) (client.
 	return metadata, err
 }
 func (b apiOwnershipBackend) Delete(ctx context.Context, r OwnedResource) error {
+	if r.Type == "xcsh_swagger_object" {
+		return b.deleteSwagger(ctx, r)
+	}
 	delete, ok := resourceDeleterRegistry[r.Type]
 	if !ok {
 		return errors.New("no deleter registered for resource type")

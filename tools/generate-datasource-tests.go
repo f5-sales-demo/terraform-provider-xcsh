@@ -90,7 +90,7 @@ var resourceConfigs = map[string]string{
 	"alert_policy": "",
 
 	"api_crawler":               "",
-	"api_definition":            "",
+	"api_definition":            "\n  swagger_specs = [xcsh_swagger_object.fixture.path]",
 	"api_discovery":             "",
 	"api_testing":               "",
 	"app_api_group":             "",
@@ -513,6 +513,13 @@ var skipResources = map[string]string{
 
 // Resources that need special dependencies in the config
 var resourceDependencies = map[string]string{
+ "api_definition": `
+resource "xcsh_swagger_object" "fixture" {
+ name = "%[1]s-spec"
+ namespace = "shared"
+ content = "{\"openapi\":\"3.0.3\",\"info\":{\"title\":\"Acceptance API\",\"version\":\"1.0.0\"},\"paths\":{\"/health\":{\"get\":{\"responses\":{\"200\":{\"description\":\"OK\"}}}}}}"
+}
+`,
  "protocol_policer": `
 resource "xcsh_policer" "test" {
  name = "%[1]s-policer"

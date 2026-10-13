@@ -82,6 +82,9 @@ func precheckLiveCapability(t *testing.T) {
 			// the actual operation once the prerequisite exists.
 			continue
 		}
+		if requirement.Method != "POST" {
+			continue
+		}
 		key := requirement.Method + " " + path
 		var decision capabilityDecision
 		if cached, ok := capabilityProbeCache.Load(key); ok {

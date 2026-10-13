@@ -236,6 +236,10 @@ func FixtureRequirements(config string) ([]OperationRequirement, error) {
 			continue
 		}
 		typ := block.Labels[0]
+		if typ == "xcsh_swagger_object" {
+			requirements = append(requirements, OperationRequirement{Method: "PUT", Type: typ, Namespace: "shared", Path: "/api/object_store/namespaces/shared/stored_objects/swagger"})
+			continue
+		}
 		route, ok := ownedCollectionRoutes[typ]
 		if !ok {
 			return nil, fmt.Errorf("no capability inventory for resource")

@@ -51,10 +51,17 @@ resource "time_sleep" "wait_for_namespace" {
   create_duration = "5s"
 }
 
+resource "xcsh_swagger_object" "fixture" {
+ name = "%[1]s-spec"
+ namespace = "shared"
+ content = "{\"openapi\":\"3.0.3\",\"info\":{\"title\":\"Acceptance API\",\"version\":\"1.0.0\"},\"paths\":{\"/health\":{\"get\":{\"responses\":{\"200\":{\"description\":\"OK\"}}}}}}"
+}
+
 resource "xcsh_api_definition" "test" {
   depends_on = [time_sleep.wait_for_namespace]
   name       = %[2]q
   namespace  = xcsh_namespace.test.name
+  swagger_specs = [xcsh_swagger_object.fixture.path]
 }
 
 data "xcsh_api_definition" "test" {
