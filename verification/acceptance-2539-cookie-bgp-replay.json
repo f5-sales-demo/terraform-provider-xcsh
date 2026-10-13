@@ -1,0 +1,53 @@
+{
+  "version": 1,
+  "total": 3,
+  "passed": 1,
+  "failed": 2,
+  "skipped": 0,
+  "tests": [
+    {
+      "name": "TestAccAuthenticationDataSource_basic",
+      "status": "pass"
+    },
+    {
+      "name": "TestAccAuthenticationResource_basic",
+      "status": "fail",
+      "failure_fingerprint": {
+        "class": "framework_diagnostic",
+        "summary": "ImportStateVerify attributes not equivalent",
+        "source_location": "authentication_resource_test.go:17"
+      }
+    },
+    {
+      "name": "TestAccBGPResource_basic",
+      "status": "fail",
+      "failure_fingerprint": {
+        "class": "framework_diagnostic",
+        "summary": "Provider produced inconsistent result after apply",
+        "source_location": "bgp_resource_test.go:17",
+        "schema_fields": ["where.site.network_type"]
+      }
+    }
+  ],
+  "cleanup_initial": {
+    "version": 1,
+    "diagnostics": {
+      "delete_failed": 1
+    },
+    "journal_sha256": "6deee3764caf7fa95f0fb004c807cbcbd470800e37d119a058d9fc47248371e0",
+    "complete": false,
+    "owned": 10,
+    "confirmed_absent": 9,
+    "failures": 1,
+    "second_pass_remaining": 0
+  },
+  "cleanup_recovered": {
+    "version": 1,
+    "journal_sha256": "2fe7784b59c58851f00b0bd37d303a4f5538d01238374e0b005a7ce4ae739d71",
+    "complete": true,
+    "owned": 10,
+    "confirmed_absent": 10,
+    "failures": 0,
+    "second_pass_remaining": 0
+  }
+}
