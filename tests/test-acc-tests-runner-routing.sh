@@ -32,6 +32,19 @@ assert_runner mock-tests ubuntu-latest
 assert_runner compare-results ubuntu-latest
 assert_runner summary ubuntu-latest
 assert_runner real-api-tests managed-socketless
-assert_runner cleanup managed-socketless
+if [[ -n "$(job_runner cleanup)" ]]; then
+  printf 'FAIL: separate cleanup job remains\n' >&2
+  exit 1
+fi
+python3 - "$workflow" <<'PY'
+import pathlib, sys
+text = pathlib.Path(sys.argv[1]).read_text()
+start = text.index("      - name: Verify journal-owned cleanup")
+step = text[start:text.index("      - name: Upload real API test reports", start)]
+assert "if: always()" in step
+assert "XCSH_ACC_JOURNAL" in step
+assert "second_pass_remaining" in step
+assert "-sweep" not in step
+PY
 
 echo "PASS: acceptance-test runner routing"

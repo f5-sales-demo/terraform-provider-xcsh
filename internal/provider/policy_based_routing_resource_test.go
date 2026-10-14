@@ -18,7 +18,6 @@ func TestAccPolicyBasedRoutingResource_basic(t *testing.T) {
 
 	// Skip: policy_based_routing requires additional configuration (rules/routes)
 	// Need to investigate required spec fields for successful creation
-	t.Skip("Skipping: policy_based_routing requires additional configuration - BAD_REQUEST")
 
 	rName := acctest.RandomName("tf-acc-test-pbr")
 	nsName := acctest.RandomName("tf-acc-test-ns")
@@ -77,10 +76,21 @@ resource "time_sleep" "wait_for_namespace" {
   create_duration = "5s"
 }
 
+resource "xcsh_forwarding_class" "fixture" {
+ name = "%[2]s-fc"
+ namespace = "system"
+ queue_id_to_use = "DSCP_BEST_EFFORT"
+ no_policer = {}
+ interface_group = "ANY_AVAILABLE_INTERFACE"
+}
 resource "xcsh_policy_based_routing" "test" {
   depends_on = [time_sleep.wait_for_namespace]
   name      = %[2]q
   namespace = xcsh_namespace.test.name
+  forwarding_class_list {
+    name = xcsh_forwarding_class.fixture.name
+    namespace = xcsh_forwarding_class.fixture.namespace
+  }
 }
 `, nsName, name))
 }

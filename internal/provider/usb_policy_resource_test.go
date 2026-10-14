@@ -36,7 +36,6 @@ import (
 // -----------------------------------------------------------------------------
 
 func TestAccUsbPolicyResource_basic(t *testing.T) {
-	t.Skip("Skipping: requires USB policy infrastructure - usb_policy resources require F5 XC Edge sites with USB device management capabilities that are not available in standard test environments")
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 
@@ -84,7 +83,6 @@ func TestAccUsbPolicyResource_basic(t *testing.T) {
 // -----------------------------------------------------------------------------
 
 func TestAccUsbPolicyResource_allAttributes(t *testing.T) {
-	t.Skip("Skipping: requires USB policy infrastructure - usb_policy resources require F5 XC Edge sites with USB device management capabilities that are not available in standard test environments")
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 
@@ -141,7 +139,6 @@ func TestAccUsbPolicyResource_allAttributes(t *testing.T) {
 // -----------------------------------------------------------------------------
 
 func TestAccUsbPolicyResource_updateLabels(t *testing.T) {
-	t.Skip("Skipping: requires USB policy infrastructure - usb_policy resources require F5 XC Edge sites with USB device management capabilities that are not available in standard test environments")
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 
@@ -196,7 +193,6 @@ func TestAccUsbPolicyResource_updateLabels(t *testing.T) {
 // -----------------------------------------------------------------------------
 
 func TestAccUsbPolicyResource_updateDescription(t *testing.T) {
-	t.Skip("Skipping: requires USB policy infrastructure - usb_policy resources require F5 XC Edge sites with USB device management capabilities that are not available in standard test environments")
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 
@@ -255,7 +251,6 @@ func TestAccUsbPolicyResource_updateDescription(t *testing.T) {
 // -----------------------------------------------------------------------------
 
 func TestAccUsbPolicyResource_updateAllowedDevices(t *testing.T) {
-	t.Skip("Skipping: requires USB policy infrastructure - usb_policy resources require F5 XC Edge sites with USB device management capabilities that are not available in standard test environments")
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 
@@ -304,7 +299,7 @@ func TestAccUsbPolicyResource_updateAllowedDevices(t *testing.T) {
 					resource.TestCheckResourceAttr(resourceName, "allowed_devices.0.b_device_protocol", "0x00"),
 				),
 			},
-			// Step 4: Remove all allowed devices
+			// Step 4: Restore a minimal valid allowed-device list
 			{
 				Config: testAccUsbPolicyResourceConfig_basic(nsName, name),
 				Check: resource.ComposeAggregateTestCheckFunc(
@@ -346,6 +341,10 @@ resource "xcsh_usb_policy" "test" {
   depends_on = [time_sleep.wait_for_namespace]
   name       = %[2]q
   namespace  = xcsh_namespace.test.name
+  allowed_devices {
+    id_vendor = "0x046d"
+    id_product = "0xc52b"
+  }
 }
 `, nsName, name))
 }
@@ -410,6 +409,10 @@ resource "xcsh_usb_policy" "test" {
   depends_on = [time_sleep.wait_for_namespace]
   name       = %[2]q
   namespace  = xcsh_namespace.test.name
+  allowed_devices {
+    id_vendor = "0x046d"
+    id_product = "0xc52b"
+  }
 
   labels = {
     environment = %[3]q
@@ -436,6 +439,10 @@ resource "xcsh_usb_policy" "test" {
   depends_on  = [time_sleep.wait_for_namespace]
   name        = %[2]q
   namespace   = xcsh_namespace.test.name
+  allowed_devices {
+    id_vendor = "0x046d"
+    id_product = "0xc52b"
+  }
   description = %[3]q
 }
 `, nsName, name, description))

@@ -1,0 +1,48 @@
+{
+  "version": 1,
+  "total": 2,
+  "passed": 2,
+  "failed": 0,
+  "skipped": 0,
+  "stream_completeness": {
+    "complete": true,
+    "events": 37,
+    "malformed_lines": 0,
+    "invalid_events": 0,
+    "scanner_error": false,
+    "incomplete_tests": 0,
+    "incomplete_packages": 0,
+    "package_failures": 0
+  },
+  "cleanup_initial": {
+    "version": 1,
+    "diagnostics": {
+      "delete_failed": 1
+    },
+    "journal_sha256": "dfd846d0308aae2269dc683801a86fa6a727efe309d292cb28097c312e892485",
+    "complete": false,
+    "owned": 10,
+    "confirmed_absent": 9,
+    "failures": 1,
+    "second_pass_remaining": 0
+  },
+  "cleanup_recovered": {
+    "version": 1,
+    "journal_sha256": "c78f59a0aa433a7db71b1ce9db69838c286b1ea04732ab4f49883b1de298a30e",
+    "complete": true,
+    "owned": 10,
+    "confirmed_absent": 10,
+    "failures": 0,
+    "second_pass_remaining": 0
+  },
+  "schema_change": {
+    "terraform_block": "dynamic_pool",
+    "api_wire_key": "dynamic"
+  },
+  "digests": {
+    "tests.json": "5bfe8022a6d82dc6097e2f46e7aea0286cc58ab74c87699531ded1259355d61e",
+    "tests.md": "ae773ef6f830ae7141a08ee1961afa4a39dfda59bfc9c55d4e566a40a0be74a5",
+    "schema.json": "eae8d384f9f4be76685c46dbc996facd37b4ce2a95ca1406cc9474005149aea4",
+    "cleanup-recovered.json": "00f337963089fddb4da7a17eb6787486915b8c351a56ff9f18d5192d81eca664"
+  }
+}

@@ -13,7 +13,6 @@ import (
 )
 
 func TestAccCDNLoadBalancerResource_basic(t *testing.T) {
-	t.Skip("Skipping: CDN loadbalancer requires additional CDN infrastructure and origin pool configuration not available in standard test environments")
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 
@@ -71,6 +70,17 @@ resource "xcsh_cdn_loadbalancer" "test" {
   }
 
   domains = ["%[1]s.example.com"]
+  http {
+    port = 80
+    dns_volterra_managed = false
+  }
+  origin_pool {
+    origin_servers {
+      port = 80
+      public_name { dns_name = "example.com" }
+    }
+    no_tls = {}
+  }
 }
 `, name))
 }

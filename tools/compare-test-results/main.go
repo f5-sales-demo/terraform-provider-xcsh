@@ -27,19 +27,27 @@ import (
 )
 
 // TestResult represents a single test result
+type PrerequisiteOutcome struct {
+	Outcome    string `json:"outcome"`
+	HTTPStatus int    `json:"http_status"`
+}
 type TestResult struct {
-	Name           string  `json:"name"`
-	Package        string  `json:"package"`
-	Category       string  `json:"category"`
-	Status         string  `json:"status"` // pass, fail, skip
-	Duration       float64 `json:"duration_seconds"`
-	SkipReason     string  `json:"skip_reason,omitempty"`
-	TransientError string  `json:"transient_error,omitempty"`
-	FailureOutput  string  `json:"failure_output,omitempty"`
+	Prerequisites  []PrerequisiteOutcome `json:"prerequisites,omitempty"`
+	Name           string                `json:"name"`
+	Package        string                `json:"package"`
+	Category       string                `json:"category"`
+	Status         string                `json:"status"` // pass, fail, skip
+	Duration       float64               `json:"duration_seconds"`
+	SkipReason     string                `json:"skip_reason,omitempty"`
+	TransientError string                `json:"transient_error,omitempty"`
+	FailureOutput  string                `json:"failure_output,omitempty"`
 }
 
 // Report represents a test report from test-report tool
 type Report struct {
+	Stream struct {
+		Complete bool `json:"complete"`
+	} `json:"stream_completeness"`
 	Timestamp    time.Time    `json:"timestamp"`
 	TotalTests   int          `json:"total_tests"`
 	TotalPassed  int          `json:"total_passed"`
@@ -147,7 +155,7 @@ func main() {
 	}
 
 	// Exit with non-zero if mock needs fixing
-	if comparison.Summary.MockNeedsFix > 0 || comparison.Summary.MockIncorrect > 0 {
+	if comparison.Summary.MockNeedsFix > 0 || comparison.Summary.MockIncorrect > 0 || comparison.Summary.TestNeedsFix > 0 {
 		os.Exit(1)
 	}
 }
@@ -163,6 +171,43 @@ func loadReport(path string) (*Report, error) {
 		return nil, fmt.Errorf("parsing JSON: %w", err)
 	}
 
+	if !report.Stream.Complete || report.TotalTests == 0 || report.TotalTests != len(report.Tests) {
+		return nil, fmt.Errorf("incomplete comparison input")
+	}
+	seen := map[string]bool{}
+	passed, failed, skipped := 0, 0, 0
+	for _, test := range report.Tests {
+		key := test.Package + "/" + test.Name
+		if test.Name == "" || seen[key] {
+			return nil, fmt.Errorf("duplicate or missing comparison identity")
+		}
+		seen[key] = true
+		switch test.Status {
+		case "pass":
+			passed++
+		case "fail":
+			failed++
+		case "skip":
+			skipped++
+			justified := false
+			for _, p := range test.Prerequisites {
+				switch p.Outcome {
+				case "operation_denied":
+					justified = justified || p.HTTPStatus == 403
+				case "external_credential_missing", "non_disposable_scope", "infrastructure_absent", "quota_unconfigured", "quota_exhausted", "cloud_appliance_out_of_scope":
+					justified = true
+				}
+			}
+			if !justified {
+				return nil, fmt.Errorf("unjustified comparison skip")
+			}
+		default:
+			return nil, fmt.Errorf("invalid comparison status")
+		}
+	}
+	if passed != report.TotalPassed || failed != report.TotalFailed || skipped != report.TotalSkipped {
+		return nil, fmt.Errorf("comparison totals do not account for tests")
+	}
 	return &report, nil
 }
 
@@ -233,9 +278,12 @@ func compare(mock, real *Report) *ComparisonReport {
 			if mockTest.Status == "pass" {
 				result.Category = MockOnlyPass
 				report.Summary.MockOnlyPass++
-			} else {
+			} else if mockTest.Status == "skip" {
 				result.Category = BothSkipped
 				report.Summary.BothSkipped++
+			} else {
+				result.Category = TestNeedsFix
+				report.Summary.TestNeedsFix++
 			}
 
 		case mockTest.Status == "skip" && realTest.Status == "skip":

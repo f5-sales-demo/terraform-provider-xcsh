@@ -17,7 +17,7 @@ func TestAccCertificateResource_basic(t *testing.T) {
 	acctest.PreCheck(t)
 
 	rName := acctest.RandomName("tf-acc-test-cert")
-	nsName := acctest.RandomName("tf-acc-test-ns")
+	nsName := "shared"
 	resourceName := "xcsh_certificate.test"
 
 	// Generate test certificates dynamically for CI/CD compatibility
@@ -56,7 +56,7 @@ func TestAccCertificateResource_emptyPlan(t *testing.T) {
 	acctest.PreCheck(t)
 
 	rName := acctest.RandomName("tf-acc-test-cert")
-	nsName := acctest.RandomName("tf-acc-test-ns")
+	nsName := "shared"
 	certs := acctest.MustGenerateTestCertificates()
 
 	resource.ParallelTest(t, resource.TestCase{
@@ -76,7 +76,7 @@ func TestAccCertificateResource_withLabels(t *testing.T) {
 	acctest.PreCheck(t)
 
 	rName := acctest.RandomName("tf-acc-test-cert")
-	nsName := acctest.RandomName("tf-acc-test-ns")
+	nsName := "shared"
 	resourceName := "xcsh_certificate.test"
 	certs := acctest.MustGenerateTestCertificates()
 
@@ -101,19 +101,10 @@ func testAccCertificateConfig_withLabels(nsName, name string, certs *acctest.Tes
 	return acctest.ConfigCompose(
 		acctest.ProviderConfig(),
 		fmt.Sprintf(`
-resource "xcsh_namespace" "test" {
-  name = %[1]q
-}
-
-resource "time_sleep" "wait_for_namespace" {
-  depends_on      = [xcsh_namespace.test]
-  create_duration = "5s"
-}
 
 resource "xcsh_certificate" "test" {
-  depends_on = [time_sleep.wait_for_namespace]
   name       = %[2]q
-  namespace  = xcsh_namespace.test.name
+  namespace  = "shared"
 
   labels = {
     environment = "test"
@@ -148,19 +139,10 @@ func testAccCertificateConfig_basic(nsName, name string, certs *acctest.TestCert
 	return acctest.ConfigCompose(
 		acctest.ProviderConfig(),
 		fmt.Sprintf(`
-resource "xcsh_namespace" "test" {
-  name = %[1]q
-}
-
-resource "time_sleep" "wait_for_namespace" {
-  depends_on      = [xcsh_namespace.test]
-  create_duration = "5s"
-}
 
 resource "xcsh_certificate" "test" {
-  depends_on = [time_sleep.wait_for_namespace]
   name       = %[2]q
-  namespace  = xcsh_namespace.test.name
+  namespace  = "shared"
 
   certificate_url = "string:///%[3]s"
 

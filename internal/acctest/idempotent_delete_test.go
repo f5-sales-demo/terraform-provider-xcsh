@@ -81,7 +81,7 @@ func TestWaitForResourceDisappearance(t *testing.T) {
 			case 2:
 				return &xcsherrors.XCSHError{Code: xcsherrors.ErrCodeServerError, StatusCode: http.StatusInternalServerError}
 			default:
-				return &xcsherrors.XCSHError{Code: xcsherrors.ErrCodeNotFound, StatusCode: http.StatusNotFound}
+				return &xcsherrors.XCSHError{Code: xcsherrors.ErrCodeNotFound, StatusCode: http.StatusNotFound, Details: map[string]interface{}{"api_code": "NOT_FOUND"}}
 			}
 		}
 		if err := waitForResourceDisappearance(context.Background(), nil, verifier, "system", "fixture", 3, 0); err != nil {

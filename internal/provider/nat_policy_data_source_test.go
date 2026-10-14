@@ -14,20 +14,17 @@ import (
 func TestAccNatPolicyDataSource_basic(t *testing.T) {
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
+	acctest.RequireCustomerEdgeSite(t)
 
 	rName := acctest.RandomName("tf-acc-test")
-	nsName := acctest.RandomName("tf-acc-test-ns")
 	resourceName := "xcsh_nat_policy.test"
 	dataSourceName := "data.xcsh_nat_policy.test"
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
 		ProtoV6ProviderFactories: acctest.ProtoV6ProviderFactories,
-		ExternalProviders: map[string]resource.ExternalProvider{
-			"time": {Source: "hashicorp/time"},
-		},
 		Steps: []resource.TestStep{
 			{
-				Config: testAccNatPolicyDataSourceConfig_basic(nsName, rName),
+				Config: testAccNatPolicyDataSourceConfig_basic(rName, acctest.ReadOnlySiteName()),
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttrPair(dataSourceName, "name", resourceName, "name"),
 					resource.TestCheckResourceAttrPair(dataSourceName, "namespace", resourceName, "namespace"),
@@ -38,35 +35,41 @@ func TestAccNatPolicyDataSource_basic(t *testing.T) {
 	})
 }
 
-func testAccNatPolicyDataSourceConfig_basic(nsName, name string) string {
+func testAccNatPolicyDataSourceConfig_basic(name string, siteName string) string {
 	return acctest.ConfigCompose(
 		acctest.ProviderConfig(),
 		fmt.Sprintf(`
-resource "xcsh_namespace" "test" {
-  name = %[1]q
-}
 
-resource "time_sleep" "wait_for_namespace" {
-  depends_on      = [xcsh_namespace.test]
-  create_duration = "5s"
+resource "xcsh_virtual_network" "fixture" {
+ name = "%[1]s-network"
+ namespace = "system"
+ global_network = {}
 }
-
 resource "xcsh_nat_policy" "test" {
-  depends_on = [time_sleep.wait_for_namespace]
-  name       = %[2]q
-  namespace  = xcsh_namespace.test.name
-  rule_list {
-    rules {
-      metadata {
-        name = "test-rule"
+  name      = %[1]q
+  namespace = "system"
+  site {
+    refs {
+      name = %[2]q
+      namespace = "system"
+    }
+  }
+  rules {
+    name = "fixture"
+    enable = {}
+    virtual_network {
+      refs {
+        name = xcsh_virtual_network.fixture.name
+        namespace = xcsh_virtual_network.fixture.namespace
       }
-      spec {
-        src_ip_match = "ANY"
-        action {
-          snat_pool {
-            any_vip = true
-          }
-        }
+    }
+    criteria {
+      any = {}
+      source_cidr = ["192.0.2.0/24"]
+    }
+    action {
+      dynamic_pool {
+        pools { prefixes = ["198.51.100.0/24"] }
       }
     }
   }
@@ -77,5 +80,5 @@ data "xcsh_nat_policy" "test" {
   name       = xcsh_nat_policy.test.name
   namespace  = xcsh_nat_policy.test.namespace
 }
-`, nsName, name))
+`, name, siteName))
 }

@@ -1,0 +1,74 @@
+{
+  "version": 1,
+  "run": 38347540472,
+  "total": 3,
+  "passed": 2,
+  "failed": 1,
+  "skipped": 0,
+  "stream_completeness": {
+    "complete": false,
+    "events": 68,
+    "malformed_lines": 0,
+    "invalid_events": 0,
+    "scanner_error": false,
+    "incomplete_tests": 0,
+    "incomplete_packages": 0,
+    "package_failures": 1
+  },
+  "tests": [
+    {
+      "name": "TestAccAPIDefinitionResource_basic",
+      "status": "fail",
+      "prerequisites": [
+        {
+          "outcome": "tested",
+          "method": "POST",
+          "resource_type": "xcsh_api_definition"
+        }
+      ],
+      "failure_fingerprint": {
+        "class": "http_error",
+        "summary": "Create request failed",
+        "http_status": 400,
+        "source_location": "api_definition_resource_test.go:19"
+      }
+    },
+    {
+      "name": "TestAccAppFirewallResource_detectionSettings",
+      "status": "pass",
+      "prerequisites": [
+        {
+          "outcome": "tested",
+          "method": "POST",
+          "resource_type": "xcsh_app_firewall"
+        }
+      ]
+    },
+    {
+      "name": "TestAccHTTPLoadBalancerResource_basic",
+      "status": "pass",
+      "prerequisites": [
+        {
+          "outcome": "tested",
+          "method": "POST",
+          "resource_type": "xcsh_http_loadbalancer"
+        }
+      ]
+    }
+  ],
+  "cleanup": {
+    "version": 1,
+    "journal_sha256": "f8dffe3198790387833ad27df1bebbfccb36d3d3dd68dc9b58c4a4a221ac5815",
+    "complete": true,
+    "owned": 5,
+    "confirmed_absent": 5,
+    "failures": 0,
+    "second_pass_remaining": 0
+  },
+  "complete": false,
+  "artifacts_sha256": {
+    "real-tests.json": "b2844bd85bd11720e4b8a67efeda5d6ae72058eddcd50102f603fe72b98302f5",
+    "real-tests.md": "4026f08786714d936d997c289f8e2c7b91ee87a1fc893da06fb5458a15e08dde",
+    "cleanup.json": "7e910fc71cb3ba5772b247da14f5e203ea73daa7cc867b28dda4762390151c3f"
+  }
+}

@@ -953,6 +953,10 @@ func (r *PolicyBasedRoutingResource) ValidateConfig(ctx context.Context, req res
 	if resp.Diagnostics.HasError() {
 		return
 	}
+	if data.ForwardProxyPbr != nil && data.NetworkPbr != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("forward_proxy_pbr"), "Conflicting Configuration", "forward_proxy_pbr and network_pbr are mutually exclusive.")
+	}
+
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan

@@ -18,7 +18,8 @@ func TestAccCminstanceResource_basic(t *testing.T) {
 
 	// Skip: cminstance requires connection to an external Central Manager instance
 	// with valid IP, port, username and password/api_token credentials
-	t.Skip("Skipping: cminstance resource requires external Central Manager instance credentials which are not available in acceptance tests")
+
+	acctest.RequireExternalCredential(t, "central_manager")
 
 	rName := acctest.RandomName("tf-acc-test-cm")
 	nsName := acctest.RandomName("tf-acc-test-ns")
@@ -78,6 +79,8 @@ resource "time_sleep" "wait_for_namespace" {
 }
 
 resource "xcsh_cminstance" "test" {
+  username = "fixture"
+  port = 443
   depends_on = [time_sleep.wait_for_namespace]
   name       = %[2]q
   namespace  = xcsh_namespace.test.name

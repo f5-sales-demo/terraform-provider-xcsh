@@ -1,0 +1,78 @@
+{
+  "version": 1,
+  "total": 6,
+  "passed": 3,
+  "failed": 3,
+  "skipped": 0,
+  "tests": [
+    {
+      "name": "TestAccAppSettingDataSource_basic",
+      "status": "pass"
+    },
+    {
+      "name": "TestAccAppSettingResource_basic",
+      "status": "pass"
+    },
+    {
+      "name": "TestAccAppTypeDataSource_basic",
+      "status": "pass"
+    },
+    {
+      "name": "TestAccAuthenticationDataSource_basic",
+      "status": "fail",
+      "failure_fingerprint": {
+        "class": "http_error",
+        "summary": "Create request failed",
+        "http_status": 400,
+        "source_location": "authentication_data_source_test.go:16",
+        "diagnostic_facts": ["missing_required_input"],
+        "schema_fields": ["cookie_params"]
+      }
+    },
+    {
+      "name": "TestAccAuthenticationResource_basic",
+      "status": "fail",
+      "failure_fingerprint": {
+        "class": "http_error",
+        "summary": "Create request failed",
+        "http_status": 400,
+        "source_location": "authentication_resource_test.go:17",
+        "diagnostic_facts": ["missing_required_input"],
+        "schema_fields": ["cookie_params"]
+      }
+    },
+    {
+      "name": "TestAccBGPResource_basic",
+      "status": "fail",
+      "failure_fingerprint": {
+        "class": "http_error",
+        "summary": "Create request failed",
+        "http_status": 400,
+        "source_location": "bgp_resource_test.go:17",
+        "diagnostic_facts": ["missing_required_input"],
+        "schema_fields": ["peers", "peers.external"]
+      }
+    }
+  ],
+  "cleanup_initial": {
+    "version": 1,
+    "diagnostics": {
+      "delete_failed": 1
+    },
+    "journal_sha256": "68b1c2f0456deb093ecb64be78e5f8a976f4bf6b891f1930991954c25c58b813",
+    "complete": false,
+    "owned": 17,
+    "confirmed_absent": 16,
+    "failures": 1,
+    "second_pass_remaining": 0
+  },
+  "cleanup_recovered": {
+    "version": 1,
+    "journal_sha256": "2403278062d41f48813d626b3d16e8cb8460f822a2d09878914221dbb9fcc4f2",
+    "complete": true,
+    "owned": 17,
+    "confirmed_absent": 17,
+    "failures": 0,
+    "second_pass_remaining": 0
+  }
+}

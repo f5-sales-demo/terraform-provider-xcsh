@@ -244,6 +244,19 @@ func (r *IKEPhase2ProfileResource) ValidateConfig(ctx context.Context, req resou
 	if resp.Diagnostics.HasError() {
 		return
 	}
+	if data.DhGroupSet != nil && !data.DisablePfs.IsNull() && !data.DisablePfs.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(path.Root("dh_group_set"), "Conflicting Configuration", "dh_group_set and disable_pfs are mutually exclusive.")
+	}
+	if data.IKEKeylifetimeHours != nil && data.IKEKeylifetimeMinutes != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("ike_keylifetime_hours"), "Conflicting Configuration", "ike_keylifetime_hours and ike_keylifetime_minutes are mutually exclusive.")
+	}
+	if data.IKEKeylifetimeHours != nil && !data.UseDefaultKeylifetime.IsNull() && !data.UseDefaultKeylifetime.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(path.Root("ike_keylifetime_hours"), "Conflicting Configuration", "ike_keylifetime_hours and use_default_keylifetime are mutually exclusive.")
+	}
+	if data.IKEKeylifetimeMinutes != nil && !data.UseDefaultKeylifetime.IsNull() && !data.UseDefaultKeylifetime.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(path.Root("ike_keylifetime_minutes"), "Conflicting Configuration", "ike_keylifetime_minutes and use_default_keylifetime are mutually exclusive.")
+	}
+
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan

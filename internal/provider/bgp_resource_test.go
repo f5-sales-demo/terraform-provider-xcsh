@@ -17,7 +17,8 @@ func TestAccBGPResource_basic(t *testing.T) {
 	acctest.PreCheck(t)
 
 	// Skip: BGP requires a real site reference which is infrastructure-dependent
-	t.Skip("Skipping: bgp resource requires site infrastructure (CE/RE site) which is not available in acceptance tests")
+
+	acctest.RequireExistingInfrastructure(t, "site")
 
 	rName := acctest.RandomName("tf-acc-test-bgp")
 	nsName := "system"
@@ -32,7 +33,7 @@ func TestAccBGPResource_basic(t *testing.T) {
 		CheckDestroy: acctest.CheckResourceDestroyed("xcsh_bgp"),
 		Steps: []resource.TestStep{
 			{
-				Config: testAccBGPConfig_basic(nsName, rName),
+				Config: testAccBGPConfig_basic(nsName, rName, acctest.ReadOnlySiteName()),
 				Check: resource.ComposeAggregateTestCheckFunc(
 					acctest.CheckResourceExists(resourceName),
 					resource.TestCheckResourceAttr(resourceName, "name", rName),
@@ -63,36 +64,28 @@ func testAccBGPImportStateIdFunc(resourceName string) resource.ImportStateIdFunc
 	}
 }
 
-func testAccBGPConfig_basic(nsName, name string) string {
+func testAccBGPConfig_basic(nsName, name, siteName string) string {
 	return acctest.ConfigCompose(
 		acctest.ProviderConfig(),
 		fmt.Sprintf(`
 resource "xcsh_bgp" "test" {
   name       = %[2]q
-  namespace  = %[1]q
+  namespace  = "system"
 
-  peers {
-    metadata {
-      name = "test-peer"
-    }
-    external {
-      asn     = 64512
-      address = "192.168.1.1"
-      no_authentication = {}
-    }
-    bfd_disabled = {}
-    passive_mode_disabled = {}
-    disable {}
+  bgp_parameters {
+    asn = 65000
+    from_site = {}
   }
 
   where {
     site {
-      kind      = "site"
-      name      = "example-site"
-      namespace = "system"
-      tenant    = "example-corp"
+      network_type = "VIRTUAL_NETWORK_SITE_LOCAL_INSIDE"
+      ref {
+        name = %[3]q
+        namespace = "system"
+      }
     }
   }
 }
-`, nsName, name))
+`, nsName, name, siteName))
 }

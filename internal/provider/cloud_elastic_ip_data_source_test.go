@@ -14,6 +14,7 @@ import (
 func TestAccCloudElasticIpDataSource_basic(t *testing.T) {
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
+	acctest.RequireExistingInfrastructure(t, "cloud_site")
 
 	rName := acctest.RandomName("tf-acc-test")
 	nsName := acctest.RandomName("tf-acc-test-ns")
@@ -55,6 +56,7 @@ resource "xcsh_cloud_elastic_ip" "test" {
   depends_on = [time_sleep.wait_for_namespace]
   name       = %[2]q
   namespace  = xcsh_namespace.test.name
+  item_count = 1
 }
 
 data "xcsh_cloud_elastic_ip" "test" {

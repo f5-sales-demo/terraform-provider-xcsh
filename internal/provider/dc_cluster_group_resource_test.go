@@ -19,10 +19,9 @@ func TestAccDcClusterGroupResource_basic(t *testing.T) {
 	// Skip: dc_cluster_group is used for connecting physical sites or App Stack sites
 	// via underlay networks with MPLSoUDP encapsulation. Requires deployed sites with
 	// Ingress/Egress Gateway (Two Interface) or App Stack Cluster configuration.
-	t.Skip("Skipping: dc_cluster_group resource requires deployed site infrastructure with underlay network connectivity which is not available in standard acceptance tests")
 
 	rName := acctest.RandomName("tf-acc-test-dcg")
-	nsName := acctest.RandomName("tf-acc-test-ns")
+	nsName := "system"
 	resourceName := "xcsh_dc_cluster_group.test"
 
 	resource.ParallelTest(t, resource.TestCase{
@@ -38,7 +37,7 @@ func TestAccDcClusterGroupResource_basic(t *testing.T) {
 				Check: resource.ComposeAggregateTestCheckFunc(
 					acctest.CheckResourceExists(resourceName),
 					resource.TestCheckResourceAttr(resourceName, "name", rName),
-					resource.TestCheckResourceAttr(resourceName, "namespace", nsName),
+					resource.TestCheckResourceAttr(resourceName, "namespace", "system"),
 					resource.TestCheckResourceAttrSet(resourceName, "id"),
 				),
 			},
@@ -69,19 +68,10 @@ func testAccDcClusterGroupConfig_basic(nsName, name string) string {
 	return acctest.ConfigCompose(
 		acctest.ProviderConfig(),
 		fmt.Sprintf(`
-resource "xcsh_namespace" "test" {
-  name = %[1]q
-}
-
-resource "time_sleep" "wait_for_namespace" {
-  depends_on      = [xcsh_namespace.test]
-  create_duration = "5s"
-}
 
 resource "xcsh_dc_cluster_group" "test" {
-  depends_on = [time_sleep.wait_for_namespace]
   name       = %[2]q
-  namespace  = xcsh_namespace.test.name
+  namespace  = "system"
 
   type {
     data_plane_mesh = {}

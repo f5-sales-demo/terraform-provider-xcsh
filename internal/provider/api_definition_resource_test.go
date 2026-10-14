@@ -19,7 +19,7 @@ func TestAccAPIDefinitionResource_basic(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_api_definition.test"
-	rName := acctest.RandomName("tf-acc-test-def")
+	rName := acctest.CompactRandomName(20)
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -63,7 +63,7 @@ func TestAccAPIDefinitionResource_withLabels(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_api_definition.test"
-	rName := acctest.RandomName("tf-acc-test-def")
+	rName := acctest.CompactRandomName(20)
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -86,7 +86,7 @@ func TestAccAPIDefinitionResource_fullLifecycle(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_api_definition.test"
-	rName := acctest.RandomName("tf-acc-test-def")
+	rName := acctest.CompactRandomName(20)
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -124,7 +124,7 @@ func TestAccAPIDefinitionResource_emptyPlan(t *testing.T) {
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 
-	rName := acctest.RandomName("tf-acc-test-def")
+	rName := acctest.CompactRandomName(20)
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -148,7 +148,7 @@ func TestAccAPIDefinitionResource_planChecks(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_api_definition.test"
-	rName := acctest.RandomName("tf-acc-test-def")
+	rName := acctest.CompactRandomName(20)
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -204,8 +204,8 @@ func TestAccAPIDefinitionResource_requiresReplace(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_api_definition.test"
-	rName1 := acctest.RandomName("tf-acc-test-def")
-	rName2 := acctest.RandomName("tf-acc-test-def")
+	rName1 := acctest.CompactRandomName(20)
+	rName2 := acctest.CompactRandomName(20)
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -233,7 +233,7 @@ func TestAccAPIDefinitionResource_strictSchemaOrigin(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_api_definition.test"
-	rName := acctest.RandomName("tf-acc-test-def")
+	rName := acctest.CompactRandomName(20)
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -257,7 +257,14 @@ func TestAccAPIDefinitionResource_strictSchemaOrigin(t *testing.T) {
 
 func testAccAPIDefinitionConfig_withLabels(name string) string {
 	return fmt.Sprintf(`
+resource "xcsh_swagger_object" "fixture" {
+  name = "%[1]s-spec"
+  namespace = "shared"
+  content = "{\"openapi\":\"3.0.3\",\"info\":{\"title\":\"Acceptance API\",\"version\":\"1.0.0\"},\"servers\":[{\"url\":\"https://example.com\"}],\"paths\":{\"/health\":{\"get\":{\"responses\":{\"200\":{\"description\":\"OK\"}}}}}}"
+}
+
 resource "xcsh_api_definition" "test" {
+  swagger_specs = [xcsh_swagger_object.fixture.path]
   name      = %[1]q
   namespace = "shared"
 
@@ -270,7 +277,14 @@ resource "xcsh_api_definition" "test" {
 
 func testAccAPIDefinitionConfig_strictSchema(name string) string {
 	return fmt.Sprintf(`
+resource "xcsh_swagger_object" "fixture" {
+  name = "%[1]s-spec"
+  namespace = "shared"
+  content = "{\"openapi\":\"3.0.3\",\"info\":{\"title\":\"Acceptance API\",\"version\":\"1.0.0\"},\"servers\":[{\"url\":\"https://example.com\"}],\"paths\":{\"/health\":{\"get\":{\"responses\":{\"200\":{\"description\":\"OK\"}}}}}}"
+}
+
 resource "xcsh_api_definition" "test" {
+  swagger_specs = [xcsh_swagger_object.fixture.path]
   name      = %[1]q
   namespace = "shared"
 
@@ -281,7 +295,14 @@ resource "xcsh_api_definition" "test" {
 
 func testAccAPIDefinitionConfig_basic(name string) string {
 	return fmt.Sprintf(`
+resource "xcsh_swagger_object" "fixture" {
+  name = "%[1]s-spec"
+  namespace = "shared"
+  content = "{\"openapi\":\"3.0.3\",\"info\":{\"title\":\"Acceptance API\",\"version\":\"1.0.0\"},\"servers\":[{\"url\":\"https://example.com\"}],\"paths\":{\"/health\":{\"get\":{\"responses\":{\"200\":{\"description\":\"OK\"}}}}}}"
+}
+
 resource "xcsh_api_definition" "test" {
+  swagger_specs = [xcsh_swagger_object.fixture.path]
   name      = %[1]q
   namespace = "shared"
 }

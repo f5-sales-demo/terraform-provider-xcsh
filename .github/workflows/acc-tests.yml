@@ -114,6 +114,20 @@ jobs:
           go-version: '1.25.13'
           cache: true
 
+      - name: Install pinned Terraform CLI
+        uses: hashicorp/setup-terraform@dfe3c3f87815947d99a8997f908cb6525fc44e9e # v4
+        with:
+          terraform_version: 1.16.3
+          terraform_wrapper: false
+
+      - name: Select installed Terraform for acceptance
+        run: |
+          set -euo pipefail
+          TERRAFORM_PATH="$(command -v terraform)"
+          test -x "$TERRAFORM_PATH"
+          terraform version -json | jq -e '.terraform_version == "1.16.3"' >/dev/null
+          echo "TF_ACC_TERRAFORM_PATH=$TERRAFORM_PATH" >> "$GITHUB_ENV"
+
       - name: Verify immutable Go toolchain
         run: |
           go version
@@ -129,11 +143,12 @@ jobs:
           GOMAXPROCS: "1"
           INPUT_PARALLEL: ${{ github.event.inputs.parallel }}
           INPUT_TIMEOUT: ${{ github.event.inputs.timeout }}
+          INPUT_TEST_PATTERN: ${{ inputs.test_pattern }}
         run: |
           set -o pipefail
           mkdir -p test-reports
 
-          # Mock tests run in PARALLEL - no rate limiting needed
+          # Run the full mock suite serially for comparison with live acceptance
           PARALLEL="${INPUT_PARALLEL:-4}"
           TIMEOUT="${INPUT_TIMEOUT:-300}"
 
@@ -146,39 +161,39 @@ jobs:
           TEST_STATUS=0
           TF_ACC=1 XCSH_MOCK_MODE=1 go test -json \
             -p 1 \
-            -gcflags='all=-N -l' \
-            -parallel "$PARALLEL" \
+            -parallel 1 \
+            -count=1 \
             -timeout "${TIMEOUT}m" \
-            -run 'TestMock.*' \
+            -run "${INPUT_TEST_PATTERN:-^(TestAcc|TestMock)}" \
             ./internal/provider/... \
-            2>&1 | tee test-reports/test-output-mock.json || TEST_STATUS=${PIPESTATUS[0]}
+            > test-reports/test-output-mock.json 2> test-reports/test-stderr-mock.log || TEST_STATUS=$?
 
           JSON_REPORT_STATUS=0
-          cat test-reports/test-output-mock.json | go run tools/test-report/main.go \
+          cat test-reports/test-output-mock.json | go run ./tools/test-report \
             -format=json -output=test-reports/mock-tests.json || JSON_REPORT_STATUS=$?
-          jq -e '.total_passed | numbers' test-reports/mock-tests.json >/dev/null || {
+          JUNIT_REPORT_STATUS=0
+          cat test-reports/test-output-mock.json | go run ./tools/test-report \
+            -format=junit -output=test-reports/mock-tests.xml || JUNIT_REPORT_STATUS=$?
+          MARKDOWN_REPORT_STATUS=0
+          cat test-reports/test-output-mock.json | go run ./tools/test-report \
+            -format=markdown -all -output=test-reports/mock-tests.md || MARKDOWN_REPORT_STATUS=$?
+
+          # Produce every report before evaluating completeness or test gates.
+          jq -e '
+            (.stream_completeness.complete == true) and
+            (.total_tests > 0) and
+            (.total_passed | type == "number") and
+            (.total_failed | type == "number")
+          ' test-reports/mock-tests.json >/dev/null || {
             echo "::error::Mock JSON report was not generated completely"
             exit 1
           }
-
-          # Extract metrics for outputs
-          PASSED=$(jq -r '.total_passed // 0' test-reports/mock-tests.json)
-          FAILED=$(jq -r '.total_failed // 0' test-reports/mock-tests.json)
-
+          PASSED=$(jq -r '.total_passed' test-reports/mock-tests.json)
+          FAILED=$(jq -r '.total_failed' test-reports/mock-tests.json)
           EXPECTED_REPORT_STATUS=0
           if [[ "$FAILED" -ne 0 ]]; then EXPECTED_REPORT_STATUS=1; fi
-          if [[ "$JSON_REPORT_STATUS" -ne "$EXPECTED_REPORT_STATUS" ]]; then
-            echo "::error::Mock JSON reporter exit disagrees with its measured failures"
-            exit 1
-          fi
-
-          JUNIT_REPORT_STATUS=0
-          cat test-reports/test-output-mock.json | go run tools/test-report/main.go \
-            -format=junit -output=test-reports/mock-tests.xml || JUNIT_REPORT_STATUS=$?
-          MARKDOWN_REPORT_STATUS=0
-          cat test-reports/test-output-mock.json | go run tools/test-report/main.go \
-            -format=markdown -all -output=test-reports/mock-tests.md || MARKDOWN_REPORT_STATUS=$?
           if [[ ! -s test-reports/mock-tests.xml || ! -s test-reports/mock-tests.md ||
+                "$JSON_REPORT_STATUS" -ne "$EXPECTED_REPORT_STATUS" ||
                 "$JUNIT_REPORT_STATUS" -ne "$EXPECTED_REPORT_STATUS" ||
                 "$MARKDOWN_REPORT_STATUS" -ne "$EXPECTED_REPORT_STATUS" ]]; then
             echo "::error::Mock evidence generation was incomplete or inconsistent"
@@ -215,6 +230,9 @@ jobs:
   # ═══════════════════════════════════════════════════════════════════════════
   real-api-tests:
     name: Real API Tests (Sequential)
+    concurrency:
+      group: acceptance-live-tenant
+      cancel-in-progress: false
     environment: acceptance-tests
     # Runner selection: repository-scoped socketless ARC scale set
     runs-on: managed-socketless
@@ -242,12 +260,27 @@ jobs:
       real_passed: ${{ steps.run-tests.outputs.passed }}
       real_failed: ${{ steps.run-tests.outputs.failed }}
       transient_errors: ${{ steps.run-tests.outputs.transient }}
+      cleanup_result: ${{ steps.cleanup.outputs.result }}
 
     steps:
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
+
+      - name: Install pinned Terraform CLI
+        uses: hashicorp/setup-terraform@dfe3c3f87815947d99a8997f908cb6525fc44e9e # v4
+        with:
+          terraform_version: 1.16.3
+          terraform_wrapper: false
+
+      - name: Select installed Terraform for acceptance
+        run: |
+          set -euo pipefail
+          TERRAFORM_PATH="$(command -v terraform)"
+          test -x "$TERRAFORM_PATH"
+          terraform version -json | jq -e '.terraform_version == "1.16.3"' >/dev/null
+          echo "TF_ACC_TERRAFORM_PATH=$TERRAFORM_PATH" >> "$GITHUB_ENV"
 
       - name: Verify immutable Go toolchain
         run: |
@@ -274,15 +307,50 @@ jobs:
           fi
           echo "✓ API token is configured"
 
+      - name: Initialize private ownership workspace
+        env:
+          RUN_ID: ${{ github.run_id }}
+          RUN_ATTEMPT: ${{ github.run_attempt }}
+        run: |
+          set -euo pipefail
+          mkdir -p test-reports
+          PRIVATE_DIR=$(mktemp -d)
+          chmod 700 "$PRIVATE_DIR"
+          ACC_RUN="r${RUN_ID}a${RUN_ATTEMPT}"
+          {
+            echo "XCSH_ACC_PRIVATE=$PRIVATE_DIR"
+            echo "XCSH_ACC_JOURNAL=$PRIVATE_DIR/ownership.json"
+            echo "XCSH_ACC_RUN_ID=$ACC_RUN"
+            echo "XCSH_ACC_SCHEMA=$PRIVATE_DIR/schema.json"
+          } >> "$GITHUB_ENV"
+          go run ./tools/acceptance-ownership -mode=init -journal="$PRIVATE_DIR/ownership.json" -run-id="$ACC_RUN"
+          go run ./tools/acceptance-ownership -mode=schema -receipt="$PRIVATE_DIR/schema.json"
+          XCSH_ACC_SCHEMA="$PRIVATE_DIR/schema.json" go test -p 1 -parallel 1 -count=1 ./internal/provider -run '^TestFixtureSchemaAudit$'
+
+      - name: Provision disposable tenant prerequisites
+        env:
+          XCSH_API_URL: ${{ secrets.XCSH_API_URL }}
+          XCSH_API_TOKEN: ${{ secrets.XCSH_API_TOKEN }}
+        run: |
+          set -euo pipefail
+          go run ./tools/acceptance-ownership -mode=provision
+          if [[ -f "$XCSH_ACC_PRIVATE/prerequisites.env" ]]; then
+            cat "$XCSH_ACC_PRIVATE/prerequisites.env" >> "$GITHUB_ENV"
+          fi
+
       - name: Run real API tests
         id: run-tests
         env:
           XCSH_API_URL: ${{ secrets.XCSH_API_URL }}
           XCSH_API_TOKEN: ${{ secrets.XCSH_API_TOKEN }}
           TF_ACC: '1'
+          GOGC: "10"
+          GOMEMLIMIT: 4GiB
+          GOMAXPROCS: "1"
           # See the mock-tests job: dispatch inputs and step outputs are passed as
           # env so they cannot expand into the run body as shell.
           INPUT_TIMEOUT: ${{ github.event.inputs.timeout }}
+          INPUT_TEST_PATTERN: ${{ inputs.test_pattern }}
         run: |
           set -o pipefail
           mkdir -p test-reports
@@ -306,15 +374,32 @@ jobs:
             -p 1 \
             -parallel 1 \
             -timeout "${TIMEOUT}m" \
-            -run 'TestAcc.*' \
+            -count=1 \
+            -run "${INPUT_TEST_PATTERN:-^TestAcc}" \
             ./internal/provider/... \
             > "$RAW_TEST_OUTPUT" 2>&1 || TEST_STATUS=$?
 
+          # Full runs must account for every generated acceptance test.
+          EXPECTED_ARGS=()
+          if [[ -z "${INPUT_TEST_PATTERN:-}" ]]; then
+            EXPECTED_ARGS=(-expected-tests=internal/acctest/acceptance_test_inventory.json)
+          fi
+
           # Never emit the raw live-tenant stream to logs or artifacts.
           JSON_REPORT_STATUS=0
-          cat "$RAW_TEST_OUTPUT" | go run tools/test-report/main.go \
-            -tenant-safe -format=json -output=test-reports/real-tests.json || JSON_REPORT_STATUS=$?
+          cat "$RAW_TEST_OUTPUT" | go run ./tools/test-report \
+            -tenant-safe "${EXPECTED_ARGS[@]}" -schema="$XCSH_ACC_SCHEMA" -format=json -output=test-reports/real-tests.json || JSON_REPORT_STATUS=$?
+          MARKDOWN_REPORT_STATUS=0
+          cat "$RAW_TEST_OUTPUT" | go run ./tools/test-report \
+            -tenant-safe "${EXPECTED_ARGS[@]}" -schema="$XCSH_ACC_SCHEMA" -format=markdown -all -output=test-reports/real-tests.md || MARKDOWN_REPORT_STATUS=$?
           jq -e '
+            (.stream_completeness.complete == true) and
+            (.total_tests > 0) and
+            (all(.tests[]; .status != "skip" or
+              any(.prerequisites[]?;
+                (.outcome == "operation_denied" and .http_status == 403) or
+                (.outcome | IN("external_credential_missing", "non_disposable_scope",
+                               "infrastructure_absent", "quota_unconfigured", "quota_exhausted", "cloud_appliance_out_of_scope"))))) and
             (.total_passed | type == "number") and
             (.total_failed | type == "number") and
             ((.failed_tests // []) | type == "array") and
@@ -322,7 +407,7 @@ jobs:
             (all((.failed_tests // [])[];
               (.failure_fingerprint | type == "object") and
               (.failure_fingerprint.class |
-                IN("framework_diagnostic", "http_error", "assertion", "rate_limit",
+                IN("framework_diagnostic", "cleanup_verification", "http_error", "assertion", "rate_limit",
                    "timeout", "connection", "server_error", "unclassified")))) and
             (all((.failed_tests // [])[]; .failure_fingerprint.class != "unclassified")) and
             ([.. | objects | has("failure_output")] | all(. == false))
@@ -341,9 +426,6 @@ jobs:
             exit 1
           fi
 
-          MARKDOWN_REPORT_STATUS=0
-          cat "$RAW_TEST_OUTPUT" | go run tools/test-report/main.go \
-            -tenant-safe -format=markdown -all -output=test-reports/real-tests.md || MARKDOWN_REPORT_STATUS=$?
           if [[ ! -s test-reports/real-tests.md ||
                 "$MARKDOWN_REPORT_STATUS" -ne "$EXPECTED_REPORT_STATUS" ]]; then
             echo "::error::Real API markdown evidence generation was incomplete or inconsistent"
@@ -367,6 +449,27 @@ jobs:
             exit 1
           fi
 
+      - name: Verify journal-owned cleanup
+        id: cleanup
+        if: always()
+        env:
+          XCSH_API_URL: ${{ secrets.XCSH_API_URL }}
+          XCSH_API_TOKEN: ${{ secrets.XCSH_API_TOKEN }}
+        run: |
+          set -euo pipefail
+          mkdir -p test-reports
+          STATUS=0
+          go run ./tools/acceptance-ownership -mode=cleanup \
+            -journal="${XCSH_ACC_JOURNAL:-missing-journal}" \
+            -run-id="${XCSH_ACC_RUN_ID:-missing-run}" \
+            -receipt=test-reports/cleanup.json || STATUS=$?
+          if [[ "$STATUS" -eq 0 ]] && jq -e '.complete == true and .failures == 0 and .owned == .confirmed_absent and .second_pass_remaining == 0' test-reports/cleanup.json >/dev/null; then
+            echo "result=success" >> "$GITHUB_OUTPUT"
+          else
+            echo "result=failure" >> "$GITHUB_OUTPUT"
+            exit 1
+          fi
+
       - name: Upload real API test reports
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         if: always()
@@ -375,149 +478,10 @@ jobs:
           path: |
             test-reports/real-tests.json
             test-reports/real-tests.md
+            test-reports/cleanup.json
           retention-days: 30
 
-  # ═══════════════════════════════════════════════════════════════════════════
-  # Resource Cleanup - Run sweepers to clean up test resources (even on failure)
-  # ═══════════════════════════════════════════════════════════════════════════
-  cleanup:
-    name: Cleanup Test Resources
-    environment: acceptance-tests
-    runs-on: managed-socketless
-    needs: [real-api-tests]
-    # ALWAYS run after real API tests, even if they failed
-    if: |
-      always() &&
-      github.event_name != 'pull_request' &&
-      needs.real-api-tests.result != 'skipped'
-    permissions:
-      contents: read # checkout the provider sweepers
 
-    steps:
-      - name: Checkout
-        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-        with:
-          persist-credentials: false
-
-      - name: Verify immutable Go toolchain
-        run: |
-          go version
-          test "$(go env GOVERSION)" = go1.25.13
-
-      - name: Run sweepers
-        id: sweep
-        env:
-          XCSH_API_URL: ${{ secrets.XCSH_API_URL }}
-          XCSH_API_TOKEN: ${{ secrets.XCSH_API_TOKEN }}
-          TF_ACC: '1'
-        run: |
-          set -o pipefail
-          [ -n "$XCSH_API_URL" ] || { echo "::error::XCSH_API_URL secret not configured"; exit 1; }
-          [ -n "$XCSH_API_TOKEN" ] || { echo "::error::XCSH_API_TOKEN secret not configured"; exit 1; }
-          trap 'rm -f sweep-output-first.txt sweep-output-final.txt' EXIT
-
-          echo "Running cleanup pass and final idempotence pass..."
-
-          # Both raw streams can contain live-tenant identifiers. Keep them in
-          # the private job workspace only and remove them on every exit path.
-          FIRST_SWEEP_EXIT=0
-          go test ./internal/acctest -count=1 -v -sweep=all -timeout 30m \
-            > sweep-output-first.txt 2>&1 || FIRST_SWEEP_EXIT=$?
-
-          FINAL_SWEEP_EXIT=0
-          go test ./internal/acctest -count=1 -v -sweep=all -timeout 30m \
-            > sweep-output-final.txt 2>&1 || FINAL_SWEEP_EXIT=$?
-
-          CLEANUP_STATUS=0
-          if [[ "$FIRST_SWEEP_EXIT" -ne 0 ]]; then
-            echo "::error::Initial cleanup sweepers failed"
-            CLEANUP_STATUS=1
-          fi
-          if [[ "$FINAL_SWEEP_EXIT" -ne 0 ]]; then
-            echo "::error::Final idempotence sweepers failed"
-            CLEANUP_STATUS=1
-          fi
-
-          extract_final_count() {
-            local label="$1"
-            local matches
-            local count
-            matches=$(sed -nE "s/.*Swept ([0-9]+) ${label}$/\\1/p" sweep-output-final.txt)
-            count=$(printf '%s\n' "$matches" | sed '/^$/d' | wc -l | tr -d '[:space:]')
-            if [[ "$count" != "1" || ! "$matches" =~ ^[0-9]+$ ]]; then
-              echo "::error::Final sweep evidence for ${label} is missing or ambiguous" >&2
-              return 1
-            fi
-            printf '%s' "$matches"
-          }
-
-          record_final_count() {
-            local output_name="$1"
-            local label="$2"
-            local value
-            if ! value=$(extract_final_count "$label"); then
-              CLEANUP_STATUS=1
-              return
-            fi
-            printf '%s=%s\n' "$output_name" "$value" >> "$GITHUB_OUTPUT"
-            if [[ "$value" -ne 0 ]]; then
-              echo "::error::Final sweep found ${value} ${label}"
-              CLEANUP_STATUS=1
-            fi
-          }
-
-          record_final_count final_namespaces "namespaces"
-          record_final_count final_http_load_balancers "HTTP load balancers"
-          record_final_count final_origin_pools "origin pools"
-          record_final_count final_healthchecks "healthchecks"
-          record_final_count final_app_firewalls "app firewalls"
-          record_final_count final_service_policies "service policies"
-          record_final_count final_ip_prefix_sets "IP prefix sets"
-          record_final_count final_rate_limiters "rate limiters"
-          record_final_count final_user_identifications "user identifications"
-          record_final_count final_malicious_user_mitigations "malicious user mitigations"
-
-          if [[ "$CLEANUP_STATUS" -ne 0 ]]; then
-            exit "$CLEANUP_STATUS"
-          fi
-
-          echo "Cleanup completed; the final pass found zero resources in all ten categories."
-
-      - name: Post cleanup summary
-        env:
-          FINAL_NAMESPACES: ${{ steps.sweep.outputs.final_namespaces }}
-          FINAL_HTTP_LOAD_BALANCERS: ${{ steps.sweep.outputs.final_http_load_balancers }}
-          FINAL_ORIGIN_POOLS: ${{ steps.sweep.outputs.final_origin_pools }}
-          FINAL_HEALTHCHECKS: ${{ steps.sweep.outputs.final_healthchecks }}
-          FINAL_APP_FIREWALLS: ${{ steps.sweep.outputs.final_app_firewalls }}
-          FINAL_SERVICE_POLICIES: ${{ steps.sweep.outputs.final_service_policies }}
-          FINAL_IP_PREFIX_SETS: ${{ steps.sweep.outputs.final_ip_prefix_sets }}
-          FINAL_RATE_LIMITERS: ${{ steps.sweep.outputs.final_rate_limiters }}
-          FINAL_USER_IDENTIFICATIONS: ${{ steps.sweep.outputs.final_user_identifications }}
-          FINAL_MALICIOUS_USER_MITIGATIONS: ${{ steps.sweep.outputs.final_malicious_user_mitigations }}
-        run: |
-          {
-            echo "## Resource Cleanup"
-            echo ""
-            echo "The final idempotence pass reported:"
-            echo ""
-            echo "| Resource category | Remaining test resources |"
-            echo "| --- | ---: |"
-            echo "| Namespaces | ${FINAL_NAMESPACES} |"
-            echo "| HTTP load balancers | ${FINAL_HTTP_LOAD_BALANCERS} |"
-            echo "| Origin pools | ${FINAL_ORIGIN_POOLS} |"
-            echo "| Healthchecks | ${FINAL_HEALTHCHECKS} |"
-            echo "| App firewalls | ${FINAL_APP_FIREWALLS} |"
-            echo "| Service policies | ${FINAL_SERVICE_POLICIES} |"
-            echo "| IP prefix sets | ${FINAL_IP_PREFIX_SETS} |"
-            echo "| Rate limiters | ${FINAL_RATE_LIMITERS} |"
-            echo "| User identifications | ${FINAL_USER_IDENTIFICATIONS} |"
-            echo "| Malicious user mitigations | ${FINAL_MALICIOUS_USER_MITIGATIONS} |"
-          } >> "$GITHUB_STEP_SUMMARY"
-
-  # ═══════════════════════════════════════════════════════════════════════════
-  # Mock vs Real Comparison - Ensures mock server behavioral consistency
-  # ═══════════════════════════════════════════════════════════════════════════
   compare-results:
     name: Compare Mock vs Real
     runs-on: ubuntu-latest
@@ -646,7 +610,7 @@ jobs:
   summary:
     name: Test Summary
     runs-on: ubuntu-latest
-    needs: [mock-tests, real-api-tests, compare-results, cleanup]
+    needs: [mock-tests, real-api-tests, compare-results]
     if: always()
 
     steps:
@@ -661,7 +625,7 @@ jobs:
           path: all-reports/mock-test-reports/
 
       - name: Download real API test reports
-        if: needs.real-api-tests.result == 'success'
+        if: always() && needs.real-api-tests.result != 'skipped'
         uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
         with:
           name: real-api-test-reports
@@ -688,7 +652,7 @@ jobs:
           COMPARE_AVAILABLE: ${{ needs.compare-results.outputs.comparison_available }}
           COMPARE_CONSISTENT: ${{ needs.compare-results.outputs.mock_consistent || 0 }}
           COMPARE_NEEDS_FIX: ${{ needs.compare-results.outputs.mock_needs_fix || 0 }}
-          CLEANUP_RESULT: ${{ needs.cleanup.result }}
+          CLEANUP_RESULT: ${{ needs.real-api-tests.outputs.cleanup_result }}
           RUN_NUMBER: ${{ github.run_number }}
           SERVER_URL: ${{ github.server_url }}
           REPO: ${{ github.repository }}
@@ -756,7 +720,7 @@ jobs:
             echo "### Resource Cleanup"
             if [[ "$CLEANUP_RESULT" == "success" ]]; then
               echo "- Status: ✅ Cleanup completed"
-              echo "- Sweepers ran after tests to clean up leftover resources"
+              echo "- Journal-owned resources verified absent in two passes"
             elif [[ "$CLEANUP_RESULT" == "skipped" ]]; then
               echo "- Status: ⏭️ Skipped (real API tests did not run)"
             else
@@ -784,7 +748,7 @@ jobs:
       - name: Check overall status
         if: always()
         env:
-          CLEANUP_RESULT: ${{ needs.cleanup.result }}
+          CLEANUP_RESULT: ${{ needs.real-api-tests.outputs.cleanup_result }}
           COMPARE_RESULT: ${{ needs.compare-results.result }}
           EVENT_NAME: ${{ github.event_name }}
           MOCK_RESULT: ${{ needs.mock-tests.result }}
@@ -828,6 +792,7 @@ jobs:
           require_result "Mock tests" "$MOCK_RESULT" "$EXPECTED_MOCK"
           require_result "Real API tests" "$REAL_RESULT" "$EXPECTED_REAL"
           require_result "Mock/real comparison" "$COMPARE_RESULT" "$EXPECTED_COMPARE"
+          if [[ "$REAL_RESULT" == "skipped" && -z "$CLEANUP_RESULT" ]]; then CLEANUP_RESULT=skipped; fi
           require_result "Resource cleanup" "$CLEANUP_RESULT" "$EXPECTED_CLEANUP"
 
           require_evidence() {
@@ -857,6 +822,8 @@ jobs:
           if [[ "$EXPECTED_REAL" == success ]]; then
             require_evidence all-reports/real-api-test-reports/real-tests.json
             require_evidence all-reports/real-api-test-reports/real-tests.md
+            require_evidence all-reports/real-api-test-reports/cleanup.json
+            jq -e '.complete == true and .owned == .confirmed_absent and .failures == 0 and .second_pass_remaining == 0' all-reports/real-api-test-reports/cleanup.json >/dev/null
             jq -e '
               (.total_passed | type == "number") and
               (.total_failed | type == "number") and
@@ -865,7 +832,7 @@ jobs:
               (all((.failed_tests // [])[];
                 (.failure_fingerprint | type == "object") and
                 (.failure_fingerprint.class |
-                  IN("framework_diagnostic", "http_error", "assertion", "rate_limit",
+                  IN("framework_diagnostic", "cleanup_verification", "http_error", "assertion", "rate_limit",
                      "timeout", "connection", "server_error", "unclassified")))) and
               (all((.failed_tests // [])[]; .failure_fingerprint.class != "unclassified")) and
               ([.. | objects | has("failure_output")] | all(. == false))
@@ -901,7 +868,7 @@ jobs:
           (needs.mock-tests.result != 'success' ||
            needs.real-api-tests.result != 'success' ||
            needs.compare-results.result != 'success' ||
-           needs.cleanup.result != 'success')
+           needs.real-api-tests.outputs.cleanup_result != 'success')
         run: |
           echo "::warning::Scheduled test run had failures"
           echo "Check the workflow run for details."

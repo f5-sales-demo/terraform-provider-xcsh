@@ -19,7 +19,8 @@ func TestAccNFVServiceResource_basic(t *testing.T) {
 	// Skip: NFV Service requires either f5_big_ip_aws_service or palo_alto_fw_service
 	// which need real AWS TGW Site infrastructure with deployed BIG-IP or Palo Alto firewalls.
 	// This cannot be tested without actual cloud infrastructure.
-	t.Skip("Skipping: nfv_service requires AWS TGW Site with BIG-IP or Palo Alto firewall infrastructure")
+
+	acctest.RequireExistingInfrastructure(t, "nfv")
 
 	rName := acctest.RandomName("tf-acc-test-nfv")
 	nsName := acctest.RandomName("tf-acc-test-ns")

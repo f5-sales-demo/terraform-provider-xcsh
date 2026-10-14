@@ -14,20 +14,17 @@ import (
 func TestAccExternalConnectorDataSource_basic(t *testing.T) {
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
+	acctest.RequireConnectorEndpoint(t)
 
 	rName := acctest.RandomName("tf-acc-test")
-	nsName := acctest.RandomName("tf-acc-test-ns")
 	resourceName := "xcsh_external_connector.test"
 	dataSourceName := "data.xcsh_external_connector.test"
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
 		ProtoV6ProviderFactories: acctest.ProtoV6ProviderFactories,
-		ExternalProviders: map[string]resource.ExternalProvider{
-			"time": {Source: "hashicorp/time"},
-		},
 		Steps: []resource.TestStep{
 			{
-				Config: testAccExternalConnectorDataSourceConfig_basic(nsName, rName),
+				Config: testAccExternalConnectorDataSourceConfig_basic(rName, acctest.ReadOnlySiteName()),
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttrPair(dataSourceName, "name", resourceName, "name"),
 					resource.TestCheckResourceAttrPair(dataSourceName, "namespace", resourceName, "namespace"),
@@ -38,23 +35,31 @@ func TestAccExternalConnectorDataSource_basic(t *testing.T) {
 	})
 }
 
-func testAccExternalConnectorDataSourceConfig_basic(nsName, name string) string {
+func testAccExternalConnectorDataSourceConfig_basic(name string, siteName string) string {
 	return acctest.ConfigCompose(
 		acctest.ProviderConfig(),
 		fmt.Sprintf(`
-resource "xcsh_namespace" "test" {
-  name = %[1]q
-}
-
-resource "time_sleep" "wait_for_namespace" {
-  depends_on      = [xcsh_namespace.test]
-  create_duration = "5s"
-}
 
 resource "xcsh_external_connector" "test" {
-  depends_on = [time_sleep.wait_for_namespace]
-  name       = %[2]q
-  namespace  = xcsh_namespace.test.name
+  name      = %[1]q
+  namespace = "system"
+  ce_site_reference {
+    name = %[2]q
+    namespace = "system"
+  }
+  gre {
+    gre_parameters {
+      peer_ip_address { addr = "192.0.2.2" }
+      site_local_inside_network = {}
+      tunnel_mtu = 1370
+      tunnel_eps {
+        node = %[3]q
+        interface = %[4]q
+        local_tunnel_ip = "192.0.2.1/30"
+        remote_tunnel_ip = "192.0.2.2/30"
+      }
+    }
+  }
 }
 
 data "xcsh_external_connector" "test" {
@@ -62,5 +67,5 @@ data "xcsh_external_connector" "test" {
   name       = xcsh_external_connector.test.name
   namespace  = xcsh_external_connector.test.namespace
 }
-`, nsName, name))
+`, name, siteName, acctest.ReadOnlyConnectorNode(), acctest.ReadOnlyConnectorInterface()))
 }

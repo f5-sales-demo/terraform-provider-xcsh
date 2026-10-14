@@ -12,12 +12,13 @@ import (
 )
 
 func TestAccSubnetResource_basic(t *testing.T) {
-	t.Skip("Skipping: subnet requires site infrastructure (site_subnet_params with existing site reference)")
+
+	acctest.RequireExistingInfrastructure(t, "site")
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_subnet.test"
-	nsName := acctest.RandomName("tf-acc-test-tf-acc")
+	nsName := "system"
 	name := acctest.RandomName("tf-acc-test-tf-acc")
 
 	resource.ParallelTest(t, resource.TestCase{
@@ -28,7 +29,7 @@ func TestAccSubnetResource_basic(t *testing.T) {
 		},
 		Steps: []resource.TestStep{
 			{
-				Config: testAccSubnetResourceConfig_basic(nsName, name),
+				Config: testAccSubnetResourceConfig_basic(nsName, name, acctest.ReadOnlySiteName()),
 				Check: resource.ComposeAggregateTestCheckFunc(
 					acctest.CheckResourceExists(resourceName),
 					resource.TestCheckResourceAttr(resourceName, "name", name),
@@ -55,25 +56,25 @@ func testAccSubnetResourceImportStateIdFunc(resourceName string) resource.Import
 	}
 }
 
-func testAccSubnetResourceConfig_basic(nsName, name string) string {
+func testAccSubnetResourceConfig_basic(nsName, name, siteName string) string {
 	return acctest.ConfigCompose(
 		acctest.ProviderConfig(),
 		fmt.Sprintf(`
-resource "xcsh_namespace" "test" {
-  name = %[1]q
-}
-
-resource "time_sleep" "wait_for_namespace" {
-  depends_on      = [xcsh_namespace.test]
-  create_duration = "5s"
-}
-
 resource "xcsh_subnet" "test" {
-  depends_on = [time_sleep.wait_for_namespace]
   name       = %[2]q
-  namespace  = xcsh_namespace.test.name
+  namespace  = "system"
 
   isolated_nw = {}
+  site_subnet_params {
+    dhcp = {}
+    subnet_dhcp_server_params {
+      dhcp_networks { network_prefix = "192.0.2.0/24" }
+    }
+    site {
+      name = %[3]q
+      namespace = "system"
+    }
+  }
 }
-`, nsName, name))
+`, nsName, name, siteName))
 }

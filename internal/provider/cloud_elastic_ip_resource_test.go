@@ -13,7 +13,8 @@ import (
 )
 
 func TestAccCloudElasticIPResource_basic(t *testing.T) {
-	t.Skip("Skipping: requires cloud site infrastructure (AWS VPC site with elastic IP)")
+
+	acctest.RequireExistingInfrastructure(t, "cloud_site")
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 
@@ -75,6 +76,7 @@ resource "time_sleep" "wait_for_namespace" {
 }
 
 resource "xcsh_cloud_elastic_ip" "test" {
+  item_count = 1
   depends_on = [time_sleep.wait_for_namespace]
   name       = %[2]q
   namespace  = xcsh_namespace.test.name

@@ -1,0 +1,243 @@
+{
+  "version": 1,
+  "source": "55d69bf7c09",
+  "total": 14,
+  "passed": 14,
+  "failed": 0,
+  "skipped": 0,
+  "stream_completeness": {
+    "complete": true,
+    "events": 210,
+    "malformed_lines": 0,
+    "invalid_events": 0,
+    "scanner_error": false,
+    "incomplete_tests": 0,
+    "incomplete_packages": 0,
+    "package_failures": 0
+  },
+  "tests": [
+    {
+      "name": "TestAccSiteMeshGroupDataSource_basic",
+      "status": "pass",
+      "prerequisites": [
+        {
+          "outcome": "tested",
+          "method": "POST",
+          "resource_type": "xcsh_site_mesh_group"
+        },
+        {
+          "outcome": "infrastructure_verified",
+          "method": "GET",
+          "resource_type": "virtual_site"
+        }
+      ]
+    },
+    {
+      "name": "TestAccSiteMeshGroupResource_basic",
+      "status": "pass",
+      "prerequisites": [
+        {
+          "outcome": "tested",
+          "method": "POST",
+          "resource_type": "xcsh_site_mesh_group"
+        },
+        {
+          "outcome": "infrastructure_verified",
+          "method": "GET",
+          "resource_type": "virtual_site"
+        }
+      ]
+    },
+    {
+      "name": "TestAccSiteMeshGroupResource_emptyName",
+      "status": "pass",
+      "prerequisites": [
+        {
+          "outcome": "tested",
+          "method": "GET",
+          "resource_type": "provider_schema_validation"
+        }
+      ]
+    },
+    {
+      "name": "TestAccSiteMeshGroupResource_emptyPlan",
+      "status": "pass",
+      "prerequisites": [
+        {
+          "outcome": "tested",
+          "method": "POST",
+          "resource_type": "xcsh_site_mesh_group"
+        },
+        {
+          "outcome": "infrastructure_verified",
+          "method": "GET",
+          "resource_type": "virtual_site"
+        }
+      ]
+    },
+    {
+      "name": "TestAccSiteMeshGroupResource_fullMesh",
+      "status": "pass",
+      "prerequisites": [
+        {
+          "outcome": "tested",
+          "method": "POST",
+          "resource_type": "xcsh_site_mesh_group"
+        },
+        {
+          "outcome": "infrastructure_verified",
+          "method": "GET",
+          "resource_type": "virtual_site"
+        }
+      ]
+    },
+    {
+      "name": "TestAccSiteMeshGroupResource_invalidName",
+      "status": "pass",
+      "prerequisites": [
+        {
+          "outcome": "tested",
+          "method": "GET",
+          "resource_type": "provider_schema_validation"
+        }
+      ]
+    },
+    {
+      "name": "TestAccSiteMeshGroupResource_knownValues",
+      "status": "pass",
+      "prerequisites": [
+        {
+          "outcome": "tested",
+          "method": "POST",
+          "resource_type": "xcsh_site_mesh_group"
+        },
+        {
+          "outcome": "infrastructure_verified",
+          "method": "GET",
+          "resource_type": "virtual_site"
+        }
+      ]
+    },
+    {
+      "name": "TestAccSiteMeshGroupResource_nameTooLong",
+      "status": "pass",
+      "prerequisites": [
+        {
+          "outcome": "tested",
+          "method": "GET",
+          "resource_type": "provider_schema_validation"
+        }
+      ]
+    },
+    {
+      "name": "TestAccSiteMeshGroupResource_planChecks",
+      "status": "pass",
+      "prerequisites": [
+        {
+          "outcome": "tested",
+          "method": "POST",
+          "resource_type": "xcsh_site_mesh_group"
+        },
+        {
+          "outcome": "infrastructure_verified",
+          "method": "GET",
+          "resource_type": "virtual_site"
+        }
+      ]
+    },
+    {
+      "name": "TestAccSiteMeshGroupResource_requiresReplaceName",
+      "status": "pass",
+      "prerequisites": [
+        {
+          "outcome": "tested",
+          "method": "POST",
+          "resource_type": "xcsh_site_mesh_group"
+        },
+        {
+          "outcome": "infrastructure_verified",
+          "method": "GET",
+          "resource_type": "virtual_site"
+        }
+      ]
+    },
+    {
+      "name": "TestAccSiteMeshGroupResource_requiresReplaceNamespace",
+      "status": "pass",
+      "prerequisites": [
+        {
+          "outcome": "tested",
+          "method": "POST",
+          "resource_type": "xcsh_site_mesh_group"
+        },
+        {
+          "outcome": "infrastructure_verified",
+          "method": "GET",
+          "resource_type": "virtual_site"
+        }
+      ]
+    },
+    {
+      "name": "TestAccSiteMeshGroupResource_updateAnnotations",
+      "status": "pass",
+      "prerequisites": [
+        {
+          "outcome": "tested",
+          "method": "POST",
+          "resource_type": "xcsh_site_mesh_group"
+        },
+        {
+          "outcome": "infrastructure_verified",
+          "method": "GET",
+          "resource_type": "virtual_site"
+        }
+      ]
+    },
+    {
+      "name": "TestAccSiteMeshGroupResource_updateDescription",
+      "status": "pass",
+      "prerequisites": [
+        {
+          "outcome": "tested",
+          "method": "POST",
+          "resource_type": "xcsh_site_mesh_group"
+        },
+        {
+          "outcome": "infrastructure_verified",
+          "method": "GET",
+          "resource_type": "virtual_site"
+        }
+      ]
+    },
+    {
+      "name": "TestAccSiteMeshGroupResource_updateLabels",
+      "status": "pass",
+      "prerequisites": [
+        {
+          "outcome": "tested",
+          "method": "POST",
+          "resource_type": "xcsh_site_mesh_group"
+        },
+        {
+          "outcome": "infrastructure_verified",
+          "method": "GET",
+          "resource_type": "virtual_site"
+        }
+      ]
+    }
+  ],
+  "cleanup": {
+    "version": 1,
+    "journal_sha256": "a20cf7e0020330cd41fd50b2027e83c7c1b21158e2dcef9bc295c08a454f7b4b",
+    "complete": true,
+    "owned": 16,
+    "confirmed_absent": 16,
+    "failures": 0,
+    "second_pass_remaining": 0
+  },
+  "artifacts_sha256": {
+    "tests.json": "d68319984229c7bd0603b9199fabed3ad3ebd87eb4993c692a04ec9e9bfa2910",
+    "tests.md": "0221857a8b2fc91b4bc6e0d8c70f89da2b8deea0c9faed516920a866646b86d2",
+    "cleanup.json": "b7a875e4bab88b5e9e1badd094c7a8e374a8716158f3f82ece14530f71a28cf8"
+  }
+}

@@ -16,18 +16,14 @@ func TestAccHttpLoadbalancerDataSource_basic(t *testing.T) {
 	acctest.PreCheck(t)
 
 	rName := acctest.RandomName("tf-acc-test")
-	nsName := acctest.RandomName("tf-acc-test-ns")
 	resourceName := "xcsh_http_loadbalancer.test"
 	dataSourceName := "data.xcsh_http_loadbalancer.test"
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
 		ProtoV6ProviderFactories: acctest.ProtoV6ProviderFactories,
-		ExternalProviders: map[string]resource.ExternalProvider{
-			"time": {Source: "hashicorp/time"},
-		},
 		Steps: []resource.TestStep{
 			{
-				Config: testAccHttpLoadbalancerDataSourceConfig_basic(nsName, rName),
+				Config: testAccHttpLoadbalancerDataSourceConfig_basic(rName),
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttrPair(dataSourceName, "name", resourceName, "name"),
 					resource.TestCheckResourceAttrPair(dataSourceName, "namespace", resourceName, "namespace"),
@@ -38,23 +34,14 @@ func TestAccHttpLoadbalancerDataSource_basic(t *testing.T) {
 	})
 }
 
-func testAccHttpLoadbalancerDataSourceConfig_basic(nsName, name string) string {
+func testAccHttpLoadbalancerDataSourceConfig_basic(name string) string {
 	return acctest.ConfigCompose(
 		acctest.ProviderConfig(),
 		fmt.Sprintf(`
-resource "xcsh_namespace" "test" {
-  name = %[1]q
-}
-
-resource "time_sleep" "wait_for_namespace" {
-  depends_on      = [xcsh_namespace.test]
-  create_duration = "5s"
-}
 
 resource "xcsh_origin_pool" "test" {
-  depends_on = [time_sleep.wait_for_namespace]
-  name       = "${%[2]q}-pool"
-  namespace  = xcsh_namespace.test.name
+  name       = "%[1]s-pool"
+  namespace  = "system"
   origin_servers {
     public_ip {
       ip = "192.0.2.1"
@@ -66,17 +53,18 @@ resource "xcsh_origin_pool" "test" {
 }
 
 resource "xcsh_http_loadbalancer" "test" {
-  depends_on = [time_sleep.wait_for_namespace, xcsh_origin_pool.test]
-  name       = %[2]q
-  namespace  = xcsh_namespace.test.name
+  name      = %[1]q
+  namespace = "system"
   domains = ["test.example.com"]
   http {
+    port = 80
     dns_volterra_managed = false
   }
+  advertise_on_public_default_vip = {}
   default_route_pools {
     pool {
       name      = xcsh_origin_pool.test.name
-      namespace = xcsh_namespace.test.name
+      namespace = xcsh_origin_pool.test.namespace
     }
   }
 }
@@ -86,5 +74,5 @@ data "xcsh_http_loadbalancer" "test" {
   name       = xcsh_http_loadbalancer.test.name
   namespace  = xcsh_http_loadbalancer.test.namespace
 }
-`, nsName, name))
+`, name))
 }

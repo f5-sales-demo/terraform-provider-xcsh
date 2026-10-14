@@ -16,18 +16,14 @@ func TestAccEndpointDataSource_basic(t *testing.T) {
 	acctest.PreCheck(t)
 
 	rName := acctest.RandomName("tf-acc-test")
-	nsName := acctest.RandomName("tf-acc-test-ns")
 	resourceName := "xcsh_endpoint.test"
 	dataSourceName := "data.xcsh_endpoint.test"
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
 		ProtoV6ProviderFactories: acctest.ProtoV6ProviderFactories,
-		ExternalProviders: map[string]resource.ExternalProvider{
-			"time": {Source: "hashicorp/time"},
-		},
 		Steps: []resource.TestStep{
 			{
-				Config: testAccEndpointDataSourceConfig_basic(nsName, rName),
+				Config: testAccEndpointDataSourceConfig_basic(rName),
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttrPair(dataSourceName, "name", resourceName, "name"),
 					resource.TestCheckResourceAttrPair(dataSourceName, "namespace", resourceName, "namespace"),
@@ -38,28 +34,17 @@ func TestAccEndpointDataSource_basic(t *testing.T) {
 	})
 }
 
-func testAccEndpointDataSourceConfig_basic(nsName, name string) string {
+func testAccEndpointDataSourceConfig_basic(name string) string {
 	return acctest.ConfigCompose(
 		acctest.ProviderConfig(),
 		fmt.Sprintf(`
-resource "xcsh_namespace" "test" {
-  name = %[1]q
-}
-
-resource "time_sleep" "wait_for_namespace" {
-  depends_on      = [xcsh_namespace.test]
-  create_duration = "5s"
-}
 
 resource "xcsh_endpoint" "test" {
-  depends_on = [time_sleep.wait_for_namespace]
-  name       = %[2]q
-  namespace  = xcsh_namespace.test.name
-  where {
-    site {
-      network_type = "VIRTUAL_NETWORK_SITE_LOCAL_INSIDE"
-    }
-  }
+  name      = %[1]q
+  namespace = "shared"
+  ip = "192.0.2.10"
+  port = 8080
+  protocol = "TCP"
 }
 
 data "xcsh_endpoint" "test" {
@@ -67,5 +52,5 @@ data "xcsh_endpoint" "test" {
   name       = xcsh_endpoint.test.name
   namespace  = xcsh_endpoint.test.namespace
 }
-`, nsName, name))
+`, name))
 }

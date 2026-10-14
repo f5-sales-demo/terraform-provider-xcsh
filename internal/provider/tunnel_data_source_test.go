@@ -16,18 +16,14 @@ func TestAccTunnelDataSource_basic(t *testing.T) {
 	acctest.PreCheck(t)
 
 	rName := acctest.RandomName("tf-acc-test")
-	nsName := acctest.RandomName("tf-acc-test-ns")
 	resourceName := "xcsh_tunnel.test"
 	dataSourceName := "data.xcsh_tunnel.test"
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
 		ProtoV6ProviderFactories: acctest.ProtoV6ProviderFactories,
-		ExternalProviders: map[string]resource.ExternalProvider{
-			"time": {Source: "hashicorp/time"},
-		},
 		Steps: []resource.TestStep{
 			{
-				Config: testAccTunnelDataSourceConfig_basic(nsName, rName),
+				Config: testAccTunnelDataSourceConfig_basic(rName),
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttrPair(dataSourceName, "name", resourceName, "name"),
 					resource.TestCheckResourceAttrPair(dataSourceName, "namespace", resourceName, "namespace"),
@@ -38,23 +34,33 @@ func TestAccTunnelDataSource_basic(t *testing.T) {
 	})
 }
 
-func testAccTunnelDataSourceConfig_basic(nsName, name string) string {
+func testAccTunnelDataSourceConfig_basic(name string) string {
 	return acctest.ConfigCompose(
 		acctest.ProviderConfig(),
 		fmt.Sprintf(`
-resource "xcsh_namespace" "test" {
-  name = %[1]q
-}
-
-resource "time_sleep" "wait_for_namespace" {
-  depends_on      = [xcsh_namespace.test]
-  create_duration = "5s"
-}
 
 resource "xcsh_tunnel" "test" {
-  depends_on = [time_sleep.wait_for_namespace]
-  name       = %[2]q
-  namespace  = xcsh_namespace.test.name
+  name      = %[1]q
+  namespace = "system"
+  tunnel_type = "IPSEC_PSK"
+  local_ip {
+    ip_address {
+      auto = {}
+      virtual_network_type { site_local = {} }
+    }
+  }
+  remote_ip {
+    ip {
+      ipv4 { addr = "192.0.2.1" }
+    }
+  }
+  params {
+    ipsec {
+      ipsec_psk {
+        clear_secret_info { url = "string:///dGVzdC1wc2stc2VjcmV0" }
+      }
+    }
+  }
 }
 
 data "xcsh_tunnel" "test" {
@@ -62,5 +68,5 @@ data "xcsh_tunnel" "test" {
   name       = xcsh_tunnel.test.name
   namespace  = xcsh_tunnel.test.namespace
 }
-`, nsName, name))
+`, name))
 }

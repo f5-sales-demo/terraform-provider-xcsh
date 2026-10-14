@@ -1036,6 +1036,22 @@ func (r *RateLimiterPolicyResource) ValidateConfig(ctx context.Context, req reso
 		)
 	}
 
+	if !data.AnyServer.IsNull() && !data.AnyServer.IsUnknown() && data.ServerNameMatcher != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("any_server"), "Conflicting Configuration", "any_server and server_name_matcher are mutually exclusive.")
+	}
+	if !data.AnyServer.IsNull() && !data.AnyServer.IsUnknown() && data.ServerSelector != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("any_server"), "Conflicting Configuration", "any_server and server_selector are mutually exclusive.")
+	}
+	if !data.ServerName.IsNull() && !data.ServerName.IsUnknown() && data.ServerNameMatcher != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("server_name"), "Conflicting Configuration", "server_name and server_name_matcher are mutually exclusive.")
+	}
+	if !data.ServerName.IsNull() && !data.ServerName.IsUnknown() && data.ServerSelector != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("server_name"), "Conflicting Configuration", "server_name and server_selector are mutually exclusive.")
+	}
+	if data.ServerNameMatcher != nil && data.ServerSelector != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("server_name_matcher"), "Conflicting Configuration", "server_name_matcher and server_selector are mutually exclusive.")
+	}
+
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan

@@ -38,6 +38,7 @@ func testAccRateLimiterDataSourceConfig_basic(name string) string {
 	return acctest.ConfigCompose(
 		acctest.ProviderConfig(),
 		fmt.Sprintf(`
+
 resource "xcsh_rate_limiter" "test" {
   name      = %[1]q
   namespace = "system"

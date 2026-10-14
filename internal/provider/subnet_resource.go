@@ -350,6 +350,13 @@ func (r *SubnetResource) ValidateConfig(ctx context.Context, req resource.Valida
 		)
 	}
 
+	if data.ConnectToLayer2 != nil && !data.ConnectToSlo.IsNull() && !data.ConnectToSlo.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(path.Root("connect_to_layer2"), "Conflicting Configuration", "connect_to_layer2 and connect_to_slo are mutually exclusive.")
+	}
+	if data.ConnectToLayer2 != nil && !data.IsolatedNw.IsNull() && !data.IsolatedNw.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(path.Root("connect_to_layer2"), "Conflicting Configuration", "connect_to_layer2 and isolated_nw are mutually exclusive.")
+	}
+
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan

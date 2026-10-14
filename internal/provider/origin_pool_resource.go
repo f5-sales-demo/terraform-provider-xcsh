@@ -2528,6 +2528,10 @@ func (r *OriginPoolResource) ValidateConfig(ctx context.Context, req resource.Va
 		)
 	}
 
+	if !data.NoTLS.IsNull() && !data.NoTLS.IsUnknown() && data.UseTLS != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("no_tls"), "Conflicting Configuration", "no_tls and use_tls are mutually exclusive.")
+	}
+
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan

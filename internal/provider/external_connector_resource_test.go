@@ -13,9 +13,10 @@ import (
 )
 
 func TestAccExternalConnectorResource_basic(t *testing.T) {
-	t.Skip("Skipping: requires external connector infrastructure - external connectors require site infrastructure and external connectivity configuration not available in standard test environment")
+
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
+	acctest.RequireConnectorEndpoint(t)
 
 	rName := acctest.RandomName("tf-acc-test-ec")
 	nsName := "system"
@@ -30,7 +31,7 @@ func TestAccExternalConnectorResource_basic(t *testing.T) {
 		CheckDestroy: acctest.CheckResourceDestroyed("xcsh_external_connector"),
 		Steps: []resource.TestStep{
 			{
-				Config: testAccExternalConnectorConfig_basic(nsName, rName),
+				Config: testAccExternalConnectorConfig_basic(nsName, rName, acctest.ReadOnlySiteName()),
 				Check: resource.ComposeAggregateTestCheckFunc(
 					acctest.CheckResourceExists(resourceName),
 					resource.TestCheckResourceAttr(resourceName, "name", rName),
@@ -61,13 +62,30 @@ func testAccExternalConnectorImportStateIdFunc(resourceName string) resource.Imp
 	}
 }
 
-func testAccExternalConnectorConfig_basic(nsName, name string) string {
+func testAccExternalConnectorConfig_basic(nsName, name, siteName string) string {
 	return acctest.ConfigCompose(
 		acctest.ProviderConfig(),
 		fmt.Sprintf(`
 resource "xcsh_external_connector" "test" {
   name      = %[2]q
-  namespace = %[1]q
+  namespace = "system"
+  ce_site_reference {
+    name = %[3]q
+    namespace = "system"
+  }
+  gre {
+    gre_parameters {
+      peer_ip_address { addr = "192.0.2.2" }
+      site_local_inside_network = {}
+      tunnel_mtu = 1370
+      tunnel_eps {
+        node = %[4]q
+        interface = %[5]q
+        local_tunnel_ip = "192.0.2.1/30"
+        remote_tunnel_ip = "192.0.2.2/30"
+      }
+    }
+  }
 }
-`, nsName, name))
+`, nsName, name, siteName, acctest.ReadOnlyConnectorNode(), acctest.ReadOnlyConnectorInterface()))
 }

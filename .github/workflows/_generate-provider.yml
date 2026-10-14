@@ -99,6 +99,10 @@ jobs:
           else
             "${command[@]}"
           fi
+          python3 tools/generate_acceptance_inventory.py
+          gofmt -w internal/acctest/ownership_handlers_generated.go
+          go run tools/generate-datasource-tests.go
+          go run tools/generate-fixture-validation.go
           scripts/go-retry.sh 3 go mod tidy
       - name: Build regenerated tree with runner profiling
         run: |

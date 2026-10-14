@@ -13,7 +13,8 @@ import (
 )
 
 func TestAccCloudLinkResource_basic(t *testing.T) {
-	t.Skip("Skipping: requires cloud site infrastructure (AWS/Azure/GCP VPC site)")
+
+	acctest.RequireExistingInfrastructure(t, "cloud_site")
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 

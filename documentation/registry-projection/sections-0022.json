@@ -4700,7 +4700,7 @@
       "section_id": "xcsh-docs:resources:nat_policy:reference:section:0",
       "source_sha256": "sha256:bdb005ac1fd6c5d7db458fb30f51b54a0b348b8aeb3d22dec3e9284357b3e151",
       "source_bytes": 256,
-      "canonical_source_sha256": "sha256:91e752d421ecea877baaf7144166bea34986c7b7c2ad5474d7baf76776c5a3d8",
+      "canonical_source_sha256": "sha256:2a663026e3b20adb84dd8dbd158efe81e2f397d1fb4469a74ca156081c885221",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/nat_policy/properties/",
       "anchor": "canonical-3020222133133201-3022303223012310-1120231003312300-0101031322031013-1020101232211220-3311111200100321-3011121133111320-0102131300033201",
       "anchor_map": [],
@@ -4712,7 +4712,7 @@
       "section_id": "xcsh-docs:resources:nat_policy:reference:section:1",
       "source_sha256": "sha256:0b197530e4e44b8d6b4aec6843ba9d882e33f4481e88b1a5b2139b529934307c",
       "source_bytes": 1637,
-      "canonical_source_sha256": "sha256:91e752d421ecea877baaf7144166bea34986c7b7c2ad5474d7baf76776c5a3d8",
+      "canonical_source_sha256": "sha256:2a663026e3b20adb84dd8dbd158efe81e2f397d1fb4469a74ca156081c885221",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/nat_policy/properties/",
       "anchor": "canonical-1100330220223133-3200200031132322-3032321200020330-3103132231013112-0100322223201302-1001023101202301-3310320130100201-1020002111313130",
       "anchor_map": [
@@ -4733,7 +4733,7 @@
       "section_id": "xcsh-docs:resources:nat_policy:reference:section:2",
       "source_sha256": "sha256:e7eab47e38831b116556adda9d61bb79f1a8c79d9e5823051718869522c7f856",
       "source_bytes": 908,
-      "canonical_source_sha256": "sha256:91e752d421ecea877baaf7144166bea34986c7b7c2ad5474d7baf76776c5a3d8",
+      "canonical_source_sha256": "sha256:2a663026e3b20adb84dd8dbd158efe81e2f397d1fb4469a74ca156081c885221",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/nat_policy/properties/",
       "anchor": "canonical-2220303000002003-0303203230123321-1221020213133221-2312123221201121-1132022321003233-1332200231321311-0233231001231000-0211203122030113",
       "anchor_map": [
@@ -4750,7 +4750,7 @@
       "section_id": "xcsh-docs:resources:nat_policy:reference:section:3",
       "source_sha256": "sha256:0dc3eca37ea19465b82820a8dc5387472026a1926c09f6ac9b8c608e1d4d9275",
       "source_bytes": 392,
-      "canonical_source_sha256": "sha256:91e752d421ecea877baaf7144166bea34986c7b7c2ad5474d7baf76776c5a3d8",
+      "canonical_source_sha256": "sha256:2a663026e3b20adb84dd8dbd158efe81e2f397d1fb4469a74ca156081c885221",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/nat_policy/properties/",
       "anchor": "canonical-1113232232231210-0211213001121230-2213302001311213-3103213333330120-2213012301213213-1003211030012031-2011101332302120-3332233112320303",
       "anchor_map": [
@@ -4767,7 +4767,7 @@
       "section_id": "xcsh-docs:resources:nat_policy:reference:section:4",
       "source_sha256": "sha256:33cc7a13e6890eccaab91442cb9e22a1948d2218dbdad32c1472ae170c849fa1",
       "source_bytes": 111,
-      "canonical_source_sha256": "sha256:91e752d421ecea877baaf7144166bea34986c7b7c2ad5474d7baf76776c5a3d8",
+      "canonical_source_sha256": "sha256:2a663026e3b20adb84dd8dbd158efe81e2f397d1fb4469a74ca156081c885221",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/nat_policy/properties/",
       "anchor": "canonical-1013210003310012-2123123330030120-0110302131302211-1102322333110021-3130203010213011-2033313012232122-1110220230110331-1002030303331331",
       "anchor_map": [
@@ -4784,7 +4784,7 @@
       "section_id": "xcsh-docs:resources:nat_policy:reference:section:5",
       "source_sha256": "sha256:753f8e2b59d9f9fda64730d3e4924c99c1e5be50c0a7f74bf4bdbbfe23a692a6",
       "source_bytes": 580,
-      "canonical_source_sha256": "sha256:91e752d421ecea877baaf7144166bea34986c7b7c2ad5474d7baf76776c5a3d8",
+      "canonical_source_sha256": "sha256:2a663026e3b20adb84dd8dbd158efe81e2f397d1fb4469a74ca156081c885221",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/nat_policy/properties/",
       "anchor": "canonical-1221112111023200-2011211033031021-0232233232113101-0222022013210313-3130203313202210-2332113210123022-1302021232313231-0301120210302301",
       "anchor_map": [
@@ -4801,7 +4801,7 @@
       "section_id": "xcsh-docs:resources:nat_policy:reference:section:6",
       "source_sha256": "sha256:6c74357490d289c9a4adfb5f81dedf6aa5dd5d4b8b17b7a72a810d1471bde23f",
       "source_bytes": 1720,
-      "canonical_source_sha256": "sha256:91e752d421ecea877baaf7144166bea34986c7b7c2ad5474d7baf76776c5a3d8",
+      "canonical_source_sha256": "sha256:2a663026e3b20adb84dd8dbd158efe81e2f397d1fb4469a74ca156081c885221",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/nat_policy/properties/",
       "anchor": "canonical-1232133202223012-3221123300300020-3311120000112021-0011012013103221-3322320103100010-0102330333320200-2221130023230122-1310311103311233",
       "anchor_map": [
@@ -4818,7 +4818,7 @@
       "section_id": "xcsh-docs:resources:nat_policy:reference:section:7",
       "source_sha256": "sha256:ca02affaa4ce466248b46bbb2308b4827033f8024fbded2cbebe00ac3392e101",
       "source_bytes": 1817,
-      "canonical_source_sha256": "sha256:91e752d421ecea877baaf7144166bea34986c7b7c2ad5474d7baf76776c5a3d8",
+      "canonical_source_sha256": "sha256:2a663026e3b20adb84dd8dbd158efe81e2f397d1fb4469a74ca156081c885221",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/nat_policy/properties/",
       "anchor": "canonical-0001000133022231-0030100012202001-2322211022313112-2310010232331320-2132102103110200-1303000003202022-2301113231023232-2300222222000310",
       "anchor_map": [],
@@ -4828,9 +4828,9 @@
     {
       "canonical_id": "xcsh-docs:resources:nat_policy:reference",
       "section_id": "xcsh-docs:resources:nat_policy:reference:section:8",
-      "source_sha256": "sha256:238a073c3fe36a5e43f3d605468990a2fcc90efbf0530a1f60a0ea105912ef82",
-      "source_bytes": 18636,
-      "canonical_source_sha256": "sha256:91e752d421ecea877baaf7144166bea34986c7b7c2ad5474d7baf76776c5a3d8",
+      "source_sha256": "sha256:3aba0325d8688b95ffcdb21e8a40d92a7057029597888ea3b55a39f4cef0c8fb",
+      "source_bytes": 18816,
+      "canonical_source_sha256": "sha256:2a663026e3b20adb84dd8dbd158efe81e2f397d1fb4469a74ca156081c885221",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/nat_policy/properties/",
       "anchor": "canonical-3031130121303113-3032230210201302-1010013120120321-0111022031323210-0011303021310031-2030113010320122-2233213033232313-2330303220330330",
       "anchor_map": [],
@@ -4886,9 +4886,9 @@
     {
       "canonical_id": "xcsh-docs:resources:nat_policy:properties:rules:action",
       "section_id": "xcsh-docs:resources:nat_policy:properties:rules:action:section:0",
-      "source_sha256": "sha256:5d7ecd18885af6a359b019ec4137c93f97130f9babcd73de0c9ffbb0f78dba37",
-      "source_bytes": 1137,
-      "canonical_source_sha256": "sha256:f81de176601336e695081e387dd83c8b5b45e44e9650f4e812aa9875d5fbab57",
+      "source_sha256": "sha256:6c3371b8e5f865afe0d90364cf6a1553298c2ce525093366dab5accff6d447cf",
+      "source_bytes": 1142,
+      "canonical_source_sha256": "sha256:d8634f61c0c3531c2a0c1089671440a103c002980eb9a2b104b608863fef3d68",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/nat_policy/properties/rules/action/",
       "anchor": "canonical-1122221021030123-2131233221312132-0230001013023100-0130321320322011-2220032330303113-0023002023013103-3130110202211032-1022000313331212",
       "anchor_map": [
@@ -4903,9 +4903,9 @@
     {
       "canonical_id": "xcsh-docs:resources:nat_policy:properties:rules:action",
       "section_id": "xcsh-docs:resources:nat_policy:properties:rules:action:section:1",
-      "source_sha256": "sha256:b45e3398599d2de0a996c4a80155dc9912f70d3bfbd28e236e2a208dc6af3dee",
-      "source_bytes": 227,
-      "canonical_source_sha256": "sha256:f81de176601336e695081e387dd83c8b5b45e44e9650f4e812aa9875d5fbab57",
+      "source_sha256": "sha256:492a4478f837df58683c47ac88b1f2a041a4442a5e766dee6304d0f5d1704b64",
+      "source_bytes": 237,
+      "canonical_source_sha256": "sha256:d8634f61c0c3531c2a0c1089671440a103c002980eb9a2b104b608863fef3d68",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/nat_policy/properties/rules/action/",
       "anchor": "canonical-0201100313020023-3201003211010102-0111123330023103-1210102020111132-3110102233113300-0122212120232223-2100233020233110-1202232123212312",
       "anchor_map": [
@@ -4922,7 +4922,7 @@
       "section_id": "xcsh-docs:resources:nat_policy:properties:rules:action:section:2",
       "source_sha256": "sha256:87c483fee63bf64abc29b8cf099431b9b344ec39f7daf1d35387517d31a7080b",
       "source_bytes": 1233,
-      "canonical_source_sha256": "sha256:f81de176601336e695081e387dd83c8b5b45e44e9650f4e812aa9875d5fbab57",
+      "canonical_source_sha256": "sha256:d8634f61c0c3531c2a0c1089671440a103c002980eb9a2b104b608863fef3d68",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/nat_policy/properties/rules/action/",
       "anchor": "canonical-2200223020031102-2003023010210112-2000033312232310-1103312310021313-1133020310111233-1103321120301201-2200023121012120-1202033323101032",
       "anchor_map": [],
@@ -4930,193 +4930,193 @@
       "registry_path": "docs/guides/resources--nat_policy--reference--group-001.md"
     },
     {
-      "canonical_id": "xcsh-docs:resources:nat_policy:properties:rules:action:dynamic",
-      "section_id": "xcsh-docs:resources:nat_policy:properties:rules:action:dynamic:section:0",
-      "source_sha256": "sha256:2a00368ef3f4225898c16e1b97d8e1d5aff32ee50a09a751ec39cdd16736e4f5",
-      "source_bytes": 1246,
-      "canonical_source_sha256": "sha256:4b65918d8fdc3d830c01e20bd90bf8190757c86f618490b43b4dc10ab85c500d",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/nat_policy/properties/rules/action/dynamic/",
-      "anchor": "canonical-0221213332001013-1211231020320202-2110123331210011-3311233300323212-0323332201123333-3023103321300300-1013003221001113-1100103221120012",
+      "canonical_id": "xcsh-docs:resources:nat_policy:properties:rules:action:dynamic_pool",
+      "section_id": "xcsh-docs:resources:nat_policy:properties:rules:action:dynamic_pool:section:0",
+      "source_sha256": "sha256:340e6c833022d5a6bc248b773d3dec1ab84178bf7aecb99006871a85b10d5378",
+      "source_bytes": 1020,
+      "canonical_source_sha256": "sha256:8e2655b08cdfb48a423188f3d42e3f625e9188b6ca94a99e63ab77380532db24",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/nat_policy/properties/rules/action/dynamic_pool/",
+      "anchor": "canonical-0001302111202011-2132230122033202-3030010011233111-0223320203201202-3023020220121332-2233113020002132-1320211001201300-1230230011213313",
       "anchor_map": [
         [
           "section",
-          "canonical-2022332100311212-1103130032012132-1022200020013013-3111222320303112-1202002300320222-1121211231120102-2201003221113102-1321231211112233"
+          "canonical-2211202111031320-3320132033320213-3222100123123003-2332113123210130-0220213313013112-0232010333300112-1332133311023211-0310031101300120"
         ]
       ],
       "mode": "embedded",
       "registry_path": "docs/guides/resources--nat_policy--reference--group-001.md"
     },
     {
-      "canonical_id": "xcsh-docs:resources:nat_policy:properties:rules:action:dynamic",
-      "section_id": "xcsh-docs:resources:nat_policy:properties:rules:action:dynamic:section:1",
-      "source_sha256": "sha256:46b2f9cead092b5903544baac9dc0356cf3a380eac8d2d4b5cb5ff94f2b95118",
-      "source_bytes": 353,
-      "canonical_source_sha256": "sha256:4b65918d8fdc3d830c01e20bd90bf8190757c86f618490b43b4dc10ab85c500d",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/nat_policy/properties/rules/action/dynamic/",
-      "anchor": "canonical-2223010222221211-0300002313231300-0100122212213201-3013133023311223-0220310030331320-3132311222021210-1220321113131232-3130000033301303",
+      "canonical_id": "xcsh-docs:resources:nat_policy:properties:rules:action:dynamic_pool",
+      "section_id": "xcsh-docs:resources:nat_policy:properties:rules:action:dynamic_pool:section:1",
+      "source_sha256": "sha256:7037edb1bae46ee7c2ef81a832ea518949a6c65adc2cd290f3eb43abd3b11cee",
+      "source_bytes": 363,
+      "canonical_source_sha256": "sha256:8e2655b08cdfb48a423188f3d42e3f625e9188b6ca94a99e63ab77380532db24",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/nat_policy/properties/rules/action/dynamic_pool/",
+      "anchor": "canonical-1033130233201012-1230111011103032-3131300012031220-3233103122111213-2031123202222020-3232321213210023-3030103111132130-0110112332030010",
       "anchor_map": [],
       "mode": "embedded",
       "registry_path": "docs/guides/resources--nat_policy--reference--group-001.md"
     },
     {
-      "canonical_id": "xcsh-docs:resources:nat_policy:properties:rules:action:dynamic:elastic_ips",
-      "section_id": "xcsh-docs:resources:nat_policy:properties:rules:action:dynamic:elastic_ips:section:0",
-      "source_sha256": "sha256:c69edb0a8bad7b71bc1bfb1aa4254e1f68d881be6c582aa6454e307ed7095eb1",
-      "source_bytes": 1326,
-      "canonical_source_sha256": "sha256:1390a5af6930ba2d1c4589640a0329479a3d562a1eee73543cac1ffc72d33b8c",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/nat_policy/properties/rules/action/dynamic/elastic_ips/",
-      "anchor": "canonical-1320332012230123-1200023330031312-3010211321230103-0312220130203323-1021023110233100-1332012000310330-0322320302003223-2032133322302003",
+      "canonical_id": "xcsh-docs:resources:nat_policy:properties:rules:action:dynamic_pool:elastic_ips",
+      "section_id": "xcsh-docs:resources:nat_policy:properties:rules:action:dynamic_pool:elastic_ips:section:0",
+      "source_sha256": "sha256:b08d825f69b53fd719df892a47f33096ff1ff7c9e6cce0a58fc1034c4c7f26ae",
+      "source_bytes": 1171,
+      "canonical_source_sha256": "sha256:c2cd6c2399e9f6d8af303c721fbf6d7a8b1ed664e1b5545f987b8f30b7a9f43b",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/nat_policy/properties/rules/action/dynamic_pool/elastic_ips/",
+      "anchor": "canonical-1321030321131233-1211133330201130-1030020022332202-3210001332110133-2301303300323100-0022033302313303-0023333301233000-1113332222223113",
       "anchor_map": [
         [
           "section",
-          "canonical-1130011120302103-3120010010110020-2013030332331321-3103333032111003-1023333310312123-3130022330100002-3132221123211201-0113223100230020"
+          "canonical-1222222302232010-0110000001213302-2332100023121111-3033313330320123-1211313301223112-2330232201021211-2212322201010010-2312030311021011"
         ]
       ],
       "mode": "embedded",
       "registry_path": "docs/guides/resources--nat_policy--reference--group-001.md"
     },
     {
-      "canonical_id": "xcsh-docs:resources:nat_policy:properties:rules:action:dynamic:elastic_ips",
-      "section_id": "xcsh-docs:resources:nat_policy:properties:rules:action:dynamic:elastic_ips:section:1",
-      "source_sha256": "sha256:ea42c0dc19184a2afd267a8d228d7b0c65fb90a69a7e045a0f37346f150514f8",
-      "source_bytes": 191,
-      "canonical_source_sha256": "sha256:1390a5af6930ba2d1c4589640a0329479a3d562a1eee73543cac1ffc72d33b8c",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/nat_policy/properties/rules/action/dynamic/elastic_ips/",
-      "anchor": "canonical-0311221232311232-1211320233102200-0221213130013211-0013102121123320-3313330213313322-1113123330303113-0133030110110301-0022031321222101",
+      "canonical_id": "xcsh-docs:resources:nat_policy:properties:rules:action:dynamic_pool:elastic_ips",
+      "section_id": "xcsh-docs:resources:nat_policy:properties:rules:action:dynamic_pool:elastic_ips:section:1",
+      "source_sha256": "sha256:4afcbd606b20edc6a93f69d70a82c644c79d044d499653defeeec6e0154212b3",
+      "source_bytes": 196,
+      "canonical_source_sha256": "sha256:c2cd6c2399e9f6d8af303c721fbf6d7a8b1ed664e1b5545f987b8f30b7a9f43b",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/nat_policy/properties/rules/action/dynamic_pool/elastic_ips/",
+      "anchor": "canonical-3002133120132210-3331100011021123-0233210130301230-2001000101101133-0111113131320120-0010330223300101-0123201110211323-3210200312031303",
       "anchor_map": [],
       "mode": "embedded",
       "registry_path": "docs/guides/resources--nat_policy--reference--group-001.md"
     },
     {
-      "canonical_id": "xcsh-docs:resources:nat_policy:properties:rules:action:dynamic:elastic_ips:refs",
-      "section_id": "xcsh-docs:resources:nat_policy:properties:rules:action:dynamic:elastic_ips:refs:section:0",
-      "source_sha256": "sha256:1d5311ffedccf4a438929f3e7657700a2dbd2754ec170fcc9c2c7eec1b2611ff",
-      "source_bytes": 1868,
-      "canonical_source_sha256": "sha256:36c3869f84d3a6dac392e146800fca6a2ac8e9c364a7bdbb23556178888b8c81",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/nat_policy/properties/rules/action/dynamic/elastic_ips/refs/",
-      "anchor": "canonical-3021303223113021-3220020210100310-0021033122120022-2201011001330101-1320221000010220-0033132112200311-3031202133011201-1033121211131023",
+      "canonical_id": "xcsh-docs:resources:nat_policy:properties:rules:action:dynamic_pool:elastic_ips:refs",
+      "section_id": "xcsh-docs:resources:nat_policy:properties:rules:action:dynamic_pool:elastic_ips:refs:section:0",
+      "source_sha256": "sha256:ac48a0bc0ebd38a44b0dac50498f3504609dd0b78c24bbc5f1cc85d40799f069",
+      "source_bytes": 1173,
+      "canonical_source_sha256": "sha256:33a0ce6202d14e633fca9f6e597927a876c097c8db2655f0a636615ab4f48640",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/nat_policy/properties/rules/action/dynamic_pool/elastic_ips/refs/",
+      "anchor": "canonical-2310022320312033-1010312320230231-2010102030010323-3303310021323023-2320010023303203-0301100120330003-0131303033223100-0012200102012303",
       "anchor_map": [
         [
           "section",
-          "canonical-3230002133311231-2010102100120113-1113203231030110-1000220310213203-1312312323302111-2322303111211303-2222321233303012-0211011001102220"
+          "canonical-2301302112220101-0020313001132031-0131333100323310-1232030012222131-3220212030212201-0312123103133033-0102211033101330-2233113310222300"
         ]
       ],
       "mode": "embedded",
       "registry_path": "docs/guides/resources--nat_policy--reference--group-001.md"
     },
     {
-      "canonical_id": "xcsh-docs:resources:nat_policy:properties:rules:action:dynamic:elastic_ips:refs",
-      "section_id": "xcsh-docs:resources:nat_policy:properties:rules:action:dynamic:elastic_ips:refs:section:1",
-      "source_sha256": "sha256:20886325e6d0bb6e4cecca46188a1b255bff45b110aea62df21b29d4c531df5c",
-      "source_bytes": 901,
-      "canonical_source_sha256": "sha256:36c3869f84d3a6dac392e146800fca6a2ac8e9c364a7bdbb23556178888b8c81",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/nat_policy/properties/rules/action/dynamic/elastic_ips/refs/",
-      "anchor": "canonical-3121331233303003-0313310010131030-1030121221321220-2310130222211220-1202021012231201-3320032011333323-1121221301222111-2201202100231100",
+      "canonical_id": "xcsh-docs:resources:nat_policy:properties:rules:action:dynamic_pool:elastic_ips:refs",
+      "section_id": "xcsh-docs:resources:nat_policy:properties:rules:action:dynamic_pool:elastic_ips:refs:section:1",
+      "source_sha256": "sha256:48be405fd734882b1234fc61ae1c1c01fae5954ec417b14a48db2fe8c4d30ecf",
+      "source_bytes": 359,
+      "canonical_source_sha256": "sha256:33a0ce6202d14e633fca9f6e597927a876c097c8db2655f0a636615ab4f48640",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/nat_policy/properties/rules/action/dynamic_pool/elastic_ips/refs/",
+      "anchor": "canonical-0231130012303322-3200002010321231-1322132022023302-1300223310202020-1113331131020302-2211210011121222-2101300130013130-0000300303320002",
       "anchor_map": [
         [
-          "schema-rules--action--dynamic--elastic_ips--refs--kind",
-          "canonical-1113212230003330-0031300331133012-3200033020012322-2330123011203102-1121220200102020-2132103212231022-3021013323231102-1211130323313032"
+          "schema-rules--action--dynamic_pool--elastic_ips--refs--kind",
+          "canonical-3130303000113311-3321330303312012-2022230330020232-2200222002032332-0310001313323002-3033230103102023-3211330013330300-1320012120033320"
         ],
         [
-          "schema-rules--action--dynamic--elastic_ips--refs--name",
-          "canonical-1213022111010220-1301111222110013-2203220211303222-0121212331203100-3020112210330330-2222103002310121-0230113100020023-2321002232022210"
+          "schema-rules--action--dynamic_pool--elastic_ips--refs--name",
+          "canonical-0010022122233231-1330312231332000-0333122333201300-2333032030211320-3311323311010120-0002110000111302-3120321230312110-1222122022301321"
         ]
       ],
       "mode": "embedded",
       "registry_path": "docs/guides/resources--nat_policy--reference--group-001.md"
     },
     {
-      "canonical_id": "xcsh-docs:resources:nat_policy:properties:rules:action:dynamic:elastic_ips:refs",
-      "section_id": "xcsh-docs:resources:nat_policy:properties:rules:action:dynamic:elastic_ips:refs:section:2",
-      "source_sha256": "sha256:853a0d8fa592caf12b871272220c5b7972a8f4efca4a1deea8e6ee75a4274918",
-      "source_bytes": 677,
-      "canonical_source_sha256": "sha256:36c3869f84d3a6dac392e146800fca6a2ac8e9c364a7bdbb23556178888b8c81",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/nat_policy/properties/rules/action/dynamic/elastic_ips/refs/",
-      "anchor": "canonical-0210213302111223-1010211022303300-1232220100013203-0232003230211023-2000222333132210-0013112003302233-2121222102032023-3200133122311311",
+      "canonical_id": "xcsh-docs:resources:nat_policy:properties:rules:action:dynamic_pool:elastic_ips:refs",
+      "section_id": "xcsh-docs:resources:nat_policy:properties:rules:action:dynamic_pool:elastic_ips:refs:section:2",
+      "source_sha256": "sha256:d0c1c1a764eddca5d54598c464d2c0c5170489a5ffccdf24bb6eb416d73757d8",
+      "source_bytes": 267,
+      "canonical_source_sha256": "sha256:33a0ce6202d14e633fca9f6e597927a876c097c8db2655f0a636615ab4f48640",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/nat_policy/properties/rules/action/dynamic_pool/elastic_ips/refs/",
+      "anchor": "canonical-0320301033330312-3003000301011003-2003102103202201-3122333320213003-3331000211122203-2210123313321020-1311301300032231-2110013122030232",
       "anchor_map": [
         [
-          "schema-rules--action--dynamic--elastic_ips--refs--namespace",
-          "canonical-1223231033310010-0101033100210003-1031311333032123-3233030032213303-3033230320330231-0322233213333232-1313113131202003-3100202010010330"
+          "schema-rules--action--dynamic_pool--elastic_ips--refs--namespace",
+          "canonical-0231212013320103-2322333211100112-3213310333011030-0130231320333321-2020200021320221-1320301331332120-0311232020201222-0320121212120100"
         ]
       ],
       "mode": "embedded",
       "registry_path": "docs/guides/resources--nat_policy--reference--group-001.md"
     },
     {
-      "canonical_id": "xcsh-docs:resources:nat_policy:properties:rules:action:dynamic:elastic_ips:refs",
-      "section_id": "xcsh-docs:resources:nat_policy:properties:rules:action:dynamic:elastic_ips:refs:section:3",
-      "source_sha256": "sha256:ed811aabce40f69f4b66c252ac85511a491b29bc6fb3a34f4b9cd718af1cb114",
-      "source_bytes": 1474,
-      "canonical_source_sha256": "sha256:36c3869f84d3a6dac392e146800fca6a2ac8e9c364a7bdbb23556178888b8c81",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/nat_policy/properties/rules/action/dynamic/elastic_ips/refs/",
-      "anchor": "canonical-1001232232012223-0332002210013210-0210022123021222-2121202333320200-1202223323213000-3203222313103110-1100323313331210-2331020013012200",
+      "canonical_id": "xcsh-docs:resources:nat_policy:properties:rules:action:dynamic_pool:elastic_ips:refs",
+      "section_id": "xcsh-docs:resources:nat_policy:properties:rules:action:dynamic_pool:elastic_ips:refs:section:3",
+      "source_sha256": "sha256:dd30225013e44072e449b6d85fb3ca71334d3ad8db415744b0df82d3e34f163e",
+      "source_bytes": 552,
+      "canonical_source_sha256": "sha256:33a0ce6202d14e633fca9f6e597927a876c097c8db2655f0a636615ab4f48640",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/nat_policy/properties/rules/action/dynamic_pool/elastic_ips/refs/",
+      "anchor": "canonical-1223321223111212-0011033333032213-0001123201003131-3010232311031200-1331022211202032-3132311022313100-0203011113213212-0130002222031310",
       "anchor_map": [
         [
-          "schema-rules--action--dynamic--elastic_ips--refs--tenant",
-          "canonical-1021313213300012-3003022030012320-3231111020023113-0013332322111102-0221213030313230-0011300332103313-0320110330132121-3333032310131220"
+          "schema-rules--action--dynamic_pool--elastic_ips--refs--tenant",
+          "canonical-3322003220321032-0220233003130110-0332201020231330-3030330230232323-2101103021102123-1112310103210112-2310300200020301-3313012212301213"
         ]
       ],
       "mode": "embedded",
       "registry_path": "docs/guides/resources--nat_policy--reference--group-001.md"
     },
     {
-      "canonical_id": "xcsh-docs:resources:nat_policy:properties:rules:action:dynamic:elastic_ips:refs",
-      "section_id": "xcsh-docs:resources:nat_policy:properties:rules:action:dynamic:elastic_ips:refs:section:4",
-      "source_sha256": "sha256:498cf548457baa43f85010643d357ee4a83dc6107edaf7e933c0f6236ef1289e",
-      "source_bytes": 677,
-      "canonical_source_sha256": "sha256:36c3869f84d3a6dac392e146800fca6a2ac8e9c364a7bdbb23556178888b8c81",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/nat_policy/properties/rules/action/dynamic/elastic_ips/refs/",
-      "anchor": "canonical-1123313313311231-3133321323313120-0330021200231022-1222000322113310-0023220313111032-2020233111003022-2203033313333320-0011222332233333",
+      "canonical_id": "xcsh-docs:resources:nat_policy:properties:rules:action:dynamic_pool:elastic_ips:refs",
+      "section_id": "xcsh-docs:resources:nat_policy:properties:rules:action:dynamic_pool:elastic_ips:refs:section:4",
+      "source_sha256": "sha256:b770d96b5e38e0dc5cb560fa435e10a0696c3386b475e2274e2b4cdebc2c082f",
+      "source_bytes": 267,
+      "canonical_source_sha256": "sha256:33a0ce6202d14e633fca9f6e597927a876c097c8db2655f0a636615ab4f48640",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/nat_policy/properties/rules/action/dynamic_pool/elastic_ips/refs/",
+      "anchor": "canonical-2121312321221031-3031313103320131-0301223033321133-3231111202102012-1200110231130313-1010121021231100-0233110320010303-2112130031232223",
       "anchor_map": [
         [
-          "schema-rules--action--dynamic--elastic_ips--refs--uid",
-          "canonical-0322010231113103-0223301132323002-3020223311312302-3210323030201020-0303202333010310-2302032211020123-2030031311203021-2203213223023120"
+          "schema-rules--action--dynamic_pool--elastic_ips--refs--uid",
+          "canonical-2010310102312301-2012023322120313-1031120023222003-2110313202303111-1313321231320331-2112031131220310-3022233122201330-2203321220111230"
         ]
       ],
       "mode": "embedded",
       "registry_path": "docs/guides/resources--nat_policy--reference--group-001.md"
     },
     {
-      "canonical_id": "xcsh-docs:resources:nat_policy:properties:rules:action:dynamic:elastic_ips:refs",
-      "section_id": "xcsh-docs:resources:nat_policy:properties:rules:action:dynamic:elastic_ips:refs:section:5",
-      "source_sha256": "sha256:f93e62edd3f65d4c9e6734ed6b921eb5c2bfe9ac8f98f3962472990621cd8972",
-      "source_bytes": 599,
-      "canonical_source_sha256": "sha256:36c3869f84d3a6dac392e146800fca6a2ac8e9c364a7bdbb23556178888b8c81",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/nat_policy/properties/rules/action/dynamic/elastic_ips/refs/",
-      "anchor": "canonical-2203311331131103-0010220320213111-1311003020300101-1003231012020121-1312022201231123-1021312211123013-1121331310212230-3003022222321310",
+      "canonical_id": "xcsh-docs:resources:nat_policy:properties:rules:action:dynamic_pool:elastic_ips:refs",
+      "section_id": "xcsh-docs:resources:nat_policy:properties:rules:action:dynamic_pool:elastic_ips:refs:section:5",
+      "source_sha256": "sha256:64636925026f47419a4c701474c979798f05e4ef3340b9681202e54b9013f07b",
+      "source_bytes": 184,
+      "canonical_source_sha256": "sha256:33a0ce6202d14e633fca9f6e597927a876c097c8db2655f0a636615ab4f48640",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/nat_policy/properties/rules/action/dynamic_pool/elastic_ips/refs/",
+      "anchor": "canonical-3102021303310333-1010200103100001-2020312131012331-1103322012001213-0313231212230112-0310000122101023-1320132321020030-1112022221031020",
       "anchor_map": [],
       "mode": "embedded",
       "registry_path": "docs/guides/resources--nat_policy--reference--group-001.md"
     },
     {
-      "canonical_id": "xcsh-docs:resources:nat_policy:properties:rules:action:dynamic:pools",
-      "section_id": "xcsh-docs:resources:nat_policy:properties:rules:action:dynamic:pools:section:0",
-      "source_sha256": "sha256:ab51350b52714754d38aacd387f12055b391ca1ddcb9119b9d252d55b9f2f8b3",
-      "source_bytes": 1138,
-      "canonical_source_sha256": "sha256:8b8ed21b65e0ffb7293eb0734fd3871f45b4b34fbffdc716b7b8deb049f53002",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/nat_policy/properties/rules/action/dynamic/pools/",
-      "anchor": "canonical-3101330020232121-1300120130322033-1120200032101230-0031011222111032-3100321032313012-3300112132101200-0333021110213112-2300123021320102",
+      "canonical_id": "xcsh-docs:resources:nat_policy:properties:rules:action:dynamic_pool:pools",
+      "section_id": "xcsh-docs:resources:nat_policy:properties:rules:action:dynamic_pool:pools:section:0",
+      "source_sha256": "sha256:ce11034de699e8a32b1e0d92aa57a2ac979dfa8984a3e8a2626ae84f3f29983e",
+      "source_bytes": 983,
+      "canonical_source_sha256": "sha256:67c7f82bd1d37975cb21ab9c00d6eb53e7ae2c29d17c9d88e8711973b5445aa6",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/nat_policy/properties/rules/action/dynamic_pool/pools/",
+      "anchor": "canonical-1203231020021100-0311032330223312-0303233201201121-2330102332101102-2123101221333330-0231110331032012-1021232112103021-3130111102312233",
       "anchor_map": [
         [
           "section",
-          "canonical-2333122032123311-2132123202201123-0002023121210131-2011022133331210-0213001020203103-0233132120101020-1000122210322003-1213012112103332"
+          "canonical-0102031303103022-2110002031031023-3212222223223212-1131113023203000-3020112132200203-1102120120223111-3233323013111000-0233333011101230"
         ]
       ],
       "mode": "embedded",
       "registry_path": "docs/guides/resources--nat_policy--reference--group-001.md"
     },
     {
-      "canonical_id": "xcsh-docs:resources:nat_policy:properties:rules:action:dynamic:pools",
-      "section_id": "xcsh-docs:resources:nat_policy:properties:rules:action:dynamic:pools:section:1",
-      "source_sha256": "sha256:2083addb040b0be7674b8740644fbcc34ff51b5741309d87f4a593cd1b559247",
-      "source_bytes": 1253,
-      "canonical_source_sha256": "sha256:8b8ed21b65e0ffb7293eb0734fd3871f45b4b34fbffdc716b7b8deb049f53002",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/nat_policy/properties/rules/action/dynamic/pools/",
-      "anchor": "canonical-1223202332231000-1302321230010110-0100300031230002-1213103032000333-0231030033233302-0003220330303003-3201013111023222-0031231021002100",
+      "canonical_id": "xcsh-docs:resources:nat_policy:properties:rules:action:dynamic_pool:pools",
+      "section_id": "xcsh-docs:resources:nat_policy:properties:rules:action:dynamic_pool:pools:section:1",
+      "source_sha256": "sha256:fa7cf13af0ce106671d9072eb37f3fac1fc79507f225adb0de3cf739709ca28b",
+      "source_bytes": 362,
+      "canonical_source_sha256": "sha256:67c7f82bd1d37975cb21ab9c00d6eb53e7ae2c29d17c9d88e8711973b5445aa6",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/nat_policy/properties/rules/action/dynamic_pool/pools/",
+      "anchor": "canonical-1211100300303113-3212101213033221-0101100033111220-2030131303333303-0310111312230300-3100032330203123-3330210123213101-2000032323321123",
       "anchor_map": [
         [
-          "schema-rules--action--dynamic--pools--prefixes",
-          "canonical-3131030022302230-2321000123112123-0002113101103322-2103131111001120-1130201203233302-2221232123033023-0031131321022211-2213110303201200"
+          "schema-rules--action--dynamic_pool--pools--prefixes",
+          "canonical-1313133311010322-0232332310202331-1102130101310021-0313121101121002-2322030210300211-1130022321013231-3202213122312303-2013332222022120"
         ]
       ],
       "mode": "embedded",

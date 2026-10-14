@@ -16,18 +16,14 @@ func TestAccNetworkConnectorDataSource_basic(t *testing.T) {
 	acctest.PreCheck(t)
 
 	rName := acctest.RandomName("tf-acc-test")
-	nsName := acctest.RandomName("tf-acc-test-ns")
 	resourceName := "xcsh_network_connector.test"
 	dataSourceName := "data.xcsh_network_connector.test"
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
 		ProtoV6ProviderFactories: acctest.ProtoV6ProviderFactories,
-		ExternalProviders: map[string]resource.ExternalProvider{
-			"time": {Source: "hashicorp/time"},
-		},
 		Steps: []resource.TestStep{
 			{
-				Config: testAccNetworkConnectorDataSourceConfig_basic(nsName, rName),
+				Config: testAccNetworkConnectorDataSourceConfig_basic(rName),
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttrPair(dataSourceName, "name", resourceName, "name"),
 					resource.TestCheckResourceAttrPair(dataSourceName, "namespace", resourceName, "namespace"),
@@ -38,28 +34,17 @@ func TestAccNetworkConnectorDataSource_basic(t *testing.T) {
 	})
 }
 
-func testAccNetworkConnectorDataSourceConfig_basic(nsName, name string) string {
+func testAccNetworkConnectorDataSourceConfig_basic(name string) string {
 	return acctest.ConfigCompose(
 		acctest.ProviderConfig(),
 		fmt.Sprintf(`
-resource "xcsh_namespace" "test" {
-  name = %[1]q
-}
-
-resource "time_sleep" "wait_for_namespace" {
-  depends_on      = [xcsh_namespace.test]
-  create_duration = "5s"
-}
 
 resource "xcsh_network_connector" "test" {
-  depends_on = [time_sleep.wait_for_namespace]
-  name       = %[2]q
-  namespace  = xcsh_namespace.test.name
-  sli_to_global_dr {
-    global_vn {
-      name      = "global-network"
-      namespace = "system"
-    }
+  name      = %[1]q
+  namespace = "system"
+  disable_forward_proxy = {}
+  sli_to_slo_snat {
+    default_gw_snat {}
   }
 }
 
@@ -68,5 +53,5 @@ data "xcsh_network_connector" "test" {
   name       = xcsh_network_connector.test.name
   namespace  = xcsh_network_connector.test.namespace
 }
-`, nsName, name))
+`, name))
 }

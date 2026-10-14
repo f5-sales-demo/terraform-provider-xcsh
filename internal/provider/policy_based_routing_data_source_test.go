@@ -51,17 +51,20 @@ resource "time_sleep" "wait_for_namespace" {
   create_duration = "5s"
 }
 
+resource "xcsh_forwarding_class" "fixture" {
+ name = "%[1]s-fc"
+ namespace = "system"
+ queue_id_to_use = "DSCP_BEST_EFFORT"
+ no_policer = {}
+ interface_group = "ANY_AVAILABLE_INTERFACE"
+}
 resource "xcsh_policy_based_routing" "test" {
   depends_on = [time_sleep.wait_for_namespace]
   name       = %[2]q
   namespace  = xcsh_namespace.test.name
-  destination_match_rules {
-    any_prefix = true
-    any_port   = true
-    protocol   = "TCP"
-    action {
-      vrf_egress = true
-    }
+  forwarding_class_list {
+    name = xcsh_forwarding_class.fixture.name
+    namespace = xcsh_forwarding_class.fixture.namespace
   }
 }
 

@@ -2177,8 +2177,8 @@
       "sha256": "sha256:eb3a02f7a7dcabd5f5dd76dacc5ff86f4f2a2886b976e611a474c3f385354e39"
     },
     "docs/guides/data-sources--nat_policy--reference--group-001.md": {
-      "bytes": 153582,
-      "sha256": "sha256:ba0254646325632cf51b3807cd50dc977819e2a89839b2dbc587884dc9e4fc53"
+      "bytes": 148861,
+      "sha256": "sha256:9608612b4628c356dd459dffb7559425ff11bafb71a047b4cfe52c51d99bd186"
     },
     "docs/guides/data-sources--network_bot_defense--examples--group-001.md": {
       "bytes": 2679,
@@ -4357,8 +4357,8 @@
       "sha256": "sha256:ed098665008e8322c9e69e5a753644c479bf0806c746954ee145494ea2095231"
     },
     "docs/guides/resources--nat_policy--reference--group-001.md": {
-      "bytes": 169882,
-      "sha256": "sha256:69b64d0f47d368e782e6dbc266ea97115546ff1bb6721a0dc42cbf3b0353e0c4"
+      "bytes": 165171,
+      "sha256": "sha256:045f20d7dd01ee576a3bdb05f384cbf60b4220952c090023399e18e670355ae2"
     },
     "docs/guides/resources--network_connector--examples--group-001.md": {
       "bytes": 2652,
@@ -5722,7 +5722,7 @@
     }
   },
   "limit_bytes": 500000,
-  "provider_schema_digest": "sha256:1b9ea59a790d92083efb68ff1abebe57ebbb3f7b716b91cdb7b0416134676174",
+  "provider_schema_digest": "sha256:500e603af7c92c2c213b5cbdb574fdea5ac4e4825db9ce520b047c223b245685",
   "schema_version": 1,
   "section_manifests": [
     { "path": "documentation/registry-projection/sections-0001.json", "section_count": 534 },

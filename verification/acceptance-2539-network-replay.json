@@ -1,0 +1,72 @@
+{
+  "version": 1,
+  "source": "2294f71bdf2",
+  "total": 8,
+  "passed": 7,
+  "failed": 1,
+  "skipped": 0,
+  "stream_completeness": {
+    "complete": false,
+    "events": 131,
+    "malformed_lines": 0,
+    "invalid_events": 0,
+    "scanner_error": false,
+    "incomplete_tests": 0,
+    "incomplete_packages": 0,
+    "package_failures": 1
+  },
+  "tests": [
+    {
+      "name": "TestAccSubnetDataSource_basic",
+      "status": "fail",
+      "failure_fingerprint": {
+        "class": "http_error",
+        "summary": "Create request failed",
+        "http_status": 400,
+        "source_location": "subnet_data_source_test.go:16"
+      }
+    },
+    {
+      "name": "TestAccTunnelDataSource_basic",
+      "status": "pass"
+    },
+    {
+      "name": "TestAccUsbPolicyDataSource_basic",
+      "status": "pass"
+    },
+    {
+      "name": "TestAccUsbPolicyResource_allAttributes",
+      "status": "pass"
+    },
+    {
+      "name": "TestAccUsbPolicyResource_basic",
+      "status": "pass"
+    },
+    {
+      "name": "TestAccUsbPolicyResource_updateAllowedDevices",
+      "status": "pass"
+    },
+    {
+      "name": "TestAccUsbPolicyResource_updateDescription",
+      "status": "pass"
+    },
+    {
+      "name": "TestAccUsbPolicyResource_updateLabels",
+      "status": "pass"
+    }
+  ],
+  "cleanup": {
+    "version": 1,
+    "journal_sha256": "79b97545d12c1223f3cb77555e4edb27e2997bc9260e059deaf8e2bddae806bb",
+    "complete": true,
+    "owned": 19,
+    "confirmed_absent": 19,
+    "failures": 0,
+    "second_pass_remaining": 0
+  },
+  "digests": {
+    "tests.json": "9bc29cd0d4224f43ceaebdaf2c397e4ff8122b508a7b9b17ed3e229288334946",
+    "tests.md": "5d5551340d1b35650c8e8e47e83e46d06ddc16757f081f3b97e3793711e34374",
+    "cleanup.json": "a7eac147986c30c8835f4a118d3f28587b02d1894e118ef7717ed921c4d763dd"
+  }
+}

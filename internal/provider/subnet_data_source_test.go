@@ -14,20 +14,17 @@ import (
 func TestAccSubnetDataSource_basic(t *testing.T) {
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
+	acctest.RequireExistingInfrastructure(t, "site")
 
 	rName := acctest.RandomName("tf-acc-test")
-	nsName := acctest.RandomName("tf-acc-test-ns")
 	resourceName := "xcsh_subnet.test"
 	dataSourceName := "data.xcsh_subnet.test"
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
 		ProtoV6ProviderFactories: acctest.ProtoV6ProviderFactories,
-		ExternalProviders: map[string]resource.ExternalProvider{
-			"time": {Source: "hashicorp/time"},
-		},
 		Steps: []resource.TestStep{
 			{
-				Config: testAccSubnetDataSourceConfig_basic(nsName, rName),
+				Config: testAccSubnetDataSourceConfig_basic(rName, acctest.ReadOnlySiteName()),
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttrPair(dataSourceName, "name", resourceName, "name"),
 					resource.TestCheckResourceAttrPair(dataSourceName, "namespace", resourceName, "namespace"),
@@ -38,23 +35,25 @@ func TestAccSubnetDataSource_basic(t *testing.T) {
 	})
 }
 
-func testAccSubnetDataSourceConfig_basic(nsName, name string) string {
+func testAccSubnetDataSourceConfig_basic(name string, siteName string) string {
 	return acctest.ConfigCompose(
 		acctest.ProviderConfig(),
 		fmt.Sprintf(`
-resource "xcsh_namespace" "test" {
-  name = %[1]q
-}
-
-resource "time_sleep" "wait_for_namespace" {
-  depends_on      = [xcsh_namespace.test]
-  create_duration = "5s"
-}
 
 resource "xcsh_subnet" "test" {
-  depends_on = [time_sleep.wait_for_namespace]
-  name       = %[2]q
-  namespace  = xcsh_namespace.test.name
+  name      = %[1]q
+  namespace = "system"
+  isolated_nw = {}
+  site_subnet_params {
+    dhcp = {}
+    subnet_dhcp_server_params {
+      dhcp_networks { network_prefix = "192.0.2.0/24" }
+    }
+    site {
+      name = %[2]q
+      namespace = "system"
+    }
+  }
 }
 
 data "xcsh_subnet" "test" {
@@ -62,5 +61,5 @@ data "xcsh_subnet" "test" {
   name       = xcsh_subnet.test.name
   namespace  = xcsh_subnet.test.namespace
 }
-`, nsName, name))
+`, name, siteName))
 }

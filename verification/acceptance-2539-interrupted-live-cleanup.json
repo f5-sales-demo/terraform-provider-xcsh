@@ -1,0 +1,73 @@
+{
+  "version": 1,
+  "runs": [
+    {
+      "version": "final-source",
+      "source": "d4f8bff235131688057734d96f634631c7273e37",
+      "total": 657,
+      "passed": 276,
+      "failed": 311,
+      "skipped": 70,
+      "stream_completeness": {
+        "complete": false,
+        "events": 6925,
+        "malformed_lines": 0,
+        "invalid_events": 0,
+        "scanner_error": false,
+        "incomplete_tests": 278,
+        "incomplete_packages": 1,
+        "package_failures": 0
+      },
+      "cleanup": {
+        "version": 1,
+        "journal_sha256": "7ad2858e21db7865609e19420ae27f12aa2345dac28778e75b60fd1bb37a62e5",
+        "complete": true,
+        "owned": 352,
+        "confirmed_absent": 352,
+        "failures": 0,
+        "second_pass_remaining": 0
+      },
+      "interrupted": true,
+      "reason": "concurrent retained quota probes exhausted CRL capacity",
+      "digests": {
+        "tests.json": "311f41238f74d56530d903f2735e62ddb2f671c1104a6f9adbf343dfd6bef28c",
+        "tests.md": "300f6ac2d2986300eef9c7cdd8db2509a312b22e28a7537ba988b1625d7a5a00",
+        "cleanup.json": "0887217a82ff269a415a6691349e3c861bba9ea358dc0ba9f2b127664ab0318e"
+      }
+    },
+    {
+      "version": "final-source-v2",
+      "source": "932283e53b61ae688f744e8a77d63179695c8613",
+      "total": 657,
+      "passed": 67,
+      "failed": 519,
+      "skipped": 71,
+      "stream_completeness": {
+        "complete": false,
+        "events": 5138,
+        "malformed_lines": 0,
+        "invalid_events": 0,
+        "scanner_error": false,
+        "incomplete_tests": 509,
+        "incomplete_packages": 1,
+        "package_failures": 0
+      },
+      "cleanup": {
+        "version": 1,
+        "journal_sha256": "1334b0dce4726f89fb91d1c0ded32ca6334165a53a199ec02a819ee81b2d94a6",
+        "complete": true,
+        "owned": 96,
+        "confirmed_absent": 96,
+        "failures": 0,
+        "second_pass_remaining": 0
+      },
+      "interrupted": true,
+      "reason": "concurrent retained quota probes exhausted CRL capacity",
+      "digests": {
+        "tests.json": "b18d4cce3455a24ff3579740f0a29aea003869d42e90141c0fc52e15359855f1",
+        "tests.md": "6da81cf0b2ee7d71f8176a3c1f808ba798265aae7e3c6b4bf35b7ffb3f3917ed",
+        "cleanup.json": "8e310520ee2b169a3aebb90cfc1863e7a3edd0c9cf897d310604a5b27ddc6693"
+      }
+    }
+  ]
+}

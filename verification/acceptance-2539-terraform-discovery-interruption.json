@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "run": 38434366885,
+  "source": "a0d494dbfb132185c9cea8cf7d01d0e38be82294",
+  "counts": {
+    "total_tests": 664,
+    "total_passed": 158,
+    "total_failed": 468,
+    "total_skipped": 38
+  },
+  "stream_completeness": {
+    "complete": false,
+    "events": 4739,
+    "malformed_lines": 0,
+    "invalid_events": 0,
+    "scanner_error": false,
+    "incomplete_tests": 468,
+    "incomplete_packages": 0,
+    "package_failures": 1
+  },
+  "diagnostic": "terraform_cli_discovery_http_502",
+  "incomplete_test_count": 468,
+  "classification": "Rejected incomplete stream; no capability skips inferred.",
+  "digests": {
+    "mock-tests.json": "d87bf0314914b673c4c7cc0ba6205c042db4aa43763e9f2997ce5e7348305c0a",
+    "mock-tests.md": "0996a8da0362cf6a43b23292ad47282d36ee656e39f77a1d117fad0201263d02",
+    "test-output-mock.json": "dae6536104e30a65c3f04715ca2d925bba4fc09da26f7034bc34382d5eea2a56",
+    "test-stderr-mock.log": "2060042f74d065167ac895c15ea1bcf4a4cc4fbac864360e62318fba7bb73204"
+  }
+}

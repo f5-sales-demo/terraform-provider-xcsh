@@ -17,7 +17,6 @@ func TestAccAuthenticationResource_basic(t *testing.T) {
 	acctest.PreCheck(t)
 
 	// Skip: authentication resource requires complex cookie_params/auth_hmac configuration with secrets
-	t.Skip("Skipping: authentication resource requires complex cookie_params configuration (blindfold secrets, HMAC keys) that needs further investigation")
 
 	rName := acctest.RandomName("tf-acc-test-auth")
 	nsName := acctest.RandomName("tf-acc-test-ns")
@@ -46,7 +45,7 @@ func TestAccAuthenticationResource_basic(t *testing.T) {
 				ResourceName:            resourceName,
 				ImportState:             true,
 				ImportStateVerify:       true,
-				ImportStateVerifyIgnore: []string{"timeouts"},
+				ImportStateVerifyIgnore: []string{"timeouts", "oidc_auth.client_secret"},
 				ImportStateIdFunc:       testAccAuthenticationImportStateIdFunc(resourceName),
 			},
 		},
@@ -83,6 +82,23 @@ resource "xcsh_authentication" "test" {
 
   name      = %[2]q
   namespace = xcsh_namespace.test.name
+  cookie_params {
+    cookie_expiry = 3600
+    cookie_refresh_interval = 1800
+    session_expiry = 86400
+    kms_key_hmac = {}
+  }
+  oidc_auth {
+    oidc_client_id = "fixture"
+    client_secret {
+      clear_secret_info { url = "string:///c3ludGhldGljLWNsaWVudC1zZWNyZXQ=" }
+    }
+    oidc_auth_params {
+      auth_endpoint_url = "https://id.example.com/auth"
+      token_endpoint_url = "https://id.example.com/token"
+      end_session_endpoint_url = "https://id.example.com/logout"
+    }
+  }
 }
 `, nsName, name))
 }

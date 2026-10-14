@@ -1,0 +1,97 @@
+{
+  "version": 1,
+  "source": "390ef015109",
+  "total": 3,
+  "passed": 0,
+  "failed": 1,
+  "skipped": 2,
+  "tests": [
+    {
+      "name": "TestAccNatPolicyResource_basic",
+      "status": "fail",
+      "prerequisites": [
+        {
+          "outcome": "infrastructure_verified",
+          "method": "GET",
+          "resource_type": "site"
+        },
+        {
+          "outcome": "tested",
+          "method": "POST",
+          "resource_type": "xcsh_namespace"
+        },
+        {
+          "outcome": "tested",
+          "method": "POST",
+          "resource_type": "xcsh_segment"
+        }
+      ],
+      "failure_fingerprint": {
+        "class": "http_error",
+        "summary": "Create request failed",
+        "http_status": 400,
+        "source_location": "nat_policy_resource_test.go:19",
+        "diagnostic_facts": ["missing_required_input"],
+        "schema_fields": ["rules"]
+      }
+    },
+    {
+      "name": "TestAccPolicyBasedRoutingDataSource_basic",
+      "status": "skip",
+      "prerequisites": [
+        {
+          "outcome": "tested",
+          "method": "POST",
+          "resource_type": "xcsh_namespace"
+        },
+        {
+          "outcome": "quota_unconfigured",
+          "method": "GET",
+          "resource_type": "xcsh_forwarding_class"
+        }
+      ]
+    },
+    {
+      "name": "TestAccPolicyBasedRoutingResource_basic",
+      "status": "skip",
+      "prerequisites": [
+        {
+          "outcome": "tested",
+          "method": "POST",
+          "resource_type": "xcsh_namespace"
+        },
+        {
+          "outcome": "quota_unconfigured",
+          "method": "GET",
+          "resource_type": "xcsh_forwarding_class"
+        }
+      ]
+    }
+  ],
+  "cleanup_initial": {
+    "version": 1,
+    "diagnostics": {
+      "delete_failed": 1
+    },
+    "journal_sha256": "68f5a02a2e52da961480b1336065011718a5d7b7b51c2d948393c25b3822a99c",
+    "complete": false,
+    "owned": 8,
+    "confirmed_absent": 7,
+    "failures": 1,
+    "second_pass_remaining": 0
+  },
+  "cleanup_recovered": {
+    "version": 1,
+    "journal_sha256": "d7e26209c2961652ccd7ffa7d0b39c4a2a4cf3096ce275a75f36d612859b77da",
+    "complete": true,
+    "owned": 8,
+    "confirmed_absent": 8,
+    "failures": 0,
+    "second_pass_remaining": 0
+  },
+  "digests": {
+    "tests.json": "47fa90ac6174c239eb70774a68d1a05f92b535a869a79341fa618e15992e53af",
+    "tests.md": "a7f29c11cea5ff9226692628e13d61d0bdb52d61d02cc018733ac68d6a565da0",
+    "cleanup-recovered.json": "4af65a29ba3e378302cb3c71d1dbd6446d8c925b6091652a11e734bcf6a8955f"
+  }
+}

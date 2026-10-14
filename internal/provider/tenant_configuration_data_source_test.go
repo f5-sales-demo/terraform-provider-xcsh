@@ -3,9 +3,11 @@
 package provider_test
 
 import (
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/acctest"
 	"testing"
 )
 
 func TestAccTenantConfigurationDataSource_basic(t *testing.T) {
-	t.Skip("API returns 500 errors")
+	acctest.RequireNonDisposableScope(t)
+
 }

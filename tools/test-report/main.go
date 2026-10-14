@@ -80,15 +80,18 @@ const (
 	FailureClassConnection          FailureClass = "connection"
 	FailureClassServerError         FailureClass = "server_error"
 	FailureClassUnclassified        FailureClass = "unclassified"
+	FailureClassCleanup             FailureClass = "cleanup_verification"
 )
 
 // FailureFingerprint contains only allowlisted diagnostic facts. It must never
 // contain arbitrary test output, URLs, response bodies, state, or identifiers.
 type FailureFingerprint struct {
-	Class          FailureClass `json:"class"`
-	Summary        string       `json:"summary,omitempty"`
-	HTTPStatus     int          `json:"http_status,omitempty"`
-	SourceLocation string       `json:"source_location,omitempty"`
+	Class           FailureClass `json:"class"`
+	Summary         string       `json:"summary,omitempty"`
+	HTTPStatus      int          `json:"http_status,omitempty"`
+	SourceLocation  string       `json:"source_location,omitempty"`
+	DiagnosticFacts []string     `json:"diagnostic_facts,omitempty"`
+	SchemaFields    []string     `json:"schema_fields,omitempty"`
 }
 
 // FailureFingerprintSummary deterministically groups identical safe failure
@@ -116,16 +119,44 @@ const (
 
 // TestResult holds the result of a single test
 type TestResult struct {
-	Name               string              `json:"name"`
-	Package            string              `json:"package"`
-	Category           TestCategory        `json:"category"`
-	Status             string              `json:"status"` // pass, fail, skip
-	Duration           float64             `json:"duration_seconds"`
-	SkipReason         string              `json:"skip_reason,omitempty"`
-	SkipReasonType     SkipReasonType      `json:"skip_reason_type,omitempty"`
-	TransientError     TransientErrorType  `json:"transient_error,omitempty"`
-	FailureOutput      string              `json:"failure_output,omitempty"`
-	FailureFingerprint *FailureFingerprint `json:"failure_fingerprint,omitempty"`
+	Prerequisites      []PrerequisiteOutcome `json:"prerequisites,omitempty"`
+	Name               string                `json:"name"`
+	Package            string                `json:"package"`
+	Category           TestCategory          `json:"category"`
+	Status             string                `json:"status"` // pass, fail, skip
+	Duration           float64               `json:"duration_seconds"`
+	SkipReason         string                `json:"skip_reason,omitempty"`
+	SkipReasonType     SkipReasonType        `json:"skip_reason_type,omitempty"`
+	TransientError     TransientErrorType    `json:"transient_error,omitempty"`
+	FailureOutput      string                `json:"failure_output,omitempty"`
+	FailureFingerprint *FailureFingerprint   `json:"failure_fingerprint,omitempty"`
+}
+
+type PrerequisiteOutcome struct {
+	Outcome      string `json:"outcome"`
+	Method       string `json:"method"`
+	ResourceType string `json:"resource_type"`
+	HTTPStatus   int    `json:"http_status,omitempty"`
+}
+
+var prerequisitePattern = regexp.MustCompile(`\[PREREQUISITE:(operation_denied|tested|external_credential_missing|non_disposable_scope|infrastructure_absent|infrastructure_verified|quota_unconfigured|quota_exhausted|cloud_appliance_out_of_scope) method=(POST|GET) type=([a-z][a-z0-9_]+)(?: status=(403|429))?\]`)
+
+func extractPrerequisites(output string) []PrerequisiteOutcome {
+	result := []PrerequisiteOutcome{}
+	seen := map[string]bool{}
+	for _, match := range prerequisitePattern.FindAllStringSubmatch(output, -1) {
+		key := strings.Join(match[1:], "/")
+		if seen[key] {
+			continue
+		}
+		seen[key] = true
+		status := 0
+		if match[4] != "" {
+			status, _ = strconv.Atoi(match[4])
+		}
+		result = append(result, PrerequisiteOutcome{Outcome: match[1], Method: match[2], ResourceType: match[3], HTTPStatus: status})
+	}
+	return result
 }
 
 // CategorySummary holds statistics for a test category
@@ -163,6 +194,7 @@ type DurationStats struct {
 
 // Report is the full test report
 type Report struct {
+	Stream              StreamCompleteness                `json:"stream_completeness"`
 	Timestamp           time.Time                         `json:"timestamp"`
 	TotalDuration       float64                           `json:"total_duration_seconds"`
 	TotalTests          int                               `json:"total_tests"`
@@ -177,6 +209,18 @@ type Report struct {
 	SkipReasons         []SkipReasonSummary               `json:"skip_reasons,omitempty"`
 	SlowestTests        []TestResult                      `json:"slowest_tests,omitempty"`
 	DurationStats       *DurationStats                    `json:"duration_stats,omitempty"`
+}
+
+// StreamCompleteness retains only counts and fixed facts, never decoder errors.
+type StreamCompleteness struct {
+	Complete           bool `json:"complete"`
+	Events             int  `json:"events"`
+	MalformedLines     int  `json:"malformed_lines"`
+	InvalidEvents      int  `json:"invalid_events"`
+	ScannerError       bool `json:"scanner_error"`
+	IncompleteTests    int  `json:"incomplete_tests"`
+	IncompletePackages int  `json:"incomplete_packages"`
+	PackageFailures    int  `json:"package_failures"`
 }
 
 // JUnit XML types
@@ -223,9 +267,26 @@ func main() {
 	showAll := flag.Bool("all", false, "Show all tests, not just summary")
 	slowestCount := flag.Int("slowest", 10, "Number of slowest tests to show")
 	tenantSafe := flag.Bool("tenant-safe", false, "Omit raw diagnostic and skip output; retain only allowlisted failure fingerprints")
+	schemaPath := flag.String("schema", "", "Installed schema for allowlisted field-only diagnostics")
+	expectedPath := flag.String("expected-tests", "", "Exact test inventory for complete suite accounting")
 	flag.Parse()
 
+	if *schemaPath != "" {
+		if err := loadPublicSchemaFields(*schemaPath); err != nil {
+			fmt.Fprintln(os.Stderr, "Installed diagnostic schema unavailable")
+			os.Exit(1)
+		}
+	}
 	report := parseTestOutput(*slowestCount, *tenantSafe)
+	if *expectedPath != "" {
+		names, err := loadSuiteInventory(*expectedPath)
+		if err != nil {
+			report.Stream.InvalidEvents++
+			report.Stream.Complete = false
+		} else {
+			verifySuiteInventory(report, names)
+		}
+	}
 
 	var out *os.File
 	var err error
@@ -252,7 +313,7 @@ func main() {
 	}
 
 	// Exit with non-zero status if there are failures
-	if report.TotalFailed > 0 {
+	if report.TotalFailed > 0 || !report.Stream.Complete {
 		os.Exit(1)
 	}
 }
@@ -277,6 +338,7 @@ func parseTestOutputReader(reader io.Reader, slowestCount int, tenantSafe bool) 
 	// Track test results (tests can have multiple events)
 	testResults := make(map[string]*TestResult)
 	testOutputs := make(map[string][]string)
+	packages := make(map[string]bool)
 
 	scanner := bufio.NewScanner(reader)
 	// Increase buffer size for large output lines
@@ -286,15 +348,56 @@ func parseTestOutputReader(reader io.Reader, slowestCount int, tenantSafe bool) 
 	for scanner.Scan() {
 		var event TestEvent
 		if err := json.Unmarshal(scanner.Bytes(), &event); err != nil {
-			continue // Skip non-JSON lines
+			report.Stream.MalformedLines++
+			continue
+		}
+		report.Stream.Events++
+		if event.Package == "" || event.Elapsed < 0 || math.IsNaN(event.Elapsed) || math.IsInf(event.Elapsed, 0) {
+			report.Stream.InvalidEvents++
+			continue
+		}
+		switch event.Action {
+		case "start", "run", "output", "pass", "fail", "skip", "pause", "cont", "bench":
+		default:
+			report.Stream.InvalidEvents++
+			continue
 		}
 
 		// Only process test-level events (not package-level)
 		if event.Test == "" {
+			switch event.Action {
+			case "run", "pause", "cont":
+				report.Stream.InvalidEvents++
+			case "start":
+				if _, exists := packages[event.Package]; exists {
+					report.Stream.InvalidEvents++
+				}
+				packages[event.Package] = false
+			case "pass", "skip", "fail":
+				if terminal, started := packages[event.Package]; !started || terminal {
+					report.Stream.InvalidEvents++
+				}
+				packages[event.Package] = true
+				if event.Action == "fail" {
+					report.Stream.PackageFailures++
+				}
+			}
 			continue
 		}
 
+		if terminal, started := packages[event.Package]; !started || terminal {
+			report.Stream.InvalidEvents++
+		}
 		key := event.Package + "/" + event.Test
+		if event.Action != "run" {
+			if result, ok := testResults[key]; !ok || (result.Status != "" && event.Action != "output") {
+				report.Stream.InvalidEvents++
+				continue
+			}
+		} else if _, exists := testResults[key]; exists {
+			report.Stream.InvalidEvents++
+			continue
+		}
 
 		switch event.Action {
 		case "run":
@@ -344,12 +447,45 @@ func parseTestOutputReader(reader io.Reader, slowestCount int, tenantSafe bool) 
 			}
 		}
 	}
+	if scanner.Err() != nil {
+		report.Stream.ScannerError = true
+	}
+	for _, terminal := range packages {
+		if !terminal {
+			report.Stream.IncompletePackages++
+		}
+	}
 
 	// Aggregate results
 	var durations []float64
 	for _, result := range testResults {
+		result.Prerequisites = extractPrerequisites(strings.Join(testOutputs[result.Package+"/"+result.Name], ""))
+		if result.Status == "skip" {
+			for _, prerequisite := range result.Prerequisites {
+				switch prerequisite.Outcome {
+				case "quota_exhausted":
+					result.SkipReasonType = SkipReasonType("QUOTA_EXHAUSTED")
+				case "quota_unconfigured":
+					result.SkipReasonType = SkipReasonType("QUOTA_UNCONFIGURED")
+				case "operation_denied":
+					if prerequisite.HTTPStatus == 403 {
+						result.SkipReasonType = SkipReasonType("OPERATION_DENIED")
+					}
+				case "infrastructure_absent":
+					result.SkipReasonType = SkipReasonInfra
+				case "external_credential_missing":
+					result.SkipReasonType = SkipReasonCredentials
+				case "non_disposable_scope":
+					result.SkipReasonType = SkipReasonEnvironment
+				case "cloud_appliance_out_of_scope":
+					result.SkipReasonType = SkipReasonType("OUT_OF_SCOPE")
+				}
+			}
+		}
 		if result.Status == "" {
-			continue // Test didn't complete
+			report.Stream.IncompleteTests++
+			result.Status = "fail"
+			result.FailureFingerprint = &FailureFingerprint{Class: FailureClassUnclassified, Summary: "Missing terminal test event"}
 		}
 
 		report.Tests = append(report.Tests, *result)
@@ -404,6 +540,10 @@ func parseTestOutputReader(reader io.Reader, slowestCount int, tenantSafe bool) 
 
 	// Aggregate skip reasons
 	report.SkipReasons = aggregateSkipReasons(report.Tests)
+	report.Stream.Complete = report.Stream.Events > 0 &&
+		report.Stream.MalformedLines == 0 && report.Stream.InvalidEvents == 0 &&
+		!report.Stream.ScannerError && report.Stream.IncompleteTests == 0 &&
+		report.Stream.IncompletePackages == 0 && report.Stream.PackageFailures == 0
 
 	return report
 }
@@ -429,8 +569,26 @@ var (
 var frameworkSummaries = []string{
 	"Missing required argument",
 	"Unsupported argument",
+	"Unsupported block type",
 	"Provider produced inconsistent result after apply",
 	"Provider returned invalid result object",
+	"blindfold write outcome unresolved",
+	"blindfold provenance readback failed",
+	"creation ownership readback failed",
+	"creation response body incomplete",
+	"create target is not authoritatively absent",
+	"invalid ownership readback",
+	"existing infrastructure found; configure verified read-only fixture references",
+	"infrastructure inventory unavailable",
+	"infrastructure inventory malformed",
+	"existing site reference readback failed",
+	"connector node and interface prerequisite unverified",
+	"connector site inventory unverified",
+	"customer edge inventory unverified",
+	"existing owned identity requires verified replacement",
+	"cannot reuse deleted run identity",
+	"Provider produced inconsistent final plan",
+	"ImportStateVerify attributes not equivalent",
 }
 
 // classifyFailureFingerprint reduces arbitrary failure output to a single safe
@@ -439,9 +597,30 @@ var frameworkSummaries = []string{
 func classifyFailureFingerprint(output string) FailureFingerprint {
 	fingerprint := FailureFingerprint{
 		Summary:        extractPublicOperationSummary(output),
+		SchemaFields:   extractPublicSchemaFields(output),
 		SourceLocation: extractPublicSourceLocation(output),
 	}
 	lower := strings.ToLower(output)
+	for _, fact := range []string{"resource_limit_exhausted", "namespace_required_default", "namespace_required_shared", "site_selector_unavailable", "resource_dependency_missing", "quota_unconfigured", "quota_exceeded", "swagger_reference", "document_fetch_failed", "document_parse_failed", "namespace_constraint", "missing_required_input", "schema_validation", "authentication_denied"} {
+		if strings.Contains(output, "[API_DIAGNOSTIC:"+fact+"]") {
+			fingerprint.DiagnosticFacts = append(fingerprint.DiagnosticFacts, fact)
+		}
+	}
+	if strings.Contains(lower, "no api verifier registered") || strings.Contains(lower, "no verifier registered") || strings.Contains(lower, "no deleter registered") {
+		fingerprint.Class = FailureClassCleanup
+		fingerprint.Summary = "Missing cleanup verifier"
+		return fingerprint
+	}
+	if strings.Contains(lower, "plan was not empty") || strings.Contains(lower, "expected an empty plan") {
+		fingerprint.Class = FailureClassAssertion
+		fingerprint.Summary = "Nonempty follow-up plan"
+		return fingerprint
+	}
+	if strings.Contains(lower, "panic:") {
+		fingerprint.Class = FailureClassAssertion
+		fingerprint.Summary = "Test panic"
+		return fingerprint
+	}
 
 	for _, summary := range frameworkSummaries {
 		if strings.Contains(lower, strings.ToLower(summary)) {
@@ -482,6 +661,11 @@ func classifyFailureFingerprint(output string) FailureFingerprint {
 		fingerprint.HTTPStatus = status
 		return fingerprint
 	case strings.Contains(lower, "check failed") ||
+		strings.Contains(lower, "expected an error but got none") ||
+		strings.Contains(lower, "importstateverify") ||
+		strings.Contains(lower, "attributes not equivalent") ||
+		strings.Contains(lower, "expected empty plan") ||
+		strings.Contains(lower, "expected non-empty plan") ||
 		strings.Contains(lower, "testcheck") ||
 		(strings.Contains(lower, "expected") && strings.Contains(lower, "got")) ||
 		(strings.Contains(lower, "expected") && strings.Contains(lower, "actual")) ||
@@ -1002,6 +1186,9 @@ func outputText(out *os.File, report *Report, showAll bool) {
 }
 
 func outputMarkdown(out *os.File, report *Report, showAll bool) {
+	fmt.Fprintf(out, "Stream complete: %t; malformed lines: %d; invalid events: %d; scanner error: %t; incomplete tests: %d; incomplete packages: %d; package failures: %d.\n\n",
+		report.Stream.Complete, report.Stream.MalformedLines, report.Stream.InvalidEvents,
+		report.Stream.ScannerError, report.Stream.IncompleteTests, report.Stream.IncompletePackages, report.Stream.PackageFailures)
 	fmt.Fprintln(out, "# Test Summary Report")
 	fmt.Fprintln(out)
 	fmt.Fprintf(out, "**Timestamp:** %s\n", report.Timestamp.Format(time.RFC3339))
@@ -1009,7 +1196,7 @@ func outputMarkdown(out *os.File, report *Report, showAll bool) {
 
 	// Overall summary
 	overallStatus := "✅ PASS"
-	if report.TotalFailed > 0 {
+	if report.TotalFailed > 0 || !report.Stream.Complete {
 		overallStatus = "❌ FAIL"
 	}
 	fmt.Fprintf(out, "## Overall: %s\n\n", overallStatus)
@@ -1107,6 +1294,30 @@ func outputMarkdown(out *os.File, report *Report, showAll bool) {
 		fmt.Fprintln(out)
 	}
 
+	// Preserve fixed prerequisite outcomes for every test, including denied operations.
+	hasPrerequisites := false
+	for _, test := range report.Tests {
+		if len(test.Prerequisites) > 0 {
+			hasPrerequisites = true
+			break
+		}
+	}
+	if hasPrerequisites {
+		fmt.Fprintln(out, "## Prerequisite Evidence")
+		fmt.Fprintln(out)
+		fmt.Fprintln(out, "| Test | Outcome | Method | Resource Type | HTTP Status |")
+		fmt.Fprintln(out, "|------|---------|--------|---------------|------------:|")
+		for _, test := range report.Tests {
+			for _, prerequisite := range test.Prerequisites {
+				status := "-"
+				if prerequisite.HTTPStatus != 0 {
+					status = strconv.Itoa(prerequisite.HTTPStatus)
+				}
+				fmt.Fprintf(out, "| `%s` | %s | %s | %s | %s |\n", test.Name, prerequisite.Outcome, prerequisite.Method, prerequisite.ResourceType, status)
+			}
+		}
+		fmt.Fprintln(out)
+	}
 	// Skip reasons
 	if len(report.SkipReasons) > 0 {
 		fmt.Fprintln(out, "## Skip Reasons")

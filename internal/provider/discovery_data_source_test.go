@@ -14,20 +14,17 @@ import (
 func TestAccDiscoveryDataSource_basic(t *testing.T) {
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
+	acctest.RequireExistingInfrastructure(t, "site")
 
 	rName := acctest.RandomName("tf-acc-test")
-	nsName := acctest.RandomName("tf-acc-test-ns")
 	resourceName := "xcsh_discovery.test"
 	dataSourceName := "data.xcsh_discovery.test"
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
 		ProtoV6ProviderFactories: acctest.ProtoV6ProviderFactories,
-		ExternalProviders: map[string]resource.ExternalProvider{
-			"time": {Source: "hashicorp/time"},
-		},
 		Steps: []resource.TestStep{
 			{
-				Config: testAccDiscoveryDataSourceConfig_basic(nsName, rName),
+				Config: testAccDiscoveryDataSourceConfig_basic(rName, acctest.ReadOnlySiteName()),
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttrPair(dataSourceName, "name", resourceName, "name"),
 					resource.TestCheckResourceAttrPair(dataSourceName, "namespace", resourceName, "namespace"),
@@ -38,27 +35,28 @@ func TestAccDiscoveryDataSource_basic(t *testing.T) {
 	})
 }
 
-func testAccDiscoveryDataSourceConfig_basic(nsName, name string) string {
+func testAccDiscoveryDataSourceConfig_basic(name string, siteName string) string {
 	return acctest.ConfigCompose(
 		acctest.ProviderConfig(),
 		fmt.Sprintf(`
-resource "xcsh_namespace" "test" {
-  name = %[1]q
-}
-
-resource "time_sleep" "wait_for_namespace" {
-  depends_on      = [xcsh_namespace.test]
-  create_duration = "5s"
-}
 
 resource "xcsh_discovery" "test" {
-  depends_on = [time_sleep.wait_for_namespace]
-  name       = %[2]q
-  namespace  = xcsh_namespace.test.name
+  name      = %[1]q
+  namespace = "system"
+  no_cluster_id = {}
   discovery_consul {
     access_info {
-      connection_info {
-        api_server = "http://consul.example.com:8500"
+      connection_info { api_server = "http://consul.example.com:8500" }
+    }
+    publish_info { disable_spec = {} }
+  }
+  where {
+    site {
+      network_type = "VIRTUAL_NETWORK_SITE_LOCAL_INSIDE"
+      disable_internet_vip = {}
+      ref {
+        name = %[2]q
+        namespace = "system"
       }
     }
   }
@@ -69,5 +67,5 @@ data "xcsh_discovery" "test" {
   name       = xcsh_discovery.test.name
   namespace  = xcsh_discovery.test.namespace
 }
-`, nsName, name))
+`, name, siteName))
 }

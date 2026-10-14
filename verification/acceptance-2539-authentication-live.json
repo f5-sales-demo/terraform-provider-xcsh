@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "total": 1,
+  "passed": 1,
+  "failed": 0,
+  "skipped": 0,
+  "cleanup_initial": {
+    "version": 1,
+    "diagnostics": {
+      "delete_failed": 1
+    },
+    "journal_sha256": "5a6849e6dec49bfd6df450b177be61ac6d62d7c13fefba772f79e9a7b63e81a1",
+    "complete": false,
+    "owned": 7,
+    "confirmed_absent": 6,
+    "failures": 1,
+    "second_pass_remaining": 0
+  },
+  "cleanup_recovered": {
+    "version": 1,
+    "journal_sha256": "5359e6a3b6afa3e0b58cb955aabe0a86526646dc69f6a6c2c8042eec9089e9bd",
+    "complete": true,
+    "owned": 7,
+    "confirmed_absent": 7,
+    "failures": 0,
+    "second_pass_remaining": 0
+  }
+}

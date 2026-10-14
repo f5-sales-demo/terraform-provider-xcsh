@@ -19,10 +19,9 @@ func TestAccProtocolPolicerResource_basic(t *testing.T) {
 	// Skip: protocol_policer requires policer reference but API validation is
 	// rejecting the request format (BAD_REQUEST). Need further investigation of
 	// the exact API payload structure for the policer reference.
-	t.Skip("Skipping: protocol_policer API validation needs investigation (BAD_REQUEST)")
 
 	rName := acctest.RandomName("tf-acc-test-pp")
-	nsName := acctest.RandomName("tf-acc-test-ns")
+	nsName := "system"
 	resourceName := "xcsh_protocol_policer.test"
 
 	resource.ParallelTest(t, resource.TestCase{
@@ -69,19 +68,10 @@ func testAccProtocolPolicerConfig_basic(nsName, name string) string {
 	return acctest.ConfigCompose(
 		acctest.ProviderConfig(),
 		fmt.Sprintf(`
-resource "xcsh_namespace" "test" {
-  name = %[1]q
-}
-
-resource "time_sleep" "wait_for_namespace" {
-  depends_on      = [xcsh_namespace.test]
-  create_duration = "5s"
-}
 
 resource "xcsh_policer" "test" {
-  depends_on                = [time_sleep.wait_for_namespace]
   name                      = "%[2]s-policer"
-  namespace                 = xcsh_namespace.test.name
+  namespace = "system"
   burst_size                = 1000
   committed_information_rate = 1000
 }
@@ -89,7 +79,7 @@ resource "xcsh_policer" "test" {
 resource "xcsh_protocol_policer" "test" {
   depends_on = [xcsh_policer.test]
   name       = %[2]q
-  namespace  = xcsh_namespace.test.name
+  namespace = "system"
 
   protocol_policer {
     protocol {
@@ -98,7 +88,7 @@ resource "xcsh_protocol_policer" "test" {
 
     policer {
       name      = xcsh_policer.test.name
-      namespace = xcsh_namespace.test.name
+      namespace = "system"
     }
   }
 }

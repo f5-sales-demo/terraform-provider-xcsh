@@ -60,7 +60,7 @@ const (
 
 // ProtoV6ProviderFactories returns the provider factories for acceptance testing
 var ProtoV6ProviderFactories = map[string]func() (tfprotov6.ProviderServer, error){
-	"xcsh": providerserver.NewProtocol6WithError(provider.New("test")()),
+	"xcsh": providerserver.NewProtocol6WithError(&ownedProvider{Provider: provider.New("test")()}),
 }
 
 // ExternalProviders defines external providers used in acceptance tests
@@ -111,6 +111,7 @@ func DetectAuthMethod() AuthMethod {
 // the global mock server instead of requiring real credentials.
 func PreCheck(t *testing.T) {
 	t.Helper()
+	bindDiagnosticTest(t)
 
 	// If mock mode is enabled, configure environment to use mock server
 	// This must happen before any credential checks
@@ -172,9 +173,20 @@ func SkipIfNotAccTest(t *testing.T) {
 
 // RandomName generates a random name with the given prefix for test resources
 func RandomName(prefix string) string {
+	originalPrefixLength := len(prefix)
 	canonicalBase := strings.TrimSuffix(TestResourcePrefix, "-")
 	if prefix != canonicalBase && !strings.HasPrefix(prefix, TestResourcePrefix) {
 		panic(fmt.Sprintf("acceptance-test resource prefix %q must begin with %q", prefix, TestResourcePrefix))
+	}
+	if run := os.Getenv("XCSH_ACC_RUN_ID"); run != "" {
+		if !ownershipRunPattern.MatchString(run) {
+			panic("invalid acceptance run identifier")
+		}
+		suffix := strings.TrimPrefix(prefix, canonicalBase)
+		prefix = canonicalBase + "-" + run + suffix
+	}
+	if run := os.Getenv("XCSH_ACC_RUN_ID"); run != "" && originalPrefixLength <= 54 && len(prefix) > 54 {
+		prefix = prefix[:54]
 	}
 	return fmt.Sprintf("%s-%s", prefix, acctest.RandStringFromCharSet(8, acctest.CharSetAlphaNum))
 }
@@ -231,7 +243,7 @@ func CheckResourceDestroyed(resourceType string) resource.TestCheckFunc {
 	// This delegates to CheckResourceDestroyedWithAPIVerification which:
 	// - Performs actual API calls to verify resource deletion
 	// - Includes retry logic for async deletion
-	// - Falls back to state-only check for unregistered types
+	// - Fails closed for unregistered types
 	return CheckResourceDestroyedWithAPIVerification(resourceType)
 }
 
@@ -358,6 +370,11 @@ func GetTestClient() (*client.Client, error) {
 		}
 	})
 
+	if testClientErr == nil && testClient != nil {
+		if err := attachOwnership(testClient); err != nil {
+			return nil, err
+		}
+	}
 	return testClient, testClientErr
 }
 
@@ -435,7 +452,19 @@ func CheckNamespaceDisappears(resourceName string) resource.TestCheckFunc {
 			return fmt.Errorf("failed to cascade delete namespace %s: %w", name, err)
 		}
 
-		return nil
+		for attempt := 0; attempt < 12; attempt++ {
+			_, readErr := c.GetNamespace(ctx, "", name)
+			if authoritativeOwnedAbsence(readErr) {
+				return nil
+			}
+			if readErr != nil {
+				return fmt.Errorf("namespace disappearance readback failed")
+			}
+			if waitContext(ctx, time.Second) != nil {
+				return fmt.Errorf("namespace disappearance interrupted")
+			}
+		}
+		return fmt.Errorf("namespace still visible after external deletion")
 	}
 }
 

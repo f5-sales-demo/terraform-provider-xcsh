@@ -40,7 +40,8 @@ import (
 // -----------------------------------------------------------------------------
 
 func TestAccWorkloadResource_basic(t *testing.T) {
-	t.Skip("Skipping: requires vK8s cluster infrastructure - workload resources require a pre-configured virtual Kubernetes (vK8s) cluster which is not available in standard test environments")
+
+	acctest.RequireExistingInfrastructure(t, "vk8s")
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 
@@ -86,7 +87,8 @@ func TestAccWorkloadResource_basic(t *testing.T) {
 // -----------------------------------------------------------------------------
 
 func TestAccWorkloadResource_allAttributes(t *testing.T) {
-	t.Skip("Skipping: requires vK8s cluster infrastructure - workload resources require a pre-configured virtual Kubernetes (vK8s) cluster which is not available in standard test environments")
+
+	acctest.RequireExistingInfrastructure(t, "vk8s")
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 
@@ -135,7 +137,8 @@ func TestAccWorkloadResource_allAttributes(t *testing.T) {
 // -----------------------------------------------------------------------------
 
 func TestAccWorkloadResource_updateLabels(t *testing.T) {
-	t.Skip("Skipping: requires vK8s cluster infrastructure - workload resources require a pre-configured virtual Kubernetes (vK8s) cluster which is not available in standard test environments")
+
+	acctest.RequireExistingInfrastructure(t, "vk8s")
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 
@@ -188,7 +191,8 @@ func TestAccWorkloadResource_updateLabels(t *testing.T) {
 // -----------------------------------------------------------------------------
 
 func TestAccWorkloadResource_updateDescription(t *testing.T) {
-	t.Skip("Skipping: requires vK8s cluster infrastructure - workload resources require a pre-configured virtual Kubernetes (vK8s) cluster which is not available in standard test environments")
+
+	acctest.RequireExistingInfrastructure(t, "vk8s")
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 
@@ -245,7 +249,8 @@ func TestAccWorkloadResource_updateDescription(t *testing.T) {
 // -----------------------------------------------------------------------------
 
 func TestAccWorkloadResource_updateAnnotations(t *testing.T) {
-	t.Skip("Skipping: requires vK8s cluster infrastructure - workload resources require a pre-configured virtual Kubernetes (vK8s) cluster which is not available in standard test environments")
+
+	acctest.RequireExistingInfrastructure(t, "vk8s")
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 

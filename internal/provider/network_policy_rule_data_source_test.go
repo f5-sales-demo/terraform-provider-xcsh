@@ -55,8 +55,7 @@ resource "xcsh_network_policy_rule" "test" {
   depends_on = [time_sleep.wait_for_namespace]
   name       = %[2]q
   namespace  = xcsh_namespace.test.name
-  action   = "ALLOW"
-  any      = true
+  action = "DENY"
   protocol = "TCP"
 }
 

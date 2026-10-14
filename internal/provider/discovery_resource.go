@@ -1242,6 +1242,10 @@ func (r *DiscoveryResource) ValidateConfig(ctx context.Context, req resource.Val
 		)
 	}
 
+	if data.DiscoveryConsul != nil && data.DiscoveryK8S != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("discovery_consul"), "Conflicting Configuration", "discovery_consul and discovery_k8s are mutually exclusive.")
+	}
+
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan

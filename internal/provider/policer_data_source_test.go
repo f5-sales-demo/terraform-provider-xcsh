@@ -38,6 +38,7 @@ func testAccPolicerDataSourceConfig_basic(name string) string {
 	return acctest.ConfigCompose(
 		acctest.ProviderConfig(),
 		fmt.Sprintf(`
+
 resource "xcsh_policer" "test" {
   name      = %[1]q
   namespace = "system"

@@ -17,6 +17,8 @@ package main
 import (
 	"bytes"
 	"fmt"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/openapi"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/schema"
 	"go/format"
 	"os"
 	"path/filepath"
@@ -47,25 +49,118 @@ func shouldRegenerateDataSourceTest(content []byte) bool {
 // Resource configurations based on OpenAPI specs
 // Key is the resource name (without xcsh_ prefix)
 var resourceConfigs = map[string]string{
+	"tunnel": `
+  tunnel_type = "IPSEC_PSK"
+  local_ip {
+    ip_address {
+      auto = {}
+      virtual_network_type { site_local = {} }
+    }
+  }
+  remote_ip {
+    ip {
+      ipv4 { addr = "192.0.2.1" }
+    }
+  }
+  params {
+    ipsec {
+      ipsec_psk {
+        clear_secret_info { url = "string:///dGVzdC1wc2stc2VjcmV0" }
+      }
+    }
+  }`,
+
+	"subnet": `
+  isolated_nw = {}
+  site_subnet_params {
+    dhcp = {}
+    subnet_dhcp_server_params {
+      dhcp_networks { network_prefix = "192.0.2.0/24" }
+    }
+    site {
+      name = %[2]q
+      namespace = "system"
+    }
+  }`,
+	"site_mesh_group": `
+  bfd_disabled = {}
+  enable_re_fallback = {}
+  virtual_site {
+    name = %[2]q
+    namespace = %[3]q
+  }
+  full_mesh {
+    data_plane_mesh = {}
+  }`,
+
+	"bot_defense_app_infrastructure": `
+ environment_type = "PRODUCTION"
+ traffic_type = "WEB"
+ cloud_hosted {
+  infra_host_name = "test.example.com"
+  region = "US"
+  ingress {
+   host_name = "test.example.com"
+   location = "AWS_US_EAST_1"
+  }
+  egress {
+   ip_address = "192.0.2.1"
+   location = "AWS_US_EAST_1"
+  }
+ }
+`,
+
+	"route": `
+  routes {
+    disable_location_add = false
+    match {
+      http_method = "ANY"
+      path { prefix = "/" }
+      incoming_port { no_port_match = {} }
+    }
+    route_direct_response {
+      response_code = 200
+      response_body_encoded = "string:///T0s="
+    }
+    waf_type { inherit_waf = {} }
+  }`,
+
+	"secret_management_access": `
+  provider_name = "fixture"`,
+	"cloud_elastic_ip": `
+  item_count = 1`,
+	"cdn_loadbalancer": `
+  domains = ["%[1]s.example.com"]
+  http { port = 80 }
+  origin_pool {
+    origin_servers {
+      port = 80
+      public_name { dns_name = "example.com" }
+    }
+    no_tls = {}
+  }`,
 	// Simple resources - just name/namespace
 	"alert_policy": "",
 
-	"api_crawler":               "",
-	"api_definition":            "",
-	"api_discovery":             "",
-	"api_testing":               "",
-	"app_api_group":             "",
-	"app_firewall":              "",
-	"cdn_cache_rule":            "",
-	"cluster":                   "",
-	"code_base_integration":     "",
-	"dns_compliance_checks":     "",
-	"enhanced_firewall_policy":  "",
-	"ike1":                      "",
-	"ike2":                      "",
-	"ike_phase1_profile":        "",
-	"ike_phase2_profile":        "",
-	"irule":                     "",
+	"api_crawler":           "",
+	"api_definition":        "\n  swagger_specs = [xcsh_swagger_object.fixture.path]",
+	"api_discovery":         "",
+	"api_testing":           "",
+	"app_api_group":         "",
+	"app_firewall":          "",
+	"cdn_cache_rule":        "",
+	"cluster":               "",
+	"code_base_integration": "",
+	"dns_compliance_checks": `
+  domain_denylist = ["example.com"]`,
+	"enhanced_firewall_policy": "",
+	"ike1":                     "",
+	"ike2":                     "",
+	"ike_phase1_profile":       "",
+	"ike_phase2_profile":       "",
+	"irule": `
+  description_spec = "Acceptance fixture"
+  irule = base64encode("when HTTP_REQUEST { return }")`,
 	"malicious_user_mitigation": "",
 	"namespace":                 "",
 	"rate_limiter":              "",
@@ -83,10 +178,16 @@ var resourceConfigs = map[string]string{
 	// Resources with required fields
 	"address_allocator": `
   address_pool = ["10.0.0.0/24"]
-  mode = "SITE_LOCAL_ADDRESS_ALLOCATOR"`,
+  mode = "LOCAL"
+  address_allocation_scheme {
+    allocation_unit = 0
+    local_interface_address_type = "LOCAL_INTERFACE_ADDRESS_OFFSET_FROM_SUBNET_BEGIN"
+    local_interface_address_offset = 0
+  }`,
 
 	"advertise_policy": `
-  port = 80`,
+  port = 80
+  protocol = "TCP"`,
 
 	"alert_receiver": `
   email {
@@ -94,33 +195,50 @@ var resourceConfigs = map[string]string{
   }`,
 
 	"app_setting": `
-  app_type_refs {
-    name      = xcsh_app_type.test.name
-    namespace = xcsh_namespace.test.name
+  app_type_settings {
+    app_type_ref {
+      name = xcsh_app_type.test.name
+      namespace = xcsh_app_type.test.namespace
+    }
   }`,
 
 	"app_type": `
   business_logic_markup_setting {
-    enable = true
+    enable = {}
   }`,
 
 	"authentication": `
-  hmac_auth {
-    secret {
-      clear_secret_info {
-        url = "string:///dGVzdC1zZWNyZXQtdmFsdWU="
-      }
+  cookie_params {
+    cookie_expiry = 3600
+    cookie_refresh_interval = 1800
+    session_expiry = 86400
+    kms_key_hmac = {}
+  }
+  oidc_auth {
+    oidc_client_id = "fixture"
+    client_secret {
+      clear_secret_info { url = "string:///c3ludGhldGljLWNsaWVudC1zZWNyZXQ=" }
     }
-  }`,
+    oidc_auth_params {
+      auth_endpoint_url = "https://id.example.com/auth"
+      token_endpoint_url = "https://id.example.com/token"
+      end_session_endpoint_url = "https://id.example.com/logout"
+    }
+  }
+`,
 
 	"bgp": `
   bgp_parameters {
-    asn          = 65000
-    bgp_router_id_type = "BGP_ROUTER_ID_FROM_INTERFACE"
+    asn = 65000
+    from_site = {}
   }
   where {
     site {
       network_type = "VIRTUAL_NETWORK_SITE_LOCAL_INSIDE"
+      ref {
+        name = %[2]q
+        namespace = "system"
+      }
     }
   }`,
 
@@ -128,32 +246,26 @@ var resourceConfigs = map[string]string{
   as_numbers = ["65000"]`,
 
 	"bgp_routing_policy": `
-  policy_rule {
-    description = "test rule"
-    match {
-      community_string {
-        values = ["65000:100"]
-      }
-    }
-    action {
-      permit = true
-    }
+  rules {
+    match { as_path = ".*" }
+    action { allow = {} }
   }`,
 
 	"certificate": `
-  certificate_url = "string:///LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUNxRENDQVpBQ0NRQ21SN0dCREN4dXRqQU5CZ2txaGtpRzl3MEJBUXNGQURBV01SUXdFZ1lEVlFRRERBdDAKWlhOMExXTmxjblF1WTI5dE1CNFhEVEkxTURFeE1UQXdNREF3TUZvWERUSTJNREV4TVRBd01EQXdNRm93RmpFVQpNQklHQTFVRUF3d0xkR1Z6ZEMxalpYSjBMbU52YlRDQ0FTSXdEUVlKS29aSWh2Y05BUUVCQlFBRGdnRVBBRENDCkFRb0NnZ0VCQU1wQklYdVhJcmZJT1ZoQndxWnBKNXZsRlk4cEtndnhOdHQ4elEyRWtLVmhmMk1mOXc4bE5RdTIKK3FkZm5YNW5YRUZXS2dhVnpqYUZGZHFOZ0xHaUlRaWQvWVcwa0dDd3RHZURlMGE4OFg1UW5oeTRHdkdHdEhyVgp6V3ZoTlVHaXJSSnJiOGUwemxQdWxGeTA2dEl4ZUdBb1FXT09KU0p1NUtsOWJJenFYZ0hHZG9LWXd0VG9ERzc5CnFXN3VZNGZNVnhSM2dBYm5CSk84eGxMR3dQNndpSU5PQTJObFNUc1g5TmliOHR3b0NuSnpQMm1wOGFOd1VYZWsKNHBiZW1HZ2dxY2ZBM0ROaXNmRUNhLy9SRzFYZlFrNjI1WGtrb3h5UlBuaG9JSU5kVmFhY0RRTDVYZU16akRuRwphaUZaaGZCQWJHWlB3dk1MRnVEN3JPYWllRGRGckZjQ0F3RUFBVEFOQmdrcWhraUc5dzBCQVFzRkFBT0NBUUVBCmdEZjVPMk1DT0JCRURQZnFkRnpiMjBLUm9nNUp3bmNHcklwSVQwQmc1S0M5VElQRDUxdkJtY2w0ZWZxT3Q2TWkKT0lSeEFKa3JvTFFIRW5xMnBCdkxVM0dwT1IxQ1V1STYvRnBmb2toaFlEN1lsSnR4RE9mZW9JT0NOTk0rMXgyaApmTXY1NHVhV0V4R3dwQnVQL1M1dVZ6TU95aVVFcklXejIyUFpsZndIS3ZhdGNuclFBTjhLNmpvMUp1dkc4RmdsCk1VcjNVa3VMWEVYMHBNd1p0WWVoUjJVYlN0ZEVVT1puSTdFalp5TTU5WndFVmRrK1NWYmRVNjQzOEdYVHlDRjcKeGxRTjk3YmZOUnBkZG5JYWpyYU52SXJrclBYVnhERXhDOEo4NzQzRE9ZenZ2bTZNVW1vZW9ML3FuRVRiTGV5RApqQjJWS0MxTi9NeEFjUUdGOWRueHpBPT0KLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo="
+  certificate_url = "string:///%[2]s"
   private_key {
     clear_secret_info {
-      url = "string:///LS0tLS1CRUdJTiBQUklWQVRFIEtFWS0tLS0tCk1JSUV2UUlCQURBTkJna3Foa2lHOXcwQkFRRUZBQVNDQktjd2dnU2pBZ0VBQW9JQkFRREtRU0Y3bHlLM3lEbFkKUWNLbWFTZWI1UldQS1NvTDhUYmJmTTBOaEpDbFlYOWpIL2NQSlRVTHR2cW5YNTErWjF4QlZpb0dsYzQyaFJYYQpqWUN4b2lFSW5mMkZ0SkJnc0xSbmczdEd2UEYrVUo0Y3VCcnhoclI2MWMxcjRUVkJvcTBTYTIvSHRNNVQ3cFJjCnRPclNNWGhnS0VGamlpVWlidVNwZld5TTZsNEJ4bmFDbU1MVTZBeHUvYWx1N21PSHpGY1VkNEFHNXdTVHZNWlMKeHNEK3NJaURUZ05qWlVrN0YvVFltL0xjS0FweWN6OXBxZkdqY0ZGM3BPS1czcGhvSUtuSHdOd3pZckh4QW12LwowUnRWMzBKT3R1VjVKS01ja1Q1NGFDQ0RYVldtbkEwQytWM2pNNHc1eG1vaFdZWHdRR3htVDhMekN4YmcrNnptCm9uZzNSYXhYQWdNQkFBRUNnZ0VBQm8xS1dNNEVQWEZQZVFnTElXLzZ2TUFCRzJaSUZwQmRQS2szL29pVER2RVgKYzBTMGJhdG5MVXl0UkNkcjdFSStUVy9JbFlMQm1uQXl4OGpCSEV4akVJK3Q0Z0VRTkVoSXk0ZnM5emtlYVIrVgpoY0pHaFp5eDVYZjkyMW0zcjBHZkVLZmJEaExjY3daeWRKUCtEa0tkSit1OWtSamY4ZEpITXhuMjZCRXJYbnVvClNiM1pnVE8wTjlJN3hGTUxRN1pvZWlWbWNYZ0ZwdHV5L0FLbHZQcHVKZHRRd0lYcXVqT1JVUEFnYVdpdUFOcUcKcGdObk1BUGhoT3pvdS9TVlBsU25ISGNRM0tqRmMwT0E0cnE2WS9rTCtqRDh5N0RRMTZ6M2piNm5ZM2RTdDA5VQp0UHE3ZCtUMGFIVWVXeUhPY0NWWVorZU9obytzdHdmblUrTFpxQnliQVFLQmdRRHdpeXEzZUd3UjFPNW5Qcm9hClpHaU9KbUVnbkszSjV4UXRLTkV2UmFHYTJBTHV0ZjVuVndVNFVSa1BFejJxME1WOENmYlE2UnVab2ZhTGltUHcKaHk5SGVtYk5JMTZZNXl3NWRIZlFCMWNBQ05jY2VLS1F3WEFneVdxNjBldTFLanBveGozVTdKaTF2WC8wdEVYRgpYVEhVU3B1bHJDMHR2NXN1V0xIelVFaDJWd0tCZ1FEWDRwUFVzaCtqeFBDNUUxcGNKOWY3UTFMK3IxV0dRVHRPCjJTd2F3YVQvQkNsRXRpVDRJZ2lXTTBQL3lSeUVFaFNrbGsycWJFUW40L3RNMkVyZ0ZTOEN1cTdjWWtmblFDckoKSHdKcG15TFVQK01vTy9FZTdQRkYyS1lTSVp5K1ZRZlJ4Z2FEWHhuNFdoOFZMYys2Qk1pTGc1V3FhMkZXVk1ENwpDSHdEOE1tK1FRS0JnRkZmcVBMM2xLQUpiYWJxNEJUOXM0UHRNWjQzbWI5NkdTTDF3dVBuaVVMSFd3U0VVQVRCCmxoNEEzcXU5cmRRQVBnWHBUd0I4QWVKRTVWTE9qb3ljY3k5bWxPd0dQTjBHZmg1S0ZhZndIWHpESTNuZm0wbTUKVzdsRFRDb2g5RTY0bE9UaVpiK0s0MXZ6eDUrMjF0OWJCeEt4YW0xMDNiQzc1aHRjUUxhZTg5TnZBb0dBSi93RQpubTlYR202TDJiaDJ3YmtTRGpRUWdZTGZYVVdxNFBwd3RnY3k2U29yOW43dnZZZ2FCTm5mUUdFaWtwSGM2Q1RMCnRsRU1LZ3VhZ1hlVjUxKy9PS01OUHNxWkhqbksvYkpZRGVYdjE3SjV5d3lBWUpmNFNFMlFLYlI5MkxjdDZYckcKdFhJVHBFNHA2ZjJyWm1KdDBPRHN2VEtqNTVPQ1VuL0prTjl3VEdFQ2dZRUE3QVA4L2o4S0lNVlkzaWM5MXZKMwpkZm1xNWxHb2NRWmxzTkV2NW96elByRGRlMnFQejU4NjQrckQ5WEhKUlNSRSs1OXlKVytqT25TVm1qeFk1dHA1Cnk0U3hYZnFETURCL1lYS05hR0dxNE1vdDNOOGZ0U0drUkRpOGk4RThuRHQ3dlNUZm5xaW5QVW9YVGhYeW9EV2EKUXI2ZURJK3VjL1pPN2V5bWw1N3FrL009Ci0tLS0tRU5EIFBSSVZBVEUgS0VZLS0tLS0K"
+      url = "string:///%[3]s"
     }
-  }`,
-
+  }
+  disable_ocsp_stapling = {}`,
 	"certificate_chain": `
-  certificate_url = "string:///LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUNxRENDQVpBQ0NRQ21SN0dCREN4dXRqQU5CZ2txaGtpRzl3MEJBUXNGQURBV01SUXdFZ1lEVlFRRERBdDAKWlhOMExXTmxjblF1WTI5dE1CNFhEVEkxTURFeE1UQXdNREF3TUZvWERUSTJNREV4TVRBd01EQXdNRm93RmpFVQpNQklHQTFVRUF3d0xkR1Z6ZEMxalpYSjBMbU52YlRDQ0FTSXdEUVlKS29aSWh2Y05BUUVCQlFBRGdnRVBBRENDCkFRb0NnZ0VCQU1wQklYdVhJcmZJT1ZoQndxWnBKNXZsRlk4cEtndnhOdHQ4elEyRWtLVmhmMk1mOXc4bE5RdTIKK3FkZm5YNW5YRUZXS2dhVnpqYUZGZHFOZ0xHaUlRaWQvWVcwa0dDd3RHZURlMGE4OFg1UW5oeTRHdkdHdEhyVgp6V3ZoTlVHaXJSSnJiOGUwemxQdWxGeTA2dEl4ZUdBb1FXT09KU0p1NUtsOWJJenFYZ0hHZG9LWXd0VG9ERzc5CnFXN3VZNGZNVnhSM2dBYm5CSk84eGxMR3dQNndpSU5PQTJObFNUc1g5TmliOHR3b0NuSnpQMm1wOGFOd1VYZWsKNHBiZW1HZ2dxY2ZBM0ROaXNmRUNhLy9SRzFYZlFrNjI1WGtrb3h5UlBuaG9JSU5kVmFhY0RRTDVYZU16akRuRwphaUZaaGZCQWJHWlB3dk1MRnVEN3JPYWllRGRGckZjQ0F3RUFBVEFOQmdrcWhraUc5dzBCQVFzRkFBT0NBUUVBCmdEZjVPMk1DT0JCRURQZnFkRnpiMjBLUm9nNUp3bmNHcklwSVQwQmc1S0M5VElQRDUxdkJtY2w0ZWZxT3Q2TWkKT0lSeEFKa3JvTFFIRW5xMnBCdkxVM0dwT1IxQ1V1STYvRnBmb2toaFlEN1lsSnR4RE9mZW9JT0NOTk0rMXgyaApmTXY1NHVhV0V4R3dwQnVQL1M1dVZ6TU95aVVFcklXejIyUFpsZndIS3ZhdGNuclFBTjhLNmpvMUp1dkc4RmdsCk1VcjNVa3VMWEVYMHBNd1p0WWVoUjJVYlN0ZEVVT1puSTdFalp5TTU5WndFVmRrK1NWYmRVNjQzOEdYVHlDRjcKeGxRTjk3YmZOUnBkZG5JYWpyYU52SXJrclBYVnhERXhDOEo4NzQzRE9ZenZ2bTZNVW1vZW9ML3FuRVRiTGV5RApqQjJWS0MxTi9NeEFjUUdGOWRueHpBPT0KLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo="`,
+  certificate_url = "string:///%[2]s"`,
 
 	"container_registry": `
   registry          = "registry.example.com"
   user_name         = "testuser"
+  email = "test@example.com"
   password {
     clear_secret_info {
       url = "string:///dGVzdC1wYXNzd29yZA=="
@@ -161,7 +273,11 @@ var resourceConfigs = map[string]string{
   }`,
 
 	"crl": `
-  crl_url = "string:///LS0tLS1CRUdJTiBYNTA5IENSTC0tLS0tCk1JSUJURENDQVFNQ0FRRXdEUVlKS29aSWh2Y05BUUVMQlFBd0ZqRVVNQklHQTFVRUF3d0xkR1Z6ZEMxalpYSjAKTG1OdmJSY05NalV3TVRFeE1EQXdNREF3V2hjTk1qWXdNVEV4TURBd01EQXdXakFOQmdrcWhraUc5dzBCQVFzRgpBQU9DQVFFQWdEZjVPMk1DT0JCRURQZnFkRnpiMjBLUm9nNUp3bmNHcklwSVQwQmc1S0M5VElQRDUxdkJtY2w0CmVmcU90Nk1pT0lSeEFKa3JvTFFIRW5xMnBCdkxVM0dwT1IxQ1V1STYvRnBmb2toaFlEN1lsSnR4RE9mZW9JT0MKTk5NKzF4MmhmTXY1NHVhV0V4R3dwQnVQL1M1dVZ6TU95aVVFcklXejIyUFpsZndIS3ZhdGNuclFBTjhLNmpvMQpKdXZHOEZnbE1VcjNVa3VMWEVYMHBNd1p0WWVoUjJVYlN0ZEVVT1puSTdFalp5TTU5WndFVmRrK1NWYmRVNjQzCjhHWFR5Q0Y3eGxRTjk3YmZOUnBkZG5JYWpyYU52SXJrclBYVnhERXhDOEo4NzQzRE9ZenZ2bTZNVW1vZW9ML3EKbkVUYkxleURqQjJWS0MxTi9NeEFjUUdGOWRueHpBPT0KLS0tLS1FTkQgWDUwOSBDUkwtLS0tLQo="`,
+  server_address = "crl.example.com"
+  server_port = 80
+  refresh_interval = 24
+  timeout = 10
+  http_access { path = "/fixture.crl" }`,
 
 	"data_group": `
   string_records {}`,
@@ -175,10 +291,20 @@ var resourceConfigs = map[string]string{
   }`,
 
 	"discovery": `
+  no_cluster_id = {}
   discovery_consul {
     access_info {
-      connection_info {
-        api_server = "http://consul.example.com:8500"
+      connection_info { api_server = "http://consul.example.com:8500" }
+    }
+    publish_info { disable_spec = {} }
+  }
+  where {
+    site {
+      network_type = "VIRTUAL_NETWORK_SITE_LOCAL_INSIDE"
+      disable_internet_vip = {}
+      ref {
+        name = %[2]q
+        namespace = "system"
       }
     }
   }`,
@@ -211,32 +337,16 @@ var resourceConfigs = map[string]string{
   }`,
 
 	"endpoint": `
-  where {
-    site {
-      network_type = "VIRTUAL_NETWORK_SITE_LOCAL_INSIDE"
-    }
-  }`,
+  ip = "192.0.2.10"
+  port = 8080
+  protocol = "TCP"`,
 
 	"fast_acl": `
-  site_acl {
-    fast_acl_rules {
-      name   = "test-rule"
-      action {
-        deny = true
-      }
-      prefix {
-        prefix = ["10.0.0.0/8"]
-      }
-    }
-  }`,
+  re_acl {}`,
 
 	"fast_acl_rule": `
-  action {
-    deny = true
-  }
-  prefix {
-    prefix = ["10.0.0.0/8"]
-  }`,
+  action { simple_action = "DENY" }
+  ip_prefix_set {}`,
 
 	"filter_set": `
   context_key = "dashboard"
@@ -247,37 +357,50 @@ var resourceConfigs = map[string]string{
     }
   }`,
 
-	"fleet": `
-  fleet_label = "test-fleet"
-  network_connectors {
-    disable_forward_proxy = true
-  }`,
-
-	"forward_proxy_policy": `
-  proxy_label = "test-proxy"
-  rule_list {
-    rules {
-      metadata {
-        name = "rule1"
-      }
-      spec {
-        action      = "ALLOW"
-        any_client  = true
-        any_dst     = true
-        rule_description = "Allow all"
+	"external_connector": `
+  ce_site_reference {
+    name = %[2]q
+    namespace = "system"
+  }
+  gre {
+    gre_parameters {
+      peer_ip_address { addr = "192.0.2.2" }
+      site_local_inside_network = {}
+      tunnel_mtu = 1370
+      tunnel_eps {
+        node = %[3]q
+        interface = %[4]q
+        local_tunnel_ip = "192.0.2.1/30"
+        remote_tunnel_ip = "192.0.2.2/30"
       }
     }
   }`,
+	"fleet": `
+  fleet_label = "%[1]s"
+  operating_system_version = "default"
+  volterra_software_version = "default"
+  enable_default_fleet_config_download = false`,
+
+	"forward_proxy_policy": `
+  any_proxy = {}
+  allow_all = {}`,
 
 	"forwarding_class": `
-  dscp_class = "EF"`,
+  queue_id_to_use = "DSCP_BEST_EFFORT"
+  no_policer = {}
+  interface_group = "ANY_AVAILABLE_INTERFACE"
+  tos_value = 40`,
 
 	"geo_location_set": ``,
 
 	"global_log_receiver": `
-  http_global_receiver {
-    uri = "https://logs.example.com/receive"
-  }`,
+  http_receiver {
+    uri = "http://logs.example.com/fixture"
+    auth_none = {}
+    no_tls = {}
+  }
+  ns_current = {}
+  audit_logs = {}`,
 
 	"healthcheck": `
   healthy_threshold   = 1
@@ -289,12 +412,14 @@ var resourceConfigs = map[string]string{
 	"http_loadbalancer": `
   domains = ["test.example.com"]
   http {
+    port = 80
     dns_volterra_managed = false
   }
+  advertise_on_public_default_vip = {}
   default_route_pools {
     pool {
       name      = xcsh_origin_pool.test.name
-      namespace = xcsh_namespace.test.name
+      namespace = xcsh_origin_pool.test.namespace
     }
   }`,
 
@@ -305,200 +430,197 @@ var resourceConfigs = map[string]string{
   }`,
 
 	"log_receiver": `
-  http_receiver {
-    uri = "https://logs.example.com/receive"
-  }`,
+  syslog {
+    udp_server {
+      server_name = "syslog.example.com"
+      port = 514
+    }
+    syslog_rfc5424 = 500
+  }
+  site_local {}`,
 
 	"nat_policy": `
-  rule_list {
-    rules {
-      metadata {
-        name = "test-rule"
+  site {
+    refs {
+      name = %[2]q
+      namespace = "system"
+    }
+  }
+  rules {
+    name = "fixture"
+    enable = {}
+    virtual_network {
+      refs {
+        name = xcsh_virtual_network.fixture.name
+        namespace = xcsh_virtual_network.fixture.namespace
       }
-      spec {
-        src_ip_match = "ANY"
-        action {
-          snat_pool {
-            any_vip = true
-          }
-        }
+    }
+    criteria {
+      any = {}
+      source_cidr = ["192.0.2.0/24"]
+    }
+    action {
+      dynamic_pool {
+        pools { prefixes = ["198.51.100.0/24"] }
       }
     }
   }`,
 
 	"network_connector": `
-  sli_to_global_dr {
-    global_vn {
-      name      = "global-network"
-      namespace = "system"
-    }
+  disable_forward_proxy = {}
+  sli_to_slo_snat {
+    default_gw_snat {}
   }`,
 
 	"network_firewall": `
   active_forward_proxy_policies {
     forward_proxy_policies {
       name      = xcsh_forward_proxy_policy.test.name
-      namespace = xcsh_namespace.test.name
+      namespace = xcsh_forward_proxy_policy.test.namespace
     }
   }`,
 
 	"network_interface": `
   ethernet_interface {
-    device    = "eth0"
-    dhcp_server {
-      dhcp_networks {
-        network_prefix = "10.0.0.0/24"
-      }
-    }
+    device = "eth0"
+    mtu = 0
+    priority = 0
+    cluster = {}
+    untagged = {}
+    dhcp_client = {}
+    site_local_inside_network = {}
+    monitor_disabled = {}
+    not_primary = {}
+    no_ipv6_address = {}
   }`,
 
 	"network_policy": `
-  endpoint {
-    any = true
-  }
-  ingress_rules {
-    metadata {
-      name = "rule1"
-    }
-    spec {
-      action      = "ALLOW"
-      any         = true
-      protocol    = "TCP"
-    }
-  }
-  egress_rules {
-    metadata {
-      name = "rule1"
-    }
-    spec {
-      action      = "ALLOW"
-      any         = true
-      protocol    = "TCP"
+  endpoint { any = {} }
+  rules {
+    ingress_rules {
+      action = "ALLOW"
+      any = {}
+      all_traffic = {}
+      metadata { name = "allow-all" }
     }
   }`,
 
 	"network_policy_rule": `
-  action   = "ALLOW"
-  any      = true
+  action = "DENY"
   protocol = "TCP"`,
 
 	"network_policy_view": `
-  endpoint {
-    any = true
-  }
+  endpoint { any = {} }
   ingress_rules {
-    metadata {
-      name = "rule1"
-    }
-    spec {
-      action      = "ALLOW"
-      any         = true
-      protocol    = "TCP"
-    }
+    action = "ALLOW"
+    any = {}
+    all_traffic = {}
+    metadata { name = "allow-ingress" }
   }
   egress_rules {
-    metadata {
-      name = "rule1"
-    }
-    spec {
-      action      = "ALLOW"
-      any         = true
-      protocol    = "TCP"
-    }
+    action = "ALLOW"
+    any = {}
+    all_traffic = {}
+    metadata { name = "allow-egress" }
   }`,
 
 	"origin_pool": `
   port = 443
   origin_servers {
-    labels {}
-    public_name {
-      dns_name = "example.com"
-    }
+    public_name { dns_name = "example.com" }
   }
-  no_tls {}
-  same_as_endpoint_port {}`,
+  no_tls = {}`,
 
 	"policer": `
   committed_information_rate = 10000
   burst_size                 = 5000`,
 
 	"policy_based_routing": `
-  destination_match_rules {
-    any_prefix = true
-    any_port   = true
-    protocol   = "TCP"
-    action {
-      vrf_egress = true
-    }
+  forwarding_class_list {
+    name = xcsh_forwarding_class.fixture.name
+    namespace = xcsh_forwarding_class.fixture.namespace
   }`,
 
 	"protocol_inspection": `
-  protocol_list = ["HTTP"]`,
+  enable_disable_compliance_checks {
+    disable_compliance_checks = {}
+  }
+  enable_disable_signatures {
+    disable_signature = {}
+  }`,
 
 	"protocol_policer": `
   protocol_policer {
-    match {
-      any_ip {}
-    }
-    protocol {
-      dns {}
-    }
+    protocol { dns = {} }
     policer {
-      bandwidth = 1000
-      burst     = 1000
+      name = xcsh_policer.test.name
+      namespace = "system"
     }
   }`,
 
 	"proxy": `
-  proxy_url = "http://proxy.example.com:8080"`,
+  http_proxy {
+    enable_http {}
+  }
+  no_forward_proxy_policy = {}
+  site_local_network = {}
+  do_not_advertise = {}`,
 
 	"service_policy": `
-  allow_all_requests {}
-  any_server {}`,
+  allow_all_requests = {}
+  any_server = {}`,
 
 	"service_policy_rule": `
-  action = "ALLOW"`,
+  action = "ALLOW"
+  waf_action { none = {} }`,
 
 	"tcp_loadbalancer": `
-  domains = ["test.example.com"]
-  tcp {
-    dns_volterra_managed = false
-  }
+  domains = ["%[1]s.example.com"]
+  tcp = {}
+  listen_port = 80
+  no_sni = {}
+  no_service_policies = {}
+  do_not_advertise = {}
   origin_pools_weights {
     pool {
-      name      = xcsh_origin_pool.test.name
-      namespace = xcsh_namespace.test.name
+      name = xcsh_origin_pool.test.name
+      namespace = xcsh_origin_pool.test.namespace
     }
+    weight = 1
   }`,
 
 	"token": `
-  type = "JWT"`,
+  type = 0`,
 
 	"udp_loadbalancer": `
   domains     = ["%[1]s.example.com"]
   listen_port = 53
+  dns_volterra_managed = false
+  idle_timeout = 30000
   origin_pools_weights {
     pool {
       name      = xcsh_origin_pool.test.name
-      namespace = "system"
+      namespace = xcsh_origin_pool.test.namespace
     }
     weight = 1
   }
-  advertise_on_public_default_vip {}`,
+  do_not_advertise = {}`,
 
-	"usb_policy": ``,
+	"usb_policy": `
+  allowed_devices {
+    id_vendor = "0x046d"
+    id_product = "0xc52b"
+  }`,
 
 	"user_identification": `
-  rules {
-    client_ip {}
-  }`,
+  rules { client_ip = {} }`,
 
 	"virtual_host": `
   domains = ["test.example.com"]
   proxy   = "SMA_PROXY"`,
 
 	"virtual_network": `
-  global_network {}`,
+  global_network = {}`,
 
 	"virtual_site": `
   site_type = "CUSTOMER_EDGE"
@@ -506,65 +628,87 @@ var resourceConfigs = map[string]string{
     expressions = ["site-type=ce"]
   }`,
 
-	"waf_exclusion_policy": ``,
-
-	"workload": `
-  containers {
-    name  = "nginx"
-    image = "nginx:latest"
+	"waf_exclusion_policy": `
+  waf_exclusion_rules {
+    metadata { name = "test-rule" }
   }`,
 
-	"workload_flavor": `
-  vcpus        = "1"
-  memory       = "1024"
-  ephemeral_storage = "10Gi"`,
+	"workload": `
+  simple_service {
+    do_not_advertise = {}
+    disabled = {}
+    container {
+      name = "fixture"
+      default_flavor = {}
+      image {
+        name = "nginx:stable"
+        public = {}
+      }
+    }
+  }`,
+
+	"workload_flavor": ``,
 }
 
 // Resources to skip (FORBIDDEN errors, special permissions required)
 var skipResources = map[string]string{
-
-	"address_allocator": "API returns BAD_REQUEST - requires specific infrastructure",
-
-	"bot_defense_app_infrastructure": "Requires Bot Defense subscription",
+	"secret_management_access": "External secret-management authentication is required",
 
 	"cloud_credentials": "Requires system-level namespace access",
 	"cminstance":        "Requires CM instance management permissions",
 
-	"forwarding_class": "Requires tenant quota configuration",
-
-	"protocol_inspection": "Resource test has schema mismatch - needs fixing",
-	"protocol_policer":    "Resource test has schema mismatch - needs fixing",
-
-	"registration": "Requires site registration permissions",
-
-	"site_mesh_group":      "API returns 500 errors",
-	"route":                "API returns 500 errors",
+	"registration":         "Requires site registration permissions",
 	"tenant_configuration": "API returns 500 errors",
-
-	"token": "Resource test has schema mismatch - needs fixing",
-
-	"udp_loadbalancer":     "Requires system namespace template with dependencies - needs template fix",
-	"usb_policy":           "Resource test fails - API returns BAD_REQUEST",
-	"waf_exclusion_policy": "No resource test exists - config unknown",
 }
 
 // Resources that need special dependencies in the config
 var resourceDependencies = map[string]string{
+	"policy_based_routing": `
+resource "xcsh_forwarding_class" "fixture" {
+ name = "%[1]s-fc"
+ namespace = "system"
+ queue_id_to_use = "DSCP_BEST_EFFORT"
+ no_policer = {}
+ interface_group = "ANY_AVAILABLE_INTERFACE"
+}`,
+
+	"nat_policy": `
+resource "xcsh_virtual_network" "fixture" {
+ name = "%[1]s-network"
+ namespace = "system"
+ global_network = {}
+}`,
+
+	"api_definition": `
+resource "xcsh_swagger_object" "fixture" {
+ name = "%[1]s-spec"
+ namespace = "shared"
+ content = "{\"openapi\":\"3.0.3\",\"info\":{\"title\":\"Acceptance API\",\"version\":\"1.0.0\"},\"servers\":[{\"url\":\"https://example.com\"}],\"paths\":{\"/health\":{\"get\":{\"responses\":{\"200\":{\"description\":\"OK\"}}}}}}"
+}
+`,
+	"protocol_policer": `
+resource "xcsh_policer" "test" {
+ name = "%[1]s-policer"
+ namespace = "system"
+ burst_size = 1000
+ committed_information_rate = 1000
+}
+`,
+
 	"app_setting": `
 resource "xcsh_app_type" "test" {
   depends_on = [time_sleep.wait_for_namespace]
   name       = "${%[2]q}-apptype"
-  namespace  = xcsh_namespace.test.name
+  namespace  = "shared"
   business_logic_markup_setting {
-    enable = true
+    enable = {}
   }
 }
 `,
 	"http_loadbalancer": `
 resource "xcsh_origin_pool" "test" {
-  depends_on = [time_sleep.wait_for_namespace]
-  name       = "${%[2]q}-pool"
-  namespace  = xcsh_namespace.test.name
+  name       = "%[1]s-pool"
+  namespace  = "system"
   origin_servers {
     public_ip {
       ip = "192.0.2.1"
@@ -577,9 +721,8 @@ resource "xcsh_origin_pool" "test" {
 `,
 	"tcp_loadbalancer": `
 resource "xcsh_origin_pool" "test" {
-  depends_on = [time_sleep.wait_for_namespace]
-  name       = "${%[2]q}-pool"
-  namespace  = xcsh_namespace.test.name
+  name       = "%[1]s-pool"
+  namespace  = "system"
   origin_servers {
     public_ip {
       ip = "192.0.2.1"
@@ -592,38 +735,24 @@ resource "xcsh_origin_pool" "test" {
 `,
 	"udp_loadbalancer": `
 resource "xcsh_origin_pool" "test" {
-  depends_on = [time_sleep.wait_for_namespace]
-  name       = "${%[2]q}-pool"
-  namespace  = xcsh_namespace.test.name
+  name       = "%[1]s-pool"
+  namespace  = "system"
   origin_servers {
     public_ip {
       ip = "192.0.2.1"
     }
   }
-  port               = 80
+  port               = 53
   endpoint_selection = "LOCAL_PREFERRED"
   loadbalancer_algorithm = "ROUND_ROBIN"
 }
 `,
 	"network_firewall": `
 resource "xcsh_forward_proxy_policy" "test" {
-  depends_on = [time_sleep.wait_for_namespace]
-  name       = "${%[2]q}-fpp"
-  namespace  = xcsh_namespace.test.name
-  proxy_label = "test-proxy"
-  rule_list {
-    rules {
-      metadata {
-        name = "rule1"
-      }
-      spec {
-        action      = "ALLOW"
-        any_client  = true
-        any_dst     = true
-        rule_description = "Allow all"
-      }
-    }
-  }
+  name = "%[1]s-forward-proxy"
+  namespace = "system"
+  any_proxy = {}
+  allow_all = {}
 }
 `,
 }
@@ -635,20 +764,49 @@ var systemLevelResources = map[string]bool{
 
 // Resources that MUST use namespace = "system" (not custom namespace)
 var systemNamespaceResources = map[string]bool{
-	"virtual_network":     true,
-	"policer":             true,
-	"user_identification": true,
-	"bgp_asn_set":         true,
-	"geo_location_set":    true,
-	"healthcheck":         true,
-	"rate_limiter":        true,
-	"service_policy":      true,
-	"data_group":          true,
-	"data_type":           true,
-	"filter_set":          true,
-	"origin_pool":         true,
-	"app_firewall":        true,
-	"securemesh_site_v2":  true,
+	"external_connector":   true,
+	"fleet":                true,
+	"bgp":                  true,
+	"bgp_routing_policy":   true,
+	"http_loadbalancer":    true,
+	"network_interface":    true,
+	"discovery":            true,
+	"nat_policy":           true,
+	"network_connector":    true,
+	"tcp_loadbalancer":     true,
+	"tunnel":               true,
+	"waf_exclusion_policy": true,
+	"global_log_receiver":  true,
+	"crl":                  true,
+	"api_crawler":          true,
+	"network_firewall":     true,
+	"forward_proxy_policy": true,
+	"token":                true,
+	"site_mesh_group":      true,
+	"address_allocator":    true,
+	"forwarding_class":     true,
+	"protocol_policer":     true,
+	"route":                true,
+	"udp_loadbalancer":     true,
+	"fast_acl":             true,
+	"fast_acl_rule":        true,
+	"dc_cluster_group":     true,
+	"network_policy_view":  true,
+	"segment":              true,
+	"virtual_network":      true,
+	"policer":              true,
+	"user_identification":  true,
+	"bgp_asn_set":          true,
+	"geo_location_set":     true,
+	"healthcheck":          true,
+	"rate_limiter":         true,
+	"service_policy":       true,
+	"data_group":           true,
+	"data_type":            true,
+	"filter_set":           true,
+	"origin_pool":          true,
+	"app_firewall":         true,
+	"securemesh_site_v2":   true,
 }
 
 func toStructName(name string) string {
@@ -663,6 +821,45 @@ func toStructName(name string) string {
 }
 
 func main() {
+	specDir := os.Getenv("XCSH_SPEC_DIR")
+	if specDir == "" {
+		specDir = "docs/specifications/api"
+	}
+	if err := openapi.RequireSpecs(specDir); err != nil {
+		panic(err)
+	}
+	fixtureNamespaces := map[string]string{}
+	domains, err := openapi.FindDomainSpecFiles(specDir)
+	if err != nil {
+		panic(err)
+	}
+	for _, path := range domains {
+		domain, err := openapi.ExtractResourcesFromDomain(path)
+		if err != nil {
+			panic(err)
+		}
+		for _, resource := range domain.Resources {
+			if _, err := os.Stat(filepath.Join("internal/provider", resource.Name+"_resource.go")); os.IsNotExist(err) {
+				continue
+			}
+			ns, err := schema.AcceptanceReusableFixtureNamespace(domain.Spec, resource.Name)
+			if err != nil {
+				panic(err)
+			}
+			if resource.Name == "app_type" {
+				ns = "shared"
+			}
+			if resource.Name == "subnet" {
+				ns = "system"
+			}
+			if systemNamespaceResources[resource.Name] {
+				ns = "system"
+			}
+			if ns != "" {
+				fixtureNamespaces[resource.Name] = ns
+			}
+		}
+	}
 	// Template for the test file
 	const testTemplate = `// Copyright (c) 2026 Robin Mordasiewicz. MIT License.
 
@@ -671,10 +868,16 @@ package provider_test
 {{if .Skip}}
 import (
 	"testing"
+ "github.com/f5-sales-demo/terraform-provider-xcsh/internal/acctest"
 )
 
 func {{.TestFuncName}}(t *testing.T) {
-	t.Skip("{{.SkipReason}}")
+	{{if eq .Name "tenant_configuration"}}acctest.RequireNonDisposableScope(t)
+{{else if eq .Name "cloud_credentials"}}acctest.RequireExternalCredential(t, "cloud")
+{{else if eq .Name "cminstance"}}acctest.RequireExternalCredential(t, "central_manager")
+{{else if eq .Name "secret_management_access"}}acctest.RequireExternalCredential(t, "secret_management")
+{{else}}acctest.FailHistoricalPrerequisite(t)
+{{end}}
 }
 {{else}}
 import (
@@ -689,8 +892,9 @@ import (
 func {{.TestFuncName}}(t *testing.T) {
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
+ {{if or (eq .Name "cloud_link") (eq .Name "cloud_elastic_ip")}}acctest.RequireExistingInfrastructure(t,"cloud_site"){{else if eq .Name "site_mesh_group"}}acctest.RequireReadOnlyVirtualSite(t){{else if eq .Name "nat_policy"}}acctest.RequireCustomerEdgeSite(t){{else if eq .Name "external_connector"}}acctest.RequireConnectorEndpoint(t){{else if or (eq .Name "subnet") (eq .Name "nat_policy") (eq .Name "discovery") (eq .Name "bgp") (eq .Name "external_connector")}}acctest.RequireExistingInfrastructure(t,"site"){{end}}
 
-	rName := acctest.RandomName("tf-acc-test")
+	{{if eq .Name "api_definition"}}rName := acctest.CompactRandomName(20){{else}}rName := acctest.RandomName("tf-acc-test"){{end}}
 {{- if and .NeedsNamespace (not .IsNamespace) (not .UseSystemNamespace)}}
 	nsName := acctest.RandomName("tf-acc-test-ns")
 {{- end}}
@@ -714,7 +918,7 @@ func {{.TestFuncName}}(t *testing.T) {
 {{- if .IsNamespace}}
 				Config: {{.ConfigFuncName}}(rName),
 {{- else if .UseSystemNamespace}}
-				Config: {{.ConfigFuncName}}(rName),
+				Config: {{.ConfigFuncName}}(rName{{if eq .Name "site_mesh_group"}}, acctest.ReadOnlyVirtualSiteName(), acctest.ReadOnlyVirtualSiteNamespace(){{else if or (eq .Name "subnet") (eq .Name "nat_policy") (eq .Name "discovery") (eq .Name "bgp") (eq .Name "external_connector")}}, acctest.ReadOnlySiteName(){{end}}),
 {{- else if .NeedsNamespace}}
 				Config: {{.ConfigFuncName}}(nsName, rName),
 {{- else}}
@@ -755,13 +959,17 @@ data "{{.ResourceName}}" "test" {
 }
 {{- else if .UseSystemNamespace}}
 
-func {{.ConfigFuncName}}(name string) string {
+func {{.ConfigFuncName}}(name string{{if eq .Name "site_mesh_group"}}, virtualSiteName, virtualSiteNamespace string{{else if or (eq .Name "subnet") (eq .Name "nat_policy") (eq .Name "discovery") (eq .Name "bgp") (eq .Name "external_connector")}}, siteName string{{end}}) string {
+{{- if or (eq .Name "certificate") (eq .Name "certificate_chain")}}
+ certs := acctest.MustGenerateTestCertificates()
+{{- end}}
 	return acctest.ConfigCompose(
 		acctest.ProviderConfig(),
 		fmt.Sprintf(` + "`" + `
+{{.Dependencies}}
 resource "{{.ResourceName}}" "test" {
   name      = %[1]q
-  namespace = "system"{{.ResourceConfig}}
+  namespace = {{if .FixedNamespace}}{{printf "%q" .FixedNamespace}}{{else}}"system"{{end}}{{.ResourceConfig}}
 }
 
 data "{{.ResourceName}}" "test" {
@@ -769,7 +977,7 @@ data "{{.ResourceName}}" "test" {
   name       = {{.ResourceName}}.test.name
   namespace  = {{.ResourceName}}.test.namespace
 }
-` + "`" + `, name))
+` + "`" + `, name{{if eq .Name "site_mesh_group"}}, virtualSiteName, virtualSiteNamespace{{else if or (eq .Name "subnet") (eq .Name "nat_policy") (eq .Name "discovery") (eq .Name "bgp") (eq .Name "external_connector")}}, siteName{{end}}{{if eq .Name "external_connector"}}, acctest.ReadOnlyConnectorNode(), acctest.ReadOnlyConnectorInterface(){{end}}{{if eq .Name "certificate"}}, certs.ServerCertBase64, certs.ServerKeyBase64{{else if eq .Name "certificate_chain"}}, certs.IntermediateCABase64{{end}}))
 }
 {{- else if and .NeedsNamespace (not .Skip)}}
 
@@ -900,6 +1108,7 @@ data "{{.ResourceName}}" "test" {
 			NeedsNamespace     bool
 			IsNamespace        bool
 			UseSystemNamespace bool
+			FixedNamespace     string
 			RunSequential      bool
 			ResourceConfig     string
 			Skip               bool
@@ -908,6 +1117,10 @@ data "{{.ResourceName}}" "test" {
 			DependsOnExtra     string
 		}
 
+		if ns := fixtureNamespaces[resourceName]; ns != "" {
+			config.ResourceConfig = strings.ReplaceAll(config.ResourceConfig, "xcsh_namespace.test.name", fmt.Sprintf("%q", ns))
+			deps = strings.ReplaceAll(deps, "xcsh_namespace.test.name", fmt.Sprintf("%q", ns))
+		}
 		data := templateData{
 			Name:               config.Name,
 			StructName:         config.StructName,
@@ -916,7 +1129,8 @@ data "{{.ResourceName}}" "test" {
 			ConfigFuncName:     config.ConfigFuncName,
 			NeedsNamespace:     config.NeedsNamespace,
 			IsNamespace:        config.IsNamespace,
-			UseSystemNamespace: systemNamespaceResources[resourceName],
+			UseSystemNamespace: systemNamespaceResources[resourceName] || fixtureNamespaces[resourceName] != "",
+			FixedNamespace:     fixtureNamespaces[resourceName],
 			RunSequential:      resourceName == "securemesh_site_v2",
 			ResourceConfig:     config.ResourceConfig,
 			Skip:               config.Skip,

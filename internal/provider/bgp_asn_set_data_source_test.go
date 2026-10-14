@@ -38,6 +38,7 @@ func testAccBgpAsnSetDataSourceConfig_basic(name string) string {
 	return acctest.ConfigCompose(
 		acctest.ProviderConfig(),
 		fmt.Sprintf(`
+
 resource "xcsh_bgp_asn_set" "test" {
   name      = %[1]q
   namespace = "system"

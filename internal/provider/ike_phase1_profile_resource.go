@@ -283,6 +283,25 @@ func (r *IKEPhase1ProfileResource) ValidateConfig(ctx context.Context, req resou
 	if resp.Diagnostics.HasError() {
 		return
 	}
+	if data.IKEKeylifetimeHours != nil && data.IKEKeylifetimeMinutes != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("ike_keylifetime_hours"), "Conflicting Configuration", "ike_keylifetime_hours and ike_keylifetime_minutes are mutually exclusive.")
+	}
+	if data.IKEKeylifetimeHours != nil && !data.UseDefaultKeylifetime.IsNull() && !data.UseDefaultKeylifetime.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(path.Root("ike_keylifetime_hours"), "Conflicting Configuration", "ike_keylifetime_hours and use_default_keylifetime are mutually exclusive.")
+	}
+	if data.IKEKeylifetimeMinutes != nil && !data.UseDefaultKeylifetime.IsNull() && !data.UseDefaultKeylifetime.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(path.Root("ike_keylifetime_minutes"), "Conflicting Configuration", "ike_keylifetime_minutes and use_default_keylifetime are mutually exclusive.")
+	}
+	if !data.ReauthDisabled.IsNull() && !data.ReauthDisabled.IsUnknown() && data.ReauthTimeoutDays != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("reauth_disabled"), "Conflicting Configuration", "reauth_disabled and reauth_timeout_days are mutually exclusive.")
+	}
+	if !data.ReauthDisabled.IsNull() && !data.ReauthDisabled.IsUnknown() && data.ReauthTimeoutHours != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("reauth_disabled"), "Conflicting Configuration", "reauth_disabled and reauth_timeout_hours are mutually exclusive.")
+	}
+	if data.ReauthTimeoutDays != nil && data.ReauthTimeoutHours != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("reauth_timeout_days"), "Conflicting Configuration", "reauth_timeout_days and reauth_timeout_hours are mutually exclusive.")
+	}
+
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan

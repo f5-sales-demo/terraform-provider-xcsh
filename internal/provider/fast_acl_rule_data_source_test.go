@@ -16,18 +16,14 @@ func TestAccFastAclRuleDataSource_basic(t *testing.T) {
 	acctest.PreCheck(t)
 
 	rName := acctest.RandomName("tf-acc-test")
-	nsName := acctest.RandomName("tf-acc-test-ns")
 	resourceName := "xcsh_fast_acl_rule.test"
 	dataSourceName := "data.xcsh_fast_acl_rule.test"
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
 		ProtoV6ProviderFactories: acctest.ProtoV6ProviderFactories,
-		ExternalProviders: map[string]resource.ExternalProvider{
-			"time": {Source: "hashicorp/time"},
-		},
 		Steps: []resource.TestStep{
 			{
-				Config: testAccFastAclRuleDataSourceConfig_basic(nsName, rName),
+				Config: testAccFastAclRuleDataSourceConfig_basic(rName),
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttrPair(dataSourceName, "name", resourceName, "name"),
 					resource.TestCheckResourceAttrPair(dataSourceName, "namespace", resourceName, "namespace"),
@@ -38,29 +34,16 @@ func TestAccFastAclRuleDataSource_basic(t *testing.T) {
 	})
 }
 
-func testAccFastAclRuleDataSourceConfig_basic(nsName, name string) string {
+func testAccFastAclRuleDataSourceConfig_basic(name string) string {
 	return acctest.ConfigCompose(
 		acctest.ProviderConfig(),
 		fmt.Sprintf(`
-resource "xcsh_namespace" "test" {
-  name = %[1]q
-}
-
-resource "time_sleep" "wait_for_namespace" {
-  depends_on      = [xcsh_namespace.test]
-  create_duration = "5s"
-}
 
 resource "xcsh_fast_acl_rule" "test" {
-  depends_on = [time_sleep.wait_for_namespace]
-  name       = %[2]q
-  namespace  = xcsh_namespace.test.name
-  action {
-    deny = true
-  }
-  prefix {
-    prefix = ["10.0.0.0/8"]
-  }
+  name      = %[1]q
+  namespace = "system"
+  action { simple_action = "DENY" }
+  ip_prefix_set {}
 }
 
 data "xcsh_fast_acl_rule" "test" {
@@ -68,5 +51,5 @@ data "xcsh_fast_acl_rule" "test" {
   name       = xcsh_fast_acl_rule.test.name
   namespace  = xcsh_fast_acl_rule.test.namespace
 }
-`, nsName, name))
+`, name))
 }

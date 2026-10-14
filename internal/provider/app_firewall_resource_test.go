@@ -787,19 +787,21 @@ resource "xcsh_app_firewall" "test" {
   name      = %[1]q
   namespace = "system"
 
-  allow_all_response_codes = {}
   blocking = {}
-  use_default_blocking_page = {}
-  default_bot_setting = {}
-  default_anonymization = {}
+
 
   detection_settings {
     default_violation_settings = {}
-    default_bot_setting = {}
+
     enable_suppression = {}
     enable_threat_campaigns = {}
     signature_selection_setting {
       high_medium_accuracy_signatures = {}
+      signature_settings_by_accuracy {
+        high_accuracy_action = "SIG_BLOCK"
+        medium_accuracy_action = "SIG_BLOCK"
+        low_accuracy_action = "SIG_BLOCK"
+      }
       default_attack_type_settings = {}
     }
   }
@@ -978,6 +980,7 @@ func TestAccAppFirewallResource_detectionSettings(t *testing.T) {
 
 	resourceName := "xcsh_app_firewall.test"
 	rName := acctest.RandomName("tf-acc-test-waf")
+	capture, importDiagnostic := acctest.CaptureImportFieldDiagnostics(t, "xcsh_app_firewall", resourceName)
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -987,11 +990,12 @@ func TestAccAppFirewallResource_detectionSettings(t *testing.T) {
 		Steps: []resource.TestStep{
 			{
 				Config: testAccAppFirewallConfig_detectionSettings(rName),
-				Check:  acctest.CheckAppFirewallExists(resourceName),
+				Check:  resource.ComposeAggregateTestCheckFunc(acctest.CheckAppFirewallExists(resourceName), capture),
 			},
 			{
 				ResourceName:            resourceName,
 				ImportState:             true,
+				ImportStateCheck:        importDiagnostic,
 				ImportStateVerify:       true,
 				ImportStateVerifyIgnore: []string{"timeouts"},
 				ImportStateIdFunc:       testAccAppFirewallImportStateIdFunc(resourceName),

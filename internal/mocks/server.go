@@ -299,6 +299,9 @@ func (s *Server) handleRequest(w http.ResponseWriter, r *http.Request) {
 // handleSpecialEndpoints handles F5 XC specific API patterns
 func (s *Server) handleSpecialEndpoints(w http.ResponseWriter, r *http.Request) bool {
 	path := r.URL.Path
+	if s.handleSwagger(w, r) {
+		return true
+	}
 
 	// Handle cascade_delete: POST /api/.../namespaces/{name}/cascade_delete
 	// or POST /api/.../resource_type/{name}/cascade_delete

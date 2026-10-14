@@ -38,6 +38,7 @@ func testAccDataGroupDataSourceConfig_basic(name string) string {
 	return acctest.ConfigCompose(
 		acctest.ProviderConfig(),
 		fmt.Sprintf(`
+
 resource "xcsh_data_group" "test" {
   name      = %[1]q
   namespace = "system"

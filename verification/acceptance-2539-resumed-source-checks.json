@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "source": "96a170e46141f8b206a24d1d66cc0724e8e93303",
+  "schema_sha256": "ac383326a810e64074d102efb150c746ea375a232c1748dd56591a241f9346ad",
+  "documentation": {
+    "collections": 331,
+    "pages": 16396,
+    "exact_property_destinations": 35110,
+    "readability_errors": 0,
+    "collection_tests": 27,
+    "registry_tests": 11,
+    "publication_tests": 2,
+    "compatibility_reviewed_replacements": 25
+  },
+  "checks": {
+    "reporter_ownership_race": "pass",
+    "positive_fixture_schema": "pass",
+    "focused_fixture_mocks": "pass",
+    "fixture_regressions": "pass"
+  },
+  "repairs": ["base64_encoded_irule", "explicit_syslog_receiver", "explicit_http_advertisement"],
+  "digests": {
+    "resumed-cleanup-reporter-race.log": "bc8570966a3dceb2af0e8e09f90ef34e731d84170ff3f7be4c9c2897bc25d28a",
+    "resumed-positive-fixture-audit.log": "bd98169e66da7d5ceb69e5684b4795b22eed9120de5a04f08f4cd40dc4c38f44",
+    "resumed-fixture-focused-mock.log": "19275fefd48dc044951da7b70e4467497f25091ba77395478ae808c1a8ddd762",
+    "resumed-fixture-regressions.log": "45ff95ca167e8661dc2bdb81dac2471ca128c39b338c8b24958bfbfa4e79f4da"
+  },
+  "qualification": "Focused checkpoint; full-source live, cleanup, protected-main, and artifact gates remain required."
+}

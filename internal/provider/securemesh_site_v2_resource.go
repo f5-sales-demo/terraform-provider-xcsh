@@ -14652,6 +14652,241 @@ func (r *SecuremeshSiteV2Resource) ValidateConfig(ctx context.Context, req resou
 		)
 	}
 
+	if data.ActiveEnhancedFirewallPolicies != nil && !data.NoNetworkPolicy.IsNull() && !data.NoNetworkPolicy.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(path.Root("active_enhanced_firewall_policies"), "Conflicting Configuration", "active_enhanced_firewall_policies and no_network_policy are mutually exclusive.")
+	}
+	if data.ActiveForwardProxyPolicies != nil && !data.NoForwardProxy.IsNull() && !data.NoForwardProxy.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(path.Root("active_forward_proxy_policies"), "Conflicting Configuration", "active_forward_proxy_policies and no_forward_proxy are mutually exclusive.")
+	}
+	if data.AWS != nil && data.Azure != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("aws"), "Conflicting Configuration", "aws and azure are mutually exclusive.")
+	}
+	if data.AWS != nil && data.Baremetal != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("aws"), "Conflicting Configuration", "aws and baremetal are mutually exclusive.")
+	}
+	if data.AWS != nil && data.EksK8S != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("aws"), "Conflicting Configuration", "aws and eks_k8s are mutually exclusive.")
+	}
+	if data.AWS != nil && data.Equinix != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("aws"), "Conflicting Configuration", "aws and equinix are mutually exclusive.")
+	}
+	if data.AWS != nil && data.GCP != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("aws"), "Conflicting Configuration", "aws and gcp are mutually exclusive.")
+	}
+	if data.AWS != nil && data.Kvm != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("aws"), "Conflicting Configuration", "aws and kvm are mutually exclusive.")
+	}
+	if data.AWS != nil && data.Nutanix != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("aws"), "Conflicting Configuration", "aws and nutanix are mutually exclusive.")
+	}
+	if data.AWS != nil && data.Oci != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("aws"), "Conflicting Configuration", "aws and oci are mutually exclusive.")
+	}
+	if data.AWS != nil && data.OpenshiftVirtualization != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("aws"), "Conflicting Configuration", "aws and openshift_virtualization are mutually exclusive.")
+	}
+	if data.AWS != nil && data.Openstack != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("aws"), "Conflicting Configuration", "aws and openstack are mutually exclusive.")
+	}
+	if data.AWS != nil && data.Vmware != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("aws"), "Conflicting Configuration", "aws and vmware are mutually exclusive.")
+	}
+	if data.Azure != nil && data.Baremetal != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("azure"), "Conflicting Configuration", "azure and baremetal are mutually exclusive.")
+	}
+	if data.Azure != nil && data.EksK8S != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("azure"), "Conflicting Configuration", "azure and eks_k8s are mutually exclusive.")
+	}
+	if data.Azure != nil && data.Equinix != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("azure"), "Conflicting Configuration", "azure and equinix are mutually exclusive.")
+	}
+	if data.Azure != nil && data.GCP != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("azure"), "Conflicting Configuration", "azure and gcp are mutually exclusive.")
+	}
+	if data.Azure != nil && data.Kvm != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("azure"), "Conflicting Configuration", "azure and kvm are mutually exclusive.")
+	}
+	if data.Azure != nil && data.Nutanix != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("azure"), "Conflicting Configuration", "azure and nutanix are mutually exclusive.")
+	}
+	if data.Azure != nil && data.Oci != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("azure"), "Conflicting Configuration", "azure and oci are mutually exclusive.")
+	}
+	if data.Azure != nil && data.OpenshiftVirtualization != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("azure"), "Conflicting Configuration", "azure and openshift_virtualization are mutually exclusive.")
+	}
+	if data.Azure != nil && data.Openstack != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("azure"), "Conflicting Configuration", "azure and openstack are mutually exclusive.")
+	}
+	if data.Azure != nil && data.Vmware != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("azure"), "Conflicting Configuration", "azure and vmware are mutually exclusive.")
+	}
+	if data.Baremetal != nil && data.EksK8S != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("baremetal"), "Conflicting Configuration", "baremetal and eks_k8s are mutually exclusive.")
+	}
+	if data.Baremetal != nil && data.Equinix != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("baremetal"), "Conflicting Configuration", "baremetal and equinix are mutually exclusive.")
+	}
+	if data.Baremetal != nil && data.GCP != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("baremetal"), "Conflicting Configuration", "baremetal and gcp are mutually exclusive.")
+	}
+	if data.Baremetal != nil && data.Kvm != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("baremetal"), "Conflicting Configuration", "baremetal and kvm are mutually exclusive.")
+	}
+	if data.Baremetal != nil && data.Nutanix != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("baremetal"), "Conflicting Configuration", "baremetal and nutanix are mutually exclusive.")
+	}
+	if data.Baremetal != nil && data.Oci != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("baremetal"), "Conflicting Configuration", "baremetal and oci are mutually exclusive.")
+	}
+	if data.Baremetal != nil && data.OpenshiftVirtualization != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("baremetal"), "Conflicting Configuration", "baremetal and openshift_virtualization are mutually exclusive.")
+	}
+	if data.Baremetal != nil && data.Openstack != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("baremetal"), "Conflicting Configuration", "baremetal and openstack are mutually exclusive.")
+	}
+	if data.Baremetal != nil && data.Vmware != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("baremetal"), "Conflicting Configuration", "baremetal and vmware are mutually exclusive.")
+	}
+	if !data.BlockAllServices.IsNull() && !data.BlockAllServices.IsUnknown() && data.BlockedServices != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("block_all_services"), "Conflicting Configuration", "block_all_services and blocked_services are mutually exclusive.")
+	}
+	if data.CustomProxy != nil && !data.F5Proxy.IsNull() && !data.F5Proxy.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(path.Root("custom_proxy"), "Conflicting Configuration", "custom_proxy and f5_proxy are mutually exclusive.")
+	}
+	if data.CustomProxy != nil && data.PrivateAdn != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("custom_proxy"), "Conflicting Configuration", "custom_proxy and private_adn are mutually exclusive.")
+	}
+	if data.CustomProxyBypass != nil && !data.NoProxyBypass.IsNull() && !data.NoProxyBypass.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(path.Root("custom_proxy_bypass"), "Conflicting Configuration", "custom_proxy_bypass and no_proxy_bypass are mutually exclusive.")
+	}
+	if data.DcClusterGroupSLI != nil && !data.NoS2SConnectivitySLI.IsNull() && !data.NoS2SConnectivitySLI.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(path.Root("dc_cluster_group_sli"), "Conflicting Configuration", "dc_cluster_group_sli and no_s2s_connectivity_sli are mutually exclusive.")
+	}
+	if data.DcClusterGroupSlo != nil && !data.NoS2SConnectivitySlo.IsNull() && !data.NoS2SConnectivitySlo.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(path.Root("dc_cluster_group_slo"), "Conflicting Configuration", "dc_cluster_group_slo and no_s2s_connectivity_slo are mutually exclusive.")
+	}
+	if data.DcClusterGroupSlo != nil && data.SiteMeshGroupOnSlo != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("dc_cluster_group_slo"), "Conflicting Configuration", "dc_cluster_group_slo and site_mesh_group_on_slo are mutually exclusive.")
+	}
+	if data.EksK8S != nil && data.Equinix != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("eks_k8s"), "Conflicting Configuration", "eks_k8s and equinix are mutually exclusive.")
+	}
+	if data.EksK8S != nil && data.GCP != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("eks_k8s"), "Conflicting Configuration", "eks_k8s and gcp are mutually exclusive.")
+	}
+	if data.EksK8S != nil && data.Kvm != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("eks_k8s"), "Conflicting Configuration", "eks_k8s and kvm are mutually exclusive.")
+	}
+	if data.EksK8S != nil && data.Nutanix != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("eks_k8s"), "Conflicting Configuration", "eks_k8s and nutanix are mutually exclusive.")
+	}
+	if data.EksK8S != nil && data.Oci != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("eks_k8s"), "Conflicting Configuration", "eks_k8s and oci are mutually exclusive.")
+	}
+	if data.EksK8S != nil && data.OpenshiftVirtualization != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("eks_k8s"), "Conflicting Configuration", "eks_k8s and openshift_virtualization are mutually exclusive.")
+	}
+	if data.EksK8S != nil && data.Openstack != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("eks_k8s"), "Conflicting Configuration", "eks_k8s and openstack are mutually exclusive.")
+	}
+	if data.EksK8S != nil && data.Vmware != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("eks_k8s"), "Conflicting Configuration", "eks_k8s and vmware are mutually exclusive.")
+	}
+	if data.Equinix != nil && data.GCP != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("equinix"), "Conflicting Configuration", "equinix and gcp are mutually exclusive.")
+	}
+	if data.Equinix != nil && data.Kvm != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("equinix"), "Conflicting Configuration", "equinix and kvm are mutually exclusive.")
+	}
+	if data.Equinix != nil && data.Nutanix != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("equinix"), "Conflicting Configuration", "equinix and nutanix are mutually exclusive.")
+	}
+	if data.Equinix != nil && data.Oci != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("equinix"), "Conflicting Configuration", "equinix and oci are mutually exclusive.")
+	}
+	if data.Equinix != nil && data.OpenshiftVirtualization != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("equinix"), "Conflicting Configuration", "equinix and openshift_virtualization are mutually exclusive.")
+	}
+	if data.Equinix != nil && data.Openstack != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("equinix"), "Conflicting Configuration", "equinix and openstack are mutually exclusive.")
+	}
+	if data.Equinix != nil && data.Vmware != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("equinix"), "Conflicting Configuration", "equinix and vmware are mutually exclusive.")
+	}
+	if !data.F5Proxy.IsNull() && !data.F5Proxy.IsUnknown() && data.PrivateAdn != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("f5_proxy"), "Conflicting Configuration", "f5_proxy and private_adn are mutually exclusive.")
+	}
+	if data.GCP != nil && data.Kvm != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("gcp"), "Conflicting Configuration", "gcp and kvm are mutually exclusive.")
+	}
+	if data.GCP != nil && data.Nutanix != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("gcp"), "Conflicting Configuration", "gcp and nutanix are mutually exclusive.")
+	}
+	if data.GCP != nil && data.Oci != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("gcp"), "Conflicting Configuration", "gcp and oci are mutually exclusive.")
+	}
+	if data.GCP != nil && data.OpenshiftVirtualization != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("gcp"), "Conflicting Configuration", "gcp and openshift_virtualization are mutually exclusive.")
+	}
+	if data.GCP != nil && data.Openstack != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("gcp"), "Conflicting Configuration", "gcp and openstack are mutually exclusive.")
+	}
+	if data.GCP != nil && data.Vmware != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("gcp"), "Conflicting Configuration", "gcp and vmware are mutually exclusive.")
+	}
+	if data.Kvm != nil && data.Nutanix != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("kvm"), "Conflicting Configuration", "kvm and nutanix are mutually exclusive.")
+	}
+	if data.Kvm != nil && data.Oci != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("kvm"), "Conflicting Configuration", "kvm and oci are mutually exclusive.")
+	}
+	if data.Kvm != nil && data.OpenshiftVirtualization != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("kvm"), "Conflicting Configuration", "kvm and openshift_virtualization are mutually exclusive.")
+	}
+	if data.Kvm != nil && data.Openstack != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("kvm"), "Conflicting Configuration", "kvm and openstack are mutually exclusive.")
+	}
+	if data.Kvm != nil && data.Vmware != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("kvm"), "Conflicting Configuration", "kvm and vmware are mutually exclusive.")
+	}
+	if data.LogReceiverWithNet != nil && !data.LogsStreamingDisabled.IsNull() && !data.LogsStreamingDisabled.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(path.Root("log_receiver_with_net"), "Conflicting Configuration", "log_receiver_with_net and logs_streaming_disabled are mutually exclusive.")
+	}
+	if !data.NoS2SConnectivitySlo.IsNull() && !data.NoS2SConnectivitySlo.IsUnknown() && data.SiteMeshGroupOnSlo != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("no_s2s_connectivity_slo"), "Conflicting Configuration", "no_s2s_connectivity_slo and site_mesh_group_on_slo are mutually exclusive.")
+	}
+	if data.Nutanix != nil && data.Oci != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("nutanix"), "Conflicting Configuration", "nutanix and oci are mutually exclusive.")
+	}
+	if data.Nutanix != nil && data.OpenshiftVirtualization != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("nutanix"), "Conflicting Configuration", "nutanix and openshift_virtualization are mutually exclusive.")
+	}
+	if data.Nutanix != nil && data.Openstack != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("nutanix"), "Conflicting Configuration", "nutanix and openstack are mutually exclusive.")
+	}
+	if data.Nutanix != nil && data.Vmware != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("nutanix"), "Conflicting Configuration", "nutanix and vmware are mutually exclusive.")
+	}
+	if data.Oci != nil && data.OpenshiftVirtualization != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("oci"), "Conflicting Configuration", "oci and openshift_virtualization are mutually exclusive.")
+	}
+	if data.Oci != nil && data.Openstack != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("oci"), "Conflicting Configuration", "oci and openstack are mutually exclusive.")
+	}
+	if data.Oci != nil && data.Vmware != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("oci"), "Conflicting Configuration", "oci and vmware are mutually exclusive.")
+	}
+	if data.OpenshiftVirtualization != nil && data.Openstack != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("openshift_virtualization"), "Conflicting Configuration", "openshift_virtualization and openstack are mutually exclusive.")
+	}
+	if data.OpenshiftVirtualization != nil && data.Vmware != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("openshift_virtualization"), "Conflicting Configuration", "openshift_virtualization and vmware are mutually exclusive.")
+	}
+	if data.Openstack != nil && data.Vmware != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("openstack"), "Conflicting Configuration", "openstack and vmware are mutually exclusive.")
+	}
+
 	validateSecuremeshSiteV2AWSContract(ctx, data, resp)
 	if resp.Diagnostics.HasError() {
 		return

@@ -20,6 +20,7 @@ func TestAccAppSettingResource_basic(t *testing.T) {
 	// Using "demo-app" which is an existing app-type namespace in the staging environment
 	resourceName := "xcsh_app_setting.test"
 	rName := acctest.RandomName("tf-acc-test-appset")
+	nsName := acctest.RandomName("tf-acc-test-appns")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -27,11 +28,11 @@ func TestAccAppSettingResource_basic(t *testing.T) {
 		CheckDestroy:             acctest.CheckResourceDestroyed("xcsh_app_setting"),
 		Steps: []resource.TestStep{
 			{
-				Config: testAccAppSettingConfig_basic(rName),
+				Config: testAccAppSettingConfig_basic(nsName, rName),
 				Check: resource.ComposeAggregateTestCheckFunc(
 					acctest.CheckResourceExists(resourceName),
 					resource.TestCheckResourceAttr(resourceName, "name", rName),
-					resource.TestCheckResourceAttr(resourceName, "namespace", "demo-app"),
+					resource.TestCheckResourceAttr(resourceName, "namespace", nsName),
 					resource.TestCheckResourceAttrSet(resourceName, "id"),
 				),
 			},
@@ -58,20 +59,28 @@ func testAccAppSettingImportStateIdFunc(resourceName string) resource.ImportStat
 	}
 }
 
-func testAccAppSettingConfig_basic(name string) string {
+func testAccAppSettingConfig_basic(nsName, name string) string {
 	// App setting requires app_type_settings with at least one app_type_ref
 	// Must be created in a namespace with namespace_type: "app" (e.g., demo-app)
 	return fmt.Sprintf(`
+resource "xcsh_namespace" "fixture" {
+ name = %[2]q
+}
+resource "xcsh_app_type" "fixture" {
+ name = "%[1]s-type"
+ namespace = "shared"
+ business_logic_markup_setting { enable = {} }
+}
 resource "xcsh_app_setting" "test" {
   name      = %[1]q
-  namespace = "demo-app"
+  namespace = xcsh_namespace.fixture.name
 
   app_type_settings {
     app_type_ref {
-      name      = "demo-app"
+      name      = xcsh_app_type.fixture.name
       namespace = "shared"
     }
   }
 }
-`, name)
+`, name, nsName)
 }

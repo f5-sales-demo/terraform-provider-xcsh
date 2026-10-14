@@ -353,6 +353,16 @@ func (r *NetworkPolicyRuleResource) ValidateConfig(ctx context.Context, req reso
 	if resp.Diagnostics.HasError() {
 		return
 	}
+	if data.IPPrefixSet != nil && data.Prefix != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("ip_prefix_set"), "Conflicting Configuration", "ip_prefix_set and prefix are mutually exclusive.")
+	}
+	if data.IPPrefixSet != nil && data.PrefixSelector != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("ip_prefix_set"), "Conflicting Configuration", "ip_prefix_set and prefix_selector are mutually exclusive.")
+	}
+	if data.Prefix != nil && data.PrefixSelector != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("prefix"), "Conflicting Configuration", "prefix and prefix_selector are mutually exclusive.")
+	}
+
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan

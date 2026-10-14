@@ -16,18 +16,14 @@ func TestAccProxyDataSource_basic(t *testing.T) {
 	acctest.PreCheck(t)
 
 	rName := acctest.RandomName("tf-acc-test")
-	nsName := acctest.RandomName("tf-acc-test-ns")
 	resourceName := "xcsh_proxy.test"
 	dataSourceName := "data.xcsh_proxy.test"
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
 		ProtoV6ProviderFactories: acctest.ProtoV6ProviderFactories,
-		ExternalProviders: map[string]resource.ExternalProvider{
-			"time": {Source: "hashicorp/time"},
-		},
 		Steps: []resource.TestStep{
 			{
-				Config: testAccProxyDataSourceConfig_basic(nsName, rName),
+				Config: testAccProxyDataSourceConfig_basic(rName),
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttrPair(dataSourceName, "name", resourceName, "name"),
 					resource.TestCheckResourceAttrPair(dataSourceName, "namespace", resourceName, "namespace"),
@@ -38,24 +34,20 @@ func TestAccProxyDataSource_basic(t *testing.T) {
 	})
 }
 
-func testAccProxyDataSourceConfig_basic(nsName, name string) string {
+func testAccProxyDataSourceConfig_basic(name string) string {
 	return acctest.ConfigCompose(
 		acctest.ProviderConfig(),
 		fmt.Sprintf(`
-resource "xcsh_namespace" "test" {
-  name = %[1]q
-}
-
-resource "time_sleep" "wait_for_namespace" {
-  depends_on      = [xcsh_namespace.test]
-  create_duration = "5s"
-}
 
 resource "xcsh_proxy" "test" {
-  depends_on = [time_sleep.wait_for_namespace]
-  name       = %[2]q
-  namespace  = xcsh_namespace.test.name
-  proxy_url = "http://proxy.example.com:8080"
+  name      = %[1]q
+  namespace = "shared"
+  http_proxy {
+    enable_http {}
+  }
+  no_forward_proxy_policy = {}
+  site_local_network = {}
+  do_not_advertise = {}
 }
 
 data "xcsh_proxy" "test" {
@@ -63,5 +55,5 @@ data "xcsh_proxy" "test" {
   name       = xcsh_proxy.test.name
   namespace  = xcsh_proxy.test.namespace
 }
-`, nsName, name))
+`, name))
 }

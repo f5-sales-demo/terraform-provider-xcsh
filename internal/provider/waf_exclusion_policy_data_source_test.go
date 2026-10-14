@@ -3,9 +3,54 @@
 package provider_test
 
 import (
+	"fmt"
 	"testing"
+
+	"github.com/hashicorp/terraform-plugin-testing/helper/resource"
+
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/acctest"
 )
 
 func TestAccWafExclusionPolicyDataSource_basic(t *testing.T) {
-	t.Skip("No resource test exists - config unknown")
+	acctest.SkipIfNotAccTest(t)
+	acctest.PreCheck(t)
+
+	rName := acctest.RandomName("tf-acc-test")
+	resourceName := "xcsh_waf_exclusion_policy.test"
+	dataSourceName := "data.xcsh_waf_exclusion_policy.test"
+	resource.ParallelTest(t, resource.TestCase{
+		PreCheck:                 func() { acctest.PreCheck(t) },
+		ProtoV6ProviderFactories: acctest.ProtoV6ProviderFactories,
+		Steps: []resource.TestStep{
+			{
+				Config: testAccWafExclusionPolicyDataSourceConfig_basic(rName),
+				Check: resource.ComposeAggregateTestCheckFunc(
+					resource.TestCheckResourceAttrPair(dataSourceName, "name", resourceName, "name"),
+					resource.TestCheckResourceAttrPair(dataSourceName, "namespace", resourceName, "namespace"),
+					resource.TestCheckResourceAttrPair(dataSourceName, "id", resourceName, "id"),
+				),
+			},
+		},
+	})
+}
+
+func testAccWafExclusionPolicyDataSourceConfig_basic(name string) string {
+	return acctest.ConfigCompose(
+		acctest.ProviderConfig(),
+		fmt.Sprintf(`
+
+resource "xcsh_waf_exclusion_policy" "test" {
+  name      = %[1]q
+  namespace = "system"
+  waf_exclusion_rules {
+    metadata { name = "test-rule" }
+  }
+}
+
+data "xcsh_waf_exclusion_policy" "test" {
+  depends_on = [xcsh_waf_exclusion_policy.test]
+  name       = xcsh_waf_exclusion_policy.test.name
+  namespace  = xcsh_waf_exclusion_policy.test.namespace
+}
+`, name))
 }

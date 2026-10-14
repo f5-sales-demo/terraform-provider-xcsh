@@ -1,0 +1,60 @@
+{
+  "version": 1,
+  "source": "c9fd50b6089",
+  "total": 3,
+  "passed": 1,
+  "failed": 2,
+  "skipped": 0,
+  "stream_completeness": {
+    "complete": false,
+    "events": 84,
+    "malformed_lines": 0,
+    "invalid_events": 0,
+    "scanner_error": false,
+    "incomplete_tests": 0,
+    "incomplete_packages": 0,
+    "package_failures": 1
+  },
+  "tests": [
+    {
+      "name": "TestAccNetworkConnectorDataSource_basic",
+      "status": "pass"
+    },
+    {
+      "name": "TestAccSubnetDataSource_basic",
+      "status": "fail",
+      "failure_fingerprint": {
+        "class": "http_error",
+        "summary": "Create request failed",
+        "http_status": 400,
+        "source_location": "subnet_data_source_test.go:16",
+        "schema_fields": ["site_subnet_params.dhcp", "site_subnet_params.site"]
+      }
+    },
+    {
+      "name": "TestAccSubnetResource_basic",
+      "status": "fail",
+      "failure_fingerprint": {
+        "class": "http_error",
+        "summary": "Create request failed",
+        "http_status": 400,
+        "source_location": "subnet_resource_test.go:18",
+        "schema_fields": ["site_subnet_params.dhcp", "site_subnet_params.site"]
+      }
+    }
+  ],
+  "cleanup": {
+    "version": 1,
+    "journal_sha256": "c661d74a8531a810629da6a746a2f2a76e6ab4c2f8e4ce3123c362e572e718a4",
+    "complete": true,
+    "owned": 8,
+    "confirmed_absent": 8,
+    "failures": 0,
+    "second_pass_remaining": 0
+  },
+  "digests": {
+    "tests.json": "7c5855c60f9fdac5db2a85a3dc1a1ede392c11d866c6e0e22e2406bc0bf0257d",
+    "tests.md": "1dd5dc46a16ab1f28e1082ea35db32218050ca7842dc4b3cb2e78f156f3a8155",
+    "cleanup.json": "76a960a671dee7a41e40207df6de295e021ea41759062a3763df5350abe9e3f8"
+  }
+}

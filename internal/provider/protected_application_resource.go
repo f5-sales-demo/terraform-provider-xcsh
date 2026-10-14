@@ -3097,6 +3097,40 @@ func (r *ProtectedApplicationResource) ValidateConfig(ctx context.Context, req r
 		)
 	}
 
+	if !data.AdobeCommerceConnector.IsNull() && !data.AdobeCommerceConnector.IsUnknown() && data.Cloudflare != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("adobe_commerce_connector"), "Conflicting Configuration", "adobe_commerce_connector and cloudflare are mutually exclusive.")
+	}
+	if !data.AdobeCommerceConnector.IsNull() && !data.AdobeCommerceConnector.IsUnknown() && data.Cloudfront != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("adobe_commerce_connector"), "Conflicting Configuration", "adobe_commerce_connector and cloudfront are mutually exclusive.")
+	}
+	if !data.BigIPIapp.IsNull() && !data.BigIPIapp.IsUnknown() && data.Cloudflare != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("big_ip_iapp"), "Conflicting Configuration", "big_ip_iapp and cloudflare are mutually exclusive.")
+	}
+	if !data.BigIPIapp.IsNull() && !data.BigIPIapp.IsUnknown() && data.Cloudfront != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("big_ip_iapp"), "Conflicting Configuration", "big_ip_iapp and cloudfront are mutually exclusive.")
+	}
+	if data.Cloudflare != nil && data.Cloudfront != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("cloudflare"), "Conflicting Configuration", "cloudflare and cloudfront are mutually exclusive.")
+	}
+	if data.Cloudflare != nil && !data.CustomConnector.IsNull() && !data.CustomConnector.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(path.Root("cloudflare"), "Conflicting Configuration", "cloudflare and custom_connector are mutually exclusive.")
+	}
+	if data.Cloudflare != nil && !data.F5BigIP.IsNull() && !data.F5BigIP.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(path.Root("cloudflare"), "Conflicting Configuration", "cloudflare and f5_big_ip are mutually exclusive.")
+	}
+	if data.Cloudflare != nil && !data.SalesforceCommerceConnector.IsNull() && !data.SalesforceCommerceConnector.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(path.Root("cloudflare"), "Conflicting Configuration", "cloudflare and salesforce_commerce_connector are mutually exclusive.")
+	}
+	if data.Cloudfront != nil && !data.CustomConnector.IsNull() && !data.CustomConnector.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(path.Root("cloudfront"), "Conflicting Configuration", "cloudfront and custom_connector are mutually exclusive.")
+	}
+	if data.Cloudfront != nil && !data.F5BigIP.IsNull() && !data.F5BigIP.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(path.Root("cloudfront"), "Conflicting Configuration", "cloudfront and f5_big_ip are mutually exclusive.")
+	}
+	if data.Cloudfront != nil && !data.SalesforceCommerceConnector.IsNull() && !data.SalesforceCommerceConnector.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(path.Root("cloudfront"), "Conflicting Configuration", "cloudfront and salesforce_commerce_connector are mutually exclusive.")
+	}
+
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan

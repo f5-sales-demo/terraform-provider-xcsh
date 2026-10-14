@@ -402,7 +402,6 @@ func TestManagedSocketlessJobsUseImageResidentGoTools(t *testing.T) {
 		"_build-test.yml/lint":            {`test "$(go env GOVERSION)" = go1.25.13`},
 		"_generate-docs.yml/generate":     {`test "$(go env GOVERSION)" = go1.25.13`, "bash scripts/verify-tfplugindocs.sh"},
 		"_generate-provider.yml/generate": {`test "$(go env GOVERSION)" = go1.25.13`},
-		"acc-tests.yml/cleanup":           {`test "$(go env GOVERSION)" = go1.25.13`},
 		"acc-tests.yml/real-api-tests":    {`test "$(go env GOVERSION)" = go1.25.13`},
 		"ci.yml/validate-docs-generation": {`test "$(go env GOVERSION)" = go1.25.13`, "mod github.com/hashicorp/terraform-plugin-docs v0.25.0"},
 		"ci.yml/validate-mock-fixtures":   {`test "$(go env GOVERSION)" = go1.25.13`},
@@ -637,7 +636,7 @@ func TestAcceptanceHostedJobsPinGoToolchain(t *testing.T) {
 		assertPinnedSetupGoStep(t, jobID, job, setupGo, "1.25.13", true)
 	}
 
-	for _, jobID := range []string{"real-api-tests", "cleanup"} {
+	for _, jobID := range []string{"real-api-tests"} {
 		job, ok := workflow.Jobs[jobID]
 		if !ok {
 			t.Fatalf("missing acceptance job %s", jobID)
@@ -673,7 +672,6 @@ func assertPinnedSetupGoStep(t *testing.T, jobID string, job map[string]any, set
 var protectedJobs = []jobContract{
 	{"acc-tests.yml", "mock-tests", canonicalGitHubHostedRunsOn, "", map[string]string{"checks": "write", "contents": "read"}, []string{"pull_request", "schedule", "workflow_dispatch"}, nil, nil},
 	{"acc-tests.yml", "real-api-tests", canonicalManagedSocketlessRunsOn, "acceptance-tests", map[string]string{"checks": "write", "contents": "read"}, []string{"pull_request", "schedule", "workflow_dispatch"}, strptr("always() &&\ngithub.event_name != 'pull_request' &&\n((github.event_name == 'schedule' &&\n  needs.mock-tests.result == 'success') ||\n (github.event_name == 'workflow_dispatch' &&\n  github.event.inputs.mode == 'full' &&\n  needs.mock-tests.result == 'success') ||\n (github.event_name == 'workflow_dispatch' &&\n  github.event.inputs.mode == 'real-only' &&\n  needs.mock-tests.result == 'skipped'))\n"), []string{"XCSH_API_TOKEN", "XCSH_API_URL"}},
-	{"acc-tests.yml", "cleanup", canonicalManagedSocketlessRunsOn, "acceptance-tests", map[string]string{"contents": "read"}, []string{"pull_request", "schedule", "workflow_dispatch"}, strptr("always() &&\ngithub.event_name != 'pull_request' &&\nneeds.real-api-tests.result != 'skipped'\n"), []string{"XCSH_API_TOKEN", "XCSH_API_URL"}},
 	{"discover-defaults.yml", "discover", canonicalManagedSocketlessRunsOn, "default-discovery", map[string]string{}, []string{"schedule", "workflow_dispatch"}, nil, []string{"REPO_SYNC_TOKEN", "XCSH_API_TOKEN", "XCSH_API_URL"}},
 	{"sync-openapi.yml", "sync", canonicalManagedSocketlessRunsOn, "provider-delivery", map[string]string{}, []string{"repository_dispatch", "workflow_dispatch"}, nil, []string{"GITHUB_TOKEN", "REPO_SYNC_TOKEN"}},
 	{"on-merge.yml", "create-regeneration-pr", canonicalManagedSocketlessRunsOn, "provider-delivery", map[string]string{"contents": "read"}, []string{"push", "workflow_dispatch"}, nil, []string{"REPO_SYNC_TOKEN"}},
@@ -1096,7 +1094,6 @@ func TestProviderWorkflowContracts(t *testing.T) {
 		}
 	}
 	expected := map[string]bool{
-		"acc-tests.yml/cleanup":                           true,
 		"acc-tests.yml/real-api-tests":                    true,
 		"ci.yml/check-constitution":                       true,
 		"ci.yml/validate-docs-generation":                 true,
@@ -1318,7 +1315,7 @@ func TestAcceptanceSummaryDownloadsNamedEvidence(t *testing.T) {
 			path:      "all-reports/mock-test-reports/",
 		},
 		"real-api-test-reports": {
-			condition: "needs.real-api-tests.result == 'success'",
+			condition: "always() && needs.real-api-tests.result != 'skipped'",
 			path:      "all-reports/real-api-test-reports/",
 		},
 		"comparison-reports": {

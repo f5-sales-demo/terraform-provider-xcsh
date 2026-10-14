@@ -55,9 +55,14 @@ resource "xcsh_log_receiver" "test" {
   depends_on = [time_sleep.wait_for_namespace]
   name       = %[2]q
   namespace  = xcsh_namespace.test.name
-  http_receiver {
-    uri = "https://logs.example.com/receive"
+  syslog {
+    udp_server {
+      server_name = "syslog.example.com"
+      port = 514
+    }
+    syslog_rfc5424 = 500
   }
+  site_local {}
 }
 
 data "xcsh_log_receiver" "test" {

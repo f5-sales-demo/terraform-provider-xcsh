@@ -3,9 +3,11 @@
 package provider_test
 
 import (
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/acctest"
 	"testing"
 )
 
 func TestAccCminstanceDataSource_basic(t *testing.T) {
-	t.Skip("Requires CM instance management permissions")
+	acctest.RequireExternalCredential(t, "central_manager")
+
 }

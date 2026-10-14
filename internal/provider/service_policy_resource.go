@@ -2663,6 +2663,49 @@ func (r *ServicePolicyResource) ValidateConfig(ctx context.Context, req resource
 		)
 	}
 
+	if !data.AllowAllRequests.IsNull() && !data.AllowAllRequests.IsUnknown() && data.AllowList != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("allow_all_requests"), "Conflicting Configuration", "allow_all_requests and allow_list are mutually exclusive.")
+	}
+	if !data.AllowAllRequests.IsNull() && !data.AllowAllRequests.IsUnknown() && data.DenyList != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("allow_all_requests"), "Conflicting Configuration", "allow_all_requests and deny_list are mutually exclusive.")
+	}
+	if !data.AllowAllRequests.IsNull() && !data.AllowAllRequests.IsUnknown() && data.RuleList != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("allow_all_requests"), "Conflicting Configuration", "allow_all_requests and rule_list are mutually exclusive.")
+	}
+	if data.AllowList != nil && !data.DenyAllRequests.IsNull() && !data.DenyAllRequests.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(path.Root("allow_list"), "Conflicting Configuration", "allow_list and deny_all_requests are mutually exclusive.")
+	}
+	if data.AllowList != nil && data.DenyList != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("allow_list"), "Conflicting Configuration", "allow_list and deny_list are mutually exclusive.")
+	}
+	if data.AllowList != nil && data.RuleList != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("allow_list"), "Conflicting Configuration", "allow_list and rule_list are mutually exclusive.")
+	}
+	if !data.AnyServer.IsNull() && !data.AnyServer.IsUnknown() && data.ServerNameMatcher != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("any_server"), "Conflicting Configuration", "any_server and server_name_matcher are mutually exclusive.")
+	}
+	if !data.AnyServer.IsNull() && !data.AnyServer.IsUnknown() && data.ServerSelector != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("any_server"), "Conflicting Configuration", "any_server and server_selector are mutually exclusive.")
+	}
+	if !data.DenyAllRequests.IsNull() && !data.DenyAllRequests.IsUnknown() && data.DenyList != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("deny_all_requests"), "Conflicting Configuration", "deny_all_requests and deny_list are mutually exclusive.")
+	}
+	if !data.DenyAllRequests.IsNull() && !data.DenyAllRequests.IsUnknown() && data.RuleList != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("deny_all_requests"), "Conflicting Configuration", "deny_all_requests and rule_list are mutually exclusive.")
+	}
+	if data.DenyList != nil && data.RuleList != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("deny_list"), "Conflicting Configuration", "deny_list and rule_list are mutually exclusive.")
+	}
+	if !data.ServerName.IsNull() && !data.ServerName.IsUnknown() && data.ServerNameMatcher != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("server_name"), "Conflicting Configuration", "server_name and server_name_matcher are mutually exclusive.")
+	}
+	if !data.ServerName.IsNull() && !data.ServerName.IsUnknown() && data.ServerSelector != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("server_name"), "Conflicting Configuration", "server_name and server_selector are mutually exclusive.")
+	}
+	if data.ServerNameMatcher != nil && data.ServerSelector != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("server_name_matcher"), "Conflicting Configuration", "server_name_matcher and server_selector are mutually exclusive.")
+	}
+
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan

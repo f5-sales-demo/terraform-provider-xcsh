@@ -3149,6 +3149,16 @@ func (r *NfvServiceResource) ValidateConfig(ctx context.Context, req resource.Va
 	if resp.Diagnostics.HasError() {
 		return
 	}
+	if !data.DisableHTTPSManagement.IsNull() && !data.DisableHTTPSManagement.IsUnknown() && data.HTTPSManagement != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("disable_https_management"), "Conflicting Configuration", "disable_https_management and https_management are mutually exclusive.")
+	}
+	if !data.DisableSSHAccess.IsNull() && !data.DisableSSHAccess.IsUnknown() && data.EnabledSSHAccess != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("disable_ssh_access"), "Conflicting Configuration", "disable_ssh_access and enabled_ssh_access are mutually exclusive.")
+	}
+	if data.F5BigIPAWSService != nil && data.PaloAltoFwService != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("f5_big_ip_aws_service"), "Conflicting Configuration", "f5_big_ip_aws_service and palo_alto_fw_service are mutually exclusive.")
+	}
+
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan

@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "source": "932283e53b61ae688f744e8a77d63179695c8613",
+  "total": 664,
+  "passed": 626,
+  "failed": 0,
+  "skipped": 38,
+  "stream_completeness": {
+    "complete": true,
+    "events": 7542,
+    "malformed_lines": 0,
+    "invalid_events": 0,
+    "scanner_error": false,
+    "incomplete_tests": 0,
+    "incomplete_packages": 0,
+    "package_failures": 0
+  },
+  "final_source_qualified": false,
+  "digests": {
+    "tests.json": "bb66b9d93882ebe054fae904598f117a7f4ae8e5151fcb28b44fbc1a0554e669",
+    "tests.md": "79ac70322ebb5ed00db708a6cf85fdc0c366cd8ed3f67922f14ad9efad149af4"
+  }
+}

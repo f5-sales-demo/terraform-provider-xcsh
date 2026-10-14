@@ -1,0 +1,56 @@
+{
+  "version": 1,
+  "source": "3f4d0aae4a2",
+  "total": 2,
+  "passed": 0,
+  "failed": 2,
+  "skipped": 0,
+  "tests": [
+    {
+      "name": "TestAccNatPolicyDataSource_basic",
+      "status": "fail",
+      "failure_fingerprint": {
+        "class": "server_error",
+        "summary": "Create request failed",
+        "http_status": 500,
+        "source_location": "nat_policy_data_source_test.go:16"
+      }
+    },
+    {
+      "name": "TestAccNatPolicyResource_basic",
+      "status": "fail",
+      "failure_fingerprint": {
+        "class": "server_error",
+        "summary": "Create request failed",
+        "http_status": 500,
+        "source_location": "nat_policy_resource_test.go:18"
+      }
+    }
+  ],
+  "cleanup_initial": {
+    "version": 1,
+    "diagnostics": {
+      "delete_failed": 1
+    },
+    "journal_sha256": "a22e28068d83a08e165d573efa970b6e0b174af3b630f3d46ee971770413fac6",
+    "complete": false,
+    "owned": 10,
+    "confirmed_absent": 9,
+    "failures": 1,
+    "second_pass_remaining": 0
+  },
+  "cleanup_recovered": {
+    "version": 1,
+    "journal_sha256": "970b1fd69b833e4214371d8b5e3e0c488d95bb75137fc9d4458ff47e34de67d7",
+    "complete": true,
+    "owned": 10,
+    "confirmed_absent": 10,
+    "failures": 0,
+    "second_pass_remaining": 0
+  },
+  "digests": {
+    "tests.json": "4272cbf98040fa148a7c45abbecd14e98921be24dacc53601088b4a612c07b71",
+    "tests.md": "3ab4d1e1f0cdd39c41993ef746fa734013f2925910dce856cb49ee6923976c1a",
+    "cleanup-recovered.json": "e51188e9bec3f1297a47150ac6e0c5e94bc017972195d9b20f4e9e165793ed4f"
+  }
+}

@@ -38,18 +38,15 @@ func testAccOriginPoolDataSourceConfig_basic(name string) string {
 	return acctest.ConfigCompose(
 		acctest.ProviderConfig(),
 		fmt.Sprintf(`
+
 resource "xcsh_origin_pool" "test" {
   name      = %[1]q
   namespace = "system"
   port = 443
   origin_servers {
-    labels {}
-    public_name {
-      dns_name = "example.com"
-    }
+    public_name { dns_name = "example.com" }
   }
-  no_tls {}
-  same_as_endpoint_port {}
+  no_tls = {}
 }
 
 data "xcsh_origin_pool" "test" {

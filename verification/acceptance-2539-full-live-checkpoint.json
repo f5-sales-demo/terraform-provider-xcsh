@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "run": 38357531909,
+  "passed": 392,
+  "failed": 27,
+  "skipped": 240,
+  "total": 659,
+  "stream_completeness": {
+    "complete": false,
+    "events": 8102,
+    "malformed_lines": 0,
+    "invalid_events": 2,
+    "scanner_error": false,
+    "incomplete_tests": 0,
+    "incomplete_packages": 0,
+    "package_failures": 1
+  },
+  "cleanup": {
+    "version": 1,
+    "journal_sha256": "9b09333aeb62d41ea9cc7adc2cb001970dc5929fde2d8cabdf6be7328d1b8b4c",
+    "complete": true,
+    "owned": 417,
+    "confirmed_absent": 417,
+    "failures": 0,
+    "second_pass_remaining": 0
+  },
+  "diagnostic_tests": 2,
+  "complete": false,
+  "baseline": {
+    "passed": 309,
+    "failed": 112,
+    "skipped": 236
+  },
+  "artifacts_sha256": {
+    "real-tests.json": "cb2d62c9e957c5d231d5bbb89bc8feb264574b714e5fea28835dbd6c720bb930",
+    "real-tests.md": "6fabe540d616f56a30e466370da3a183d368f4ea6268d3e3c5830325a029b3e3",
+    "cleanup.json": "bcb05a63052544ffa70e1a50429e34fbb5db681a7b6ab28f5e3eea35ad8eee35"
+  }
+}

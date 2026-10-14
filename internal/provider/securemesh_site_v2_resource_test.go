@@ -4,7 +4,6 @@ package provider_test
 
 import (
 	"fmt"
-	"os"
 	"regexp"
 	"strings"
 	"testing"
@@ -142,11 +141,8 @@ func TestAccSecuremeshSiteV2Resource_segmentVRF(t *testing.T) {
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 
-	segmentName := os.Getenv("XCSH_TEST_SEGMENT_NAME")
-	if segmentName == "" {
-		t.Skip("XCSH_TEST_SEGMENT_NAME must name an existing system Segment")
-	}
-	rName := acctest.RandomName("tf-acc-test-smsite-v2-segment")
+	segmentName := acctest.CompactRandomName(20)
+	rName := acctest.CompactRandomName(20)
 	resourceName := "xcsh_securemesh_site_v2.test"
 
 	resource.Test(t, resource.TestCase{
@@ -212,6 +208,10 @@ func testAccSecuremeshSiteV2ResourceConfig_segmentVRF(name, segmentName string) 
 	return acctest.ConfigCompose(
 		acctest.ProviderConfig(),
 		fmt.Sprintf(`
+resource "xcsh_segment" "fixture" {
+  name = %[2]q
+  namespace = "system"
+}
 resource "xcsh_securemesh_site_v2" "test" {
   name      = %[1]q
   namespace = "system"
@@ -228,8 +228,8 @@ resource "xcsh_securemesh_site_v2" "test" {
 
   segment_vrf {
     segment_network {
-      name      = %[2]q
-      namespace = "system"
+      name      = xcsh_segment.fixture.name
+      namespace = xcsh_segment.fixture.namespace
     }
   }
 }

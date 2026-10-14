@@ -13,9 +13,10 @@ import (
 )
 
 func TestAccNatPolicyResource_basic(t *testing.T) {
-	t.Skip("Skipping: NAT policy requires site infrastructure - NAT policies can only be applied to existing F5XC sites with network connectivity")
+
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
+	acctest.RequireCustomerEdgeSite(t)
 
 	rName := acctest.RandomName("tf-acc-test-nat")
 	nsName := acctest.RandomName("tf-acc-test-ns")
@@ -30,7 +31,7 @@ func TestAccNatPolicyResource_basic(t *testing.T) {
 		CheckDestroy: acctest.CheckResourceDestroyed("xcsh_nat_policy"),
 		Steps: []resource.TestStep{
 			{
-				Config: testAccNatPolicyConfig_basic(nsName, rName),
+				Config: testAccNatPolicyConfig_basic(nsName, rName, acctest.ReadOnlySiteName()),
 				Check: resource.ComposeAggregateTestCheckFunc(
 					acctest.CheckResourceExists(resourceName),
 					resource.TestCheckResourceAttr(resourceName, "name", rName),
@@ -61,7 +62,7 @@ func testAccNatPolicyImportStateIdFunc(resourceName string) resource.ImportState
 	}
 }
 
-func testAccNatPolicyConfig_basic(nsName, name string) string {
+func testAccNatPolicyConfig_basic(nsName, name, siteName string) string {
 	return acctest.ConfigCompose(
 		acctest.ProviderConfig(),
 		fmt.Sprintf(`
@@ -74,23 +75,43 @@ resource "time_sleep" "wait_for_namespace" {
   create_duration = "5s"
 }
 
+resource "xcsh_virtual_network" "fixture" {
+ name = "%[2]s-network"
+ namespace = "system"
+ global_network = {}
+}
 resource "xcsh_nat_policy" "test" {
   depends_on = [time_sleep.wait_for_namespace]
   name       = %[2]q
   namespace  = xcsh_namespace.test.name
 
+  site {
+    refs {
+ name = %[3]q
+ namespace = "system"
+}
+  }
   rules {
     name = "rule1"
+    enable = {}
+    virtual_network {
+      refs {
+        name = xcsh_virtual_network.fixture.name
+        namespace = xcsh_virtual_network.fixture.namespace
+      }
+    }
 
     criteria {
-      source_cidr = ["10.0.0.0/8"]
+      source_cidr = ["192.0.2.0/24"]
       any = {}
     }
 
     action {
-      virtual_cidr = "100.64.0.0/10"
+      dynamic_pool {
+        pools { prefixes = ["198.51.100.0/24"] }
+      }
     }
   }
 }
-`, nsName, name))
+`, nsName, name, siteName))
 }

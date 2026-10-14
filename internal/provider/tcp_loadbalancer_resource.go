@@ -2406,6 +2406,37 @@ func (r *TCPLoadBalancerResource) ValidateConfig(ctx context.Context, req resour
 		)
 	}
 
+	if data.ActiveServicePolicies != nil && !data.NoServicePolicies.IsNull() && !data.NoServicePolicies.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(path.Root("active_service_policies"), "Conflicting Configuration", "active_service_policies and no_service_policies are mutually exclusive.")
+	}
+	if data.ActiveServicePolicies != nil && !data.ServicePoliciesFromNamespace.IsNull() && !data.ServicePoliciesFromNamespace.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(path.Root("active_service_policies"), "Conflicting Configuration", "active_service_policies and service_policies_from_namespace are mutually exclusive.")
+	}
+	if data.AdvertiseCustom != nil && data.AdvertiseOnPublic != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("advertise_custom"), "Conflicting Configuration", "advertise_custom and advertise_on_public are mutually exclusive.")
+	}
+	if data.AdvertiseCustom != nil && !data.AdvertiseOnPublicDefaultVIP.IsNull() && !data.AdvertiseOnPublicDefaultVIP.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(path.Root("advertise_custom"), "Conflicting Configuration", "advertise_custom and advertise_on_public_default_vip are mutually exclusive.")
+	}
+	if data.AdvertiseCustom != nil && !data.DoNotAdvertise.IsNull() && !data.DoNotAdvertise.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(path.Root("advertise_custom"), "Conflicting Configuration", "advertise_custom and do_not_advertise are mutually exclusive.")
+	}
+	if data.AdvertiseOnPublic != nil && !data.AdvertiseOnPublicDefaultVIP.IsNull() && !data.AdvertiseOnPublicDefaultVIP.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(path.Root("advertise_on_public"), "Conflicting Configuration", "advertise_on_public and advertise_on_public_default_vip are mutually exclusive.")
+	}
+	if data.AdvertiseOnPublic != nil && !data.DoNotAdvertise.IsNull() && !data.DoNotAdvertise.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(path.Root("advertise_on_public"), "Conflicting Configuration", "advertise_on_public and do_not_advertise are mutually exclusive.")
+	}
+	if !data.TCP.IsNull() && !data.TCP.IsUnknown() && data.TLSTCP != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("tcp"), "Conflicting Configuration", "tcp and tls_tcp are mutually exclusive.")
+	}
+	if !data.TCP.IsNull() && !data.TCP.IsUnknown() && data.TLSTCPAutoCert != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("tcp"), "Conflicting Configuration", "tcp and tls_tcp_auto_cert are mutually exclusive.")
+	}
+	if data.TLSTCP != nil && data.TLSTCPAutoCert != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("tls_tcp"), "Conflicting Configuration", "tls_tcp and tls_tcp_auto_cert are mutually exclusive.")
+	}
+
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan

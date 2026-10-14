@@ -1,0 +1,509 @@
+{
+  "version": 1,
+  "runs": [
+    {
+      "version": 1,
+      "run": 38367835256,
+      "total": 11,
+      "passed": 8,
+      "failed": 2,
+      "skipped": 1,
+      "stream_completeness": {
+        "complete": false,
+        "events": 186,
+        "malformed_lines": 0,
+        "invalid_events": 0,
+        "scanner_error": false,
+        "incomplete_tests": 0,
+        "incomplete_packages": 0,
+        "package_failures": 1
+      },
+      "cleanup": {
+        "version": 1,
+        "journal_sha256": "4ae74450701e5618864116e65c1268d3b1bb316fd2fe652cd86e5c0a7b1105f4",
+        "complete": true,
+        "owned": 11,
+        "confirmed_absent": 11,
+        "failures": 0,
+        "second_pass_remaining": 0
+      },
+      "tests": [
+        {
+          "name": "TestAccAddressAllocatorDataSource_basic",
+          "status": "pass",
+          "prerequisites": [
+            {
+              "outcome": "tested",
+              "method": "POST",
+              "resource_type": "xcsh_address_allocator"
+            }
+          ]
+        },
+        {
+          "name": "TestAccCertificateChainDataSource_basic",
+          "status": "pass",
+          "prerequisites": [
+            {
+              "outcome": "tested",
+              "method": "POST",
+              "resource_type": "xcsh_certificate_chain"
+            }
+          ]
+        },
+        {
+          "name": "TestAccCertificateDataSource_basic",
+          "status": "pass",
+          "prerequisites": [
+            {
+              "outcome": "tested",
+              "method": "POST",
+              "resource_type": "xcsh_certificate"
+            }
+          ]
+        },
+        {
+          "name": "TestAccExternalConnectorResource_basic",
+          "status": "skip",
+          "prerequisites": [
+            {
+              "outcome": "operation_denied",
+              "method": "POST",
+              "resource_type": "xcsh_external_connector",
+              "http_status": 403
+            }
+          ]
+        },
+        {
+          "name": "TestAccFastAclDataSource_basic",
+          "status": "pass",
+          "prerequisites": [
+            {
+              "outcome": "tested",
+              "method": "POST",
+              "resource_type": "xcsh_fast_acl"
+            }
+          ]
+        },
+        {
+          "name": "TestAccFastAclRuleDataSource_basic",
+          "status": "pass",
+          "prerequisites": [
+            {
+              "outcome": "tested",
+              "method": "POST",
+              "resource_type": "xcsh_fast_acl_rule"
+            }
+          ]
+        },
+        {
+          "name": "TestAccForwardingClassDataSource_basic",
+          "status": "fail",
+          "failure_fingerprint": {
+            "class": "server_error",
+            "summary": "Create request failed",
+            "http_status": 500,
+            "source_location": "forwarding_class_data_source_test.go:16"
+          },
+          "prerequisites": [
+            {
+              "outcome": "tested",
+              "method": "POST",
+              "resource_type": "xcsh_forwarding_class"
+            }
+          ]
+        },
+        {
+          "name": "TestAccForwardingClassResource_basic",
+          "status": "fail",
+          "failure_fingerprint": {
+            "class": "server_error",
+            "summary": "Create request failed",
+            "http_status": 500,
+            "source_location": "forwarding_class_resource_test.go:27"
+          },
+          "prerequisites": [
+            {
+              "outcome": "tested",
+              "method": "POST",
+              "resource_type": "xcsh_forwarding_class"
+            }
+          ]
+        },
+        {
+          "name": "TestAccNetworkPolicyDataSource_basic",
+          "status": "pass",
+          "prerequisites": [
+            {
+              "outcome": "tested",
+              "method": "POST",
+              "resource_type": "xcsh_network_policy"
+            }
+          ]
+        },
+        {
+          "name": "TestAccServicePolicyRuleDataSource_basic",
+          "status": "pass",
+          "prerequisites": [
+            {
+              "outcome": "tested",
+              "method": "POST",
+              "resource_type": "xcsh_service_policy_rule"
+            }
+          ]
+        },
+        {
+          "name": "TestAccWorkloadFlavorDataSource_basic",
+          "status": "pass",
+          "prerequisites": [
+            {
+              "outcome": "tested",
+              "method": "POST",
+              "resource_type": "xcsh_workload_flavor"
+            }
+          ]
+        }
+      ],
+      "artifacts_sha256": {
+        "real-tests.json": "2ca45236899dc325d7531b2f1481058744cbdb09b1ef4b70bce59811cc4d9332",
+        "real-tests.md": "24605c0d1607bd2c605f18ab755397c54a34df5d6b131a1d51105ce666bd970e",
+        "cleanup.json": "58e149bfd8cded88e915c82a1c4ce4d92667be9e4e826bcac8ed4fc00d581830"
+      }
+    },
+    {
+      "version": 1,
+      "run": 38372316837,
+      "total": 3,
+      "passed": 2,
+      "failed": 1,
+      "skipped": 0,
+      "stream_completeness": {
+        "complete": false,
+        "events": 68,
+        "malformed_lines": 0,
+        "invalid_events": 0,
+        "scanner_error": false,
+        "incomplete_tests": 0,
+        "incomplete_packages": 0,
+        "package_failures": 1
+      },
+      "cleanup": {
+        "version": 1,
+        "journal_sha256": "b4297396861825ad430f7b4ffe1f1dd5ac56b37fce4e6776398b9c218919ddf7",
+        "complete": true,
+        "owned": 5,
+        "confirmed_absent": 5,
+        "failures": 0,
+        "second_pass_remaining": 0
+      },
+      "tests": [
+        {
+          "name": "TestAccNetworkPolicyViewDataSource_basic",
+          "status": "pass",
+          "prerequisites": [
+            {
+              "outcome": "tested",
+              "method": "POST",
+              "resource_type": "xcsh_network_policy_view"
+            }
+          ]
+        },
+        {
+          "name": "TestAccRouteDataSource_basic",
+          "status": "fail",
+          "failure_fingerprint": {
+            "class": "framework_diagnostic",
+            "summary": "Provider produced inconsistent result after apply",
+            "source_location": "route_data_source_test.go:16",
+            "schema_fields": ["routes.disable_location_add", "routes.match.http_method"]
+          },
+          "prerequisites": [
+            {
+              "outcome": "tested",
+              "method": "POST",
+              "resource_type": "xcsh_route"
+            }
+          ]
+        },
+        {
+          "name": "TestAccUdpLoadbalancerDataSource_basic",
+          "status": "pass",
+          "prerequisites": [
+            {
+              "outcome": "tested",
+              "method": "POST",
+              "resource_type": "xcsh_origin_pool"
+            },
+            {
+              "outcome": "tested",
+              "method": "POST",
+              "resource_type": "xcsh_udp_loadbalancer"
+            }
+          ]
+        }
+      ],
+      "artifacts_sha256": {
+        "real-tests.json": "92e28db0cef6aaafa6a170315529e369c191be24b76e514d870f4e7d68bd923f",
+        "real-tests.md": "85b65aa2a063337f18a6b9d57f56178a73558ffad0bcff137566e4c5959bd14d",
+        "cleanup.json": "32a3e960ef7fb2d483929352e5e80d264eea2c160f792f0b588f51205736d444"
+      }
+    },
+    {
+      "version": 1,
+      "run": 38373662888,
+      "total": 1,
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0,
+      "stream_completeness": {
+        "complete": true,
+        "events": 18,
+        "malformed_lines": 0,
+        "invalid_events": 0,
+        "scanner_error": false,
+        "incomplete_tests": 0,
+        "incomplete_packages": 0,
+        "package_failures": 0
+      },
+      "cleanup": {
+        "version": 1,
+        "journal_sha256": "c51a05bcbd5efa6cc9f5f80af394433ea138f986efa06908c1cb07c3ffee1573",
+        "complete": true,
+        "owned": 2,
+        "confirmed_absent": 2,
+        "failures": 0,
+        "second_pass_remaining": 0
+      },
+      "tests": [
+        {
+          "name": "TestAccRouteDataSource_basic",
+          "status": "pass",
+          "prerequisites": [
+            {
+              "outcome": "tested",
+              "method": "POST",
+              "resource_type": "xcsh_route"
+            }
+          ]
+        }
+      ],
+      "artifacts_sha256": {
+        "real-tests.json": "21943d0f55c9e5a0157de727302d6e0b15d07cdb9bfe127cb3737ff6b1e03430",
+        "real-tests.md": "7cda697b844cf0841913af55fcf1968d6ba4d79bc0d848c913332436ce972ace",
+        "cleanup.json": "1341f42447fac9024bf256106a366936b531585f4cbcd20ab99274a74d54b1c3"
+      }
+    },
+    {
+      "version": 1,
+      "run": 38381631574,
+      "total": 3,
+      "passed": 0,
+      "failed": 1,
+      "skipped": 2,
+      "stream_completeness": {
+        "complete": false,
+        "events": 51,
+        "malformed_lines": 0,
+        "invalid_events": 0,
+        "scanner_error": false,
+        "incomplete_tests": 0,
+        "incomplete_packages": 0,
+        "package_failures": 1
+      },
+      "cleanup": {
+        "version": 1,
+        "journal_sha256": "209bbc08313bb3d7cdef1707bc053bcf8adec33de16e3640f986958b27c35ccf",
+        "complete": true,
+        "owned": 2,
+        "confirmed_absent": 2,
+        "failures": 0,
+        "second_pass_remaining": 0
+      },
+      "tests": [
+        {
+          "name": "TestAccForwardingClassDataSource_basic",
+          "status": "skip",
+          "prerequisites": [
+            {
+              "outcome": "quota_unconfigured",
+              "method": "GET",
+              "resource_type": "xcsh_forwarding_class"
+            }
+          ]
+        },
+        {
+          "name": "TestAccForwardingClassResource_basic",
+          "status": "skip",
+          "prerequisites": [
+            {
+              "outcome": "quota_unconfigured",
+              "method": "GET",
+              "resource_type": "xcsh_forwarding_class"
+            }
+          ]
+        },
+        {
+          "name": "TestAccGlobalLogReceiverDataSource_basic",
+          "status": "fail",
+          "failure_fingerprint": {
+            "class": "rate_limit",
+            "summary": "Create request failed",
+            "http_status": 429,
+            "source_location": "global_log_receiver_data_source_test.go:16"
+          },
+          "prerequisites": [
+            {
+              "outcome": "tested",
+              "method": "POST",
+              "resource_type": "xcsh_global_log_receiver"
+            }
+          ]
+        }
+      ],
+      "artifacts_sha256": {
+        "real-tests.json": "689484eb9a3107d1bf69b2786c24281e3a12c58776f5906aa307c8c898e1abfd",
+        "real-tests.md": "c8adf8f5d6a1bcdf433dc72c44e744dd53be9f70b5eafa27c196f5adc87fa208",
+        "cleanup.json": "f29fd14ed8e4c698b313ece34cd284640095737dd0e7dc40d63fd0098e4a6d11"
+      }
+    },
+    {
+      "version": 1,
+      "run": 38384379873,
+      "total": 5,
+      "passed": 0,
+      "failed": 2,
+      "skipped": 3,
+      "stream_completeness": {
+        "complete": false,
+        "events": 113,
+        "malformed_lines": 0,
+        "invalid_events": 0,
+        "scanner_error": false,
+        "incomplete_tests": 652,
+        "incomplete_packages": 0,
+        "package_failures": 1
+      },
+      "cleanup": {
+        "version": 1,
+        "journal_sha256": "c868b69ffbd1c8d91e554e97db04207cac8bfb9783256f14bdb218bbcc9a7557",
+        "complete": true,
+        "owned": 7,
+        "confirmed_absent": 7,
+        "failures": 0,
+        "second_pass_remaining": 0
+      },
+      "tests": [
+        {
+          "name": "TestAccAPICrawlerResource_basic",
+          "status": "skip",
+          "prerequisites": [
+            {
+              "outcome": "quota_exhausted",
+              "method": "POST",
+              "resource_type": "xcsh_api_crawler",
+              "http_status": 429
+            }
+          ]
+        },
+        {
+          "name": "TestAccCRLResource_basic",
+          "status": "skip",
+          "prerequisites": [
+            {
+              "outcome": "quota_exhausted",
+              "method": "POST",
+              "resource_type": "xcsh_crl",
+              "http_status": 429
+            }
+          ]
+        },
+        {
+          "name": "TestAccContainerRegistryDataSource_basic",
+          "status": "skip",
+          "prerequisites": [
+            {
+              "outcome": "quota_exhausted",
+              "method": "POST",
+              "resource_type": "xcsh_container_registry",
+              "http_status": 429
+            }
+          ]
+        },
+        {
+          "name": "TestAccSecuremeshSiteV2Resource_segmentVRF",
+          "status": "fail",
+          "failure_fingerprint": {
+            "class": "http_error",
+            "summary": "Create request failed",
+            "http_status": 400,
+            "source_location": "securemesh_site_v2_resource_test.go:142",
+            "diagnostic_facts": ["namespace_constraint"],
+            "schema_fields": [
+              "active_enhanced_firewall_policies.enhanced_firewall_policies.namespace",
+              "active_forward_proxy_policies.forward_proxy_policies.namespace",
+              "blocked_services.blocked_service.dns",
+              "dc_cluster_group_sli.namespace",
+              "dc_cluster_group_slo.namespace",
+              "local_vrf.sli_config.static_routes.static_routes.node_interface.list.interface.namespace",
+              "local_vrf.sli_config.static_v6_routes.static_routes.node_interface.list.interface.namespace",
+              "local_vrf.slo_config.static_routes.static_routes.node_interface.list.interface.namespace",
+              "local_vrf.slo_config.static_v6_routes.static_routes.node_interface.list.interface.namespace",
+              "log_receiver_with_net.log_receiver.namespace",
+              "namespace",
+              "segment_vrf.segment_config.static_routes.static_routes.node_interface.list.interface.namespace",
+              "segment_vrf.segment_config.static_v6_routes.static_routes.node_interface.list.interface.namespace",
+              "segment_vrf.segment_network.namespace",
+              "site_mesh_group_on_slo.site_mesh_group.namespace"
+            ]
+          },
+          "prerequisites": [
+            {
+              "outcome": "tested",
+              "method": "POST",
+              "resource_type": "xcsh_segment"
+            },
+            {
+              "outcome": "tested",
+              "method": "POST",
+              "resource_type": "xcsh_securemesh_site_v2"
+            }
+          ]
+        },
+        {
+          "name": "TestAccSiteMeshGroupResource_fullMesh",
+          "status": "fail",
+          "failure_fingerprint": {
+            "class": "server_error",
+            "summary": "Create request failed",
+            "http_status": 500,
+            "source_location": "site_mesh_group_resource_test.go:100"
+          },
+          "prerequisites": [
+            {
+              "outcome": "tested",
+              "method": "POST",
+              "resource_type": "xcsh_site_mesh_group"
+            },
+            {
+              "outcome": "infrastructure_verified",
+              "method": "GET",
+              "resource_type": "virtual_site"
+            }
+          ]
+        }
+      ],
+      "artifacts_sha256": {
+        "real-tests.json": "2e3edb3dfd239a588f7b6cc22ade39da58c76d38b3ae024991c6b2e508280488",
+        "real-tests.md": "251fac55b55f2d6db6eee5ae4ee1818a0af9a490a02066ce05cd80baaed90798",
+        "cleanup.json": "98f5e38eef92f9b045d396c07b90b040aaf01f85e51312a186f5b1df3ec8d3ed"
+      },
+      "segment_reference_facts": {
+        "name_length": 20,
+        "name_present": true,
+        "namespace_system": true,
+        "valid_characters": true
+      },
+      "qualification": false,
+      "qualification_limit": "Diagnostic branch selected five tests but retained the full expected inventory; completeness correctly failed."
+    }
+  ]
+}

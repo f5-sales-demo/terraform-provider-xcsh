@@ -1,0 +1,65 @@
+{
+  "version": 1,
+  "run": 38354877326,
+  "total": 3,
+  "passed": 2,
+  "failed": 1,
+  "skipped": 0,
+  "stream_completeness": {
+    "complete": false,
+    "events": 33,
+    "malformed_lines": 0,
+    "invalid_events": 0,
+    "scanner_error": false,
+    "incomplete_tests": 0,
+    "incomplete_packages": 0,
+    "package_failures": 1
+  },
+  "tests": [
+    {
+      "name": "TestAccAPIDefinitionDiagnostic",
+      "status": "pass"
+    },
+    {
+      "name": "TestAccAPIDefinitionResource_basic",
+      "status": "pass",
+      "prerequisites": [
+        {
+          "outcome": "tested",
+          "method": "POST",
+          "resource_type": "xcsh_api_definition"
+        }
+      ]
+    },
+    {
+      "name": "TestAccSiteMeshGroupResource_fullMesh",
+      "status": "fail",
+      "prerequisites": [
+        {
+          "outcome": "tested",
+          "method": "POST",
+          "resource_type": "xcsh_site_mesh_group"
+        }
+      ],
+      "failure_fingerprint": {
+        "class": "unclassified",
+        "source_location": "site_mesh_group_resource_test.go:99"
+      }
+    }
+  ],
+  "cleanup": {
+    "version": 1,
+    "journal_sha256": "d105498770647e398d6489f8605601f7df248b2f6f59d643653eb00b68a6377f",
+    "complete": true,
+    "owned": 8,
+    "confirmed_absent": 8,
+    "failures": 0,
+    "second_pass_remaining": 0
+  },
+  "complete": false,
+  "artifacts_sha256": {
+    "real-tests.json": "5fe1d5bff76b15ba58a8609c0ef312b8a6f67b9fd0a7222e9339b7bb0f47eb0a",
+    "real-tests.md": "17d9e2186b4e33c974bce4338e875fdbb1b7ef60dcab31ab43cca65516160713",
+    "cleanup.json": "212ab838c8628dbdf4a4ddef80611e53d04c56089f931ed0cbc04ed9144fe305"
+  }
+}

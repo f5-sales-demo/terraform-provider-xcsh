@@ -78,7 +78,7 @@ resource "xcsh_irule" "test" {
   name             = %[2]q
   namespace        = xcsh_namespace.test.name
   description_spec = "Acceptance test iRule"
-  irule            = "when DNS_REQUEST { DNS::drop }"
+  irule            = base64encode("when DNS_REQUEST { DNS::drop }")
 }
 `, nsName, name))
 }

@@ -349,6 +349,7 @@ resource "xcsh_service_policy_rule" "test" {
   waf_action {
     none = {}
   }
+  action = "DENY"
 }
 `, name))
 }
@@ -377,6 +378,7 @@ resource "xcsh_service_policy_rule" "test" {
     purpose = "acceptance-testing"
     owner   = "ci-cd"
   }
+  action = "DENY"
 }
 `, name, description))
 }
@@ -413,6 +415,7 @@ resource "xcsh_service_policy_rule" "test" {
   waf_action {
     none = {}
   }
+  action = "DENY"
 }
 `, name, description))
 }
@@ -435,6 +438,7 @@ resource "xcsh_service_policy_rule" "test" {
     environment = %[2]q
     managed_by  = %[3]q
   }
+  action = "DENY"
 }
 `, name, environment, managedBy))
 }

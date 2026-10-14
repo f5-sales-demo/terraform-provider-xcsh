@@ -298,6 +298,16 @@ func (r *ForwardingClassResource) ValidateConfig(ctx context.Context, req resour
 		)
 	}
 
+	if data.Dscp != nil && !data.NoMarking.IsNull() && !data.NoMarking.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(path.Root("dscp"), "Conflicting Configuration", "dscp and no_marking are mutually exclusive.")
+	}
+	if data.Dscp != nil && !data.TosValue.IsNull() && !data.TosValue.IsUnknown() {
+		resp.Diagnostics.AddAttributeError(path.Root("dscp"), "Conflicting Configuration", "dscp and tos_value are mutually exclusive.")
+	}
+	if !data.NoPolicer.IsNull() && !data.NoPolicer.IsUnknown() && data.Policer != nil {
+		resp.Diagnostics.AddAttributeError(path.Root("no_policer"), "Conflicting Configuration", "no_policer and policer are mutually exclusive.")
+	}
+
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan
