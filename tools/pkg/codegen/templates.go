@@ -295,7 +295,7 @@ func (r *{{.TitleCase}}Resource) ValidateConfig(ctx context.Context, req resourc
 		return
 	}
 {{- if eq .Name "app_firewall"}}
- if data.BlockingPage != nil && !data.UseDefaultBlockingPage.IsNull() && !data.UseDefaultBlockingPage.IsUnknown() {
+ if req.Config.Raw.IsFullyKnown() && validators.ConfiguredObject(ctx, req.Config, path.Root("blocking_page"), &resp.Diagnostics) && !data.UseDefaultBlockingPage.IsNull() && !data.UseDefaultBlockingPage.IsUnknown() {
   resp.Diagnostics.AddAttributeError(path.Root("blocking_page"), "Conflicting Configuration", "blocking_page and use_default_blocking_page are mutually exclusive.")
  }
 {{- end}}
@@ -323,7 +323,12 @@ func (r *{{.TitleCase}}Resource) ValidateConfig(ctx context.Context, req resourc
 {{- end}}
 {{- $rootConflicts := renderRootBlockConflicts .Attributes}}
 {{- if $rootConflicts}}
+ // Unresolved empty dynamic alternatives arrive as known all-null objects.
+ // Validate again during planning, after resource expansion, rather than
+ // treating those synthetic alternatives as two user-selected blocks.
+ if req.Config.Raw.IsFullyKnown() {
 {{$rootConflicts}}
+ }
 {{- end}}
 {{- if eq .Name "securemesh_site_v2"}}
 	validateSecuremeshSiteV2AWSContract(ctx, data, resp)
@@ -365,6 +370,24 @@ func (r *{{.TitleCase}}Resource) ModifyPlan(ctx context.Context, req resource.Mo
 		)
 		return
 	}
+{{- if or $rootConflicts (eq .Name "app_firewall")}}
+ {
+  // Always enforce known configured choices while planning, even when an
+  // unrelated attribute remains unknown. Never inspect API-added defaults.
+  var data {{.TitleCase}}ResourceModel
+  resp.Diagnostics.Append(req.Config.Get(ctx, &data)...)
+  if resp.Diagnostics.HasError() { return }
+{{- if eq .Name "app_firewall"}}
+  if validators.ConfiguredObject(ctx, req.Config, path.Root("blocking_page"), &resp.Diagnostics) && !data.UseDefaultBlockingPage.IsNull() && !data.UseDefaultBlockingPage.IsUnknown() {
+   resp.Diagnostics.AddAttributeError(path.Root("blocking_page"), "Conflicting Configuration", "blocking_page and use_default_blocking_page are mutually exclusive.")
+  }
+{{- end}}
+{{- if $rootConflicts}}
+{{$rootConflicts}}
+{{- end}}
+  if resp.Diagnostics.HasError() { return }
+ }
+{{- end}}
 
  if req.State.Raw.IsNull() {
  {{- if .ImmutableOneOfGroups}}

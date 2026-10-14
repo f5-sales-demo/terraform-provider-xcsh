@@ -48,7 +48,10 @@ func RenderRootBlockConflicts(attributes []openapi.TerraformAttribute) string {
 	sort.Slice(keys, func(i, j int) bool { return keys[i][0]+"/"+keys[i][1] < keys[j][0]+"/"+keys[j][1] })
 	configured := func(attribute openapi.TerraformAttribute) string {
 		if attribute.IsBlock {
-			return fmt.Sprintf("data.%s != nil", attribute.GoName)
+			if attribute.NestedBlockType == "list" {
+				return fmt.Sprintf("validators.ConfiguredList(ctx, req.Config, path.Root(%q), &resp.Diagnostics)", attribute.TfsdkTag)
+			}
+			return fmt.Sprintf("validators.ConfiguredObject(ctx, req.Config, path.Root(%q), &resp.Diagnostics)", attribute.TfsdkTag)
 		}
 		return fmt.Sprintf("!data.%s.IsNull() && !data.%s.IsUnknown()", attribute.GoName, attribute.GoName)
 	}

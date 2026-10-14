@@ -45,6 +45,32 @@ func TestProtectedDomainGeneratorVerificationPersists(t *testing.T) {
 	}
 }
 
+func TestRootBlockConflictsDeferValidationButBackstopPlanning(t *testing.T) {
+	r := &openapi.ResourceTemplate{Name: "synthetic", TitleCase: "Synthetic", Attributes: []openapi.TerraformAttribute{
+		{GoName: "Name", TfsdkTag: "name", Type: "string", Required: true},
+		{GoName: "Left", TfsdkTag: "left", IsBlock: true, NestedBlockType: "single", OneOfGroup: "choice"},
+		{GoName: "Right", TfsdkTag: "right", IsBlock: true, NestedBlockType: "single", OneOfGroup: "choice"},
+	}}
+	dir := t.TempDir()
+	if err := GenerateResourceFile(r, dir); err != nil {
+		t.Fatal(err)
+	}
+	body, err := os.ReadFile(filepath.Join(dir, "synthetic_resource.go"))
+	if err != nil {
+		t.Fatal(err)
+	}
+	text := string(body)
+	start := strings.Index(text, "func (r *SyntheticResource) ValidateConfig")
+	end := strings.Index(text, "func (r *SyntheticResource) ModifyPlan")
+	if !strings.Contains(text[start:end], "if req.Config.Raw.IsFullyKnown()") {
+		t.Fatal("unresolved validation must defer ambiguous empty alternatives")
+	}
+	planned := text[end : strings.Index(text[end:], "func (r *SyntheticResource) Create")+end]
+	if strings.Contains(planned, "IsFullyKnown()") || !strings.Contains(planned, `validators.ConfiguredObject(ctx, req.Config, path.Root("left"), &resp.Diagnostics)`) || !strings.Contains(planned, "Conflicting Configuration") {
+		t.Fatal("planning must reject known conflicting selections despite unrelated unknowns")
+	}
+}
+
 func TestWAFGeneratorRejectsExplicitBlockingPageConflict(t *testing.T) {
 	r := &openapi.ResourceTemplate{Name: "app_firewall", TitleCase: "AppFirewall"}
 	dir := t.TempDir()
@@ -55,7 +81,7 @@ func TestWAFGeneratorRejectsExplicitBlockingPageConflict(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	if !strings.Contains(string(body), "data.BlockingPage != nil && !data.UseDefaultBlockingPage.IsNull()") {
+	if !strings.Contains(string(body), `validators.ConfiguredObject(ctx, req.Config, path.Root("blocking_page"), &resp.Diagnostics) && !data.UseDefaultBlockingPage.IsNull()`) {
 		t.Fatal("mixed marker/block conflict missing")
 	}
 }
