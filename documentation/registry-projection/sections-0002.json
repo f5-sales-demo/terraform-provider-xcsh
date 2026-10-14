@@ -4119,9 +4119,9 @@
     {
       "canonical_id": "xcsh-docs:resources:app_firewall:example:detection-settings",
       "section_id": "xcsh-docs:resources:app_firewall:example:detection-settings:section:0",
-      "source_sha256": "sha256:db2012cf2ad4fb3087ff2ba4f7c17b68f3ed120a7ed12751c0e7edc68b51cb21",
-      "source_bytes": 1473,
-      "canonical_source_sha256": "sha256:db2012cf2ad4fb3087ff2ba4f7c17b68f3ed120a7ed12751c0e7edc68b51cb21",
+      "source_sha256": "sha256:2b74b104051a4283fba9ee5ae6b9635b3169adf990e82835969e6d2eb360a076",
+      "source_bytes": 1462,
+      "canonical_source_sha256": "sha256:2b74b104051a4283fba9ee5ae6b9635b3169adf990e82835969e6d2eb360a076",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/app_firewall/examples/detection-settings/",
       "anchor": "canonical-2021221133300300-1122033021031110-1100210202002123-3032001223103320-3110131122302213-3313032232122210-2333311101020021-3133113010310323",
       "anchor_map": [],

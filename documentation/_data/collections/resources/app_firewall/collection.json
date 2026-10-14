@@ -4714,8 +4714,8 @@
     },
     {
       "aliases": ["detection-settings"],
-      "body_bytes": 1473,
-      "body_sha256": "sha256:db2012cf2ad4fb3087ff2ba4f7c17b68f3ed120a7ed12751c0e7edc68b51cb21",
+      "body_bytes": 1462,
+      "body_sha256": "sha256:2b74b104051a4283fba9ee5ae6b9635b3169adf990e82835969e6d2eb360a076",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -4730,7 +4730,7 @@
       "evidence": {
         "attribution": "Acceptance-test-derived fixture; no new live API execution is claimed.",
         "outcome": "valid configuration",
-        "sha256": "sha256:50e5c6c8e8107cae5d8fe6c732ac501ab51251e38c9d54deab9761fd88fcb6f2",
+        "sha256": "sha256:8dfd23c184c15d1235eb2c949703ae26669c8f88a0eda5530bedf5a3bd8cfce2",
         "source_path": "examples/resources/xcsh_app_firewall/detection-settings.tf",
         "validation": "terraform validate"
       },
