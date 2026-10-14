@@ -68,7 +68,7 @@ func testAccExternalConnectorConfig_basic(nsName, name, siteName string) string 
 		fmt.Sprintf(`
 resource "xcsh_external_connector" "test" {
   name      = %[2]q
-  namespace = %[1]q
+  namespace = "system"
   ce_site_reference {
     name = %[3]q
     namespace = "system"

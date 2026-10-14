@@ -70,7 +70,7 @@ func testAccBGPConfig_basic(nsName, name, siteName string) string {
 		fmt.Sprintf(`
 resource "xcsh_bgp" "test" {
   name       = %[2]q
-  namespace  = %[1]q
+  namespace  = "system"
 
   bgp_parameters {
     asn = 65000

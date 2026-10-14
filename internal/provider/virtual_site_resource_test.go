@@ -658,7 +658,7 @@ func testAccVirtualSiteResourceConfig_basic(nsName, name string) string {
 		fmt.Sprintf(`
 resource "xcsh_virtual_site" "test" {
   name       = %[2]q
-  namespace  = %[1]q
+  namespace  = "system"
 
   labels = {
     environment = "test"
@@ -680,7 +680,7 @@ func testAccVirtualSiteResourceConfig_allAttributes(nsName, name, description st
 		fmt.Sprintf(`
 resource "xcsh_virtual_site" "test" {
   name        = %[2]q
-  namespace   = %[1]q
+  namespace   = "system"
   description = %[3]q
 
   labels = {
@@ -708,7 +708,7 @@ func testAccVirtualSiteResourceConfig_withLabels(nsName, name, environment, mana
 		fmt.Sprintf(`
 resource "xcsh_virtual_site" "test" {
   name       = %[2]q
-  namespace  = %[1]q
+  namespace  = "system"
 
   labels = {
     environment = %[3]q
@@ -730,7 +730,7 @@ func testAccVirtualSiteResourceConfig_withDescription(nsName, name, description 
 		fmt.Sprintf(`
 resource "xcsh_virtual_site" "test" {
   name        = %[2]q
-  namespace   = %[1]q
+  namespace   = "system"
   description = %[3]q
 
   labels = {
@@ -753,7 +753,7 @@ func testAccVirtualSiteResourceConfig_withAnnotations(nsName, name, value1, valu
 		fmt.Sprintf(`
 resource "xcsh_virtual_site" "test" {
   name       = %[2]q
-  namespace  = %[1]q
+  namespace  = "system"
 
   labels = {
     environment = "test"
@@ -780,7 +780,7 @@ func testAccVirtualSiteResourceConfig_withSiteSelector(nsName, name, expression 
 		fmt.Sprintf(`
 resource "xcsh_virtual_site" "test" {
   name       = %[2]q
-  namespace  = %[1]q
+  namespace  = "system"
 
   labels = {
     environment = "test"
