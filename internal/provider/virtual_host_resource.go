@@ -3050,22 +3050,27 @@ func (r *VirtualHostResource) ValidateConfig(ctx context.Context, req resource.V
 		)
 	}
 
-	if data.Authentication != nil && !data.NoAuthentication.IsNull() && !data.NoAuthentication.IsUnknown() {
-		resp.Diagnostics.AddAttributeError(path.Root("authentication"), "Conflicting Configuration", "authentication and no_authentication are mutually exclusive.")
-	}
-	if data.CaptchaChallenge != nil && data.JsChallenge != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("captcha_challenge"), "Conflicting Configuration", "captcha_challenge and js_challenge are mutually exclusive.")
-	}
-	if data.CaptchaChallenge != nil && !data.NoChallenge.IsNull() && !data.NoChallenge.IsUnknown() {
-		resp.Diagnostics.AddAttributeError(path.Root("captcha_challenge"), "Conflicting Configuration", "captcha_challenge and no_challenge are mutually exclusive.")
-	}
-	if data.JsChallenge != nil && !data.NoChallenge.IsNull() && !data.NoChallenge.IsUnknown() {
-		resp.Diagnostics.AddAttributeError(path.Root("js_challenge"), "Conflicting Configuration", "js_challenge and no_challenge are mutually exclusive.")
-	}
-	if data.TLSCertParams != nil && data.TLSParameters != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("tls_cert_params"), "Conflicting Configuration", "tls_cert_params and tls_parameters are mutually exclusive.")
-	}
+	// Unresolved empty dynamic alternatives arrive as known all-null objects.
+	// Validate again during planning, after resource expansion, rather than
+	// treating those synthetic alternatives as two user-selected blocks.
+	if req.Config.Raw.IsFullyKnown() {
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("authentication"), &resp.Diagnostics) && !data.NoAuthentication.IsNull() && !data.NoAuthentication.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("authentication"), "Conflicting Configuration", "authentication and no_authentication are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("captcha_challenge"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("js_challenge"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("captcha_challenge"), "Conflicting Configuration", "captcha_challenge and js_challenge are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("captcha_challenge"), &resp.Diagnostics) && !data.NoChallenge.IsNull() && !data.NoChallenge.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("captcha_challenge"), "Conflicting Configuration", "captcha_challenge and no_challenge are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("js_challenge"), &resp.Diagnostics) && !data.NoChallenge.IsNull() && !data.NoChallenge.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("js_challenge"), "Conflicting Configuration", "js_challenge and no_challenge are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("tls_cert_params"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("tls_parameters"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("tls_cert_params"), "Conflicting Configuration", "tls_cert_params and tls_parameters are mutually exclusive.")
+		}
 
+	}
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan
@@ -3076,6 +3081,34 @@ func (r *VirtualHostResource) ModifyPlan(ctx context.Context, req resource.Modif
 			"This permanently deletes the virtual_host from F5 Distributed Cloud.",
 		)
 		return
+	}
+	{
+		// Always enforce known configured choices while planning, even when an
+		// unrelated attribute remains unknown. Never inspect API-added defaults.
+		var data VirtualHostResourceModel
+		resp.Diagnostics.Append(req.Config.Get(ctx, &data)...)
+		if resp.Diagnostics.HasError() {
+			return
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("authentication"), &resp.Diagnostics) && !data.NoAuthentication.IsNull() && !data.NoAuthentication.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("authentication"), "Conflicting Configuration", "authentication and no_authentication are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("captcha_challenge"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("js_challenge"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("captcha_challenge"), "Conflicting Configuration", "captcha_challenge and js_challenge are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("captcha_challenge"), &resp.Diagnostics) && !data.NoChallenge.IsNull() && !data.NoChallenge.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("captcha_challenge"), "Conflicting Configuration", "captcha_challenge and no_challenge are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("js_challenge"), &resp.Diagnostics) && !data.NoChallenge.IsNull() && !data.NoChallenge.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("js_challenge"), "Conflicting Configuration", "js_challenge and no_challenge are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("tls_cert_params"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("tls_parameters"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("tls_cert_params"), "Conflicting Configuration", "tls_cert_params and tls_parameters are mutually exclusive.")
+		}
+
+		if resp.Diagnostics.HasError() {
+			return
+		}
 	}
 
 	if req.State.Raw.IsNull() {

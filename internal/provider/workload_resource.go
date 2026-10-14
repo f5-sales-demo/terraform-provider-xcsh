@@ -20627,25 +20627,30 @@ func (r *WorkloadResource) ValidateConfig(ctx context.Context, req resource.Vali
 	if resp.Diagnostics.HasError() {
 		return
 	}
-	if data.Job != nil && data.Service != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("job"), "Conflicting Configuration", "job and service are mutually exclusive.")
-	}
-	if data.Job != nil && data.SimpleService != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("job"), "Conflicting Configuration", "job and simple_service are mutually exclusive.")
-	}
-	if data.Job != nil && data.StatefulService != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("job"), "Conflicting Configuration", "job and stateful_service are mutually exclusive.")
-	}
-	if data.Service != nil && data.SimpleService != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("service"), "Conflicting Configuration", "service and simple_service are mutually exclusive.")
-	}
-	if data.Service != nil && data.StatefulService != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("service"), "Conflicting Configuration", "service and stateful_service are mutually exclusive.")
-	}
-	if data.SimpleService != nil && data.StatefulService != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("simple_service"), "Conflicting Configuration", "simple_service and stateful_service are mutually exclusive.")
-	}
+	// Unresolved empty dynamic alternatives arrive as known all-null objects.
+	// Validate again during planning, after resource expansion, rather than
+	// treating those synthetic alternatives as two user-selected blocks.
+	if req.Config.Raw.IsFullyKnown() {
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("job"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("service"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("job"), "Conflicting Configuration", "job and service are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("job"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("simple_service"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("job"), "Conflicting Configuration", "job and simple_service are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("job"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("stateful_service"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("job"), "Conflicting Configuration", "job and stateful_service are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("service"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("simple_service"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("service"), "Conflicting Configuration", "service and simple_service are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("service"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("stateful_service"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("service"), "Conflicting Configuration", "service and stateful_service are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("simple_service"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("stateful_service"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("simple_service"), "Conflicting Configuration", "simple_service and stateful_service are mutually exclusive.")
+		}
 
+	}
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan
@@ -20656,6 +20661,37 @@ func (r *WorkloadResource) ModifyPlan(ctx context.Context, req resource.ModifyPl
 			"This permanently deletes the workload from F5 Distributed Cloud.",
 		)
 		return
+	}
+	{
+		// Always enforce known configured choices while planning, even when an
+		// unrelated attribute remains unknown. Never inspect API-added defaults.
+		var data WorkloadResourceModel
+		resp.Diagnostics.Append(req.Config.Get(ctx, &data)...)
+		if resp.Diagnostics.HasError() {
+			return
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("job"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("service"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("job"), "Conflicting Configuration", "job and service are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("job"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("simple_service"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("job"), "Conflicting Configuration", "job and simple_service are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("job"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("stateful_service"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("job"), "Conflicting Configuration", "job and stateful_service are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("service"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("simple_service"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("service"), "Conflicting Configuration", "service and simple_service are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("service"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("stateful_service"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("service"), "Conflicting Configuration", "service and stateful_service are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("simple_service"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("stateful_service"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("simple_service"), "Conflicting Configuration", "simple_service and stateful_service are mutually exclusive.")
+		}
+
+		if resp.Diagnostics.HasError() {
+			return
+		}
 	}
 
 	if req.State.Raw.IsNull() {

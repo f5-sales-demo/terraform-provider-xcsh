@@ -412,19 +412,24 @@ func (r *SiteMeshGroupResource) ValidateConfig(ctx context.Context, req resource
 		)
 	}
 
-	if !data.BfdDisabled.IsNull() && !data.BfdDisabled.IsUnknown() && data.BfdEnabled != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("bfd_disabled"), "Conflicting Configuration", "bfd_disabled and bfd_enabled are mutually exclusive.")
-	}
-	if data.FullMesh != nil && data.HubMesh != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("full_mesh"), "Conflicting Configuration", "full_mesh and hub_mesh are mutually exclusive.")
-	}
-	if data.FullMesh != nil && data.SpokeMesh != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("full_mesh"), "Conflicting Configuration", "full_mesh and spoke_mesh are mutually exclusive.")
-	}
-	if data.HubMesh != nil && data.SpokeMesh != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("hub_mesh"), "Conflicting Configuration", "hub_mesh and spoke_mesh are mutually exclusive.")
-	}
+	// Unresolved empty dynamic alternatives arrive as known all-null objects.
+	// Validate again during planning, after resource expansion, rather than
+	// treating those synthetic alternatives as two user-selected blocks.
+	if req.Config.Raw.IsFullyKnown() {
+		if !data.BfdDisabled.IsNull() && !data.BfdDisabled.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("bfd_enabled"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("bfd_disabled"), "Conflicting Configuration", "bfd_disabled and bfd_enabled are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("full_mesh"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("hub_mesh"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("full_mesh"), "Conflicting Configuration", "full_mesh and hub_mesh are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("full_mesh"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("spoke_mesh"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("full_mesh"), "Conflicting Configuration", "full_mesh and spoke_mesh are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("hub_mesh"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("spoke_mesh"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("hub_mesh"), "Conflicting Configuration", "hub_mesh and spoke_mesh are mutually exclusive.")
+		}
 
+	}
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan
@@ -435,6 +440,31 @@ func (r *SiteMeshGroupResource) ModifyPlan(ctx context.Context, req resource.Mod
 			"This permanently deletes the site_mesh_group from F5 Distributed Cloud.",
 		)
 		return
+	}
+	{
+		// Always enforce known configured choices while planning, even when an
+		// unrelated attribute remains unknown. Never inspect API-added defaults.
+		var data SiteMeshGroupResourceModel
+		resp.Diagnostics.Append(req.Config.Get(ctx, &data)...)
+		if resp.Diagnostics.HasError() {
+			return
+		}
+		if !data.BfdDisabled.IsNull() && !data.BfdDisabled.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("bfd_enabled"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("bfd_disabled"), "Conflicting Configuration", "bfd_disabled and bfd_enabled are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("full_mesh"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("hub_mesh"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("full_mesh"), "Conflicting Configuration", "full_mesh and hub_mesh are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("full_mesh"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("spoke_mesh"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("full_mesh"), "Conflicting Configuration", "full_mesh and spoke_mesh are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("hub_mesh"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("spoke_mesh"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("hub_mesh"), "Conflicting Configuration", "hub_mesh and spoke_mesh are mutually exclusive.")
+		}
+
+		if resp.Diagnostics.HasError() {
+			return
+		}
 	}
 
 	if req.State.Raw.IsNull() {

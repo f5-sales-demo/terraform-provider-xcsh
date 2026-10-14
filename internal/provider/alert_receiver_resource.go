@@ -1116,52 +1116,57 @@ func (r *AlertReceiverResource) ValidateConfig(ctx context.Context, req resource
 	if resp.Diagnostics.HasError() {
 		return
 	}
-	if data.Email != nil && data.Opsgenie != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("email"), "Conflicting Configuration", "email and opsgenie are mutually exclusive.")
-	}
-	if data.Email != nil && data.Pagerduty != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("email"), "Conflicting Configuration", "email and pagerduty are mutually exclusive.")
-	}
-	if data.Email != nil && data.Slack != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("email"), "Conflicting Configuration", "email and slack are mutually exclusive.")
-	}
-	if data.Email != nil && data.Sms != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("email"), "Conflicting Configuration", "email and sms are mutually exclusive.")
-	}
-	if data.Email != nil && data.Webhook != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("email"), "Conflicting Configuration", "email and webhook are mutually exclusive.")
-	}
-	if data.Opsgenie != nil && data.Pagerduty != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("opsgenie"), "Conflicting Configuration", "opsgenie and pagerduty are mutually exclusive.")
-	}
-	if data.Opsgenie != nil && data.Slack != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("opsgenie"), "Conflicting Configuration", "opsgenie and slack are mutually exclusive.")
-	}
-	if data.Opsgenie != nil && data.Sms != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("opsgenie"), "Conflicting Configuration", "opsgenie and sms are mutually exclusive.")
-	}
-	if data.Opsgenie != nil && data.Webhook != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("opsgenie"), "Conflicting Configuration", "opsgenie and webhook are mutually exclusive.")
-	}
-	if data.Pagerduty != nil && data.Slack != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("pagerduty"), "Conflicting Configuration", "pagerduty and slack are mutually exclusive.")
-	}
-	if data.Pagerduty != nil && data.Sms != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("pagerduty"), "Conflicting Configuration", "pagerduty and sms are mutually exclusive.")
-	}
-	if data.Pagerduty != nil && data.Webhook != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("pagerduty"), "Conflicting Configuration", "pagerduty and webhook are mutually exclusive.")
-	}
-	if data.Slack != nil && data.Sms != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("slack"), "Conflicting Configuration", "slack and sms are mutually exclusive.")
-	}
-	if data.Slack != nil && data.Webhook != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("slack"), "Conflicting Configuration", "slack and webhook are mutually exclusive.")
-	}
-	if data.Sms != nil && data.Webhook != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("sms"), "Conflicting Configuration", "sms and webhook are mutually exclusive.")
-	}
+	// Unresolved empty dynamic alternatives arrive as known all-null objects.
+	// Validate again during planning, after resource expansion, rather than
+	// treating those synthetic alternatives as two user-selected blocks.
+	if req.Config.Raw.IsFullyKnown() {
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("email"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("opsgenie"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("email"), "Conflicting Configuration", "email and opsgenie are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("email"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("pagerduty"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("email"), "Conflicting Configuration", "email and pagerduty are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("email"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("slack"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("email"), "Conflicting Configuration", "email and slack are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("email"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("sms"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("email"), "Conflicting Configuration", "email and sms are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("email"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("webhook"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("email"), "Conflicting Configuration", "email and webhook are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("opsgenie"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("pagerduty"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("opsgenie"), "Conflicting Configuration", "opsgenie and pagerduty are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("opsgenie"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("slack"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("opsgenie"), "Conflicting Configuration", "opsgenie and slack are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("opsgenie"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("sms"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("opsgenie"), "Conflicting Configuration", "opsgenie and sms are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("opsgenie"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("webhook"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("opsgenie"), "Conflicting Configuration", "opsgenie and webhook are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("pagerduty"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("slack"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("pagerduty"), "Conflicting Configuration", "pagerduty and slack are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("pagerduty"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("sms"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("pagerduty"), "Conflicting Configuration", "pagerduty and sms are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("pagerduty"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("webhook"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("pagerduty"), "Conflicting Configuration", "pagerduty and webhook are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("slack"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("sms"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("slack"), "Conflicting Configuration", "slack and sms are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("slack"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("webhook"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("slack"), "Conflicting Configuration", "slack and webhook are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("sms"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("webhook"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("sms"), "Conflicting Configuration", "sms and webhook are mutually exclusive.")
+		}
 
+	}
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan
@@ -1172,6 +1177,64 @@ func (r *AlertReceiverResource) ModifyPlan(ctx context.Context, req resource.Mod
 			"This permanently deletes the alert_receiver from F5 Distributed Cloud.",
 		)
 		return
+	}
+	{
+		// Always enforce known configured choices while planning, even when an
+		// unrelated attribute remains unknown. Never inspect API-added defaults.
+		var data AlertReceiverResourceModel
+		resp.Diagnostics.Append(req.Config.Get(ctx, &data)...)
+		if resp.Diagnostics.HasError() {
+			return
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("email"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("opsgenie"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("email"), "Conflicting Configuration", "email and opsgenie are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("email"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("pagerduty"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("email"), "Conflicting Configuration", "email and pagerduty are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("email"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("slack"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("email"), "Conflicting Configuration", "email and slack are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("email"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("sms"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("email"), "Conflicting Configuration", "email and sms are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("email"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("webhook"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("email"), "Conflicting Configuration", "email and webhook are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("opsgenie"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("pagerduty"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("opsgenie"), "Conflicting Configuration", "opsgenie and pagerduty are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("opsgenie"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("slack"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("opsgenie"), "Conflicting Configuration", "opsgenie and slack are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("opsgenie"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("sms"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("opsgenie"), "Conflicting Configuration", "opsgenie and sms are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("opsgenie"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("webhook"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("opsgenie"), "Conflicting Configuration", "opsgenie and webhook are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("pagerduty"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("slack"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("pagerduty"), "Conflicting Configuration", "pagerduty and slack are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("pagerduty"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("sms"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("pagerduty"), "Conflicting Configuration", "pagerduty and sms are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("pagerduty"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("webhook"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("pagerduty"), "Conflicting Configuration", "pagerduty and webhook are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("slack"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("sms"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("slack"), "Conflicting Configuration", "slack and sms are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("slack"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("webhook"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("slack"), "Conflicting Configuration", "slack and webhook are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("sms"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("webhook"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("sms"), "Conflicting Configuration", "sms and webhook are mutually exclusive.")
+		}
+
+		if resp.Diagnostics.HasError() {
+			return
+		}
 	}
 
 	if req.State.Raw.IsNull() {

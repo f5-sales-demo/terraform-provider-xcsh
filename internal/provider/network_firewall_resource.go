@@ -450,22 +450,27 @@ func (r *NetworkFirewallResource) ValidateConfig(ctx context.Context, req resour
 	if resp.Diagnostics.HasError() {
 		return
 	}
-	if data.ActiveEnhancedFirewallPolicies != nil && data.ActiveNetworkPolicies != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("active_enhanced_firewall_policies"), "Conflicting Configuration", "active_enhanced_firewall_policies and active_network_policies are mutually exclusive.")
-	}
-	if data.ActiveEnhancedFirewallPolicies != nil && !data.DisableNetworkPolicy.IsNull() && !data.DisableNetworkPolicy.IsUnknown() {
-		resp.Diagnostics.AddAttributeError(path.Root("active_enhanced_firewall_policies"), "Conflicting Configuration", "active_enhanced_firewall_policies and disable_network_policy are mutually exclusive.")
-	}
-	if data.ActiveFastAcls != nil && !data.DisableFastACL.IsNull() && !data.DisableFastACL.IsUnknown() {
-		resp.Diagnostics.AddAttributeError(path.Root("active_fast_acls"), "Conflicting Configuration", "active_fast_acls and disable_fast_acl are mutually exclusive.")
-	}
-	if data.ActiveForwardProxyPolicies != nil && !data.DisableForwardProxyPolicy.IsNull() && !data.DisableForwardProxyPolicy.IsUnknown() {
-		resp.Diagnostics.AddAttributeError(path.Root("active_forward_proxy_policies"), "Conflicting Configuration", "active_forward_proxy_policies and disable_forward_proxy_policy are mutually exclusive.")
-	}
-	if data.ActiveNetworkPolicies != nil && !data.DisableNetworkPolicy.IsNull() && !data.DisableNetworkPolicy.IsUnknown() {
-		resp.Diagnostics.AddAttributeError(path.Root("active_network_policies"), "Conflicting Configuration", "active_network_policies and disable_network_policy are mutually exclusive.")
-	}
+	// Unresolved empty dynamic alternatives arrive as known all-null objects.
+	// Validate again during planning, after resource expansion, rather than
+	// treating those synthetic alternatives as two user-selected blocks.
+	if req.Config.Raw.IsFullyKnown() {
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("active_enhanced_firewall_policies"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("active_network_policies"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("active_enhanced_firewall_policies"), "Conflicting Configuration", "active_enhanced_firewall_policies and active_network_policies are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("active_enhanced_firewall_policies"), &resp.Diagnostics) && !data.DisableNetworkPolicy.IsNull() && !data.DisableNetworkPolicy.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("active_enhanced_firewall_policies"), "Conflicting Configuration", "active_enhanced_firewall_policies and disable_network_policy are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("active_fast_acls"), &resp.Diagnostics) && !data.DisableFastACL.IsNull() && !data.DisableFastACL.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("active_fast_acls"), "Conflicting Configuration", "active_fast_acls and disable_fast_acl are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("active_forward_proxy_policies"), &resp.Diagnostics) && !data.DisableForwardProxyPolicy.IsNull() && !data.DisableForwardProxyPolicy.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("active_forward_proxy_policies"), "Conflicting Configuration", "active_forward_proxy_policies and disable_forward_proxy_policy are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("active_network_policies"), &resp.Diagnostics) && !data.DisableNetworkPolicy.IsNull() && !data.DisableNetworkPolicy.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("active_network_policies"), "Conflicting Configuration", "active_network_policies and disable_network_policy are mutually exclusive.")
+		}
 
+	}
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan
@@ -476,6 +481,34 @@ func (r *NetworkFirewallResource) ModifyPlan(ctx context.Context, req resource.M
 			"This permanently deletes the network_firewall from F5 Distributed Cloud.",
 		)
 		return
+	}
+	{
+		// Always enforce known configured choices while planning, even when an
+		// unrelated attribute remains unknown. Never inspect API-added defaults.
+		var data NetworkFirewallResourceModel
+		resp.Diagnostics.Append(req.Config.Get(ctx, &data)...)
+		if resp.Diagnostics.HasError() {
+			return
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("active_enhanced_firewall_policies"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("active_network_policies"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("active_enhanced_firewall_policies"), "Conflicting Configuration", "active_enhanced_firewall_policies and active_network_policies are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("active_enhanced_firewall_policies"), &resp.Diagnostics) && !data.DisableNetworkPolicy.IsNull() && !data.DisableNetworkPolicy.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("active_enhanced_firewall_policies"), "Conflicting Configuration", "active_enhanced_firewall_policies and disable_network_policy are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("active_fast_acls"), &resp.Diagnostics) && !data.DisableFastACL.IsNull() && !data.DisableFastACL.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("active_fast_acls"), "Conflicting Configuration", "active_fast_acls and disable_fast_acl are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("active_forward_proxy_policies"), &resp.Diagnostics) && !data.DisableForwardProxyPolicy.IsNull() && !data.DisableForwardProxyPolicy.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("active_forward_proxy_policies"), "Conflicting Configuration", "active_forward_proxy_policies and disable_forward_proxy_policy are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("active_network_policies"), &resp.Diagnostics) && !data.DisableNetworkPolicy.IsNull() && !data.DisableNetworkPolicy.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("active_network_policies"), "Conflicting Configuration", "active_network_policies and disable_network_policy are mutually exclusive.")
+		}
+
+		if resp.Diagnostics.HasError() {
+			return
+		}
 	}
 
 	if req.State.Raw.IsNull() {

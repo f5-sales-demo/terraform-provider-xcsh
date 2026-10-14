@@ -353,16 +353,21 @@ func (r *NetworkPolicyRuleResource) ValidateConfig(ctx context.Context, req reso
 	if resp.Diagnostics.HasError() {
 		return
 	}
-	if data.IPPrefixSet != nil && data.Prefix != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("ip_prefix_set"), "Conflicting Configuration", "ip_prefix_set and prefix are mutually exclusive.")
-	}
-	if data.IPPrefixSet != nil && data.PrefixSelector != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("ip_prefix_set"), "Conflicting Configuration", "ip_prefix_set and prefix_selector are mutually exclusive.")
-	}
-	if data.Prefix != nil && data.PrefixSelector != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("prefix"), "Conflicting Configuration", "prefix and prefix_selector are mutually exclusive.")
-	}
+	// Unresolved empty dynamic alternatives arrive as known all-null objects.
+	// Validate again during planning, after resource expansion, rather than
+	// treating those synthetic alternatives as two user-selected blocks.
+	if req.Config.Raw.IsFullyKnown() {
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("ip_prefix_set"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("prefix"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("ip_prefix_set"), "Conflicting Configuration", "ip_prefix_set and prefix are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("ip_prefix_set"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("prefix_selector"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("ip_prefix_set"), "Conflicting Configuration", "ip_prefix_set and prefix_selector are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("prefix"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("prefix_selector"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("prefix"), "Conflicting Configuration", "prefix and prefix_selector are mutually exclusive.")
+		}
 
+	}
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan
@@ -373,6 +378,28 @@ func (r *NetworkPolicyRuleResource) ModifyPlan(ctx context.Context, req resource
 			"This permanently deletes the network_policy_rule from F5 Distributed Cloud.",
 		)
 		return
+	}
+	{
+		// Always enforce known configured choices while planning, even when an
+		// unrelated attribute remains unknown. Never inspect API-added defaults.
+		var data NetworkPolicyRuleResourceModel
+		resp.Diagnostics.Append(req.Config.Get(ctx, &data)...)
+		if resp.Diagnostics.HasError() {
+			return
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("ip_prefix_set"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("prefix"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("ip_prefix_set"), "Conflicting Configuration", "ip_prefix_set and prefix are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("ip_prefix_set"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("prefix_selector"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("ip_prefix_set"), "Conflicting Configuration", "ip_prefix_set and prefix_selector are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("prefix"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("prefix_selector"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("prefix"), "Conflicting Configuration", "prefix and prefix_selector are mutually exclusive.")
+		}
+
+		if resp.Diagnostics.HasError() {
+			return
+		}
 	}
 
 	if req.State.Raw.IsNull() {

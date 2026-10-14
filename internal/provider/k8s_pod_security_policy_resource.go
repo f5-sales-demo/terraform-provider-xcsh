@@ -709,10 +709,15 @@ func (r *K8SPodSecurityPolicyResource) ValidateConfig(ctx context.Context, req r
 	if resp.Diagnostics.HasError() {
 		return
 	}
-	if data.PspSpec != nil && !data.Yaml.IsNull() && !data.Yaml.IsUnknown() {
-		resp.Diagnostics.AddAttributeError(path.Root("psp_spec"), "Conflicting Configuration", "psp_spec and yaml are mutually exclusive.")
-	}
+	// Unresolved empty dynamic alternatives arrive as known all-null objects.
+	// Validate again during planning, after resource expansion, rather than
+	// treating those synthetic alternatives as two user-selected blocks.
+	if req.Config.Raw.IsFullyKnown() {
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("psp_spec"), &resp.Diagnostics) && !data.Yaml.IsNull() && !data.Yaml.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("psp_spec"), "Conflicting Configuration", "psp_spec and yaml are mutually exclusive.")
+		}
 
+	}
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan
@@ -723,6 +728,22 @@ func (r *K8SPodSecurityPolicyResource) ModifyPlan(ctx context.Context, req resou
 			"This permanently deletes the k8s_pod_security_policy from F5 Distributed Cloud.",
 		)
 		return
+	}
+	{
+		// Always enforce known configured choices while planning, even when an
+		// unrelated attribute remains unknown. Never inspect API-added defaults.
+		var data K8SPodSecurityPolicyResourceModel
+		resp.Diagnostics.Append(req.Config.Get(ctx, &data)...)
+		if resp.Diagnostics.HasError() {
+			return
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("psp_spec"), &resp.Diagnostics) && !data.Yaml.IsNull() && !data.Yaml.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("psp_spec"), "Conflicting Configuration", "psp_spec and yaml are mutually exclusive.")
+		}
+
+		if resp.Diagnostics.HasError() {
+			return
+		}
 	}
 
 	if req.State.Raw.IsNull() {

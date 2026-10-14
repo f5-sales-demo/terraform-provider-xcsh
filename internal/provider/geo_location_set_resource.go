@@ -184,10 +184,15 @@ func (r *GeoLocationSetResource) ValidateConfig(ctx context.Context, req resourc
 	if resp.Diagnostics.HasError() {
 		return
 	}
-	if data.CustomGeoLocationSelector != nil && !data.Global.IsNull() && !data.Global.IsUnknown() {
-		resp.Diagnostics.AddAttributeError(path.Root("custom_geo_location_selector"), "Conflicting Configuration", "custom_geo_location_selector and global are mutually exclusive.")
-	}
+	// Unresolved empty dynamic alternatives arrive as known all-null objects.
+	// Validate again during planning, after resource expansion, rather than
+	// treating those synthetic alternatives as two user-selected blocks.
+	if req.Config.Raw.IsFullyKnown() {
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("custom_geo_location_selector"), &resp.Diagnostics) && !data.Global.IsNull() && !data.Global.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("custom_geo_location_selector"), "Conflicting Configuration", "custom_geo_location_selector and global are mutually exclusive.")
+		}
 
+	}
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan
@@ -198,6 +203,22 @@ func (r *GeoLocationSetResource) ModifyPlan(ctx context.Context, req resource.Mo
 			"This permanently deletes the geo_location_set from F5 Distributed Cloud.",
 		)
 		return
+	}
+	{
+		// Always enforce known configured choices while planning, even when an
+		// unrelated attribute remains unknown. Never inspect API-added defaults.
+		var data GeoLocationSetResourceModel
+		resp.Diagnostics.Append(req.Config.Get(ctx, &data)...)
+		if resp.Diagnostics.HasError() {
+			return
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("custom_geo_location_selector"), &resp.Diagnostics) && !data.Global.IsNull() && !data.Global.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("custom_geo_location_selector"), "Conflicting Configuration", "custom_geo_location_selector and global are mutually exclusive.")
+		}
+
+		if resp.Diagnostics.HasError() {
+			return
+		}
 	}
 
 	if req.State.Raw.IsNull() {

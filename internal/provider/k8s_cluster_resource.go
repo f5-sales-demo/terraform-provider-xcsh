@@ -816,28 +816,33 @@ func (r *K8SClusterResource) ValidateConfig(ctx context.Context, req resource.Va
 		)
 	}
 
-	if data.ClusterWideAppList != nil && !data.NoClusterWideApps.IsNull() && !data.NoClusterWideApps.IsUnknown() {
-		resp.Diagnostics.AddAttributeError(path.Root("cluster_wide_app_list"), "Conflicting Configuration", "cluster_wide_app_list and no_cluster_wide_apps are mutually exclusive.")
-	}
-	if data.InsecureRegistryList != nil && !data.NoInsecureRegistries.IsNull() && !data.NoInsecureRegistries.IsUnknown() {
-		resp.Diagnostics.AddAttributeError(path.Root("insecure_registry_list"), "Conflicting Configuration", "insecure_registry_list and no_insecure_registries are mutually exclusive.")
-	}
-	if data.LocalAccessConfig != nil && !data.NoLocalAccess.IsNull() && !data.NoLocalAccess.IsUnknown() {
-		resp.Diagnostics.AddAttributeError(path.Root("local_access_config"), "Conflicting Configuration", "local_access_config and no_local_access are mutually exclusive.")
-	}
-	if data.UseCustomClusterRoleBindings != nil && !data.UseDefaultClusterRoleBindings.IsNull() && !data.UseDefaultClusterRoleBindings.IsUnknown() {
-		resp.Diagnostics.AddAttributeError(path.Root("use_custom_cluster_role_bindings"), "Conflicting Configuration", "use_custom_cluster_role_bindings and use_default_cluster_role_bindings are mutually exclusive.")
-	}
-	if data.UseCustomClusterRoleList != nil && !data.UseDefaultClusterRoles.IsNull() && !data.UseDefaultClusterRoles.IsUnknown() {
-		resp.Diagnostics.AddAttributeError(path.Root("use_custom_cluster_role_list"), "Conflicting Configuration", "use_custom_cluster_role_list and use_default_cluster_roles are mutually exclusive.")
-	}
-	if data.UseCustomPodSecurityAdmission != nil && !data.UseDefaultPodSecurityAdmission.IsNull() && !data.UseDefaultPodSecurityAdmission.IsUnknown() {
-		resp.Diagnostics.AddAttributeError(path.Root("use_custom_pod_security_admission"), "Conflicting Configuration", "use_custom_pod_security_admission and use_default_pod_security_admission are mutually exclusive.")
-	}
-	if data.UseCustomPspList != nil && !data.UseDefaultPsp.IsNull() && !data.UseDefaultPsp.IsUnknown() {
-		resp.Diagnostics.AddAttributeError(path.Root("use_custom_psp_list"), "Conflicting Configuration", "use_custom_psp_list and use_default_psp are mutually exclusive.")
-	}
+	// Unresolved empty dynamic alternatives arrive as known all-null objects.
+	// Validate again during planning, after resource expansion, rather than
+	// treating those synthetic alternatives as two user-selected blocks.
+	if req.Config.Raw.IsFullyKnown() {
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("cluster_wide_app_list"), &resp.Diagnostics) && !data.NoClusterWideApps.IsNull() && !data.NoClusterWideApps.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("cluster_wide_app_list"), "Conflicting Configuration", "cluster_wide_app_list and no_cluster_wide_apps are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("insecure_registry_list"), &resp.Diagnostics) && !data.NoInsecureRegistries.IsNull() && !data.NoInsecureRegistries.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("insecure_registry_list"), "Conflicting Configuration", "insecure_registry_list and no_insecure_registries are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("local_access_config"), &resp.Diagnostics) && !data.NoLocalAccess.IsNull() && !data.NoLocalAccess.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("local_access_config"), "Conflicting Configuration", "local_access_config and no_local_access are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("use_custom_cluster_role_bindings"), &resp.Diagnostics) && !data.UseDefaultClusterRoleBindings.IsNull() && !data.UseDefaultClusterRoleBindings.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("use_custom_cluster_role_bindings"), "Conflicting Configuration", "use_custom_cluster_role_bindings and use_default_cluster_role_bindings are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("use_custom_cluster_role_list"), &resp.Diagnostics) && !data.UseDefaultClusterRoles.IsNull() && !data.UseDefaultClusterRoles.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("use_custom_cluster_role_list"), "Conflicting Configuration", "use_custom_cluster_role_list and use_default_cluster_roles are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("use_custom_pod_security_admission"), &resp.Diagnostics) && !data.UseDefaultPodSecurityAdmission.IsNull() && !data.UseDefaultPodSecurityAdmission.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("use_custom_pod_security_admission"), "Conflicting Configuration", "use_custom_pod_security_admission and use_default_pod_security_admission are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("use_custom_psp_list"), &resp.Diagnostics) && !data.UseDefaultPsp.IsNull() && !data.UseDefaultPsp.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("use_custom_psp_list"), "Conflicting Configuration", "use_custom_psp_list and use_default_psp are mutually exclusive.")
+		}
 
+	}
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan
@@ -848,6 +853,40 @@ func (r *K8SClusterResource) ModifyPlan(ctx context.Context, req resource.Modify
 			"This permanently deletes the k8s_cluster from F5 Distributed Cloud.",
 		)
 		return
+	}
+	{
+		// Always enforce known configured choices while planning, even when an
+		// unrelated attribute remains unknown. Never inspect API-added defaults.
+		var data K8SClusterResourceModel
+		resp.Diagnostics.Append(req.Config.Get(ctx, &data)...)
+		if resp.Diagnostics.HasError() {
+			return
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("cluster_wide_app_list"), &resp.Diagnostics) && !data.NoClusterWideApps.IsNull() && !data.NoClusterWideApps.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("cluster_wide_app_list"), "Conflicting Configuration", "cluster_wide_app_list and no_cluster_wide_apps are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("insecure_registry_list"), &resp.Diagnostics) && !data.NoInsecureRegistries.IsNull() && !data.NoInsecureRegistries.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("insecure_registry_list"), "Conflicting Configuration", "insecure_registry_list and no_insecure_registries are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("local_access_config"), &resp.Diagnostics) && !data.NoLocalAccess.IsNull() && !data.NoLocalAccess.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("local_access_config"), "Conflicting Configuration", "local_access_config and no_local_access are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("use_custom_cluster_role_bindings"), &resp.Diagnostics) && !data.UseDefaultClusterRoleBindings.IsNull() && !data.UseDefaultClusterRoleBindings.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("use_custom_cluster_role_bindings"), "Conflicting Configuration", "use_custom_cluster_role_bindings and use_default_cluster_role_bindings are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("use_custom_cluster_role_list"), &resp.Diagnostics) && !data.UseDefaultClusterRoles.IsNull() && !data.UseDefaultClusterRoles.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("use_custom_cluster_role_list"), "Conflicting Configuration", "use_custom_cluster_role_list and use_default_cluster_roles are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("use_custom_pod_security_admission"), &resp.Diagnostics) && !data.UseDefaultPodSecurityAdmission.IsNull() && !data.UseDefaultPodSecurityAdmission.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("use_custom_pod_security_admission"), "Conflicting Configuration", "use_custom_pod_security_admission and use_default_pod_security_admission are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("use_custom_psp_list"), &resp.Diagnostics) && !data.UseDefaultPsp.IsNull() && !data.UseDefaultPsp.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("use_custom_psp_list"), "Conflicting Configuration", "use_custom_psp_list and use_default_psp are mutually exclusive.")
+		}
+
+		if resp.Diagnostics.HasError() {
+			return
+		}
 	}
 
 	if req.State.Raw.IsNull() {

@@ -2406,37 +2406,42 @@ func (r *TCPLoadBalancerResource) ValidateConfig(ctx context.Context, req resour
 		)
 	}
 
-	if data.ActiveServicePolicies != nil && !data.NoServicePolicies.IsNull() && !data.NoServicePolicies.IsUnknown() {
-		resp.Diagnostics.AddAttributeError(path.Root("active_service_policies"), "Conflicting Configuration", "active_service_policies and no_service_policies are mutually exclusive.")
-	}
-	if data.ActiveServicePolicies != nil && !data.ServicePoliciesFromNamespace.IsNull() && !data.ServicePoliciesFromNamespace.IsUnknown() {
-		resp.Diagnostics.AddAttributeError(path.Root("active_service_policies"), "Conflicting Configuration", "active_service_policies and service_policies_from_namespace are mutually exclusive.")
-	}
-	if data.AdvertiseCustom != nil && data.AdvertiseOnPublic != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("advertise_custom"), "Conflicting Configuration", "advertise_custom and advertise_on_public are mutually exclusive.")
-	}
-	if data.AdvertiseCustom != nil && !data.AdvertiseOnPublicDefaultVIP.IsNull() && !data.AdvertiseOnPublicDefaultVIP.IsUnknown() {
-		resp.Diagnostics.AddAttributeError(path.Root("advertise_custom"), "Conflicting Configuration", "advertise_custom and advertise_on_public_default_vip are mutually exclusive.")
-	}
-	if data.AdvertiseCustom != nil && !data.DoNotAdvertise.IsNull() && !data.DoNotAdvertise.IsUnknown() {
-		resp.Diagnostics.AddAttributeError(path.Root("advertise_custom"), "Conflicting Configuration", "advertise_custom and do_not_advertise are mutually exclusive.")
-	}
-	if data.AdvertiseOnPublic != nil && !data.AdvertiseOnPublicDefaultVIP.IsNull() && !data.AdvertiseOnPublicDefaultVIP.IsUnknown() {
-		resp.Diagnostics.AddAttributeError(path.Root("advertise_on_public"), "Conflicting Configuration", "advertise_on_public and advertise_on_public_default_vip are mutually exclusive.")
-	}
-	if data.AdvertiseOnPublic != nil && !data.DoNotAdvertise.IsNull() && !data.DoNotAdvertise.IsUnknown() {
-		resp.Diagnostics.AddAttributeError(path.Root("advertise_on_public"), "Conflicting Configuration", "advertise_on_public and do_not_advertise are mutually exclusive.")
-	}
-	if !data.TCP.IsNull() && !data.TCP.IsUnknown() && data.TLSTCP != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("tcp"), "Conflicting Configuration", "tcp and tls_tcp are mutually exclusive.")
-	}
-	if !data.TCP.IsNull() && !data.TCP.IsUnknown() && data.TLSTCPAutoCert != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("tcp"), "Conflicting Configuration", "tcp and tls_tcp_auto_cert are mutually exclusive.")
-	}
-	if data.TLSTCP != nil && data.TLSTCPAutoCert != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("tls_tcp"), "Conflicting Configuration", "tls_tcp and tls_tcp_auto_cert are mutually exclusive.")
-	}
+	// Unresolved empty dynamic alternatives arrive as known all-null objects.
+	// Validate again during planning, after resource expansion, rather than
+	// treating those synthetic alternatives as two user-selected blocks.
+	if req.Config.Raw.IsFullyKnown() {
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("active_service_policies"), &resp.Diagnostics) && !data.NoServicePolicies.IsNull() && !data.NoServicePolicies.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("active_service_policies"), "Conflicting Configuration", "active_service_policies and no_service_policies are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("active_service_policies"), &resp.Diagnostics) && !data.ServicePoliciesFromNamespace.IsNull() && !data.ServicePoliciesFromNamespace.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("active_service_policies"), "Conflicting Configuration", "active_service_policies and service_policies_from_namespace are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("advertise_custom"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("advertise_on_public"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("advertise_custom"), "Conflicting Configuration", "advertise_custom and advertise_on_public are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("advertise_custom"), &resp.Diagnostics) && !data.AdvertiseOnPublicDefaultVIP.IsNull() && !data.AdvertiseOnPublicDefaultVIP.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("advertise_custom"), "Conflicting Configuration", "advertise_custom and advertise_on_public_default_vip are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("advertise_custom"), &resp.Diagnostics) && !data.DoNotAdvertise.IsNull() && !data.DoNotAdvertise.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("advertise_custom"), "Conflicting Configuration", "advertise_custom and do_not_advertise are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("advertise_on_public"), &resp.Diagnostics) && !data.AdvertiseOnPublicDefaultVIP.IsNull() && !data.AdvertiseOnPublicDefaultVIP.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("advertise_on_public"), "Conflicting Configuration", "advertise_on_public and advertise_on_public_default_vip are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("advertise_on_public"), &resp.Diagnostics) && !data.DoNotAdvertise.IsNull() && !data.DoNotAdvertise.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("advertise_on_public"), "Conflicting Configuration", "advertise_on_public and do_not_advertise are mutually exclusive.")
+		}
+		if !data.TCP.IsNull() && !data.TCP.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("tls_tcp"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("tcp"), "Conflicting Configuration", "tcp and tls_tcp are mutually exclusive.")
+		}
+		if !data.TCP.IsNull() && !data.TCP.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("tls_tcp_auto_cert"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("tcp"), "Conflicting Configuration", "tcp and tls_tcp_auto_cert are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("tls_tcp"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("tls_tcp_auto_cert"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("tls_tcp"), "Conflicting Configuration", "tls_tcp and tls_tcp_auto_cert are mutually exclusive.")
+		}
 
+	}
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan
@@ -2447,6 +2452,49 @@ func (r *TCPLoadBalancerResource) ModifyPlan(ctx context.Context, req resource.M
 			"This permanently deletes the tcp_loadbalancer from F5 Distributed Cloud.",
 		)
 		return
+	}
+	{
+		// Always enforce known configured choices while planning, even when an
+		// unrelated attribute remains unknown. Never inspect API-added defaults.
+		var data TCPLoadBalancerResourceModel
+		resp.Diagnostics.Append(req.Config.Get(ctx, &data)...)
+		if resp.Diagnostics.HasError() {
+			return
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("active_service_policies"), &resp.Diagnostics) && !data.NoServicePolicies.IsNull() && !data.NoServicePolicies.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("active_service_policies"), "Conflicting Configuration", "active_service_policies and no_service_policies are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("active_service_policies"), &resp.Diagnostics) && !data.ServicePoliciesFromNamespace.IsNull() && !data.ServicePoliciesFromNamespace.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("active_service_policies"), "Conflicting Configuration", "active_service_policies and service_policies_from_namespace are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("advertise_custom"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("advertise_on_public"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("advertise_custom"), "Conflicting Configuration", "advertise_custom and advertise_on_public are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("advertise_custom"), &resp.Diagnostics) && !data.AdvertiseOnPublicDefaultVIP.IsNull() && !data.AdvertiseOnPublicDefaultVIP.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("advertise_custom"), "Conflicting Configuration", "advertise_custom and advertise_on_public_default_vip are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("advertise_custom"), &resp.Diagnostics) && !data.DoNotAdvertise.IsNull() && !data.DoNotAdvertise.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("advertise_custom"), "Conflicting Configuration", "advertise_custom and do_not_advertise are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("advertise_on_public"), &resp.Diagnostics) && !data.AdvertiseOnPublicDefaultVIP.IsNull() && !data.AdvertiseOnPublicDefaultVIP.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("advertise_on_public"), "Conflicting Configuration", "advertise_on_public and advertise_on_public_default_vip are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("advertise_on_public"), &resp.Diagnostics) && !data.DoNotAdvertise.IsNull() && !data.DoNotAdvertise.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("advertise_on_public"), "Conflicting Configuration", "advertise_on_public and do_not_advertise are mutually exclusive.")
+		}
+		if !data.TCP.IsNull() && !data.TCP.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("tls_tcp"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("tcp"), "Conflicting Configuration", "tcp and tls_tcp are mutually exclusive.")
+		}
+		if !data.TCP.IsNull() && !data.TCP.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("tls_tcp_auto_cert"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("tcp"), "Conflicting Configuration", "tcp and tls_tcp_auto_cert are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("tls_tcp"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("tls_tcp_auto_cert"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("tls_tcp"), "Conflicting Configuration", "tls_tcp and tls_tcp_auto_cert are mutually exclusive.")
+		}
+
+		if resp.Diagnostics.HasError() {
+			return
+		}
 	}
 
 	if req.State.Raw.IsNull() {

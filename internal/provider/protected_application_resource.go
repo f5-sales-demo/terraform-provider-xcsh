@@ -3097,40 +3097,45 @@ func (r *ProtectedApplicationResource) ValidateConfig(ctx context.Context, req r
 		)
 	}
 
-	if !data.AdobeCommerceConnector.IsNull() && !data.AdobeCommerceConnector.IsUnknown() && data.Cloudflare != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("adobe_commerce_connector"), "Conflicting Configuration", "adobe_commerce_connector and cloudflare are mutually exclusive.")
-	}
-	if !data.AdobeCommerceConnector.IsNull() && !data.AdobeCommerceConnector.IsUnknown() && data.Cloudfront != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("adobe_commerce_connector"), "Conflicting Configuration", "adobe_commerce_connector and cloudfront are mutually exclusive.")
-	}
-	if !data.BigIPIapp.IsNull() && !data.BigIPIapp.IsUnknown() && data.Cloudflare != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("big_ip_iapp"), "Conflicting Configuration", "big_ip_iapp and cloudflare are mutually exclusive.")
-	}
-	if !data.BigIPIapp.IsNull() && !data.BigIPIapp.IsUnknown() && data.Cloudfront != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("big_ip_iapp"), "Conflicting Configuration", "big_ip_iapp and cloudfront are mutually exclusive.")
-	}
-	if data.Cloudflare != nil && data.Cloudfront != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("cloudflare"), "Conflicting Configuration", "cloudflare and cloudfront are mutually exclusive.")
-	}
-	if data.Cloudflare != nil && !data.CustomConnector.IsNull() && !data.CustomConnector.IsUnknown() {
-		resp.Diagnostics.AddAttributeError(path.Root("cloudflare"), "Conflicting Configuration", "cloudflare and custom_connector are mutually exclusive.")
-	}
-	if data.Cloudflare != nil && !data.F5BigIP.IsNull() && !data.F5BigIP.IsUnknown() {
-		resp.Diagnostics.AddAttributeError(path.Root("cloudflare"), "Conflicting Configuration", "cloudflare and f5_big_ip are mutually exclusive.")
-	}
-	if data.Cloudflare != nil && !data.SalesforceCommerceConnector.IsNull() && !data.SalesforceCommerceConnector.IsUnknown() {
-		resp.Diagnostics.AddAttributeError(path.Root("cloudflare"), "Conflicting Configuration", "cloudflare and salesforce_commerce_connector are mutually exclusive.")
-	}
-	if data.Cloudfront != nil && !data.CustomConnector.IsNull() && !data.CustomConnector.IsUnknown() {
-		resp.Diagnostics.AddAttributeError(path.Root("cloudfront"), "Conflicting Configuration", "cloudfront and custom_connector are mutually exclusive.")
-	}
-	if data.Cloudfront != nil && !data.F5BigIP.IsNull() && !data.F5BigIP.IsUnknown() {
-		resp.Diagnostics.AddAttributeError(path.Root("cloudfront"), "Conflicting Configuration", "cloudfront and f5_big_ip are mutually exclusive.")
-	}
-	if data.Cloudfront != nil && !data.SalesforceCommerceConnector.IsNull() && !data.SalesforceCommerceConnector.IsUnknown() {
-		resp.Diagnostics.AddAttributeError(path.Root("cloudfront"), "Conflicting Configuration", "cloudfront and salesforce_commerce_connector are mutually exclusive.")
-	}
+	// Unresolved empty dynamic alternatives arrive as known all-null objects.
+	// Validate again during planning, after resource expansion, rather than
+	// treating those synthetic alternatives as two user-selected blocks.
+	if req.Config.Raw.IsFullyKnown() {
+		if !data.AdobeCommerceConnector.IsNull() && !data.AdobeCommerceConnector.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("cloudflare"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("adobe_commerce_connector"), "Conflicting Configuration", "adobe_commerce_connector and cloudflare are mutually exclusive.")
+		}
+		if !data.AdobeCommerceConnector.IsNull() && !data.AdobeCommerceConnector.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("cloudfront"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("adobe_commerce_connector"), "Conflicting Configuration", "adobe_commerce_connector and cloudfront are mutually exclusive.")
+		}
+		if !data.BigIPIapp.IsNull() && !data.BigIPIapp.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("cloudflare"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("big_ip_iapp"), "Conflicting Configuration", "big_ip_iapp and cloudflare are mutually exclusive.")
+		}
+		if !data.BigIPIapp.IsNull() && !data.BigIPIapp.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("cloudfront"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("big_ip_iapp"), "Conflicting Configuration", "big_ip_iapp and cloudfront are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("cloudflare"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("cloudfront"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("cloudflare"), "Conflicting Configuration", "cloudflare and cloudfront are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("cloudflare"), &resp.Diagnostics) && !data.CustomConnector.IsNull() && !data.CustomConnector.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("cloudflare"), "Conflicting Configuration", "cloudflare and custom_connector are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("cloudflare"), &resp.Diagnostics) && !data.F5BigIP.IsNull() && !data.F5BigIP.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("cloudflare"), "Conflicting Configuration", "cloudflare and f5_big_ip are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("cloudflare"), &resp.Diagnostics) && !data.SalesforceCommerceConnector.IsNull() && !data.SalesforceCommerceConnector.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("cloudflare"), "Conflicting Configuration", "cloudflare and salesforce_commerce_connector are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("cloudfront"), &resp.Diagnostics) && !data.CustomConnector.IsNull() && !data.CustomConnector.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("cloudfront"), "Conflicting Configuration", "cloudfront and custom_connector are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("cloudfront"), &resp.Diagnostics) && !data.F5BigIP.IsNull() && !data.F5BigIP.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("cloudfront"), "Conflicting Configuration", "cloudfront and f5_big_ip are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("cloudfront"), &resp.Diagnostics) && !data.SalesforceCommerceConnector.IsNull() && !data.SalesforceCommerceConnector.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("cloudfront"), "Conflicting Configuration", "cloudfront and salesforce_commerce_connector are mutually exclusive.")
+		}
 
+	}
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan
@@ -3141,6 +3146,52 @@ func (r *ProtectedApplicationResource) ModifyPlan(ctx context.Context, req resou
 			"This permanently deletes the protected_application from F5 Distributed Cloud.",
 		)
 		return
+	}
+	{
+		// Always enforce known configured choices while planning, even when an
+		// unrelated attribute remains unknown. Never inspect API-added defaults.
+		var data ProtectedApplicationResourceModel
+		resp.Diagnostics.Append(req.Config.Get(ctx, &data)...)
+		if resp.Diagnostics.HasError() {
+			return
+		}
+		if !data.AdobeCommerceConnector.IsNull() && !data.AdobeCommerceConnector.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("cloudflare"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("adobe_commerce_connector"), "Conflicting Configuration", "adobe_commerce_connector and cloudflare are mutually exclusive.")
+		}
+		if !data.AdobeCommerceConnector.IsNull() && !data.AdobeCommerceConnector.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("cloudfront"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("adobe_commerce_connector"), "Conflicting Configuration", "adobe_commerce_connector and cloudfront are mutually exclusive.")
+		}
+		if !data.BigIPIapp.IsNull() && !data.BigIPIapp.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("cloudflare"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("big_ip_iapp"), "Conflicting Configuration", "big_ip_iapp and cloudflare are mutually exclusive.")
+		}
+		if !data.BigIPIapp.IsNull() && !data.BigIPIapp.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("cloudfront"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("big_ip_iapp"), "Conflicting Configuration", "big_ip_iapp and cloudfront are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("cloudflare"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("cloudfront"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("cloudflare"), "Conflicting Configuration", "cloudflare and cloudfront are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("cloudflare"), &resp.Diagnostics) && !data.CustomConnector.IsNull() && !data.CustomConnector.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("cloudflare"), "Conflicting Configuration", "cloudflare and custom_connector are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("cloudflare"), &resp.Diagnostics) && !data.F5BigIP.IsNull() && !data.F5BigIP.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("cloudflare"), "Conflicting Configuration", "cloudflare and f5_big_ip are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("cloudflare"), &resp.Diagnostics) && !data.SalesforceCommerceConnector.IsNull() && !data.SalesforceCommerceConnector.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("cloudflare"), "Conflicting Configuration", "cloudflare and salesforce_commerce_connector are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("cloudfront"), &resp.Diagnostics) && !data.CustomConnector.IsNull() && !data.CustomConnector.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("cloudfront"), "Conflicting Configuration", "cloudfront and custom_connector are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("cloudfront"), &resp.Diagnostics) && !data.F5BigIP.IsNull() && !data.F5BigIP.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("cloudfront"), "Conflicting Configuration", "cloudfront and f5_big_ip are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("cloudfront"), &resp.Diagnostics) && !data.SalesforceCommerceConnector.IsNull() && !data.SalesforceCommerceConnector.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("cloudfront"), "Conflicting Configuration", "cloudfront and salesforce_commerce_connector are mutually exclusive.")
+		}
+
+		if resp.Diagnostics.HasError() {
+			return
+		}
 	}
 
 	if req.State.Raw.IsNull() {

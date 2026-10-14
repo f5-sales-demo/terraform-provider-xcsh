@@ -336,13 +336,18 @@ func (r *CertificateResource) ValidateConfig(ctx context.Context, req resource.V
 		)
 	}
 
-	if data.CustomHashAlgorithms != nil && !data.DisableOCSPStapling.IsNull() && !data.DisableOCSPStapling.IsUnknown() {
-		resp.Diagnostics.AddAttributeError(path.Root("custom_hash_algorithms"), "Conflicting Configuration", "custom_hash_algorithms and disable_ocsp_stapling are mutually exclusive.")
-	}
-	if data.CustomHashAlgorithms != nil && !data.UseSystemDefaults.IsNull() && !data.UseSystemDefaults.IsUnknown() {
-		resp.Diagnostics.AddAttributeError(path.Root("custom_hash_algorithms"), "Conflicting Configuration", "custom_hash_algorithms and use_system_defaults are mutually exclusive.")
-	}
+	// Unresolved empty dynamic alternatives arrive as known all-null objects.
+	// Validate again during planning, after resource expansion, rather than
+	// treating those synthetic alternatives as two user-selected blocks.
+	if req.Config.Raw.IsFullyKnown() {
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("custom_hash_algorithms"), &resp.Diagnostics) && !data.DisableOCSPStapling.IsNull() && !data.DisableOCSPStapling.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("custom_hash_algorithms"), "Conflicting Configuration", "custom_hash_algorithms and disable_ocsp_stapling are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("custom_hash_algorithms"), &resp.Diagnostics) && !data.UseSystemDefaults.IsNull() && !data.UseSystemDefaults.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("custom_hash_algorithms"), "Conflicting Configuration", "custom_hash_algorithms and use_system_defaults are mutually exclusive.")
+		}
 
+	}
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan
@@ -353,6 +358,25 @@ func (r *CertificateResource) ModifyPlan(ctx context.Context, req resource.Modif
 			"This permanently deletes the certificate from F5 Distributed Cloud.",
 		)
 		return
+	}
+	{
+		// Always enforce known configured choices while planning, even when an
+		// unrelated attribute remains unknown. Never inspect API-added defaults.
+		var data CertificateResourceModel
+		resp.Diagnostics.Append(req.Config.Get(ctx, &data)...)
+		if resp.Diagnostics.HasError() {
+			return
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("custom_hash_algorithms"), &resp.Diagnostics) && !data.DisableOCSPStapling.IsNull() && !data.DisableOCSPStapling.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("custom_hash_algorithms"), "Conflicting Configuration", "custom_hash_algorithms and disable_ocsp_stapling are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("custom_hash_algorithms"), &resp.Diagnostics) && !data.UseSystemDefaults.IsNull() && !data.UseSystemDefaults.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("custom_hash_algorithms"), "Conflicting Configuration", "custom_hash_algorithms and use_system_defaults are mutually exclusive.")
+		}
+
+		if resp.Diagnostics.HasError() {
+			return
+		}
 	}
 
 	if req.State.Raw.IsNull() {

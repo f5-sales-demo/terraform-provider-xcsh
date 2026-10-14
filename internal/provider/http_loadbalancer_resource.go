@@ -25036,187 +25036,192 @@ func (r *HTTPLoadBalancerResource) ValidateConfig(ctx context.Context, req resou
 		)
 	}
 
-	if data.ActiveServicePolicies != nil && !data.NoServicePolicies.IsNull() && !data.NoServicePolicies.IsUnknown() {
-		resp.Diagnostics.AddAttributeError(path.Root("active_service_policies"), "Conflicting Configuration", "active_service_policies and no_service_policies are mutually exclusive.")
-	}
-	if data.ActiveServicePolicies != nil && !data.ServicePoliciesFromNamespace.IsNull() && !data.ServicePoliciesFromNamespace.IsUnknown() {
-		resp.Diagnostics.AddAttributeError(path.Root("active_service_policies"), "Conflicting Configuration", "active_service_policies and service_policies_from_namespace are mutually exclusive.")
-	}
-	if data.AdvertiseCustom != nil && data.AdvertiseDualstackOnPublic != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("advertise_custom"), "Conflicting Configuration", "advertise_custom and advertise_dualstack_on_public are mutually exclusive.")
-	}
-	if data.AdvertiseCustom != nil && data.AdvertiseOnPublic != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("advertise_custom"), "Conflicting Configuration", "advertise_custom and advertise_on_public are mutually exclusive.")
-	}
-	if data.AdvertiseCustom != nil && !data.AdvertiseOnPublicDefaultVIP.IsNull() && !data.AdvertiseOnPublicDefaultVIP.IsUnknown() {
-		resp.Diagnostics.AddAttributeError(path.Root("advertise_custom"), "Conflicting Configuration", "advertise_custom and advertise_on_public_default_vip are mutually exclusive.")
-	}
-	if data.AdvertiseCustom != nil && data.AdvertiseV6OnPublic != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("advertise_custom"), "Conflicting Configuration", "advertise_custom and advertise_v6_on_public are mutually exclusive.")
-	}
-	if data.AdvertiseCustom != nil && !data.DoNotAdvertise.IsNull() && !data.DoNotAdvertise.IsUnknown() {
-		resp.Diagnostics.AddAttributeError(path.Root("advertise_custom"), "Conflicting Configuration", "advertise_custom and do_not_advertise are mutually exclusive.")
-	}
-	if data.AdvertiseDualstackOnPublic != nil && data.AdvertiseOnPublic != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("advertise_dualstack_on_public"), "Conflicting Configuration", "advertise_dualstack_on_public and advertise_on_public are mutually exclusive.")
-	}
-	if data.AdvertiseDualstackOnPublic != nil && !data.AdvertiseOnPublicDefaultVIP.IsNull() && !data.AdvertiseOnPublicDefaultVIP.IsUnknown() {
-		resp.Diagnostics.AddAttributeError(path.Root("advertise_dualstack_on_public"), "Conflicting Configuration", "advertise_dualstack_on_public and advertise_on_public_default_vip are mutually exclusive.")
-	}
-	if data.AdvertiseDualstackOnPublic != nil && data.AdvertiseV6OnPublic != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("advertise_dualstack_on_public"), "Conflicting Configuration", "advertise_dualstack_on_public and advertise_v6_on_public are mutually exclusive.")
-	}
-	if data.AdvertiseDualstackOnPublic != nil && !data.DoNotAdvertise.IsNull() && !data.DoNotAdvertise.IsUnknown() {
-		resp.Diagnostics.AddAttributeError(path.Root("advertise_dualstack_on_public"), "Conflicting Configuration", "advertise_dualstack_on_public and do_not_advertise are mutually exclusive.")
-	}
-	if data.AdvertiseOnPublic != nil && !data.AdvertiseOnPublicDefaultVIP.IsNull() && !data.AdvertiseOnPublicDefaultVIP.IsUnknown() {
-		resp.Diagnostics.AddAttributeError(path.Root("advertise_on_public"), "Conflicting Configuration", "advertise_on_public and advertise_on_public_default_vip are mutually exclusive.")
-	}
-	if data.AdvertiseOnPublic != nil && data.AdvertiseV6OnPublic != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("advertise_on_public"), "Conflicting Configuration", "advertise_on_public and advertise_v6_on_public are mutually exclusive.")
-	}
-	if data.AdvertiseOnPublic != nil && !data.DoNotAdvertise.IsNull() && !data.DoNotAdvertise.IsUnknown() {
-		resp.Diagnostics.AddAttributeError(path.Root("advertise_on_public"), "Conflicting Configuration", "advertise_on_public and do_not_advertise are mutually exclusive.")
-	}
-	if !data.AdvertiseOnPublicDefaultVIP.IsNull() && !data.AdvertiseOnPublicDefaultVIP.IsUnknown() && data.AdvertiseV6OnPublic != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("advertise_on_public_default_vip"), "Conflicting Configuration", "advertise_on_public_default_vip and advertise_v6_on_public are mutually exclusive.")
-	}
-	if data.AdvertiseV6OnPublic != nil && !data.DoNotAdvertise.IsNull() && !data.DoNotAdvertise.IsUnknown() {
-		resp.Diagnostics.AddAttributeError(path.Root("advertise_v6_on_public"), "Conflicting Configuration", "advertise_v6_on_public and do_not_advertise are mutually exclusive.")
-	}
-	if data.APIRateLimit != nil && !data.DisableRateLimit.IsNull() && !data.DisableRateLimit.IsUnknown() {
-		resp.Diagnostics.AddAttributeError(path.Root("api_rate_limit"), "Conflicting Configuration", "api_rate_limit and disable_rate_limit are mutually exclusive.")
-	}
-	if data.APIRateLimit != nil && data.RateLimit != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("api_rate_limit"), "Conflicting Configuration", "api_rate_limit and rate_limit are mutually exclusive.")
-	}
-	if data.APISpecification != nil && !data.DisableAPIDefinition.IsNull() && !data.DisableAPIDefinition.IsUnknown() {
-		resp.Diagnostics.AddAttributeError(path.Root("api_specification"), "Conflicting Configuration", "api_specification and disable_api_definition are mutually exclusive.")
-	}
-	if data.APITesting != nil && !data.DisableAPITesting.IsNull() && !data.DisableAPITesting.IsUnknown() {
-		resp.Diagnostics.AddAttributeError(path.Root("api_testing"), "Conflicting Configuration", "api_testing and disable_api_testing are mutually exclusive.")
-	}
-	if data.AppFirewall != nil && !data.DisableWAF.IsNull() && !data.DisableWAF.IsUnknown() {
-		resp.Diagnostics.AddAttributeError(path.Root("app_firewall"), "Conflicting Configuration", "app_firewall and disable_waf are mutually exclusive.")
-	}
-	if data.BotDefense != nil && data.BotDefenseAdvancedProtection != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("bot_defense"), "Conflicting Configuration", "bot_defense and bot_defense_advanced_protection are mutually exclusive.")
-	}
-	if data.BotDefense != nil && !data.DisableBotDefense.IsNull() && !data.DisableBotDefense.IsUnknown() {
-		resp.Diagnostics.AddAttributeError(path.Root("bot_defense"), "Conflicting Configuration", "bot_defense and disable_bot_defense are mutually exclusive.")
-	}
-	if data.BotDefenseAdvancedProtection != nil && !data.DisableBotDefense.IsNull() && !data.DisableBotDefense.IsUnknown() {
-		resp.Diagnostics.AddAttributeError(path.Root("bot_defense_advanced_protection"), "Conflicting Configuration", "bot_defense_advanced_protection and disable_bot_defense are mutually exclusive.")
-	}
-	if data.CachingPolicy != nil && !data.DisableCaching.IsNull() && !data.DisableCaching.IsUnknown() {
-		resp.Diagnostics.AddAttributeError(path.Root("caching_policy"), "Conflicting Configuration", "caching_policy and disable_caching are mutually exclusive.")
-	}
-	if data.CaptchaChallenge != nil && data.EnableChallenge != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("captcha_challenge"), "Conflicting Configuration", "captcha_challenge and enable_challenge are mutually exclusive.")
-	}
-	if data.CaptchaChallenge != nil && data.JsChallenge != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("captcha_challenge"), "Conflicting Configuration", "captcha_challenge and js_challenge are mutually exclusive.")
-	}
-	if data.CaptchaChallenge != nil && !data.NoChallenge.IsNull() && !data.NoChallenge.IsUnknown() {
-		resp.Diagnostics.AddAttributeError(path.Root("captcha_challenge"), "Conflicting Configuration", "captcha_challenge and no_challenge are mutually exclusive.")
-	}
-	if data.CaptchaChallenge != nil && data.PolicyBasedChallenge != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("captcha_challenge"), "Conflicting Configuration", "captcha_challenge and policy_based_challenge are mutually exclusive.")
-	}
-	if data.ClientSideDefense != nil && !data.DisableClientSideDefense.IsNull() && !data.DisableClientSideDefense.IsUnknown() {
-		resp.Diagnostics.AddAttributeError(path.Root("client_side_defense"), "Conflicting Configuration", "client_side_defense and disable_client_side_defense are mutually exclusive.")
-	}
-	if data.CookieStickiness != nil && !data.LeastActive.IsNull() && !data.LeastActive.IsUnknown() {
-		resp.Diagnostics.AddAttributeError(path.Root("cookie_stickiness"), "Conflicting Configuration", "cookie_stickiness and least_active are mutually exclusive.")
-	}
-	if data.CookieStickiness != nil && !data.Random.IsNull() && !data.Random.IsUnknown() {
-		resp.Diagnostics.AddAttributeError(path.Root("cookie_stickiness"), "Conflicting Configuration", "cookie_stickiness and random are mutually exclusive.")
-	}
-	if data.CookieStickiness != nil && data.RingHash != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("cookie_stickiness"), "Conflicting Configuration", "cookie_stickiness and ring_hash are mutually exclusive.")
-	}
-	if data.CookieStickiness != nil && !data.RoundRobin.IsNull() && !data.RoundRobin.IsUnknown() {
-		resp.Diagnostics.AddAttributeError(path.Root("cookie_stickiness"), "Conflicting Configuration", "cookie_stickiness and round_robin are mutually exclusive.")
-	}
-	if data.CookieStickiness != nil && !data.SourceIPStickiness.IsNull() && !data.SourceIPStickiness.IsUnknown() {
-		resp.Diagnostics.AddAttributeError(path.Root("cookie_stickiness"), "Conflicting Configuration", "cookie_stickiness and source_ip_stickiness are mutually exclusive.")
-	}
-	if data.DefaultPool != nil && data.DefaultPoolList != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("default_pool"), "Conflicting Configuration", "default_pool and default_pool_list are mutually exclusive.")
-	}
-	if !data.DefaultSensitiveDataPolicy.IsNull() && !data.DefaultSensitiveDataPolicy.IsUnknown() && data.SensitiveDataPolicy != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("default_sensitive_data_policy"), "Conflicting Configuration", "default_sensitive_data_policy and sensitive_data_policy are mutually exclusive.")
-	}
-	if !data.DisableAPIDiscovery.IsNull() && !data.DisableAPIDiscovery.IsUnknown() && data.EnableAPIDiscovery != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("disable_api_discovery"), "Conflicting Configuration", "disable_api_discovery and enable_api_discovery are mutually exclusive.")
-	}
-	if !data.DisableIPReputation.IsNull() && !data.DisableIPReputation.IsUnknown() && data.EnableIPReputation != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("disable_ip_reputation"), "Conflicting Configuration", "disable_ip_reputation and enable_ip_reputation are mutually exclusive.")
-	}
-	if !data.DisableMalwareProtection.IsNull() && !data.DisableMalwareProtection.IsUnknown() && data.MalwareProtectionSettings != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("disable_malware_protection"), "Conflicting Configuration", "disable_malware_protection and malware_protection_settings are mutually exclusive.")
-	}
-	if !data.DisableRateLimit.IsNull() && !data.DisableRateLimit.IsUnknown() && data.RateLimit != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("disable_rate_limit"), "Conflicting Configuration", "disable_rate_limit and rate_limit are mutually exclusive.")
-	}
-	if !data.DisableTrustClientIPHeaders.IsNull() && !data.DisableTrustClientIPHeaders.IsUnknown() && data.EnableTrustClientIPHeaders != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("disable_trust_client_ip_headers"), "Conflicting Configuration", "disable_trust_client_ip_headers and enable_trust_client_ip_headers are mutually exclusive.")
-	}
-	if data.EnableChallenge != nil && data.JsChallenge != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("enable_challenge"), "Conflicting Configuration", "enable_challenge and js_challenge are mutually exclusive.")
-	}
-	if data.EnableChallenge != nil && !data.NoChallenge.IsNull() && !data.NoChallenge.IsUnknown() {
-		resp.Diagnostics.AddAttributeError(path.Root("enable_challenge"), "Conflicting Configuration", "enable_challenge and no_challenge are mutually exclusive.")
-	}
-	if data.EnableChallenge != nil && data.PolicyBasedChallenge != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("enable_challenge"), "Conflicting Configuration", "enable_challenge and policy_based_challenge are mutually exclusive.")
-	}
-	if data.HTTP != nil && data.HTTPS != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("http"), "Conflicting Configuration", "http and https are mutually exclusive.")
-	}
-	if data.HTTP != nil && data.HTTPSAutoCert != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("http"), "Conflicting Configuration", "http and https_auto_cert are mutually exclusive.")
-	}
-	if data.HTTPS != nil && data.HTTPSAutoCert != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("https"), "Conflicting Configuration", "https and https_auto_cert are mutually exclusive.")
-	}
-	if data.JsChallenge != nil && !data.NoChallenge.IsNull() && !data.NoChallenge.IsUnknown() {
-		resp.Diagnostics.AddAttributeError(path.Root("js_challenge"), "Conflicting Configuration", "js_challenge and no_challenge are mutually exclusive.")
-	}
-	if data.JsChallenge != nil && data.PolicyBasedChallenge != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("js_challenge"), "Conflicting Configuration", "js_challenge and policy_based_challenge are mutually exclusive.")
-	}
-	if !data.L7DDOSActionBlock.IsNull() && !data.L7DDOSActionBlock.IsUnknown() && data.L7DDOSActionJsChallenge != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("l7_ddos_action_block"), "Conflicting Configuration", "l7_ddos_action_block and l7_ddos_action_js_challenge are mutually exclusive.")
-	}
-	if !data.L7DDOSActionDefault.IsNull() && !data.L7DDOSActionDefault.IsUnknown() && data.L7DDOSActionJsChallenge != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("l7_ddos_action_default"), "Conflicting Configuration", "l7_ddos_action_default and l7_ddos_action_js_challenge are mutually exclusive.")
-	}
-	if !data.LeastActive.IsNull() && !data.LeastActive.IsUnknown() && data.RingHash != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("least_active"), "Conflicting Configuration", "least_active and ring_hash are mutually exclusive.")
-	}
-	if !data.MultiLBApp.IsNull() && !data.MultiLBApp.IsUnknown() && data.SingleLBApp != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("multi_lb_app"), "Conflicting Configuration", "multi_lb_app and single_lb_app are mutually exclusive.")
-	}
-	if !data.NoChallenge.IsNull() && !data.NoChallenge.IsUnknown() && data.PolicyBasedChallenge != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("no_challenge"), "Conflicting Configuration", "no_challenge and policy_based_challenge are mutually exclusive.")
-	}
-	if !data.Random.IsNull() && !data.Random.IsUnknown() && data.RingHash != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("random"), "Conflicting Configuration", "random and ring_hash are mutually exclusive.")
-	}
-	if data.RingHash != nil && !data.RoundRobin.IsNull() && !data.RoundRobin.IsUnknown() {
-		resp.Diagnostics.AddAttributeError(path.Root("ring_hash"), "Conflicting Configuration", "ring_hash and round_robin are mutually exclusive.")
-	}
-	if data.RingHash != nil && !data.SourceIPStickiness.IsNull() && !data.SourceIPStickiness.IsUnknown() {
-		resp.Diagnostics.AddAttributeError(path.Root("ring_hash"), "Conflicting Configuration", "ring_hash and source_ip_stickiness are mutually exclusive.")
-	}
-	if data.SlowDDOSMitigation != nil && !data.SystemDefaultTimeouts.IsNull() && !data.SystemDefaultTimeouts.IsUnknown() {
-		resp.Diagnostics.AddAttributeError(path.Root("slow_ddos_mitigation"), "Conflicting Configuration", "slow_ddos_mitigation and system_default_timeouts are mutually exclusive.")
-	}
-	if !data.UserIDClientIP.IsNull() && !data.UserIDClientIP.IsUnknown() && data.UserIdentification != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("user_id_client_ip"), "Conflicting Configuration", "user_id_client_ip and user_identification are mutually exclusive.")
-	}
+	// Unresolved empty dynamic alternatives arrive as known all-null objects.
+	// Validate again during planning, after resource expansion, rather than
+	// treating those synthetic alternatives as two user-selected blocks.
+	if req.Config.Raw.IsFullyKnown() {
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("active_service_policies"), &resp.Diagnostics) && !data.NoServicePolicies.IsNull() && !data.NoServicePolicies.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("active_service_policies"), "Conflicting Configuration", "active_service_policies and no_service_policies are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("active_service_policies"), &resp.Diagnostics) && !data.ServicePoliciesFromNamespace.IsNull() && !data.ServicePoliciesFromNamespace.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("active_service_policies"), "Conflicting Configuration", "active_service_policies and service_policies_from_namespace are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("advertise_custom"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("advertise_dualstack_on_public"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("advertise_custom"), "Conflicting Configuration", "advertise_custom and advertise_dualstack_on_public are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("advertise_custom"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("advertise_on_public"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("advertise_custom"), "Conflicting Configuration", "advertise_custom and advertise_on_public are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("advertise_custom"), &resp.Diagnostics) && !data.AdvertiseOnPublicDefaultVIP.IsNull() && !data.AdvertiseOnPublicDefaultVIP.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("advertise_custom"), "Conflicting Configuration", "advertise_custom and advertise_on_public_default_vip are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("advertise_custom"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("advertise_v6_on_public"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("advertise_custom"), "Conflicting Configuration", "advertise_custom and advertise_v6_on_public are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("advertise_custom"), &resp.Diagnostics) && !data.DoNotAdvertise.IsNull() && !data.DoNotAdvertise.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("advertise_custom"), "Conflicting Configuration", "advertise_custom and do_not_advertise are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("advertise_dualstack_on_public"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("advertise_on_public"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("advertise_dualstack_on_public"), "Conflicting Configuration", "advertise_dualstack_on_public and advertise_on_public are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("advertise_dualstack_on_public"), &resp.Diagnostics) && !data.AdvertiseOnPublicDefaultVIP.IsNull() && !data.AdvertiseOnPublicDefaultVIP.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("advertise_dualstack_on_public"), "Conflicting Configuration", "advertise_dualstack_on_public and advertise_on_public_default_vip are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("advertise_dualstack_on_public"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("advertise_v6_on_public"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("advertise_dualstack_on_public"), "Conflicting Configuration", "advertise_dualstack_on_public and advertise_v6_on_public are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("advertise_dualstack_on_public"), &resp.Diagnostics) && !data.DoNotAdvertise.IsNull() && !data.DoNotAdvertise.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("advertise_dualstack_on_public"), "Conflicting Configuration", "advertise_dualstack_on_public and do_not_advertise are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("advertise_on_public"), &resp.Diagnostics) && !data.AdvertiseOnPublicDefaultVIP.IsNull() && !data.AdvertiseOnPublicDefaultVIP.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("advertise_on_public"), "Conflicting Configuration", "advertise_on_public and advertise_on_public_default_vip are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("advertise_on_public"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("advertise_v6_on_public"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("advertise_on_public"), "Conflicting Configuration", "advertise_on_public and advertise_v6_on_public are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("advertise_on_public"), &resp.Diagnostics) && !data.DoNotAdvertise.IsNull() && !data.DoNotAdvertise.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("advertise_on_public"), "Conflicting Configuration", "advertise_on_public and do_not_advertise are mutually exclusive.")
+		}
+		if !data.AdvertiseOnPublicDefaultVIP.IsNull() && !data.AdvertiseOnPublicDefaultVIP.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("advertise_v6_on_public"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("advertise_on_public_default_vip"), "Conflicting Configuration", "advertise_on_public_default_vip and advertise_v6_on_public are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("advertise_v6_on_public"), &resp.Diagnostics) && !data.DoNotAdvertise.IsNull() && !data.DoNotAdvertise.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("advertise_v6_on_public"), "Conflicting Configuration", "advertise_v6_on_public and do_not_advertise are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("api_rate_limit"), &resp.Diagnostics) && !data.DisableRateLimit.IsNull() && !data.DisableRateLimit.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("api_rate_limit"), "Conflicting Configuration", "api_rate_limit and disable_rate_limit are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("api_rate_limit"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("rate_limit"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("api_rate_limit"), "Conflicting Configuration", "api_rate_limit and rate_limit are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("api_specification"), &resp.Diagnostics) && !data.DisableAPIDefinition.IsNull() && !data.DisableAPIDefinition.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("api_specification"), "Conflicting Configuration", "api_specification and disable_api_definition are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("api_testing"), &resp.Diagnostics) && !data.DisableAPITesting.IsNull() && !data.DisableAPITesting.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("api_testing"), "Conflicting Configuration", "api_testing and disable_api_testing are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("app_firewall"), &resp.Diagnostics) && !data.DisableWAF.IsNull() && !data.DisableWAF.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("app_firewall"), "Conflicting Configuration", "app_firewall and disable_waf are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("bot_defense"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("bot_defense_advanced_protection"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("bot_defense"), "Conflicting Configuration", "bot_defense and bot_defense_advanced_protection are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("bot_defense"), &resp.Diagnostics) && !data.DisableBotDefense.IsNull() && !data.DisableBotDefense.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("bot_defense"), "Conflicting Configuration", "bot_defense and disable_bot_defense are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("bot_defense_advanced_protection"), &resp.Diagnostics) && !data.DisableBotDefense.IsNull() && !data.DisableBotDefense.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("bot_defense_advanced_protection"), "Conflicting Configuration", "bot_defense_advanced_protection and disable_bot_defense are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("caching_policy"), &resp.Diagnostics) && !data.DisableCaching.IsNull() && !data.DisableCaching.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("caching_policy"), "Conflicting Configuration", "caching_policy and disable_caching are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("captcha_challenge"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("enable_challenge"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("captcha_challenge"), "Conflicting Configuration", "captcha_challenge and enable_challenge are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("captcha_challenge"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("js_challenge"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("captcha_challenge"), "Conflicting Configuration", "captcha_challenge and js_challenge are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("captcha_challenge"), &resp.Diagnostics) && !data.NoChallenge.IsNull() && !data.NoChallenge.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("captcha_challenge"), "Conflicting Configuration", "captcha_challenge and no_challenge are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("captcha_challenge"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("policy_based_challenge"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("captcha_challenge"), "Conflicting Configuration", "captcha_challenge and policy_based_challenge are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("client_side_defense"), &resp.Diagnostics) && !data.DisableClientSideDefense.IsNull() && !data.DisableClientSideDefense.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("client_side_defense"), "Conflicting Configuration", "client_side_defense and disable_client_side_defense are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("cookie_stickiness"), &resp.Diagnostics) && !data.LeastActive.IsNull() && !data.LeastActive.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("cookie_stickiness"), "Conflicting Configuration", "cookie_stickiness and least_active are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("cookie_stickiness"), &resp.Diagnostics) && !data.Random.IsNull() && !data.Random.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("cookie_stickiness"), "Conflicting Configuration", "cookie_stickiness and random are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("cookie_stickiness"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("ring_hash"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("cookie_stickiness"), "Conflicting Configuration", "cookie_stickiness and ring_hash are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("cookie_stickiness"), &resp.Diagnostics) && !data.RoundRobin.IsNull() && !data.RoundRobin.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("cookie_stickiness"), "Conflicting Configuration", "cookie_stickiness and round_robin are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("cookie_stickiness"), &resp.Diagnostics) && !data.SourceIPStickiness.IsNull() && !data.SourceIPStickiness.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("cookie_stickiness"), "Conflicting Configuration", "cookie_stickiness and source_ip_stickiness are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("default_pool"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("default_pool_list"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("default_pool"), "Conflicting Configuration", "default_pool and default_pool_list are mutually exclusive.")
+		}
+		if !data.DefaultSensitiveDataPolicy.IsNull() && !data.DefaultSensitiveDataPolicy.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("sensitive_data_policy"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("default_sensitive_data_policy"), "Conflicting Configuration", "default_sensitive_data_policy and sensitive_data_policy are mutually exclusive.")
+		}
+		if !data.DisableAPIDiscovery.IsNull() && !data.DisableAPIDiscovery.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("enable_api_discovery"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("disable_api_discovery"), "Conflicting Configuration", "disable_api_discovery and enable_api_discovery are mutually exclusive.")
+		}
+		if !data.DisableIPReputation.IsNull() && !data.DisableIPReputation.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("enable_ip_reputation"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("disable_ip_reputation"), "Conflicting Configuration", "disable_ip_reputation and enable_ip_reputation are mutually exclusive.")
+		}
+		if !data.DisableMalwareProtection.IsNull() && !data.DisableMalwareProtection.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("malware_protection_settings"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("disable_malware_protection"), "Conflicting Configuration", "disable_malware_protection and malware_protection_settings are mutually exclusive.")
+		}
+		if !data.DisableRateLimit.IsNull() && !data.DisableRateLimit.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("rate_limit"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("disable_rate_limit"), "Conflicting Configuration", "disable_rate_limit and rate_limit are mutually exclusive.")
+		}
+		if !data.DisableTrustClientIPHeaders.IsNull() && !data.DisableTrustClientIPHeaders.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("enable_trust_client_ip_headers"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("disable_trust_client_ip_headers"), "Conflicting Configuration", "disable_trust_client_ip_headers and enable_trust_client_ip_headers are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("enable_challenge"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("js_challenge"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("enable_challenge"), "Conflicting Configuration", "enable_challenge and js_challenge are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("enable_challenge"), &resp.Diagnostics) && !data.NoChallenge.IsNull() && !data.NoChallenge.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("enable_challenge"), "Conflicting Configuration", "enable_challenge and no_challenge are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("enable_challenge"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("policy_based_challenge"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("enable_challenge"), "Conflicting Configuration", "enable_challenge and policy_based_challenge are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("http"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("https"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("http"), "Conflicting Configuration", "http and https are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("http"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("https_auto_cert"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("http"), "Conflicting Configuration", "http and https_auto_cert are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("https"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("https_auto_cert"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("https"), "Conflicting Configuration", "https and https_auto_cert are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("js_challenge"), &resp.Diagnostics) && !data.NoChallenge.IsNull() && !data.NoChallenge.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("js_challenge"), "Conflicting Configuration", "js_challenge and no_challenge are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("js_challenge"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("policy_based_challenge"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("js_challenge"), "Conflicting Configuration", "js_challenge and policy_based_challenge are mutually exclusive.")
+		}
+		if !data.L7DDOSActionBlock.IsNull() && !data.L7DDOSActionBlock.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("l7_ddos_action_js_challenge"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("l7_ddos_action_block"), "Conflicting Configuration", "l7_ddos_action_block and l7_ddos_action_js_challenge are mutually exclusive.")
+		}
+		if !data.L7DDOSActionDefault.IsNull() && !data.L7DDOSActionDefault.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("l7_ddos_action_js_challenge"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("l7_ddos_action_default"), "Conflicting Configuration", "l7_ddos_action_default and l7_ddos_action_js_challenge are mutually exclusive.")
+		}
+		if !data.LeastActive.IsNull() && !data.LeastActive.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("ring_hash"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("least_active"), "Conflicting Configuration", "least_active and ring_hash are mutually exclusive.")
+		}
+		if !data.MultiLBApp.IsNull() && !data.MultiLBApp.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("single_lb_app"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("multi_lb_app"), "Conflicting Configuration", "multi_lb_app and single_lb_app are mutually exclusive.")
+		}
+		if !data.NoChallenge.IsNull() && !data.NoChallenge.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("policy_based_challenge"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("no_challenge"), "Conflicting Configuration", "no_challenge and policy_based_challenge are mutually exclusive.")
+		}
+		if !data.Random.IsNull() && !data.Random.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("ring_hash"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("random"), "Conflicting Configuration", "random and ring_hash are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("ring_hash"), &resp.Diagnostics) && !data.RoundRobin.IsNull() && !data.RoundRobin.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("ring_hash"), "Conflicting Configuration", "ring_hash and round_robin are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("ring_hash"), &resp.Diagnostics) && !data.SourceIPStickiness.IsNull() && !data.SourceIPStickiness.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("ring_hash"), "Conflicting Configuration", "ring_hash and source_ip_stickiness are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("slow_ddos_mitigation"), &resp.Diagnostics) && !data.SystemDefaultTimeouts.IsNull() && !data.SystemDefaultTimeouts.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("slow_ddos_mitigation"), "Conflicting Configuration", "slow_ddos_mitigation and system_default_timeouts are mutually exclusive.")
+		}
+		if !data.UserIDClientIP.IsNull() && !data.UserIDClientIP.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("user_identification"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("user_id_client_ip"), "Conflicting Configuration", "user_id_client_ip and user_identification are mutually exclusive.")
+		}
 
+	}
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan
@@ -25227,6 +25232,199 @@ func (r *HTTPLoadBalancerResource) ModifyPlan(ctx context.Context, req resource.
 			"This permanently deletes the http_loadbalancer from F5 Distributed Cloud.",
 		)
 		return
+	}
+	{
+		// Always enforce known configured choices while planning, even when an
+		// unrelated attribute remains unknown. Never inspect API-added defaults.
+		var data HTTPLoadBalancerResourceModel
+		resp.Diagnostics.Append(req.Config.Get(ctx, &data)...)
+		if resp.Diagnostics.HasError() {
+			return
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("active_service_policies"), &resp.Diagnostics) && !data.NoServicePolicies.IsNull() && !data.NoServicePolicies.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("active_service_policies"), "Conflicting Configuration", "active_service_policies and no_service_policies are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("active_service_policies"), &resp.Diagnostics) && !data.ServicePoliciesFromNamespace.IsNull() && !data.ServicePoliciesFromNamespace.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("active_service_policies"), "Conflicting Configuration", "active_service_policies and service_policies_from_namespace are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("advertise_custom"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("advertise_dualstack_on_public"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("advertise_custom"), "Conflicting Configuration", "advertise_custom and advertise_dualstack_on_public are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("advertise_custom"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("advertise_on_public"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("advertise_custom"), "Conflicting Configuration", "advertise_custom and advertise_on_public are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("advertise_custom"), &resp.Diagnostics) && !data.AdvertiseOnPublicDefaultVIP.IsNull() && !data.AdvertiseOnPublicDefaultVIP.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("advertise_custom"), "Conflicting Configuration", "advertise_custom and advertise_on_public_default_vip are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("advertise_custom"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("advertise_v6_on_public"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("advertise_custom"), "Conflicting Configuration", "advertise_custom and advertise_v6_on_public are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("advertise_custom"), &resp.Diagnostics) && !data.DoNotAdvertise.IsNull() && !data.DoNotAdvertise.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("advertise_custom"), "Conflicting Configuration", "advertise_custom and do_not_advertise are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("advertise_dualstack_on_public"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("advertise_on_public"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("advertise_dualstack_on_public"), "Conflicting Configuration", "advertise_dualstack_on_public and advertise_on_public are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("advertise_dualstack_on_public"), &resp.Diagnostics) && !data.AdvertiseOnPublicDefaultVIP.IsNull() && !data.AdvertiseOnPublicDefaultVIP.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("advertise_dualstack_on_public"), "Conflicting Configuration", "advertise_dualstack_on_public and advertise_on_public_default_vip are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("advertise_dualstack_on_public"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("advertise_v6_on_public"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("advertise_dualstack_on_public"), "Conflicting Configuration", "advertise_dualstack_on_public and advertise_v6_on_public are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("advertise_dualstack_on_public"), &resp.Diagnostics) && !data.DoNotAdvertise.IsNull() && !data.DoNotAdvertise.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("advertise_dualstack_on_public"), "Conflicting Configuration", "advertise_dualstack_on_public and do_not_advertise are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("advertise_on_public"), &resp.Diagnostics) && !data.AdvertiseOnPublicDefaultVIP.IsNull() && !data.AdvertiseOnPublicDefaultVIP.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("advertise_on_public"), "Conflicting Configuration", "advertise_on_public and advertise_on_public_default_vip are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("advertise_on_public"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("advertise_v6_on_public"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("advertise_on_public"), "Conflicting Configuration", "advertise_on_public and advertise_v6_on_public are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("advertise_on_public"), &resp.Diagnostics) && !data.DoNotAdvertise.IsNull() && !data.DoNotAdvertise.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("advertise_on_public"), "Conflicting Configuration", "advertise_on_public and do_not_advertise are mutually exclusive.")
+		}
+		if !data.AdvertiseOnPublicDefaultVIP.IsNull() && !data.AdvertiseOnPublicDefaultVIP.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("advertise_v6_on_public"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("advertise_on_public_default_vip"), "Conflicting Configuration", "advertise_on_public_default_vip and advertise_v6_on_public are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("advertise_v6_on_public"), &resp.Diagnostics) && !data.DoNotAdvertise.IsNull() && !data.DoNotAdvertise.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("advertise_v6_on_public"), "Conflicting Configuration", "advertise_v6_on_public and do_not_advertise are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("api_rate_limit"), &resp.Diagnostics) && !data.DisableRateLimit.IsNull() && !data.DisableRateLimit.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("api_rate_limit"), "Conflicting Configuration", "api_rate_limit and disable_rate_limit are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("api_rate_limit"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("rate_limit"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("api_rate_limit"), "Conflicting Configuration", "api_rate_limit and rate_limit are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("api_specification"), &resp.Diagnostics) && !data.DisableAPIDefinition.IsNull() && !data.DisableAPIDefinition.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("api_specification"), "Conflicting Configuration", "api_specification and disable_api_definition are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("api_testing"), &resp.Diagnostics) && !data.DisableAPITesting.IsNull() && !data.DisableAPITesting.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("api_testing"), "Conflicting Configuration", "api_testing and disable_api_testing are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("app_firewall"), &resp.Diagnostics) && !data.DisableWAF.IsNull() && !data.DisableWAF.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("app_firewall"), "Conflicting Configuration", "app_firewall and disable_waf are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("bot_defense"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("bot_defense_advanced_protection"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("bot_defense"), "Conflicting Configuration", "bot_defense and bot_defense_advanced_protection are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("bot_defense"), &resp.Diagnostics) && !data.DisableBotDefense.IsNull() && !data.DisableBotDefense.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("bot_defense"), "Conflicting Configuration", "bot_defense and disable_bot_defense are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("bot_defense_advanced_protection"), &resp.Diagnostics) && !data.DisableBotDefense.IsNull() && !data.DisableBotDefense.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("bot_defense_advanced_protection"), "Conflicting Configuration", "bot_defense_advanced_protection and disable_bot_defense are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("caching_policy"), &resp.Diagnostics) && !data.DisableCaching.IsNull() && !data.DisableCaching.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("caching_policy"), "Conflicting Configuration", "caching_policy and disable_caching are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("captcha_challenge"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("enable_challenge"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("captcha_challenge"), "Conflicting Configuration", "captcha_challenge and enable_challenge are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("captcha_challenge"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("js_challenge"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("captcha_challenge"), "Conflicting Configuration", "captcha_challenge and js_challenge are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("captcha_challenge"), &resp.Diagnostics) && !data.NoChallenge.IsNull() && !data.NoChallenge.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("captcha_challenge"), "Conflicting Configuration", "captcha_challenge and no_challenge are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("captcha_challenge"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("policy_based_challenge"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("captcha_challenge"), "Conflicting Configuration", "captcha_challenge and policy_based_challenge are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("client_side_defense"), &resp.Diagnostics) && !data.DisableClientSideDefense.IsNull() && !data.DisableClientSideDefense.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("client_side_defense"), "Conflicting Configuration", "client_side_defense and disable_client_side_defense are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("cookie_stickiness"), &resp.Diagnostics) && !data.LeastActive.IsNull() && !data.LeastActive.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("cookie_stickiness"), "Conflicting Configuration", "cookie_stickiness and least_active are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("cookie_stickiness"), &resp.Diagnostics) && !data.Random.IsNull() && !data.Random.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("cookie_stickiness"), "Conflicting Configuration", "cookie_stickiness and random are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("cookie_stickiness"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("ring_hash"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("cookie_stickiness"), "Conflicting Configuration", "cookie_stickiness and ring_hash are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("cookie_stickiness"), &resp.Diagnostics) && !data.RoundRobin.IsNull() && !data.RoundRobin.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("cookie_stickiness"), "Conflicting Configuration", "cookie_stickiness and round_robin are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("cookie_stickiness"), &resp.Diagnostics) && !data.SourceIPStickiness.IsNull() && !data.SourceIPStickiness.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("cookie_stickiness"), "Conflicting Configuration", "cookie_stickiness and source_ip_stickiness are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("default_pool"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("default_pool_list"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("default_pool"), "Conflicting Configuration", "default_pool and default_pool_list are mutually exclusive.")
+		}
+		if !data.DefaultSensitiveDataPolicy.IsNull() && !data.DefaultSensitiveDataPolicy.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("sensitive_data_policy"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("default_sensitive_data_policy"), "Conflicting Configuration", "default_sensitive_data_policy and sensitive_data_policy are mutually exclusive.")
+		}
+		if !data.DisableAPIDiscovery.IsNull() && !data.DisableAPIDiscovery.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("enable_api_discovery"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("disable_api_discovery"), "Conflicting Configuration", "disable_api_discovery and enable_api_discovery are mutually exclusive.")
+		}
+		if !data.DisableIPReputation.IsNull() && !data.DisableIPReputation.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("enable_ip_reputation"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("disable_ip_reputation"), "Conflicting Configuration", "disable_ip_reputation and enable_ip_reputation are mutually exclusive.")
+		}
+		if !data.DisableMalwareProtection.IsNull() && !data.DisableMalwareProtection.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("malware_protection_settings"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("disable_malware_protection"), "Conflicting Configuration", "disable_malware_protection and malware_protection_settings are mutually exclusive.")
+		}
+		if !data.DisableRateLimit.IsNull() && !data.DisableRateLimit.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("rate_limit"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("disable_rate_limit"), "Conflicting Configuration", "disable_rate_limit and rate_limit are mutually exclusive.")
+		}
+		if !data.DisableTrustClientIPHeaders.IsNull() && !data.DisableTrustClientIPHeaders.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("enable_trust_client_ip_headers"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("disable_trust_client_ip_headers"), "Conflicting Configuration", "disable_trust_client_ip_headers and enable_trust_client_ip_headers are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("enable_challenge"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("js_challenge"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("enable_challenge"), "Conflicting Configuration", "enable_challenge and js_challenge are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("enable_challenge"), &resp.Diagnostics) && !data.NoChallenge.IsNull() && !data.NoChallenge.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("enable_challenge"), "Conflicting Configuration", "enable_challenge and no_challenge are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("enable_challenge"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("policy_based_challenge"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("enable_challenge"), "Conflicting Configuration", "enable_challenge and policy_based_challenge are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("http"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("https"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("http"), "Conflicting Configuration", "http and https are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("http"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("https_auto_cert"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("http"), "Conflicting Configuration", "http and https_auto_cert are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("https"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("https_auto_cert"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("https"), "Conflicting Configuration", "https and https_auto_cert are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("js_challenge"), &resp.Diagnostics) && !data.NoChallenge.IsNull() && !data.NoChallenge.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("js_challenge"), "Conflicting Configuration", "js_challenge and no_challenge are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("js_challenge"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("policy_based_challenge"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("js_challenge"), "Conflicting Configuration", "js_challenge and policy_based_challenge are mutually exclusive.")
+		}
+		if !data.L7DDOSActionBlock.IsNull() && !data.L7DDOSActionBlock.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("l7_ddos_action_js_challenge"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("l7_ddos_action_block"), "Conflicting Configuration", "l7_ddos_action_block and l7_ddos_action_js_challenge are mutually exclusive.")
+		}
+		if !data.L7DDOSActionDefault.IsNull() && !data.L7DDOSActionDefault.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("l7_ddos_action_js_challenge"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("l7_ddos_action_default"), "Conflicting Configuration", "l7_ddos_action_default and l7_ddos_action_js_challenge are mutually exclusive.")
+		}
+		if !data.LeastActive.IsNull() && !data.LeastActive.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("ring_hash"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("least_active"), "Conflicting Configuration", "least_active and ring_hash are mutually exclusive.")
+		}
+		if !data.MultiLBApp.IsNull() && !data.MultiLBApp.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("single_lb_app"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("multi_lb_app"), "Conflicting Configuration", "multi_lb_app and single_lb_app are mutually exclusive.")
+		}
+		if !data.NoChallenge.IsNull() && !data.NoChallenge.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("policy_based_challenge"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("no_challenge"), "Conflicting Configuration", "no_challenge and policy_based_challenge are mutually exclusive.")
+		}
+		if !data.Random.IsNull() && !data.Random.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("ring_hash"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("random"), "Conflicting Configuration", "random and ring_hash are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("ring_hash"), &resp.Diagnostics) && !data.RoundRobin.IsNull() && !data.RoundRobin.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("ring_hash"), "Conflicting Configuration", "ring_hash and round_robin are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("ring_hash"), &resp.Diagnostics) && !data.SourceIPStickiness.IsNull() && !data.SourceIPStickiness.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("ring_hash"), "Conflicting Configuration", "ring_hash and source_ip_stickiness are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("slow_ddos_mitigation"), &resp.Diagnostics) && !data.SystemDefaultTimeouts.IsNull() && !data.SystemDefaultTimeouts.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("slow_ddos_mitigation"), "Conflicting Configuration", "slow_ddos_mitigation and system_default_timeouts are mutually exclusive.")
+		}
+		if !data.UserIDClientIP.IsNull() && !data.UserIDClientIP.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("user_identification"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("user_id_client_ip"), "Conflicting Configuration", "user_id_client_ip and user_identification are mutually exclusive.")
+		}
+
+		if resp.Diagnostics.HasError() {
+			return
+		}
 	}
 
 	if req.State.Raw.IsNull() {

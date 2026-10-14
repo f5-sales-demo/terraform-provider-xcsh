@@ -464,52 +464,57 @@ func (r *DNSLBHealthCheckResource) ValidateConfig(ctx context.Context, req resou
 	if resp.Diagnostics.HasError() {
 		return
 	}
-	if data.HTTPHealthCheck != nil && data.HTTPSHealthCheck != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("http_health_check"), "Conflicting Configuration", "http_health_check and https_health_check are mutually exclusive.")
-	}
-	if data.HTTPHealthCheck != nil && !data.ICMPHealthCheck.IsNull() && !data.ICMPHealthCheck.IsUnknown() {
-		resp.Diagnostics.AddAttributeError(path.Root("http_health_check"), "Conflicting Configuration", "http_health_check and icmp_health_check are mutually exclusive.")
-	}
-	if data.HTTPHealthCheck != nil && data.TCPHealthCheck != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("http_health_check"), "Conflicting Configuration", "http_health_check and tcp_health_check are mutually exclusive.")
-	}
-	if data.HTTPHealthCheck != nil && data.TCPHexHealthCheck != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("http_health_check"), "Conflicting Configuration", "http_health_check and tcp_hex_health_check are mutually exclusive.")
-	}
-	if data.HTTPHealthCheck != nil && data.UDPHealthCheck != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("http_health_check"), "Conflicting Configuration", "http_health_check and udp_health_check are mutually exclusive.")
-	}
-	if data.HTTPSHealthCheck != nil && !data.ICMPHealthCheck.IsNull() && !data.ICMPHealthCheck.IsUnknown() {
-		resp.Diagnostics.AddAttributeError(path.Root("https_health_check"), "Conflicting Configuration", "https_health_check and icmp_health_check are mutually exclusive.")
-	}
-	if data.HTTPSHealthCheck != nil && data.TCPHealthCheck != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("https_health_check"), "Conflicting Configuration", "https_health_check and tcp_health_check are mutually exclusive.")
-	}
-	if data.HTTPSHealthCheck != nil && data.TCPHexHealthCheck != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("https_health_check"), "Conflicting Configuration", "https_health_check and tcp_hex_health_check are mutually exclusive.")
-	}
-	if data.HTTPSHealthCheck != nil && data.UDPHealthCheck != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("https_health_check"), "Conflicting Configuration", "https_health_check and udp_health_check are mutually exclusive.")
-	}
-	if !data.ICMPHealthCheck.IsNull() && !data.ICMPHealthCheck.IsUnknown() && data.TCPHealthCheck != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("icmp_health_check"), "Conflicting Configuration", "icmp_health_check and tcp_health_check are mutually exclusive.")
-	}
-	if !data.ICMPHealthCheck.IsNull() && !data.ICMPHealthCheck.IsUnknown() && data.TCPHexHealthCheck != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("icmp_health_check"), "Conflicting Configuration", "icmp_health_check and tcp_hex_health_check are mutually exclusive.")
-	}
-	if !data.ICMPHealthCheck.IsNull() && !data.ICMPHealthCheck.IsUnknown() && data.UDPHealthCheck != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("icmp_health_check"), "Conflicting Configuration", "icmp_health_check and udp_health_check are mutually exclusive.")
-	}
-	if data.TCPHealthCheck != nil && data.TCPHexHealthCheck != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("tcp_health_check"), "Conflicting Configuration", "tcp_health_check and tcp_hex_health_check are mutually exclusive.")
-	}
-	if data.TCPHealthCheck != nil && data.UDPHealthCheck != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("tcp_health_check"), "Conflicting Configuration", "tcp_health_check and udp_health_check are mutually exclusive.")
-	}
-	if data.TCPHexHealthCheck != nil && data.UDPHealthCheck != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("tcp_hex_health_check"), "Conflicting Configuration", "tcp_hex_health_check and udp_health_check are mutually exclusive.")
-	}
+	// Unresolved empty dynamic alternatives arrive as known all-null objects.
+	// Validate again during planning, after resource expansion, rather than
+	// treating those synthetic alternatives as two user-selected blocks.
+	if req.Config.Raw.IsFullyKnown() {
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("http_health_check"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("https_health_check"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("http_health_check"), "Conflicting Configuration", "http_health_check and https_health_check are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("http_health_check"), &resp.Diagnostics) && !data.ICMPHealthCheck.IsNull() && !data.ICMPHealthCheck.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("http_health_check"), "Conflicting Configuration", "http_health_check and icmp_health_check are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("http_health_check"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("tcp_health_check"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("http_health_check"), "Conflicting Configuration", "http_health_check and tcp_health_check are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("http_health_check"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("tcp_hex_health_check"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("http_health_check"), "Conflicting Configuration", "http_health_check and tcp_hex_health_check are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("http_health_check"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("udp_health_check"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("http_health_check"), "Conflicting Configuration", "http_health_check and udp_health_check are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("https_health_check"), &resp.Diagnostics) && !data.ICMPHealthCheck.IsNull() && !data.ICMPHealthCheck.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("https_health_check"), "Conflicting Configuration", "https_health_check and icmp_health_check are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("https_health_check"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("tcp_health_check"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("https_health_check"), "Conflicting Configuration", "https_health_check and tcp_health_check are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("https_health_check"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("tcp_hex_health_check"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("https_health_check"), "Conflicting Configuration", "https_health_check and tcp_hex_health_check are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("https_health_check"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("udp_health_check"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("https_health_check"), "Conflicting Configuration", "https_health_check and udp_health_check are mutually exclusive.")
+		}
+		if !data.ICMPHealthCheck.IsNull() && !data.ICMPHealthCheck.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("tcp_health_check"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("icmp_health_check"), "Conflicting Configuration", "icmp_health_check and tcp_health_check are mutually exclusive.")
+		}
+		if !data.ICMPHealthCheck.IsNull() && !data.ICMPHealthCheck.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("tcp_hex_health_check"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("icmp_health_check"), "Conflicting Configuration", "icmp_health_check and tcp_hex_health_check are mutually exclusive.")
+		}
+		if !data.ICMPHealthCheck.IsNull() && !data.ICMPHealthCheck.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("udp_health_check"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("icmp_health_check"), "Conflicting Configuration", "icmp_health_check and udp_health_check are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("tcp_health_check"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("tcp_hex_health_check"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("tcp_health_check"), "Conflicting Configuration", "tcp_health_check and tcp_hex_health_check are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("tcp_health_check"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("udp_health_check"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("tcp_health_check"), "Conflicting Configuration", "tcp_health_check and udp_health_check are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("tcp_hex_health_check"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("udp_health_check"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("tcp_hex_health_check"), "Conflicting Configuration", "tcp_hex_health_check and udp_health_check are mutually exclusive.")
+		}
 
+	}
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan
@@ -520,6 +525,64 @@ func (r *DNSLBHealthCheckResource) ModifyPlan(ctx context.Context, req resource.
 			"This permanently deletes the dns_lb_health_check from F5 Distributed Cloud.",
 		)
 		return
+	}
+	{
+		// Always enforce known configured choices while planning, even when an
+		// unrelated attribute remains unknown. Never inspect API-added defaults.
+		var data DNSLBHealthCheckResourceModel
+		resp.Diagnostics.Append(req.Config.Get(ctx, &data)...)
+		if resp.Diagnostics.HasError() {
+			return
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("http_health_check"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("https_health_check"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("http_health_check"), "Conflicting Configuration", "http_health_check and https_health_check are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("http_health_check"), &resp.Diagnostics) && !data.ICMPHealthCheck.IsNull() && !data.ICMPHealthCheck.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("http_health_check"), "Conflicting Configuration", "http_health_check and icmp_health_check are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("http_health_check"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("tcp_health_check"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("http_health_check"), "Conflicting Configuration", "http_health_check and tcp_health_check are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("http_health_check"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("tcp_hex_health_check"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("http_health_check"), "Conflicting Configuration", "http_health_check and tcp_hex_health_check are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("http_health_check"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("udp_health_check"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("http_health_check"), "Conflicting Configuration", "http_health_check and udp_health_check are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("https_health_check"), &resp.Diagnostics) && !data.ICMPHealthCheck.IsNull() && !data.ICMPHealthCheck.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("https_health_check"), "Conflicting Configuration", "https_health_check and icmp_health_check are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("https_health_check"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("tcp_health_check"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("https_health_check"), "Conflicting Configuration", "https_health_check and tcp_health_check are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("https_health_check"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("tcp_hex_health_check"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("https_health_check"), "Conflicting Configuration", "https_health_check and tcp_hex_health_check are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("https_health_check"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("udp_health_check"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("https_health_check"), "Conflicting Configuration", "https_health_check and udp_health_check are mutually exclusive.")
+		}
+		if !data.ICMPHealthCheck.IsNull() && !data.ICMPHealthCheck.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("tcp_health_check"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("icmp_health_check"), "Conflicting Configuration", "icmp_health_check and tcp_health_check are mutually exclusive.")
+		}
+		if !data.ICMPHealthCheck.IsNull() && !data.ICMPHealthCheck.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("tcp_hex_health_check"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("icmp_health_check"), "Conflicting Configuration", "icmp_health_check and tcp_hex_health_check are mutually exclusive.")
+		}
+		if !data.ICMPHealthCheck.IsNull() && !data.ICMPHealthCheck.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("udp_health_check"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("icmp_health_check"), "Conflicting Configuration", "icmp_health_check and udp_health_check are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("tcp_health_check"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("tcp_hex_health_check"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("tcp_health_check"), "Conflicting Configuration", "tcp_health_check and tcp_hex_health_check are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("tcp_health_check"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("udp_health_check"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("tcp_health_check"), "Conflicting Configuration", "tcp_health_check and udp_health_check are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("tcp_hex_health_check"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("udp_health_check"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("tcp_hex_health_check"), "Conflicting Configuration", "tcp_hex_health_check and udp_health_check are mutually exclusive.")
+		}
+
+		if resp.Diagnostics.HasError() {
+			return
+		}
 	}
 
 	if req.State.Raw.IsNull() {

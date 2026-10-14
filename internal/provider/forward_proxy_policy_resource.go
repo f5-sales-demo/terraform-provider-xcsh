@@ -1251,40 +1251,45 @@ func (r *ForwardProxyPolicyResource) ValidateConfig(ctx context.Context, req res
 		)
 	}
 
-	if !data.AllowAll.IsNull() && !data.AllowAll.IsUnknown() && data.AllowList != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("allow_all"), "Conflicting Configuration", "allow_all and allow_list are mutually exclusive.")
-	}
-	if !data.AllowAll.IsNull() && !data.AllowAll.IsUnknown() && data.DenyList != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("allow_all"), "Conflicting Configuration", "allow_all and deny_list are mutually exclusive.")
-	}
-	if !data.AllowAll.IsNull() && !data.AllowAll.IsUnknown() && data.RuleList != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("allow_all"), "Conflicting Configuration", "allow_all and rule_list are mutually exclusive.")
-	}
-	if data.AllowList != nil && data.DenyList != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("allow_list"), "Conflicting Configuration", "allow_list and deny_list are mutually exclusive.")
-	}
-	if data.AllowList != nil && data.RuleList != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("allow_list"), "Conflicting Configuration", "allow_list and rule_list are mutually exclusive.")
-	}
-	if !data.AnyProxy.IsNull() && !data.AnyProxy.IsUnknown() && data.NetworkConnector != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("any_proxy"), "Conflicting Configuration", "any_proxy and network_connector are mutually exclusive.")
-	}
-	if !data.AnyProxy.IsNull() && !data.AnyProxy.IsUnknown() && data.ProxyLabelSelector != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("any_proxy"), "Conflicting Configuration", "any_proxy and proxy_label_selector are mutually exclusive.")
-	}
-	if data.DenyList != nil && data.RuleList != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("deny_list"), "Conflicting Configuration", "deny_list and rule_list are mutually exclusive.")
-	}
-	if !data.DrpHTTPConnect.IsNull() && !data.DrpHTTPConnect.IsUnknown() && data.NetworkConnector != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("drp_http_connect"), "Conflicting Configuration", "drp_http_connect and network_connector are mutually exclusive.")
-	}
-	if !data.DrpHTTPConnect.IsNull() && !data.DrpHTTPConnect.IsUnknown() && data.ProxyLabelSelector != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("drp_http_connect"), "Conflicting Configuration", "drp_http_connect and proxy_label_selector are mutually exclusive.")
-	}
-	if data.NetworkConnector != nil && data.ProxyLabelSelector != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("network_connector"), "Conflicting Configuration", "network_connector and proxy_label_selector are mutually exclusive.")
-	}
+	// Unresolved empty dynamic alternatives arrive as known all-null objects.
+	// Validate again during planning, after resource expansion, rather than
+	// treating those synthetic alternatives as two user-selected blocks.
+	if req.Config.Raw.IsFullyKnown() {
+		if !data.AllowAll.IsNull() && !data.AllowAll.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("allow_list"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("allow_all"), "Conflicting Configuration", "allow_all and allow_list are mutually exclusive.")
+		}
+		if !data.AllowAll.IsNull() && !data.AllowAll.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("deny_list"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("allow_all"), "Conflicting Configuration", "allow_all and deny_list are mutually exclusive.")
+		}
+		if !data.AllowAll.IsNull() && !data.AllowAll.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("rule_list"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("allow_all"), "Conflicting Configuration", "allow_all and rule_list are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("allow_list"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("deny_list"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("allow_list"), "Conflicting Configuration", "allow_list and deny_list are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("allow_list"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("rule_list"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("allow_list"), "Conflicting Configuration", "allow_list and rule_list are mutually exclusive.")
+		}
+		if !data.AnyProxy.IsNull() && !data.AnyProxy.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("network_connector"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("any_proxy"), "Conflicting Configuration", "any_proxy and network_connector are mutually exclusive.")
+		}
+		if !data.AnyProxy.IsNull() && !data.AnyProxy.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("proxy_label_selector"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("any_proxy"), "Conflicting Configuration", "any_proxy and proxy_label_selector are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("deny_list"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("rule_list"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("deny_list"), "Conflicting Configuration", "deny_list and rule_list are mutually exclusive.")
+		}
+		if !data.DrpHTTPConnect.IsNull() && !data.DrpHTTPConnect.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("network_connector"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("drp_http_connect"), "Conflicting Configuration", "drp_http_connect and network_connector are mutually exclusive.")
+		}
+		if !data.DrpHTTPConnect.IsNull() && !data.DrpHTTPConnect.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("proxy_label_selector"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("drp_http_connect"), "Conflicting Configuration", "drp_http_connect and proxy_label_selector are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("network_connector"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("proxy_label_selector"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("network_connector"), "Conflicting Configuration", "network_connector and proxy_label_selector are mutually exclusive.")
+		}
 
+	}
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan
@@ -1295,6 +1300,52 @@ func (r *ForwardProxyPolicyResource) ModifyPlan(ctx context.Context, req resourc
 			"This permanently deletes the forward_proxy_policy from F5 Distributed Cloud.",
 		)
 		return
+	}
+	{
+		// Always enforce known configured choices while planning, even when an
+		// unrelated attribute remains unknown. Never inspect API-added defaults.
+		var data ForwardProxyPolicyResourceModel
+		resp.Diagnostics.Append(req.Config.Get(ctx, &data)...)
+		if resp.Diagnostics.HasError() {
+			return
+		}
+		if !data.AllowAll.IsNull() && !data.AllowAll.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("allow_list"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("allow_all"), "Conflicting Configuration", "allow_all and allow_list are mutually exclusive.")
+		}
+		if !data.AllowAll.IsNull() && !data.AllowAll.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("deny_list"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("allow_all"), "Conflicting Configuration", "allow_all and deny_list are mutually exclusive.")
+		}
+		if !data.AllowAll.IsNull() && !data.AllowAll.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("rule_list"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("allow_all"), "Conflicting Configuration", "allow_all and rule_list are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("allow_list"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("deny_list"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("allow_list"), "Conflicting Configuration", "allow_list and deny_list are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("allow_list"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("rule_list"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("allow_list"), "Conflicting Configuration", "allow_list and rule_list are mutually exclusive.")
+		}
+		if !data.AnyProxy.IsNull() && !data.AnyProxy.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("network_connector"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("any_proxy"), "Conflicting Configuration", "any_proxy and network_connector are mutually exclusive.")
+		}
+		if !data.AnyProxy.IsNull() && !data.AnyProxy.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("proxy_label_selector"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("any_proxy"), "Conflicting Configuration", "any_proxy and proxy_label_selector are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("deny_list"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("rule_list"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("deny_list"), "Conflicting Configuration", "deny_list and rule_list are mutually exclusive.")
+		}
+		if !data.DrpHTTPConnect.IsNull() && !data.DrpHTTPConnect.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("network_connector"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("drp_http_connect"), "Conflicting Configuration", "drp_http_connect and network_connector are mutually exclusive.")
+		}
+		if !data.DrpHTTPConnect.IsNull() && !data.DrpHTTPConnect.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("proxy_label_selector"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("drp_http_connect"), "Conflicting Configuration", "drp_http_connect and proxy_label_selector are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("network_connector"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("proxy_label_selector"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("network_connector"), "Conflicting Configuration", "network_connector and proxy_label_selector are mutually exclusive.")
+		}
+
+		if resp.Diagnostics.HasError() {
+			return
+		}
 	}
 
 	if req.State.Raw.IsNull() {

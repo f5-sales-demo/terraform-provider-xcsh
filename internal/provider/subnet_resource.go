@@ -350,13 +350,18 @@ func (r *SubnetResource) ValidateConfig(ctx context.Context, req resource.Valida
 		)
 	}
 
-	if data.ConnectToLayer2 != nil && !data.ConnectToSlo.IsNull() && !data.ConnectToSlo.IsUnknown() {
-		resp.Diagnostics.AddAttributeError(path.Root("connect_to_layer2"), "Conflicting Configuration", "connect_to_layer2 and connect_to_slo are mutually exclusive.")
-	}
-	if data.ConnectToLayer2 != nil && !data.IsolatedNw.IsNull() && !data.IsolatedNw.IsUnknown() {
-		resp.Diagnostics.AddAttributeError(path.Root("connect_to_layer2"), "Conflicting Configuration", "connect_to_layer2 and isolated_nw are mutually exclusive.")
-	}
+	// Unresolved empty dynamic alternatives arrive as known all-null objects.
+	// Validate again during planning, after resource expansion, rather than
+	// treating those synthetic alternatives as two user-selected blocks.
+	if req.Config.Raw.IsFullyKnown() {
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("connect_to_layer2"), &resp.Diagnostics) && !data.ConnectToSlo.IsNull() && !data.ConnectToSlo.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("connect_to_layer2"), "Conflicting Configuration", "connect_to_layer2 and connect_to_slo are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("connect_to_layer2"), &resp.Diagnostics) && !data.IsolatedNw.IsNull() && !data.IsolatedNw.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("connect_to_layer2"), "Conflicting Configuration", "connect_to_layer2 and isolated_nw are mutually exclusive.")
+		}
 
+	}
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan
@@ -367,6 +372,25 @@ func (r *SubnetResource) ModifyPlan(ctx context.Context, req resource.ModifyPlan
 			"This permanently deletes the subnet from F5 Distributed Cloud.",
 		)
 		return
+	}
+	{
+		// Always enforce known configured choices while planning, even when an
+		// unrelated attribute remains unknown. Never inspect API-added defaults.
+		var data SubnetResourceModel
+		resp.Diagnostics.Append(req.Config.Get(ctx, &data)...)
+		if resp.Diagnostics.HasError() {
+			return
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("connect_to_layer2"), &resp.Diagnostics) && !data.ConnectToSlo.IsNull() && !data.ConnectToSlo.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("connect_to_layer2"), "Conflicting Configuration", "connect_to_layer2 and connect_to_slo are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("connect_to_layer2"), &resp.Diagnostics) && !data.IsolatedNw.IsNull() && !data.IsolatedNw.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("connect_to_layer2"), "Conflicting Configuration", "connect_to_layer2 and isolated_nw are mutually exclusive.")
+		}
+
+		if resp.Diagnostics.HasError() {
+			return
+		}
 	}
 
 	if req.State.Raw.IsNull() {

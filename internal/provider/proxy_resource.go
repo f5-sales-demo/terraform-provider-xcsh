@@ -3913,19 +3913,24 @@ func (r *ProxyResource) ValidateConfig(ctx context.Context, req resource.Validat
 		)
 	}
 
-	if data.ActiveForwardProxyPolicies != nil && !data.NoForwardProxyPolicy.IsNull() && !data.NoForwardProxyPolicy.IsUnknown() {
-		resp.Diagnostics.AddAttributeError(path.Root("active_forward_proxy_policies"), "Conflicting Configuration", "active_forward_proxy_policies and no_forward_proxy_policy are mutually exclusive.")
-	}
-	if !data.DoNotAdvertise.IsNull() && !data.DoNotAdvertise.IsUnknown() && data.SiteVirtualSites != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("do_not_advertise"), "Conflicting Configuration", "do_not_advertise and site_virtual_sites are mutually exclusive.")
-	}
-	if data.DynamicProxy != nil && data.HTTPProxy != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("dynamic_proxy"), "Conflicting Configuration", "dynamic_proxy and http_proxy are mutually exclusive.")
-	}
-	if !data.NoInterception.IsNull() && !data.NoInterception.IsUnknown() && data.TLSIntercept != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("no_interception"), "Conflicting Configuration", "no_interception and tls_intercept are mutually exclusive.")
-	}
+	// Unresolved empty dynamic alternatives arrive as known all-null objects.
+	// Validate again during planning, after resource expansion, rather than
+	// treating those synthetic alternatives as two user-selected blocks.
+	if req.Config.Raw.IsFullyKnown() {
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("active_forward_proxy_policies"), &resp.Diagnostics) && !data.NoForwardProxyPolicy.IsNull() && !data.NoForwardProxyPolicy.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("active_forward_proxy_policies"), "Conflicting Configuration", "active_forward_proxy_policies and no_forward_proxy_policy are mutually exclusive.")
+		}
+		if !data.DoNotAdvertise.IsNull() && !data.DoNotAdvertise.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("site_virtual_sites"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("do_not_advertise"), "Conflicting Configuration", "do_not_advertise and site_virtual_sites are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("dynamic_proxy"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("http_proxy"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("dynamic_proxy"), "Conflicting Configuration", "dynamic_proxy and http_proxy are mutually exclusive.")
+		}
+		if !data.NoInterception.IsNull() && !data.NoInterception.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("tls_intercept"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("no_interception"), "Conflicting Configuration", "no_interception and tls_intercept are mutually exclusive.")
+		}
 
+	}
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan
@@ -3936,6 +3941,31 @@ func (r *ProxyResource) ModifyPlan(ctx context.Context, req resource.ModifyPlanR
 			"This permanently deletes the proxy from F5 Distributed Cloud.",
 		)
 		return
+	}
+	{
+		// Always enforce known configured choices while planning, even when an
+		// unrelated attribute remains unknown. Never inspect API-added defaults.
+		var data ProxyResourceModel
+		resp.Diagnostics.Append(req.Config.Get(ctx, &data)...)
+		if resp.Diagnostics.HasError() {
+			return
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("active_forward_proxy_policies"), &resp.Diagnostics) && !data.NoForwardProxyPolicy.IsNull() && !data.NoForwardProxyPolicy.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("active_forward_proxy_policies"), "Conflicting Configuration", "active_forward_proxy_policies and no_forward_proxy_policy are mutually exclusive.")
+		}
+		if !data.DoNotAdvertise.IsNull() && !data.DoNotAdvertise.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("site_virtual_sites"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("do_not_advertise"), "Conflicting Configuration", "do_not_advertise and site_virtual_sites are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("dynamic_proxy"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("http_proxy"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("dynamic_proxy"), "Conflicting Configuration", "dynamic_proxy and http_proxy are mutually exclusive.")
+		}
+		if !data.NoInterception.IsNull() && !data.NoInterception.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("tls_intercept"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("no_interception"), "Conflicting Configuration", "no_interception and tls_intercept are mutually exclusive.")
+		}
+
+		if resp.Diagnostics.HasError() {
+			return
+		}
 	}
 
 	if req.State.Raw.IsNull() {

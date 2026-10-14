@@ -646,22 +646,27 @@ func (r *EndpointResource) ValidateConfig(ctx context.Context, req resource.Vali
 		)
 	}
 
-	if !data.DNSName.IsNull() && !data.DNSName.IsUnknown() && data.DNSNameAdvanced != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("dns_name"), "Conflicting Configuration", "dns_name and dns_name_advanced are mutually exclusive.")
-	}
-	if !data.DNSName.IsNull() && !data.DNSName.IsUnknown() && data.ServiceInfo != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("dns_name"), "Conflicting Configuration", "dns_name and service_info are mutually exclusive.")
-	}
-	if data.DNSNameAdvanced != nil && !data.IP.IsNull() && !data.IP.IsUnknown() {
-		resp.Diagnostics.AddAttributeError(path.Root("dns_name_advanced"), "Conflicting Configuration", "dns_name_advanced and ip are mutually exclusive.")
-	}
-	if data.DNSNameAdvanced != nil && data.ServiceInfo != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("dns_name_advanced"), "Conflicting Configuration", "dns_name_advanced and service_info are mutually exclusive.")
-	}
-	if !data.IP.IsNull() && !data.IP.IsUnknown() && data.ServiceInfo != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("ip"), "Conflicting Configuration", "ip and service_info are mutually exclusive.")
-	}
+	// Unresolved empty dynamic alternatives arrive as known all-null objects.
+	// Validate again during planning, after resource expansion, rather than
+	// treating those synthetic alternatives as two user-selected blocks.
+	if req.Config.Raw.IsFullyKnown() {
+		if !data.DNSName.IsNull() && !data.DNSName.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("dns_name_advanced"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("dns_name"), "Conflicting Configuration", "dns_name and dns_name_advanced are mutually exclusive.")
+		}
+		if !data.DNSName.IsNull() && !data.DNSName.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("service_info"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("dns_name"), "Conflicting Configuration", "dns_name and service_info are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("dns_name_advanced"), &resp.Diagnostics) && !data.IP.IsNull() && !data.IP.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("dns_name_advanced"), "Conflicting Configuration", "dns_name_advanced and ip are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("dns_name_advanced"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("service_info"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("dns_name_advanced"), "Conflicting Configuration", "dns_name_advanced and service_info are mutually exclusive.")
+		}
+		if !data.IP.IsNull() && !data.IP.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("service_info"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("ip"), "Conflicting Configuration", "ip and service_info are mutually exclusive.")
+		}
 
+	}
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan
@@ -672,6 +677,34 @@ func (r *EndpointResource) ModifyPlan(ctx context.Context, req resource.ModifyPl
 			"This permanently deletes the endpoint from F5 Distributed Cloud.",
 		)
 		return
+	}
+	{
+		// Always enforce known configured choices while planning, even when an
+		// unrelated attribute remains unknown. Never inspect API-added defaults.
+		var data EndpointResourceModel
+		resp.Diagnostics.Append(req.Config.Get(ctx, &data)...)
+		if resp.Diagnostics.HasError() {
+			return
+		}
+		if !data.DNSName.IsNull() && !data.DNSName.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("dns_name_advanced"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("dns_name"), "Conflicting Configuration", "dns_name and dns_name_advanced are mutually exclusive.")
+		}
+		if !data.DNSName.IsNull() && !data.DNSName.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("service_info"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("dns_name"), "Conflicting Configuration", "dns_name and service_info are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("dns_name_advanced"), &resp.Diagnostics) && !data.IP.IsNull() && !data.IP.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("dns_name_advanced"), "Conflicting Configuration", "dns_name_advanced and ip are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("dns_name_advanced"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("service_info"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("dns_name_advanced"), "Conflicting Configuration", "dns_name_advanced and service_info are mutually exclusive.")
+		}
+		if !data.IP.IsNull() && !data.IP.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("service_info"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("ip"), "Conflicting Configuration", "ip and service_info are mutually exclusive.")
+		}
+
+		if resp.Diagnostics.HasError() {
+			return
+		}
 	}
 
 	if req.State.Raw.IsNull() {

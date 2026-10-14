@@ -1084,10 +1084,15 @@ func (r *FastACLResource) ValidateConfig(ctx context.Context, req resource.Valid
 	if resp.Diagnostics.HasError() {
 		return
 	}
-	if data.REACL != nil && data.SiteACL != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("re_acl"), "Conflicting Configuration", "re_acl and site_acl are mutually exclusive.")
-	}
+	// Unresolved empty dynamic alternatives arrive as known all-null objects.
+	// Validate again during planning, after resource expansion, rather than
+	// treating those synthetic alternatives as two user-selected blocks.
+	if req.Config.Raw.IsFullyKnown() {
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("re_acl"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("site_acl"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("re_acl"), "Conflicting Configuration", "re_acl and site_acl are mutually exclusive.")
+		}
 
+	}
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan
@@ -1098,6 +1103,22 @@ func (r *FastACLResource) ModifyPlan(ctx context.Context, req resource.ModifyPla
 			"This permanently deletes the fast_acl from F5 Distributed Cloud.",
 		)
 		return
+	}
+	{
+		// Always enforce known configured choices while planning, even when an
+		// unrelated attribute remains unknown. Never inspect API-added defaults.
+		var data FastACLResourceModel
+		resp.Diagnostics.Append(req.Config.Get(ctx, &data)...)
+		if resp.Diagnostics.HasError() {
+			return
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("re_acl"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("site_acl"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("re_acl"), "Conflicting Configuration", "re_acl and site_acl are mutually exclusive.")
+		}
+
+		if resp.Diagnostics.HasError() {
+			return
+		}
 	}
 
 	if req.State.Raw.IsNull() {

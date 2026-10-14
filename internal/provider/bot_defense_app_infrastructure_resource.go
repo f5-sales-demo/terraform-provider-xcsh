@@ -409,10 +409,15 @@ func (r *BotDefenseAppInfrastructureResource) ValidateConfig(ctx context.Context
 	if resp.Diagnostics.HasError() {
 		return
 	}
-	if data.CloudHosted != nil && data.DataCenterHosted != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("cloud_hosted"), "Conflicting Configuration", "cloud_hosted and data_center_hosted are mutually exclusive.")
-	}
+	// Unresolved empty dynamic alternatives arrive as known all-null objects.
+	// Validate again during planning, after resource expansion, rather than
+	// treating those synthetic alternatives as two user-selected blocks.
+	if req.Config.Raw.IsFullyKnown() {
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("cloud_hosted"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("data_center_hosted"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("cloud_hosted"), "Conflicting Configuration", "cloud_hosted and data_center_hosted are mutually exclusive.")
+		}
 
+	}
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan
@@ -423,6 +428,22 @@ func (r *BotDefenseAppInfrastructureResource) ModifyPlan(ctx context.Context, re
 			"This permanently deletes the bot_defense_app_infrastructure from F5 Distributed Cloud.",
 		)
 		return
+	}
+	{
+		// Always enforce known configured choices while planning, even when an
+		// unrelated attribute remains unknown. Never inspect API-added defaults.
+		var data BotDefenseAppInfrastructureResourceModel
+		resp.Diagnostics.Append(req.Config.Get(ctx, &data)...)
+		if resp.Diagnostics.HasError() {
+			return
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("cloud_hosted"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("data_center_hosted"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("cloud_hosted"), "Conflicting Configuration", "cloud_hosted and data_center_hosted are mutually exclusive.")
+		}
+
+		if resp.Diagnostics.HasError() {
+			return
+		}
 	}
 
 	if req.State.Raw.IsNull() {
