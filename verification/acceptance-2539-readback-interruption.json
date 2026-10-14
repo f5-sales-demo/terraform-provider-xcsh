@@ -1,0 +1,142 @@
+{
+  "version": 1,
+  "source": "6d72ce9e5a177efa9578e0a6856194736b787938",
+  "classification": "Interrupted after failed ownership reads and independently timed-out API probes; no capability skips inferred.",
+  "stream_completeness": {
+    "complete": false,
+    "events": 5172,
+    "malformed_lines": 0,
+    "invalid_events": 0,
+    "scanner_error": false,
+    "incomplete_tests": 494,
+    "incomplete_packages": 1,
+    "package_failures": 0
+  },
+  "terminal_failures": [
+    {
+      "name": "TestAccBGPAsnSetResource_asNumbers",
+      "failure_fingerprint": {
+        "class": "timeout",
+        "source_location": "bgp_asn_set_resource_test.go:506"
+      }
+    },
+    {
+      "name": "TestAccBGPAsnSetResource_emptyPlan",
+      "failure_fingerprint": {
+        "class": "framework_diagnostic",
+        "summary": "create target is not authoritatively absent",
+        "source_location": "bgp_asn_set_resource_test.go:288"
+      }
+    },
+    {
+      "name": "TestAccBGPAsnSetResource_knownValues",
+      "failure_fingerprint": {
+        "class": "framework_diagnostic",
+        "summary": "create target is not authoritatively absent",
+        "source_location": "bgp_asn_set_resource_test.go:369"
+      }
+    },
+    {
+      "name": "TestAccBGPAsnSetResource_planChecks",
+      "failure_fingerprint": {
+        "class": "framework_diagnostic",
+        "summary": "create target is not authoritatively absent",
+        "source_location": "bgp_asn_set_resource_test.go:322"
+      }
+    },
+    {
+      "name": "TestAccBGPAsnSetResource_requiresReplace",
+      "failure_fingerprint": {
+        "class": "framework_diagnostic",
+        "summary": "create target is not authoritatively absent",
+        "source_location": "bgp_asn_set_resource_test.go:466"
+      }
+    },
+    {
+      "name": "TestAccBGPAsnSetResource_updateLabels",
+      "failure_fingerprint": {
+        "class": "unclassified",
+        "source_location": "bgp_asn_set_resource_test.go:127"
+      }
+    },
+    {
+      "name": "TestAccBotDefenseAppInfrastructureResource_basic",
+      "failure_fingerprint": {
+        "class": "timeout",
+        "source_location": "bot_defense_app_infrastructure_resource_test.go:17"
+      }
+    },
+    {
+      "name": "TestAccBotDefenseAppInfrastructureResource_emptyPlan",
+      "failure_fingerprint": {
+        "class": "timeout",
+        "source_location": "bot_defense_app_infrastructure_resource_test.go:55"
+      }
+    },
+    {
+      "name": "TestAccCDNCacheRuleResource_basic",
+      "failure_fingerprint": {
+        "class": "timeout",
+        "source_location": "cdn_cache_rule_resource_test.go:17"
+      }
+    }
+  ],
+  "read_probes": [
+    {
+      "probe": "site_inventory",
+      "status": null,
+      "elapsed_seconds": 35.15,
+      "kind": "TimeoutError"
+    },
+    {
+      "probe": "namespace_inventory",
+      "status": 200,
+      "elapsed_seconds": 0.35,
+      "kind": "response"
+    },
+    {
+      "probe": "owned_namespace_read",
+      "status": null,
+      "elapsed_seconds": 35.13,
+      "kind": "TimeoutError"
+    }
+  ],
+  "recovery_read_probes": [
+    {
+      "probe": "site_inventory",
+      "status": 200,
+      "elapsed_seconds": 0.38,
+      "kind": "response"
+    },
+    {
+      "probe": "namespace_inventory",
+      "status": 200,
+      "elapsed_seconds": 0.33,
+      "kind": "response"
+    }
+  ],
+  "cleanup": {
+    "version": 1,
+    "journal_sha256": "d85460924a91500df8cebf012d2c66df92a9c7a0370ec904817133ebc1aa5548",
+    "complete": true,
+    "owned": 93,
+    "confirmed_absent": 93,
+    "failures": 0,
+    "second_pass_remaining": 0
+  },
+  "separate_regression": {
+    "condition": "single HTTP connection with unconsumed create response",
+    "before": "ownership readback blocked",
+    "after": "response released before readback and original response bytes preserved",
+    "race": "pass",
+    "lint": "pass"
+  },
+  "digests": {
+    "tests.json": "d6770809b200d3abbaf51cde4b5cd9e6a612a820366eca961a7d171263502580",
+    "tests.md": "1666b03795fad859b87a98a93d00236570a47be4a1765d55064fb0f870173f02",
+    "cleanup.json": "adcd6115442097ef547d924417a3657b383a3f2243e9491f49532f6446233b04",
+    "read-only-latency.json": "041a9f2e379754f56d473b51eb45b403afec346ed3faed4c6add71954eae4e07",
+    "read-only-latency-retry.json": "2df92585f8e98fa2ca03a0810a4892aad850d1c4c5d301d64b8d86f4af63fc2c"
+  },
+  "qualification": "Failed interrupted attempt retained; fresh full comparison required and running."
+}
