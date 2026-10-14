@@ -672,19 +672,24 @@ func (r *NetworkConnectorResource) ValidateConfig(ctx context.Context, req resou
 	if resp.Diagnostics.HasError() {
 		return
 	}
-	if !data.DisableForwardProxy.IsNull() && !data.DisableForwardProxy.IsUnknown() && data.EnableForwardProxy != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("disable_forward_proxy"), "Conflicting Configuration", "disable_forward_proxy and enable_forward_proxy are mutually exclusive.")
-	}
-	if data.SLIToGlobalDR != nil && data.SLIToSloSnat != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("sli_to_global_dr"), "Conflicting Configuration", "sli_to_global_dr and sli_to_slo_snat are mutually exclusive.")
-	}
-	if data.SLIToGlobalDR != nil && data.SloToGlobalDR != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("sli_to_global_dr"), "Conflicting Configuration", "sli_to_global_dr and slo_to_global_dr are mutually exclusive.")
-	}
-	if data.SLIToSloSnat != nil && data.SloToGlobalDR != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("sli_to_slo_snat"), "Conflicting Configuration", "sli_to_slo_snat and slo_to_global_dr are mutually exclusive.")
-	}
+	// Unresolved empty dynamic alternatives arrive as known all-null objects.
+	// Validate again during planning, after resource expansion, rather than
+	// treating those synthetic alternatives as two user-selected blocks.
+	if req.Config.Raw.IsFullyKnown() {
+		if !data.DisableForwardProxy.IsNull() && !data.DisableForwardProxy.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("enable_forward_proxy"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("disable_forward_proxy"), "Conflicting Configuration", "disable_forward_proxy and enable_forward_proxy are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("sli_to_global_dr"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("sli_to_slo_snat"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("sli_to_global_dr"), "Conflicting Configuration", "sli_to_global_dr and sli_to_slo_snat are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("sli_to_global_dr"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("slo_to_global_dr"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("sli_to_global_dr"), "Conflicting Configuration", "sli_to_global_dr and slo_to_global_dr are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("sli_to_slo_snat"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("slo_to_global_dr"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("sli_to_slo_snat"), "Conflicting Configuration", "sli_to_slo_snat and slo_to_global_dr are mutually exclusive.")
+		}
 
+	}
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan
@@ -695,6 +700,31 @@ func (r *NetworkConnectorResource) ModifyPlan(ctx context.Context, req resource.
 			"This permanently deletes the network_connector from F5 Distributed Cloud.",
 		)
 		return
+	}
+	{
+		// Always enforce known configured choices while planning, even when an
+		// unrelated attribute remains unknown. Never inspect API-added defaults.
+		var data NetworkConnectorResourceModel
+		resp.Diagnostics.Append(req.Config.Get(ctx, &data)...)
+		if resp.Diagnostics.HasError() {
+			return
+		}
+		if !data.DisableForwardProxy.IsNull() && !data.DisableForwardProxy.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("enable_forward_proxy"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("disable_forward_proxy"), "Conflicting Configuration", "disable_forward_proxy and enable_forward_proxy are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("sli_to_global_dr"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("sli_to_slo_snat"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("sli_to_global_dr"), "Conflicting Configuration", "sli_to_global_dr and sli_to_slo_snat are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("sli_to_global_dr"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("slo_to_global_dr"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("sli_to_global_dr"), "Conflicting Configuration", "sli_to_global_dr and slo_to_global_dr are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("sli_to_slo_snat"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("slo_to_global_dr"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("sli_to_slo_snat"), "Conflicting Configuration", "sli_to_slo_snat and slo_to_global_dr are mutually exclusive.")
+		}
+
+		if resp.Diagnostics.HasError() {
+			return
+		}
 	}
 
 	if req.State.Raw.IsNull() {

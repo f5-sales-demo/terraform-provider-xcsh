@@ -1275,16 +1275,21 @@ func (r *ClusterResource) ValidateConfig(ctx context.Context, req resource.Valid
 		)
 	}
 
-	if !data.AutoHTTPConfig.IsNull() && !data.AutoHTTPConfig.IsUnknown() && data.Http1Config != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("auto_http_config"), "Conflicting Configuration", "auto_http_config and http1_config are mutually exclusive.")
-	}
-	if !data.AutoHTTPConfig.IsNull() && !data.AutoHTTPConfig.IsUnknown() && data.Http2Options != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("auto_http_config"), "Conflicting Configuration", "auto_http_config and http2_options are mutually exclusive.")
-	}
-	if data.Http1Config != nil && data.Http2Options != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("http1_config"), "Conflicting Configuration", "http1_config and http2_options are mutually exclusive.")
-	}
+	// Unresolved empty dynamic alternatives arrive as known all-null objects.
+	// Validate again during planning, after resource expansion, rather than
+	// treating those synthetic alternatives as two user-selected blocks.
+	if req.Config.Raw.IsFullyKnown() {
+		if !data.AutoHTTPConfig.IsNull() && !data.AutoHTTPConfig.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("http1_config"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("auto_http_config"), "Conflicting Configuration", "auto_http_config and http1_config are mutually exclusive.")
+		}
+		if !data.AutoHTTPConfig.IsNull() && !data.AutoHTTPConfig.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("http2_options"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("auto_http_config"), "Conflicting Configuration", "auto_http_config and http2_options are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("http1_config"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("http2_options"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("http1_config"), "Conflicting Configuration", "http1_config and http2_options are mutually exclusive.")
+		}
 
+	}
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan
@@ -1295,6 +1300,28 @@ func (r *ClusterResource) ModifyPlan(ctx context.Context, req resource.ModifyPla
 			"This permanently deletes the cluster from F5 Distributed Cloud.",
 		)
 		return
+	}
+	{
+		// Always enforce known configured choices while planning, even when an
+		// unrelated attribute remains unknown. Never inspect API-added defaults.
+		var data ClusterResourceModel
+		resp.Diagnostics.Append(req.Config.Get(ctx, &data)...)
+		if resp.Diagnostics.HasError() {
+			return
+		}
+		if !data.AutoHTTPConfig.IsNull() && !data.AutoHTTPConfig.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("http1_config"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("auto_http_config"), "Conflicting Configuration", "auto_http_config and http1_config are mutually exclusive.")
+		}
+		if !data.AutoHTTPConfig.IsNull() && !data.AutoHTTPConfig.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("http2_options"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("auto_http_config"), "Conflicting Configuration", "auto_http_config and http2_options are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("http1_config"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("http2_options"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("http1_config"), "Conflicting Configuration", "http1_config and http2_options are mutually exclusive.")
+		}
+
+		if resp.Diagnostics.HasError() {
+			return
+		}
 	}
 
 	if req.State.Raw.IsNull() {

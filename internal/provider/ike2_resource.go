@@ -231,19 +231,24 @@ func (r *Ike2Resource) ValidateConfig(ctx context.Context, req resource.Validate
 	if resp.Diagnostics.HasError() {
 		return
 	}
-	if data.DhGroupSet != nil && !data.DisablePfs.IsNull() && !data.DisablePfs.IsUnknown() {
-		resp.Diagnostics.AddAttributeError(path.Root("dh_group_set"), "Conflicting Configuration", "dh_group_set and disable_pfs are mutually exclusive.")
-	}
-	if data.IKEKeylifetimeHours != nil && data.IKEKeylifetimeMinutes != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("ike_keylifetime_hours"), "Conflicting Configuration", "ike_keylifetime_hours and ike_keylifetime_minutes are mutually exclusive.")
-	}
-	if data.IKEKeylifetimeHours != nil && !data.UseDefaultKeylifetime.IsNull() && !data.UseDefaultKeylifetime.IsUnknown() {
-		resp.Diagnostics.AddAttributeError(path.Root("ike_keylifetime_hours"), "Conflicting Configuration", "ike_keylifetime_hours and use_default_keylifetime are mutually exclusive.")
-	}
-	if data.IKEKeylifetimeMinutes != nil && !data.UseDefaultKeylifetime.IsNull() && !data.UseDefaultKeylifetime.IsUnknown() {
-		resp.Diagnostics.AddAttributeError(path.Root("ike_keylifetime_minutes"), "Conflicting Configuration", "ike_keylifetime_minutes and use_default_keylifetime are mutually exclusive.")
-	}
+	// Unresolved empty dynamic alternatives arrive as known all-null objects.
+	// Validate again during planning, after resource expansion, rather than
+	// treating those synthetic alternatives as two user-selected blocks.
+	if req.Config.Raw.IsFullyKnown() {
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("dh_group_set"), &resp.Diagnostics) && !data.DisablePfs.IsNull() && !data.DisablePfs.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("dh_group_set"), "Conflicting Configuration", "dh_group_set and disable_pfs are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("ike_keylifetime_hours"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("ike_keylifetime_minutes"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("ike_keylifetime_hours"), "Conflicting Configuration", "ike_keylifetime_hours and ike_keylifetime_minutes are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("ike_keylifetime_hours"), &resp.Diagnostics) && !data.UseDefaultKeylifetime.IsNull() && !data.UseDefaultKeylifetime.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("ike_keylifetime_hours"), "Conflicting Configuration", "ike_keylifetime_hours and use_default_keylifetime are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("ike_keylifetime_minutes"), &resp.Diagnostics) && !data.UseDefaultKeylifetime.IsNull() && !data.UseDefaultKeylifetime.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("ike_keylifetime_minutes"), "Conflicting Configuration", "ike_keylifetime_minutes and use_default_keylifetime are mutually exclusive.")
+		}
 
+	}
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan
@@ -254,6 +259,31 @@ func (r *Ike2Resource) ModifyPlan(ctx context.Context, req resource.ModifyPlanRe
 			"This permanently deletes the ike2 from F5 Distributed Cloud.",
 		)
 		return
+	}
+	{
+		// Always enforce known configured choices while planning, even when an
+		// unrelated attribute remains unknown. Never inspect API-added defaults.
+		var data Ike2ResourceModel
+		resp.Diagnostics.Append(req.Config.Get(ctx, &data)...)
+		if resp.Diagnostics.HasError() {
+			return
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("dh_group_set"), &resp.Diagnostics) && !data.DisablePfs.IsNull() && !data.DisablePfs.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("dh_group_set"), "Conflicting Configuration", "dh_group_set and disable_pfs are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("ike_keylifetime_hours"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("ike_keylifetime_minutes"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("ike_keylifetime_hours"), "Conflicting Configuration", "ike_keylifetime_hours and ike_keylifetime_minutes are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("ike_keylifetime_hours"), &resp.Diagnostics) && !data.UseDefaultKeylifetime.IsNull() && !data.UseDefaultKeylifetime.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("ike_keylifetime_hours"), "Conflicting Configuration", "ike_keylifetime_hours and use_default_keylifetime are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("ike_keylifetime_minutes"), &resp.Diagnostics) && !data.UseDefaultKeylifetime.IsNull() && !data.UseDefaultKeylifetime.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("ike_keylifetime_minutes"), "Conflicting Configuration", "ike_keylifetime_minutes and use_default_keylifetime are mutually exclusive.")
+		}
+
+		if resp.Diagnostics.HasError() {
+			return
+		}
 	}
 
 	if req.State.Raw.IsNull() {

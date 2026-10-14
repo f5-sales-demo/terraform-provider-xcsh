@@ -838,7 +838,7 @@ func (r *AppFirewallResource) ValidateConfig(ctx context.Context, req resource.V
 	if resp.Diagnostics.HasError() {
 		return
 	}
-	if data.BlockingPage != nil && !data.UseDefaultBlockingPage.IsNull() && !data.UseDefaultBlockingPage.IsUnknown() {
+	if req.Config.Raw.IsFullyKnown() && validators.ConfiguredObject(ctx, req.Config, path.Root("blocking_page"), &resp.Diagnostics) && !data.UseDefaultBlockingPage.IsNull() && !data.UseDefaultBlockingPage.IsUnknown() {
 		resp.Diagnostics.AddAttributeError(path.Root("blocking_page"), "Conflicting Configuration", "blocking_page and use_default_blocking_page are mutually exclusive.")
 	}
 	if !data.Blocking.IsNull() && !data.Blocking.IsUnknown() && !data.Monitoring.IsNull() && !data.Monitoring.IsUnknown() {
@@ -856,28 +856,33 @@ func (r *AppFirewallResource) ValidateConfig(ctx context.Context, req resource.V
 		)
 	}
 
-	if !data.AllowAllResponseCodes.IsNull() && !data.AllowAllResponseCodes.IsUnknown() && data.AllowedResponseCodes != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("allow_all_response_codes"), "Conflicting Configuration", "allow_all_response_codes and allowed_response_codes are mutually exclusive.")
-	}
-	if data.BlockingPage != nil && !data.UseDefaultBlockingPage.IsNull() && !data.UseDefaultBlockingPage.IsUnknown() {
-		resp.Diagnostics.AddAttributeError(path.Root("blocking_page"), "Conflicting Configuration", "blocking_page and use_default_blocking_page are mutually exclusive.")
-	}
-	if data.BotProtectionSetting != nil && !data.DefaultBotSetting.IsNull() && !data.DefaultBotSetting.IsUnknown() {
-		resp.Diagnostics.AddAttributeError(path.Root("bot_protection_setting"), "Conflicting Configuration", "bot_protection_setting and default_bot_setting are mutually exclusive.")
-	}
-	if data.CustomAnonymization != nil && !data.DefaultAnonymization.IsNull() && !data.DefaultAnonymization.IsUnknown() {
-		resp.Diagnostics.AddAttributeError(path.Root("custom_anonymization"), "Conflicting Configuration", "custom_anonymization and default_anonymization are mutually exclusive.")
-	}
-	if data.CustomAnonymization != nil && !data.DisableAnonymization.IsNull() && !data.DisableAnonymization.IsUnknown() {
-		resp.Diagnostics.AddAttributeError(path.Root("custom_anonymization"), "Conflicting Configuration", "custom_anonymization and disable_anonymization are mutually exclusive.")
-	}
-	if !data.DefaultDetectionSettings.IsNull() && !data.DefaultDetectionSettings.IsUnknown() && data.DetectionSettings != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("default_detection_settings"), "Conflicting Configuration", "default_detection_settings and detection_settings are mutually exclusive.")
-	}
-	if !data.DisableAiEnhancements.IsNull() && !data.DisableAiEnhancements.IsUnknown() && data.EnableAiEnhancements != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("disable_ai_enhancements"), "Conflicting Configuration", "disable_ai_enhancements and enable_ai_enhancements are mutually exclusive.")
-	}
+	// Unresolved empty dynamic alternatives arrive as known all-null objects.
+	// Validate again during planning, after resource expansion, rather than
+	// treating those synthetic alternatives as two user-selected blocks.
+	if req.Config.Raw.IsFullyKnown() {
+		if !data.AllowAllResponseCodes.IsNull() && !data.AllowAllResponseCodes.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("allowed_response_codes"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("allow_all_response_codes"), "Conflicting Configuration", "allow_all_response_codes and allowed_response_codes are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("blocking_page"), &resp.Diagnostics) && !data.UseDefaultBlockingPage.IsNull() && !data.UseDefaultBlockingPage.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("blocking_page"), "Conflicting Configuration", "blocking_page and use_default_blocking_page are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("bot_protection_setting"), &resp.Diagnostics) && !data.DefaultBotSetting.IsNull() && !data.DefaultBotSetting.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("bot_protection_setting"), "Conflicting Configuration", "bot_protection_setting and default_bot_setting are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("custom_anonymization"), &resp.Diagnostics) && !data.DefaultAnonymization.IsNull() && !data.DefaultAnonymization.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("custom_anonymization"), "Conflicting Configuration", "custom_anonymization and default_anonymization are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("custom_anonymization"), &resp.Diagnostics) && !data.DisableAnonymization.IsNull() && !data.DisableAnonymization.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("custom_anonymization"), "Conflicting Configuration", "custom_anonymization and disable_anonymization are mutually exclusive.")
+		}
+		if !data.DefaultDetectionSettings.IsNull() && !data.DefaultDetectionSettings.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("detection_settings"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("default_detection_settings"), "Conflicting Configuration", "default_detection_settings and detection_settings are mutually exclusive.")
+		}
+		if !data.DisableAiEnhancements.IsNull() && !data.DisableAiEnhancements.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("enable_ai_enhancements"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("disable_ai_enhancements"), "Conflicting Configuration", "disable_ai_enhancements and enable_ai_enhancements are mutually exclusive.")
+		}
 
+	}
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan
@@ -888,6 +893,43 @@ func (r *AppFirewallResource) ModifyPlan(ctx context.Context, req resource.Modif
 			"This permanently deletes the app_firewall from F5 Distributed Cloud.",
 		)
 		return
+	}
+	{
+		// Always enforce known configured choices while planning, even when an
+		// unrelated attribute remains unknown. Never inspect API-added defaults.
+		var data AppFirewallResourceModel
+		resp.Diagnostics.Append(req.Config.Get(ctx, &data)...)
+		if resp.Diagnostics.HasError() {
+			return
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("blocking_page"), &resp.Diagnostics) && !data.UseDefaultBlockingPage.IsNull() && !data.UseDefaultBlockingPage.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("blocking_page"), "Conflicting Configuration", "blocking_page and use_default_blocking_page are mutually exclusive.")
+		}
+		if !data.AllowAllResponseCodes.IsNull() && !data.AllowAllResponseCodes.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("allowed_response_codes"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("allow_all_response_codes"), "Conflicting Configuration", "allow_all_response_codes and allowed_response_codes are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("blocking_page"), &resp.Diagnostics) && !data.UseDefaultBlockingPage.IsNull() && !data.UseDefaultBlockingPage.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("blocking_page"), "Conflicting Configuration", "blocking_page and use_default_blocking_page are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("bot_protection_setting"), &resp.Diagnostics) && !data.DefaultBotSetting.IsNull() && !data.DefaultBotSetting.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("bot_protection_setting"), "Conflicting Configuration", "bot_protection_setting and default_bot_setting are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("custom_anonymization"), &resp.Diagnostics) && !data.DefaultAnonymization.IsNull() && !data.DefaultAnonymization.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("custom_anonymization"), "Conflicting Configuration", "custom_anonymization and default_anonymization are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("custom_anonymization"), &resp.Diagnostics) && !data.DisableAnonymization.IsNull() && !data.DisableAnonymization.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("custom_anonymization"), "Conflicting Configuration", "custom_anonymization and disable_anonymization are mutually exclusive.")
+		}
+		if !data.DefaultDetectionSettings.IsNull() && !data.DefaultDetectionSettings.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("detection_settings"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("default_detection_settings"), "Conflicting Configuration", "default_detection_settings and detection_settings are mutually exclusive.")
+		}
+		if !data.DisableAiEnhancements.IsNull() && !data.DisableAiEnhancements.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("enable_ai_enhancements"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("disable_ai_enhancements"), "Conflicting Configuration", "disable_ai_enhancements and enable_ai_enhancements are mutually exclusive.")
+		}
+
+		if resp.Diagnostics.HasError() {
+			return
+		}
 	}
 
 	if req.State.Raw.IsNull() {

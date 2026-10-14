@@ -678,13 +678,18 @@ func (r *CloudLinkResource) ValidateConfig(ctx context.Context, req resource.Val
 	if resp.Diagnostics.HasError() {
 		return
 	}
-	if data.AWS != nil && data.GCP != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("aws"), "Conflicting Configuration", "aws and gcp are mutually exclusive.")
-	}
-	if !data.Disabled.IsNull() && !data.Disabled.IsUnknown() && data.Enabled != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("disabled"), "Conflicting Configuration", "disabled and enabled are mutually exclusive.")
-	}
+	// Unresolved empty dynamic alternatives arrive as known all-null objects.
+	// Validate again during planning, after resource expansion, rather than
+	// treating those synthetic alternatives as two user-selected blocks.
+	if req.Config.Raw.IsFullyKnown() {
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("aws"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("gcp"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("aws"), "Conflicting Configuration", "aws and gcp are mutually exclusive.")
+		}
+		if !data.Disabled.IsNull() && !data.Disabled.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("enabled"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("disabled"), "Conflicting Configuration", "disabled and enabled are mutually exclusive.")
+		}
 
+	}
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan
@@ -695,6 +700,25 @@ func (r *CloudLinkResource) ModifyPlan(ctx context.Context, req resource.ModifyP
 			"This permanently deletes the cloud_link from F5 Distributed Cloud.",
 		)
 		return
+	}
+	{
+		// Always enforce known configured choices while planning, even when an
+		// unrelated attribute remains unknown. Never inspect API-added defaults.
+		var data CloudLinkResourceModel
+		resp.Diagnostics.Append(req.Config.Get(ctx, &data)...)
+		if resp.Diagnostics.HasError() {
+			return
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("aws"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("gcp"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("aws"), "Conflicting Configuration", "aws and gcp are mutually exclusive.")
+		}
+		if !data.Disabled.IsNull() && !data.Disabled.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("enabled"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("disabled"), "Conflicting Configuration", "disabled and enabled are mutually exclusive.")
+		}
+
+		if resp.Diagnostics.HasError() {
+			return
+		}
 	}
 
 	if req.State.Raw.IsNull() {

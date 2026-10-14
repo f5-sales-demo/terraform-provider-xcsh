@@ -902,67 +902,72 @@ func (r *EnhancedFirewallPolicyResource) ValidateConfig(ctx context.Context, req
 		)
 	}
 
-	if !data.AllowAll.IsNull() && !data.AllowAll.IsUnknown() && data.AllowedDestinations != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("allow_all"), "Conflicting Configuration", "allow_all and allowed_destinations are mutually exclusive.")
-	}
-	if !data.AllowAll.IsNull() && !data.AllowAll.IsUnknown() && data.AllowedSources != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("allow_all"), "Conflicting Configuration", "allow_all and allowed_sources are mutually exclusive.")
-	}
-	if !data.AllowAll.IsNull() && !data.AllowAll.IsUnknown() && data.DeniedDestinations != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("allow_all"), "Conflicting Configuration", "allow_all and denied_destinations are mutually exclusive.")
-	}
-	if !data.AllowAll.IsNull() && !data.AllowAll.IsUnknown() && data.DeniedSources != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("allow_all"), "Conflicting Configuration", "allow_all and denied_sources are mutually exclusive.")
-	}
-	if !data.AllowAll.IsNull() && !data.AllowAll.IsUnknown() && data.RuleList != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("allow_all"), "Conflicting Configuration", "allow_all and rule_list are mutually exclusive.")
-	}
-	if data.AllowedDestinations != nil && data.AllowedSources != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("allowed_destinations"), "Conflicting Configuration", "allowed_destinations and allowed_sources are mutually exclusive.")
-	}
-	if data.AllowedDestinations != nil && data.DeniedDestinations != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("allowed_destinations"), "Conflicting Configuration", "allowed_destinations and denied_destinations are mutually exclusive.")
-	}
-	if data.AllowedDestinations != nil && data.DeniedSources != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("allowed_destinations"), "Conflicting Configuration", "allowed_destinations and denied_sources are mutually exclusive.")
-	}
-	if data.AllowedDestinations != nil && !data.DenyAll.IsNull() && !data.DenyAll.IsUnknown() {
-		resp.Diagnostics.AddAttributeError(path.Root("allowed_destinations"), "Conflicting Configuration", "allowed_destinations and deny_all are mutually exclusive.")
-	}
-	if data.AllowedDestinations != nil && data.RuleList != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("allowed_destinations"), "Conflicting Configuration", "allowed_destinations and rule_list are mutually exclusive.")
-	}
-	if data.AllowedSources != nil && data.DeniedDestinations != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("allowed_sources"), "Conflicting Configuration", "allowed_sources and denied_destinations are mutually exclusive.")
-	}
-	if data.AllowedSources != nil && data.DeniedSources != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("allowed_sources"), "Conflicting Configuration", "allowed_sources and denied_sources are mutually exclusive.")
-	}
-	if data.AllowedSources != nil && !data.DenyAll.IsNull() && !data.DenyAll.IsUnknown() {
-		resp.Diagnostics.AddAttributeError(path.Root("allowed_sources"), "Conflicting Configuration", "allowed_sources and deny_all are mutually exclusive.")
-	}
-	if data.AllowedSources != nil && data.RuleList != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("allowed_sources"), "Conflicting Configuration", "allowed_sources and rule_list are mutually exclusive.")
-	}
-	if data.DeniedDestinations != nil && data.DeniedSources != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("denied_destinations"), "Conflicting Configuration", "denied_destinations and denied_sources are mutually exclusive.")
-	}
-	if data.DeniedDestinations != nil && !data.DenyAll.IsNull() && !data.DenyAll.IsUnknown() {
-		resp.Diagnostics.AddAttributeError(path.Root("denied_destinations"), "Conflicting Configuration", "denied_destinations and deny_all are mutually exclusive.")
-	}
-	if data.DeniedDestinations != nil && data.RuleList != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("denied_destinations"), "Conflicting Configuration", "denied_destinations and rule_list are mutually exclusive.")
-	}
-	if data.DeniedSources != nil && !data.DenyAll.IsNull() && !data.DenyAll.IsUnknown() {
-		resp.Diagnostics.AddAttributeError(path.Root("denied_sources"), "Conflicting Configuration", "denied_sources and deny_all are mutually exclusive.")
-	}
-	if data.DeniedSources != nil && data.RuleList != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("denied_sources"), "Conflicting Configuration", "denied_sources and rule_list are mutually exclusive.")
-	}
-	if !data.DenyAll.IsNull() && !data.DenyAll.IsUnknown() && data.RuleList != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("deny_all"), "Conflicting Configuration", "deny_all and rule_list are mutually exclusive.")
-	}
+	// Unresolved empty dynamic alternatives arrive as known all-null objects.
+	// Validate again during planning, after resource expansion, rather than
+	// treating those synthetic alternatives as two user-selected blocks.
+	if req.Config.Raw.IsFullyKnown() {
+		if !data.AllowAll.IsNull() && !data.AllowAll.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("allowed_destinations"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("allow_all"), "Conflicting Configuration", "allow_all and allowed_destinations are mutually exclusive.")
+		}
+		if !data.AllowAll.IsNull() && !data.AllowAll.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("allowed_sources"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("allow_all"), "Conflicting Configuration", "allow_all and allowed_sources are mutually exclusive.")
+		}
+		if !data.AllowAll.IsNull() && !data.AllowAll.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("denied_destinations"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("allow_all"), "Conflicting Configuration", "allow_all and denied_destinations are mutually exclusive.")
+		}
+		if !data.AllowAll.IsNull() && !data.AllowAll.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("denied_sources"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("allow_all"), "Conflicting Configuration", "allow_all and denied_sources are mutually exclusive.")
+		}
+		if !data.AllowAll.IsNull() && !data.AllowAll.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("rule_list"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("allow_all"), "Conflicting Configuration", "allow_all and rule_list are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("allowed_destinations"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("allowed_sources"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("allowed_destinations"), "Conflicting Configuration", "allowed_destinations and allowed_sources are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("allowed_destinations"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("denied_destinations"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("allowed_destinations"), "Conflicting Configuration", "allowed_destinations and denied_destinations are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("allowed_destinations"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("denied_sources"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("allowed_destinations"), "Conflicting Configuration", "allowed_destinations and denied_sources are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("allowed_destinations"), &resp.Diagnostics) && !data.DenyAll.IsNull() && !data.DenyAll.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("allowed_destinations"), "Conflicting Configuration", "allowed_destinations and deny_all are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("allowed_destinations"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("rule_list"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("allowed_destinations"), "Conflicting Configuration", "allowed_destinations and rule_list are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("allowed_sources"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("denied_destinations"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("allowed_sources"), "Conflicting Configuration", "allowed_sources and denied_destinations are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("allowed_sources"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("denied_sources"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("allowed_sources"), "Conflicting Configuration", "allowed_sources and denied_sources are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("allowed_sources"), &resp.Diagnostics) && !data.DenyAll.IsNull() && !data.DenyAll.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("allowed_sources"), "Conflicting Configuration", "allowed_sources and deny_all are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("allowed_sources"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("rule_list"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("allowed_sources"), "Conflicting Configuration", "allowed_sources and rule_list are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("denied_destinations"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("denied_sources"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("denied_destinations"), "Conflicting Configuration", "denied_destinations and denied_sources are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("denied_destinations"), &resp.Diagnostics) && !data.DenyAll.IsNull() && !data.DenyAll.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("denied_destinations"), "Conflicting Configuration", "denied_destinations and deny_all are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("denied_destinations"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("rule_list"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("denied_destinations"), "Conflicting Configuration", "denied_destinations and rule_list are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("denied_sources"), &resp.Diagnostics) && !data.DenyAll.IsNull() && !data.DenyAll.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("denied_sources"), "Conflicting Configuration", "denied_sources and deny_all are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("denied_sources"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("rule_list"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("denied_sources"), "Conflicting Configuration", "denied_sources and rule_list are mutually exclusive.")
+		}
+		if !data.DenyAll.IsNull() && !data.DenyAll.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("rule_list"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("deny_all"), "Conflicting Configuration", "deny_all and rule_list are mutually exclusive.")
+		}
 
+	}
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan
@@ -973,6 +978,79 @@ func (r *EnhancedFirewallPolicyResource) ModifyPlan(ctx context.Context, req res
 			"This permanently deletes the enhanced_firewall_policy from F5 Distributed Cloud.",
 		)
 		return
+	}
+	{
+		// Always enforce known configured choices while planning, even when an
+		// unrelated attribute remains unknown. Never inspect API-added defaults.
+		var data EnhancedFirewallPolicyResourceModel
+		resp.Diagnostics.Append(req.Config.Get(ctx, &data)...)
+		if resp.Diagnostics.HasError() {
+			return
+		}
+		if !data.AllowAll.IsNull() && !data.AllowAll.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("allowed_destinations"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("allow_all"), "Conflicting Configuration", "allow_all and allowed_destinations are mutually exclusive.")
+		}
+		if !data.AllowAll.IsNull() && !data.AllowAll.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("allowed_sources"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("allow_all"), "Conflicting Configuration", "allow_all and allowed_sources are mutually exclusive.")
+		}
+		if !data.AllowAll.IsNull() && !data.AllowAll.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("denied_destinations"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("allow_all"), "Conflicting Configuration", "allow_all and denied_destinations are mutually exclusive.")
+		}
+		if !data.AllowAll.IsNull() && !data.AllowAll.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("denied_sources"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("allow_all"), "Conflicting Configuration", "allow_all and denied_sources are mutually exclusive.")
+		}
+		if !data.AllowAll.IsNull() && !data.AllowAll.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("rule_list"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("allow_all"), "Conflicting Configuration", "allow_all and rule_list are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("allowed_destinations"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("allowed_sources"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("allowed_destinations"), "Conflicting Configuration", "allowed_destinations and allowed_sources are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("allowed_destinations"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("denied_destinations"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("allowed_destinations"), "Conflicting Configuration", "allowed_destinations and denied_destinations are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("allowed_destinations"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("denied_sources"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("allowed_destinations"), "Conflicting Configuration", "allowed_destinations and denied_sources are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("allowed_destinations"), &resp.Diagnostics) && !data.DenyAll.IsNull() && !data.DenyAll.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("allowed_destinations"), "Conflicting Configuration", "allowed_destinations and deny_all are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("allowed_destinations"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("rule_list"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("allowed_destinations"), "Conflicting Configuration", "allowed_destinations and rule_list are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("allowed_sources"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("denied_destinations"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("allowed_sources"), "Conflicting Configuration", "allowed_sources and denied_destinations are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("allowed_sources"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("denied_sources"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("allowed_sources"), "Conflicting Configuration", "allowed_sources and denied_sources are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("allowed_sources"), &resp.Diagnostics) && !data.DenyAll.IsNull() && !data.DenyAll.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("allowed_sources"), "Conflicting Configuration", "allowed_sources and deny_all are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("allowed_sources"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("rule_list"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("allowed_sources"), "Conflicting Configuration", "allowed_sources and rule_list are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("denied_destinations"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("denied_sources"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("denied_destinations"), "Conflicting Configuration", "denied_destinations and denied_sources are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("denied_destinations"), &resp.Diagnostics) && !data.DenyAll.IsNull() && !data.DenyAll.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("denied_destinations"), "Conflicting Configuration", "denied_destinations and deny_all are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("denied_destinations"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("rule_list"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("denied_destinations"), "Conflicting Configuration", "denied_destinations and rule_list are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("denied_sources"), &resp.Diagnostics) && !data.DenyAll.IsNull() && !data.DenyAll.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("denied_sources"), "Conflicting Configuration", "denied_sources and deny_all are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("denied_sources"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("rule_list"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("denied_sources"), "Conflicting Configuration", "denied_sources and rule_list are mutually exclusive.")
+		}
+		if !data.DenyAll.IsNull() && !data.DenyAll.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("rule_list"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("deny_all"), "Conflicting Configuration", "deny_all and rule_list are mutually exclusive.")
+		}
+
+		if resp.Diagnostics.HasError() {
+			return
+		}
 	}
 
 	if req.State.Raw.IsNull() {

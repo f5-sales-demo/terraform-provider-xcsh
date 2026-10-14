@@ -2528,10 +2528,15 @@ func (r *OriginPoolResource) ValidateConfig(ctx context.Context, req resource.Va
 		)
 	}
 
-	if !data.NoTLS.IsNull() && !data.NoTLS.IsUnknown() && data.UseTLS != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("no_tls"), "Conflicting Configuration", "no_tls and use_tls are mutually exclusive.")
-	}
+	// Unresolved empty dynamic alternatives arrive as known all-null objects.
+	// Validate again during planning, after resource expansion, rather than
+	// treating those synthetic alternatives as two user-selected blocks.
+	if req.Config.Raw.IsFullyKnown() {
+		if !data.NoTLS.IsNull() && !data.NoTLS.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("use_tls"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("no_tls"), "Conflicting Configuration", "no_tls and use_tls are mutually exclusive.")
+		}
 
+	}
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan
@@ -2542,6 +2547,22 @@ func (r *OriginPoolResource) ModifyPlan(ctx context.Context, req resource.Modify
 			"This permanently deletes the origin_pool from F5 Distributed Cloud.",
 		)
 		return
+	}
+	{
+		// Always enforce known configured choices while planning, even when an
+		// unrelated attribute remains unknown. Never inspect API-added defaults.
+		var data OriginPoolResourceModel
+		resp.Diagnostics.Append(req.Config.Get(ctx, &data)...)
+		if resp.Diagnostics.HasError() {
+			return
+		}
+		if !data.NoTLS.IsNull() && !data.NoTLS.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("use_tls"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("no_tls"), "Conflicting Configuration", "no_tls and use_tls are mutually exclusive.")
+		}
+
+		if resp.Diagnostics.HasError() {
+			return
+		}
 	}
 
 	if req.State.Raw.IsNull() {

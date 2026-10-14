@@ -374,16 +374,21 @@ func (r *AppAPIGroupResource) ValidateConfig(ctx context.Context, req resource.V
 	if resp.Diagnostics.HasError() {
 		return
 	}
-	if data.BigIPVirtualServer != nil && data.CDNLoadBalancer != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("bigip_virtual_server"), "Conflicting Configuration", "bigip_virtual_server and cdn_loadbalancer are mutually exclusive.")
-	}
-	if data.BigIPVirtualServer != nil && data.HTTPLoadBalancer != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("bigip_virtual_server"), "Conflicting Configuration", "bigip_virtual_server and http_loadbalancer are mutually exclusive.")
-	}
-	if data.CDNLoadBalancer != nil && data.HTTPLoadBalancer != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("cdn_loadbalancer"), "Conflicting Configuration", "cdn_loadbalancer and http_loadbalancer are mutually exclusive.")
-	}
+	// Unresolved empty dynamic alternatives arrive as known all-null objects.
+	// Validate again during planning, after resource expansion, rather than
+	// treating those synthetic alternatives as two user-selected blocks.
+	if req.Config.Raw.IsFullyKnown() {
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("bigip_virtual_server"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("cdn_loadbalancer"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("bigip_virtual_server"), "Conflicting Configuration", "bigip_virtual_server and cdn_loadbalancer are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("bigip_virtual_server"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("http_loadbalancer"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("bigip_virtual_server"), "Conflicting Configuration", "bigip_virtual_server and http_loadbalancer are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("cdn_loadbalancer"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("http_loadbalancer"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("cdn_loadbalancer"), "Conflicting Configuration", "cdn_loadbalancer and http_loadbalancer are mutually exclusive.")
+		}
 
+	}
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan
@@ -394,6 +399,28 @@ func (r *AppAPIGroupResource) ModifyPlan(ctx context.Context, req resource.Modif
 			"This permanently deletes the app_api_group from F5 Distributed Cloud.",
 		)
 		return
+	}
+	{
+		// Always enforce known configured choices while planning, even when an
+		// unrelated attribute remains unknown. Never inspect API-added defaults.
+		var data AppAPIGroupResourceModel
+		resp.Diagnostics.Append(req.Config.Get(ctx, &data)...)
+		if resp.Diagnostics.HasError() {
+			return
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("bigip_virtual_server"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("cdn_loadbalancer"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("bigip_virtual_server"), "Conflicting Configuration", "bigip_virtual_server and cdn_loadbalancer are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("bigip_virtual_server"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("http_loadbalancer"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("bigip_virtual_server"), "Conflicting Configuration", "bigip_virtual_server and http_loadbalancer are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("cdn_loadbalancer"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("http_loadbalancer"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("cdn_loadbalancer"), "Conflicting Configuration", "cdn_loadbalancer and http_loadbalancer are mutually exclusive.")
+		}
+
+		if resp.Diagnostics.HasError() {
+			return
+		}
 	}
 
 	if req.State.Raw.IsNull() {

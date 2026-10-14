@@ -298,16 +298,21 @@ func (r *ForwardingClassResource) ValidateConfig(ctx context.Context, req resour
 		)
 	}
 
-	if data.Dscp != nil && !data.NoMarking.IsNull() && !data.NoMarking.IsUnknown() {
-		resp.Diagnostics.AddAttributeError(path.Root("dscp"), "Conflicting Configuration", "dscp and no_marking are mutually exclusive.")
-	}
-	if data.Dscp != nil && !data.TosValue.IsNull() && !data.TosValue.IsUnknown() {
-		resp.Diagnostics.AddAttributeError(path.Root("dscp"), "Conflicting Configuration", "dscp and tos_value are mutually exclusive.")
-	}
-	if !data.NoPolicer.IsNull() && !data.NoPolicer.IsUnknown() && data.Policer != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("no_policer"), "Conflicting Configuration", "no_policer and policer are mutually exclusive.")
-	}
+	// Unresolved empty dynamic alternatives arrive as known all-null objects.
+	// Validate again during planning, after resource expansion, rather than
+	// treating those synthetic alternatives as two user-selected blocks.
+	if req.Config.Raw.IsFullyKnown() {
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("dscp"), &resp.Diagnostics) && !data.NoMarking.IsNull() && !data.NoMarking.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("dscp"), "Conflicting Configuration", "dscp and no_marking are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("dscp"), &resp.Diagnostics) && !data.TosValue.IsNull() && !data.TosValue.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("dscp"), "Conflicting Configuration", "dscp and tos_value are mutually exclusive.")
+		}
+		if !data.NoPolicer.IsNull() && !data.NoPolicer.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("policer"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("no_policer"), "Conflicting Configuration", "no_policer and policer are mutually exclusive.")
+		}
 
+	}
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan
@@ -318,6 +323,28 @@ func (r *ForwardingClassResource) ModifyPlan(ctx context.Context, req resource.M
 			"This permanently deletes the forwarding_class from F5 Distributed Cloud.",
 		)
 		return
+	}
+	{
+		// Always enforce known configured choices while planning, even when an
+		// unrelated attribute remains unknown. Never inspect API-added defaults.
+		var data ForwardingClassResourceModel
+		resp.Diagnostics.Append(req.Config.Get(ctx, &data)...)
+		if resp.Diagnostics.HasError() {
+			return
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("dscp"), &resp.Diagnostics) && !data.NoMarking.IsNull() && !data.NoMarking.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("dscp"), "Conflicting Configuration", "dscp and no_marking are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("dscp"), &resp.Diagnostics) && !data.TosValue.IsNull() && !data.TosValue.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("dscp"), "Conflicting Configuration", "dscp and tos_value are mutually exclusive.")
+		}
+		if !data.NoPolicer.IsNull() && !data.NoPolicer.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("policer"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("no_policer"), "Conflicting Configuration", "no_policer and policer are mutually exclusive.")
+		}
+
+		if resp.Diagnostics.HasError() {
+			return
+		}
 	}
 
 	if req.State.Raw.IsNull() {

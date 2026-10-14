@@ -3482,220 +3482,225 @@ func (r *GlobalLogReceiverResource) ValidateConfig(ctx context.Context, req reso
 		)
 	}
 
-	if !data.AuditLogs.IsNull() && !data.AuditLogs.IsUnknown() && data.RequestLogs != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("audit_logs"), "Conflicting Configuration", "audit_logs and request_logs are mutually exclusive.")
-	}
-	if data.AWSCloudWatchReceiver != nil && data.AzureEventHubsReceiver != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("aws_cloud_watch_receiver"), "Conflicting Configuration", "aws_cloud_watch_receiver and azure_event_hubs_receiver are mutually exclusive.")
-	}
-	if data.AWSCloudWatchReceiver != nil && data.AzureReceiver != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("aws_cloud_watch_receiver"), "Conflicting Configuration", "aws_cloud_watch_receiver and azure_receiver are mutually exclusive.")
-	}
-	if data.AWSCloudWatchReceiver != nil && data.DatadogReceiver != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("aws_cloud_watch_receiver"), "Conflicting Configuration", "aws_cloud_watch_receiver and datadog_receiver are mutually exclusive.")
-	}
-	if data.AWSCloudWatchReceiver != nil && data.GCPBucketReceiver != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("aws_cloud_watch_receiver"), "Conflicting Configuration", "aws_cloud_watch_receiver and gcp_bucket_receiver are mutually exclusive.")
-	}
-	if data.AWSCloudWatchReceiver != nil && data.HTTPReceiver != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("aws_cloud_watch_receiver"), "Conflicting Configuration", "aws_cloud_watch_receiver and http_receiver are mutually exclusive.")
-	}
-	if data.AWSCloudWatchReceiver != nil && data.KafkaReceiver != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("aws_cloud_watch_receiver"), "Conflicting Configuration", "aws_cloud_watch_receiver and kafka_receiver are mutually exclusive.")
-	}
-	if data.AWSCloudWatchReceiver != nil && data.NewRelicReceiver != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("aws_cloud_watch_receiver"), "Conflicting Configuration", "aws_cloud_watch_receiver and new_relic_receiver are mutually exclusive.")
-	}
-	if data.AWSCloudWatchReceiver != nil && data.QradarReceiver != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("aws_cloud_watch_receiver"), "Conflicting Configuration", "aws_cloud_watch_receiver and qradar_receiver are mutually exclusive.")
-	}
-	if data.AWSCloudWatchReceiver != nil && data.S3Receiver != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("aws_cloud_watch_receiver"), "Conflicting Configuration", "aws_cloud_watch_receiver and s3_receiver are mutually exclusive.")
-	}
-	if data.AWSCloudWatchReceiver != nil && data.SplunkReceiver != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("aws_cloud_watch_receiver"), "Conflicting Configuration", "aws_cloud_watch_receiver and splunk_receiver are mutually exclusive.")
-	}
-	if data.AWSCloudWatchReceiver != nil && data.SumoLogicReceiver != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("aws_cloud_watch_receiver"), "Conflicting Configuration", "aws_cloud_watch_receiver and sumo_logic_receiver are mutually exclusive.")
-	}
-	if data.AzureEventHubsReceiver != nil && data.AzureReceiver != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("azure_event_hubs_receiver"), "Conflicting Configuration", "azure_event_hubs_receiver and azure_receiver are mutually exclusive.")
-	}
-	if data.AzureEventHubsReceiver != nil && data.DatadogReceiver != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("azure_event_hubs_receiver"), "Conflicting Configuration", "azure_event_hubs_receiver and datadog_receiver are mutually exclusive.")
-	}
-	if data.AzureEventHubsReceiver != nil && data.GCPBucketReceiver != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("azure_event_hubs_receiver"), "Conflicting Configuration", "azure_event_hubs_receiver and gcp_bucket_receiver are mutually exclusive.")
-	}
-	if data.AzureEventHubsReceiver != nil && data.HTTPReceiver != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("azure_event_hubs_receiver"), "Conflicting Configuration", "azure_event_hubs_receiver and http_receiver are mutually exclusive.")
-	}
-	if data.AzureEventHubsReceiver != nil && data.KafkaReceiver != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("azure_event_hubs_receiver"), "Conflicting Configuration", "azure_event_hubs_receiver and kafka_receiver are mutually exclusive.")
-	}
-	if data.AzureEventHubsReceiver != nil && data.NewRelicReceiver != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("azure_event_hubs_receiver"), "Conflicting Configuration", "azure_event_hubs_receiver and new_relic_receiver are mutually exclusive.")
-	}
-	if data.AzureEventHubsReceiver != nil && data.QradarReceiver != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("azure_event_hubs_receiver"), "Conflicting Configuration", "azure_event_hubs_receiver and qradar_receiver are mutually exclusive.")
-	}
-	if data.AzureEventHubsReceiver != nil && data.S3Receiver != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("azure_event_hubs_receiver"), "Conflicting Configuration", "azure_event_hubs_receiver and s3_receiver are mutually exclusive.")
-	}
-	if data.AzureEventHubsReceiver != nil && data.SplunkReceiver != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("azure_event_hubs_receiver"), "Conflicting Configuration", "azure_event_hubs_receiver and splunk_receiver are mutually exclusive.")
-	}
-	if data.AzureEventHubsReceiver != nil && data.SumoLogicReceiver != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("azure_event_hubs_receiver"), "Conflicting Configuration", "azure_event_hubs_receiver and sumo_logic_receiver are mutually exclusive.")
-	}
-	if data.AzureReceiver != nil && data.DatadogReceiver != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("azure_receiver"), "Conflicting Configuration", "azure_receiver and datadog_receiver are mutually exclusive.")
-	}
-	if data.AzureReceiver != nil && data.GCPBucketReceiver != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("azure_receiver"), "Conflicting Configuration", "azure_receiver and gcp_bucket_receiver are mutually exclusive.")
-	}
-	if data.AzureReceiver != nil && data.HTTPReceiver != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("azure_receiver"), "Conflicting Configuration", "azure_receiver and http_receiver are mutually exclusive.")
-	}
-	if data.AzureReceiver != nil && data.KafkaReceiver != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("azure_receiver"), "Conflicting Configuration", "azure_receiver and kafka_receiver are mutually exclusive.")
-	}
-	if data.AzureReceiver != nil && data.NewRelicReceiver != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("azure_receiver"), "Conflicting Configuration", "azure_receiver and new_relic_receiver are mutually exclusive.")
-	}
-	if data.AzureReceiver != nil && data.QradarReceiver != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("azure_receiver"), "Conflicting Configuration", "azure_receiver and qradar_receiver are mutually exclusive.")
-	}
-	if data.AzureReceiver != nil && data.S3Receiver != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("azure_receiver"), "Conflicting Configuration", "azure_receiver and s3_receiver are mutually exclusive.")
-	}
-	if data.AzureReceiver != nil && data.SplunkReceiver != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("azure_receiver"), "Conflicting Configuration", "azure_receiver and splunk_receiver are mutually exclusive.")
-	}
-	if data.AzureReceiver != nil && data.SumoLogicReceiver != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("azure_receiver"), "Conflicting Configuration", "azure_receiver and sumo_logic_receiver are mutually exclusive.")
-	}
-	if data.DatadogReceiver != nil && data.GCPBucketReceiver != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("datadog_receiver"), "Conflicting Configuration", "datadog_receiver and gcp_bucket_receiver are mutually exclusive.")
-	}
-	if data.DatadogReceiver != nil && data.HTTPReceiver != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("datadog_receiver"), "Conflicting Configuration", "datadog_receiver and http_receiver are mutually exclusive.")
-	}
-	if data.DatadogReceiver != nil && data.KafkaReceiver != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("datadog_receiver"), "Conflicting Configuration", "datadog_receiver and kafka_receiver are mutually exclusive.")
-	}
-	if data.DatadogReceiver != nil && data.NewRelicReceiver != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("datadog_receiver"), "Conflicting Configuration", "datadog_receiver and new_relic_receiver are mutually exclusive.")
-	}
-	if data.DatadogReceiver != nil && data.QradarReceiver != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("datadog_receiver"), "Conflicting Configuration", "datadog_receiver and qradar_receiver are mutually exclusive.")
-	}
-	if data.DatadogReceiver != nil && data.S3Receiver != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("datadog_receiver"), "Conflicting Configuration", "datadog_receiver and s3_receiver are mutually exclusive.")
-	}
-	if data.DatadogReceiver != nil && data.SplunkReceiver != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("datadog_receiver"), "Conflicting Configuration", "datadog_receiver and splunk_receiver are mutually exclusive.")
-	}
-	if data.DatadogReceiver != nil && data.SumoLogicReceiver != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("datadog_receiver"), "Conflicting Configuration", "datadog_receiver and sumo_logic_receiver are mutually exclusive.")
-	}
-	if !data.DNSLogs.IsNull() && !data.DNSLogs.IsUnknown() && data.RequestLogs != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("dns_logs"), "Conflicting Configuration", "dns_logs and request_logs are mutually exclusive.")
-	}
-	if data.GCPBucketReceiver != nil && data.HTTPReceiver != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("gcp_bucket_receiver"), "Conflicting Configuration", "gcp_bucket_receiver and http_receiver are mutually exclusive.")
-	}
-	if data.GCPBucketReceiver != nil && data.KafkaReceiver != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("gcp_bucket_receiver"), "Conflicting Configuration", "gcp_bucket_receiver and kafka_receiver are mutually exclusive.")
-	}
-	if data.GCPBucketReceiver != nil && data.NewRelicReceiver != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("gcp_bucket_receiver"), "Conflicting Configuration", "gcp_bucket_receiver and new_relic_receiver are mutually exclusive.")
-	}
-	if data.GCPBucketReceiver != nil && data.QradarReceiver != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("gcp_bucket_receiver"), "Conflicting Configuration", "gcp_bucket_receiver and qradar_receiver are mutually exclusive.")
-	}
-	if data.GCPBucketReceiver != nil && data.S3Receiver != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("gcp_bucket_receiver"), "Conflicting Configuration", "gcp_bucket_receiver and s3_receiver are mutually exclusive.")
-	}
-	if data.GCPBucketReceiver != nil && data.SplunkReceiver != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("gcp_bucket_receiver"), "Conflicting Configuration", "gcp_bucket_receiver and splunk_receiver are mutually exclusive.")
-	}
-	if data.GCPBucketReceiver != nil && data.SumoLogicReceiver != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("gcp_bucket_receiver"), "Conflicting Configuration", "gcp_bucket_receiver and sumo_logic_receiver are mutually exclusive.")
-	}
-	if data.HTTPReceiver != nil && data.KafkaReceiver != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("http_receiver"), "Conflicting Configuration", "http_receiver and kafka_receiver are mutually exclusive.")
-	}
-	if data.HTTPReceiver != nil && data.NewRelicReceiver != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("http_receiver"), "Conflicting Configuration", "http_receiver and new_relic_receiver are mutually exclusive.")
-	}
-	if data.HTTPReceiver != nil && data.QradarReceiver != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("http_receiver"), "Conflicting Configuration", "http_receiver and qradar_receiver are mutually exclusive.")
-	}
-	if data.HTTPReceiver != nil && data.S3Receiver != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("http_receiver"), "Conflicting Configuration", "http_receiver and s3_receiver are mutually exclusive.")
-	}
-	if data.HTTPReceiver != nil && data.SplunkReceiver != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("http_receiver"), "Conflicting Configuration", "http_receiver and splunk_receiver are mutually exclusive.")
-	}
-	if data.HTTPReceiver != nil && data.SumoLogicReceiver != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("http_receiver"), "Conflicting Configuration", "http_receiver and sumo_logic_receiver are mutually exclusive.")
-	}
-	if data.KafkaReceiver != nil && data.NewRelicReceiver != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("kafka_receiver"), "Conflicting Configuration", "kafka_receiver and new_relic_receiver are mutually exclusive.")
-	}
-	if data.KafkaReceiver != nil && data.QradarReceiver != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("kafka_receiver"), "Conflicting Configuration", "kafka_receiver and qradar_receiver are mutually exclusive.")
-	}
-	if data.KafkaReceiver != nil && data.S3Receiver != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("kafka_receiver"), "Conflicting Configuration", "kafka_receiver and s3_receiver are mutually exclusive.")
-	}
-	if data.KafkaReceiver != nil && data.SplunkReceiver != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("kafka_receiver"), "Conflicting Configuration", "kafka_receiver and splunk_receiver are mutually exclusive.")
-	}
-	if data.KafkaReceiver != nil && data.SumoLogicReceiver != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("kafka_receiver"), "Conflicting Configuration", "kafka_receiver and sumo_logic_receiver are mutually exclusive.")
-	}
-	if data.NewRelicReceiver != nil && data.QradarReceiver != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("new_relic_receiver"), "Conflicting Configuration", "new_relic_receiver and qradar_receiver are mutually exclusive.")
-	}
-	if data.NewRelicReceiver != nil && data.S3Receiver != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("new_relic_receiver"), "Conflicting Configuration", "new_relic_receiver and s3_receiver are mutually exclusive.")
-	}
-	if data.NewRelicReceiver != nil && data.SplunkReceiver != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("new_relic_receiver"), "Conflicting Configuration", "new_relic_receiver and splunk_receiver are mutually exclusive.")
-	}
-	if data.NewRelicReceiver != nil && data.SumoLogicReceiver != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("new_relic_receiver"), "Conflicting Configuration", "new_relic_receiver and sumo_logic_receiver are mutually exclusive.")
-	}
-	if !data.NsAll.IsNull() && !data.NsAll.IsUnknown() && data.NsList != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("ns_all"), "Conflicting Configuration", "ns_all and ns_list are mutually exclusive.")
-	}
-	if !data.NsCurrent.IsNull() && !data.NsCurrent.IsUnknown() && data.NsList != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("ns_current"), "Conflicting Configuration", "ns_current and ns_list are mutually exclusive.")
-	}
-	if data.QradarReceiver != nil && data.S3Receiver != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("qradar_receiver"), "Conflicting Configuration", "qradar_receiver and s3_receiver are mutually exclusive.")
-	}
-	if data.QradarReceiver != nil && data.SplunkReceiver != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("qradar_receiver"), "Conflicting Configuration", "qradar_receiver and splunk_receiver are mutually exclusive.")
-	}
-	if data.QradarReceiver != nil && data.SumoLogicReceiver != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("qradar_receiver"), "Conflicting Configuration", "qradar_receiver and sumo_logic_receiver are mutually exclusive.")
-	}
-	if data.RequestLogs != nil && !data.SecurityEvents.IsNull() && !data.SecurityEvents.IsUnknown() {
-		resp.Diagnostics.AddAttributeError(path.Root("request_logs"), "Conflicting Configuration", "request_logs and security_events are mutually exclusive.")
-	}
-	if data.S3Receiver != nil && data.SplunkReceiver != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("s3_receiver"), "Conflicting Configuration", "s3_receiver and splunk_receiver are mutually exclusive.")
-	}
-	if data.S3Receiver != nil && data.SumoLogicReceiver != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("s3_receiver"), "Conflicting Configuration", "s3_receiver and sumo_logic_receiver are mutually exclusive.")
-	}
-	if data.SplunkReceiver != nil && data.SumoLogicReceiver != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("splunk_receiver"), "Conflicting Configuration", "splunk_receiver and sumo_logic_receiver are mutually exclusive.")
-	}
+	// Unresolved empty dynamic alternatives arrive as known all-null objects.
+	// Validate again during planning, after resource expansion, rather than
+	// treating those synthetic alternatives as two user-selected blocks.
+	if req.Config.Raw.IsFullyKnown() {
+		if !data.AuditLogs.IsNull() && !data.AuditLogs.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("request_logs"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("audit_logs"), "Conflicting Configuration", "audit_logs and request_logs are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("aws_cloud_watch_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("azure_event_hubs_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("aws_cloud_watch_receiver"), "Conflicting Configuration", "aws_cloud_watch_receiver and azure_event_hubs_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("aws_cloud_watch_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("azure_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("aws_cloud_watch_receiver"), "Conflicting Configuration", "aws_cloud_watch_receiver and azure_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("aws_cloud_watch_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("datadog_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("aws_cloud_watch_receiver"), "Conflicting Configuration", "aws_cloud_watch_receiver and datadog_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("aws_cloud_watch_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("gcp_bucket_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("aws_cloud_watch_receiver"), "Conflicting Configuration", "aws_cloud_watch_receiver and gcp_bucket_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("aws_cloud_watch_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("http_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("aws_cloud_watch_receiver"), "Conflicting Configuration", "aws_cloud_watch_receiver and http_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("aws_cloud_watch_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("kafka_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("aws_cloud_watch_receiver"), "Conflicting Configuration", "aws_cloud_watch_receiver and kafka_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("aws_cloud_watch_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("new_relic_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("aws_cloud_watch_receiver"), "Conflicting Configuration", "aws_cloud_watch_receiver and new_relic_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("aws_cloud_watch_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("qradar_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("aws_cloud_watch_receiver"), "Conflicting Configuration", "aws_cloud_watch_receiver and qradar_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("aws_cloud_watch_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("s3_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("aws_cloud_watch_receiver"), "Conflicting Configuration", "aws_cloud_watch_receiver and s3_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("aws_cloud_watch_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("splunk_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("aws_cloud_watch_receiver"), "Conflicting Configuration", "aws_cloud_watch_receiver and splunk_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("aws_cloud_watch_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("sumo_logic_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("aws_cloud_watch_receiver"), "Conflicting Configuration", "aws_cloud_watch_receiver and sumo_logic_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("azure_event_hubs_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("azure_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("azure_event_hubs_receiver"), "Conflicting Configuration", "azure_event_hubs_receiver and azure_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("azure_event_hubs_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("datadog_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("azure_event_hubs_receiver"), "Conflicting Configuration", "azure_event_hubs_receiver and datadog_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("azure_event_hubs_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("gcp_bucket_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("azure_event_hubs_receiver"), "Conflicting Configuration", "azure_event_hubs_receiver and gcp_bucket_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("azure_event_hubs_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("http_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("azure_event_hubs_receiver"), "Conflicting Configuration", "azure_event_hubs_receiver and http_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("azure_event_hubs_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("kafka_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("azure_event_hubs_receiver"), "Conflicting Configuration", "azure_event_hubs_receiver and kafka_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("azure_event_hubs_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("new_relic_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("azure_event_hubs_receiver"), "Conflicting Configuration", "azure_event_hubs_receiver and new_relic_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("azure_event_hubs_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("qradar_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("azure_event_hubs_receiver"), "Conflicting Configuration", "azure_event_hubs_receiver and qradar_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("azure_event_hubs_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("s3_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("azure_event_hubs_receiver"), "Conflicting Configuration", "azure_event_hubs_receiver and s3_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("azure_event_hubs_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("splunk_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("azure_event_hubs_receiver"), "Conflicting Configuration", "azure_event_hubs_receiver and splunk_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("azure_event_hubs_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("sumo_logic_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("azure_event_hubs_receiver"), "Conflicting Configuration", "azure_event_hubs_receiver and sumo_logic_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("azure_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("datadog_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("azure_receiver"), "Conflicting Configuration", "azure_receiver and datadog_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("azure_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("gcp_bucket_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("azure_receiver"), "Conflicting Configuration", "azure_receiver and gcp_bucket_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("azure_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("http_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("azure_receiver"), "Conflicting Configuration", "azure_receiver and http_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("azure_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("kafka_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("azure_receiver"), "Conflicting Configuration", "azure_receiver and kafka_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("azure_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("new_relic_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("azure_receiver"), "Conflicting Configuration", "azure_receiver and new_relic_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("azure_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("qradar_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("azure_receiver"), "Conflicting Configuration", "azure_receiver and qradar_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("azure_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("s3_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("azure_receiver"), "Conflicting Configuration", "azure_receiver and s3_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("azure_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("splunk_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("azure_receiver"), "Conflicting Configuration", "azure_receiver and splunk_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("azure_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("sumo_logic_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("azure_receiver"), "Conflicting Configuration", "azure_receiver and sumo_logic_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("datadog_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("gcp_bucket_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("datadog_receiver"), "Conflicting Configuration", "datadog_receiver and gcp_bucket_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("datadog_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("http_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("datadog_receiver"), "Conflicting Configuration", "datadog_receiver and http_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("datadog_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("kafka_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("datadog_receiver"), "Conflicting Configuration", "datadog_receiver and kafka_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("datadog_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("new_relic_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("datadog_receiver"), "Conflicting Configuration", "datadog_receiver and new_relic_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("datadog_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("qradar_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("datadog_receiver"), "Conflicting Configuration", "datadog_receiver and qradar_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("datadog_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("s3_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("datadog_receiver"), "Conflicting Configuration", "datadog_receiver and s3_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("datadog_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("splunk_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("datadog_receiver"), "Conflicting Configuration", "datadog_receiver and splunk_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("datadog_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("sumo_logic_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("datadog_receiver"), "Conflicting Configuration", "datadog_receiver and sumo_logic_receiver are mutually exclusive.")
+		}
+		if !data.DNSLogs.IsNull() && !data.DNSLogs.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("request_logs"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("dns_logs"), "Conflicting Configuration", "dns_logs and request_logs are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("gcp_bucket_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("http_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("gcp_bucket_receiver"), "Conflicting Configuration", "gcp_bucket_receiver and http_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("gcp_bucket_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("kafka_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("gcp_bucket_receiver"), "Conflicting Configuration", "gcp_bucket_receiver and kafka_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("gcp_bucket_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("new_relic_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("gcp_bucket_receiver"), "Conflicting Configuration", "gcp_bucket_receiver and new_relic_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("gcp_bucket_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("qradar_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("gcp_bucket_receiver"), "Conflicting Configuration", "gcp_bucket_receiver and qradar_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("gcp_bucket_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("s3_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("gcp_bucket_receiver"), "Conflicting Configuration", "gcp_bucket_receiver and s3_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("gcp_bucket_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("splunk_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("gcp_bucket_receiver"), "Conflicting Configuration", "gcp_bucket_receiver and splunk_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("gcp_bucket_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("sumo_logic_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("gcp_bucket_receiver"), "Conflicting Configuration", "gcp_bucket_receiver and sumo_logic_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("http_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("kafka_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("http_receiver"), "Conflicting Configuration", "http_receiver and kafka_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("http_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("new_relic_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("http_receiver"), "Conflicting Configuration", "http_receiver and new_relic_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("http_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("qradar_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("http_receiver"), "Conflicting Configuration", "http_receiver and qradar_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("http_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("s3_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("http_receiver"), "Conflicting Configuration", "http_receiver and s3_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("http_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("splunk_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("http_receiver"), "Conflicting Configuration", "http_receiver and splunk_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("http_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("sumo_logic_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("http_receiver"), "Conflicting Configuration", "http_receiver and sumo_logic_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("kafka_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("new_relic_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("kafka_receiver"), "Conflicting Configuration", "kafka_receiver and new_relic_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("kafka_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("qradar_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("kafka_receiver"), "Conflicting Configuration", "kafka_receiver and qradar_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("kafka_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("s3_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("kafka_receiver"), "Conflicting Configuration", "kafka_receiver and s3_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("kafka_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("splunk_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("kafka_receiver"), "Conflicting Configuration", "kafka_receiver and splunk_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("kafka_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("sumo_logic_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("kafka_receiver"), "Conflicting Configuration", "kafka_receiver and sumo_logic_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("new_relic_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("qradar_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("new_relic_receiver"), "Conflicting Configuration", "new_relic_receiver and qradar_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("new_relic_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("s3_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("new_relic_receiver"), "Conflicting Configuration", "new_relic_receiver and s3_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("new_relic_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("splunk_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("new_relic_receiver"), "Conflicting Configuration", "new_relic_receiver and splunk_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("new_relic_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("sumo_logic_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("new_relic_receiver"), "Conflicting Configuration", "new_relic_receiver and sumo_logic_receiver are mutually exclusive.")
+		}
+		if !data.NsAll.IsNull() && !data.NsAll.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("ns_list"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("ns_all"), "Conflicting Configuration", "ns_all and ns_list are mutually exclusive.")
+		}
+		if !data.NsCurrent.IsNull() && !data.NsCurrent.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("ns_list"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("ns_current"), "Conflicting Configuration", "ns_current and ns_list are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("qradar_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("s3_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("qradar_receiver"), "Conflicting Configuration", "qradar_receiver and s3_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("qradar_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("splunk_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("qradar_receiver"), "Conflicting Configuration", "qradar_receiver and splunk_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("qradar_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("sumo_logic_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("qradar_receiver"), "Conflicting Configuration", "qradar_receiver and sumo_logic_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("request_logs"), &resp.Diagnostics) && !data.SecurityEvents.IsNull() && !data.SecurityEvents.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("request_logs"), "Conflicting Configuration", "request_logs and security_events are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("s3_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("splunk_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("s3_receiver"), "Conflicting Configuration", "s3_receiver and splunk_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("s3_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("sumo_logic_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("s3_receiver"), "Conflicting Configuration", "s3_receiver and sumo_logic_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("splunk_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("sumo_logic_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("splunk_receiver"), "Conflicting Configuration", "splunk_receiver and sumo_logic_receiver are mutually exclusive.")
+		}
 
+	}
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan
@@ -3706,6 +3711,232 @@ func (r *GlobalLogReceiverResource) ModifyPlan(ctx context.Context, req resource
 			"This permanently deletes the global_log_receiver from F5 Distributed Cloud.",
 		)
 		return
+	}
+	{
+		// Always enforce known configured choices while planning, even when an
+		// unrelated attribute remains unknown. Never inspect API-added defaults.
+		var data GlobalLogReceiverResourceModel
+		resp.Diagnostics.Append(req.Config.Get(ctx, &data)...)
+		if resp.Diagnostics.HasError() {
+			return
+		}
+		if !data.AuditLogs.IsNull() && !data.AuditLogs.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("request_logs"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("audit_logs"), "Conflicting Configuration", "audit_logs and request_logs are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("aws_cloud_watch_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("azure_event_hubs_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("aws_cloud_watch_receiver"), "Conflicting Configuration", "aws_cloud_watch_receiver and azure_event_hubs_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("aws_cloud_watch_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("azure_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("aws_cloud_watch_receiver"), "Conflicting Configuration", "aws_cloud_watch_receiver and azure_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("aws_cloud_watch_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("datadog_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("aws_cloud_watch_receiver"), "Conflicting Configuration", "aws_cloud_watch_receiver and datadog_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("aws_cloud_watch_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("gcp_bucket_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("aws_cloud_watch_receiver"), "Conflicting Configuration", "aws_cloud_watch_receiver and gcp_bucket_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("aws_cloud_watch_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("http_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("aws_cloud_watch_receiver"), "Conflicting Configuration", "aws_cloud_watch_receiver and http_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("aws_cloud_watch_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("kafka_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("aws_cloud_watch_receiver"), "Conflicting Configuration", "aws_cloud_watch_receiver and kafka_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("aws_cloud_watch_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("new_relic_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("aws_cloud_watch_receiver"), "Conflicting Configuration", "aws_cloud_watch_receiver and new_relic_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("aws_cloud_watch_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("qradar_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("aws_cloud_watch_receiver"), "Conflicting Configuration", "aws_cloud_watch_receiver and qradar_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("aws_cloud_watch_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("s3_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("aws_cloud_watch_receiver"), "Conflicting Configuration", "aws_cloud_watch_receiver and s3_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("aws_cloud_watch_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("splunk_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("aws_cloud_watch_receiver"), "Conflicting Configuration", "aws_cloud_watch_receiver and splunk_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("aws_cloud_watch_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("sumo_logic_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("aws_cloud_watch_receiver"), "Conflicting Configuration", "aws_cloud_watch_receiver and sumo_logic_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("azure_event_hubs_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("azure_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("azure_event_hubs_receiver"), "Conflicting Configuration", "azure_event_hubs_receiver and azure_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("azure_event_hubs_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("datadog_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("azure_event_hubs_receiver"), "Conflicting Configuration", "azure_event_hubs_receiver and datadog_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("azure_event_hubs_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("gcp_bucket_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("azure_event_hubs_receiver"), "Conflicting Configuration", "azure_event_hubs_receiver and gcp_bucket_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("azure_event_hubs_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("http_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("azure_event_hubs_receiver"), "Conflicting Configuration", "azure_event_hubs_receiver and http_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("azure_event_hubs_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("kafka_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("azure_event_hubs_receiver"), "Conflicting Configuration", "azure_event_hubs_receiver and kafka_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("azure_event_hubs_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("new_relic_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("azure_event_hubs_receiver"), "Conflicting Configuration", "azure_event_hubs_receiver and new_relic_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("azure_event_hubs_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("qradar_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("azure_event_hubs_receiver"), "Conflicting Configuration", "azure_event_hubs_receiver and qradar_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("azure_event_hubs_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("s3_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("azure_event_hubs_receiver"), "Conflicting Configuration", "azure_event_hubs_receiver and s3_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("azure_event_hubs_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("splunk_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("azure_event_hubs_receiver"), "Conflicting Configuration", "azure_event_hubs_receiver and splunk_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("azure_event_hubs_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("sumo_logic_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("azure_event_hubs_receiver"), "Conflicting Configuration", "azure_event_hubs_receiver and sumo_logic_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("azure_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("datadog_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("azure_receiver"), "Conflicting Configuration", "azure_receiver and datadog_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("azure_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("gcp_bucket_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("azure_receiver"), "Conflicting Configuration", "azure_receiver and gcp_bucket_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("azure_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("http_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("azure_receiver"), "Conflicting Configuration", "azure_receiver and http_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("azure_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("kafka_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("azure_receiver"), "Conflicting Configuration", "azure_receiver and kafka_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("azure_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("new_relic_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("azure_receiver"), "Conflicting Configuration", "azure_receiver and new_relic_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("azure_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("qradar_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("azure_receiver"), "Conflicting Configuration", "azure_receiver and qradar_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("azure_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("s3_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("azure_receiver"), "Conflicting Configuration", "azure_receiver and s3_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("azure_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("splunk_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("azure_receiver"), "Conflicting Configuration", "azure_receiver and splunk_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("azure_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("sumo_logic_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("azure_receiver"), "Conflicting Configuration", "azure_receiver and sumo_logic_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("datadog_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("gcp_bucket_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("datadog_receiver"), "Conflicting Configuration", "datadog_receiver and gcp_bucket_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("datadog_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("http_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("datadog_receiver"), "Conflicting Configuration", "datadog_receiver and http_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("datadog_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("kafka_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("datadog_receiver"), "Conflicting Configuration", "datadog_receiver and kafka_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("datadog_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("new_relic_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("datadog_receiver"), "Conflicting Configuration", "datadog_receiver and new_relic_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("datadog_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("qradar_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("datadog_receiver"), "Conflicting Configuration", "datadog_receiver and qradar_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("datadog_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("s3_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("datadog_receiver"), "Conflicting Configuration", "datadog_receiver and s3_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("datadog_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("splunk_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("datadog_receiver"), "Conflicting Configuration", "datadog_receiver and splunk_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("datadog_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("sumo_logic_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("datadog_receiver"), "Conflicting Configuration", "datadog_receiver and sumo_logic_receiver are mutually exclusive.")
+		}
+		if !data.DNSLogs.IsNull() && !data.DNSLogs.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("request_logs"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("dns_logs"), "Conflicting Configuration", "dns_logs and request_logs are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("gcp_bucket_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("http_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("gcp_bucket_receiver"), "Conflicting Configuration", "gcp_bucket_receiver and http_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("gcp_bucket_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("kafka_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("gcp_bucket_receiver"), "Conflicting Configuration", "gcp_bucket_receiver and kafka_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("gcp_bucket_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("new_relic_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("gcp_bucket_receiver"), "Conflicting Configuration", "gcp_bucket_receiver and new_relic_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("gcp_bucket_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("qradar_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("gcp_bucket_receiver"), "Conflicting Configuration", "gcp_bucket_receiver and qradar_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("gcp_bucket_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("s3_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("gcp_bucket_receiver"), "Conflicting Configuration", "gcp_bucket_receiver and s3_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("gcp_bucket_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("splunk_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("gcp_bucket_receiver"), "Conflicting Configuration", "gcp_bucket_receiver and splunk_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("gcp_bucket_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("sumo_logic_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("gcp_bucket_receiver"), "Conflicting Configuration", "gcp_bucket_receiver and sumo_logic_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("http_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("kafka_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("http_receiver"), "Conflicting Configuration", "http_receiver and kafka_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("http_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("new_relic_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("http_receiver"), "Conflicting Configuration", "http_receiver and new_relic_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("http_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("qradar_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("http_receiver"), "Conflicting Configuration", "http_receiver and qradar_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("http_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("s3_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("http_receiver"), "Conflicting Configuration", "http_receiver and s3_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("http_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("splunk_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("http_receiver"), "Conflicting Configuration", "http_receiver and splunk_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("http_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("sumo_logic_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("http_receiver"), "Conflicting Configuration", "http_receiver and sumo_logic_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("kafka_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("new_relic_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("kafka_receiver"), "Conflicting Configuration", "kafka_receiver and new_relic_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("kafka_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("qradar_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("kafka_receiver"), "Conflicting Configuration", "kafka_receiver and qradar_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("kafka_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("s3_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("kafka_receiver"), "Conflicting Configuration", "kafka_receiver and s3_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("kafka_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("splunk_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("kafka_receiver"), "Conflicting Configuration", "kafka_receiver and splunk_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("kafka_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("sumo_logic_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("kafka_receiver"), "Conflicting Configuration", "kafka_receiver and sumo_logic_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("new_relic_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("qradar_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("new_relic_receiver"), "Conflicting Configuration", "new_relic_receiver and qradar_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("new_relic_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("s3_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("new_relic_receiver"), "Conflicting Configuration", "new_relic_receiver and s3_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("new_relic_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("splunk_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("new_relic_receiver"), "Conflicting Configuration", "new_relic_receiver and splunk_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("new_relic_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("sumo_logic_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("new_relic_receiver"), "Conflicting Configuration", "new_relic_receiver and sumo_logic_receiver are mutually exclusive.")
+		}
+		if !data.NsAll.IsNull() && !data.NsAll.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("ns_list"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("ns_all"), "Conflicting Configuration", "ns_all and ns_list are mutually exclusive.")
+		}
+		if !data.NsCurrent.IsNull() && !data.NsCurrent.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("ns_list"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("ns_current"), "Conflicting Configuration", "ns_current and ns_list are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("qradar_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("s3_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("qradar_receiver"), "Conflicting Configuration", "qradar_receiver and s3_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("qradar_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("splunk_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("qradar_receiver"), "Conflicting Configuration", "qradar_receiver and splunk_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("qradar_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("sumo_logic_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("qradar_receiver"), "Conflicting Configuration", "qradar_receiver and sumo_logic_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("request_logs"), &resp.Diagnostics) && !data.SecurityEvents.IsNull() && !data.SecurityEvents.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("request_logs"), "Conflicting Configuration", "request_logs and security_events are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("s3_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("splunk_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("s3_receiver"), "Conflicting Configuration", "s3_receiver and splunk_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("s3_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("sumo_logic_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("s3_receiver"), "Conflicting Configuration", "s3_receiver and sumo_logic_receiver are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("splunk_receiver"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("sumo_logic_receiver"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("splunk_receiver"), "Conflicting Configuration", "splunk_receiver and sumo_logic_receiver are mutually exclusive.")
+		}
+
+		if resp.Diagnostics.HasError() {
+			return
+		}
 	}
 
 	if req.State.Raw.IsNull() {

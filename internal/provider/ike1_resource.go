@@ -259,25 +259,30 @@ func (r *Ike1Resource) ValidateConfig(ctx context.Context, req resource.Validate
 	if resp.Diagnostics.HasError() {
 		return
 	}
-	if data.IKEKeylifetimeHours != nil && data.IKEKeylifetimeMinutes != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("ike_keylifetime_hours"), "Conflicting Configuration", "ike_keylifetime_hours and ike_keylifetime_minutes are mutually exclusive.")
-	}
-	if data.IKEKeylifetimeHours != nil && !data.UseDefaultKeylifetime.IsNull() && !data.UseDefaultKeylifetime.IsUnknown() {
-		resp.Diagnostics.AddAttributeError(path.Root("ike_keylifetime_hours"), "Conflicting Configuration", "ike_keylifetime_hours and use_default_keylifetime are mutually exclusive.")
-	}
-	if data.IKEKeylifetimeMinutes != nil && !data.UseDefaultKeylifetime.IsNull() && !data.UseDefaultKeylifetime.IsUnknown() {
-		resp.Diagnostics.AddAttributeError(path.Root("ike_keylifetime_minutes"), "Conflicting Configuration", "ike_keylifetime_minutes and use_default_keylifetime are mutually exclusive.")
-	}
-	if !data.ReauthDisabled.IsNull() && !data.ReauthDisabled.IsUnknown() && data.ReauthTimeoutDays != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("reauth_disabled"), "Conflicting Configuration", "reauth_disabled and reauth_timeout_days are mutually exclusive.")
-	}
-	if !data.ReauthDisabled.IsNull() && !data.ReauthDisabled.IsUnknown() && data.ReauthTimeoutHours != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("reauth_disabled"), "Conflicting Configuration", "reauth_disabled and reauth_timeout_hours are mutually exclusive.")
-	}
-	if data.ReauthTimeoutDays != nil && data.ReauthTimeoutHours != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("reauth_timeout_days"), "Conflicting Configuration", "reauth_timeout_days and reauth_timeout_hours are mutually exclusive.")
-	}
+	// Unresolved empty dynamic alternatives arrive as known all-null objects.
+	// Validate again during planning, after resource expansion, rather than
+	// treating those synthetic alternatives as two user-selected blocks.
+	if req.Config.Raw.IsFullyKnown() {
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("ike_keylifetime_hours"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("ike_keylifetime_minutes"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("ike_keylifetime_hours"), "Conflicting Configuration", "ike_keylifetime_hours and ike_keylifetime_minutes are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("ike_keylifetime_hours"), &resp.Diagnostics) && !data.UseDefaultKeylifetime.IsNull() && !data.UseDefaultKeylifetime.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("ike_keylifetime_hours"), "Conflicting Configuration", "ike_keylifetime_hours and use_default_keylifetime are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("ike_keylifetime_minutes"), &resp.Diagnostics) && !data.UseDefaultKeylifetime.IsNull() && !data.UseDefaultKeylifetime.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("ike_keylifetime_minutes"), "Conflicting Configuration", "ike_keylifetime_minutes and use_default_keylifetime are mutually exclusive.")
+		}
+		if !data.ReauthDisabled.IsNull() && !data.ReauthDisabled.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("reauth_timeout_days"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("reauth_disabled"), "Conflicting Configuration", "reauth_disabled and reauth_timeout_days are mutually exclusive.")
+		}
+		if !data.ReauthDisabled.IsNull() && !data.ReauthDisabled.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("reauth_timeout_hours"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("reauth_disabled"), "Conflicting Configuration", "reauth_disabled and reauth_timeout_hours are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("reauth_timeout_days"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("reauth_timeout_hours"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("reauth_timeout_days"), "Conflicting Configuration", "reauth_timeout_days and reauth_timeout_hours are mutually exclusive.")
+		}
 
+	}
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan
@@ -288,6 +293,37 @@ func (r *Ike1Resource) ModifyPlan(ctx context.Context, req resource.ModifyPlanRe
 			"This permanently deletes the ike1 from F5 Distributed Cloud.",
 		)
 		return
+	}
+	{
+		// Always enforce known configured choices while planning, even when an
+		// unrelated attribute remains unknown. Never inspect API-added defaults.
+		var data Ike1ResourceModel
+		resp.Diagnostics.Append(req.Config.Get(ctx, &data)...)
+		if resp.Diagnostics.HasError() {
+			return
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("ike_keylifetime_hours"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("ike_keylifetime_minutes"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("ike_keylifetime_hours"), "Conflicting Configuration", "ike_keylifetime_hours and ike_keylifetime_minutes are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("ike_keylifetime_hours"), &resp.Diagnostics) && !data.UseDefaultKeylifetime.IsNull() && !data.UseDefaultKeylifetime.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("ike_keylifetime_hours"), "Conflicting Configuration", "ike_keylifetime_hours and use_default_keylifetime are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("ike_keylifetime_minutes"), &resp.Diagnostics) && !data.UseDefaultKeylifetime.IsNull() && !data.UseDefaultKeylifetime.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("ike_keylifetime_minutes"), "Conflicting Configuration", "ike_keylifetime_minutes and use_default_keylifetime are mutually exclusive.")
+		}
+		if !data.ReauthDisabled.IsNull() && !data.ReauthDisabled.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("reauth_timeout_days"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("reauth_disabled"), "Conflicting Configuration", "reauth_disabled and reauth_timeout_days are mutually exclusive.")
+		}
+		if !data.ReauthDisabled.IsNull() && !data.ReauthDisabled.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("reauth_timeout_hours"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("reauth_disabled"), "Conflicting Configuration", "reauth_disabled and reauth_timeout_hours are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("reauth_timeout_days"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("reauth_timeout_hours"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("reauth_timeout_days"), "Conflicting Configuration", "reauth_timeout_days and reauth_timeout_hours are mutually exclusive.")
+		}
+
+		if resp.Diagnostics.HasError() {
+			return
+		}
 	}
 
 	if req.State.Raw.IsNull() {

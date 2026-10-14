@@ -1364,37 +1364,42 @@ func (r *NetworkInterfaceResource) ValidateConfig(ctx context.Context, req resou
 	if resp.Diagnostics.HasError() {
 		return
 	}
-	if data.DedicatedInterface != nil && data.DedicatedManagementInterface != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("dedicated_interface"), "Conflicting Configuration", "dedicated_interface and dedicated_management_interface are mutually exclusive.")
-	}
-	if data.DedicatedInterface != nil && data.EthernetInterface != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("dedicated_interface"), "Conflicting Configuration", "dedicated_interface and ethernet_interface are mutually exclusive.")
-	}
-	if data.DedicatedInterface != nil && data.Layer2Interface != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("dedicated_interface"), "Conflicting Configuration", "dedicated_interface and layer2_interface are mutually exclusive.")
-	}
-	if data.DedicatedInterface != nil && data.TunnelInterface != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("dedicated_interface"), "Conflicting Configuration", "dedicated_interface and tunnel_interface are mutually exclusive.")
-	}
-	if data.DedicatedManagementInterface != nil && data.EthernetInterface != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("dedicated_management_interface"), "Conflicting Configuration", "dedicated_management_interface and ethernet_interface are mutually exclusive.")
-	}
-	if data.DedicatedManagementInterface != nil && data.Layer2Interface != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("dedicated_management_interface"), "Conflicting Configuration", "dedicated_management_interface and layer2_interface are mutually exclusive.")
-	}
-	if data.DedicatedManagementInterface != nil && data.TunnelInterface != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("dedicated_management_interface"), "Conflicting Configuration", "dedicated_management_interface and tunnel_interface are mutually exclusive.")
-	}
-	if data.EthernetInterface != nil && data.Layer2Interface != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("ethernet_interface"), "Conflicting Configuration", "ethernet_interface and layer2_interface are mutually exclusive.")
-	}
-	if data.EthernetInterface != nil && data.TunnelInterface != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("ethernet_interface"), "Conflicting Configuration", "ethernet_interface and tunnel_interface are mutually exclusive.")
-	}
-	if data.Layer2Interface != nil && data.TunnelInterface != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("layer2_interface"), "Conflicting Configuration", "layer2_interface and tunnel_interface are mutually exclusive.")
-	}
+	// Unresolved empty dynamic alternatives arrive as known all-null objects.
+	// Validate again during planning, after resource expansion, rather than
+	// treating those synthetic alternatives as two user-selected blocks.
+	if req.Config.Raw.IsFullyKnown() {
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("dedicated_interface"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("dedicated_management_interface"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("dedicated_interface"), "Conflicting Configuration", "dedicated_interface and dedicated_management_interface are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("dedicated_interface"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("ethernet_interface"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("dedicated_interface"), "Conflicting Configuration", "dedicated_interface and ethernet_interface are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("dedicated_interface"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("layer2_interface"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("dedicated_interface"), "Conflicting Configuration", "dedicated_interface and layer2_interface are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("dedicated_interface"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("tunnel_interface"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("dedicated_interface"), "Conflicting Configuration", "dedicated_interface and tunnel_interface are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("dedicated_management_interface"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("ethernet_interface"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("dedicated_management_interface"), "Conflicting Configuration", "dedicated_management_interface and ethernet_interface are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("dedicated_management_interface"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("layer2_interface"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("dedicated_management_interface"), "Conflicting Configuration", "dedicated_management_interface and layer2_interface are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("dedicated_management_interface"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("tunnel_interface"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("dedicated_management_interface"), "Conflicting Configuration", "dedicated_management_interface and tunnel_interface are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("ethernet_interface"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("layer2_interface"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("ethernet_interface"), "Conflicting Configuration", "ethernet_interface and layer2_interface are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("ethernet_interface"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("tunnel_interface"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("ethernet_interface"), "Conflicting Configuration", "ethernet_interface and tunnel_interface are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("layer2_interface"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("tunnel_interface"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("layer2_interface"), "Conflicting Configuration", "layer2_interface and tunnel_interface are mutually exclusive.")
+		}
 
+	}
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan
@@ -1405,6 +1410,49 @@ func (r *NetworkInterfaceResource) ModifyPlan(ctx context.Context, req resource.
 			"This permanently deletes the network_interface from F5 Distributed Cloud.",
 		)
 		return
+	}
+	{
+		// Always enforce known configured choices while planning, even when an
+		// unrelated attribute remains unknown. Never inspect API-added defaults.
+		var data NetworkInterfaceResourceModel
+		resp.Diagnostics.Append(req.Config.Get(ctx, &data)...)
+		if resp.Diagnostics.HasError() {
+			return
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("dedicated_interface"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("dedicated_management_interface"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("dedicated_interface"), "Conflicting Configuration", "dedicated_interface and dedicated_management_interface are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("dedicated_interface"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("ethernet_interface"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("dedicated_interface"), "Conflicting Configuration", "dedicated_interface and ethernet_interface are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("dedicated_interface"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("layer2_interface"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("dedicated_interface"), "Conflicting Configuration", "dedicated_interface and layer2_interface are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("dedicated_interface"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("tunnel_interface"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("dedicated_interface"), "Conflicting Configuration", "dedicated_interface and tunnel_interface are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("dedicated_management_interface"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("ethernet_interface"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("dedicated_management_interface"), "Conflicting Configuration", "dedicated_management_interface and ethernet_interface are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("dedicated_management_interface"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("layer2_interface"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("dedicated_management_interface"), "Conflicting Configuration", "dedicated_management_interface and layer2_interface are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("dedicated_management_interface"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("tunnel_interface"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("dedicated_management_interface"), "Conflicting Configuration", "dedicated_management_interface and tunnel_interface are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("ethernet_interface"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("layer2_interface"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("ethernet_interface"), "Conflicting Configuration", "ethernet_interface and layer2_interface are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("ethernet_interface"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("tunnel_interface"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("ethernet_interface"), "Conflicting Configuration", "ethernet_interface and tunnel_interface are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("layer2_interface"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("tunnel_interface"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("layer2_interface"), "Conflicting Configuration", "layer2_interface and tunnel_interface are mutually exclusive.")
+		}
+
+		if resp.Diagnostics.HasError() {
+			return
+		}
 	}
 
 	if req.State.Raw.IsNull() {

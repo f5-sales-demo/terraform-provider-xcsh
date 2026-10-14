@@ -953,10 +953,15 @@ func (r *PolicyBasedRoutingResource) ValidateConfig(ctx context.Context, req res
 	if resp.Diagnostics.HasError() {
 		return
 	}
-	if data.ForwardProxyPbr != nil && data.NetworkPbr != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("forward_proxy_pbr"), "Conflicting Configuration", "forward_proxy_pbr and network_pbr are mutually exclusive.")
-	}
+	// Unresolved empty dynamic alternatives arrive as known all-null objects.
+	// Validate again during planning, after resource expansion, rather than
+	// treating those synthetic alternatives as two user-selected blocks.
+	if req.Config.Raw.IsFullyKnown() {
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("forward_proxy_pbr"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("network_pbr"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("forward_proxy_pbr"), "Conflicting Configuration", "forward_proxy_pbr and network_pbr are mutually exclusive.")
+		}
 
+	}
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan
@@ -967,6 +972,22 @@ func (r *PolicyBasedRoutingResource) ModifyPlan(ctx context.Context, req resourc
 			"This permanently deletes the policy_based_routing from F5 Distributed Cloud.",
 		)
 		return
+	}
+	{
+		// Always enforce known configured choices while planning, even when an
+		// unrelated attribute remains unknown. Never inspect API-added defaults.
+		var data PolicyBasedRoutingResourceModel
+		resp.Diagnostics.Append(req.Config.Get(ctx, &data)...)
+		if resp.Diagnostics.HasError() {
+			return
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("forward_proxy_pbr"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("network_pbr"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("forward_proxy_pbr"), "Conflicting Configuration", "forward_proxy_pbr and network_pbr are mutually exclusive.")
+		}
+
+		if resp.Diagnostics.HasError() {
+			return
+		}
 	}
 
 	if req.State.Raw.IsNull() {

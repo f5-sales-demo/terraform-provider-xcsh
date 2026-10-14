@@ -364,16 +364,21 @@ func (r *HealthcheckResource) ValidateConfig(ctx context.Context, req resource.V
 		)
 	}
 
-	if data.HTTPHealthCheck != nil && data.TCPHealthCheck != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("http_health_check"), "Conflicting Configuration", "http_health_check and tcp_health_check are mutually exclusive.")
-	}
-	if data.HTTPHealthCheck != nil && !data.UDPICMPHealthCheck.IsNull() && !data.UDPICMPHealthCheck.IsUnknown() {
-		resp.Diagnostics.AddAttributeError(path.Root("http_health_check"), "Conflicting Configuration", "http_health_check and udp_icmp_health_check are mutually exclusive.")
-	}
-	if data.TCPHealthCheck != nil && !data.UDPICMPHealthCheck.IsNull() && !data.UDPICMPHealthCheck.IsUnknown() {
-		resp.Diagnostics.AddAttributeError(path.Root("tcp_health_check"), "Conflicting Configuration", "tcp_health_check and udp_icmp_health_check are mutually exclusive.")
-	}
+	// Unresolved empty dynamic alternatives arrive as known all-null objects.
+	// Validate again during planning, after resource expansion, rather than
+	// treating those synthetic alternatives as two user-selected blocks.
+	if req.Config.Raw.IsFullyKnown() {
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("http_health_check"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("tcp_health_check"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("http_health_check"), "Conflicting Configuration", "http_health_check and tcp_health_check are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("http_health_check"), &resp.Diagnostics) && !data.UDPICMPHealthCheck.IsNull() && !data.UDPICMPHealthCheck.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("http_health_check"), "Conflicting Configuration", "http_health_check and udp_icmp_health_check are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("tcp_health_check"), &resp.Diagnostics) && !data.UDPICMPHealthCheck.IsNull() && !data.UDPICMPHealthCheck.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("tcp_health_check"), "Conflicting Configuration", "tcp_health_check and udp_icmp_health_check are mutually exclusive.")
+		}
 
+	}
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan
@@ -384,6 +389,28 @@ func (r *HealthcheckResource) ModifyPlan(ctx context.Context, req resource.Modif
 			"This permanently deletes the healthcheck from F5 Distributed Cloud.",
 		)
 		return
+	}
+	{
+		// Always enforce known configured choices while planning, even when an
+		// unrelated attribute remains unknown. Never inspect API-added defaults.
+		var data HealthcheckResourceModel
+		resp.Diagnostics.Append(req.Config.Get(ctx, &data)...)
+		if resp.Diagnostics.HasError() {
+			return
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("http_health_check"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("tcp_health_check"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("http_health_check"), "Conflicting Configuration", "http_health_check and tcp_health_check are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("http_health_check"), &resp.Diagnostics) && !data.UDPICMPHealthCheck.IsNull() && !data.UDPICMPHealthCheck.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("http_health_check"), "Conflicting Configuration", "http_health_check and udp_icmp_health_check are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("tcp_health_check"), &resp.Diagnostics) && !data.UDPICMPHealthCheck.IsNull() && !data.UDPICMPHealthCheck.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("tcp_health_check"), "Conflicting Configuration", "tcp_health_check and udp_icmp_health_check are mutually exclusive.")
+		}
+
+		if resp.Diagnostics.HasError() {
+			return
+		}
 	}
 
 	if req.State.Raw.IsNull() {

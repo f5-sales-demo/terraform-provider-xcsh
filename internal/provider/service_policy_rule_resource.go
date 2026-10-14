@@ -1987,55 +1987,60 @@ func (r *ServicePolicyRuleResource) ValidateConfig(ctx context.Context, req reso
 		)
 	}
 
-	if !data.AnyAsn.IsNull() && !data.AnyAsn.IsUnknown() && data.AsnList != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("any_asn"), "Conflicting Configuration", "any_asn and asn_list are mutually exclusive.")
-	}
-	if !data.AnyAsn.IsNull() && !data.AnyAsn.IsUnknown() && data.AsnMatcher != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("any_asn"), "Conflicting Configuration", "any_asn and asn_matcher are mutually exclusive.")
-	}
-	if !data.AnyClient.IsNull() && !data.AnyClient.IsUnknown() && data.ClientNameMatcher != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("any_client"), "Conflicting Configuration", "any_client and client_name_matcher are mutually exclusive.")
-	}
-	if !data.AnyClient.IsNull() && !data.AnyClient.IsUnknown() && data.ClientSelector != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("any_client"), "Conflicting Configuration", "any_client and client_selector are mutually exclusive.")
-	}
-	if !data.AnyClient.IsNull() && !data.AnyClient.IsUnknown() && data.IPThreatCategoryList != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("any_client"), "Conflicting Configuration", "any_client and ip_threat_category_list are mutually exclusive.")
-	}
-	if !data.AnyIP.IsNull() && !data.AnyIP.IsUnknown() && data.IPMatcher != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("any_ip"), "Conflicting Configuration", "any_ip and ip_matcher are mutually exclusive.")
-	}
-	if !data.AnyIP.IsNull() && !data.AnyIP.IsUnknown() && data.IPPrefixList != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("any_ip"), "Conflicting Configuration", "any_ip and ip_prefix_list are mutually exclusive.")
-	}
-	if data.AsnList != nil && data.AsnMatcher != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("asn_list"), "Conflicting Configuration", "asn_list and asn_matcher are mutually exclusive.")
-	}
-	if !data.ClientName.IsNull() && !data.ClientName.IsUnknown() && data.ClientNameMatcher != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("client_name"), "Conflicting Configuration", "client_name and client_name_matcher are mutually exclusive.")
-	}
-	if !data.ClientName.IsNull() && !data.ClientName.IsUnknown() && data.ClientSelector != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("client_name"), "Conflicting Configuration", "client_name and client_selector are mutually exclusive.")
-	}
-	if !data.ClientName.IsNull() && !data.ClientName.IsUnknown() && data.IPThreatCategoryList != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("client_name"), "Conflicting Configuration", "client_name and ip_threat_category_list are mutually exclusive.")
-	}
-	if data.ClientNameMatcher != nil && data.ClientSelector != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("client_name_matcher"), "Conflicting Configuration", "client_name_matcher and client_selector are mutually exclusive.")
-	}
-	if data.ClientNameMatcher != nil && data.IPThreatCategoryList != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("client_name_matcher"), "Conflicting Configuration", "client_name_matcher and ip_threat_category_list are mutually exclusive.")
-	}
-	if data.ClientSelector != nil && data.IPThreatCategoryList != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("client_selector"), "Conflicting Configuration", "client_selector and ip_threat_category_list are mutually exclusive.")
-	}
-	if data.IPMatcher != nil && data.IPPrefixList != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("ip_matcher"), "Conflicting Configuration", "ip_matcher and ip_prefix_list are mutually exclusive.")
-	}
-	if data.Ja4TLSFingerprint != nil && data.TLSFingerprintMatcher != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("ja4_tls_fingerprint"), "Conflicting Configuration", "ja4_tls_fingerprint and tls_fingerprint_matcher are mutually exclusive.")
-	}
+	// Unresolved empty dynamic alternatives arrive as known all-null objects.
+	// Validate again during planning, after resource expansion, rather than
+	// treating those synthetic alternatives as two user-selected blocks.
+	if req.Config.Raw.IsFullyKnown() {
+		if !data.AnyAsn.IsNull() && !data.AnyAsn.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("asn_list"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("any_asn"), "Conflicting Configuration", "any_asn and asn_list are mutually exclusive.")
+		}
+		if !data.AnyAsn.IsNull() && !data.AnyAsn.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("asn_matcher"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("any_asn"), "Conflicting Configuration", "any_asn and asn_matcher are mutually exclusive.")
+		}
+		if !data.AnyClient.IsNull() && !data.AnyClient.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("client_name_matcher"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("any_client"), "Conflicting Configuration", "any_client and client_name_matcher are mutually exclusive.")
+		}
+		if !data.AnyClient.IsNull() && !data.AnyClient.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("client_selector"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("any_client"), "Conflicting Configuration", "any_client and client_selector are mutually exclusive.")
+		}
+		if !data.AnyClient.IsNull() && !data.AnyClient.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("ip_threat_category_list"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("any_client"), "Conflicting Configuration", "any_client and ip_threat_category_list are mutually exclusive.")
+		}
+		if !data.AnyIP.IsNull() && !data.AnyIP.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("ip_matcher"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("any_ip"), "Conflicting Configuration", "any_ip and ip_matcher are mutually exclusive.")
+		}
+		if !data.AnyIP.IsNull() && !data.AnyIP.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("ip_prefix_list"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("any_ip"), "Conflicting Configuration", "any_ip and ip_prefix_list are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("asn_list"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("asn_matcher"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("asn_list"), "Conflicting Configuration", "asn_list and asn_matcher are mutually exclusive.")
+		}
+		if !data.ClientName.IsNull() && !data.ClientName.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("client_name_matcher"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("client_name"), "Conflicting Configuration", "client_name and client_name_matcher are mutually exclusive.")
+		}
+		if !data.ClientName.IsNull() && !data.ClientName.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("client_selector"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("client_name"), "Conflicting Configuration", "client_name and client_selector are mutually exclusive.")
+		}
+		if !data.ClientName.IsNull() && !data.ClientName.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("ip_threat_category_list"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("client_name"), "Conflicting Configuration", "client_name and ip_threat_category_list are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("client_name_matcher"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("client_selector"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("client_name_matcher"), "Conflicting Configuration", "client_name_matcher and client_selector are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("client_name_matcher"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("ip_threat_category_list"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("client_name_matcher"), "Conflicting Configuration", "client_name_matcher and ip_threat_category_list are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("client_selector"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("ip_threat_category_list"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("client_selector"), "Conflicting Configuration", "client_selector and ip_threat_category_list are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("ip_matcher"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("ip_prefix_list"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("ip_matcher"), "Conflicting Configuration", "ip_matcher and ip_prefix_list are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("ja4_tls_fingerprint"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("tls_fingerprint_matcher"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("ja4_tls_fingerprint"), "Conflicting Configuration", "ja4_tls_fingerprint and tls_fingerprint_matcher are mutually exclusive.")
+		}
 
+	}
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan
@@ -2046,6 +2051,67 @@ func (r *ServicePolicyRuleResource) ModifyPlan(ctx context.Context, req resource
 			"This permanently deletes the service_policy_rule from F5 Distributed Cloud.",
 		)
 		return
+	}
+	{
+		// Always enforce known configured choices while planning, even when an
+		// unrelated attribute remains unknown. Never inspect API-added defaults.
+		var data ServicePolicyRuleResourceModel
+		resp.Diagnostics.Append(req.Config.Get(ctx, &data)...)
+		if resp.Diagnostics.HasError() {
+			return
+		}
+		if !data.AnyAsn.IsNull() && !data.AnyAsn.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("asn_list"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("any_asn"), "Conflicting Configuration", "any_asn and asn_list are mutually exclusive.")
+		}
+		if !data.AnyAsn.IsNull() && !data.AnyAsn.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("asn_matcher"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("any_asn"), "Conflicting Configuration", "any_asn and asn_matcher are mutually exclusive.")
+		}
+		if !data.AnyClient.IsNull() && !data.AnyClient.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("client_name_matcher"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("any_client"), "Conflicting Configuration", "any_client and client_name_matcher are mutually exclusive.")
+		}
+		if !data.AnyClient.IsNull() && !data.AnyClient.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("client_selector"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("any_client"), "Conflicting Configuration", "any_client and client_selector are mutually exclusive.")
+		}
+		if !data.AnyClient.IsNull() && !data.AnyClient.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("ip_threat_category_list"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("any_client"), "Conflicting Configuration", "any_client and ip_threat_category_list are mutually exclusive.")
+		}
+		if !data.AnyIP.IsNull() && !data.AnyIP.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("ip_matcher"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("any_ip"), "Conflicting Configuration", "any_ip and ip_matcher are mutually exclusive.")
+		}
+		if !data.AnyIP.IsNull() && !data.AnyIP.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("ip_prefix_list"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("any_ip"), "Conflicting Configuration", "any_ip and ip_prefix_list are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("asn_list"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("asn_matcher"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("asn_list"), "Conflicting Configuration", "asn_list and asn_matcher are mutually exclusive.")
+		}
+		if !data.ClientName.IsNull() && !data.ClientName.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("client_name_matcher"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("client_name"), "Conflicting Configuration", "client_name and client_name_matcher are mutually exclusive.")
+		}
+		if !data.ClientName.IsNull() && !data.ClientName.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("client_selector"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("client_name"), "Conflicting Configuration", "client_name and client_selector are mutually exclusive.")
+		}
+		if !data.ClientName.IsNull() && !data.ClientName.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("ip_threat_category_list"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("client_name"), "Conflicting Configuration", "client_name and ip_threat_category_list are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("client_name_matcher"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("client_selector"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("client_name_matcher"), "Conflicting Configuration", "client_name_matcher and client_selector are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("client_name_matcher"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("ip_threat_category_list"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("client_name_matcher"), "Conflicting Configuration", "client_name_matcher and ip_threat_category_list are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("client_selector"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("ip_threat_category_list"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("client_selector"), "Conflicting Configuration", "client_selector and ip_threat_category_list are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("ip_matcher"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("ip_prefix_list"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("ip_matcher"), "Conflicting Configuration", "ip_matcher and ip_prefix_list are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("ja4_tls_fingerprint"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("tls_fingerprint_matcher"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("ja4_tls_fingerprint"), "Conflicting Configuration", "ja4_tls_fingerprint and tls_fingerprint_matcher are mutually exclusive.")
+		}
+
+		if resp.Diagnostics.HasError() {
+			return
+		}
 	}
 
 	if req.State.Raw.IsNull() {

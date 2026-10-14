@@ -1036,22 +1036,27 @@ func (r *RateLimiterPolicyResource) ValidateConfig(ctx context.Context, req reso
 		)
 	}
 
-	if !data.AnyServer.IsNull() && !data.AnyServer.IsUnknown() && data.ServerNameMatcher != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("any_server"), "Conflicting Configuration", "any_server and server_name_matcher are mutually exclusive.")
-	}
-	if !data.AnyServer.IsNull() && !data.AnyServer.IsUnknown() && data.ServerSelector != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("any_server"), "Conflicting Configuration", "any_server and server_selector are mutually exclusive.")
-	}
-	if !data.ServerName.IsNull() && !data.ServerName.IsUnknown() && data.ServerNameMatcher != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("server_name"), "Conflicting Configuration", "server_name and server_name_matcher are mutually exclusive.")
-	}
-	if !data.ServerName.IsNull() && !data.ServerName.IsUnknown() && data.ServerSelector != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("server_name"), "Conflicting Configuration", "server_name and server_selector are mutually exclusive.")
-	}
-	if data.ServerNameMatcher != nil && data.ServerSelector != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("server_name_matcher"), "Conflicting Configuration", "server_name_matcher and server_selector are mutually exclusive.")
-	}
+	// Unresolved empty dynamic alternatives arrive as known all-null objects.
+	// Validate again during planning, after resource expansion, rather than
+	// treating those synthetic alternatives as two user-selected blocks.
+	if req.Config.Raw.IsFullyKnown() {
+		if !data.AnyServer.IsNull() && !data.AnyServer.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("server_name_matcher"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("any_server"), "Conflicting Configuration", "any_server and server_name_matcher are mutually exclusive.")
+		}
+		if !data.AnyServer.IsNull() && !data.AnyServer.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("server_selector"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("any_server"), "Conflicting Configuration", "any_server and server_selector are mutually exclusive.")
+		}
+		if !data.ServerName.IsNull() && !data.ServerName.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("server_name_matcher"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("server_name"), "Conflicting Configuration", "server_name and server_name_matcher are mutually exclusive.")
+		}
+		if !data.ServerName.IsNull() && !data.ServerName.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("server_selector"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("server_name"), "Conflicting Configuration", "server_name and server_selector are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("server_name_matcher"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("server_selector"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("server_name_matcher"), "Conflicting Configuration", "server_name_matcher and server_selector are mutually exclusive.")
+		}
 
+	}
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan
@@ -1062,6 +1067,34 @@ func (r *RateLimiterPolicyResource) ModifyPlan(ctx context.Context, req resource
 			"This permanently deletes the rate_limiter_policy from F5 Distributed Cloud.",
 		)
 		return
+	}
+	{
+		// Always enforce known configured choices while planning, even when an
+		// unrelated attribute remains unknown. Never inspect API-added defaults.
+		var data RateLimiterPolicyResourceModel
+		resp.Diagnostics.Append(req.Config.Get(ctx, &data)...)
+		if resp.Diagnostics.HasError() {
+			return
+		}
+		if !data.AnyServer.IsNull() && !data.AnyServer.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("server_name_matcher"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("any_server"), "Conflicting Configuration", "any_server and server_name_matcher are mutually exclusive.")
+		}
+		if !data.AnyServer.IsNull() && !data.AnyServer.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("server_selector"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("any_server"), "Conflicting Configuration", "any_server and server_selector are mutually exclusive.")
+		}
+		if !data.ServerName.IsNull() && !data.ServerName.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("server_name_matcher"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("server_name"), "Conflicting Configuration", "server_name and server_name_matcher are mutually exclusive.")
+		}
+		if !data.ServerName.IsNull() && !data.ServerName.IsUnknown() && validators.ConfiguredObject(ctx, req.Config, path.Root("server_selector"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("server_name"), "Conflicting Configuration", "server_name and server_selector are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("server_name_matcher"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("server_selector"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("server_name_matcher"), "Conflicting Configuration", "server_name_matcher and server_selector are mutually exclusive.")
+		}
+
+		if resp.Diagnostics.HasError() {
+			return
+		}
 	}
 
 	if req.State.Raw.IsNull() {

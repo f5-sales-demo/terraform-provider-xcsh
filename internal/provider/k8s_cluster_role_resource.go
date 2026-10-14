@@ -318,16 +318,21 @@ func (r *K8SClusterRoleResource) ValidateConfig(ctx context.Context, req resourc
 	if resp.Diagnostics.HasError() {
 		return
 	}
-	if data.K8SClusterRoleSelector != nil && data.PolicyRuleList != nil {
-		resp.Diagnostics.AddAttributeError(path.Root("k8s_cluster_role_selector"), "Conflicting Configuration", "k8s_cluster_role_selector and policy_rule_list are mutually exclusive.")
-	}
-	if data.K8SClusterRoleSelector != nil && !data.Yaml.IsNull() && !data.Yaml.IsUnknown() {
-		resp.Diagnostics.AddAttributeError(path.Root("k8s_cluster_role_selector"), "Conflicting Configuration", "k8s_cluster_role_selector and yaml are mutually exclusive.")
-	}
-	if data.PolicyRuleList != nil && !data.Yaml.IsNull() && !data.Yaml.IsUnknown() {
-		resp.Diagnostics.AddAttributeError(path.Root("policy_rule_list"), "Conflicting Configuration", "policy_rule_list and yaml are mutually exclusive.")
-	}
+	// Unresolved empty dynamic alternatives arrive as known all-null objects.
+	// Validate again during planning, after resource expansion, rather than
+	// treating those synthetic alternatives as two user-selected blocks.
+	if req.Config.Raw.IsFullyKnown() {
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("k8s_cluster_role_selector"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("policy_rule_list"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("k8s_cluster_role_selector"), "Conflicting Configuration", "k8s_cluster_role_selector and policy_rule_list are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("k8s_cluster_role_selector"), &resp.Diagnostics) && !data.Yaml.IsNull() && !data.Yaml.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("k8s_cluster_role_selector"), "Conflicting Configuration", "k8s_cluster_role_selector and yaml are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("policy_rule_list"), &resp.Diagnostics) && !data.Yaml.IsNull() && !data.Yaml.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("policy_rule_list"), "Conflicting Configuration", "policy_rule_list and yaml are mutually exclusive.")
+		}
 
+	}
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan
@@ -338,6 +343,28 @@ func (r *K8SClusterRoleResource) ModifyPlan(ctx context.Context, req resource.Mo
 			"This permanently deletes the k8s_cluster_role from F5 Distributed Cloud.",
 		)
 		return
+	}
+	{
+		// Always enforce known configured choices while planning, even when an
+		// unrelated attribute remains unknown. Never inspect API-added defaults.
+		var data K8SClusterRoleResourceModel
+		resp.Diagnostics.Append(req.Config.Get(ctx, &data)...)
+		if resp.Diagnostics.HasError() {
+			return
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("k8s_cluster_role_selector"), &resp.Diagnostics) && validators.ConfiguredObject(ctx, req.Config, path.Root("policy_rule_list"), &resp.Diagnostics) {
+			resp.Diagnostics.AddAttributeError(path.Root("k8s_cluster_role_selector"), "Conflicting Configuration", "k8s_cluster_role_selector and policy_rule_list are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("k8s_cluster_role_selector"), &resp.Diagnostics) && !data.Yaml.IsNull() && !data.Yaml.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("k8s_cluster_role_selector"), "Conflicting Configuration", "k8s_cluster_role_selector and yaml are mutually exclusive.")
+		}
+		if validators.ConfiguredObject(ctx, req.Config, path.Root("policy_rule_list"), &resp.Diagnostics) && !data.Yaml.IsNull() && !data.Yaml.IsUnknown() {
+			resp.Diagnostics.AddAttributeError(path.Root("policy_rule_list"), "Conflicting Configuration", "policy_rule_list and yaml are mutually exclusive.")
+		}
+
+		if resp.Diagnostics.HasError() {
+			return
+		}
 	}
 
 	if req.State.Raw.IsNull() {
