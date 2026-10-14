@@ -3313,8 +3313,8 @@
       "sha256": "sha256:1909b1e2adcb6d0cf1ed27fdd65ccd364c48af0e762677e43c739b5b133fcba6"
     },
     "docs/guides/resources--app_firewall--examples--group-001.md": {
-      "bytes": 23857,
-      "sha256": "sha256:3abc75d527f734dfc8cbd2f4d2ca7154bdd07df68c81b518935bb1aa8e2bd187"
+      "bytes": 23846,
+      "sha256": "sha256:3f5d4c3ffeb3136410f45b3e3184d202a6b60c26d6f6ce324188219f536a5928"
     },
     "docs/guides/resources--app_firewall--lifecycle--group-001.md": {
       "bytes": 1609,
@@ -6590,7 +6590,7 @@
     },
     "documentation/_data/collections/resources/app_firewall/collection.json": {
       "bytes": 264758,
-      "sha256": "sha256:1fae9a98765597f980a0cdd216f76df417ea83a21211a8b77896d67615a04d8c"
+      "sha256": "sha256:41c7dd5e651280feaf3faf99ce8776ddbcbf157d136988228825671b7ca7f69e"
     },
     "documentation/_data/collections/resources/app_setting/collection.json": {
       "bytes": 209332,
@@ -43189,8 +43189,8 @@
       "sha256": "sha256:41687dd14450faf619d9f43ef297f15d5ba327b1622c585bfb3820e335d2ccc8"
     },
     "documentation/_data/pages/resources/app_firewall/examples/detection-settings/index.txt": {
-      "bytes": 3778,
-      "sha256": "sha256:6b5ef312ac047de739f9ee8f782067d84e8b2fea663d494b20d00e0a5fb86949"
+      "bytes": 3767,
+      "sha256": "sha256:0242ab37308c7b514b8de3b3e8d2de27ec224ee246602025b345ed7a7bed10a5"
     },
     "documentation/_data/pages/resources/app_firewall/examples/disable-anonymization/index.txt": {
       "bytes": 3554,
@@ -72634,7 +72634,7 @@
     },
     "documentation/_data/terraform-llms-index.json": {
       "bytes": 75660547,
-      "sha256": "sha256:f81249f49995dcaee236eb60b782fd442d8b8bea35ee4460127d2dd2aa6c2341"
+      "sha256": "sha256:74ad76d828dfab4e8f2faa80f4cc3e280a0298b5c2ae098a54e9010e4b58a0f3"
     },
     "documentation/actions/access_active_session_terminate/examples/action/index.md": {
       "bytes": 3318,
@@ -107834,7 +107834,7 @@
     },
     "documentation/registry-projection-manifest.json": {
       "bytes": 275841,
-      "sha256": "sha256:f04aa2b5c0638603a0de34167726bde951b3012cefa440b242d2f2a14fd7972e"
+      "sha256": "sha256:508df7f28bce9a3fd672eb539be647923b6360070ca1aea8e4ae23cc8f36e7ee"
     },
     "documentation/registry-projection/sections-0001.json": {
       "bytes": 555162,
@@ -107842,7 +107842,7 @@
     },
     "documentation/registry-projection/sections-0002.json": {
       "bytes": 553112,
-      "sha256": "sha256:67bebd2462734da09a06c6cc9085f9724d84c1abd2ae2fe864ad459fc18b9cdd"
+      "sha256": "sha256:e4777a1b6e18bc441b14b5dde7a4aef081cbbd0fc64cf537558d409186a4d092"
     },
     "documentation/registry-projection/sections-0003.json": {
       "bytes": 553054,
@@ -109149,8 +109149,8 @@
       "sha256": "sha256:41687dd14450faf619d9f43ef297f15d5ba327b1622c585bfb3820e335d2ccc8"
     },
     "documentation/resources/app_firewall/examples/detection-settings/index.md": {
-      "bytes": 3778,
-      "sha256": "sha256:6b5ef312ac047de739f9ee8f782067d84e8b2fea663d494b20d00e0a5fb86949"
+      "bytes": 3767,
+      "sha256": "sha256:0242ab37308c7b514b8de3b3e8d2de27ec224ee246602025b345ed7a7bed10a5"
     },
     "documentation/resources/app_firewall/examples/disable-anonymization/index.md": {
       "bytes": 3554,
@@ -138598,7 +138598,7 @@
     },
     "documentation/terraform-llms-index.json": {
       "bytes": 75660547,
-      "sha256": "sha256:f81249f49995dcaee236eb60b782fd442d8b8bea35ee4460127d2dd2aa6c2341"
+      "sha256": "sha256:74ad76d828dfab4e8f2faa80f4cc3e280a0298b5c2ae098a54e9010e4b58a0f3"
     }
   },
   "provider_schema_digest": "sha256:500e603af7c92c2c213b5cbdb574fdea5ac4e4825db9ce520b047c223b245685",

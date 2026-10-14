@@ -3313,8 +3313,8 @@
       "sha256": "sha256:1909b1e2adcb6d0cf1ed27fdd65ccd364c48af0e762677e43c739b5b133fcba6"
     },
     "docs/guides/resources--app_firewall--examples--group-001.md": {
-      "bytes": 23857,
-      "sha256": "sha256:3abc75d527f734dfc8cbd2f4d2ca7154bdd07df68c81b518935bb1aa8e2bd187"
+      "bytes": 23846,
+      "sha256": "sha256:3f5d4c3ffeb3136410f45b3e3184d202a6b60c26d6f6ce324188219f536a5928"
     },
     "docs/guides/resources--app_firewall--lifecycle--group-001.md": {
       "bytes": 1609,

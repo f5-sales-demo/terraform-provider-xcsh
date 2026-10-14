@@ -377,7 +377,7 @@ Acceptance-test-derived fixture; no new live API execution is claimed.
 
 Expected outcome: **valid configuration**.
 
-Source: `examples/resources/xcsh_app_firewall/detection-settings.tf`; digest `sha256:50e5c6c8e8107cae5d8fe6c732ac501ab51251e38c9d54deab9761fd88fcb6f2`.
+Source: `examples/resources/xcsh_app_firewall/detection-settings.tf`; digest `sha256:8dfd23c184c15d1235eb2c949703ae26669c8f88a0eda5530bedf5a3bd8cfce2`.
 
 ```terraform
 # DetectionSettings — Acceptance-test-derived Configuration
@@ -397,20 +397,21 @@ resource "xcsh_app_firewall" "test" {
   name      = "example"
   namespace = "system"
 
-  allow_all_response_codes  = {}
-  blocking                  = {}
-  use_default_blocking_page = {}
-  default_bot_setting       = {}
-  default_anonymization     = {}
+  blocking = {}
 
   detection_settings {
     default_violation_settings = {}
-    default_bot_setting        = {}
-    enable_suppression         = {}
-    enable_threat_campaigns    = {}
+
+    enable_suppression      = {}
+    enable_threat_campaigns = {}
     signature_selection_setting {
       high_medium_accuracy_signatures = {}
-      default_attack_type_settings    = {}
+      signature_settings_by_accuracy {
+        high_accuracy_action   = "SIG_BLOCK"
+        medium_accuracy_action = "SIG_BLOCK"
+        low_accuracy_action    = "SIG_BLOCK"
+      }
+      default_attack_type_settings = {}
     }
   }
 }
