@@ -46,8 +46,9 @@ func TestSMSv2DeviceEditPlansUpdateForSingleNodeNonHA(t *testing.T) {
 		return value
 	}
 	req := resource.ModifyPlanRequest{
-		Plan:  tfsdk.Plan{Schema: schema.Schema, Raw: raw(after)},
-		State: tfsdk.State{Schema: schema.Schema, Raw: raw(before)},
+		Config: tfsdk.Config{Schema: schema.Schema, Raw: raw(after)},
+		Plan:   tfsdk.Plan{Schema: schema.Schema, Raw: raw(after)},
+		State:  tfsdk.State{Schema: schema.Schema, Raw: raw(before)},
 	}
 	resp := resource.ModifyPlanResponse{}
 	r.ModifyPlan(ctx, req, &resp)
