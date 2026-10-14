@@ -575,6 +575,7 @@ var frameworkSummaries = []string{
 	"blindfold write outcome unresolved",
 	"blindfold provenance readback failed",
 	"creation ownership readback failed",
+	"creation response body incomplete",
 	"create target is not authoritatively absent",
 	"invalid ownership readback",
 	"existing infrastructure found; configure verified read-only fixture references",

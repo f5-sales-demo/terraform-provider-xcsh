@@ -308,6 +308,15 @@ func (t *ownershipTransport) RoundTrip(req *http.Request) (*http.Response, error
 		return response, err
 	}
 	if response.StatusCode >= 200 && response.StatusCode < 300 {
+		// Release the create connection before issuing its ownership readback.
+		// Preserve the exact response for the provider's normal decoder.
+		body, bodyErr := io.ReadAll(response.Body)
+		_ = response.Body.Close()
+		if bodyErr != nil {
+			return nil, errors.New("creation response body incomplete")
+		}
+		response.Body = io.NopCloser(bytes.NewReader(body))
+		response.ContentLength = int64(len(body))
 		metadata, readErr := backend.Read(req.Context(), r)
 		if readErr != nil || metadata.Annotations[ownershipAnnotation] != t.j.RunID {
 			_ = response.Body.Close()
