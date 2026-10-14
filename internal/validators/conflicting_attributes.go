@@ -92,6 +92,18 @@ func configuredPresence(value attr.Value) configurationPresence {
 		if len(typed.Elements()) == 0 {
 			return configurationAbsent
 		}
+		unresolved := false
+		for _, child := range typed.Elements() {
+			switch configuredPresence(child) {
+			case configurationPresent:
+				return configurationPresent
+			case configurationUnresolved:
+				unresolved = true
+			}
+		}
+		if unresolved {
+			return configurationUnresolved
+		}
 	}
 	return configurationPresent
 }
