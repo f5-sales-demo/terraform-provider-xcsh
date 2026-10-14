@@ -611,6 +611,11 @@ func classifyFailureFingerprint(output string) FailureFingerprint {
 		fingerprint.Summary = "Missing cleanup verifier"
 		return fingerprint
 	}
+	if strings.Contains(lower, "plan was not empty") || strings.Contains(lower, "expected an empty plan") {
+		fingerprint.Class = FailureClassAssertion
+		fingerprint.Summary = "Nonempty follow-up plan"
+		return fingerprint
+	}
 	if strings.Contains(lower, "panic:") {
 		fingerprint.Class = FailureClassAssertion
 		fingerprint.Summary = "Test panic"
