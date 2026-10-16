@@ -649,9 +649,6 @@ func (d *AppFirewallDataSource) Read(ctx context.Context, req datasource.ReadReq
 				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			DefaultViolationSettings: func() types.Object {
-				if !isImport && data.DetectionSettings != nil && !data.DetectionSettings.DefaultViolationSettings.IsUnknown() {
-					return data.DetectionSettings.DefaultViolationSettings
-				}
 				if _, ok := blockData["default_violation_settings"].(map[string]interface{}); ok {
 					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
@@ -908,27 +905,23 @@ func (d *AppFirewallDataSource) Read(ctx context.Context, req datasource.ReadReq
 	} else {
 		data.DisableAnonymization = types.ObjectNull(map[string]attr.Type{})
 	}
-	if blockData, ok := apiResource.Spec["enable_ai_enhancements"].(map[string]interface{}); ok && (isImport || data.EnableAiEnhancements != nil) {
+	if blockData, ok := apiResource.Spec["enable_ai_enhancements"].(map[string]interface{}); ok && true {
 		data.EnableAiEnhancements = &AppFirewallEnableAiEnhancementsModel{
 			MitigateHighMediumRiskAction: func() types.Object {
-				if !isImport && data.EnableAiEnhancements != nil && !data.EnableAiEnhancements.MitigateHighMediumRiskAction.IsUnknown() {
-					return data.EnableAiEnhancements.MitigateHighMediumRiskAction
-				}
 				if _, ok := blockData["mitigate_high_medium_risk_action"].(map[string]interface{}); ok {
 					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
 				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			MitigateHighRiskAction: func() types.Object {
-				if !isImport && data.EnableAiEnhancements != nil && !data.EnableAiEnhancements.MitigateHighRiskAction.IsUnknown() {
-					return data.EnableAiEnhancements.MitigateHighRiskAction
-				}
 				if _, ok := blockData["mitigate_high_risk_action"].(map[string]interface{}); ok {
 					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
 				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 		}
+	} else {
+		data.EnableAiEnhancements = nil
 	}
 	if !isImport && !data.AllowAllResponseCodes.IsUnknown() {
 		// Normal Read: preserve the configured marker presence.
