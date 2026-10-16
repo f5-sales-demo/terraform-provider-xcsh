@@ -322,6 +322,7 @@ func (p *XCSHProvider) Resources(ctx context.Context) []func() resource.Resource
 		NewSrv6NetworkSliceResource,
 		NewSubnetResource,
 		NewSwaggerObjectResource,
+		NewSecretPolicyResource,
 		NewTCPLoadBalancerResource,
 		NewTenantConfigurationResource,
 		NewTokenResource,
