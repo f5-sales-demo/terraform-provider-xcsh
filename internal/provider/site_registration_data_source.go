@@ -64,6 +64,7 @@ type SiteRegistrationDataSource struct {
 }
 
 type SiteRegistrationDataSourceModel struct {
+	CertifiedHW  types.String `tfsdk:"certified_hw"`
 	ID           types.String `tfsdk:"id"`
 	SiteName     types.String `tfsdk:"site_name"`
 	Namespace    types.String `tfsdk:"namespace"`
@@ -160,6 +161,10 @@ resource "xcsh_registration_approval" "ce" {
 			},
 			"provider_type": schema.StringAttribute{
 				MarkdownDescription: "Infrastructure provider the CE reported, e.g. `AZURE`, `AWS`, `GCP`, `VMWARE`.",
+				Computed:            true,
+			},
+			"certified_hw": schema.StringAttribute{
+				MarkdownDescription: "Certified hardware profile reported by the CE registration (`get_spec.infra.certified_hw`). This is observed node state, not a site-create setting.",
 				Computed:            true,
 			},
 			"instance_id": schema.StringAttribute{
@@ -302,6 +307,7 @@ func (d *SiteRegistrationDataSource) Read(ctx context.Context, req datasource.Re
 		data.ClusterSize = types.Int64Null()
 		data.ProviderType = types.StringNull()
 		data.InstanceID = types.StringNull()
+		data.CertifiedHW = types.StringNull()
 		resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
 		return
 	}
@@ -335,6 +341,7 @@ func applyRegistrationMatch(data *SiteRegistrationDataSourceModel, match *client
 	}
 	data.ProviderType = stringOrNull(providerType)
 	data.InstanceID = stringOrNull(match.GetSpec.Infra.InstanceID)
+	data.CertifiedHW = stringOrNull(match.GetSpec.Infra.CertifiedHW)
 }
 
 // stringOrNull maps an omitted (empty) API string to a null attribute value so
