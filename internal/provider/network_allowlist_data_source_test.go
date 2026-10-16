@@ -7,6 +7,7 @@ import (
 	"crypto/sha256"
 	"encoding/json"
 	"fmt"
+	"net/netip"
 	"reflect"
 	"regexp"
 	"testing"
@@ -51,9 +52,12 @@ func TestNetworkAllowlistPinnedManifest(t *testing.T) {
 	if !regexp.MustCompile(`^[a-f0-9]{64}$`).MatchString(manifest.SourceSHA256) || bundledNetworkAllowlist.SourceSHA256 != manifest.SourceSHA256 {
 		t.Fatalf("source digest = %q", bundledNetworkAllowlist.SourceSHA256)
 	}
-	wantLogReceiver := map[string]string{"v12.0.6": "3.64.239.6", "v12.0.8": "3.122.153.132"}[bundledNetworkAllowlist.APIReleaseTag]
-	if got := bundledNetworkAllowlist.Services["global_log_receiver"].SourceEntries[2]; got != wantLogReceiver {
-		t.Fatalf("mixed source entry = %q", got)
+	// The exact address identity is bound by the reviewed full artifact digest
+	// above. Verify the representative mixed entry remains a bare IPv4 address
+	// without copying its operational value into a separate test fixture.
+	logReceiver, err := netip.ParseAddr(bundledNetworkAllowlist.Services["global_log_receiver"].SourceEntries[2])
+	if err != nil || !logReceiver.Is4() {
+		t.Fatal("mixed log receiver source entry must be a bare IPv4 address")
 	}
 	if got := bundledNetworkAllowlist.CustomerEdge.SecureMeshV2.Domains[0]; got != ".volterra.io" {
 		t.Fatalf("leading-dot domain = %q", got)
@@ -178,6 +182,9 @@ func TestNetworkAllowlistConstructorsExposeExpectedNames(t *testing.T) {
 // These are reviewed compiled artifacts, independent of the pending spec pin.
 // v12.0.6 matches the immutable v15.8.3 provider source. v12.0.8 is extracted
 // from OpenAPI SHA256 326a5bf6330b0baba6d728cf1397544b7e8a9b48e50dacafdbe4a921831574de.
+// v12.0.9 is extracted from OpenAPI SHA256
+// 8a3ea9bce1bab8aa228c10e0d646e693bcfb9c36562ad4efefef3c5b74062753.
+// Its only content change adds nine reviewed mobile Bot Defense domains.
 func reviewedNetworkAllowlist(raw []byte) error {
 	var artifact struct {
 		APIReleaseTag string `json:"api_release_tag"`
@@ -189,6 +196,7 @@ func reviewedNetworkAllowlist(raw []byte) error {
 	expected := map[string][2]string{
 		"v12.0.6": {"0bb6fd6bd561aef1ea9fbc772119d4cfea8c26cbe82d7ea6e76f9aeb03366555", "eecde9bcec9d573edf789aa9b34bf7d48e7b226c3791b7f9942cda73b316edfd"},
 		"v12.0.8": {"3dc6760c61b9c4efee31da8e641d971851ba4a3cc37281599a5f7f962a0b18fa", "cdcb5a64736b8e30193dc67b78076f034fe67b573ce089944c1b0aa550ddfa1d"},
+		"v12.0.9": {"67bc756eb9b4ad90412f635aa54955864845e1d4082583ca1882d912e596f5eb", "1616904b52ff0a5acd7cedbb315454c412333c2740a7152913f47608c734771e"},
 	}
 	provenance, ok := expected[artifact.APIReleaseTag]
 	if !ok || artifact.SourceSHA256 != provenance[0] || fmt.Sprintf("%x", sha256.Sum256(raw)) != provenance[1] {
