@@ -49,3 +49,41 @@ func AppFirewallDetectionSettings(settings map[string]interface{}, useDefault bo
 	result["default_violation_settings"] = map[string]interface{}{}
 	return result
 }
+
+// AppFirewallImplicitDefaults removes only measured equivalent defaults when the
+// corresponding choice was omitted. Explicit choices and all nondefault values
+// remain API-derived. Shallow copies preserve the original wire evidence.
+func AppFirewallImplicitDefaults(settings map[string]interface{}, suppression, threat, signatures bool) map[string]interface{} {
+	result := make(map[string]interface{}, len(settings))
+	for key, value := range settings {
+		result[key] = value
+	}
+	for name, implicit := range map[string]bool{"enable_suppression": suppression, "enable_threat_campaigns": threat} {
+		if value, ok := settings[name].(map[string]interface{}); implicit && ok && len(value) == 0 {
+			// Conflicting returned arms are not an equivalent default.
+			alternative := "disable_suppression"
+			if name == "enable_threat_campaigns" {
+				alternative = "disable_threat_campaigns"
+			}
+			if _, conflict := settings[alternative]; !conflict {
+				delete(result, name)
+			}
+		}
+	}
+	selection, ok := settings["signature_selection_setting"].(map[string]interface{})
+	if !signatures || !ok {
+		return result
+	}
+	actions, ok := selection["signature_settings_by_accuracy"].(map[string]interface{})
+	if !ok || len(actions) != 3 || actions["high_accuracy_action"] != "SIG_BLOCK" || actions["medium_accuracy_action"] != "SIG_BLOCK" || actions["low_accuracy_action"] != "SIG_IGNORE" {
+		return result
+	}
+	normalized := make(map[string]interface{}, len(selection))
+	for key, value := range selection {
+		if key != "signature_settings_by_accuracy" {
+			normalized[key] = value
+		}
+	}
+	result["signature_selection_setting"] = normalized
+	return result
+}

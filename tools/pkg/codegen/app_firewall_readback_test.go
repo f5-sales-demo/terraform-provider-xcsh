@@ -18,7 +18,7 @@ func wafReadbackAttributes() []openapi.TerraformAttribute {
 	return []openapi.TerraformAttribute{
 		marker("disable_ai_enhancements", "DisableAiEnhancements"),
 		block("enable_ai_enhancements", "EnableAiEnhancements", marker("mitigate_high_risk_action", "MitigateHighRiskAction"), marker("mitigate_high_medium_risk_action", "MitigateHighMediumRiskAction")),
-		block("detection_settings", "DetectionSettings", marker("default_violation_settings", "DefaultViolationSettings"), block("violation_settings", "ViolationSettings", openapi.TerraformAttribute{Name: "disabled_violation_types", GoName: "DisabledViolationTypes", TfsdkTag: "disabled_violation_types", JsonName: "disabled_violation_types", Type: "list", ElementType: "string", Optional: true})),
+		block("detection_settings", "DetectionSettings", marker("enable_suppression", "EnableSuppression"), marker("disable_suppression", "DisableSuppression"), marker("enable_threat_campaigns", "EnableThreatCampaigns"), marker("disable_threat_campaigns", "DisableThreatCampaigns"), block("signature_selection_setting", "SignatureSelectionSetting", block("signature_settings_by_accuracy", "SignatureSettingsByAccuracy", openapi.TerraformAttribute{Name: "high_accuracy_action", GoName: "HighAccuracyAction", TfsdkTag: "high_accuracy_action", JsonName: "high_accuracy_action", Type: "string", Optional: true}, openapi.TerraformAttribute{Name: "medium_accuracy_action", GoName: "MediumAccuracyAction", TfsdkTag: "medium_accuracy_action", JsonName: "medium_accuracy_action", Type: "string", Optional: true}, openapi.TerraformAttribute{Name: "low_accuracy_action", GoName: "LowAccuracyAction", TfsdkTag: "low_accuracy_action", JsonName: "low_accuracy_action", Type: "string", Optional: true})), marker("default_violation_settings", "DefaultViolationSettings"), block("violation_settings", "ViolationSettings", openapi.TerraformAttribute{Name: "disabled_violation_types", GoName: "DisabledViolationTypes", TfsdkTag: "disabled_violation_types", JsonName: "disabled_violation_types", Type: "list", ElementType: "string", Optional: true})),
 	}
 }
 
@@ -104,6 +104,43 @@ func TestViolationChoiceDrift(t *testing.T) {
  if !d.DetectionSettings.DefaultViolationSettings.IsNull() || d.DetectionSettings.ViolationSettings==nil {t.Fatal("real violation drift hidden or conflicting choices retained")}
  read(d,map[string]interface{}{"detection_settings":map[string]interface{}{"default_violation_settings":map[string]interface{}{}}},false)
  if d.DetectionSettings.DefaultViolationSettings.IsNull() || d.DetectionSettings.ViolationSettings!=nil {t.Fatal("violation choice restoration failed")}
+}
+func defaults() map[string]interface{} {return map[string]interface{}{
+ "enable_suppression":map[string]interface{}{}, "enable_threat_campaigns":map[string]interface{}{},
+ "signature_selection_setting":map[string]interface{}{"signature_settings_by_accuracy":map[string]interface{}{"high_accuracy_action":"SIG_BLOCK","medium_accuracy_action":"SIG_BLOCK","low_accuracy_action":"SIG_IGNORE"}},
+}}
+func minimal() *Model {return &Model{DisableAiEnhancements:absent(),DetectionSettings:&AppFirewallDetectionSettingsModel{EnableSuppression:absent(),DisableSuppression:absent(),EnableThreatCampaigns:absent(),DisableThreatCampaigns:absent(),DefaultViolationSettings:absent(),SignatureSelectionSetting:&AppFirewallDetectionSettingsSignatureSelectionSettingModel{}}}}
+func TestImplicitDefaultImportRefresh(t *testing.T) {
+ for _,imported:=range []bool{false,true} {
+  d:=minimal()
+  for i:=0;i<2;i++ {
+   read(d,map[string]interface{}{"detection_settings":defaults()},imported && i==0)
+   if !d.DetectionSettings.EnableSuppression.IsNull() || !d.DetectionSettings.EnableThreatCampaigns.IsNull() || d.DetectionSettings.SignatureSelectionSetting.SignatureSettingsByAccuracy!=nil {t.Fatal("omitted server defaults materialized in state")}
+  }
+ }
+}
+func TestManagedDefaultPolicyDrift(t *testing.T) {
+ d:=minimal()
+ d.DetectionSettings.EnableSuppression=marker()
+ d.DetectionSettings.EnableThreatCampaigns=marker()
+ d.DetectionSettings.SignatureSelectionSetting.SignatureSettingsByAccuracy=&AppFirewallDetectionSettingsSignatureSelectionSettingSignatureSettingsByAccuracyModel{HighAccuracyAction:types.StringValue("SIG_BLOCK"),MediumAccuracyAction:types.StringValue("SIG_BLOCK"),LowAccuracyAction:types.StringValue("SIG_IGNORE")}
+ wire:=defaults()
+ delete(wire,"enable_suppression");wire["disable_suppression"]=map[string]interface{}{}
+ delete(wire,"enable_threat_campaigns");wire["disable_threat_campaigns"]=map[string]interface{}{}
+ wire["signature_selection_setting"].(map[string]interface{})["signature_settings_by_accuracy"].(map[string]interface{})["high_accuracy_action"]="SIG_IGNORE"
+ read(d,map[string]interface{}{"detection_settings":wire},false)
+ if !d.DetectionSettings.EnableSuppression.IsNull() || d.DetectionSettings.DisableSuppression.IsNull() || !d.DetectionSettings.EnableThreatCampaigns.IsNull() || d.DetectionSettings.DisableThreatCampaigns.IsNull() {t.Fatal("explicit marker drift hidden")}
+ if d.DetectionSettings.SignatureSelectionSetting.SignatureSettingsByAccuracy.HighAccuracyAction.ValueString()!="SIG_IGNORE" {t.Fatal("explicit signature drift hidden")}
+ read(d,map[string]interface{}{"detection_settings":defaults()},false)
+ if d.DetectionSettings.EnableSuppression.IsNull() || !d.DetectionSettings.DisableSuppression.IsNull() || d.DetectionSettings.EnableThreatCampaigns.IsNull() || !d.DetectionSettings.DisableThreatCampaigns.IsNull() || d.DetectionSettings.SignatureSelectionSetting.SignatureSettingsByAccuracy.HighAccuracyAction.ValueString()!="SIG_BLOCK" {t.Fatal("policy restoration hidden")}
+}
+func TestImplicitNondefaultPolicyReadback(t *testing.T) {
+ d:=minimal(); wire:=defaults()
+ delete(wire,"enable_suppression");wire["disable_suppression"]=map[string]interface{}{}
+ delete(wire,"enable_threat_campaigns");wire["disable_threat_campaigns"]=map[string]interface{}{}
+ wire["signature_selection_setting"].(map[string]interface{})["signature_settings_by_accuracy"].(map[string]interface{})["low_accuracy_action"]="SIG_BLOCK"
+ read(d,map[string]interface{}{"detection_settings":wire},true)
+ if d.DetectionSettings.DisableSuppression.IsNull() || d.DetectionSettings.DisableThreatCampaigns.IsNull() || d.DetectionSettings.SignatureSelectionSetting.SignatureSettingsByAccuracy.LowAccuracyAction.ValueString()!="SIG_BLOCK" {t.Fatal("nondefault imported policy lost")}
 }
 `
 	if err := os.WriteFile(filepath.Join(dir, "readback_test.go"), []byte(source), 0600); err != nil {
