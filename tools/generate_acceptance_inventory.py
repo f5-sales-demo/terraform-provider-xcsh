@@ -19,6 +19,21 @@ def generate(root: pathlib.Path) -> None:
     routes = []
     exclusions = []
     for name in sorted(resources):
+        if name == "secret_policy":
+            # Native Secret Policy has owned CRUD in secret_management; it is not an infrastructure action.
+            key = json.dumps("xcsh_" + name)
+            collection = "/api/secret_management/namespaces/%s/secret_policys"
+            readers.append(
+                f"{key}: func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {{ return readOwnershipProjection(ctx, c, fmt.Sprintf({json.dumps(collection + '/%s')}, ns, name), ns, name) }},"
+            )
+            verifiers.append(
+                f"{key}: func(ctx context.Context, c *client.Client, ns, name string) error {{ _, err := c.GetSecretPolicy(ctx, ns, name); return err }},"
+            )
+            deleters.append(
+                f"{key}: func(ctx context.Context, c *client.Client, ns, name string) error {{ return c.DeleteSecretPolicy(ctx, ns, name) }},"
+            )
+            routes.append(f"{key}: {json.dumps(collection)},")
+            continue
         source = root / "internal/client" / (name + "_types.go")
         if not source.exists():
             exclusions.append(name)
