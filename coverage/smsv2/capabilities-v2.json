@@ -112428,13 +112428,19 @@
       "id": "data_sources/xcsh_site_registration/certified_hw",
       "lifecycle": {},
       "outstanding": [
-        "Positive AWS read on the newly published artifact remains pending.",
-        "GCP and Oracle live qualification remain deferred."
+        "GCP and Oracle live qualification remain deferred.",
+        "AWS and Azure receipts qualify the frozen v15.10.0 artifact only."
       ],
       "runtime": {
         "aws": {
-          "receipts": [],
-          "status": "unqualified"
+          "receipts": [
+            {
+              "path": "coverage/smsv2/certified-hw-aws-v15.10.0-receipt.json",
+              "provider_version": "15.10.0",
+              "scope": "Exact wire-value read from the live task-owned AWS bootstrap registration, computed-only schema, signed installed artifact, no XC writes."
+            }
+          ],
+          "status": "qualified"
         },
         "azure": {
           "receipts": [
