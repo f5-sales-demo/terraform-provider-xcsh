@@ -697,7 +697,7 @@ var expectedTriggerHashes = map[string]string{
 	"acc-tests.yml":         "42e091fc0d777948a5378faa29b8ef544a6418829d1184902668495fc3975711",
 	"auto-merge.yml":        "8effa43649d3b4a53cffb5aabf06e4906c55c0875d15b5ddf86c73e2d5a9137c",
 	"discover-defaults.yml": "a096243c69275bdfc113bb1830a4ac0ce6a3c6c627bc62e5fad7c295315b943d",
-	"on-merge.yml":          "a30c5350c8ef654c9b3bdbf106749d69276861211d924040a3b4caf1daea0df1",
+	"on-merge.yml":          "c560f1d567e1c564318f111fc026679d03a771099c027a116408e408c4aad849",
 	"sync-openapi.yml":      "e9c7b7e72246dd9a3d8a549998232f3d436b2c563273c205cac2435c8c8bfdea",
 }
 
@@ -1147,6 +1147,41 @@ func TestProviderWorkflowContracts(t *testing.T) {
 	expected["workload-benchmark.yml/validate"] = true
 	if !reflect.DeepEqual(managedSocketless, expected) {
 		t.Fatalf("managed socketless inventory mismatch: %v", managedSocketless)
+	}
+}
+
+func TestGenerationRecoveryTriggerMutationsFail(t *testing.T) {
+	base, err := os.ReadFile(filepath.Join("..", ".github", "workflows", "on-merge.yml"))
+	if err != nil {
+		t.Fatal(err)
+	}
+	if issues := validateWorkflowBytes("on-merge.yml", base); len(issues) != 0 {
+		t.Fatalf("reviewed recovery trigger failed validation: %v", issues)
+	}
+	input := "      reconcile-generated:\n" +
+		"        description: Regenerate current main after a superseded generation run, without requiring a pending spec delivery.\n" +
+		"        required: true\n" +
+		"        type: boolean\n" +
+		"        default: false\n"
+	if !strings.Contains(string(base), input) {
+		t.Fatal("exact opt-in recovery input missing")
+	}
+	for name, replacement := range map[string]string{
+		"missing recovery input":      "",
+		"renamed recovery input":      strings.Replace(input, "reconcile-generated:", "unreviewed-recovery:", 1),
+		"recovery enabled by default": strings.Replace(input, "default: false", "default: true", 1),
+		"string recovery input":       strings.Replace(input, "type: boolean", "type: string", 1),
+		"optional recovery input":     strings.Replace(input, "required: true", "required: false", 1),
+	} {
+		t.Run(name, func(t *testing.T) {
+			mutated := strings.Replace(string(base), input, replacement, 1)
+			if mutated == string(base) {
+				t.Fatal("mutation did not apply")
+			}
+			if issues := validateWorkflowBytes("on-merge.yml", []byte(mutated)); len(issues) == 0 {
+				t.Fatal("changed recovery trigger passed exact contract validation")
+			}
+		})
 	}
 }
 
