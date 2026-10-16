@@ -116,7 +116,7 @@ func TestIsRetryableStatus(t *testing.T) {
 
 		// Other 5xx errors (should also be retryable)
 		{"InternalServerError_500", http.StatusInternalServerError, true},
-		{"NotImplemented_501", http.StatusNotImplemented, true},
+		{"NotImplemented_501", http.StatusNotImplemented, false},
 		{"InsufficientStorage_507", http.StatusInsufficientStorage, true},
 
 		// Non-retryable client errors (4xx)

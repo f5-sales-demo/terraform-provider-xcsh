@@ -653,7 +653,7 @@ func (r *{{.TitleCase}}Resource) Read(ctx context.Context, req resource.ReadRequ
 	apiResource, err := r.client.{{if eq .Name "protected_domain"}}VerifyProtectedDomain(ctx, data.Namespace.ValueString(), data.Name.ValueString(), data.ProtectedDomain.ValueString()){{else}}Get{{.TitleCase}}(ctx, data.Namespace.ValueString(), data.Name.ValueString()){{end}}
 	if err != nil {
 		// Check if the resource was deleted outside Terraform
-		if {{if eq .Name "protected_domain"}}client.HasHTTPStatus(err, 404){{else}}strings.Contains(err.Error(), "NOT_FOUND") || strings.Contains(err.Error(), "404"){{end}} {
+		if client.HasHTTPStatus(err, 404) {
 			tflog.Warn(ctx, "{{.TitleCase}} not found, removing from state", map[string]interface{}{
 				"name":      data.Name.ValueString(),
 				"namespace": data.Namespace.ValueString(),
@@ -661,20 +661,9 @@ func (r *{{.TitleCase}}Resource) Read(ctx context.Context, req resource.ReadRequ
 			resp.State.RemoveResource(ctx)
 			return
 		}
-{{if ne .Name "protected_domain"}}		// Some F5 XC APIs do not implement GET-by-name (read returns 501 Not
-		// Implemented — e.g. the shape/csd domain objects, which support only
-		// list/create/delete). Treat that as "cannot refresh" and preserve the
-		// prior state rather than erroring, so the resource stays manageable and
-		// idempotent (create/delete still work).
-		if strings.Contains(err.Error(), "501") {
-			tflog.Warn(ctx, "{{.TitleCase}} read not implemented by API (501); keeping prior state", map[string]interface{}{
-				"name":      data.Name.ValueString(),
-				"namespace": data.Namespace.ValueString(),
-			})
-			resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
-			return
-		}
-{{end}}		resp.Diagnostics.AddError("Client Error", {{if eq .Name "protected_domain"}}client.ProtectedDomainDiagnostic(err){{else}}fmt.Sprintf("Unable to read {{.TitleCase}}: %s", err){{end}})
+		// An unavailable read cannot verify absence or current policy. Return an
+		// error and retain prior state; never present cached state as refreshed.
+		resp.Diagnostics.AddError("Client Error", {{if eq .Name "protected_domain"}}client.ProtectedDomainDiagnostic(err){{else}}fmt.Sprintf("Unable to read {{.TitleCase}}: %s", err){{end}})
 		return
 	}
 {{- if .HasConcurrencyToken}}
@@ -1951,7 +1940,7 @@ func (r *{{.TitleCase}}Resource) Read(ctx context.Context, req resource.ReadRequ
 	readPath := fmt.Sprintf("{{.ReadObjectPath}}", data.Namespace.ValueString(), data.Name.ValueString())
 	var obj map[string]interface{}
 	if err := r.client.GetLenient(ctx, readPath, &obj); err != nil {
-		if strings.Contains(err.Error(), "NOT_FOUND") || strings.Contains(err.Error(), "404") {
+		if client.HasHTTPStatus(err, 404) {
 			tflog.Warn(ctx, "{{.TitleCase}} object not found, removing from state", map[string]interface{}{
 				"name":      data.Name.ValueString(),
 				"namespace": data.Namespace.ValueString(),

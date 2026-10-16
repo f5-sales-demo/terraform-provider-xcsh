@@ -285,6 +285,8 @@ type Metadata struct {
 // isRetryableStatus returns true if the HTTP status code indicates a retryable error
 func isRetryableStatus(statusCode int) bool {
 	switch statusCode {
+	case http.StatusNotImplemented: // 501 - the endpoint is not implemented
+		return false
 	case http.StatusTooManyRequests, // 429 - Rate limited
 		http.StatusServiceUnavailable, // 503
 		http.StatusGatewayTimeout,     // 504
