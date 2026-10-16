@@ -17,6 +17,12 @@ type SkipReason struct {
 // SkippedResources lists resources that should be skipped during code generation and/or API testing.
 // Each entry includes a documented reason and which operations to skip.
 var SkippedResources = map[string]SkipReason{
+	"secret_policy": {
+		Reason:       "Native inline Secret Policy implementation owns normalization and soft deletion",
+		Category:     "special",
+		SkipGenerate: true,
+		SkipAPITest:  false,
+	},
 	// ============================================================================
 	// Deprecated / Excluded Resources
 	// ============================================================================
@@ -151,7 +157,8 @@ var SkippedResources = map[string]SkipReason{
 // ManuallyMaintainedFiles lists files in internal/provider that are manually maintained
 // and should not be overwritten by code generation.
 var ManuallyMaintainedFiles = map[string]bool{
-	"provider.go": true,
+	"provider.go":               true,
+	"secret_policy_resource.go": true,
 }
 
 // ManuallyMaintainedDirs lists directories that contain manually maintained code.
