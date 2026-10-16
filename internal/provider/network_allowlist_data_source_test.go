@@ -4,7 +4,9 @@ package provider
 
 import (
 	"context"
+	"crypto/sha256"
 	"encoding/json"
+	"fmt"
 	"reflect"
 	"regexp"
 	"testing"
@@ -42,10 +44,11 @@ func TestNetworkAllowlistPinnedManifest(t *testing.T) {
 	if bundledNetworkAllowlist.APIReleaseTag != manifest.APIReleaseTag {
 		t.Fatal("embedded provenance was not preserved")
 	}
-	if bundledNetworkAllowlist.SourceSHA256 != "0bb6fd6bd561aef1ea9fbc772119d4cfea8c26cbe82d7ea6e76f9aeb03366555" {
-		t.Fatalf("source digest = %q", bundledNetworkAllowlist.SourceSHA256)
+	if err := reviewedNetworkAllowlist([]byte(bundledNetworkAllowlistJSON)); err != nil {
+		t.Fatal(err)
 	}
-	if got := bundledNetworkAllowlist.Services["global_log_receiver"].SourceEntries[2]; got != "3.64.239.6" {
+	wantLogReceiver := map[string]string{"v12.0.6": "3.64.239.6", "v12.0.8": "3.122.153.132"}[bundledNetworkAllowlist.APIReleaseTag]
+	if got := bundledNetworkAllowlist.Services["global_log_receiver"].SourceEntries[2]; got != wantLogReceiver {
 		t.Fatalf("mixed source entry = %q", got)
 	}
 	if got := bundledNetworkAllowlist.CustomerEdge.SecureMeshV2.Domains[0]; got != ".volterra.io" {
@@ -166,5 +169,50 @@ func TestNetworkAllowlistConstructorsExposeExpectedNames(t *testing.T) {
 		if !found {
 			t.Errorf("missing data source %s in %v", want, got)
 		}
+	}
+}
+
+// These are reviewed compiled artifacts, independent of the pending spec pin.
+// v12.0.6 matches the immutable v15.8.3 provider source. v12.0.8 is extracted
+// from OpenAPI SHA256 326a5bf6330b0baba6d728cf1397544b7e8a9b48e50dacafdbe4a921831574de.
+func reviewedNetworkAllowlist(raw []byte) error {
+	var artifact struct {
+		APIReleaseTag string `json:"api_release_tag"`
+		SourceSHA256  string `json:"source_sha256"`
+	}
+	if err := json.Unmarshal(raw, &artifact); err != nil {
+		return err
+	}
+	expected := map[string][2]string{
+		"v12.0.6": {"0bb6fd6bd561aef1ea9fbc772119d4cfea8c26cbe82d7ea6e76f9aeb03366555", "eecde9bcec9d573edf789aa9b34bf7d48e7b226c3791b7f9942cda73b316edfd"},
+		"v12.0.8": {"3dc6760c61b9c4efee31da8e641d971851ba4a3cc37281599a5f7f962a0b18fa", "cdcb5a64736b8e30193dc67b78076f034fe67b573ce089944c1b0aa550ddfa1d"},
+	}
+	provenance, ok := expected[artifact.APIReleaseTag]
+	if !ok || artifact.SourceSHA256 != provenance[0] || fmt.Sprintf("%x", sha256.Sum256(raw)) != provenance[1] {
+		return fmt.Errorf("unreviewed network allowlist artifact for %q", artifact.APIReleaseTag)
+	}
+	return nil
+}
+
+func TestNetworkAllowlistRejectsUnreviewedProvenance(t *testing.T) {
+	var original map[string]any
+	if err := json.Unmarshal([]byte(bundledNetworkAllowlistJSON), &original); err != nil {
+		t.Fatal(err)
+	}
+	for _, field := range []string{"api_release_tag", "source_sha256", "source_url", "generated_at"} {
+		t.Run(field, func(t *testing.T) {
+			changed := make(map[string]any, len(original))
+			for key, value := range original {
+				changed[key] = value
+			}
+			changed[field] = "unreviewed"
+			raw, err := json.Marshal(changed)
+			if err != nil {
+				t.Fatal(err)
+			}
+			if reviewedNetworkAllowlist(raw) == nil {
+				t.Fatal("accepted changed artifact")
+			}
+		})
 	}
 }
