@@ -261983,11 +261983,18 @@
       }
     },
     {
-      "classification": "unqualified",
+      "classification": "contract-blocked",
       "id": "resources/xcsh_securemesh_site_v2/software_settings",
-      "lifecycle": {},
+      "lifecycle": {
+        "azure_import": {
+          "receipt": "Current v15.9.0 read-only Azure import lost create-only/write-only software_settings and introduced empty interface labels. Pinned baseline plans replacement. No API mutations or import exclusions were used. Raw receipts remain private under the umbrella.",
+          "status": "unqualified"
+        }
+      },
       "outstanding": [
-        "Qualify applicable lifecycle and runtime behavior on disposable topology."
+        "Current software_settings is a create-only/write-only input; it is not authoritative installed-version telemetry.",
+        "Require a supported update/clear plus authoritative read contract before in-place unpinning. Do not apply the replacement plan as a workaround.",
+        "Parent import with pinned create inputs remains unqualified; retain the first failure without exclusions."
       ],
       "runtime": {
         "aws": {

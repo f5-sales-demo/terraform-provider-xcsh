@@ -79,7 +79,7 @@ identity-bearing runtime evidence private; commit only sanitized receipt summari
 | --- | --- | --- |
 | Enhanced Firewall attachment | Partially qualified on AWS | [AWS fixture receipt](https://github.com/f5-sales-demo/multi-cloud-networking/pull/1502) proves scoped TCP 80 allow/deny with HTTPS control, ordered rules, reference replacement, policy import/data-source equality, no-op/drift and deletion/cleanup on v15.9.0. Three reference/detachment paths have scoped AWS runtime receipts; classification and complete parent lifecycle remain unqualified. Both orders of the allow/deny policy pair deny HTTP; cross-policy precedence and Azure remain unqualified. |
 | Forward Proxy attachment | Unqualified | Parent attachment and policy surfaces are present. Prove HTTP URL and TLS/SNI filtering, order, `NEXT_POLICY`, removal and combined firewall operation. Classify TLS decryption separately. |
-| Registration certified hardware | Source fix delivered; publication pending | [#2593](https://github.com/f5-sales-demo/terraform-provider-xcsh/pull/2593) merged the computed-only lookup. The development override returned the exact registration value without XC writes. v15.9.0 still omits it; immutable successor publication and newly installed acceptance remain required before closing #2129. |
+| Registration certified hardware | Published; Azure read accepted | [#2593](https://github.com/f5-sales-demo/terraform-provider-xcsh/pull/2593) merged the computed-only lookup. The development override returned the exact registration value without XC writes. v15.10.0 is published and its signed installed Linux artifact read the exact Azure registration value without XC writes. Positive AWS acceptance on that artifact remains required before closing #2129. |
 | Omitted MTU runtime read | Defective, contract unqualified | [#2600](https://github.com/f5-sales-demo/terraform-provider-xcsh/issues/2600): v15.9.0 runtime lookup rejects omitted MTU read as 0 even while fresh HTTP/HTTPS traverse the CE. Establish supported defaults and authoritative physical reads; no invented MTU or broader import exclusions. |
 | In-place version unpinning | Contract-blocked | [#1387](https://github.com/f5-sales-demo/terraform-provider-xcsh/issues/1387) remains open. Audit source adds replacement for changed `software_settings`. Require supported update/clear and authoritative reads; replacement is not an unpinning workaround. |
 | Azure Route Server multihop | Contract-blocked | Compiled contract reports `no_schema_valid_ebgp_multihop_request_control`. Retain rejection until an authoritative successor contract is published. |
@@ -117,3 +117,13 @@ AWS receipt references are pinned to the exact consumer commit and content hash.
 the recorded v15.9.0 scenario. They do not promote all firewall matcher paths, ordered policy
 precedence, a newer provider, Azure, TLS decryption or later SMSv2 families. First failures and
 corrective runs are preserved in the receipt; all raw state and identity-bearing evidence stays private.
+
+The current Azure parent import probe on v15.9.0 did not converge: create-only/write-only
+`software_settings` was absent from imported state and interface labels changed from null to empty
+maps. The pinned baseline then proposed replacement. This was a read-only probe with zero XC
+mutations and no excluded attributes; it does not establish supported in-place unpinning.
+
+`capabilities-v2.json` freezes provider v15.10.0 and API v12.0.9 with 7,174 paths and 53
+operation surfaces. It retains prior receipts while resetting their current-artifact runtime
+status to unqualified. Only the newly published Azure `certified_hw` read has successor
+qualification. Exact pins and the public-safe signed-artifact receipt are adjacent to the ledger.
