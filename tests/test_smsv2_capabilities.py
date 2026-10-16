@@ -7,7 +7,8 @@ from pathlib import Path
 SPEC = importlib.util.spec_from_file_location(
     "smsv2_capabilities", Path(__file__).parents[1] / "scripts/smsv2_capabilities.py"
 )
-assert SPEC is not None and SPEC.loader is not None
+assert SPEC is not None
+assert SPEC.loader is not None
 MODULE = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(MODULE)
 
