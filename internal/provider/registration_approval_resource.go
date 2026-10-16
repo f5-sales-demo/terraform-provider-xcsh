@@ -295,7 +295,7 @@ func (r *RegistrationApprovalResource) Read(ctx context.Context, req resource.Re
 	readPath := fmt.Sprintf("/api/register/namespaces/%s/registrations/%s", data.Namespace.ValueString(), data.Name.ValueString())
 	var obj map[string]interface{}
 	if err := r.client.GetLenient(ctx, readPath, &obj); err != nil {
-		if strings.Contains(err.Error(), "NOT_FOUND") || strings.Contains(err.Error(), "404") {
+		if client.HasHTTPStatus(err, 404) {
 			tflog.Warn(ctx, "RegistrationApproval object not found, removing from state", map[string]interface{}{
 				"name":      data.Name.ValueString(),
 				"namespace": data.Namespace.ValueString(),

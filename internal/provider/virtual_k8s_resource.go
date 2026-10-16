@@ -557,7 +557,7 @@ func (r *VirtualK8SResource) Read(ctx context.Context, req resource.ReadRequest,
 	apiResource, err := r.client.GetVirtualK8S(ctx, data.Namespace.ValueString(), data.Name.ValueString())
 	if err != nil {
 		// Check if the resource was deleted outside Terraform
-		if strings.Contains(err.Error(), "NOT_FOUND") || strings.Contains(err.Error(), "404") {
+		if client.HasHTTPStatus(err, 404) {
 			tflog.Warn(ctx, "VirtualK8S not found, removing from state", map[string]interface{}{
 				"name":      data.Name.ValueString(),
 				"namespace": data.Namespace.ValueString(),
@@ -565,19 +565,8 @@ func (r *VirtualK8SResource) Read(ctx context.Context, req resource.ReadRequest,
 			resp.State.RemoveResource(ctx)
 			return
 		}
-		// Some F5 XC APIs do not implement GET-by-name (read returns 501 Not
-		// Implemented — e.g. the shape/csd domain objects, which support only
-		// list/create/delete). Treat that as "cannot refresh" and preserve the
-		// prior state rather than erroring, so the resource stays manageable and
-		// idempotent (create/delete still work).
-		if strings.Contains(err.Error(), "501") {
-			tflog.Warn(ctx, "VirtualK8S read not implemented by API (501); keeping prior state", map[string]interface{}{
-				"name":      data.Name.ValueString(),
-				"namespace": data.Namespace.ValueString(),
-			})
-			resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
-			return
-		}
+		// An unavailable read cannot verify absence or current policy. Return an
+		// error and retain prior state; never present cached state as refreshed.
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read VirtualK8S: %s", err))
 		return
 	}
