@@ -149,7 +149,7 @@
       "path": "documentation/resources/container_registry/index.md",
       "product": "distributed-cloud",
       "provider_name": "container_registry",
-      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
+      "provider_schema_digest": "sha256:a43a21ec82c017926d35acc6efc3b0a8740fd394357a09aa0e63e65503eb7aff",
       "provider_type": "resources",
       "registry_anchor": "canonical-3121031110330001-1021233032301331-1200313112012333-2030023322330002-2021231201222110-1023032102203110-1103221200322013-1102022332013332",
       "registry_path": "docs/resources/container_registry.md",
@@ -159,21 +159,21 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/container_registry/index.txt",
-      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
+      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
       "summary": "Manages a Container Registry resource in F5 Distributed Cloud for container image registry configuration.",
       "tasks": ["configuration"],
       "title": "xcsh_container_registry",
       "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v12.0.8",
+        "release_tag": "v12.0.9",
         "schema_components": ["container_registryCreateRequest"],
-        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
+        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
       }
     },
     {
       "aliases": ["container registry"],
       "body_bytes": 14889,
-      "body_sha256": "sha256:ae4a197a3852469182a4a4fd86b21f50093fbb677bbe849ddbb34fe45db5d2ff",
+      "body_sha256": "sha256:16970c67a02a340a8b7f1037e073bf6e3a2f411fc3a63121e5fac3a2ff290c16",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [
@@ -193,7 +193,7 @@
       "path": "documentation/resources/container_registry/properties/index.md",
       "product": "distributed-cloud",
       "provider_name": "container_registry",
-      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
+      "provider_schema_digest": "sha256:a43a21ec82c017926d35acc6efc3b0a8740fd394357a09aa0e63e65503eb7aff",
       "provider_type": "resources",
       "registry_anchor": "canonical-1032120112320001-2222011121203202-3330011001232203-0333133013110231-2202321322121232-1121012101311030-0100022220223123-1211111333222203",
       "registry_path": "docs/guides/resources--container_registry--reference--group-001.md",
@@ -413,14 +413,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/container_registry/properties/index.txt",
-      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
+      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
       "summary": "Property reference for xcsh_container_registry.",
       "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v12.0.8",
+        "release_tag": "v12.0.9",
         "schema_components": ["container_registryCreateRequest"],
-        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
+        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
       }
     },
     {
@@ -446,7 +446,7 @@
       "path": "documentation/resources/container_registry/properties/password/index.md",
       "product": "distributed-cloud",
       "provider_name": "container_registry",
-      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
+      "provider_schema_digest": "sha256:a43a21ec82c017926d35acc6efc3b0a8740fd394357a09aa0e63e65503eb7aff",
       "provider_type": "resources",
       "registry_anchor": "canonical-2333301020100202-1213333012031101-2112222013010032-1133212101000011-3131130330211132-2113313300202133-3232233203032013-0020230201003030",
       "registry_path": "docs/guides/resources--container_registry--reference--group-001.md",
@@ -524,20 +524,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/container_registry/properties/password/index.txt",
-      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
+      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
       "summary": "SecretType is used in an object to indicate a sensitive/confidential field.",
       "tasks": ["configuration"],
       "title": "password",
       "upstream_identity": {
-        "release_tag": "v12.0.8",
+        "release_tag": "v12.0.9",
         "schema_components": ["container_registryCreateRequest"],
-        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
+        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
       }
     },
     {
       "aliases": ["password blindfold secret info"],
       "body_bytes": 4059,
-      "body_sha256": "sha256:778a78e3807dcf8b80f1c36b1a0f731067a8a3c35c9c21f71b38ce1e19e568f9",
+      "body_sha256": "sha256:8c6aa079c9b7d7c2a75a91269249043d8782f7b93ea5b7c9fb0c9d18adaf2520",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],
@@ -554,7 +554,7 @@
       "path": "documentation/resources/container_registry/properties/password/blindfold_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "container_registry",
-      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
+      "provider_schema_digest": "sha256:a43a21ec82c017926d35acc6efc3b0a8740fd394357a09aa0e63e65503eb7aff",
       "provider_type": "resources",
       "registry_anchor": "canonical-2101311200200132-0322131031022112-2323212022001212-1211312112131020-3021321122032030-1310232000302011-2032203210123233-2031101031012201",
       "registry_path": "docs/guides/resources--container_registry--reference--group-001.md",
@@ -622,20 +622,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/container_registry/properties/password/blindfold_secret_info/index.txt",
-      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
+      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
       "summary": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
       "tasks": ["configuration"],
       "title": "password.blindfold_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.8",
+        "release_tag": "v12.0.9",
         "schema_components": ["container_registryCreateRequest"],
-        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
+        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
       }
     },
     {
       "aliases": ["password clear secret info"],
       "body_bytes": 3096,
-      "body_sha256": "sha256:b43ebc1e9b50f6d42368f3834720c7e70f4e15212c99bf0fa1a7f6d7d39c9d26",
+      "body_sha256": "sha256:3505dcc5834ce39e1964b39e7604f1c58a3f071e78b280934df1e392c0810279",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],
@@ -652,7 +652,7 @@
       "path": "documentation/resources/container_registry/properties/password/clear_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "container_registry",
-      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
+      "provider_schema_digest": "sha256:a43a21ec82c017926d35acc6efc3b0a8740fd394357a09aa0e63e65503eb7aff",
       "provider_type": "resources",
       "registry_anchor": "canonical-0023123110203112-3230220012112200-0101120212003331-1313320210323233-2123130203120002-1232031210203120-0222302332022101-3103123121223003",
       "registry_path": "docs/guides/resources--container_registry--reference--group-001.md",
@@ -704,14 +704,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/container_registry/properties/password/clear_secret_info/index.txt",
-      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
+      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
       "summary": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
       "tasks": ["configuration"],
       "title": "password.clear_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.8",
+        "release_tag": "v12.0.9",
         "schema_components": ["container_registryCreateRequest"],
-        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
+        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
       }
     },
     {
@@ -734,7 +734,7 @@
       "path": "documentation/resources/container_registry/properties/timeouts/index.md",
       "product": "distributed-cloud",
       "provider_name": "container_registry",
-      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
+      "provider_schema_digest": "sha256:a43a21ec82c017926d35acc6efc3b0a8740fd394357a09aa0e63e65503eb7aff",
       "provider_type": "resources",
       "registry_anchor": "canonical-2133111212322010-1310302120021302-3113221011233131-2210220003322330-1330202222220030-2022121210313202-0112122112231220-1030210111021010",
       "registry_path": "docs/guides/resources--container_registry--reference--group-001.md",
@@ -844,14 +844,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/container_registry/properties/timeouts/index.txt",
-      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
+      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
       "summary": "timeouts for xcsh_container_registry.",
       "tasks": ["configuration"],
       "title": "timeouts",
       "upstream_identity": {
-        "release_tag": "v12.0.8",
+        "release_tag": "v12.0.9",
         "schema_components": ["container_registryCreateRequest"],
-        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
+        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
       }
     },
     {
@@ -874,7 +874,7 @@
       "path": "documentation/resources/container_registry/examples/index.md",
       "product": "distributed-cloud",
       "provider_name": "container_registry",
-      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
+      "provider_schema_digest": "sha256:a43a21ec82c017926d35acc6efc3b0a8740fd394357a09aa0e63e65503eb7aff",
       "provider_type": "resources",
       "registry_anchor": "canonical-0132120323120123-0223213303233201-1021012301310010-0103313121312020-3001233203211120-1133301233201321-3003031002201103-2201223212203310",
       "registry_path": "docs/guides/resources--container_registry--examples--group-001.md",
@@ -884,14 +884,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/container_registry/examples/index.txt",
-      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
+      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
       "summary": "Examples for xcsh_container_registry.",
       "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v12.0.8",
+        "release_tag": "v12.0.9",
         "schema_components": ["container_registryCreateRequest"],
-        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
+        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
       }
     },
     {
@@ -921,7 +921,7 @@
       "path": "documentation/resources/container_registry/examples/resource/index.md",
       "product": "distributed-cloud",
       "provider_name": "container_registry",
-      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
+      "provider_schema_digest": "sha256:a43a21ec82c017926d35acc6efc3b0a8740fd394357a09aa0e63e65503eb7aff",
       "provider_type": "resources",
       "registry_anchor": "canonical-2130301231230320-1301231032231233-0032311020313122-3013012322020212-0130212101221232-0012132331221100-0232022323323110-2033011011101232",
       "registry_path": "docs/guides/resources--container_registry--examples--group-001.md",
@@ -931,14 +931,14 @@
       "schema_path": ["resource"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/container_registry/examples/resource/index.txt",
-      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
+      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
       "summary": "Resource for xcsh_container_registry.",
       "tasks": ["configuration"],
       "title": "Resource",
       "upstream_identity": {
-        "release_tag": "v12.0.8",
+        "release_tag": "v12.0.9",
         "schema_components": ["container_registryCreateRequest"],
-        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
+        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
       }
     },
     {
@@ -962,7 +962,7 @@
       "path": "documentation/resources/container_registry/lifecycle/import/index.md",
       "product": "distributed-cloud",
       "provider_name": "container_registry",
-      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
+      "provider_schema_digest": "sha256:a43a21ec82c017926d35acc6efc3b0a8740fd394357a09aa0e63e65503eb7aff",
       "provider_type": "resources",
       "registry_anchor": "canonical-1232313310001120-0013101312033331-2100002211100101-3203130201321101-1203113000232330-0132211032022212-1300223300001310-0320122201310122",
       "registry_path": "docs/guides/resources--container_registry--lifecycle--group-001.md",
@@ -972,14 +972,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/container_registry/lifecycle/import/index.txt",
-      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
+      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
       "summary": "Import for xcsh_container_registry.",
       "tasks": ["import"],
       "title": "Import",
       "upstream_identity": {
-        "release_tag": "v12.0.8",
+        "release_tag": "v12.0.9",
         "schema_components": ["container_registryCreateRequest"],
-        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
+        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
       }
     },
     {
@@ -1002,7 +1002,7 @@
       "path": "documentation/resources/container_registry/lifecycle/timeouts/index.md",
       "product": "distributed-cloud",
       "provider_name": "container_registry",
-      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
+      "provider_schema_digest": "sha256:a43a21ec82c017926d35acc6efc3b0a8740fd394357a09aa0e63e65503eb7aff",
       "provider_type": "resources",
       "registry_anchor": "canonical-2302210310221301-0332223010211001-2221223302001301-0201312231223111-1203230220121303-2323231031333331-0323030203132132-2302113101320230",
       "registry_path": "docs/guides/resources--container_registry--lifecycle--group-001.md",
@@ -1012,14 +1012,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/container_registry/lifecycle/timeouts/index.txt",
-      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
+      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
       "summary": "Timeouts for xcsh_container_registry.",
       "tasks": ["lifecycle"],
       "title": "Timeouts",
       "upstream_identity": {
-        "release_tag": "v12.0.8",
+        "release_tag": "v12.0.9",
         "schema_components": ["container_registryCreateRequest"],
-        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
+        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
       }
     }
   ],

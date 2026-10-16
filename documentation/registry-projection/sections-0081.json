@@ -2,6 +2,18 @@
   "schema_version": 1,
   "sections": [
     {
+      "canonical_id": "xcsh-docs:data-sources:site_registrations:properties:items:get_spec:infra:hugepages",
+      "section_id": "xcsh-docs:data-sources:site_registrations:properties:items:get_spec:infra:hugepages:section:3",
+      "source_sha256": "sha256:abe528f6f819af220ff8952edd2286659f511889b9735969f84bc4b4a0795c67",
+      "source_bytes": 101,
+      "canonical_source_sha256": "sha256:7b1156dd990cf409a2ea166b148ec3919b0b073339777105661f4f0d6d2a59e6",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/site_registrations/properties/items/get_spec/infra/hugepages/",
+      "anchor": "canonical-0100020123320133-0222310332010111-0231112020112103-1101333301131330-1131233020131100-3030130331121001-1332123233212320-1313000123221030",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--site_registrations--reference--group-001.md"
+    },
+    {
       "canonical_id": "xcsh-docs:data-sources:site_registrations:properties:items:get_spec:infra:hw_info",
       "section_id": "xcsh-docs:data-sources:site_registrations:properties:items:get_spec:infra:hw_info:section:0",
       "source_sha256": "sha256:42fcad55c9e8d9a218d28c25f691232c398447c76bd923d537a30fb37a74da58",
@@ -7724,23 +7736,6 @@
         [
           "schema-items--get_spec--infra--hw_info--usb--b_max_packet_size",
           "canonical-3330100002233102-0131302301322200-1313231332210331-0022132222230002-0031002323332110-0033111301010033-3101101302031333-3330212323010130"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--site_registrations_by_site--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:site_registrations_by_site:properties:items:get_spec:infra:hw_info:usb",
-      "section_id": "xcsh-docs:data-sources:site_registrations_by_site:properties:items:get_spec:infra:hw_info:usb:section:5",
-      "source_sha256": "sha256:992156910e8d8fb9b124e802261833272ab3ad57695a88cfa209503e471e2c28",
-      "source_bytes": 187,
-      "canonical_source_sha256": "sha256:ce0ce9cc451c5f3f75a0bdfad29f1e1716a23e8f4037db8ee8044d2385ec0676",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/site_registrations_by_site/properties/items/get_spec/infra/hw_info/usb/",
-      "anchor": "canonical-3010232330230331-1322210100213331-2023100223113213-0020230321011301-3220220031230333-1133021013233013-1131132330130333-0012010301013233",
-      "anchor_map": [
-        [
-          "schema-items--get_spec--infra--hw_info--usb--bcd_device",
-          "canonical-0003203230123201-0110213021013012-2111223323213211-0330200103330001-1301212103320000-1122322100213121-2112223031022213-1103233101210211"
         ]
       ],
       "mode": "embedded",

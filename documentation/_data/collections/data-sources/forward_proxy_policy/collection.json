@@ -557,7 +557,7 @@
       "path": "documentation/data-sources/forward_proxy_policy/index.md",
       "product": "distributed-cloud",
       "provider_name": "forward_proxy_policy",
-      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
+      "provider_schema_digest": "sha256:a43a21ec82c017926d35acc6efc3b0a8740fd394357a09aa0e63e65503eb7aff",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1321032010100101-1332210300230231-2303222012301133-2310222233132131-3320301230022230-1212303322110131-3223203122203201-0023111200022203",
       "registry_path": "docs/data-sources/forward_proxy_policy.md",
@@ -567,21 +567,21 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/forward_proxy_policy/index.txt",
-      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
+      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
       "summary": "Reads Forward Proxy Policy information from F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_forward_proxy_policy",
       "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v12.0.8",
+        "release_tag": "v12.0.9",
         "schema_components": ["forward_proxy_policyCreateRequest"],
-        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
+        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
       }
     },
     {
       "aliases": ["forward proxy policy"],
       "body_bytes": 32002,
-      "body_sha256": "sha256:a9ed8cccee8c0aa6a25f6806d109622ddde81b5ba3a96d6f3e1850975c4090a6",
+      "body_sha256": "sha256:9a67b9d3fd39a8bd62329056b0417b955d42fc7e15115842bf1077991c223442",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -607,7 +607,7 @@
       "path": "documentation/data-sources/forward_proxy_policy/properties/index.md",
       "product": "distributed-cloud",
       "provider_name": "forward_proxy_policy",
-      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
+      "provider_schema_digest": "sha256:a43a21ec82c017926d35acc6efc3b0a8740fd394357a09aa0e63e65503eb7aff",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0201131330302000-1332220320301222-0231230133130020-1023003321203020-2130222120313300-0113211322120200-1311332023100113-2210312021113312",
       "registry_path": "docs/guides/data-sources--forward_proxy_policy--reference--group-001.md",
@@ -842,14 +842,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/forward_proxy_policy/properties/index.txt",
-      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
+      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
       "summary": "Property reference for xcsh_forward_proxy_policy.",
       "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v12.0.8",
+        "release_tag": "v12.0.9",
         "schema_components": ["forward_proxy_policyCreateRequest"],
-        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
+        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
       }
     },
     {
@@ -872,7 +872,7 @@
       "path": "documentation/data-sources/forward_proxy_policy/properties/allow_all/index.md",
       "product": "distributed-cloud",
       "provider_name": "forward_proxy_policy",
-      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
+      "provider_schema_digest": "sha256:a43a21ec82c017926d35acc6efc3b0a8740fd394357a09aa0e63e65503eb7aff",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2013011230133310-0110112322303323-1102232112233312-0332123113232113-1131213101211320-3211310122131000-0030202322111201-0103202332111313",
       "registry_path": "docs/guides/data-sources--forward_proxy_policy--reference--group-001.md",
@@ -882,14 +882,14 @@
       "schema_path": ["allow_all"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/forward_proxy_policy/properties/allow_all/index.txt",
-      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
+      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "allow_all",
       "upstream_identity": {
-        "release_tag": "v12.0.8",
+        "release_tag": "v12.0.9",
         "schema_components": ["forward_proxy_policyCreateRequest"],
-        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
+        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
       }
     },
     {
@@ -919,7 +919,7 @@
       "path": "documentation/data-sources/forward_proxy_policy/properties/allow_list/index.md",
       "product": "distributed-cloud",
       "provider_name": "forward_proxy_policy",
-      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
+      "provider_schema_digest": "sha256:a43a21ec82c017926d35acc6efc3b0a8740fd394357a09aa0e63e65503eb7aff",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3101200333003233-2232233032312210-1012001303103230-3020221312330330-0112330100123122-0333132122203233-1112103332200202-2102032231311301",
       "registry_path": "docs/guides/data-sources--forward_proxy_policy--reference--group-001.md",
@@ -1026,14 +1026,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/forward_proxy_policy/properties/allow_list/index.txt",
-      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
+      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
       "summary": "URL(s) and domains policy for forward proxy for a connection type (TLS or HTTP)",
       "tasks": ["configuration"],
       "title": "allow_list",
       "upstream_identity": {
-        "release_tag": "v12.0.8",
+        "release_tag": "v12.0.9",
         "schema_components": ["forward_proxy_policyCreateRequest"],
-        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
+        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
       }
     },
     {
@@ -1056,7 +1056,7 @@
       "path": "documentation/data-sources/forward_proxy_policy/properties/allow_list/default_action_allow/index.md",
       "product": "distributed-cloud",
       "provider_name": "forward_proxy_policy",
-      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
+      "provider_schema_digest": "sha256:a43a21ec82c017926d35acc6efc3b0a8740fd394357a09aa0e63e65503eb7aff",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0030303121002013-0030230300323302-0331211020221310-2031122301233132-2302323223020300-1111032132203212-2110232020320101-2222103003013032",
       "registry_path": "docs/guides/data-sources--forward_proxy_policy--reference--group-001.md",
@@ -1066,14 +1066,14 @@
       "schema_path": ["allow_list", "default_action_allow"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/forward_proxy_policy/properties/allow_list/default_action_allow/index.txt",
-      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
+      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "allow_list.default_action_allow",
       "upstream_identity": {
-        "release_tag": "v12.0.8",
+        "release_tag": "v12.0.9",
         "schema_components": ["forward_proxy_policyCreateRequest"],
-        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
+        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
       }
     },
     {
@@ -1096,7 +1096,7 @@
       "path": "documentation/data-sources/forward_proxy_policy/properties/allow_list/default_action_deny/index.md",
       "product": "distributed-cloud",
       "provider_name": "forward_proxy_policy",
-      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
+      "provider_schema_digest": "sha256:a43a21ec82c017926d35acc6efc3b0a8740fd394357a09aa0e63e65503eb7aff",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3113302312100001-2023231111123213-2001132012213201-3201232313122321-1303331212012032-0000213333223112-0332000331031330-3200202312201302",
       "registry_path": "docs/guides/data-sources--forward_proxy_policy--reference--group-001.md",
@@ -1106,14 +1106,14 @@
       "schema_path": ["allow_list", "default_action_deny"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/forward_proxy_policy/properties/allow_list/default_action_deny/index.txt",
-      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
+      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "allow_list.default_action_deny",
       "upstream_identity": {
-        "release_tag": "v12.0.8",
+        "release_tag": "v12.0.9",
         "schema_components": ["forward_proxy_policyCreateRequest"],
-        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
+        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
       }
     },
     {
@@ -1136,7 +1136,7 @@
       "path": "documentation/data-sources/forward_proxy_policy/properties/allow_list/default_action_next_policy/index.md",
       "product": "distributed-cloud",
       "provider_name": "forward_proxy_policy",
-      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
+      "provider_schema_digest": "sha256:a43a21ec82c017926d35acc6efc3b0a8740fd394357a09aa0e63e65503eb7aff",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0033122023312122-3323023000110110-2233110321213003-3032320103323031-1301233130322022-1321202110021120-2221023211021333-1231012012012121",
       "registry_path": "docs/guides/data-sources--forward_proxy_policy--reference--group-001.md",
@@ -1146,20 +1146,20 @@
       "schema_path": ["allow_list", "default_action_next_policy"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/forward_proxy_policy/properties/allow_list/default_action_next_policy/index.txt",
-      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
+      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "allow_list.default_action_next_policy",
       "upstream_identity": {
-        "release_tag": "v12.0.8",
+        "release_tag": "v12.0.9",
         "schema_components": ["forward_proxy_policyCreateRequest"],
-        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
+        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
       }
     },
     {
       "aliases": ["allow list dest list"],
       "body_bytes": 4940,
-      "body_sha256": "sha256:0d0533b95b2f53232da7bbd3a9aa5c6f13d6cbc0e48afc36eca9b6edbe5fe475",
+      "body_sha256": "sha256:06e952bf91ec959b4533cfb927bcfc8217aa0704dfd2cb2c0e3203a7f8cf7511",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -1176,7 +1176,7 @@
       "path": "documentation/data-sources/forward_proxy_policy/properties/allow_list/dest_list/index.md",
       "product": "distributed-cloud",
       "provider_name": "forward_proxy_policy",
-      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
+      "provider_schema_digest": "sha256:a43a21ec82c017926d35acc6efc3b0a8740fd394357a09aa0e63e65503eb7aff",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1312200232331133-0311010303232332-0221203000300221-3030003302210100-0321011202310111-3201210103311212-3203032110002002-0031020320121203",
       "registry_path": "docs/guides/data-sources--forward_proxy_policy--reference--group-001.md",
@@ -1235,20 +1235,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/forward_proxy_policy/properties/allow_list/dest_list/index.txt",
-      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
+      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
       "summary": "L4 destinations for non-HTTP and non-TLS connections and TLS connections without SNI.",
       "tasks": ["configuration"],
       "title": "allow_list.dest_list",
       "upstream_identity": {
-        "release_tag": "v12.0.8",
+        "release_tag": "v12.0.9",
         "schema_components": ["forward_proxy_policyCreateRequest"],
-        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
+        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
       }
     },
     {
       "aliases": ["allow list http list"],
       "body_bytes": 8374,
-      "body_sha256": "sha256:c490fb33e76ec4f9128c1631a8a56bd77e4e8ce3ac65826ce034b44287246d71",
+      "body_sha256": "sha256:2bb7aea0f9879ebd6c740eb1d7f6502764b31078da6b835df05d977b1ae78847",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": ["xcsh-docs:data-sources:forward_proxy_policy:properties:allow_list:http_list:any_path"],
@@ -1265,7 +1265,7 @@
       "path": "documentation/data-sources/forward_proxy_policy/properties/allow_list/http_list/index.md",
       "product": "distributed-cloud",
       "provider_name": "forward_proxy_policy",
-      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
+      "provider_schema_digest": "sha256:a43a21ec82c017926d35acc6efc3b0a8740fd394357a09aa0e63e65503eb7aff",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2003210313333300-1210322233003121-2111232031231120-3330220111130030-3303312221122102-3032333222111200-1220013320222331-2322233331321302",
       "registry_path": "docs/guides/data-sources--forward_proxy_policy--reference--group-001.md",
@@ -1388,14 +1388,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/forward_proxy_policy/properties/allow_list/http_list/index.txt",
-      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
+      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
       "summary": "URLs for HTTP connections.",
       "tasks": ["configuration"],
       "title": "allow_list.http_list",
       "upstream_identity": {
-        "release_tag": "v12.0.8",
+        "release_tag": "v12.0.9",
         "schema_components": ["forward_proxy_policyCreateRequest"],
-        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
+        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
       }
     },
     {
@@ -1418,7 +1418,7 @@
       "path": "documentation/data-sources/forward_proxy_policy/properties/allow_list/http_list/any_path/index.md",
       "product": "distributed-cloud",
       "provider_name": "forward_proxy_policy",
-      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
+      "provider_schema_digest": "sha256:a43a21ec82c017926d35acc6efc3b0a8740fd394357a09aa0e63e65503eb7aff",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0112333302030223-1012002210301010-3003120220201120-2111211021212231-0222030110113232-0101203023222230-3320102110000233-0230130110202023",
       "registry_path": "docs/guides/data-sources--forward_proxy_policy--reference--group-001.md",
@@ -1428,20 +1428,20 @@
       "schema_path": ["allow_list", "http_list", "any_path"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/forward_proxy_policy/properties/allow_list/http_list/any_path/index.txt",
-      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
+      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "allow_list.http_list.any_path",
       "upstream_identity": {
-        "release_tag": "v12.0.8",
+        "release_tag": "v12.0.9",
         "schema_components": ["forward_proxy_policyCreateRequest"],
-        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
+        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
       }
     },
     {
       "aliases": ["allow list tls list"],
       "body_bytes": 4798,
-      "body_sha256": "sha256:4fb36d731daed6d9dba97ddbf76b3487ea521395c7a35d2504f53ca9d9259d6a",
+      "body_sha256": "sha256:981e211813dde4e6e5291f336b866ef6b552585983ca5f4b331c7321f5b4768b",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -1458,7 +1458,7 @@
       "path": "documentation/data-sources/forward_proxy_policy/properties/allow_list/tls_list/index.md",
       "product": "distributed-cloud",
       "provider_name": "forward_proxy_policy",
-      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
+      "provider_schema_digest": "sha256:a43a21ec82c017926d35acc6efc3b0a8740fd394357a09aa0e63e65503eb7aff",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0130102331212330-2221222233301120-3102100211102202-2313010000230021-0201201101130132-0323322310303120-3203003310013103-2330103233003213",
       "registry_path": "docs/guides/data-sources--forward_proxy_policy--reference--group-001.md",
@@ -1517,14 +1517,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/forward_proxy_policy/properties/allow_list/tls_list/index.txt",
-      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
+      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
       "summary": "Domains in SNI for TLS connections.",
       "tasks": ["configuration"],
       "title": "allow_list.tls_list",
       "upstream_identity": {
-        "release_tag": "v12.0.8",
+        "release_tag": "v12.0.9",
         "schema_components": ["forward_proxy_policyCreateRequest"],
-        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
+        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
       }
     },
     {
@@ -1547,7 +1547,7 @@
       "path": "documentation/data-sources/forward_proxy_policy/properties/any_proxy/index.md",
       "product": "distributed-cloud",
       "provider_name": "forward_proxy_policy",
-      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
+      "provider_schema_digest": "sha256:a43a21ec82c017926d35acc6efc3b0a8740fd394357a09aa0e63e65503eb7aff",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0301302122312100-0303121321221121-2233002013020312-1211203203103312-1033012321032120-1121133311231131-1221332120300202-1103321303300103",
       "registry_path": "docs/guides/data-sources--forward_proxy_policy--reference--group-001.md",
@@ -1557,14 +1557,14 @@
       "schema_path": ["any_proxy"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/forward_proxy_policy/properties/any_proxy/index.txt",
-      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
+      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "any_proxy",
       "upstream_identity": {
-        "release_tag": "v12.0.8",
+        "release_tag": "v12.0.9",
         "schema_components": ["forward_proxy_policyCreateRequest"],
-        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
+        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
       }
     },
     {
@@ -1594,7 +1594,7 @@
       "path": "documentation/data-sources/forward_proxy_policy/properties/deny_list/index.md",
       "product": "distributed-cloud",
       "provider_name": "forward_proxy_policy",
-      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
+      "provider_schema_digest": "sha256:a43a21ec82c017926d35acc6efc3b0a8740fd394357a09aa0e63e65503eb7aff",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2122121121221331-3101113313231201-2130023321112032-0332002202032333-1230000011130203-3231223211110132-1011013002122011-1303213030022032",
       "registry_path": "docs/guides/data-sources--forward_proxy_policy--reference--group-001.md",
@@ -1701,14 +1701,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/forward_proxy_policy/properties/deny_list/index.txt",
-      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
+      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
       "summary": "URL(s) and domains policy for forward proxy for a connection type (TLS or HTTP)",
       "tasks": ["configuration"],
       "title": "deny_list",
       "upstream_identity": {
-        "release_tag": "v12.0.8",
+        "release_tag": "v12.0.9",
         "schema_components": ["forward_proxy_policyCreateRequest"],
-        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
+        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
       }
     },
     {
@@ -1731,7 +1731,7 @@
       "path": "documentation/data-sources/forward_proxy_policy/properties/deny_list/default_action_allow/index.md",
       "product": "distributed-cloud",
       "provider_name": "forward_proxy_policy",
-      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
+      "provider_schema_digest": "sha256:a43a21ec82c017926d35acc6efc3b0a8740fd394357a09aa0e63e65503eb7aff",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2320023020013103-2020321103323012-0111100023132313-1300030130011212-1100013300221331-1122003113221010-3023301200120322-2103003103223210",
       "registry_path": "docs/guides/data-sources--forward_proxy_policy--reference--group-001.md",
@@ -1741,14 +1741,14 @@
       "schema_path": ["deny_list", "default_action_allow"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/forward_proxy_policy/properties/deny_list/default_action_allow/index.txt",
-      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
+      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "deny_list.default_action_allow",
       "upstream_identity": {
-        "release_tag": "v12.0.8",
+        "release_tag": "v12.0.9",
         "schema_components": ["forward_proxy_policyCreateRequest"],
-        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
+        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
       }
     },
     {
@@ -1771,7 +1771,7 @@
       "path": "documentation/data-sources/forward_proxy_policy/properties/deny_list/default_action_deny/index.md",
       "product": "distributed-cloud",
       "provider_name": "forward_proxy_policy",
-      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
+      "provider_schema_digest": "sha256:a43a21ec82c017926d35acc6efc3b0a8740fd394357a09aa0e63e65503eb7aff",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1321033032102020-2223102003211213-2002133030321300-1231211110303320-2220302021100203-0131303313131022-0110030231122211-2112120222320210",
       "registry_path": "docs/guides/data-sources--forward_proxy_policy--reference--group-001.md",
@@ -1781,14 +1781,14 @@
       "schema_path": ["deny_list", "default_action_deny"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/forward_proxy_policy/properties/deny_list/default_action_deny/index.txt",
-      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
+      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "deny_list.default_action_deny",
       "upstream_identity": {
-        "release_tag": "v12.0.8",
+        "release_tag": "v12.0.9",
         "schema_components": ["forward_proxy_policyCreateRequest"],
-        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
+        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
       }
     },
     {
@@ -1811,7 +1811,7 @@
       "path": "documentation/data-sources/forward_proxy_policy/properties/deny_list/default_action_next_policy/index.md",
       "product": "distributed-cloud",
       "provider_name": "forward_proxy_policy",
-      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
+      "provider_schema_digest": "sha256:a43a21ec82c017926d35acc6efc3b0a8740fd394357a09aa0e63e65503eb7aff",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1211233001331303-0113112300220112-3013130022201000-2003023332212223-0023233311310321-1030032112211001-3232223121112030-0120322122033330",
       "registry_path": "docs/guides/data-sources--forward_proxy_policy--reference--group-001.md",
@@ -1821,20 +1821,20 @@
       "schema_path": ["deny_list", "default_action_next_policy"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/forward_proxy_policy/properties/deny_list/default_action_next_policy/index.txt",
-      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
+      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "deny_list.default_action_next_policy",
       "upstream_identity": {
-        "release_tag": "v12.0.8",
+        "release_tag": "v12.0.9",
         "schema_components": ["forward_proxy_policyCreateRequest"],
-        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
+        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
       }
     },
     {
       "aliases": ["deny list dest list"],
       "body_bytes": 4933,
-      "body_sha256": "sha256:27cc14c740d05ed41fb33310c5740e2414a9665e0ee8bbf0e4801a329efc37ed",
+      "body_sha256": "sha256:c2e7d92b54b7ff41340b303fbb19d5b46d0b111eee69dee86ea2fc7cc64183e8",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -1851,7 +1851,7 @@
       "path": "documentation/data-sources/forward_proxy_policy/properties/deny_list/dest_list/index.md",
       "product": "distributed-cloud",
       "provider_name": "forward_proxy_policy",
-      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
+      "provider_schema_digest": "sha256:a43a21ec82c017926d35acc6efc3b0a8740fd394357a09aa0e63e65503eb7aff",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3121022111323330-2120112103213211-0021311202003332-2320031121110013-1230010313311233-3213010111011323-3313312310120221-3020003130112323",
       "registry_path": "docs/guides/data-sources--forward_proxy_policy--reference--group-001.md",
@@ -1910,20 +1910,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/forward_proxy_policy/properties/deny_list/dest_list/index.txt",
-      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
+      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
       "summary": "L4 destinations for non-HTTP and non-TLS connections and TLS connections without SNI.",
       "tasks": ["configuration"],
       "title": "deny_list.dest_list",
       "upstream_identity": {
-        "release_tag": "v12.0.8",
+        "release_tag": "v12.0.9",
         "schema_components": ["forward_proxy_policyCreateRequest"],
-        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
+        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
       }
     },
     {
       "aliases": ["deny list http list"],
       "body_bytes": 8363,
-      "body_sha256": "sha256:3b7f01b79d0c3a7b9e1d85cae1c4f00722cd8c25f520215ebc4eba5aae2c0638",
+      "body_sha256": "sha256:2f0b357414956d2fc819816a61a8e662c68f71133ffd4849743037883af296de",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": ["xcsh-docs:data-sources:forward_proxy_policy:properties:deny_list:http_list:any_path"],
@@ -1940,7 +1940,7 @@
       "path": "documentation/data-sources/forward_proxy_policy/properties/deny_list/http_list/index.md",
       "product": "distributed-cloud",
       "provider_name": "forward_proxy_policy",
-      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
+      "provider_schema_digest": "sha256:a43a21ec82c017926d35acc6efc3b0a8740fd394357a09aa0e63e65503eb7aff",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0303231023303013-2000101121012313-0330202210132020-1231300133103021-2013033113212023-1103013023330023-2023023313001213-2111003101313132",
       "registry_path": "docs/guides/data-sources--forward_proxy_policy--reference--group-001.md",
@@ -2063,14 +2063,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/forward_proxy_policy/properties/deny_list/http_list/index.txt",
-      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
+      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
       "summary": "URLs for HTTP connections.",
       "tasks": ["configuration"],
       "title": "deny_list.http_list",
       "upstream_identity": {
-        "release_tag": "v12.0.8",
+        "release_tag": "v12.0.9",
         "schema_components": ["forward_proxy_policyCreateRequest"],
-        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
+        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
       }
     },
     {
@@ -2093,7 +2093,7 @@
       "path": "documentation/data-sources/forward_proxy_policy/properties/deny_list/http_list/any_path/index.md",
       "product": "distributed-cloud",
       "provider_name": "forward_proxy_policy",
-      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
+      "provider_schema_digest": "sha256:a43a21ec82c017926d35acc6efc3b0a8740fd394357a09aa0e63e65503eb7aff",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2113310132020112-0200202022310230-2221330231311012-2231221100213331-0302201312201010-1321002101330110-3320222232213123-3131302301011300",
       "registry_path": "docs/guides/data-sources--forward_proxy_policy--reference--group-001.md",
@@ -2103,20 +2103,20 @@
       "schema_path": ["deny_list", "http_list", "any_path"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/forward_proxy_policy/properties/deny_list/http_list/any_path/index.txt",
-      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
+      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "deny_list.http_list.any_path",
       "upstream_identity": {
-        "release_tag": "v12.0.8",
+        "release_tag": "v12.0.9",
         "schema_components": ["forward_proxy_policyCreateRequest"],
-        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
+        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
       }
     },
     {
       "aliases": ["deny list tls list"],
       "body_bytes": 4791,
-      "body_sha256": "sha256:5d192a622be62a027833f941ed13a0c2d3482f0e364553c8469dd8432ef28dba",
+      "body_sha256": "sha256:515681f18de0d697b99652ce52e2a41139c2616aee8ee5e1c892fb23ed932187",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -2133,7 +2133,7 @@
       "path": "documentation/data-sources/forward_proxy_policy/properties/deny_list/tls_list/index.md",
       "product": "distributed-cloud",
       "provider_name": "forward_proxy_policy",
-      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
+      "provider_schema_digest": "sha256:a43a21ec82c017926d35acc6efc3b0a8740fd394357a09aa0e63e65503eb7aff",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2113232131200211-1332200130321213-3202223120213122-1231110313001033-0110120003233212-0233311012330332-1233102100022213-2221100112210232",
       "registry_path": "docs/guides/data-sources--forward_proxy_policy--reference--group-001.md",
@@ -2192,14 +2192,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/forward_proxy_policy/properties/deny_list/tls_list/index.txt",
-      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
+      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
       "summary": "Domains in SNI for TLS connections.",
       "tasks": ["configuration"],
       "title": "deny_list.tls_list",
       "upstream_identity": {
-        "release_tag": "v12.0.8",
+        "release_tag": "v12.0.9",
         "schema_components": ["forward_proxy_policyCreateRequest"],
-        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
+        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
       }
     },
     {
@@ -2222,7 +2222,7 @@
       "path": "documentation/data-sources/forward_proxy_policy/properties/drp_http_connect/index.md",
       "product": "distributed-cloud",
       "provider_name": "forward_proxy_policy",
-      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
+      "provider_schema_digest": "sha256:a43a21ec82c017926d35acc6efc3b0a8740fd394357a09aa0e63e65503eb7aff",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0301032221101120-3103200113001310-3223232331220200-1332133303133312-1323311130131310-1001333230111322-0230221210331302-3200332121101102",
       "registry_path": "docs/guides/data-sources--forward_proxy_policy--reference--group-001.md",
@@ -2232,20 +2232,20 @@
       "schema_path": ["drp_http_connect"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/forward_proxy_policy/properties/drp_http_connect/index.txt",
-      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
+      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "drp_http_connect",
       "upstream_identity": {
-        "release_tag": "v12.0.8",
+        "release_tag": "v12.0.9",
         "schema_components": ["forward_proxy_policyCreateRequest"],
-        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
+        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
       }
     },
     {
       "aliases": ["network connector"],
       "body_bytes": 4283,
-      "body_sha256": "sha256:6d6611d2485df09a93b11114a933a45cc1a2b5c13e5a38a9857ccccda3adaf6b",
+      "body_sha256": "sha256:7ec2afc592e506442600746828a6cdd8a11c4fd20f80598a600f53e8cb9d8253",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -2262,7 +2262,7 @@
       "path": "documentation/data-sources/forward_proxy_policy/properties/network_connector/index.md",
       "product": "distributed-cloud",
       "provider_name": "forward_proxy_policy",
-      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
+      "provider_schema_digest": "sha256:a43a21ec82c017926d35acc6efc3b0a8740fd394357a09aa0e63e65503eb7aff",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3003120302033030-0022133033303133-1021310202213331-0113203001333310-0100202002013200-2202322230231323-0010302133310002-3313303112221211",
       "registry_path": "docs/guides/data-sources--forward_proxy_policy--reference--group-001.md",
@@ -2342,20 +2342,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/forward_proxy_policy/properties/network_connector/index.txt",
-      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
+      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "network_connector",
       "upstream_identity": {
-        "release_tag": "v12.0.8",
+        "release_tag": "v12.0.9",
         "schema_components": ["forward_proxy_policyCreateRequest"],
-        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
+        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
       }
     },
     {
       "aliases": ["proxy label selector"],
       "body_bytes": 3085,
-      "body_sha256": "sha256:8cd58c44297bc6c72be08f3952b1bf7baf5a55d025b672422c516712a9867128",
+      "body_sha256": "sha256:d24e69c16dfe23a73e25cfe0c5339355ea28f4fade2a6ce633bd600bd44109bb",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -2372,7 +2372,7 @@
       "path": "documentation/data-sources/forward_proxy_policy/properties/proxy_label_selector/index.md",
       "product": "distributed-cloud",
       "provider_name": "forward_proxy_policy",
-      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
+      "provider_schema_digest": "sha256:a43a21ec82c017926d35acc6efc3b0a8740fd394357a09aa0e63e65503eb7aff",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1032301033033313-1101300232301332-0110322320310030-1032321212200203-0212320010031030-1100000123210022-0031113133102112-0301111301311103",
       "registry_path": "docs/guides/data-sources--forward_proxy_policy--reference--group-002.md",
@@ -2399,14 +2399,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/forward_proxy_policy/properties/proxy_label_selector/index.txt",
-      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
+      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
       "summary": "This type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects. A null label selector matches no objects.",
       "tasks": ["configuration"],
       "title": "proxy_label_selector",
       "upstream_identity": {
-        "release_tag": "v12.0.8",
+        "release_tag": "v12.0.9",
         "schema_components": ["forward_proxy_policyCreateRequest"],
-        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
+        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
       }
     },
     {
@@ -2429,7 +2429,7 @@
       "path": "documentation/data-sources/forward_proxy_policy/properties/rule_list/index.md",
       "product": "distributed-cloud",
       "provider_name": "forward_proxy_policy",
-      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
+      "provider_schema_digest": "sha256:a43a21ec82c017926d35acc6efc3b0a8740fd394357a09aa0e63e65503eb7aff",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3210010030102222-1331103130112213-2033020020302222-2112133300213310-1131111132233200-3132121230310201-0100222323123311-0102303130230232",
       "registry_path": "docs/guides/data-sources--forward_proxy_policy--reference--group-002.md",
@@ -2456,20 +2456,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/forward_proxy_policy/properties/rule_list/index.txt",
-      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
+      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
       "summary": "List of custom rules.",
       "tasks": ["configuration"],
       "title": "rule_list",
       "upstream_identity": {
-        "release_tag": "v12.0.8",
+        "release_tag": "v12.0.9",
         "schema_components": ["forward_proxy_policyCreateRequest"],
-        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
+        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
       }
     },
     {
       "aliases": ["rule list rules"],
       "body_bytes": 6809,
-      "body_sha256": "sha256:1919f24eff638e1ab00c607c92a63ec388bb2c71831cea0879214ea3e59fdb5c",
+      "body_sha256": "sha256:c2b5cc2435f4266a35c62b2607c5713630d2e6c59b7c0ea47609c56be179eb1d",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -2503,7 +2503,7 @@
       "path": "documentation/data-sources/forward_proxy_policy/properties/rule_list/rules/index.md",
       "product": "distributed-cloud",
       "provider_name": "forward_proxy_policy",
-      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
+      "provider_schema_digest": "sha256:a43a21ec82c017926d35acc6efc3b0a8740fd394357a09aa0e63e65503eb7aff",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3132203230220121-0130313322131100-3321120011030323-1103231211032031-3232310121212133-3323131133330001-1030230122003102-1021022230323003",
       "registry_path": "docs/guides/data-sources--forward_proxy_policy--reference--group-002.md",
@@ -2786,14 +2786,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/forward_proxy_policy/properties/rule_list/rules/index.txt",
-      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
+      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
       "summary": "List of custom rules.",
       "tasks": ["configuration"],
       "title": "rule_list.rules",
       "upstream_identity": {
-        "release_tag": "v12.0.8",
+        "release_tag": "v12.0.9",
         "schema_components": ["forward_proxy_policyCreateRequest"],
-        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
+        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
       }
     },
     {
@@ -2816,7 +2816,7 @@
       "path": "documentation/data-sources/forward_proxy_policy/properties/rule_list/rules/all_destinations/index.md",
       "product": "distributed-cloud",
       "provider_name": "forward_proxy_policy",
-      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
+      "provider_schema_digest": "sha256:a43a21ec82c017926d35acc6efc3b0a8740fd394357a09aa0e63e65503eb7aff",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0132013321333203-2123012010320331-2230021013321013-1130111030022220-1132232330000022-2311021020311230-3133132103021322-3113330232312103",
       "registry_path": "docs/guides/data-sources--forward_proxy_policy--reference--group-002.md",
@@ -2826,14 +2826,14 @@
       "schema_path": ["rule_list", "rules", "all_destinations"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/forward_proxy_policy/properties/rule_list/rules/all_destinations/index.txt",
-      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
+      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "rule_list.rules.all_destinations",
       "upstream_identity": {
-        "release_tag": "v12.0.8",
+        "release_tag": "v12.0.9",
         "schema_components": ["forward_proxy_policyCreateRequest"],
-        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
+        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
       }
     },
     {
@@ -2856,7 +2856,7 @@
       "path": "documentation/data-sources/forward_proxy_policy/properties/rule_list/rules/all_sources/index.md",
       "product": "distributed-cloud",
       "provider_name": "forward_proxy_policy",
-      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
+      "provider_schema_digest": "sha256:a43a21ec82c017926d35acc6efc3b0a8740fd394357a09aa0e63e65503eb7aff",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1033231212331302-0311032231200320-1111232330003011-2021232302220313-1200220323300203-2323112301323222-3001111212012001-3300332012333313",
       "registry_path": "docs/guides/data-sources--forward_proxy_policy--reference--group-002.md",
@@ -2866,20 +2866,20 @@
       "schema_path": ["rule_list", "rules", "all_sources"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/forward_proxy_policy/properties/rule_list/rules/all_sources/index.txt",
-      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
+      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "rule_list.rules.all_sources",
       "upstream_identity": {
-        "release_tag": "v12.0.8",
+        "release_tag": "v12.0.9",
         "schema_components": ["forward_proxy_policyCreateRequest"],
-        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
+        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
       }
     },
     {
       "aliases": ["rule list rules dst asn list"],
       "body_bytes": 2492,
-      "body_sha256": "sha256:7dad2f17839167dd89f3c3d7cfd1b967e41678f3d4beca8053f1380f7f290768",
+      "body_sha256": "sha256:ff60d3ba67b8273eb127dd0f3b43e56f872748556af79ef0eebce7cfbfcf9f96",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -2896,7 +2896,7 @@
       "path": "documentation/data-sources/forward_proxy_policy/properties/rule_list/rules/dst_asn_list/index.md",
       "product": "distributed-cloud",
       "provider_name": "forward_proxy_policy",
-      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
+      "provider_schema_digest": "sha256:a43a21ec82c017926d35acc6efc3b0a8740fd394357a09aa0e63e65503eb7aff",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1300121121133123-1331331113003123-2123002310303113-2213203323123203-2322233201100012-2333000202102110-2233223130210112-3013002000222300",
       "registry_path": "docs/guides/data-sources--forward_proxy_policy--reference--group-002.md",
@@ -2923,20 +2923,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/forward_proxy_policy/properties/rule_list/rules/dst_asn_list/index.txt",
-      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
+      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
       "summary": "An unordered set of RFC 6793 defined 4-byte AS numbers that can be used to create allow or deny lists for use in network policy or service policy. It can be used to create the allow list only for DNS Load Balancer.",
       "tasks": ["configuration"],
       "title": "rule_list.rules.dst_asn_list",
       "upstream_identity": {
-        "release_tag": "v12.0.8",
+        "release_tag": "v12.0.9",
         "schema_components": ["forward_proxy_policyCreateRequest"],
-        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
+        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
       }
     },
     {
       "aliases": ["rule list rules dst asn set"],
       "body_bytes": 4605,
-      "body_sha256": "sha256:24e6d706a506985cccf3d30fc10431df5375637372a3b6d33812fa829eb4ec86",
+      "body_sha256": "sha256:55f71f7b9ed957ecf09687518f172c24119f10b7abc0602376bc28f4f9c596f8",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -2953,7 +2953,7 @@
       "path": "documentation/data-sources/forward_proxy_policy/properties/rule_list/rules/dst_asn_set/index.md",
       "product": "distributed-cloud",
       "provider_name": "forward_proxy_policy",
-      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
+      "provider_schema_digest": "sha256:a43a21ec82c017926d35acc6efc3b0a8740fd394357a09aa0e63e65503eb7aff",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0333101311200103-1201232200123231-1312310331322313-0330220231113033-1023301323021201-2233333012002321-0200302211110200-2303223023100212",
       "registry_path": "docs/guides/data-sources--forward_proxy_policy--reference--group-002.md",
@@ -3033,20 +3033,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/forward_proxy_policy/properties/rule_list/rules/dst_asn_set/index.txt",
-      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
+      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "rule_list.rules.dst_asn_set",
       "upstream_identity": {
-        "release_tag": "v12.0.8",
+        "release_tag": "v12.0.9",
         "schema_components": ["forward_proxy_policyCreateRequest"],
-        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
+        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
       }
     },
     {
       "aliases": ["rule list rules dst ip prefix set"],
       "body_bytes": 4635,
-      "body_sha256": "sha256:7cd98b3fdfceabf8f4748421269cc78afdf8dea709c72ba9824c4123f2830492",
+      "body_sha256": "sha256:f8cfaeb76fe156ddb412972f1613e2efdf1b5134c1ec96fe56e6da36759198cf",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -3063,7 +3063,7 @@
       "path": "documentation/data-sources/forward_proxy_policy/properties/rule_list/rules/dst_ip_prefix_set/index.md",
       "product": "distributed-cloud",
       "provider_name": "forward_proxy_policy",
-      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
+      "provider_schema_digest": "sha256:a43a21ec82c017926d35acc6efc3b0a8740fd394357a09aa0e63e65503eb7aff",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3313033010201213-1303212323211203-3223031032231111-1000013301232331-2032030123132131-2222301002313201-2232022003332321-3221120203213211",
       "registry_path": "docs/guides/data-sources--forward_proxy_policy--reference--group-002.md",
@@ -3143,20 +3143,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/forward_proxy_policy/properties/rule_list/rules/dst_ip_prefix_set/index.txt",
-      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
+      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "rule_list.rules.dst_ip_prefix_set",
       "upstream_identity": {
-        "release_tag": "v12.0.8",
+        "release_tag": "v12.0.9",
         "schema_components": ["forward_proxy_policyCreateRequest"],
-        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
+        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
       }
     },
     {
       "aliases": ["rule list rules dst label selector"],
       "body_bytes": 3395,
-      "body_sha256": "sha256:994e4a7bd834ccb4244ef4b0b4cb9df82dbe89c3c98e2ae482c54131cda01086",
+      "body_sha256": "sha256:1cc02e3a53cae37d44b9e9748c67dc3abdec73d0e2a182121db732f31ba58179",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -3173,7 +3173,7 @@
       "path": "documentation/data-sources/forward_proxy_policy/properties/rule_list/rules/dst_label_selector/index.md",
       "product": "distributed-cloud",
       "provider_name": "forward_proxy_policy",
-      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
+      "provider_schema_digest": "sha256:a43a21ec82c017926d35acc6efc3b0a8740fd394357a09aa0e63e65503eb7aff",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0321111022030032-2322302230031301-2330333002000223-1223111132313113-0013121312101130-2001323322322232-3010000201300030-2311113000302123",
       "registry_path": "docs/guides/data-sources--forward_proxy_policy--reference--group-002.md",
@@ -3200,20 +3200,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/forward_proxy_policy/properties/rule_list/rules/dst_label_selector/index.txt",
-      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
+      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
       "summary": "This type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects. A null label selector matches no objects.",
       "tasks": ["configuration"],
       "title": "rule_list.rules.dst_label_selector",
       "upstream_identity": {
-        "release_tag": "v12.0.8",
+        "release_tag": "v12.0.9",
         "schema_components": ["forward_proxy_policyCreateRequest"],
-        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
+        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
       }
     },
     {
       "aliases": ["rule list rules dst prefix list"],
       "body_bytes": 2069,
-      "body_sha256": "sha256:270d9fcf08f92e1a2b5c641de36d99b77406746ffb6932a0b9eb4b842aea0d20",
+      "body_sha256": "sha256:1eb306601a2715ae2ed471cbbbbff7f58481ed192eb9cbdd09e737567f2a8f36",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -3230,7 +3230,7 @@
       "path": "documentation/data-sources/forward_proxy_policy/properties/rule_list/rules/dst_prefix_list/index.md",
       "product": "distributed-cloud",
       "provider_name": "forward_proxy_policy",
-      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
+      "provider_schema_digest": "sha256:a43a21ec82c017926d35acc6efc3b0a8740fd394357a09aa0e63e65503eb7aff",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1302021011333221-1202321123122020-2132230322001012-2021003030013130-3003132133103002-0232330130210222-0130211121032322-1300232013202233",
       "registry_path": "docs/guides/data-sources--forward_proxy_policy--reference--group-002.md",
@@ -3257,14 +3257,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/forward_proxy_policy/properties/rule_list/rules/dst_prefix_list/index.txt",
-      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
+      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
       "summary": "List of IPv4 prefixes that represent an endpoint.",
       "tasks": ["configuration"],
       "title": "rule_list.rules.dst_prefix_list",
       "upstream_identity": {
-        "release_tag": "v12.0.8",
+        "release_tag": "v12.0.9",
         "schema_components": ["forward_proxy_policyCreateRequest"],
-        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
+        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
       }
     },
     {
@@ -3287,7 +3287,7 @@
       "path": "documentation/data-sources/forward_proxy_policy/properties/rule_list/rules/http_list/index.md",
       "product": "distributed-cloud",
       "provider_name": "forward_proxy_policy",
-      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
+      "provider_schema_digest": "sha256:a43a21ec82c017926d35acc6efc3b0a8740fd394357a09aa0e63e65503eb7aff",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1103300030210331-2011320120302321-0221032310121221-0022100210211113-0020301030212012-3001201322312321-1200221130112110-0003030210222211",
       "registry_path": "docs/guides/data-sources--forward_proxy_policy--reference--group-002.md",
@@ -3314,20 +3314,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/forward_proxy_policy/properties/rule_list/rules/http_list/index.txt",
-      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
+      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
       "summary": "URLListType.",
       "tasks": ["configuration"],
       "title": "rule_list.rules.http_list",
       "upstream_identity": {
-        "release_tag": "v12.0.8",
+        "release_tag": "v12.0.9",
         "schema_components": ["forward_proxy_policyCreateRequest"],
-        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
+        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
       }
     },
     {
       "aliases": ["rule list rules http list http list"],
       "body_bytes": 8817,
-      "body_sha256": "sha256:67bf65425ffd6acfcc19650505992c3a531d97fe11978426708b91cd4c9f190e",
+      "body_sha256": "sha256:da1f151ab5c9bfe75bb727fc94033bfdc69244ea1f492a16664c409da538eee0",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -3346,7 +3346,7 @@
       "path": "documentation/data-sources/forward_proxy_policy/properties/rule_list/rules/http_list/http_list/index.md",
       "product": "distributed-cloud",
       "provider_name": "forward_proxy_policy",
-      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
+      "provider_schema_digest": "sha256:a43a21ec82c017926d35acc6efc3b0a8740fd394357a09aa0e63e65503eb7aff",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1003321321330001-0303131032030213-0232323233130012-2203312203321133-1321010000012031-2111113211232030-2120302312102011-3301121212202203",
       "registry_path": "docs/guides/data-sources--forward_proxy_policy--reference--group-002.md",
@@ -3469,14 +3469,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/forward_proxy_policy/properties/rule_list/rules/http_list/http_list/index.txt",
-      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
+      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
       "summary": "URLs for HTTP connections.",
       "tasks": ["configuration"],
       "title": "rule_list.rules.http_list.http_list",
       "upstream_identity": {
-        "release_tag": "v12.0.8",
+        "release_tag": "v12.0.9",
         "schema_components": ["forward_proxy_policyCreateRequest"],
-        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
+        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
       }
     },
     {
@@ -3499,7 +3499,7 @@
       "path": "documentation/data-sources/forward_proxy_policy/properties/rule_list/rules/http_list/http_list/any_path/index.md",
       "product": "distributed-cloud",
       "provider_name": "forward_proxy_policy",
-      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
+      "provider_schema_digest": "sha256:a43a21ec82c017926d35acc6efc3b0a8740fd394357a09aa0e63e65503eb7aff",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3333022102011120-3232120200301210-1001022300001130-0322221310302030-1333303212210200-0213321232313103-3223113020301220-2230030322330313",
       "registry_path": "docs/guides/data-sources--forward_proxy_policy--reference--group-002.md",
@@ -3509,20 +3509,20 @@
       "schema_path": ["rule_list", "rules", "http_list", "http_list", "any_path"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/forward_proxy_policy/properties/rule_list/rules/http_list/http_list/any_path/index.txt",
-      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
+      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "rule_list.rules.http_list.http_list.any_path",
       "upstream_identity": {
-        "release_tag": "v12.0.8",
+        "release_tag": "v12.0.9",
         "schema_components": ["forward_proxy_policyCreateRequest"],
-        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
+        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
       }
     },
     {
       "aliases": ["rule list rules ip prefix set"],
       "body_bytes": 4615,
-      "body_sha256": "sha256:edb8b374609b2b5c5d9337c6146f9a471a2bb02b6d99667200cb1e0a0a2ee066",
+      "body_sha256": "sha256:d5745755f0519fd785804cae3f68e9058d66148828f81e29b897a3e32ce4862d",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -3539,7 +3539,7 @@
       "path": "documentation/data-sources/forward_proxy_policy/properties/rule_list/rules/ip_prefix_set/index.md",
       "product": "distributed-cloud",
       "provider_name": "forward_proxy_policy",
-      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
+      "provider_schema_digest": "sha256:a43a21ec82c017926d35acc6efc3b0a8740fd394357a09aa0e63e65503eb7aff",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2212103130223310-3330130302022032-0203030031113130-1003332132223122-1023111013210012-0030311012030221-2111023131032223-2232213101213000",
       "registry_path": "docs/guides/data-sources--forward_proxy_policy--reference--group-002.md",
@@ -3619,20 +3619,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/forward_proxy_policy/properties/rule_list/rules/ip_prefix_set/index.txt",
-      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
+      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "rule_list.rules.ip_prefix_set",
       "upstream_identity": {
-        "release_tag": "v12.0.8",
+        "release_tag": "v12.0.9",
         "schema_components": ["forward_proxy_policyCreateRequest"],
-        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
+        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
       }
     },
     {
       "aliases": ["rule list rules label selector"],
       "body_bytes": 3383,
-      "body_sha256": "sha256:e21f720be38dddd1fa02b571d9ac20783b0c9f711f1bb657c7fe475d9ea59aeb",
+      "body_sha256": "sha256:9de6f267528c91ca7c5d55e8cd953f937e40b14db07a0691d509897fd30bd8ef",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -3649,7 +3649,7 @@
       "path": "documentation/data-sources/forward_proxy_policy/properties/rule_list/rules/label_selector/index.md",
       "product": "distributed-cloud",
       "provider_name": "forward_proxy_policy",
-      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
+      "provider_schema_digest": "sha256:a43a21ec82c017926d35acc6efc3b0a8740fd394357a09aa0e63e65503eb7aff",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0121013023233311-1203120030030033-1332300301332300-0321210320000300-1112203010322331-1133332312311203-2212003212000211-0102321303223132",
       "registry_path": "docs/guides/data-sources--forward_proxy_policy--reference--group-002.md",
@@ -3676,20 +3676,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/forward_proxy_policy/properties/rule_list/rules/label_selector/index.txt",
-      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
+      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
       "summary": "This type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects. A null label selector matches no objects.",
       "tasks": ["configuration"],
       "title": "rule_list.rules.label_selector",
       "upstream_identity": {
-        "release_tag": "v12.0.8",
+        "release_tag": "v12.0.9",
         "schema_components": ["forward_proxy_policyCreateRequest"],
-        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
+        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
       }
     },
     {
       "aliases": ["rule list rules metadata"],
       "body_bytes": 3000,
-      "body_sha256": "sha256:ef600a32ef48b3163858190170abdc6f6b8e83368544fee57d83de71d09f3516",
+      "body_sha256": "sha256:41851b26ca0952b3b62fd5d3ab653d7947d834527cdbd216cac1fc478130c400",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -3706,7 +3706,7 @@
       "path": "documentation/data-sources/forward_proxy_policy/properties/rule_list/rules/metadata/index.md",
       "product": "distributed-cloud",
       "provider_name": "forward_proxy_policy",
-      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
+      "provider_schema_digest": "sha256:a43a21ec82c017926d35acc6efc3b0a8740fd394357a09aa0e63e65503eb7aff",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3223102201230333-0133323300113202-0020231011110213-1103132313011100-2303122321311003-3120230013203320-0203112302310020-0011101020213312",
       "registry_path": "docs/guides/data-sources--forward_proxy_policy--reference--group-002.md",
@@ -3749,14 +3749,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/forward_proxy_policy/properties/rule_list/rules/metadata/index.txt",
-      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
+      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
       "summary": "MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create and replace APIs.",
       "tasks": ["configuration"],
       "title": "rule_list.rules.metadata",
       "upstream_identity": {
-        "release_tag": "v12.0.8",
+        "release_tag": "v12.0.9",
         "schema_components": ["forward_proxy_policyCreateRequest"],
-        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
+        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
       }
     },
     {
@@ -3779,7 +3779,7 @@
       "path": "documentation/data-sources/forward_proxy_policy/properties/rule_list/rules/no_http_connect_port/index.md",
       "product": "distributed-cloud",
       "provider_name": "forward_proxy_policy",
-      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
+      "provider_schema_digest": "sha256:a43a21ec82c017926d35acc6efc3b0a8740fd394357a09aa0e63e65503eb7aff",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3322110302231022-2313001321321311-0011112313123332-0331303200302032-1300033123310301-3131201202203220-0023301312310322-2323311123323123",
       "registry_path": "docs/guides/data-sources--forward_proxy_policy--reference--group-002.md",
@@ -3789,20 +3789,20 @@
       "schema_path": ["rule_list", "rules", "no_http_connect_port"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/forward_proxy_policy/properties/rule_list/rules/no_http_connect_port/index.txt",
-      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
+      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "rule_list.rules.no_http_connect_port",
       "upstream_identity": {
-        "release_tag": "v12.0.8",
+        "release_tag": "v12.0.9",
         "schema_components": ["forward_proxy_policyCreateRequest"],
-        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
+        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
       }
     },
     {
       "aliases": ["rule list rules port matcher", "succeeded", "success", "successful"],
       "body_bytes": 2938,
-      "body_sha256": "sha256:83681dfa5aff157f8961d0582c3c5caa6088a39874077e9290685f6bf77325c7",
+      "body_sha256": "sha256:fb8a8fd984c44e4c8b48af8cdadbb216fc55d32f7d1676ffe1bdf99d5eafc374",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -3819,7 +3819,7 @@
       "path": "documentation/data-sources/forward_proxy_policy/properties/rule_list/rules/port_matcher/index.md",
       "product": "distributed-cloud",
       "provider_name": "forward_proxy_policy",
-      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
+      "provider_schema_digest": "sha256:a43a21ec82c017926d35acc6efc3b0a8740fd394357a09aa0e63e65503eb7aff",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3303223031202122-2130021033020311-3000130130333300-0233223101103033-0220002000332013-0100230323032120-1303100210111331-2311331133310002",
       "registry_path": "docs/guides/data-sources--forward_proxy_policy--reference--group-002.md",
@@ -3862,20 +3862,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/forward_proxy_policy/properties/rule_list/rules/port_matcher/index.txt",
-      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
+      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
       "summary": "A port matcher specifies a list of port ranges as match criteria. The match is considered successful if the input port falls within any of the port ranges. The result of the match is inverted if invert_matcher is true.",
       "tasks": ["configuration"],
       "title": "rule_list.rules.port_matcher",
       "upstream_identity": {
-        "release_tag": "v12.0.8",
+        "release_tag": "v12.0.9",
         "schema_components": ["forward_proxy_policyCreateRequest"],
-        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
+        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
       }
     },
     {
       "aliases": ["rule list rules prefix list"],
       "body_bytes": 2057,
-      "body_sha256": "sha256:6519338b3997bd336634f62f99c54a99dbb17458b257de5d3ad0c00cdfaa6678",
+      "body_sha256": "sha256:25f77c1fedaf62a27c991bd83e0e97405dbdb0f2d34ad2831879d045ad30a864",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -3892,7 +3892,7 @@
       "path": "documentation/data-sources/forward_proxy_policy/properties/rule_list/rules/prefix_list/index.md",
       "product": "distributed-cloud",
       "provider_name": "forward_proxy_policy",
-      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
+      "provider_schema_digest": "sha256:a43a21ec82c017926d35acc6efc3b0a8740fd394357a09aa0e63e65503eb7aff",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3212130112120111-0303230130202111-3022100232223233-3002201320311201-2201332023302332-2211231010010220-3022300313111010-2321121102331231",
       "registry_path": "docs/guides/data-sources--forward_proxy_policy--reference--group-002.md",
@@ -3919,14 +3919,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/forward_proxy_policy/properties/rule_list/rules/prefix_list/index.txt",
-      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
+      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
       "summary": "List of IPv4 prefixes that represent an endpoint.",
       "tasks": ["configuration"],
       "title": "rule_list.rules.prefix_list",
       "upstream_identity": {
-        "release_tag": "v12.0.8",
+        "release_tag": "v12.0.9",
         "schema_components": ["forward_proxy_policyCreateRequest"],
-        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
+        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
       }
     },
     {
@@ -3949,7 +3949,7 @@
       "path": "documentation/data-sources/forward_proxy_policy/properties/rule_list/rules/tls_list/index.md",
       "product": "distributed-cloud",
       "provider_name": "forward_proxy_policy",
-      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
+      "provider_schema_digest": "sha256:a43a21ec82c017926d35acc6efc3b0a8740fd394357a09aa0e63e65503eb7aff",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3130031113132122-1313310010332323-3012313301202331-1020032123210331-2033230333200121-0311201313100230-3313331323102333-1023320301301321",
       "registry_path": "docs/guides/data-sources--forward_proxy_policy--reference--group-002.md",
@@ -3976,20 +3976,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/forward_proxy_policy/properties/rule_list/rules/tls_list/index.txt",
-      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
+      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
       "summary": "DomainListType.",
       "tasks": ["configuration"],
       "title": "rule_list.rules.tls_list",
       "upstream_identity": {
-        "release_tag": "v12.0.8",
+        "release_tag": "v12.0.9",
         "schema_components": ["forward_proxy_policyCreateRequest"],
-        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
+        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
       }
     },
     {
       "aliases": ["rule list rules tls list tls list"],
       "body_bytes": 5168,
-      "body_sha256": "sha256:14f61e1cf39e084932f2f9f9a75208089de2b9729ce427838ef7851228493330",
+      "body_sha256": "sha256:aeaf66849102b750fa4120829195ca421347314111ad95d2f1080417aaa88aab",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -4006,7 +4006,7 @@
       "path": "documentation/data-sources/forward_proxy_policy/properties/rule_list/rules/tls_list/tls_list/index.md",
       "product": "distributed-cloud",
       "provider_name": "forward_proxy_policy",
-      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
+      "provider_schema_digest": "sha256:a43a21ec82c017926d35acc6efc3b0a8740fd394357a09aa0e63e65503eb7aff",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3010320131320220-1022001113232320-3102131330323313-0200102002102232-3133121213313032-1023122302010301-3211303001020120-1312123113010233",
       "registry_path": "docs/guides/data-sources--forward_proxy_policy--reference--group-002.md",
@@ -4065,20 +4065,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/forward_proxy_policy/properties/rule_list/rules/tls_list/tls_list/index.txt",
-      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
+      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
       "summary": "Domains in SNI for TLS connections.",
       "tasks": ["configuration"],
       "title": "rule_list.rules.tls_list.tls_list",
       "upstream_identity": {
-        "release_tag": "v12.0.8",
+        "release_tag": "v12.0.9",
         "schema_components": ["forward_proxy_policyCreateRequest"],
-        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
+        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
       }
     },
     {
       "aliases": ["rule list rules url category list"],
       "body_bytes": 5446,
-      "body_sha256": "sha256:737ca9b8cc0c893be5264cb8918af3210d3abf1b893df9d7d220404aeeb90c69",
+      "body_sha256": "sha256:d00a739b562db63f180606923b9a188cec73d76138ebdde5db0a39ae0dac69e5",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -4095,7 +4095,7 @@
       "path": "documentation/data-sources/forward_proxy_policy/properties/rule_list/rules/url_category_list/index.md",
       "product": "distributed-cloud",
       "provider_name": "forward_proxy_policy",
-      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
+      "provider_schema_digest": "sha256:a43a21ec82c017926d35acc6efc3b0a8740fd394357a09aa0e63e65503eb7aff",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0233202033222111-2122021223212100-2100002000120303-2133131211221023-2302211312302313-1031130223233300-0112000112200222-3200310020303232",
       "registry_path": "docs/guides/data-sources--forward_proxy_policy--reference--group-002.md",
@@ -4122,14 +4122,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/forward_proxy_policy/properties/rule_list/rules/url_category_list/index.txt",
-      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
+      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
       "summary": "List of URL categories.",
       "tasks": ["configuration"],
       "title": "rule_list.rules.url_category_list",
       "upstream_identity": {
-        "release_tag": "v12.0.8",
+        "release_tag": "v12.0.9",
         "schema_components": ["forward_proxy_policyCreateRequest"],
-        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
+        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
       }
     },
     {
@@ -4152,7 +4152,7 @@
       "path": "documentation/data-sources/forward_proxy_policy/examples/index.md",
       "product": "distributed-cloud",
       "provider_name": "forward_proxy_policy",
-      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
+      "provider_schema_digest": "sha256:a43a21ec82c017926d35acc6efc3b0a8740fd394357a09aa0e63e65503eb7aff",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3301002023232221-2123112022013300-2222032223232202-2230303310220002-1112212003003010-2213333013122132-2120321333320331-3201301212021132",
       "registry_path": "docs/guides/data-sources--forward_proxy_policy--examples--group-001.md",
@@ -4162,14 +4162,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/forward_proxy_policy/examples/index.txt",
-      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
+      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
       "summary": "Examples for xcsh_forward_proxy_policy.",
       "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v12.0.8",
+        "release_tag": "v12.0.9",
         "schema_components": ["forward_proxy_policyCreateRequest"],
-        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
+        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
       }
     },
     {
@@ -4199,7 +4199,7 @@
       "path": "documentation/data-sources/forward_proxy_policy/examples/data-source/index.md",
       "product": "distributed-cloud",
       "provider_name": "forward_proxy_policy",
-      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
+      "provider_schema_digest": "sha256:a43a21ec82c017926d35acc6efc3b0a8740fd394357a09aa0e63e65503eb7aff",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2122121120310111-2113013013313300-3021323301232200-2100311203213301-3333302133221220-1003221331200212-3123221231023322-2132331023111001",
       "registry_path": "docs/guides/data-sources--forward_proxy_policy--examples--group-001.md",
@@ -4209,14 +4209,14 @@
       "schema_path": ["data-source"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/forward_proxy_policy/examples/data-source/index.txt",
-      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
+      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
       "summary": "Data source for xcsh_forward_proxy_policy.",
       "tasks": ["configuration"],
       "title": "Data source",
       "upstream_identity": {
-        "release_tag": "v12.0.8",
+        "release_tag": "v12.0.9",
         "schema_components": ["forward_proxy_policyCreateRequest"],
-        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
+        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
       }
     }
   ],

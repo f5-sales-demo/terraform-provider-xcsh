@@ -2,7 +2,7 @@
 page_title: "allow_list.http_list"
 subcategory: "Security"
 description: "URLs for HTTP connections."
-xcsh_docs: {"aliases": ["allow list http list"], "body_bytes": 8374, "body_sha256": "sha256:c490fb33e76ec4f9128c1631a8a56bd77e4e8ce3ac65826ce034b44287246d71", "capabilities": ["networking"], "category": "networking", "child_ids": ["xcsh-docs:data-sources:forward_proxy_policy:properties:allow_list:http_list:any_path"], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:data-sources:forward_proxy_policy:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:forward_proxy_policy:properties:allow_list:http_list", "parent_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:allow_list", "path": "documentation/data-sources/forward_proxy_policy/properties/allow_list/http_list/index.md", "product": "distributed-cloud", "provider_name": "forward_proxy_policy", "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5", "provider_type": "data-sources", "registry_anchor": "canonical-2003210313333300-1210322233003121-2111232031231120-3330220111130030-3303312221122102-3032333222111200-1220013320222331-2322233331321302", "registry_path": "docs/guides/data-sources--forward_proxy_policy--reference--group-001.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["allow_list", "http_list"], "schema_version": 1, "sections": [{"aliases": ["allow list http list any path"], "anchor": "section", "description": "This can be used for messages where no values are needed.", "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:allow_list:http_list:any_path", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["allow_list", "http_list", "any_path"], "syntax": "attribute", "type": "object"}, {"aliases": ["allow list http list exact value"], "anchor": "schema-allow_list--http_list--exact_value", "description": "Exclusive with Exact domain name.", "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:allow_list:http_list", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["allow_list", "http_list", "exact_value"], "syntax": "attribute", "type": "string"}, {"aliases": ["allow list http list path exact value"], "anchor": "schema-allow_list--http_list--path_exact_value", "description": "Exclusive with Exact Path to match.", "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:allow_list:http_list", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["allow_list", "http_list", "path_exact_value"], "syntax": "attribute", "type": "string"}, {"aliases": ["allow list http list path prefix value"], "anchor": "schema-allow_list--http_list--path_prefix_value", "description": "Exclusive with Prefix of Path e.g \"/abc/xyz\" will match \"/abc/xyz/.*\"", "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:allow_list:http_list", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["allow_list", "http_list", "path_prefix_value"], "syntax": "attribute", "type": "string"}, {"aliases": ["allow list http list path regex value"], "anchor": "schema-allow_list--http_list--path_regex_value", "description": "Exclusive with Regular Expression value for the Path to match.", "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:allow_list:http_list", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["allow_list", "http_list", "path_regex_value"], "syntax": "attribute", "type": "string"}, {"aliases": ["allow list http list regex value"], "anchor": "schema-allow_list--http_list--regex_value", "description": "Exclusive with Regular Expression value for the domain name.", "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:allow_list:http_list", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["allow_list", "http_list", "regex_value"], "syntax": "attribute", "type": "string"}, {"aliases": ["allow list http list suffix value"], "anchor": "schema-allow_list--http_list--suffix_value", "description": "Exclusive with Suffix of domain names e.g \"xyz.com\" will match \"*.xyz.com\"", "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:allow_list:http_list", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["allow_list", "http_list", "suffix_value"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/forward_proxy_policy/properties/allow_list/http_list/index.txt", "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd", "summary": "URLs for HTTP connections.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.8", "schema_components": ["forward_proxy_policyCreateRequest"], "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"}}
+xcsh_docs: {"aliases": ["allow list http list"], "body_bytes": 8374, "body_sha256": "sha256:2bb7aea0f9879ebd6c740eb1d7f6502764b31078da6b835df05d977b1ae78847", "capabilities": ["networking"], "category": "networking", "child_ids": ["xcsh-docs:data-sources:forward_proxy_policy:properties:allow_list:http_list:any_path"], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:data-sources:forward_proxy_policy:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:forward_proxy_policy:properties:allow_list:http_list", "parent_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:allow_list", "path": "documentation/data-sources/forward_proxy_policy/properties/allow_list/http_list/index.md", "product": "distributed-cloud", "provider_name": "forward_proxy_policy", "provider_schema_digest": "sha256:a43a21ec82c017926d35acc6efc3b0a8740fd394357a09aa0e63e65503eb7aff", "provider_type": "data-sources", "registry_anchor": "canonical-2003210313333300-1210322233003121-2111232031231120-3330220111130030-3303312221122102-3032333222111200-1220013320222331-2322233331321302", "registry_path": "docs/guides/data-sources--forward_proxy_policy--reference--group-001.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["allow_list", "http_list"], "schema_version": 1, "sections": [{"aliases": ["allow list http list any path"], "anchor": "section", "description": "This can be used for messages where no values are needed.", "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:allow_list:http_list:any_path", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["allow_list", "http_list", "any_path"], "syntax": "attribute", "type": "object"}, {"aliases": ["allow list http list exact value"], "anchor": "schema-allow_list--http_list--exact_value", "description": "Exclusive with Exact domain name.", "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:allow_list:http_list", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["allow_list", "http_list", "exact_value"], "syntax": "attribute", "type": "string"}, {"aliases": ["allow list http list path exact value"], "anchor": "schema-allow_list--http_list--path_exact_value", "description": "Exclusive with Exact Path to match.", "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:allow_list:http_list", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["allow_list", "http_list", "path_exact_value"], "syntax": "attribute", "type": "string"}, {"aliases": ["allow list http list path prefix value"], "anchor": "schema-allow_list--http_list--path_prefix_value", "description": "Exclusive with Prefix of Path e.g \"/abc/xyz\" will match \"/abc/xyz/.*\"", "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:allow_list:http_list", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["allow_list", "http_list", "path_prefix_value"], "syntax": "attribute", "type": "string"}, {"aliases": ["allow list http list path regex value"], "anchor": "schema-allow_list--http_list--path_regex_value", "description": "Exclusive with Regular Expression value for the Path to match.", "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:allow_list:http_list", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["allow_list", "http_list", "path_regex_value"], "syntax": "attribute", "type": "string"}, {"aliases": ["allow list http list regex value"], "anchor": "schema-allow_list--http_list--regex_value", "description": "Exclusive with Regular Expression value for the domain name.", "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:allow_list:http_list", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["allow_list", "http_list", "regex_value"], "syntax": "attribute", "type": "string"}, {"aliases": ["allow list http list suffix value"], "anchor": "schema-allow_list--http_list--suffix_value", "description": "Exclusive with Suffix of domain names e.g \"xyz.com\" will match \"*.xyz.com\"", "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:allow_list:http_list", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["allow_list", "http_list", "suffix_value"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/forward_proxy_policy/properties/allow_list/http_list/index.txt", "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca", "summary": "URLs for HTTP connections.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.9", "schema_components": ["forward_proxy_policyCreateRequest"], "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -37,7 +37,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-15T10:49:30+00:00"
+      "validatedAt": "2026-10-16T10:31:02+00:00"
     },
     "uniqueItems": true
   },
@@ -85,7 +85,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-15T10:49:30+00:00"
+      "validatedAt": "2026-10-16T10:31:02+00:00"
     },
     "minLength": 1
   },
@@ -130,7 +130,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-15T10:49:30+00:00"
+      "validatedAt": "2026-10-16T10:31:02+00:00"
     },
     "minLength": 1
   },
@@ -181,7 +181,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-15T10:49:30+00:00"
+      "validatedAt": "2026-10-16T10:31:02+00:00"
     },
     "minLength": 1
   },
@@ -227,7 +227,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-15T10:49:30+00:00"
+      "validatedAt": "2026-10-16T10:31:02+00:00"
     },
     "minLength": 1
   },
@@ -272,7 +272,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-15T10:49:30+00:00"
+      "validatedAt": "2026-10-16T10:31:02+00:00"
     },
     "minLength": 1
   },
@@ -324,7 +324,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-15T10:49:30+00:00"
+      "validatedAt": "2026-10-16T10:31:02+00:00"
     },
     "minLength": 1
   },

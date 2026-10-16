@@ -77,7 +77,7 @@
       "path": "documentation/data-sources/dns_compliance_checks/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_compliance_checks",
-      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
+      "provider_schema_digest": "sha256:a43a21ec82c017926d35acc6efc3b0a8740fd394357a09aa0e63e65503eb7aff",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0031332033312303-1303103011111022-1022102332331120-2133012122303100-3003222020332210-1130031122302313-3111210203332032-1102020121010322",
       "registry_path": "docs/data-sources/dns_compliance_checks.md",
@@ -87,21 +87,21 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_compliance_checks/index.txt",
-      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
+      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
       "summary": "Reads DNS Compliance Checks information from F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_dns_compliance_checks",
       "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v12.0.8",
+        "release_tag": "v12.0.9",
         "schema_components": ["dns_compliance_checksCreateRequest"],
-        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
+        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
       }
     },
     {
       "aliases": ["dns compliance checks"],
       "body_bytes": 12531,
-      "body_sha256": "sha256:487b917819cba10640230bcc578f2481a1c7f3a601244ef06fd34c12027df251",
+      "body_sha256": "sha256:87e2042c2bf4c23bae8b875dcfabd167b32c849dbec1e95693e07ddedd606a5a",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -118,7 +118,7 @@
       "path": "documentation/data-sources/dns_compliance_checks/properties/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_compliance_checks",
-      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
+      "provider_schema_digest": "sha256:a43a21ec82c017926d35acc6efc3b0a8740fd394357a09aa0e63e65503eb7aff",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0330131002333110-1321122220010200-2131223002102021-1310111221323211-0220230233200220-1023112122322033-2333123220200320-2331221120111033",
       "registry_path": "docs/guides/data-sources--dns_compliance_checks--reference--group-001.md",
@@ -273,14 +273,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_compliance_checks/properties/index.txt",
-      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
+      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
       "summary": "Property reference for xcsh_dns_compliance_checks.",
       "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v12.0.8",
+        "release_tag": "v12.0.9",
         "schema_components": ["dns_compliance_checksCreateRequest"],
-        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
+        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
       }
     },
     {
@@ -303,7 +303,7 @@
       "path": "documentation/data-sources/dns_compliance_checks/examples/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_compliance_checks",
-      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
+      "provider_schema_digest": "sha256:a43a21ec82c017926d35acc6efc3b0a8740fd394357a09aa0e63e65503eb7aff",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1031133330112323-2333310330130012-0303023000001221-2303133311033202-2003032212223212-3300303330201300-1220311133311020-2332213023222223",
       "registry_path": "docs/guides/data-sources--dns_compliance_checks--examples--group-001.md",
@@ -313,14 +313,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_compliance_checks/examples/index.txt",
-      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
+      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
       "summary": "Examples for xcsh_dns_compliance_checks.",
       "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v12.0.8",
+        "release_tag": "v12.0.9",
         "schema_components": ["dns_compliance_checksCreateRequest"],
-        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
+        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
       }
     },
     {
@@ -350,7 +350,7 @@
       "path": "documentation/data-sources/dns_compliance_checks/examples/data-source/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_compliance_checks",
-      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
+      "provider_schema_digest": "sha256:a43a21ec82c017926d35acc6efc3b0a8740fd394357a09aa0e63e65503eb7aff",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3223301002123130-1102123320223113-1000323131213300-2020130331010232-3112022012022111-3203321303113121-1112002121312113-2331320022132211",
       "registry_path": "docs/guides/data-sources--dns_compliance_checks--examples--group-001.md",
@@ -360,14 +360,14 @@
       "schema_path": ["data-source"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_compliance_checks/examples/data-source/index.txt",
-      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
+      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
       "summary": "Data source for xcsh_dns_compliance_checks.",
       "tasks": ["configuration"],
       "title": "Data source",
       "upstream_identity": {
-        "release_tag": "v12.0.8",
+        "release_tag": "v12.0.9",
         "schema_components": ["dns_compliance_checksCreateRequest"],
-        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
+        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
       }
     }
   ],

@@ -2,9 +2,9 @@
   "complete": false,
   "complete_fields": 1556,
   "enum_fields": 341,
-  "installed_fields": 35127,
+  "installed_fields": 35128,
   "runtime_registration_verified": false,
-  "schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
+  "schema_digest": "sha256:a43a21ec82c017926d35acc6efc3b0a8740fd394357a09aa0e63e65503eb7aff",
   "unresolved": [
     {
       "reason": "coverage-not-exported",
@@ -132753,6 +132753,11 @@
     },
     {
       "reason": "coverage-not-exported",
+      "schema_path": "certified_hw",
+      "source": "site_registration_data_source.go"
+    },
+    {
+      "reason": "coverage-not-exported",
       "schema_path": "cluster_name",
       "source": "site_registration_data_source.go"
     },
@@ -167862,6 +167867,6 @@
       "source": "workload_resource.go"
     }
   ],
-  "unresolved_fields": 33571,
+  "unresolved_fields": 33572,
   "version": 1
 }
