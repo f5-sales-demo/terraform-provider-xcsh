@@ -403,6 +403,7 @@ func (r *SecretPolicyResource) Delete(ctx context.Context, q resource.DeleteRequ
 	s.Diagnostics.AddError("Secret Policy Tombstone Pending", fmt.Sprintf("Policy still exists (marked_for_delete=%t, deletion_time=%s). State is retained. Retry destroy after expiry; marked policies never receive a second DELETE.", p.Spec.MarkedForDelete, p.Spec.DeletionTime))
 }
 func (r *SecretPolicyResource) ImportState(ctx context.Context, q resource.ImportStateRequest, s *resource.ImportStateResponse) {
+	// Import ID format: namespace/name
 	parts := strings.Split(q.ID, "/")
 	if len(parts) != 2 || !secretPolicyIdentifier.MatchString(parts[0]) || !secretPolicyIdentifier.MatchString(parts[1]) {
 		s.Diagnostics.AddError("Invalid Import ID", "Use namespace/name.")
