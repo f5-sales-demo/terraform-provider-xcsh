@@ -4,13 +4,19 @@ import importlib.util
 import unittest
 from pathlib import Path
 
-import pytest
-
 SPEC = importlib.util.spec_from_file_location(
     "smsv2_capabilities", Path(__file__).parents[1] / "scripts/smsv2_capabilities.py"
 )
 MODULE = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(MODULE)
+
+
+def rejection(rows, previous):
+    try:
+        MODULE.reconcile(rows, previous)
+    except ValueError as error:
+        return str(error)
+    return ""
 
 
 class CapabilityTests(unittest.TestCase):
@@ -72,15 +78,39 @@ class CapabilityTests(unittest.TestCase):
             "resources", "xcsh_securemesh_site_v2", {"path": "aws", "kind": "attribute"}
         )
         row["runtime"]["aws"]["status"] = "qualified"
-        with pytest.raises(ValueError, match="requires receipts"):
-            MODULE.reconcile([row], [row])
+        assert "requires receipts" in rejection([row], [row])
 
     def test_reconcile_rejects_duplicate_ids(self):
         row = MODULE.capability(
             "resources", "xcsh_securemesh_site_v2", {"path": "aws", "kind": "attribute"}
         )
-        with pytest.raises(ValueError, match="duplicate"):
-            MODULE.reconcile([row], [row, row])
+        assert "duplicate" in rejection([row], [row, row])
+
+    def test_structural_object_types(self):
+        rows, _ = MODULE.walk(
+            {
+                "attributes": {
+                    "refs": {
+                        "type": [
+                            "list",
+                            [
+                                "object",
+                                {
+                                    "name": "string",
+                                    "labels": ["map", ["object", {"value": "string"}]],
+                                },
+                            ],
+                        ]
+                    }
+                }
+            }
+        )
+        assert [row["path"] for row in rows] == [
+            "refs",
+            "refs[].labels",
+            "refs[].labels{}.value",
+            "refs[].name",
+        ]
 
 
 if __name__ == "__main__":
