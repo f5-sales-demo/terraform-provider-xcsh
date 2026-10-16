@@ -185,7 +185,9 @@ def reconcile(rows: list, previous: list) -> list:
 def inventory(document: dict, pins: dict, previous: dict | None = None) -> dict:
     """Build a frozen ledger of current operation surfaces and selection groups."""
     provider = document["provider_schemas"][PROVIDER]
-    rows, operations, selections = [], [], []
+    rows: list[dict[str, Any]] = []
+    operations: list[dict[str, Any]] = []
+    selections: list[dict[str, Any]] = []
     for schema_kind, kind in KINDS.items():
         for name, schema in sorted(provider.get(schema_kind, {}).items()):
             short = name.removeprefix("xcsh_")
