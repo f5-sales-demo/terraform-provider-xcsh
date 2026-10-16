@@ -1,3 +1,14 @@
+terraform {
+  required_version = ">= 1.14.0"
+  required_providers {
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
+      version = ">= 15.8.3"
+    }
+  }
+}
+
+# Install the current published release containing xcsh_secret_policy.
 # Keep the namespace independently owned. The application pod must carry app=demo-tls.
 resource "xcsh_secret_policy" "application" {
   name                     = "demo-wingman-policy"
