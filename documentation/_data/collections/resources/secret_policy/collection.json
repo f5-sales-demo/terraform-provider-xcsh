@@ -1,0 +1,645 @@
+{
+  "collection": {
+    "fundamentals_id": "xcsh-docs:resources:secret_policy:fundamentals",
+    "id": "xcsh-docs:resources:secret_policy:collection",
+    "properties": {
+      "allow_f5xc": {
+        "anchor": "schema-allow_f5xc",
+        "document_id": "xcsh-docs:resources:secret_policy:reference",
+        "schema_path": ["allow_f5xc"]
+      },
+      "annotations": {
+        "anchor": "schema-annotations",
+        "document_id": "xcsh-docs:resources:secret_policy:reference",
+        "schema_path": ["annotations"]
+      },
+      "decrypt_cache_timeout": {
+        "anchor": "schema-decrypt_cache_timeout",
+        "document_id": "xcsh-docs:resources:secret_policy:reference",
+        "schema_path": ["decrypt_cache_timeout"]
+      },
+      "deletion_time": {
+        "anchor": "schema-deletion_time",
+        "document_id": "xcsh-docs:resources:secret_policy:reference",
+        "schema_path": ["deletion_time"]
+      },
+      "description": {
+        "anchor": "schema-description",
+        "document_id": "xcsh-docs:resources:secret_policy:reference",
+        "schema_path": ["description"]
+      },
+      "id": {
+        "anchor": "schema-id",
+        "document_id": "xcsh-docs:resources:secret_policy:reference",
+        "schema_path": ["id"]
+      },
+      "labels": {
+        "anchor": "schema-labels",
+        "document_id": "xcsh-docs:resources:secret_policy:reference",
+        "schema_path": ["labels"]
+      },
+      "marked_for_delete": {
+        "anchor": "schema-marked_for_delete",
+        "document_id": "xcsh-docs:resources:secret_policy:reference",
+        "schema_path": ["marked_for_delete"]
+      },
+      "name": {
+        "anchor": "schema-name",
+        "document_id": "xcsh-docs:resources:secret_policy:reference",
+        "schema_path": ["name"]
+      },
+      "namespace": {
+        "anchor": "schema-namespace",
+        "document_id": "xcsh-docs:resources:secret_policy:reference",
+        "schema_path": ["namespace"]
+      },
+      "rule_combining_algorithm": {
+        "anchor": "schema-rule_combining_algorithm",
+        "document_id": "xcsh-docs:resources:secret_policy:reference",
+        "schema_path": ["rule_combining_algorithm"]
+      },
+      "rules": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:secret_policy:properties:rules",
+        "schema_path": ["rules"]
+      },
+      "rules.action": {
+        "anchor": "schema-rules--action",
+        "document_id": "xcsh-docs:resources:secret_policy:properties:rules",
+        "schema_path": ["rules", "action"]
+      },
+      "rules.client_selector": {
+        "anchor": "schema-rules--client_selector",
+        "document_id": "xcsh-docs:resources:secret_policy:properties:rules",
+        "schema_path": ["rules", "client_selector"]
+      },
+      "rules.description": {
+        "anchor": "schema-rules--description",
+        "document_id": "xcsh-docs:resources:secret_policy:properties:rules",
+        "schema_path": ["rules", "description"]
+      },
+      "rules.name": {
+        "anchor": "schema-rules--name",
+        "document_id": "xcsh-docs:resources:secret_policy:properties:rules",
+        "schema_path": ["rules", "name"]
+      },
+      "uid": {
+        "anchor": "schema-uid",
+        "document_id": "xcsh-docs:resources:secret_policy:reference",
+        "schema_path": ["uid"]
+      }
+    },
+    "provider_name": "secret_policy",
+    "provider_type": "resources",
+    "reference_id": "xcsh-docs:resources:secret_policy:reference"
+  },
+  "pages": [
+    {
+      "aliases": ["adopt existing object", "import existing resource", "secret policy"],
+      "body_bytes": 2115,
+      "body_sha256": "sha256:f234511cb27efc8e946e6533e650574daed7abd13e53b4bb26b3ce3608876e70",
+      "capabilities": ["security"],
+      "category": "security",
+      "child_ids": [
+        "xcsh-docs:resources:secret_policy:reference",
+        "xcsh-docs:resources:secret_policy:examples",
+        "xcsh-docs:resources:secret_policy:import"
+      ],
+      "classification": {
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
+        "sources": ["receipt-pinned-upstream"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-resource"
+      },
+      "collection_id": "xcsh-docs:resources:secret_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:secret_policy:fundamentals",
+      "parent_id": "xcsh-docs:resources:xcsh:navigation",
+      "path": "documentation/resources/secret_policy/index.md",
+      "product": "distributed-cloud",
+      "provider_name": "secret_policy",
+      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
+      "provider_type": "resources",
+      "registry_anchor": "canonical-1312021301020310-0131200100331301-3002003211003233-3010322032311123-0022212322233110-2113210022031113-0031130332112033-3113012311332111",
+      "registry_path": "docs/resources/secret_policy.md",
+      "relationships": [],
+      "retrieval_version": 1,
+      "role": "fundamentals",
+      "schema_path": [],
+      "sections": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/secret_policy/index.txt",
+      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
+      "summary": "Owns a native Secret Policy with ordered inline ALLOW/DENY rules. Evaluation is FIRST_MATCH (top to bottom); no invented API algorithm field is sent. Deletion is soft: destroy remains pending while a tombstone exists and never repeats DELETE for a marked policy. Import namespace/name; legacy child references are",
+      "tasks": ["configuration"],
+      "title": "xcsh_secret_policy",
+      "unresolved_relationships": [],
+      "upstream_identity": {
+        "release_tag": "v12.0.8",
+        "schema_components": ["secret_policyCreateRequest"],
+        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
+      }
+    },
+    {
+      "aliases": ["secret policy"],
+      "body_bytes": 11748,
+      "body_sha256": "sha256:e705a2789ca4ff0966f31ae4e481f9fa250717ce87fc0daea73ae495625adea1",
+      "capabilities": ["security"],
+      "category": "security",
+      "child_ids": ["xcsh-docs:resources:secret_policy:properties:rules"],
+      "classification": {
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
+        "sources": ["receipt-pinned-upstream"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-resource"
+      },
+      "collection_id": "xcsh-docs:resources:secret_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:secret_policy:reference",
+      "parent_id": "xcsh-docs:resources:secret_policy:fundamentals",
+      "path": "documentation/resources/secret_policy/properties/index.md",
+      "product": "distributed-cloud",
+      "provider_name": "secret_policy",
+      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
+      "provider_type": "resources",
+      "registry_anchor": "canonical-1213313330302120-1100122222322313-2323333222220332-2211122300300103-3232201121133200-0113220013210033-2322130013023011-1132310023231200",
+      "registry_path": "docs/guides/resources--secret_policy--reference--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
+      "role": "reference",
+      "schema_path": [],
+      "sections": [
+        {
+          "aliases": ["allow f5xc"],
+          "anchor": "schema-allow_f5xc",
+          "description": "If allow_f5xc is set to true, it allows relevant F5XC infrastructure services to decrypt the secret encrypted using this policy.",
+          "document_id": "xcsh-docs:resources:secret_policy:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
+          "flags": ["optional", "computed"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["allow_f5xc"],
+          "syntax": "attribute",
+          "type": "bool"
+        },
+        {
+          "aliases": ["annotations"],
+          "anchor": "schema-annotations",
+          "description": "Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when modifying objects.",
+          "document_id": "xcsh-docs:resources:secret_policy:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["annotations"],
+          "syntax": "attribute",
+          "type": "map"
+        },
+        {
+          "aliases": ["decrypt cache timeout", "duration"],
+          "anchor": "schema-decrypt_cache_timeout",
+          "description": "Decrypt_cache_timeout contains the amount of time a decrypted secret is cached in wingman. Value for this parameter is a string ending in the suffix \"s\" (indicating seconds), suffix \"m\" (indicating minutes) or suffix \"h\" (indicating hours)",
+          "document_id": "xcsh-docs:resources:secret_policy:reference",
+          "enum_extraction_complete": true,
+          "enum_validators": [],
+          "flags": ["optional", "computed"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["decrypt_cache_timeout"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["deletion time"],
+          "anchor": "schema-deletion_time",
+          "description": "deletion time",
+          "document_id": "xcsh-docs:resources:secret_policy:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
+          "flags": ["computed"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["deletion_time"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["description"],
+          "anchor": "schema-description",
+          "description": "Human readable description for the object.",
+          "document_id": "xcsh-docs:resources:secret_policy:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["description"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["id"],
+          "anchor": "schema-id",
+          "description": "id",
+          "document_id": "xcsh-docs:resources:secret_policy:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
+          "flags": ["computed"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["id"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["labels"],
+          "anchor": "schema-labels",
+          "description": "Map of string keys and values that can be used to organize and categorize (scope and select) objects as chosen by the user. Values specified here will be used by selector expression.",
+          "document_id": "xcsh-docs:resources:secret_policy:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["labels"],
+          "syntax": "attribute",
+          "type": "map"
+        },
+        {
+          "aliases": ["marked for delete"],
+          "anchor": "schema-marked_for_delete",
+          "description": "marked for delete",
+          "document_id": "xcsh-docs:resources:secret_policy:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
+          "flags": ["computed"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["marked_for_delete"],
+          "syntax": "attribute",
+          "type": "bool"
+        },
+        {
+          "aliases": ["name"],
+          "anchor": "schema-name",
+          "description": "This is the name of configuration object. It has to be unique within the namespace. It can only be specified during create API and cannot be changed during replace API. The value of name has to follow DNS-1035 format.",
+          "document_id": "xcsh-docs:resources:secret_policy:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
+          "flags": ["required"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["name"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["namespace"],
+          "anchor": "schema-namespace",
+          "description": "This defines the workspace within which each the configuration object is to be created. Must be a DNS_LABEL format. For a namespace object itself, namespace value will be \"\"",
+          "document_id": "xcsh-docs:resources:secret_policy:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
+          "flags": ["required"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["namespace"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["rule combining algorithm"],
+          "anchor": "schema-rule_combining_algorithm",
+          "description": "rule combining algorithm",
+          "document_id": "xcsh-docs:resources:secret_policy:reference",
+          "enum_extraction_complete": true,
+          "enum_validators": [
+            {
+              "case_sensitive": true,
+              "complete": true,
+              "source": "ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf",
+              "validator": "OneOf",
+              "values": ["FIRST_MATCH"],
+              "version": 1
+            }
+          ],
+          "flags": ["optional", "computed"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["rule_combining_algorithm"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["rules"],
+          "anchor": "section",
+          "description": "rules",
+          "document_id": "xcsh-docs:resources:secret_policy:properties:rules",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
+          "flags": ["required"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "list",
+          "relationships": [],
+          "schema_path": ["rules"],
+          "syntax": "attribute",
+          "type": "object"
+        },
+        {
+          "aliases": ["uid"],
+          "anchor": "schema-uid",
+          "description": "uid",
+          "document_id": "xcsh-docs:resources:secret_policy:reference",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
+          "flags": ["computed"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["uid"],
+          "syntax": "attribute",
+          "type": "string"
+        }
+      ],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/secret_policy/properties/index.txt",
+      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
+      "summary": "Property reference for xcsh_secret_policy.",
+      "tasks": ["configuration"],
+      "title": "Property reference",
+      "upstream_identity": {
+        "release_tag": "v12.0.8",
+        "schema_components": ["secret_policyCreateRequest"],
+        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
+      }
+    },
+    {
+      "aliases": ["rules"],
+      "body_bytes": 1765,
+      "body_sha256": "sha256:761d20b6c1e1462d4c0838a7cb43ab32c2a0dab079a875f0243c20398e34cd0d",
+      "capabilities": ["security"],
+      "category": "security",
+      "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
+        "sources": ["receipt-pinned-upstream"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-resource"
+      },
+      "collection_id": "xcsh-docs:resources:secret_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:secret_policy:properties:rules",
+      "parent_id": "xcsh-docs:resources:secret_policy:reference",
+      "path": "documentation/resources/secret_policy/properties/rules/index.md",
+      "product": "distributed-cloud",
+      "provider_name": "secret_policy",
+      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
+      "provider_type": "resources",
+      "registry_anchor": "canonical-1111232303130011-1030301132230333-3012212320310123-1213022030003030-3202032333121311-2232110321210330-3200001233322211-0333333311023332",
+      "registry_path": "docs/guides/resources--secret_policy--reference--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
+      "role": "properties",
+      "schema_path": ["rules"],
+      "sections": [
+        {
+          "aliases": ["rules action"],
+          "anchor": "schema-rules--action",
+          "description": "action",
+          "document_id": "xcsh-docs:resources:secret_policy:properties:rules",
+          "enum_extraction_complete": true,
+          "enum_validators": [
+            {
+              "case_sensitive": true,
+              "complete": true,
+              "source": "ast-validator:github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator.OneOf",
+              "validator": "OneOf",
+              "values": ["ALLOW", "DENY"],
+              "version": 1
+            }
+          ],
+          "flags": ["required"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["rules", "action"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["rules client selector"],
+          "anchor": "schema-rules--client_selector",
+          "description": "Kubernetes selector expression. Omitted selector matches every client; use only for a final DENY rule.",
+          "document_id": "xcsh-docs:resources:secret_policy:properties:rules",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["rules", "client_selector"],
+          "syntax": "attribute",
+          "type": "list"
+        },
+        {
+          "aliases": ["rules description"],
+          "anchor": "schema-rules--description",
+          "description": "description",
+          "document_id": "xcsh-docs:resources:secret_policy:properties:rules",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["rules", "description"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["rules name"],
+          "anchor": "schema-rules--name",
+          "description": "name",
+          "document_id": "xcsh-docs:resources:secret_policy:properties:rules",
+          "enum_extraction_complete": false,
+          "enum_validators": [],
+          "flags": ["required"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["rules", "name"],
+          "syntax": "attribute",
+          "type": "string"
+        }
+      ],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/secret_policy/properties/rules/index.txt",
+      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
+      "summary": "rules for xcsh_secret_policy.",
+      "tasks": ["configuration"],
+      "title": "rules",
+      "upstream_identity": {
+        "release_tag": "v12.0.8",
+        "schema_components": ["secret_policyCreateRequest"],
+        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
+      }
+    },
+    {
+      "aliases": ["secret policy"],
+      "body_bytes": 405,
+      "body_sha256": "sha256:3cc0cfbd5f10df60978df7ccce069ce9177cebd9376e4974217448d798412f73",
+      "capabilities": ["security"],
+      "category": "security",
+      "child_ids": ["xcsh-docs:resources:secret_policy:example:resource"],
+      "classification": {
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
+        "sources": ["receipt-pinned-upstream"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-resource"
+      },
+      "collection_id": "xcsh-docs:resources:secret_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:secret_policy:examples",
+      "parent_id": "xcsh-docs:resources:secret_policy:fundamentals",
+      "path": "documentation/resources/secret_policy/examples/index.md",
+      "product": "distributed-cloud",
+      "provider_name": "secret_policy",
+      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
+      "provider_type": "resources",
+      "registry_anchor": "canonical-2233130113121122-3201312031313030-0131110311312111-3303220122302031-1113010302111212-0230212120110222-0222113301021113-3000322000122310",
+      "registry_path": "docs/guides/resources--secret_policy--examples--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
+      "role": "examples",
+      "schema_path": [],
+      "sections": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/secret_policy/examples/index.txt",
+      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
+      "summary": "Examples for xcsh_secret_policy.",
+      "tasks": ["configuration"],
+      "title": "Examples",
+      "upstream_identity": {
+        "release_tag": "v12.0.8",
+        "schema_components": ["secret_policyCreateRequest"],
+        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
+      }
+    },
+    {
+      "aliases": ["resource"],
+      "body_bytes": 1347,
+      "body_sha256": "sha256:301bf87f827f72a20d5cdd5081e1602a589cd768817cf7ecb6bb4471ca876f47",
+      "capabilities": ["security"],
+      "category": "security",
+      "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
+        "sources": ["receipt-pinned-upstream"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-resource"
+      },
+      "collection_id": "xcsh-docs:resources:secret_policy:collection",
+      "completeness": "complete",
+      "evidence": {
+        "attribution": "Schema-derived minimal configuration validated with the checked-out provider.",
+        "outcome": "valid configuration",
+        "sha256": "sha256:f59eb002c8cb50585be56dfb7682ee9d3bd976a6ce27601c7cb63562b64c6c5f",
+        "source_path": "examples/resources/xcsh_secret_policy/resource.tf",
+        "validation": "terraform validate"
+      },
+      "id": "xcsh-docs:resources:secret_policy:example:resource",
+      "parent_id": "xcsh-docs:resources:secret_policy:examples",
+      "path": "documentation/resources/secret_policy/examples/resource/index.md",
+      "product": "distributed-cloud",
+      "provider_name": "secret_policy",
+      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
+      "provider_type": "resources",
+      "registry_anchor": "canonical-3331221202302033-1321203231013113-2131303202012320-2312133000103013-3010222033113123-2320221223301003-3301300302210021-0012212322100010",
+      "registry_path": "docs/guides/resources--secret_policy--examples--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
+      "role": "example",
+      "schema_path": ["resource"],
+      "sections": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/secret_policy/examples/resource/index.txt",
+      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
+      "summary": "Resource for xcsh_secret_policy.",
+      "tasks": ["configuration"],
+      "title": "Resource",
+      "upstream_identity": {
+        "release_tag": "v12.0.8",
+        "schema_components": ["secret_policyCreateRequest"],
+        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
+      }
+    },
+    {
+      "aliases": ["secret policy"],
+      "body_bytes": 364,
+      "body_sha256": "sha256:569aff61a7b894c4b8dbdb08beeea85ee4829d61c6cd49afcc16bb57ec4cb451",
+      "capabilities": ["security"],
+      "category": "security",
+      "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70",
+        "sources": ["receipt-pinned-upstream"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-resource"
+      },
+      "collection_id": "xcsh-docs:resources:secret_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:secret_policy:import",
+      "import_guidance": "Import using the `namespace/name` identifier format.",
+      "parent_id": "xcsh-docs:resources:secret_policy:fundamentals",
+      "path": "documentation/resources/secret_policy/lifecycle/import/index.md",
+      "product": "distributed-cloud",
+      "provider_name": "secret_policy",
+      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
+      "provider_type": "resources",
+      "registry_anchor": "canonical-2111131021220031-2323002001201332-3203310300212013-2033202133131221-2323022112202023-3031312211011310-1303310232320032-3332003112313022",
+      "registry_path": "docs/guides/resources--secret_policy--lifecycle--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
+      "role": "import",
+      "schema_path": [],
+      "sections": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/secret_policy/lifecycle/import/index.txt",
+      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
+      "summary": "Import for xcsh_secret_policy.",
+      "tasks": ["import"],
+      "title": "Import",
+      "upstream_identity": {
+        "release_tag": "v12.0.8",
+        "schema_components": ["secret_policyCreateRequest"],
+        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
+      }
+    }
+  ],
+  "provider": "registry.terraform.io/f5-sales-demo/xcsh",
+  "schema_version": 1
+}

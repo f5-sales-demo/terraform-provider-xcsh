@@ -2,6 +2,223 @@
   "schema_version": 1,
   "sections": [
     {
+      "canonical_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_mobile_endpoints:protected_mobile_endpoints:transaction_result_criteria:transaction_result_success:cookie_v2:cookies_none",
+      "section_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_mobile_endpoints:protected_mobile_endpoints:transaction_result_criteria:transaction_result_success:cookie_v2:cookies_none:section:1",
+      "source_sha256": "sha256:503957c5be08328f1145b62e2454bcd4f879bd8960a38c09c1f98774c87ec829",
+      "source_bytes": 348,
+      "canonical_source_sha256": "sha256:25ad73e25e56ecaa5c37e91239f5c680c430dba54b3a59a28622df5ec9f19887",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bot_endpoint_policy/properties/endpoint_policy_content/protected_mobile_endpoints/protected_mobile_endpoints/transaction_result_criteria/transaction_result_success/cookie_v2/cookies_none/",
+      "anchor": "canonical-2222022022123001-3203133221033020-2330022000131323-3113003103202322-0002332333312102-2000122222101311-2322301330230330-0322223332020132",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--bot_endpoint_policy--reference--group-013.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_mobile_endpoints:protected_mobile_endpoints:transaction_result_criteria:transaction_result_success:cookie_v2:cookies_none:cookie_operator",
+      "section_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_mobile_endpoints:protected_mobile_endpoints:transaction_result_criteria:transaction_result_success:cookie_v2:cookies_none:cookie_operator:section:0",
+      "source_sha256": "sha256:2edba1167e9f268e6273fbedf0c6d3493fb877bf68e4b439c7aaec492780d6d1",
+      "source_bytes": 2927,
+      "canonical_source_sha256": "sha256:e91ca84c0119a255120b92e2dd919c6c6ea2a113b7cf4f231c32858b5987727e",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bot_endpoint_policy/properties/endpoint_policy_content/protected_mobile_endpoints/protected_mobile_endpoints/transaction_result_criteria/transaction_result_success/cookie_v2/cookies_none/cookie_operator/",
+      "anchor": "canonical-1133000320121323-1330301123303233-3310120332301102-2003110001220323-3332220210110330-0021201201302330-3213121302202312-2202032330023202",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-0201221003103331-2322011120103103-1113332123200113-1001300000003321-0310112002312330-3203221020131333-1113102121310021-1300322103030232"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--bot_endpoint_policy--reference--group-013.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_mobile_endpoints:protected_mobile_endpoints:transaction_result_criteria:transaction_result_success:cookie_v2:cookies_none:cookie_operator",
+      "section_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_mobile_endpoints:protected_mobile_endpoints:transaction_result_criteria:transaction_result_success:cookie_v2:cookies_none:cookie_operator:section:1",
+      "source_sha256": "sha256:fb3304d455f2afe9a81f647969e98ca6f440d304914411e0865ea2b6ccddaf4a",
+      "source_bytes": 553,
+      "canonical_source_sha256": "sha256:e91ca84c0119a255120b92e2dd919c6c6ea2a113b7cf4f231c32858b5987727e",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bot_endpoint_policy/properties/endpoint_policy_content/protected_mobile_endpoints/protected_mobile_endpoints/transaction_result_criteria/transaction_result_success/cookie_v2/cookies_none/cookie_operator/",
+      "anchor": "canonical-3111132311322100-2233020212133123-3110301111233020-0221203203301323-1211310111022302-0120303032203213-3202233213132001-0321222222030322",
+      "anchor_map": [
+        [
+          "schema-endpoint_policy_content--protected_mobile_endpoints--protected_mobile_endpoints--transaction_result_criteria--transaction_result_success--cookie_v2--cookies_none--cookie_operator--name",
+          "canonical-3223231213133302-2331023330203332-0121000132003030-0231301202110133-1030213012013130-1021110131322103-1203133313212132-3220223111200121"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--bot_endpoint_policy--reference--group-013.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_mobile_endpoints:protected_mobile_endpoints:transaction_result_criteria:transaction_result_success:cookie_v2:cookies_none:cookie_operator",
+      "section_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_mobile_endpoints:protected_mobile_endpoints:transaction_result_criteria:transaction_result_success:cookie_v2:cookies_none:cookie_operator:section:2",
+      "source_sha256": "sha256:c54f5590a8a04b6b004502364cd2d1bf6883f944c7917aba6b10546eb1098004",
+      "source_bytes": 76,
+      "canonical_source_sha256": "sha256:e91ca84c0119a255120b92e2dd919c6c6ea2a113b7cf4f231c32858b5987727e",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bot_endpoint_policy/properties/endpoint_policy_content/protected_mobile_endpoints/protected_mobile_endpoints/transaction_result_criteria/transaction_result_success/cookie_v2/cookies_none/cookie_operator/",
+      "anchor": "canonical-1101010022323202-2121223000033113-0303133321300121-2003312331122313-3120202003103200-1323110032103210-3012032210132210-1212130003012303",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--bot_endpoint_policy--reference--group-013.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_mobile_endpoints:protected_mobile_endpoints:transaction_result_criteria:transaction_result_success:cookie_v2:cookies_none:cookie_operator:cookie",
+      "section_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_mobile_endpoints:protected_mobile_endpoints:transaction_result_criteria:transaction_result_success:cookie_v2:cookies_none:cookie_operator:cookie:section:0",
+      "source_sha256": "sha256:e35eabba9da31128082caae064fa4ae7e7c85fdc2a1a1f5b14e7ba2446ca2485",
+      "source_bytes": 3367,
+      "canonical_source_sha256": "sha256:7d8e7a2aaad0bb18f879e5fd67675195e013a16bf609d91607486a4483ea2641",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bot_endpoint_policy/properties/endpoint_policy_content/protected_mobile_endpoints/protected_mobile_endpoints/transaction_result_criteria/transaction_result_success/cookie_v2/cookies_none/cookie_operator/cookie/",
+      "anchor": "canonical-1032002012231132-2202201330001300-2110220223212210-2022121213023003-1100330023333101-3002100020021200-1013102120232301-1131023130132121",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-0203021300333201-2012032211001101-2311301001200002-2002200001130113-0001100312013331-1312311102220002-1100213102102331-1132333212131000"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--bot_endpoint_policy--reference--group-013.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_mobile_endpoints:protected_mobile_endpoints:transaction_result_criteria:transaction_result_success:cookie_v2:cookies_none:cookie_operator:cookie",
+      "section_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_mobile_endpoints:protected_mobile_endpoints:transaction_result_criteria:transaction_result_success:cookie_v2:cookies_none:cookie_operator:cookie:section:1",
+      "source_sha256": "sha256:61ecdcaaca39695898c17e2331fc4dce65df7cc49e7e5cd324668838d3575995",
+      "source_bytes": 1747,
+      "canonical_source_sha256": "sha256:7d8e7a2aaad0bb18f879e5fd67675195e013a16bf609d91607486a4483ea2641",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bot_endpoint_policy/properties/endpoint_policy_content/protected_mobile_endpoints/protected_mobile_endpoints/transaction_result_criteria/transaction_result_success/cookie_v2/cookies_none/cookie_operator/cookie/",
+      "anchor": "canonical-2200322202330223-2301120311013000-1300031013223231-2320323323110023-0010111010022020-2320023123300030-2330332313120210-1132301010301201",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--bot_endpoint_policy--reference--group-013.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_mobile_endpoints:protected_mobile_endpoints:transaction_result_criteria:transaction_result_success:cookie_v2:cookies_none:cookie_operator:cookie:cookie_and",
+      "section_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_mobile_endpoints:protected_mobile_endpoints:transaction_result_criteria:transaction_result_success:cookie_v2:cookies_none:cookie_operator:cookie:cookie_and:section:0",
+      "source_sha256": "sha256:2509baf3869668aec9e6017c26ce4ca9fc59050cdf6d9887b728085e9db4c2e8",
+      "source_bytes": 3873,
+      "canonical_source_sha256": "sha256:c0feb7bfd944e3e3448fade0bd96854d8eb0398a00c7cac69cf7d1d1e8b9da38",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bot_endpoint_policy/properties/endpoint_policy_content/protected_mobile_endpoints/protected_mobile_endpoints/transaction_result_criteria/transaction_result_success/cookie_v2/cookies_none/cookie_operator/cookie/cookie_and/",
+      "anchor": "canonical-0021332202102000-0021130210113023-0332222331023302-0111233103032022-2133221122230211-1012323103122000-1210220313311221-1320313130111330",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-0323100301330002-1122331223221120-3132322110323310-3012030200230302-0323330202222333-0020013300130222-2022110323313002-0310223232212230"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--bot_endpoint_policy--reference--group-013.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_mobile_endpoints:protected_mobile_endpoints:transaction_result_criteria:transaction_result_success:cookie_v2:cookies_none:cookie_operator:cookie:cookie_and",
+      "section_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_mobile_endpoints:protected_mobile_endpoints:transaction_result_criteria:transaction_result_success:cookie_v2:cookies_none:cookie_operator:cookie:cookie_and:section:1",
+      "source_sha256": "sha256:9c7ab2360e5c949102c34daddf9441ef200f5a03421801aae40847ca24969854",
+      "source_bytes": 382,
+      "canonical_source_sha256": "sha256:c0feb7bfd944e3e3448fade0bd96854d8eb0398a00c7cac69cf7d1d1e8b9da38",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bot_endpoint_policy/properties/endpoint_policy_content/protected_mobile_endpoints/protected_mobile_endpoints/transaction_result_criteria/transaction_result_success/cookie_v2/cookies_none/cookie_operator/cookie/cookie_and/",
+      "anchor": "canonical-2300312010033121-2323312102122132-2321301302132311-3320000302011331-1111310123333111-2200031311301303-3032333121313011-0021312203223222",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--bot_endpoint_policy--reference--group-013.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_mobile_endpoints:protected_mobile_endpoints:transaction_result_criteria:transaction_result_success:cookie_v2:cookies_none:cookie_operator:cookie:cookie_and:cookie_match_v2",
+      "section_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_mobile_endpoints:protected_mobile_endpoints:transaction_result_criteria:transaction_result_success:cookie_v2:cookies_none:cookie_operator:cookie:cookie_and:cookie_match_v2:section:0",
+      "source_sha256": "sha256:f710f204bd828dcbbf8ce54a9a4439b5dd71da7de862c33cd09d5600af27d683",
+      "source_bytes": 4386,
+      "canonical_source_sha256": "sha256:3f4e3214b4c477c6966ec4d5fae01dc7514ddf1e14d714932ee35be9a8ac40e7",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bot_endpoint_policy/properties/endpoint_policy_content/protected_mobile_endpoints/protected_mobile_endpoints/transaction_result_criteria/transaction_result_success/cookie_v2/cookies_none/cookie_operator/cookie/cookie_and/cookie_match_v2/",
+      "anchor": "canonical-2022022010121220-1232023311102023-0031013231331120-3121220111213223-3223211220012110-0212121330202113-3232323213030212-2101212312322313",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-2111131312210233-3303213322221100-3320201021130013-3021020231301322-1101011221311023-2112203213012223-2230311201311320-0320121233223210"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--bot_endpoint_policy--reference--group-013.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_mobile_endpoints:protected_mobile_endpoints:transaction_result_criteria:transaction_result_success:cookie_v2:cookies_none:cookie_operator:cookie:cookie_and:cookie_match_v2",
+      "section_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_mobile_endpoints:protected_mobile_endpoints:transaction_result_criteria:transaction_result_success:cookie_v2:cookies_none:cookie_operator:cookie:cookie_and:cookie_match_v2:section:1",
+      "source_sha256": "sha256:1f1f20b72cb3a8656e8e3e4b8ab02e52330bb1f6cd52e1104626a2e1cbdb098d",
+      "source_bytes": 618,
+      "canonical_source_sha256": "sha256:3f4e3214b4c477c6966ec4d5fae01dc7514ddf1e14d714932ee35be9a8ac40e7",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bot_endpoint_policy/properties/endpoint_policy_content/protected_mobile_endpoints/protected_mobile_endpoints/transaction_result_criteria/transaction_result_success/cookie_v2/cookies_none/cookie_operator/cookie/cookie_and/cookie_match_v2/",
+      "anchor": "canonical-1032213000123233-0332111132011212-1200202000322223-1223223000233221-0010320023012200-3101310102310213-2220120010223222-2121312131310203",
+      "anchor_map": [
+        [
+          "schema-endpoint_policy_content--protected_mobile_endpoints--protected_mobile_endpoints--transaction_result_criteria--transaction_result_success--cookie_v2--cookies_none--cookie_operator--cookie--cookie_and--cookie_match_v2--case_sensitive",
+          "canonical-2332132131220232-1113333120130313-0211121103223231-1032300000232203-1211111123231032-3313300233311021-1201000230222331-1011311232200020"
+        ],
+        [
+          "schema-endpoint_policy_content--protected_mobile_endpoints--protected_mobile_endpoints--transaction_result_criteria--transaction_result_success--cookie_v2--cookies_none--cookie_operator--cookie--cookie_and--cookie_match_v2--not",
+          "canonical-1231302311303011-3212331232233030-2131101301330021-1022010000331010-0022210000111033-3030110301320030-0322120313313222-3203132313113323"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--bot_endpoint_policy--reference--group-013.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_mobile_endpoints:protected_mobile_endpoints:transaction_result_criteria:transaction_result_success:cookie_v2:cookies_none:cookie_operator:cookie:cookie_and:cookie_match_v2",
+      "section_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_mobile_endpoints:protected_mobile_endpoints:transaction_result_criteria:transaction_result_success:cookie_v2:cookies_none:cookie_operator:cookie:cookie_and:cookie_match_v2:section:2",
+      "source_sha256": "sha256:5b24e2daf9e4b6e715ddaa0b51e276131d042fb39bdfcb6b1301bf7b2e8e8be2",
+      "source_bytes": 333,
+      "canonical_source_sha256": "sha256:3f4e3214b4c477c6966ec4d5fae01dc7514ddf1e14d714932ee35be9a8ac40e7",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bot_endpoint_policy/properties/endpoint_policy_content/protected_mobile_endpoints/protected_mobile_endpoints/transaction_result_criteria/transaction_result_success/cookie_v2/cookies_none/cookie_operator/cookie/cookie_and/cookie_match_v2/",
+      "anchor": "canonical-3020000232213232-0310003332233311-2120201103312321-1200212030001121-3313133120332320-1031212103031103-2332112012101013-0103323021133022",
+      "anchor_map": [
+        [
+          "schema-endpoint_policy_content--protected_mobile_endpoints--protected_mobile_endpoints--transaction_result_criteria--transaction_result_success--cookie_v2--cookies_none--cookie_operator--cookie--cookie_and--cookie_match_v2--operator",
+          "canonical-2333210131313030-0320100330121103-3221301023311232-2111131131123312-1312131201211031-3200110313300123-0130220322201300-1031221030103210"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--bot_endpoint_policy--reference--group-013.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_mobile_endpoints:protected_mobile_endpoints:transaction_result_criteria:transaction_result_success:cookie_v2:cookies_none:cookie_operator:cookie:cookie_and:cookie_match_v2",
+      "section_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_mobile_endpoints:protected_mobile_endpoints:transaction_result_criteria:transaction_result_success:cookie_v2:cookies_none:cookie_operator:cookie:cookie_and:cookie_match_v2:section:3",
+      "source_sha256": "sha256:def101f5bc2d04cf754a001b904396bb965b19ea98f2565bab24d01b2b92bb56",
+      "source_bytes": 855,
+      "canonical_source_sha256": "sha256:3f4e3214b4c477c6966ec4d5fae01dc7514ddf1e14d714932ee35be9a8ac40e7",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bot_endpoint_policy/properties/endpoint_policy_content/protected_mobile_endpoints/protected_mobile_endpoints/transaction_result_criteria/transaction_result_success/cookie_v2/cookies_none/cookie_operator/cookie/cookie_and/cookie_match_v2/",
+      "anchor": "canonical-1012333331132323-2133330212100121-0003201133303102-2110203332122122-2213121022312232-3201231321033211-1120100333012011-0321302212210312",
+      "anchor_map": [
+        [
+          "schema-endpoint_policy_content--protected_mobile_endpoints--protected_mobile_endpoints--transaction_result_criteria--transaction_result_success--cookie_v2--cookies_none--cookie_operator--cookie--cookie_and--cookie_match_v2--value",
+          "canonical-0001020010210020-2232131220113323-1301230223132020-0320021100320202-3112133302001020-1210123213311131-3112300222312203-0212230012132012"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--bot_endpoint_policy--reference--group-013.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_mobile_endpoints:protected_mobile_endpoints:transaction_result_criteria:transaction_result_success:cookie_v2:cookies_none:cookie_operator:cookie:cookie_and:cookie_match_v2",
+      "section_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_mobile_endpoints:protected_mobile_endpoints:transaction_result_criteria:transaction_result_success:cookie_v2:cookies_none:cookie_operator:cookie:cookie_and:cookie_match_v2:section:4",
+      "source_sha256": "sha256:83e79c2239a6179842998857eb40f2de11f7a1ab180328fc4c09ac20210687f1",
+      "source_bytes": 90,
+      "canonical_source_sha256": "sha256:3f4e3214b4c477c6966ec4d5fae01dc7514ddf1e14d714932ee35be9a8ac40e7",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bot_endpoint_policy/properties/endpoint_policy_content/protected_mobile_endpoints/protected_mobile_endpoints/transaction_result_criteria/transaction_result_success/cookie_v2/cookies_none/cookie_operator/cookie/cookie_and/cookie_match_v2/",
+      "anchor": "canonical-0022223012312211-3113022132201311-0313211013303223-1103231033120313-1132221113002312-0002312000012130-1321013232301312-1130210201131322",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--bot_endpoint_policy--reference--group-013.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_mobile_endpoints:protected_mobile_endpoints:transaction_result_criteria:transaction_result_success:cookie_v2:cookies_none:cookie_operator:cookie:cookie_anything",
+      "section_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_mobile_endpoints:protected_mobile_endpoints:transaction_result_criteria:transaction_result_success:cookie_v2:cookies_none:cookie_operator:cookie:cookie_anything:section:0",
+      "source_sha256": "sha256:1404b182e3f97e2e3a4a3b2b1915906bab6cac5b5df253fdc3ac0bfc7ac4a9c7",
+      "source_bytes": 3966,
+      "canonical_source_sha256": "sha256:1404b182e3f97e2e3a4a3b2b1915906bab6cac5b5df253fdc3ac0bfc7ac4a9c7",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bot_endpoint_policy/properties/endpoint_policy_content/protected_mobile_endpoints/protected_mobile_endpoints/transaction_result_criteria/transaction_result_success/cookie_v2/cookies_none/cookie_operator/cookie/cookie_anything/",
+      "anchor": "canonical-0100133020322322-1321032103000122-3331021333210213-2121210212200011-0231112002030103-0103031310120020-0012123213220023-3120310032200031",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-0212331231310003-0022112310210330-2023031302003300-0312311110103323-2103333012200023-3121212323333201-0101331020000020-1001010003310331"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--bot_endpoint_policy--reference--group-013.md"
+    },
+    {
       "canonical_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_mobile_endpoints:protected_mobile_endpoints:transaction_result_criteria:transaction_result_success:cookie_v2:cookies_none:cookie_operator:cookie:cookie_none",
       "section_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_mobile_endpoints:protected_mobile_endpoints:transaction_result_criteria:transaction_result_success:cookie_v2:cookies_none:cookie_operator:cookie:cookie_none:section:0",
       "source_sha256": "sha256:082a442cb00e4bcdb61b4e62999a28c28472bf839605714577473ea7dc001b4b",
@@ -5278,278 +5495,6 @@
         [
           "section",
           "canonical-2212221002311331-2302330003133221-2201032022310003-0121301200221312-0103001321221213-0132313022132110-2310132013213010-1200021302302111"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--bot_endpoint_policy--reference--group-017.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:flow_label_choice:shopping_gift_cards:shop_apply_gift_card",
-      "section_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:flow_label_choice:shopping_gift_cards:shop_apply_gift_card:section:0",
-      "source_sha256": "sha256:646ae7ffc0f1c99d3a0965bf45f50d5e96bac9aecb0672bff0698b9abc11fe31",
-      "source_bytes": 2023,
-      "canonical_source_sha256": "sha256:646ae7ffc0f1c99d3a0965bf45f50d5e96bac9aecb0672bff0698b9abc11fe31",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bot_endpoint_policy/properties/endpoint_policy_content/protected_web_endpoints/protected_web_endpoints/flow_label_choice/shopping_gift_cards/shop_apply_gift_card/",
-      "anchor": "canonical-1032003222321020-3302220322211000-1222001201000122-3001033011002313-2021032101110010-1321302323123302-2231221230202033-0213033002232100",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-2231130011200110-3202001200232310-2200221232000333-0103133120011321-1120333132211011-0221011121321301-0003231233023032-0131120211303213"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--bot_endpoint_policy--reference--group-017.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:flow_label_choice:shopping_gift_cards:shop_apply_promo_code",
-      "section_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:flow_label_choice:shopping_gift_cards:shop_apply_promo_code:section:0",
-      "source_sha256": "sha256:6deea8e578b7a37d36b8ecdb3c12ae8bbb376ab47047836ffeed4af18ee7afba",
-      "source_bytes": 2026,
-      "canonical_source_sha256": "sha256:6deea8e578b7a37d36b8ecdb3c12ae8bbb376ab47047836ffeed4af18ee7afba",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bot_endpoint_policy/properties/endpoint_policy_content/protected_web_endpoints/protected_web_endpoints/flow_label_choice/shopping_gift_cards/shop_apply_promo_code/",
-      "anchor": "canonical-3300323203232213-3201313011230121-3310021032012112-2231013322133220-1333300113133323-2111213332311010-3130331122221322-1123020002102030",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-0310013001203312-0320032322320320-0211321010132222-2332320102013121-0101110120031213-1113020331220332-3311002233122331-2302023332333132"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--bot_endpoint_policy--reference--group-017.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:flow_label_choice:shopping_gift_cards:shop_checkout",
-      "section_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:flow_label_choice:shopping_gift_cards:shop_checkout:section:0",
-      "source_sha256": "sha256:56764f40896cf7a8db96c2881521b55a13aaf67f089e7038f03f3f14a4aef895",
-      "source_bytes": 2002,
-      "canonical_source_sha256": "sha256:56764f40896cf7a8db96c2881521b55a13aaf67f089e7038f03f3f14a4aef895",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bot_endpoint_policy/properties/endpoint_policy_content/protected_web_endpoints/protected_web_endpoints/flow_label_choice/shopping_gift_cards/shop_checkout/",
-      "anchor": "canonical-1131212132123000-1100330011330011-3200011220113211-3221100311130220-3330320331100121-2101231022121322-0210233210001002-1302011312012212",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-2012221010120333-1321313220000122-2133202113003123-2032230113121033-1100302032310320-1132303010330030-3310130123303333-0213203012023221"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--bot_endpoint_policy--reference--group-017.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:flow_label_choice:shopping_gift_cards:shop_choose_seat",
-      "section_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:flow_label_choice:shopping_gift_cards:shop_choose_seat:section:0",
-      "source_sha256": "sha256:e01684fa0a217dc88092da77da09935502eabc17c8285d58479246c84cb253c1",
-      "source_bytes": 2011,
-      "canonical_source_sha256": "sha256:e01684fa0a217dc88092da77da09935502eabc17c8285d58479246c84cb253c1",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bot_endpoint_policy/properties/endpoint_policy_content/protected_web_endpoints/protected_web_endpoints/flow_label_choice/shopping_gift_cards/shop_choose_seat/",
-      "anchor": "canonical-2231103002031201-0012110203000021-1023330033333031-2303223123302310-3011032302011223-0100023313232031-1303033132211113-3322332111130302",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-0322113020333000-2313231312300203-1200333100200021-2203320301223101-2103101201032322-3030232002221321-0333310233223201-0030131221321222"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--bot_endpoint_policy--reference--group-017.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:flow_label_choice:shopping_gift_cards:shop_enter_drawing_submission",
-      "section_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:flow_label_choice:shopping_gift_cards:shop_enter_drawing_submission:section:0",
-      "source_sha256": "sha256:55f76b545547b189f7064019dd80d3c487daf80a07c8f78b952e09e12480d94f",
-      "source_bytes": 2050,
-      "canonical_source_sha256": "sha256:55f76b545547b189f7064019dd80d3c487daf80a07c8f78b952e09e12480d94f",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bot_endpoint_policy/properties/endpoint_policy_content/protected_web_endpoints/protected_web_endpoints/flow_label_choice/shopping_gift_cards/shop_enter_drawing_submission/",
-      "anchor": "canonical-1023222111110221-0330021102122320-0303223113301300-2013320213111223-2201031220103213-3033310312232120-2203033100123300-1310210130300000",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-3011110313300221-2211011333021112-3213121031032022-2112000222301101-1212220332213013-3110122000113021-3210123200023131-0323200312330321"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--bot_endpoint_policy--reference--group-017.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:flow_label_choice:shopping_gift_cards:shop_hold_inventory",
-      "section_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:flow_label_choice:shopping_gift_cards:shop_hold_inventory:section:0",
-      "source_sha256": "sha256:7f0053b686601ff42946187dd4588a6c138090c789bee6da96bb16408dee69c2",
-      "source_bytes": 2020,
-      "canonical_source_sha256": "sha256:7f0053b686601ff42946187dd4588a6c138090c789bee6da96bb16408dee69c2",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bot_endpoint_policy/properties/endpoint_policy_content/protected_web_endpoints/protected_web_endpoints/flow_label_choice/shopping_gift_cards/shop_hold_inventory/",
-      "anchor": "canonical-0133110233103110-3023202223330003-1032230323322112-3201012331322130-3210030033130300-3123230222232322-1002201321100330-3030103230121310",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-2303011002002332-2311010102212102-2121223133100120-0233212113333230-0321231310302103-2000122120322131-1113022233003221-2033312321312323"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--bot_endpoint_policy--reference--group-017.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:flow_label_choice:shopping_gift_cards:shop_make_payment",
-      "section_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:flow_label_choice:shopping_gift_cards:shop_make_payment:section:0",
-      "source_sha256": "sha256:3b92433f67e9cc47563f981e39952dc4ccc62ec3f3c77e527cd9285379f9a940",
-      "source_bytes": 2014,
-      "canonical_source_sha256": "sha256:3b92433f67e9cc47563f981e39952dc4ccc62ec3f3c77e527cd9285379f9a940",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bot_endpoint_policy/properties/endpoint_policy_content/protected_web_endpoints/protected_web_endpoints/flow_label_choice/shopping_gift_cards/shop_make_payment/",
-      "anchor": "canonical-0101222333102203-3100103211032303-2333110301323103-3003330310022213-2002123033322222-3133001002023022-1020130022323113-2220222000310021",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-1113103120310331-3011223302103233-1333002031120001-1033131213313032-1233032032113022-1021001333231302-0332310222230002-2122132230233332"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--bot_endpoint_policy--reference--group-017.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:flow_label_choice:shopping_gift_cards:shop_offer",
-      "section_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:flow_label_choice:shopping_gift_cards:shop_offer:section:0",
-      "source_sha256": "sha256:9ae344e2d7b7dc69944281f8655c8ef0dd5c12d5ea4920737c8c81c0716a89b5",
-      "source_bytes": 1972,
-      "canonical_source_sha256": "sha256:9ae344e2d7b7dc69944281f8655c8ef0dd5c12d5ea4920737c8c81c0716a89b5",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bot_endpoint_policy/properties/endpoint_policy_content/protected_web_endpoints/protected_web_endpoints/flow_label_choice/shopping_gift_cards/shop_offer/",
-      "anchor": "canonical-0030323130331330-2232320233130120-3001133132113200-3010031101020310-3110300302230302-0113131320001032-1331023100223331-0033333312331331",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-3333012200102211-1331232323021332-1120330103010230-0021001023020231-1323213310310212-3032130113331211-0002022130201320-2233101031233221"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--bot_endpoint_policy--reference--group-017.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:flow_label_choice:shopping_gift_cards:shop_order",
-      "section_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:flow_label_choice:shopping_gift_cards:shop_order:section:0",
-      "source_sha256": "sha256:e2dc8371c1f63d2e9624fad141b5e94888b0f51d227ce4a5a4aa600772a39371",
-      "source_bytes": 1972,
-      "canonical_source_sha256": "sha256:e2dc8371c1f63d2e9624fad141b5e94888b0f51d227ce4a5a4aa600772a39371",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bot_endpoint_policy/properties/endpoint_policy_content/protected_web_endpoints/protected_web_endpoints/flow_label_choice/shopping_gift_cards/shop_order/",
-      "anchor": "canonical-2223033201102222-3111130120021300-1202001203022313-3203200021023213-1320313203021002-1323211031010010-0130231213111120-1131031303320202",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-0033113223111012-2122120133133113-1023320330123021-3023313002121313-3131000233000130-2002123310011120-0123120321202133-1221321013200111"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--bot_endpoint_policy--reference--group-017.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:flow_label_choice:shopping_gift_cards:shop_price_inquiry",
-      "section_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:flow_label_choice:shopping_gift_cards:shop_price_inquiry:section:0",
-      "source_sha256": "sha256:546a3386dd5ed5675316fffd8825997bd82cfe9d6c38a299029067ed948909ed",
-      "source_bytes": 2017,
-      "canonical_source_sha256": "sha256:546a3386dd5ed5675316fffd8825997bd82cfe9d6c38a299029067ed948909ed",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bot_endpoint_policy/properties/endpoint_policy_content/protected_web_endpoints/protected_web_endpoints/flow_label_choice/shopping_gift_cards/shop_price_inquiry/",
-      "anchor": "canonical-1312300121113003-3231230212131211-2033302303103011-1102011123312230-2002312001023112-2303002103201102-3120010031121203-0223323032103331",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-1323213311002003-0103210200230103-2101310330322201-1200330100320010-3010000201331302-3201033030011132-0012303001131220-1101103021210121"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--bot_endpoint_policy--reference--group-017.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:flow_label_choice:shopping_gift_cards:shop_purchase_gift_card",
-      "section_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:flow_label_choice:shopping_gift_cards:shop_purchase_gift_card:section:0",
-      "source_sha256": "sha256:d75a2e78bf8254fffdb65db10d4ff0f37b129258d3d947dfb799a910aa5784e7",
-      "source_bytes": 2032,
-      "canonical_source_sha256": "sha256:d75a2e78bf8254fffdb65db10d4ff0f37b129258d3d947dfb799a910aa5784e7",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bot_endpoint_policy/properties/endpoint_policy_content/protected_web_endpoints/protected_web_endpoints/flow_label_choice/shopping_gift_cards/shop_purchase_gift_card/",
-      "anchor": "canonical-3203313203001310-0013011131122100-3030301021332103-0213002110110131-1003222331313132-2130100321311231-1122122330133020-1101213203202232",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-0211010003323320-1320203231100222-1013130013202112-0213010110103301-1230123201101301-3023133112222022-1021011312101332-3012211032132011"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--bot_endpoint_policy--reference--group-017.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:flow_label_choice:shopping_gift_cards:shop_return",
-      "section_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:flow_label_choice:shopping_gift_cards:shop_return:section:0",
-      "source_sha256": "sha256:ee8350c31f48ef2b74809236c8a53b7a0b97eef37e679d78c662223bbcbc9f32",
-      "source_bytes": 1996,
-      "canonical_source_sha256": "sha256:ee8350c31f48ef2b74809236c8a53b7a0b97eef37e679d78c662223bbcbc9f32",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bot_endpoint_policy/properties/endpoint_policy_content/protected_web_endpoints/protected_web_endpoints/flow_label_choice/shopping_gift_cards/shop_return/",
-      "anchor": "canonical-2323033023112232-3120321233320221-1033012103301321-2112303103130012-3220031303030322-0123312303133222-0132103002103130-1231200223211030",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-2212211322213121-1022312202313211-2223132100030101-3021130013011030-2301310313031300-0232132221033201-3120302102321123-0322321013123003"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--bot_endpoint_policy--reference--group-017.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:flow_label_choice:shopping_gift_cards:shop_schedule_pickup",
-      "section_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:flow_label_choice:shopping_gift_cards:shop_schedule_pickup:section:0",
-      "source_sha256": "sha256:2993d5404722e5c15932302a82c5147052734f2257de5617e851e39edc01d9f4",
-      "source_bytes": 2023,
-      "canonical_source_sha256": "sha256:2993d5404722e5c15932302a82c5147052734f2257de5617e851e39edc01d9f4",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bot_endpoint_policy/properties/endpoint_policy_content/protected_web_endpoints/protected_web_endpoints/flow_label_choice/shopping_gift_cards/shop_schedule_pickup/",
-      "anchor": "canonical-2002012222132132-2122032302222333-2312232320123331-0330003233032310-3333303322120023-2221211101120222-3303022133010031-2323103131320321",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-1102021031110300-3220131321123312-0111221330102101-0230220310200312-1302331011103120-0002210100311102-3232011023313030-1122300010000130"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--bot_endpoint_policy--reference--group-017.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:flow_label_choice:shopping_gift_cards:shop_track_order",
-      "section_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:flow_label_choice:shopping_gift_cards:shop_track_order:section:0",
-      "source_sha256": "sha256:df53dccd46d39a74ff2f1847a6a2e0a49f50531be9fb08107d1d056a7245b0a5",
-      "source_bytes": 2011,
-      "canonical_source_sha256": "sha256:df53dccd46d39a74ff2f1847a6a2e0a49f50531be9fb08107d1d056a7245b0a5",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bot_endpoint_policy/properties/endpoint_policy_content/protected_web_endpoints/protected_web_endpoints/flow_label_choice/shopping_gift_cards/shop_track_order/",
-      "anchor": "canonical-0210201122311002-0121033001010233-3320002312300313-1213223102210213-2310331311112202-2220023130131003-2222010322313101-0010121101030132",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-0111331221231320-3111202323100213-1131131301312112-1131323321200022-3031002001203020-1003110312322332-2023010110122213-0331101300023121"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--bot_endpoint_policy--reference--group-017.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:flow_label_choice:shopping_gift_cards:shop_update_quantity",
-      "section_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:flow_label_choice:shopping_gift_cards:shop_update_quantity:section:0",
-      "source_sha256": "sha256:07bd2ed047ccae11432be825baad36fd627a3c81bd519c411384a785299e6aeb",
-      "source_bytes": 2023,
-      "canonical_source_sha256": "sha256:07bd2ed047ccae11432be825baad36fd627a3c81bd519c411384a785299e6aeb",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bot_endpoint_policy/properties/endpoint_policy_content/protected_web_endpoints/protected_web_endpoints/flow_label_choice/shopping_gift_cards/shop_update_quantity/",
-      "anchor": "canonical-0011110122203122-0011200320102103-0021201111333121-2033003011202022-2112203310222130-2123321033332023-3300333332323300-0001002113302210",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-0133032023033112-0331222011231002-1230023230213122-2113210031213132-3303330310103212-0311213232332233-0103133031222013-3322210211132100"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--bot_endpoint_policy--reference--group-017.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:flow_label_choice:socials",
-      "section_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:flow_label_choice:socials:section:0",
-      "source_sha256": "sha256:25f5784868d0ca7ac386f7aac014005b06b8d4bdbcc2590d2c643c216f4bf677",
-      "source_bytes": 1551,
-      "canonical_source_sha256": "sha256:c19da90eed53f0ff859f664533f50c446840e87cd3dfa33b96ecc2c7427e184d",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bot_endpoint_policy/properties/endpoint_policy_content/protected_web_endpoints/protected_web_endpoints/flow_label_choice/socials/",
-      "anchor": "canonical-0031012101320231-1001013002221031-2223030322302213-1212010113323303-0023113213013332-3122212200313303-0123303002103311-2312331002002013",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-3220332220020023-2012213313330203-0100101213033010-3311103003020032-1231302002201221-2022030002030003-0221223113012321-2233002020101122"
         ]
       ],
       "mode": "embedded",

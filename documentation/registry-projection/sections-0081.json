@@ -2,6 +2,258 @@
   "schema_version": 1,
   "sections": [
     {
+      "canonical_id": "xcsh-docs:data-sources:site_registrations:properties:items:get_spec:infra:hw_info",
+      "section_id": "xcsh-docs:data-sources:site_registrations:properties:items:get_spec:infra:hw_info:section:0",
+      "source_sha256": "sha256:42fcad55c9e8d9a218d28c25f691232c398447c76bd923d537a30fb37a74da58",
+      "source_bytes": 917,
+      "canonical_source_sha256": "sha256:1fb81333d73426c118dd2b2d1dfee759c18762c76d99036d493806b0755403f1",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/site_registrations/properties/items/get_spec/infra/hw_info/",
+      "anchor": "canonical-2011322120111013-0031321000222033-0200101230110001-3200033020300003-3323212211131002-2210312323000123-0313032203322200-3000010122123130",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-0223003212010212-1210032102003311-0210330232022001-2110002332312310-0103322121111033-0110002120000232-0013323020120232-2123021330100030"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--site_registrations--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:site_registrations:properties:items:get_spec:infra:hw_info",
+      "section_id": "xcsh-docs:data-sources:site_registrations:properties:items:get_spec:infra:hw_info:section:1",
+      "source_sha256": "sha256:126adc7b3e1f83f96cd4ab95129d60adbcfa3907334b57bd5e419d18c41243c0",
+      "source_bytes": 1521,
+      "canonical_source_sha256": "sha256:1fb81333d73426c118dd2b2d1dfee759c18762c76d99036d493806b0755403f1",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/site_registrations/properties/items/get_spec/infra/hw_info/",
+      "anchor": "canonical-1122110113021130-1300032010332330-3301032301013030-1013333011001103-1223210103002203-3023230002002331-3013233213331210-0230222330121003",
+      "anchor_map": [
+        [
+          "schema-items--get_spec--infra--hw_info--numa_nodes",
+          "canonical-2203212220302220-1022101010130212-0201000331133223-0122020210200301-2233032121131023-2321202101001212-1132103321113232-1003322130200110"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--site_registrations--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:site_registrations:properties:items:get_spec:infra:hw_info",
+      "section_id": "xcsh-docs:data-sources:site_registrations:properties:items:get_spec:infra:hw_info:section:2",
+      "source_sha256": "sha256:be988a2721bd1e199ce6604bb04f64063bf3ba45fec5e18e63faf17583966a7b",
+      "source_bytes": 973,
+      "canonical_source_sha256": "sha256:1fb81333d73426c118dd2b2d1dfee759c18762c76d99036d493806b0755403f1",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/site_registrations/properties/items/get_spec/infra/hw_info/",
+      "anchor": "canonical-2230312311113320-3320012323321313-0001133232010032-2112201133231011-3200000220020100-0302121220312020-0332213330330330-3311132011300020",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--site_registrations--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:site_registrations:properties:items:get_spec:infra:hw_info:bios",
+      "section_id": "xcsh-docs:data-sources:site_registrations:properties:items:get_spec:infra:hw_info:bios:section:0",
+      "source_sha256": "sha256:bd5fbc1185ffe4e0cc18fd078b4613d6a0cc7bcf4197d5eb91068f554ed6b96d",
+      "source_bytes": 1072,
+      "canonical_source_sha256": "sha256:162089482c9b15d83baa46741461afa01c923b0946c4f2bf14a5f341630c5fed",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/site_registrations/properties/items/get_spec/infra/hw_info/bios/",
+      "anchor": "canonical-1001212023032321-0220330131020201-0231012221322031-3003031031332302-1030333311233310-3331012211020112-2020220103031322-0101000121102033",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-0100003211210030-2011013313300331-1103330123011010-2313013231320230-2312123201322220-1312332033210122-0320122203002020-0231002002101223"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--site_registrations--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:site_registrations:properties:items:get_spec:infra:hw_info:bios",
+      "section_id": "xcsh-docs:data-sources:site_registrations:properties:items:get_spec:infra:hw_info:bios:section:1",
+      "source_sha256": "sha256:8098167bd6910200d951ac5043a33260673719b577155747d3c2732134fff793",
+      "source_bytes": 507,
+      "canonical_source_sha256": "sha256:162089482c9b15d83baa46741461afa01c923b0946c4f2bf14a5f341630c5fed",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/site_registrations/properties/items/get_spec/infra/hw_info/bios/",
+      "anchor": "canonical-2101122310013231-2231203331233000-2313333300210332-0212301202223203-3203013322210300-2033303000100021-0313120123232000-1333111330132020",
+      "anchor_map": [
+        [
+          "schema-items--get_spec--infra--hw_info--bios--date",
+          "canonical-0300222231220220-0012022121032313-1101310003011030-3012301130200303-1212000210203023-0220103202003021-0113111110220010-2221211011312311"
+        ],
+        [
+          "schema-items--get_spec--infra--hw_info--bios--vendor",
+          "canonical-1211013000331212-3310030321021132-2012210233100330-2133001101232113-2321300030321311-0221223021230110-1233132201201023-3001212112300112"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--site_registrations--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:site_registrations:properties:items:get_spec:infra:hw_info:bios",
+      "section_id": "xcsh-docs:data-sources:site_registrations:properties:items:get_spec:infra:hw_info:bios:section:2",
+      "source_sha256": "sha256:3b3f0a91878b15183167d41ca95de2b01adb20f6136f814970c1e54674350ed0",
+      "source_bytes": 168,
+      "canonical_source_sha256": "sha256:162089482c9b15d83baa46741461afa01c923b0946c4f2bf14a5f341630c5fed",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/site_registrations/properties/items/get_spec/infra/hw_info/bios/",
+      "anchor": "canonical-2313211300020303-3003222311212020-3320203313312202-1332030032011200-2203331233012020-3233101012223011-2103220230031103-0021301223222200",
+      "anchor_map": [
+        [
+          "schema-items--get_spec--infra--hw_info--bios--version",
+          "canonical-3330012011303130-1031121120233220-2022202132231113-0300301220303232-3213210233310113-0021012103022023-2202233000233213-3030003200102021"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--site_registrations--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:site_registrations:properties:items:get_spec:infra:hw_info:bios",
+      "section_id": "xcsh-docs:data-sources:site_registrations:properties:items:get_spec:infra:hw_info:bios:section:3",
+      "source_sha256": "sha256:dada62209aa3fb707a7d2929c684daf2195d87e1f03ff7c5900242559edf9be7",
+      "source_bytes": 101,
+      "canonical_source_sha256": "sha256:162089482c9b15d83baa46741461afa01c923b0946c4f2bf14a5f341630c5fed",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/site_registrations/properties/items/get_spec/infra/hw_info/bios/",
+      "anchor": "canonical-0310313032033220-1320213100333223-1232030220010230-3323110200301110-0211003222011232-2001031331220121-3201111012032010-0030012103003131",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--site_registrations--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:site_registrations:properties:items:get_spec:infra:hw_info:board",
+      "section_id": "xcsh-docs:data-sources:site_registrations:properties:items:get_spec:infra:hw_info:board:section:0",
+      "source_sha256": "sha256:0a8e02762f5237a158f35631f447e997a6f0b46a665da35eed2b5e86446f0a53",
+      "source_bytes": 1079,
+      "canonical_source_sha256": "sha256:a4b2045e2ce7419ad1836b8f8233d8844bb8080f9ed4cdc443cf04fcb2e09004",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/site_registrations/properties/items/get_spec/infra/hw_info/board/",
+      "anchor": "canonical-2122203023121032-3302323200211131-3300023032010113-3010213213112031-1130130322322210-1331122132110300-3231330021133101-2001033130112031",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-2021222020201021-3213220122312301-3032113210212031-2122213132322110-0002203330133223-0211312323022332-1021303001112213-0312203131323000"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--site_registrations--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:site_registrations:properties:items:get_spec:infra:hw_info:board",
+      "section_id": "xcsh-docs:data-sources:site_registrations:properties:items:get_spec:infra:hw_info:board:section:1",
+      "source_sha256": "sha256:d0c62398dd40db952dbdc261f67d7de2cc98b0b6fb98dd6b9b5eac5669499a8d",
+      "source_bytes": 267,
+      "canonical_source_sha256": "sha256:a4b2045e2ce7419ad1836b8f8233d8844bb8080f9ed4cdc443cf04fcb2e09004",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/site_registrations/properties/items/get_spec/infra/hw_info/board/",
+      "anchor": "canonical-2030133102022322-2133322110131202-0022213010330303-2032122330102213-3130032103312001-1211301110101012-3331231330233132-3002022313120123",
+      "anchor_map": [
+        [
+          "schema-items--get_spec--infra--hw_info--board--asset_tag",
+          "canonical-3122110201310003-2030121310310003-2333110100320332-0300131102003213-2011020111123002-1033022130301312-0013303312300121-1122322231303010"
+        ],
+        [
+          "schema-items--get_spec--infra--hw_info--board--name",
+          "canonical-3030110221331031-2333203023300102-1221011322131231-0333313323011301-1010222020032123-2102030201321312-1033300323012323-3231111113133003"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--site_registrations--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:site_registrations:properties:items:get_spec:infra:hw_info:board",
+      "section_id": "xcsh-docs:data-sources:site_registrations:properties:items:get_spec:infra:hw_info:board:section:2",
+      "source_sha256": "sha256:321337326b811dddd2bd841f51a411eab29d81111f8024462e3e886db1f659b6",
+      "source_bytes": 428,
+      "canonical_source_sha256": "sha256:a4b2045e2ce7419ad1836b8f8233d8844bb8080f9ed4cdc443cf04fcb2e09004",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/site_registrations/properties/items/get_spec/infra/hw_info/board/",
+      "anchor": "canonical-2011022030022132-3223130323120112-1120330312123132-3032233233213221-0130002201330112-0223210100033303-2203230001322233-2222330310032300",
+      "anchor_map": [
+        [
+          "schema-items--get_spec--infra--hw_info--board--serial",
+          "canonical-1221313001330332-3013021033230213-1200200232322330-3032011213321010-3212110003021102-0221133331122013-2111321211002021-2211311013330201"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--site_registrations--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:site_registrations:properties:items:get_spec:infra:hw_info:board",
+      "section_id": "xcsh-docs:data-sources:site_registrations:properties:items:get_spec:infra:hw_info:board:section:3",
+      "source_sha256": "sha256:3d0b160cb513f1e5022d636ad07ac601d734c1b50d1fb73413226e7ddd7deb8c",
+      "source_bytes": 169,
+      "canonical_source_sha256": "sha256:a4b2045e2ce7419ad1836b8f8233d8844bb8080f9ed4cdc443cf04fcb2e09004",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/site_registrations/properties/items/get_spec/infra/hw_info/board/",
+      "anchor": "canonical-1110123000210032-2213210232131100-0110131300113103-0021223330130230-3121323230012213-2320100031322133-0232332321211211-0210013102000233",
+      "anchor_map": [
+        [
+          "schema-items--get_spec--infra--hw_info--board--vendor",
+          "canonical-3012333101133021-3222021003101230-2203113201010003-3122120030030322-3012332013333203-2232301313121131-0022232221120100-1223001213223310"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--site_registrations--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:site_registrations:properties:items:get_spec:infra:hw_info:board",
+      "section_id": "xcsh-docs:data-sources:site_registrations:properties:items:get_spec:infra:hw_info:board:section:4",
+      "source_sha256": "sha256:d2bfffbca187d31c7d610e4fd14a0e337e0ac041e9321037b9d284557a36ad51",
+      "source_bytes": 170,
+      "canonical_source_sha256": "sha256:a4b2045e2ce7419ad1836b8f8233d8844bb8080f9ed4cdc443cf04fcb2e09004",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/site_registrations/properties/items/get_spec/infra/hw_info/board/",
+      "anchor": "canonical-1123001221201001-1302210223223000-1210203123312101-2210103221020323-2130213113321113-2202121113323110-1132220023321003-1311222003311322",
+      "anchor_map": [
+        [
+          "schema-items--get_spec--infra--hw_info--board--version",
+          "canonical-1212223301201011-3210202313202011-0311202203010213-2000030200023102-1330313320023010-1023112223000123-1102231001132331-1023300020310021"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--site_registrations--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:site_registrations:properties:items:get_spec:infra:hw_info:board",
+      "section_id": "xcsh-docs:data-sources:site_registrations:properties:items:get_spec:infra:hw_info:board:section:5",
+      "source_sha256": "sha256:2c8b5f166428a9df3e15754e83fa0efb8b9ed3ca2e35f094c63e2193e2d6ab45",
+      "source_bytes": 102,
+      "canonical_source_sha256": "sha256:a4b2045e2ce7419ad1836b8f8233d8844bb8080f9ed4cdc443cf04fcb2e09004",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/site_registrations/properties/items/get_spec/infra/hw_info/board/",
+      "anchor": "canonical-0122300030210323-3010023000010032-0131203012100120-2112200202131122-3110011213223033-3120130302203200-3201321213102010-1303312331223112",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--site_registrations--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:site_registrations:properties:items:get_spec:infra:hw_info:chassis",
+      "section_id": "xcsh-docs:data-sources:site_registrations:properties:items:get_spec:infra:hw_info:chassis:section:0",
+      "source_sha256": "sha256:5acde12218fa3d8b9f7ab1bf36b49ebc476dd869ecdd62aef2e09640dab6d403",
+      "source_bytes": 1087,
+      "canonical_source_sha256": "sha256:70170471f7d8cb1b1afb9f205eece4efd224109679bdcf4d0c2914516f5e6684",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/site_registrations/properties/items/get_spec/infra/hw_info/chassis/",
+      "anchor": "canonical-1030000211020123-1200113331302220-1232212231030011-1030002311201223-0330232322131212-1000300331212303-1023103330010331-3000230101312012",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-0320022012123023-1210310002113222-1011223130202102-3020320102110013-1012000332123130-0031020122021002-1320232301330020-0032320020112332"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--site_registrations--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:site_registrations:properties:items:get_spec:infra:hw_info:chassis",
+      "section_id": "xcsh-docs:data-sources:site_registrations:properties:items:get_spec:infra:hw_info:chassis:section:1",
+      "source_sha256": "sha256:ed9f6e9ffae2b9a5d3a35989eb19296d6ee6d8a2e1d7840006e5d891e5860000",
+      "source_bytes": 275,
+      "canonical_source_sha256": "sha256:70170471f7d8cb1b1afb9f205eece4efd224109679bdcf4d0c2914516f5e6684",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/site_registrations/properties/items/get_spec/infra/hw_info/chassis/",
+      "anchor": "canonical-1311211302000320-3010012012132130-0113302120123010-3013221323112031-3233112313032202-2212030322232231-0301200213211130-2222220323120211",
+      "anchor_map": [
+        [
+          "schema-items--get_spec--infra--hw_info--chassis--asset_tag",
+          "canonical-2032003112320301-1233120110303030-1012113033001111-1210303000201231-1200121112200002-3111331130230300-2311220101301011-2102021320123210"
+        ],
+        [
+          "schema-items--get_spec--infra--hw_info--chassis--serial",
+          "canonical-0222332003203203-1221011212021223-2200210301032322-2221010130333302-0320320021330332-0111210103003303-0031223020123211-3213200231323321"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--site_registrations--reference--group-001.md"
+    },
+    {
       "canonical_id": "xcsh-docs:data-sources:site_registrations:properties:items:get_spec:infra:hw_info:chassis",
       "section_id": "xcsh-docs:data-sources:site_registrations:properties:items:get_spec:infra:hw_info:chassis:section:2",
       "source_sha256": "sha256:a51161cccfe4b3e70d9074eb5374a421b3f1e40c37e1faf41b8fd72b4de9b1bf",
@@ -7489,256 +7741,6 @@
         [
           "schema-items--get_spec--infra--hw_info--usb--bcd_device",
           "canonical-0003203230123201-0110213021013012-2111223323213211-0330200103330001-1301212103320000-1122322100213121-2112223031022213-1103233101210211"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--site_registrations_by_site--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:site_registrations_by_site:properties:items:get_spec:infra:hw_info:usb",
-      "section_id": "xcsh-docs:data-sources:site_registrations_by_site:properties:items:get_spec:infra:hw_info:usb:section:6",
-      "source_sha256": "sha256:51e37b5f60092e0bb9e91871477949be108c985373d894265697bb8c8793ba98",
-      "source_bytes": 154,
-      "canonical_source_sha256": "sha256:ce0ce9cc451c5f3f75a0bdfad29f1e1716a23e8f4037db8ee8044d2385ec0676",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/site_registrations_by_site/properties/items/get_spec/infra/hw_info/usb/",
-      "anchor": "canonical-0113312102213321-2312030202222032-3102303033322301-2331002130331210-0121111112233332-3331300330213231-0202112033202033-1100230311032023",
-      "anchor_map": [
-        [
-          "schema-items--get_spec--infra--hw_info--usb--bcd_usb",
-          "canonical-3320021012220133-0311132310121102-3103012300020001-1121311212333221-2031002030332312-3302310102332103-1230312013110122-3210220302010331"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--site_registrations_by_site--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:site_registrations_by_site:properties:items:get_spec:infra:hw_info:usb",
-      "section_id": "xcsh-docs:data-sources:site_registrations_by_site:properties:items:get_spec:infra:hw_info:usb:section:7",
-      "source_sha256": "sha256:7daf93da30a43349ccb08c1bd1e2891e5c2985c117f415b7295ab6995c7294a2",
-      "source_bytes": 159,
-      "canonical_source_sha256": "sha256:ce0ce9cc451c5f3f75a0bdfad29f1e1716a23e8f4037db8ee8044d2385ec0676",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/site_registrations_by_site/properties/items/get_spec/infra/hw_info/usb/",
-      "anchor": "canonical-1333021200101310-3123221022312313-3120210223002313-0213011003122132-0223022210103033-3212220111102313-2230032302133030-2133122300010322",
-      "anchor_map": [
-        [
-          "schema-items--get_spec--infra--hw_info--usb--bus",
-          "canonical-1001002203222221-2310210303023333-2101002133022110-1113023230232001-2301230321210231-0131220032310130-1023130332001120-3110303120110031"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--site_registrations_by_site--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:site_registrations_by_site:properties:items:get_spec:infra:hw_info:usb",
-      "section_id": "xcsh-docs:data-sources:site_registrations_by_site:properties:items:get_spec:infra:hw_info:usb:section:8",
-      "source_sha256": "sha256:5ead9ab4e27691acfd5b73f1982e695b246b34ec1ebf2ce1407fc8378a48dff7",
-      "source_bytes": 177,
-      "canonical_source_sha256": "sha256:ce0ce9cc451c5f3f75a0bdfad29f1e1716a23e8f4037db8ee8044d2385ec0676",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/site_registrations_by_site/properties/items/get_spec/infra/hw_info/usb/",
-      "anchor": "canonical-2202123022013211-1231331010101000-1000111312330110-2031202133302232-2110010210110203-3200003002122213-2330123320331120-1321323113331112",
-      "anchor_map": [
-        [
-          "schema-items--get_spec--infra--hw_info--usb--description_spec",
-          "canonical-2103113113012313-0013100201102010-0323121323123233-2323201020202213-0111113323002201-2100023020133302-3201303113120100-1120203321101313"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--site_registrations_by_site--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:site_registrations_by_site:properties:items:get_spec:infra:hw_info:usb",
-      "section_id": "xcsh-docs:data-sources:site_registrations_by_site:properties:items:get_spec:infra:hw_info:usb:section:9",
-      "source_sha256": "sha256:fc6a54d408e10cb9b725b9f012befbef9a98026a2071e2662e0ab0804eef0cb9",
-      "source_bytes": 168,
-      "canonical_source_sha256": "sha256:ce0ce9cc451c5f3f75a0bdfad29f1e1716a23e8f4037db8ee8044d2385ec0676",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/site_registrations_by_site/properties/items/get_spec/infra/hw_info/usb/",
-      "anchor": "canonical-3123331002322311-1031100223121013-2221120003010111-1133023320233233-0321323332210110-0113132010022333-2011023200032220-1102312333331320",
-      "anchor_map": [
-        [
-          "schema-items--get_spec--infra--hw_info--usb--i_manufacturer",
-          "canonical-3113001123332002-0031312301310111-0132021110102302-1103013231321123-3323001200120130-3323121201122112-0022131323332323-3230322301223333"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--site_registrations_by_site--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:site_registrations_by_site:properties:items:get_spec:infra:hw_info:usb",
-      "section_id": "xcsh-docs:data-sources:site_registrations_by_site:properties:items:get_spec:infra:hw_info:usb:section:10",
-      "source_sha256": "sha256:b504e4b166c442612beaee783e50fdc2dc8d06bdc4c046f77ac03dabe850b867",
-      "source_bytes": 161,
-      "canonical_source_sha256": "sha256:ce0ce9cc451c5f3f75a0bdfad29f1e1716a23e8f4037db8ee8044d2385ec0676",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/site_registrations_by_site/properties/items/get_spec/infra/hw_info/usb/",
-      "anchor": "canonical-2002221120120101-2303102030230201-2032211211023132-2021232301013112-1021330031302103-0100113031100001-3001203323323112-2020122121010333",
-      "anchor_map": [
-        [
-          "schema-items--get_spec--infra--hw_info--usb--i_product",
-          "canonical-3011312321003202-2133312311312133-1300223023231323-1101003203011201-0113103221021230-3333210210312330-1232210211330331-3122312002102300"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--site_registrations_by_site--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:site_registrations_by_site:properties:items:get_spec:infra:hw_info:usb",
-      "section_id": "xcsh-docs:data-sources:site_registrations_by_site:properties:items:get_spec:infra:hw_info:usb:section:11",
-      "source_sha256": "sha256:b771e7e132d3259eb9491ff110753b33b57e66803885324285404eaf3803c9aa",
-      "source_bytes": 171,
-      "canonical_source_sha256": "sha256:ce0ce9cc451c5f3f75a0bdfad29f1e1716a23e8f4037db8ee8044d2385ec0676",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/site_registrations_by_site/properties/items/get_spec/infra/hw_info/usb/",
-      "anchor": "canonical-0001202122213012-2010123302222220-3111333322303013-0000011112112021-1231100010112233-0111021212330000-0102130332023232-3020032023013003",
-      "anchor_map": [
-        [
-          "schema-items--get_spec--infra--hw_info--usb--i_serial",
-          "canonical-3300311013313022-1333032321220002-0232200032202023-0301232032013122-0231103331323232-3223230303302323-3112000333201103-1311222302312022"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--site_registrations_by_site--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:site_registrations_by_site:properties:items:get_spec:infra:hw_info:usb",
-      "section_id": "xcsh-docs:data-sources:site_registrations_by_site:properties:items:get_spec:infra:hw_info:usb:section:12",
-      "source_sha256": "sha256:cdf895f2cc7722c7d2472f147e5943a274ccd6760471e47f099c108c33861c69",
-      "source_bytes": 165,
-      "canonical_source_sha256": "sha256:ce0ce9cc451c5f3f75a0bdfad29f1e1716a23e8f4037db8ee8044d2385ec0676",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/site_registrations_by_site/properties/items/get_spec/infra/hw_info/usb/",
-      "anchor": "canonical-1222230122031021-2223100303201323-2000211033322002-3221323230313321-0322023221233130-3101322112101330-2121000102213001-2301233322233201",
-      "anchor_map": [
-        [
-          "schema-items--get_spec--infra--hw_info--usb--id_product",
-          "canonical-2330000310302030-3221020330210001-3201001001220133-2103303232302312-2221322113221110-3213213231321132-2113212211032332-0203111131231302"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--site_registrations_by_site--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:site_registrations_by_site:properties:items:get_spec:infra:hw_info:usb",
-      "section_id": "xcsh-docs:data-sources:site_registrations_by_site:properties:items:get_spec:infra:hw_info:usb:section:13",
-      "source_sha256": "sha256:1e0ea64db91263b7c334099218fb9f6d5b02149e6b817c8b98dcb5bfb3b39447",
-      "source_bytes": 170,
-      "canonical_source_sha256": "sha256:ce0ce9cc451c5f3f75a0bdfad29f1e1716a23e8f4037db8ee8044d2385ec0676",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/site_registrations_by_site/properties/items/get_spec/infra/hw_info/usb/",
-      "anchor": "canonical-0011210122010001-1103203120003300-0212311023101032-3211112002013300-0321113331130020-1233111121023210-2312220311033000-0302033021301222",
-      "anchor_map": [
-        [
-          "schema-items--get_spec--infra--hw_info--usb--id_vendor",
-          "canonical-1003330302320213-1031022230121312-2222323111103330-0130323130121010-2011320203310101-1133232133020211-1302322131312210-1203210011201022"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--site_registrations_by_site--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:site_registrations_by_site:properties:items:get_spec:infra:hw_info:usb",
-      "section_id": "xcsh-docs:data-sources:site_registrations_by_site:properties:items:get_spec:infra:hw_info:usb:section:14",
-      "source_sha256": "sha256:0b322c6541ef967a3ccb82918b2bc6b1208ffca9af2364171ce3a271c7866777",
-      "source_bytes": 169,
-      "canonical_source_sha256": "sha256:ce0ce9cc451c5f3f75a0bdfad29f1e1716a23e8f4037db8ee8044d2385ec0676",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/site_registrations_by_site/properties/items/get_spec/infra/hw_info/usb/",
-      "anchor": "canonical-0212010223023122-0231310232212201-1303001100123332-2001212212303131-2232022000011331-2230331030303213-3210101323030130-3133020030312132",
-      "anchor_map": [
-        [
-          "schema-items--get_spec--infra--hw_info--usb--port",
-          "canonical-3010102013203023-1210111022012213-1101111100012330-1232030313200111-2130112213121211-1213320223110133-2331000302033220-0220020320011313"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--site_registrations_by_site--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:site_registrations_by_site:properties:items:get_spec:infra:hw_info:usb",
-      "section_id": "xcsh-docs:data-sources:site_registrations_by_site:properties:items:get_spec:infra:hw_info:usb:section:15",
-      "source_sha256": "sha256:aaa5b68c0851fa238c7aabf0a31b20b7698e97eac2168eacfb7a032249272b23",
-      "source_bytes": 337,
-      "canonical_source_sha256": "sha256:ce0ce9cc451c5f3f75a0bdfad29f1e1716a23e8f4037db8ee8044d2385ec0676",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/site_registrations_by_site/properties/items/get_spec/infra/hw_info/usb/",
-      "anchor": "canonical-2230030322012001-1332120002011221-0121031133020321-0310201221100012-0203130001021031-0033332021110213-1020101120322021-2112111132011110",
-      "anchor_map": [
-        [
-          "schema-items--get_spec--infra--hw_info--usb--product_name",
-          "canonical-0030123211122311-3231033000220133-2230222130001210-1322100200010113-3130001320332033-2303220133231332-1000001002022000-1120132323233213"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--site_registrations_by_site--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:site_registrations_by_site:properties:items:get_spec:infra:hw_info:usb",
-      "section_id": "xcsh-docs:data-sources:site_registrations_by_site:properties:items:get_spec:infra:hw_info:usb:section:16",
-      "source_sha256": "sha256:e5db9b48ed0f4032cbfee6410c31686d66a51e25bf6a67a5f80d8b53e7580d70",
-      "source_bytes": 168,
-      "canonical_source_sha256": "sha256:ce0ce9cc451c5f3f75a0bdfad29f1e1716a23e8f4037db8ee8044d2385ec0676",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/site_registrations_by_site/properties/items/get_spec/infra/hw_info/usb/",
-      "anchor": "canonical-3230330003201201-3122030123132011-3222221231220030-1211313312010122-0001312033001303-1201031103202223-2320122220123213-2121303203001102",
-      "anchor_map": [
-        [
-          "schema-items--get_spec--infra--hw_info--usb--speed",
-          "canonical-1323302301100121-3111112120302111-3210101201331002-1231011213133102-1033220003030013-3011212001112112-1330312103222223-2223211031303130"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--site_registrations_by_site--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:site_registrations_by_site:properties:items:get_spec:infra:hw_info:usb",
-      "section_id": "xcsh-docs:data-sources:site_registrations_by_site:properties:items:get_spec:infra:hw_info:usb:section:17",
-      "source_sha256": "sha256:ac9d7356aba4372b4e3f4a4e594d98d800d67249b06edec807060f0af4b90564",
-      "source_bytes": 165,
-      "canonical_source_sha256": "sha256:ce0ce9cc451c5f3f75a0bdfad29f1e1716a23e8f4037db8ee8044d2385ec0676",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/site_registrations_by_site/properties/items/get_spec/infra/hw_info/usb/",
-      "anchor": "canonical-1103021112000332-0300131033313021-1003200001102222-0032203012222131-2003313222200203-1200002200320310-0001033310201232-1003120001333110",
-      "anchor_map": [
-        [
-          "schema-items--get_spec--infra--hw_info--usb--usb_type",
-          "canonical-3001112220032212-3002210321332131-2120331203033223-1321332123220330-2000310131123023-1020221102012001-0130211111030123-0323320110131332"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--site_registrations_by_site--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:site_registrations_by_site:properties:items:get_spec:infra:hw_info:usb",
-      "section_id": "xcsh-docs:data-sources:site_registrations_by_site:properties:items:get_spec:infra:hw_info:usb:section:18",
-      "source_sha256": "sha256:52e8e1d23702a5f4dfabe7a4283b14e25514daff1c954b30de04b973362697a7",
-      "source_bytes": 949,
-      "canonical_source_sha256": "sha256:ce0ce9cc451c5f3f75a0bdfad29f1e1716a23e8f4037db8ee8044d2385ec0676",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/site_registrations_by_site/properties/items/get_spec/infra/hw_info/usb/",
-      "anchor": "canonical-3033222220011120-2330100013132113-1212222302002003-2323110131320311-1320031302212212-0012022032021330-0123212202021111-0300110332333111",
-      "anchor_map": [
-        [
-          "schema-items--get_spec--infra--hw_info--usb--vendor_name",
-          "canonical-3313303332223312-3321220322233010-1202032321131203-3212211020212231-1001012022133021-0202101101121103-3320300023223133-2212320130302112"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--site_registrations_by_site--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:site_registrations_by_site:properties:items:get_spec:infra:hw_info:usb",
-      "section_id": "xcsh-docs:data-sources:site_registrations_by_site:properties:items:get_spec:infra:hw_info:usb:section:19",
-      "source_sha256": "sha256:776c81f9f0092e54a043bee2b9fc14d7f37bd6f979a49b99632b7f14b3d5bb93",
-      "source_bytes": 100,
-      "canonical_source_sha256": "sha256:ce0ce9cc451c5f3f75a0bdfad29f1e1716a23e8f4037db8ee8044d2385ec0676",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/site_registrations_by_site/properties/items/get_spec/infra/hw_info/usb/",
-      "anchor": "canonical-2102022012120121-3300103030213311-2111311200130103-1131231013232111-2231200310330330-3133113122001321-0022103300200130-3110221223021333",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--site_registrations_by_site--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:site_registrations_by_site:properties:items:get_spec:infra:interfaces",
-      "section_id": "xcsh-docs:data-sources:site_registrations_by_site:properties:items:get_spec:infra:interfaces:section:0",
-      "source_sha256": "sha256:226271eef67519cef95fe7371133fa69ebfdb7e80b9dc2e7faea9f51f1e1adc3",
-      "source_bytes": 1048,
-      "canonical_source_sha256": "sha256:226271eef67519cef95fe7371133fa69ebfdb7e80b9dc2e7faea9f51f1e1adc3",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/site_registrations_by_site/properties/items/get_spec/infra/interfaces/",
-      "anchor": "canonical-3213111122123311-0111213033010022-0302211133112322-3310120133221323-0001323031111022-3112332133211110-1100001202211322-3012211220331101",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-0220323011033201-1120102233310122-1013133001131300-0130232200311333-3121012200301011-3323123113311301-3111230101002012-1213311223333302"
         ]
       ],
       "mode": "embedded",
