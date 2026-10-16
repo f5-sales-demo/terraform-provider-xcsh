@@ -75,11 +75,7 @@
       ]
     },
     "global_controller_sso_egress": {
-      "source_entries": [
-        "3.140.118.214",
-        "52.14.213.208",
-        "3.19.196.19"
-      ]
+      "source_entries": ["3.140.118.214", "52.14.213.208", "3.19.196.19"]
     },
     "global_log_receiver": {
       "source_entries": [
@@ -157,31 +153,16 @@
       }
     },
     "secondary_dns_zone_transfer": {
-      "source_entries": [
-        "52.14.213.208",
-        "3.140.118.214",
-        "107.162.234.197",
-        "107.162.176.221"
-      ]
+      "source_entries": ["52.14.213.208", "3.140.118.214", "107.162.234.197", "107.162.176.221"]
     }
   },
   "customer_edge": {
     "defaults": {
-      "dns_servers": [
-        "8.8.8.8",
-        "8.8.4.4"
-      ],
-      "ntp_servers": [
-        "216.239.35.4",
-        "216.239.35.8",
-        "216.239.35.12",
-        "216.239.35.0"
-      ]
+      "dns_servers": ["8.8.8.8", "8.8.4.4"],
+      "ntp_servers": ["216.239.35.4", "216.239.35.8", "216.239.35.12", "216.239.35.0"]
     },
     "secure_mesh_v2": {
-      "registration_addresses": [
-        "159.60.141.140"
-      ],
+      "registration_addresses": ["159.60.141.140"],
       "domains": [
         ".volterra.io",
         "localdb-url-daily.brightcloud.com",
