@@ -7,7 +7,10 @@ import (
 	"crypto/sha256"
 	"encoding/json"
 	"fmt"
+	"os"
 	"reflect"
+
+	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/networkallowlist"
 	"regexp"
 	"testing"
 
@@ -51,7 +54,7 @@ func TestNetworkAllowlistPinnedManifest(t *testing.T) {
 	if !regexp.MustCompile(`^[a-f0-9]{64}$`).MatchString(manifest.SourceSHA256) || bundledNetworkAllowlist.SourceSHA256 != manifest.SourceSHA256 {
 		t.Fatalf("source digest = %q", bundledNetworkAllowlist.SourceSHA256)
 	}
-	wantLogReceiver := map[string]string{"v12.0.6": "3.64.239.6", "v12.0.8": "3.122.153.132"}[bundledNetworkAllowlist.APIReleaseTag]
+	wantLogReceiver := map[string]string{"v12.0.6": "3.64.239.6", "v12.0.8": "3.122.153.132", "v12.0.9": "3.122.153.132"}[bundledNetworkAllowlist.APIReleaseTag]
 	if got := bundledNetworkAllowlist.Services["global_log_receiver"].SourceEntries[2]; got != wantLogReceiver {
 		t.Fatalf("mixed source entry = %q", got)
 	}
@@ -188,6 +191,7 @@ func reviewedNetworkAllowlist(raw []byte) error {
 	}
 	expected := map[string][2]string{
 		"v12.0.6": {"0bb6fd6bd561aef1ea9fbc772119d4cfea8c26cbe82d7ea6e76f9aeb03366555", "eecde9bcec9d573edf789aa9b34bf7d48e7b226c3791b7f9942cda73b316edfd"},
+		"v12.0.9": {"67bc756eb9b4ad90412f635aa54955864845e1d4082583ca1882d912e596f5eb", "1616904b52ff0a5acd7cedbb315454c412333c2740a7152913f47608c734771e"},
 		"v12.0.8": {"3dc6760c61b9c4efee31da8e641d971851ba4a3cc37281599a5f7f962a0b18fa", "cdcb5a64736b8e30193dc67b78076f034fe67b573ce089944c1b0aa550ddfa1d"},
 	}
 	provenance, ok := expected[artifact.APIReleaseTag]
@@ -217,5 +221,31 @@ func TestNetworkAllowlistRejectsUnreviewedProvenance(t *testing.T) {
 				t.Fatal("accepted changed artifact")
 			}
 		})
+	}
+}
+
+func TestReviewedNetworkAllowlistV1209AndContentTampering(t *testing.T) {
+	raw, err := os.ReadFile("../../tests/fixtures/network-allowlist-v12.0.9.json")
+	if err != nil {
+		t.Fatal(err)
+	}
+	var artifact networkallowlist.Artifact
+	if err := json.Unmarshal(raw, &artifact); err != nil {
+		t.Fatal(err)
+	}
+	encoded, err := json.Marshal(artifact)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if err := reviewedNetworkAllowlist(encoded); err != nil {
+		t.Fatal(err)
+	}
+	artifact.CustomerEdge.SecureMeshV2.Domains[0] = "example.test"
+	changed, err := json.Marshal(artifact)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if reviewedNetworkAllowlist(changed) == nil {
+		t.Fatal("accepted modified allowlist content")
 	}
 }

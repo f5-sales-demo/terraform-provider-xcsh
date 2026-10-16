@@ -1,0 +1,27 @@
+{
+  "release_tag": "v12.0.9",
+  "prior_release_tag": "v12.0.8",
+  "review_date": "2026-10-16",
+  "openapi_sha256": "sha256:8a3ea9bce1bab8aa228c10e0d646e693bcfb9c36562ad4efefef3c5b74062753",
+  "source_sha256": "67bc756eb9b4ad90412f635aa54955864845e1d4082583ca1882d912e596f5eb",
+  "compiled_artifact_sha256": "1616904b52ff0a5acd7cedbb315454c412333c2740a7152913f47608c734771e",
+  "source_revision": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc",
+  "changes": {
+    "bot_defense_domains_added": [
+      "ibd-mobileus.fastcache.net",
+      "ibd-mobilelatm.fastcache.net",
+      "ibd-mobileapac.fastcache.net",
+      "ibd-mobileapac2.fastcache.net",
+      "ibd-mobileapac3.fastcache.net",
+      "ibd-mobileemea.fastcache.net",
+      "ibd-mobileemea2.fastcache.net",
+      "ibd-mobileme.fastcache.net",
+      "ibd-mobileemea3.fastcache.net"
+    ],
+    "bot_defense_domains_removed": []
+  },
+  "other_services_unchanged": true,
+  "customer_edge_unchanged": true,
+  "source_generated_at_preserved": "2025-09-10T00:00:00Z",
+  "double_generation_identical": true
+}
