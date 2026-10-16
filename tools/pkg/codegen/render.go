@@ -895,6 +895,10 @@ func renderUnmarshalTopLevelSingle(sb *strings.Builder, rc string, attr openapi.
 	sb.WriteString(fmt.Sprintf("%sif blockData, ok := apiResource.Spec[\"%s\"].(map[string]interface{}); ok && %s {\n", indent, jsonName, buildGuard))
 	if rc == "AppFirewall" && jsonName == "detection_settings" && !responseAuthoritative {
 		sb.WriteString(fmt.Sprintf("%s\tblockData = normalization.AppFirewallDetectionSettings(blockData, isImport || (data.%s != nil && !data.%s.DefaultViolationSettings.IsNull() && !data.%s.DefaultViolationSettings.IsUnknown()))\n", indent, fieldName, fieldName, fieldName))
+		suppressionImplicit := fmt.Sprintf("isImport || data.%s == nil || (data.%s.EnableSuppression.IsNull() && data.%s.DisableSuppression.IsNull())", fieldName, fieldName, fieldName)
+		threatImplicit := fmt.Sprintf("isImport || data.%s == nil || (data.%s.EnableThreatCampaigns.IsNull() && data.%s.DisableThreatCampaigns.IsNull())", fieldName, fieldName, fieldName)
+		signaturesImplicit := fmt.Sprintf("isImport || data.%s == nil || data.%s.SignatureSelectionSetting == nil || data.%s.SignatureSelectionSetting.SignatureSettingsByAccuracy == nil", fieldName, fieldName, fieldName)
+		sb.WriteString(fmt.Sprintf("%s\tblockData = normalization.AppFirewallImplicitDefaults(blockData, %s, %s, %s)\n", indent, suppressionImplicit, threatImplicit, signaturesImplicit))
 	}
 	sb.WriteString(fmt.Sprintf("%s\tdata.%s = &%s{\n", indent, fieldName, model))
 	for _, child := range attr.NestedAttributes {
@@ -1184,7 +1188,7 @@ func renderUnmarshalSingleChild(sb *strings.Builder, rc, childPath string, attr 
 	// reference anywhere: an object-ref's tenant/uid/kind are Computed-only and unknown in
 	// state on create, so any block ON THE PATH to a reference must read those leaves from
 	// the API. See #1079 (direct refs) and #1091 (nested refs, e.g. custom_api_auth_discovery).
-	preserveWhole := container == "single" && stateBase != "" && !hasObjectReferenceDescendant(attr) && !hasComputedDescendant(attr) && !strings.Contains(childPath, "PrivateKey") && !(rc == "AppFirewall" && childPath == "DetectionSettingsViolationSettings")
+	preserveWhole := container == "single" && stateBase != "" && !hasObjectReferenceDescendant(attr) && !hasComputedDescendant(attr) && !strings.Contains(childPath, "PrivateKey") && !(rc == "AppFirewall" && (childPath == "DetectionSettingsViolationSettings" || childPath == "DetectionSettingsSignatureSelectionSetting" || childPath == "DetectionSettingsSignatureSelectionSettingSignatureSettingsByAccuracy"))
 
 	// When a block cannot be preserved whole because it merely CONTAINS a reference on one
 	// arm (a "spine" block), reconstruct from the API but thread the prior-state accessor
