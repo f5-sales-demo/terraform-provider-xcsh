@@ -3,6 +3,23 @@
   "sections": [
     {
       "canonical_id": "xcsh-docs:data-sources:site_registrations_by_site:properties:items:get_spec:infra:hw_info:usb",
+      "section_id": "xcsh-docs:data-sources:site_registrations_by_site:properties:items:get_spec:infra:hw_info:usb:section:5",
+      "source_sha256": "sha256:992156910e8d8fb9b124e802261833272ab3ad57695a88cfa209503e471e2c28",
+      "source_bytes": 187,
+      "canonical_source_sha256": "sha256:ce0ce9cc451c5f3f75a0bdfad29f1e1716a23e8f4037db8ee8044d2385ec0676",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/site_registrations_by_site/properties/items/get_spec/infra/hw_info/usb/",
+      "anchor": "canonical-3010232330230331-1322210100213331-2023100223113213-0020230321011301-3220220031230333-1133021013233013-1131132330130333-0012010301013233",
+      "anchor_map": [
+        [
+          "schema-items--get_spec--infra--hw_info--usb--bcd_device",
+          "canonical-0003203230123201-0110213021013012-2111223323213211-0330200103330001-1301212103320000-1122322100213121-2112223031022213-1103233101210211"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--site_registrations_by_site--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:site_registrations_by_site:properties:items:get_spec:infra:hw_info:usb",
       "section_id": "xcsh-docs:data-sources:site_registrations_by_site:properties:items:get_spec:infra:hw_info:usb:section:6",
       "source_sha256": "sha256:51e37b5f60092e0bb9e91871477949be108c985373d894265697bb8c8793ba98",
       "source_bytes": 154,
@@ -7568,23 +7585,6 @@
         [
           "schema-items--object--spec--gc_spec--infra--machine_id",
           "canonical-1301033330223301-3001101003220211-0222330232002303-1320333110321130-3032310330202311-0320031013321022-3003120331020232-2330230223022110"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--site_registrations_by_state--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:site_registrations_by_state:properties:items:object:spec:gc_spec:infra",
-      "section_id": "xcsh-docs:data-sources:site_registrations_by_state:properties:items:object:spec:gc_spec:infra:section:7",
-      "source_sha256": "sha256:a8c0faf6d47e79ca6c78a091f21aed9e5f8f2434913ef820b572b133806d1bba",
-      "source_bytes": 170,
-      "canonical_source_sha256": "sha256:9f5013c46924fd6e520a5c53439d1186b2def3b41ad8ea785e1970fc4e401acf",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/site_registrations_by_state/properties/items/object/spec/gc_spec/infra/",
-      "anchor": "canonical-1212101301333112-3233003333120301-3011312022210332-0121330102322203-0123030121013301-1112331100110310-0333003310122131-3221213031033201",
-      "anchor_map": [
-        [
-          "schema-items--object--spec--gc_spec--infra--provider_ref",
-          "canonical-3330202311233103-3113121100102032-0030330031212023-0321121232030313-3220003033222333-0021130220030231-0113322000213231-2333212221302212"
         ]
       ],
       "mode": "embedded",

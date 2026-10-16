@@ -118,7 +118,7 @@
       "path": "documentation/resources/secret_policy/index.md",
       "product": "distributed-cloud",
       "provider_name": "secret_policy",
-      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
+      "provider_schema_digest": "sha256:a43a21ec82c017926d35acc6efc3b0a8740fd394357a09aa0e63e65503eb7aff",
       "provider_type": "resources",
       "registry_anchor": "canonical-1312021301020310-0131200100331301-3002003211003233-3010322032311123-0022212322233110-2113210022031113-0031130332112033-3113012311332111",
       "registry_path": "docs/resources/secret_policy.md",
@@ -128,21 +128,21 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/secret_policy/index.txt",
-      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
+      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
       "summary": "Owns a native Secret Policy with ordered inline ALLOW/DENY rules. Evaluation is FIRST_MATCH (top to bottom); no invented API algorithm field is sent. Deletion is soft: destroy remains pending while a tombstone exists and never repeats DELETE for a marked policy. Import namespace/name; legacy child references are",
       "tasks": ["configuration"],
       "title": "xcsh_secret_policy",
       "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v12.0.8",
+        "release_tag": "v12.0.9",
         "schema_components": ["secret_policyCreateRequest"],
-        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
+        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
       }
     },
     {
       "aliases": ["secret policy"],
       "body_bytes": 11748,
-      "body_sha256": "sha256:e705a2789ca4ff0966f31ae4e481f9fa250717ce87fc0daea73ae495625adea1",
+      "body_sha256": "sha256:5088102276249763535052773f8fa66f8ce017f5ebb78cd08c1bc24c5fc9647b",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": ["xcsh-docs:resources:secret_policy:properties:rules"],
@@ -159,7 +159,7 @@
       "path": "documentation/resources/secret_policy/properties/index.md",
       "product": "distributed-cloud",
       "provider_name": "secret_policy",
-      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
+      "provider_schema_digest": "sha256:a43a21ec82c017926d35acc6efc3b0a8740fd394357a09aa0e63e65503eb7aff",
       "provider_type": "resources",
       "registry_anchor": "canonical-1213313330302120-1100122222322313-2323333222220332-2211122300300103-3232201121133200-0113220013210033-2322130013023011-1132310023231200",
       "registry_path": "docs/guides/resources--secret_policy--reference--group-001.md",
@@ -387,14 +387,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/secret_policy/properties/index.txt",
-      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
+      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
       "summary": "Property reference for xcsh_secret_policy.",
       "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v12.0.8",
+        "release_tag": "v12.0.9",
         "schema_components": ["secret_policyCreateRequest"],
-        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
+        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
       }
     },
     {
@@ -417,7 +417,7 @@
       "path": "documentation/resources/secret_policy/properties/rules/index.md",
       "product": "distributed-cloud",
       "provider_name": "secret_policy",
-      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
+      "provider_schema_digest": "sha256:a43a21ec82c017926d35acc6efc3b0a8740fd394357a09aa0e63e65503eb7aff",
       "provider_type": "resources",
       "registry_anchor": "canonical-1111232303130011-1030301132230333-3012212320310123-1213022030003030-3202032333121311-2232110321210330-3200001233322211-0333333311023332",
       "registry_path": "docs/guides/resources--secret_policy--reference--group-001.md",
@@ -501,14 +501,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/secret_policy/properties/rules/index.txt",
-      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
+      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
       "summary": "rules for xcsh_secret_policy.",
       "tasks": ["configuration"],
       "title": "rules",
       "upstream_identity": {
-        "release_tag": "v12.0.8",
+        "release_tag": "v12.0.9",
         "schema_components": ["secret_policyCreateRequest"],
-        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
+        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
       }
     },
     {
@@ -531,7 +531,7 @@
       "path": "documentation/resources/secret_policy/examples/index.md",
       "product": "distributed-cloud",
       "provider_name": "secret_policy",
-      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
+      "provider_schema_digest": "sha256:a43a21ec82c017926d35acc6efc3b0a8740fd394357a09aa0e63e65503eb7aff",
       "provider_type": "resources",
       "registry_anchor": "canonical-2233130113121122-3201312031313030-0131110311312111-3303220122302031-1113010302111212-0230212120110222-0222113301021113-3000322000122310",
       "registry_path": "docs/guides/resources--secret_policy--examples--group-001.md",
@@ -541,14 +541,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/secret_policy/examples/index.txt",
-      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
+      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
       "summary": "Examples for xcsh_secret_policy.",
       "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v12.0.8",
+        "release_tag": "v12.0.9",
         "schema_components": ["secret_policyCreateRequest"],
-        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
+        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
       }
     },
     {
@@ -578,7 +578,7 @@
       "path": "documentation/resources/secret_policy/examples/resource/index.md",
       "product": "distributed-cloud",
       "provider_name": "secret_policy",
-      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
+      "provider_schema_digest": "sha256:a43a21ec82c017926d35acc6efc3b0a8740fd394357a09aa0e63e65503eb7aff",
       "provider_type": "resources",
       "registry_anchor": "canonical-3331221202302033-1321203231013113-2131303202012320-2312133000103013-3010222033113123-2320221223301003-3301300302210021-0012212322100010",
       "registry_path": "docs/guides/resources--secret_policy--examples--group-001.md",
@@ -588,14 +588,14 @@
       "schema_path": ["resource"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/secret_policy/examples/resource/index.txt",
-      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
+      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
       "summary": "Resource for xcsh_secret_policy.",
       "tasks": ["configuration"],
       "title": "Resource",
       "upstream_identity": {
-        "release_tag": "v12.0.8",
+        "release_tag": "v12.0.9",
         "schema_components": ["secret_policyCreateRequest"],
-        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
+        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
       }
     },
     {
@@ -619,7 +619,7 @@
       "path": "documentation/resources/secret_policy/lifecycle/import/index.md",
       "product": "distributed-cloud",
       "provider_name": "secret_policy",
-      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
+      "provider_schema_digest": "sha256:a43a21ec82c017926d35acc6efc3b0a8740fd394357a09aa0e63e65503eb7aff",
       "provider_type": "resources",
       "registry_anchor": "canonical-2111131021220031-2323002001201332-3203310300212013-2033202133131221-2323022112202023-3031312211011310-1303310232320032-3332003112313022",
       "registry_path": "docs/guides/resources--secret_policy--lifecycle--group-001.md",
@@ -629,14 +629,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/secret_policy/lifecycle/import/index.txt",
-      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
+      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
       "summary": "Import for xcsh_secret_policy.",
       "tasks": ["import"],
       "title": "Import",
       "upstream_identity": {
-        "release_tag": "v12.0.8",
+        "release_tag": "v12.0.9",
         "schema_components": ["secret_policyCreateRequest"],
-        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
+        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
       }
     }
   ],
