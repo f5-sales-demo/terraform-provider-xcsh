@@ -665,7 +665,7 @@ func (r *APIDefinitionResource) Read(ctx context.Context, req resource.ReadReque
 	apiResource, err := r.client.GetAPIDefinition(ctx, data.Namespace.ValueString(), data.Name.ValueString())
 	if err != nil {
 		// Check if the resource was deleted outside Terraform
-		if strings.Contains(err.Error(), "NOT_FOUND") || strings.Contains(err.Error(), "404") {
+		if client.HasHTTPStatus(err, 404) {
 			tflog.Warn(ctx, "APIDefinition not found, removing from state", map[string]interface{}{
 				"name":      data.Name.ValueString(),
 				"namespace": data.Namespace.ValueString(),
@@ -673,19 +673,8 @@ func (r *APIDefinitionResource) Read(ctx context.Context, req resource.ReadReque
 			resp.State.RemoveResource(ctx)
 			return
 		}
-		// Some F5 XC APIs do not implement GET-by-name (read returns 501 Not
-		// Implemented — e.g. the shape/csd domain objects, which support only
-		// list/create/delete). Treat that as "cannot refresh" and preserve the
-		// prior state rather than erroring, so the resource stays manageable and
-		// idempotent (create/delete still work).
-		if strings.Contains(err.Error(), "501") {
-			tflog.Warn(ctx, "APIDefinition read not implemented by API (501); keeping prior state", map[string]interface{}{
-				"name":      data.Name.ValueString(),
-				"namespace": data.Namespace.ValueString(),
-			})
-			resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
-			return
-		}
+		// An unavailable read cannot verify absence or current policy. Return an
+		// error and retain prior state; never present cached state as refreshed.
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read APIDefinition: %s", err))
 		return
 	}
