@@ -319,7 +319,7 @@
       "path": "documentation/resources/dns_load_balancer/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_load_balancer",
-      "provider_schema_digest": "sha256:500e603af7c92c2c213b5cbdb574fdea5ac4e4825db9ce520b047c223b245685",
+      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
       "provider_type": "resources",
       "registry_anchor": "canonical-0033303122332020-0032121023333003-1311312102200303-3203210001332002-1223332123021131-3313033203131000-0232222020323020-2121001221232233",
       "registry_path": "docs/resources/dns_load_balancer.md",
@@ -337,21 +337,21 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/dns_load_balancer/index.txt",
-      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
+      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
       "summary": "Manages DNS Load Balancer in a given namespace. If one already exist it will give a error in F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_dns_load_balancer",
       "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v12.0.6",
+        "release_tag": "v12.0.8",
         "schema_components": ["dns_load_balancerCreateRequest"],
-        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
+        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
       }
     },
     {
       "aliases": ["dns load balancer"],
       "body_bytes": 22042,
-      "body_sha256": "sha256:dc30d8861e07facd574f6b8beaeaa97e799b98897f5fc70ae6f0386d2572f9ae",
+      "body_sha256": "sha256:274fed703ac5019b2f6acd3dd0755e63d49bf729da3c51e01e6f78cc21b754fe",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [
@@ -373,7 +373,7 @@
       "path": "documentation/resources/dns_load_balancer/properties/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_load_balancer",
-      "provider_schema_digest": "sha256:500e603af7c92c2c213b5cbdb574fdea5ac4e4825db9ce520b047c223b245685",
+      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
       "provider_type": "resources",
       "registry_anchor": "canonical-3321030232020002-0011103311203300-2121000022123101-3221311213012322-1033303302120031-1011000133302122-3312210311123110-2223313220310031",
       "registry_path": "docs/guides/resources--dns_load_balancer--reference--group-001.md",
@@ -661,20 +661,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/dns_load_balancer/properties/index.txt",
-      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
+      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
       "summary": "Property reference for xcsh_dns_load_balancer.",
       "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v12.0.6",
+        "release_tag": "v12.0.8",
         "schema_components": ["dns_load_balancerCreateRequest"],
-        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
+        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
       }
     },
     {
       "aliases": ["fallback pool"],
       "body_bytes": 5060,
-      "body_sha256": "sha256:d81f74b6d63791248ab6d0d4ff9dd34f2679e727c00187ac2d0510cfb4cc2cad",
+      "body_sha256": "sha256:a3cc2497ee017354cefdd989fe57d46b73f81bef395dda0b1cf05ab3188945ca",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -691,7 +691,7 @@
       "path": "documentation/resources/dns_load_balancer/properties/fallback_pool/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_load_balancer",
-      "provider_schema_digest": "sha256:500e603af7c92c2c213b5cbdb574fdea5ac4e4825db9ce520b047c223b245685",
+      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
       "provider_type": "resources",
       "registry_anchor": "canonical-1212210003110211-3001201121231212-1332220221111323-1100201000223220-2301012002013202-2331013101210221-2212310112013322-1223121320211020",
       "registry_path": "docs/guides/resources--dns_load_balancer--reference--group-001.md",
@@ -780,14 +780,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/dns_load_balancer/properties/fallback_pool/index.txt",
-      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
+      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "fallback_pool",
       "upstream_identity": {
-        "release_tag": "v12.0.6",
+        "release_tag": "v12.0.8",
         "schema_components": ["dns_load_balancerCreateRequest"],
-        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
+        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
       }
     },
     {
@@ -814,7 +814,7 @@
       "path": "documentation/resources/dns_load_balancer/properties/response_cache/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_load_balancer",
-      "provider_schema_digest": "sha256:500e603af7c92c2c213b5cbdb574fdea5ac4e4825db9ce520b047c223b245685",
+      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
       "provider_type": "resources",
       "registry_anchor": "canonical-2222120002121230-3110032110303221-1121221300210031-2320302310233001-2230301012221321-3211131131121010-1203210022321033-2021103202112033",
       "registry_path": "docs/guides/resources--dns_load_balancer--reference--group-001.md",
@@ -931,14 +931,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/dns_load_balancer/properties/response_cache/index.txt",
-      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
+      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
       "summary": "Response Cache x-required.",
       "tasks": ["configuration"],
       "title": "response_cache",
       "upstream_identity": {
-        "release_tag": "v12.0.6",
+        "release_tag": "v12.0.8",
         "schema_components": ["dns_load_balancerCreateRequest"],
-        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
+        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
       }
     },
     {
@@ -961,7 +961,7 @@
       "path": "documentation/resources/dns_load_balancer/properties/response_cache/default_response_cache_parameters/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_load_balancer",
-      "provider_schema_digest": "sha256:500e603af7c92c2c213b5cbdb574fdea5ac4e4825db9ce520b047c223b245685",
+      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
       "provider_type": "resources",
       "registry_anchor": "canonical-2032203223131302-1320313200321200-1233201312003033-3331221203011330-0211113110211120-0010000031210201-1303120232222020-1030012203022232",
       "registry_path": "docs/guides/resources--dns_load_balancer--reference--group-001.md",
@@ -971,14 +971,14 @@
       "schema_path": ["response_cache", "default_response_cache_parameters"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/dns_load_balancer/properties/response_cache/default_response_cache_parameters/index.txt",
-      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
+      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "response_cache.default_response_cache_parameters",
       "upstream_identity": {
-        "release_tag": "v12.0.6",
+        "release_tag": "v12.0.8",
         "schema_components": ["dns_load_balancerCreateRequest"],
-        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
+        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
       }
     },
     {
@@ -1001,7 +1001,7 @@
       "path": "documentation/resources/dns_load_balancer/properties/response_cache/disable_spec/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_load_balancer",
-      "provider_schema_digest": "sha256:500e603af7c92c2c213b5cbdb574fdea5ac4e4825db9ce520b047c223b245685",
+      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
       "provider_type": "resources",
       "registry_anchor": "canonical-1223303111031130-1303220113211001-0001103012223332-1322021003002032-0330331220231112-2121222020300232-3121212112232300-3101123133000323",
       "registry_path": "docs/guides/resources--dns_load_balancer--reference--group-001.md",
@@ -1011,20 +1011,20 @@
       "schema_path": ["response_cache", "disable_spec"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/dns_load_balancer/properties/response_cache/disable_spec/index.txt",
-      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
+      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
       "summary": "Enable this option",
       "tasks": ["configuration"],
       "title": "response_cache.disable_spec",
       "upstream_identity": {
-        "release_tag": "v12.0.6",
+        "release_tag": "v12.0.8",
         "schema_components": ["dns_load_balancerCreateRequest"],
-        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
+        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
       }
     },
     {
       "aliases": ["response cache response cache parameters"],
       "body_bytes": 4195,
-      "body_sha256": "sha256:1bb822fbf1995e06b0e85d927721528b8c8d0c774ccde7c473cc64a8d9c73f71",
+      "body_sha256": "sha256:7ddd92558c35be0ee3764aa22089a162f1bab34bd1bb2980c5f64c766ed75717",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -1041,7 +1041,7 @@
       "path": "documentation/resources/dns_load_balancer/properties/response_cache/response_cache_parameters/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_load_balancer",
-      "provider_schema_digest": "sha256:500e603af7c92c2c213b5cbdb574fdea5ac4e4825db9ce520b047c223b245685",
+      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
       "provider_type": "resources",
       "registry_anchor": "canonical-3331112003223121-2003203323102330-3202003210020000-1330302321221011-2010113030232121-1220011210121321-1300100132020112-3010132200032130",
       "registry_path": "docs/guides/resources--dns_load_balancer--reference--group-001.md",
@@ -1109,14 +1109,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/dns_load_balancer/properties/response_cache/response_cache_parameters/index.txt",
-      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
+      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
       "summary": "Configuration parameter for response cache parameters.",
       "tasks": ["configuration"],
       "title": "response_cache.response_cache_parameters",
       "upstream_identity": {
-        "release_tag": "v12.0.6",
+        "release_tag": "v12.0.8",
         "schema_components": ["dns_load_balancerCreateRequest"],
-        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
+        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
       }
     },
     {
@@ -1139,7 +1139,7 @@
       "path": "documentation/resources/dns_load_balancer/properties/rule_list/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_load_balancer",
-      "provider_schema_digest": "sha256:500e603af7c92c2c213b5cbdb574fdea5ac4e4825db9ce520b047c223b245685",
+      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
       "provider_type": "resources",
       "registry_anchor": "canonical-3123001011030103-3030021310200030-2113331102010132-0303130311130011-0310303333022133-2121102212302031-2010301021020111-3112210032132123",
       "registry_path": "docs/guides/resources--dns_load_balancer--reference--group-001.md",
@@ -1424,20 +1424,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/dns_load_balancer/properties/rule_list/index.txt",
-      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
+      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
       "summary": "List of the Load Balancing Rules.",
       "tasks": ["configuration"],
       "title": "rule_list",
       "upstream_identity": {
-        "release_tag": "v12.0.6",
+        "release_tag": "v12.0.8",
         "schema_components": ["dns_load_balancerCreateRequest"],
-        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
+        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
       }
     },
     {
       "aliases": ["rule list rules"],
       "body_bytes": 5538,
-      "body_sha256": "sha256:1d0ac1c991cf9217695c3d878f3325be53434ca4fceab6ba18772257e06b6cef",
+      "body_sha256": "sha256:9dc6ec40066e989e0c3655c672dd0f7a1a93463f78b81cb2e2b81c63e06b1358",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [
@@ -1462,7 +1462,7 @@
       "path": "documentation/resources/dns_load_balancer/properties/rule_list/rules/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_load_balancer",
-      "provider_schema_digest": "sha256:500e603af7c92c2c213b5cbdb574fdea5ac4e4825db9ce520b047c223b245685",
+      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
       "provider_type": "resources",
       "registry_anchor": "canonical-2321132022133030-1332131221201231-2113100122130112-2110030202103300-2121322011013302-0211112102122231-1122101301213330-2223002010100121",
       "registry_path": "docs/guides/resources--dns_load_balancer--reference--group-001.md",
@@ -1904,20 +1904,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/dns_load_balancer/properties/rule_list/rules/index.txt",
-      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
+      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
       "summary": "Rules to perform load balancing.",
       "tasks": ["configuration"],
       "title": "rule_list.rules",
       "upstream_identity": {
-        "release_tag": "v12.0.6",
+        "release_tag": "v12.0.8",
         "schema_components": ["dns_load_balancerCreateRequest"],
-        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
+        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
       }
     },
     {
       "aliases": ["rule list rules asn list"],
       "body_bytes": 2914,
-      "body_sha256": "sha256:c2ae388225503cb5696514ad646f571cd90ae576967ab9d60c833ce4cd3941b2",
+      "body_sha256": "sha256:320dfeb6d613c62a3da947453cfe7472a1ae8fe68691850024d23225a5f5735d",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -1934,7 +1934,7 @@
       "path": "documentation/resources/dns_load_balancer/properties/rule_list/rules/asn_list/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_load_balancer",
-      "provider_schema_digest": "sha256:500e603af7c92c2c213b5cbdb574fdea5ac4e4825db9ce520b047c223b245685",
+      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
       "provider_type": "resources",
       "registry_anchor": "canonical-3321223222330000-2012300200211201-0211021022002223-1323100222100113-2130330102122120-2210202021030101-0231212100212101-1013103112330113",
       "registry_path": "docs/guides/resources--dns_load_balancer--reference--group-001.md",
@@ -1970,14 +1970,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/dns_load_balancer/properties/rule_list/rules/asn_list/index.txt",
-      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
+      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
       "summary": "An unordered set of RFC 6793 defined 4-byte AS numbers that can be used to create allow or deny lists for use in network policy or service policy. It can be used to create the allow list only for DNS Load Balancer.",
       "tasks": ["configuration"],
       "title": "rule_list.rules.asn_list",
       "upstream_identity": {
-        "release_tag": "v12.0.6",
+        "release_tag": "v12.0.8",
         "schema_components": ["dns_load_balancerCreateRequest"],
-        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
+        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
       }
     },
     {
@@ -2000,7 +2000,7 @@
       "path": "documentation/resources/dns_load_balancer/properties/rule_list/rules/asn_matcher/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_load_balancer",
-      "provider_schema_digest": "sha256:500e603af7c92c2c213b5cbdb574fdea5ac4e4825db9ce520b047c223b245685",
+      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
       "provider_type": "resources",
       "registry_anchor": "canonical-2123003121333211-2302013212313302-1123210233230220-3220010200311110-3122322222313332-2021201201110220-2000103323332121-1112232302000201",
       "registry_path": "docs/guides/resources--dns_load_balancer--reference--group-001.md",
@@ -2036,20 +2036,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/dns_load_balancer/properties/rule_list/rules/asn_matcher/index.txt",
-      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
+      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
       "summary": "Match any AS number contained in the list of bgp_asn_sets.",
       "tasks": ["configuration"],
       "title": "rule_list.rules.asn_matcher",
       "upstream_identity": {
-        "release_tag": "v12.0.6",
+        "release_tag": "v12.0.8",
         "schema_components": ["dns_load_balancerCreateRequest"],
-        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
+        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
       }
     },
     {
       "aliases": ["rule list rules asn matcher asn sets"],
       "body_bytes": 6094,
-      "body_sha256": "sha256:36624b3740345b37930eb5ed4b93f900875d0ba11412b0a8b0c1a297f9ae2304",
+      "body_sha256": "sha256:952f0d511b8b82ffd455e65b32f956a4f76388671469bce88a2cd99d2a8d3bcf",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -2066,7 +2066,7 @@
       "path": "documentation/resources/dns_load_balancer/properties/rule_list/rules/asn_matcher/asn_sets/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_load_balancer",
-      "provider_schema_digest": "sha256:500e603af7c92c2c213b5cbdb574fdea5ac4e4825db9ce520b047c223b245685",
+      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
       "provider_type": "resources",
       "registry_anchor": "canonical-0323211003323103-0210122232312120-0100001033202233-1131103311011332-3110113300132001-1120133022220202-0332030332233031-2021013003320122",
       "registry_path": "docs/guides/resources--dns_load_balancer--reference--group-001.md",
@@ -2192,20 +2192,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/dns_load_balancer/properties/rule_list/rules/asn_matcher/asn_sets/index.txt",
-      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
+      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
       "summary": "A list of references to bgp_asn_set objects.",
       "tasks": ["configuration"],
       "title": "rule_list.rules.asn_matcher.asn_sets",
       "upstream_identity": {
-        "release_tag": "v12.0.6",
+        "release_tag": "v12.0.8",
         "schema_components": ["dns_load_balancerCreateRequest"],
-        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
+        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
       }
     },
     {
       "aliases": ["rule list rules geo location label selector"],
       "body_bytes": 3871,
-      "body_sha256": "sha256:4cc876fc71eba13414fd43a8be8ad9f455d0fbc7ab8e188533a76f093f057952",
+      "body_sha256": "sha256:3dda7a96dd9705e2d6a16b8c7ed24f49882970e2b3c72a82b243bb4d8567f5de",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -2222,7 +2222,7 @@
       "path": "documentation/resources/dns_load_balancer/properties/rule_list/rules/geo_location_label_selector/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_load_balancer",
-      "provider_schema_digest": "sha256:500e603af7c92c2c213b5cbdb574fdea5ac4e4825db9ce520b047c223b245685",
+      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
       "provider_type": "resources",
       "registry_anchor": "canonical-0332233333311132-0033231202303020-1202301012223023-3121100330111001-3022332013333230-1320300121230223-3133011133030303-3030003002200210",
       "registry_path": "docs/guides/resources--dns_load_balancer--reference--group-001.md",
@@ -2258,20 +2258,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/dns_load_balancer/properties/rule_list/rules/geo_location_label_selector/index.txt",
-      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
+      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
       "summary": "This type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects. A null label selector matches no objects.",
       "tasks": ["configuration"],
       "title": "rule_list.rules.geo_location_label_selector",
       "upstream_identity": {
-        "release_tag": "v12.0.6",
+        "release_tag": "v12.0.8",
         "schema_components": ["dns_load_balancerCreateRequest"],
-        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
+        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
       }
     },
     {
       "aliases": ["rule list rules geo location set"],
       "body_bytes": 5418,
-      "body_sha256": "sha256:56b40c7f445522b7eb33dc4afcdce469d920bbb7c541c80a0376cb379e6a8180",
+      "body_sha256": "sha256:51f9d9e498eabadbdb9855e41c8505300ea81ce73fd814bfe76d32c577ad4377",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -2288,7 +2288,7 @@
       "path": "documentation/resources/dns_load_balancer/properties/rule_list/rules/geo_location_set/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_load_balancer",
-      "provider_schema_digest": "sha256:500e603af7c92c2c213b5cbdb574fdea5ac4e4825db9ce520b047c223b245685",
+      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
       "provider_type": "resources",
       "registry_anchor": "canonical-3332303023312132-1112123121210330-1320200331132112-1020010023231010-2023130131311001-1313230010111112-1020201132121303-0002311310232110",
       "registry_path": "docs/guides/resources--dns_load_balancer--reference--group-001.md",
@@ -2377,20 +2377,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/dns_load_balancer/properties/rule_list/rules/geo_location_set/index.txt",
-      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
+      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "rule_list.rules.geo_location_set",
       "upstream_identity": {
-        "release_tag": "v12.0.6",
+        "release_tag": "v12.0.8",
         "schema_components": ["dns_load_balancerCreateRequest"],
-        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
+        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
       }
     },
     {
       "aliases": ["rule list rules ip prefix list"],
       "body_bytes": 2799,
-      "body_sha256": "sha256:aff2d628ac52c84e2668cdf065eb895973d179b0ffdd933c15daa4a78da25eb1",
+      "body_sha256": "sha256:52923f8dea39f2f0d39b3c5486e21bf7d85463644e5dc0da911fbe8f66cbb5e5",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -2407,7 +2407,7 @@
       "path": "documentation/resources/dns_load_balancer/properties/rule_list/rules/ip_prefix_list/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_load_balancer",
-      "provider_schema_digest": "sha256:500e603af7c92c2c213b5cbdb574fdea5ac4e4825db9ce520b047c223b245685",
+      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
       "provider_type": "resources",
       "registry_anchor": "canonical-2233311212333031-2302030022200111-2001221012113113-2222313300031001-0220201102123230-1012113000212222-3111103321100130-1011110022233301",
       "registry_path": "docs/guides/resources--dns_load_balancer--reference--group-001.md",
@@ -2450,14 +2450,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/dns_load_balancer/properties/rule_list/rules/ip_prefix_list/index.txt",
-      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
+      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
       "summary": "List of IP Prefix strings to match against.",
       "tasks": ["configuration"],
       "title": "rule_list.rules.ip_prefix_list",
       "upstream_identity": {
-        "release_tag": "v12.0.6",
+        "release_tag": "v12.0.8",
         "schema_components": ["dns_load_balancerCreateRequest"],
-        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
+        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
       }
     },
     {
@@ -2480,7 +2480,7 @@
       "path": "documentation/resources/dns_load_balancer/properties/rule_list/rules/ip_prefix_set/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_load_balancer",
-      "provider_schema_digest": "sha256:500e603af7c92c2c213b5cbdb574fdea5ac4e4825db9ce520b047c223b245685",
+      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
       "provider_type": "resources",
       "registry_anchor": "canonical-1021103121300020-3113310130101200-2121330213301130-1123000102230021-2310311211332002-0032132003201311-1312223122232100-2322120232033331",
       "registry_path": "docs/guides/resources--dns_load_balancer--reference--group-001.md",
@@ -2532,20 +2532,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/dns_load_balancer/properties/rule_list/rules/ip_prefix_set/index.txt",
-      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
+      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
       "summary": "Match any IP prefix contained in the list of ip_prefix_sets. The result of the match is inverted if invert_matcher is true.",
       "tasks": ["configuration"],
       "title": "rule_list.rules.ip_prefix_set",
       "upstream_identity": {
-        "release_tag": "v12.0.6",
+        "release_tag": "v12.0.8",
         "schema_components": ["dns_load_balancerCreateRequest"],
-        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
+        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
       }
     },
     {
       "aliases": ["rule list rules ip prefix set prefix sets"],
       "body_bytes": 6138,
-      "body_sha256": "sha256:352d87c32d9030e80a2362fa43c480648da52d69a7dab72eb33ba74f1ebf71c3",
+      "body_sha256": "sha256:a73c91d9da24a007ba97fe2e14c4188bc79bc3c2e98b6d43868d4e0088832fca",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -2562,7 +2562,7 @@
       "path": "documentation/resources/dns_load_balancer/properties/rule_list/rules/ip_prefix_set/prefix_sets/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_load_balancer",
-      "provider_schema_digest": "sha256:500e603af7c92c2c213b5cbdb574fdea5ac4e4825db9ce520b047c223b245685",
+      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
       "provider_type": "resources",
       "registry_anchor": "canonical-0211331202330210-3112232312031201-1310232303221210-3132022212222010-3320200310231113-2011001323333202-0331111201332310-0021012113021232",
       "registry_path": "docs/guides/resources--dns_load_balancer--reference--group-001.md",
@@ -2688,20 +2688,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/dns_load_balancer/properties/rule_list/rules/ip_prefix_set/prefix_sets/index.txt",
-      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
+      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
       "summary": "A list of references to ip_prefix_set objects.",
       "tasks": ["configuration"],
       "title": "rule_list.rules.ip_prefix_set.prefix_sets",
       "upstream_identity": {
-        "release_tag": "v12.0.6",
+        "release_tag": "v12.0.8",
         "schema_components": ["dns_load_balancerCreateRequest"],
-        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
+        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
       }
     },
     {
       "aliases": ["rule list rules pool"],
       "body_bytes": 5346,
-      "body_sha256": "sha256:3b9b8b5dc1953e204a3db28893d4d5ba95001a2c7c5ff0eb591e9cbc82440240",
+      "body_sha256": "sha256:7bc7fed8078a6b2ac8437d0209b6623d0d66072ee33a63e3b79f9c9f68e6715d",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -2718,7 +2718,7 @@
       "path": "documentation/resources/dns_load_balancer/properties/rule_list/rules/pool/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_load_balancer",
-      "provider_schema_digest": "sha256:500e603af7c92c2c213b5cbdb574fdea5ac4e4825db9ce520b047c223b245685",
+      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
       "provider_type": "resources",
       "registry_anchor": "canonical-1010331032221303-1133022320120002-3302300021123021-1222330200033032-2302112320201120-1301102220312223-3020300022311330-2220010221020021",
       "registry_path": "docs/guides/resources--dns_load_balancer--reference--group-001.md",
@@ -2807,14 +2807,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/dns_load_balancer/properties/rule_list/rules/pool/index.txt",
-      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
+      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "rule_list.rules.pool",
       "upstream_identity": {
-        "release_tag": "v12.0.6",
+        "release_tag": "v12.0.8",
         "schema_components": ["dns_load_balancerCreateRequest"],
-        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
+        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
       }
     },
     {
@@ -2837,7 +2837,7 @@
       "path": "documentation/resources/dns_load_balancer/properties/timeouts/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_load_balancer",
-      "provider_schema_digest": "sha256:500e603af7c92c2c213b5cbdb574fdea5ac4e4825db9ce520b047c223b245685",
+      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
       "provider_type": "resources",
       "registry_anchor": "canonical-3020101101220100-1331123312200221-0133330233120332-1010123102022230-0221113111221210-1030110202230033-2301033013012302-2010221031233011",
       "registry_path": "docs/guides/resources--dns_load_balancer--reference--group-001.md",
@@ -2947,14 +2947,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/dns_load_balancer/properties/timeouts/index.txt",
-      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
+      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
       "summary": "timeouts for xcsh_dns_load_balancer.",
       "tasks": ["configuration"],
       "title": "timeouts",
       "upstream_identity": {
-        "release_tag": "v12.0.6",
+        "release_tag": "v12.0.8",
         "schema_components": ["dns_load_balancerCreateRequest"],
-        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
+        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
       }
     },
     {
@@ -2977,7 +2977,7 @@
       "path": "documentation/resources/dns_load_balancer/examples/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_load_balancer",
-      "provider_schema_digest": "sha256:500e603af7c92c2c213b5cbdb574fdea5ac4e4825db9ce520b047c223b245685",
+      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
       "provider_type": "resources",
       "registry_anchor": "canonical-2003320123011322-3333121122213202-3231212110113333-2111133101120023-0032220332120233-1033311212000332-3323130012313222-2011322223300201",
       "registry_path": "docs/guides/resources--dns_load_balancer--examples--group-001.md",
@@ -2987,14 +2987,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/dns_load_balancer/examples/index.txt",
-      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
+      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
       "summary": "Examples for xcsh_dns_load_balancer.",
       "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v12.0.6",
+        "release_tag": "v12.0.8",
         "schema_components": ["dns_load_balancerCreateRequest"],
-        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
+        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
       }
     },
     {
@@ -3024,7 +3024,7 @@
       "path": "documentation/resources/dns_load_balancer/examples/resource/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_load_balancer",
-      "provider_schema_digest": "sha256:500e603af7c92c2c213b5cbdb574fdea5ac4e4825db9ce520b047c223b245685",
+      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
       "provider_type": "resources",
       "registry_anchor": "canonical-3122312210120211-2301233313110112-1223001302033003-3321333322000211-0233313321130303-3302100022220202-2101330001313100-0300131302133001",
       "registry_path": "docs/guides/resources--dns_load_balancer--examples--group-001.md",
@@ -3034,14 +3034,14 @@
       "schema_path": ["resource"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/dns_load_balancer/examples/resource/index.txt",
-      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
+      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
       "summary": "Resource for xcsh_dns_load_balancer.",
       "tasks": ["configuration"],
       "title": "Resource",
       "upstream_identity": {
-        "release_tag": "v12.0.6",
+        "release_tag": "v12.0.8",
         "schema_components": ["dns_load_balancerCreateRequest"],
-        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
+        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
       }
     },
     {
@@ -3065,7 +3065,7 @@
       "path": "documentation/resources/dns_load_balancer/lifecycle/import/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_load_balancer",
-      "provider_schema_digest": "sha256:500e603af7c92c2c213b5cbdb574fdea5ac4e4825db9ce520b047c223b245685",
+      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
       "provider_type": "resources",
       "registry_anchor": "canonical-0130210010103222-1210113203203231-3123131212201010-0212231011303020-0311103213211033-1102302312321331-2031301213323123-1323130320030110",
       "registry_path": "docs/guides/resources--dns_load_balancer--lifecycle--group-001.md",
@@ -3075,14 +3075,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/dns_load_balancer/lifecycle/import/index.txt",
-      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
+      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
       "summary": "Import for xcsh_dns_load_balancer.",
       "tasks": ["import"],
       "title": "Import",
       "upstream_identity": {
-        "release_tag": "v12.0.6",
+        "release_tag": "v12.0.8",
         "schema_components": ["dns_load_balancerCreateRequest"],
-        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
+        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
       }
     },
     {
@@ -3105,7 +3105,7 @@
       "path": "documentation/resources/dns_load_balancer/lifecycle/timeouts/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_load_balancer",
-      "provider_schema_digest": "sha256:500e603af7c92c2c213b5cbdb574fdea5ac4e4825db9ce520b047c223b245685",
+      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
       "provider_type": "resources",
       "registry_anchor": "canonical-2023332301100233-3231132221301023-3311210031320012-3232232133322230-3332031130021023-0103222301012031-3031302033131120-3030001222321203",
       "registry_path": "docs/guides/resources--dns_load_balancer--lifecycle--group-001.md",
@@ -3115,14 +3115,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/dns_load_balancer/lifecycle/timeouts/index.txt",
-      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
+      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
       "summary": "Timeouts for xcsh_dns_load_balancer.",
       "tasks": ["lifecycle"],
       "title": "Timeouts",
       "upstream_identity": {
-        "release_tag": "v12.0.6",
+        "release_tag": "v12.0.8",
         "schema_components": ["dns_load_balancerCreateRequest"],
-        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
+        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
       }
     }
   ],

@@ -1,10 +1,10 @@
 {
   "complete": false,
-  "complete_fields": 1553,
-  "enum_fields": 339,
-  "installed_fields": 35110,
+  "complete_fields": 1556,
+  "enum_fields": 341,
+  "installed_fields": 35127,
   "runtime_registration_verified": false,
-  "schema_digest": "sha256:500e603af7c92c2c213b5cbdb574fdea5ac4e4825db9ce520b047c223b245685",
+  "schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
   "unresolved": [
     {
       "reason": "coverage-not-exported",
@@ -114578,6 +114578,76 @@
     },
     {
       "reason": "coverage-not-exported",
+      "schema_path": "allow_f5xc",
+      "source": "secret_policy_resource.go"
+    },
+    {
+      "reason": "coverage-not-exported",
+      "schema_path": "annotations",
+      "source": "secret_policy_resource.go"
+    },
+    {
+      "reason": "coverage-not-exported",
+      "schema_path": "deletion_time",
+      "source": "secret_policy_resource.go"
+    },
+    {
+      "reason": "coverage-not-exported",
+      "schema_path": "description",
+      "source": "secret_policy_resource.go"
+    },
+    {
+      "reason": "coverage-not-exported",
+      "schema_path": "id",
+      "source": "secret_policy_resource.go"
+    },
+    {
+      "reason": "coverage-not-exported",
+      "schema_path": "labels",
+      "source": "secret_policy_resource.go"
+    },
+    {
+      "reason": "coverage-not-exported",
+      "schema_path": "marked_for_delete",
+      "source": "secret_policy_resource.go"
+    },
+    {
+      "reason": "bounded-extraction-unresolved",
+      "schema_path": "name",
+      "source": "secret_policy_resource.go"
+    },
+    {
+      "reason": "bounded-extraction-unresolved",
+      "schema_path": "namespace",
+      "source": "secret_policy_resource.go"
+    },
+    {
+      "reason": "bounded-extraction-unresolved",
+      "schema_path": "rules",
+      "source": "secret_policy_resource.go"
+    },
+    {
+      "reason": "bounded-extraction-unresolved",
+      "schema_path": "rules.client_selector",
+      "source": "secret_policy_resource.go"
+    },
+    {
+      "reason": "coverage-not-exported",
+      "schema_path": "rules.description",
+      "source": "secret_policy_resource.go"
+    },
+    {
+      "reason": "bounded-extraction-unresolved",
+      "schema_path": "rules.name",
+      "source": "secret_policy_resource.go"
+    },
+    {
+      "reason": "coverage-not-exported",
+      "schema_path": "uid",
+      "source": "secret_policy_resource.go"
+    },
+    {
+      "reason": "coverage-not-exported",
       "schema_path": "active_enhanced_firewall_policies",
       "source": "securemesh_site_v2_data_source.go"
     },
@@ -167792,6 +167862,6 @@
       "source": "workload_resource.go"
     }
   ],
-  "unresolved_fields": 33557,
+  "unresolved_fields": 33571,
   "version": 1
 }

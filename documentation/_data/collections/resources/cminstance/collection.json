@@ -190,7 +190,7 @@
       "path": "documentation/resources/cminstance/index.md",
       "product": "distributed-cloud",
       "provider_name": "cminstance",
-      "provider_schema_digest": "sha256:500e603af7c92c2c213b5cbdb574fdea5ac4e4825db9ce520b047c223b245685",
+      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
       "provider_type": "resources",
       "registry_anchor": "canonical-3030301003002223-1121312121232112-1232303010012000-0213330232003222-0030121133101123-1130200110322121-0013030301203132-0203031312323211",
       "registry_path": "docs/resources/cminstance.md",
@@ -200,21 +200,21 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cminstance/index.txt",
-      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
+      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
       "summary": "Manages App type will create the configuration in namespace metadata.namespace in F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_cminstance",
       "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v12.0.6",
+        "release_tag": "v12.0.8",
         "schema_components": ["cminstanceCreateRequest"],
-        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
+        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
       }
     },
     {
       "aliases": ["cminstance"],
       "body_bytes": 16164,
-      "body_sha256": "sha256:e5dd1d8459a9731067bb64db3201f752c56eebc7710c56d16e97fa84b015e227",
+      "body_sha256": "sha256:b2783884fe79dddf1a2ee07899d6132208c508426c1383e4cc86b23edb4f5937",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -236,7 +236,7 @@
       "path": "documentation/resources/cminstance/properties/index.md",
       "product": "distributed-cloud",
       "provider_name": "cminstance",
-      "provider_schema_digest": "sha256:500e603af7c92c2c213b5cbdb574fdea5ac4e4825db9ce520b047c223b245685",
+      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
       "provider_type": "resources",
       "registry_anchor": "canonical-0122030300032322-3101313310110231-2201200223333032-1111223213311301-3211302322021031-2210200012133330-3303132132031200-1011331323321121",
       "registry_path": "docs/guides/resources--cminstance--reference--group-001.md",
@@ -489,14 +489,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cminstance/properties/index.txt",
-      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
+      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
       "summary": "Property reference for xcsh_cminstance.",
       "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v12.0.6",
+        "release_tag": "v12.0.8",
         "schema_components": ["cminstanceCreateRequest"],
-        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
+        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
       }
     },
     {
@@ -522,7 +522,7 @@
       "path": "documentation/resources/cminstance/properties/api_token/index.md",
       "product": "distributed-cloud",
       "provider_name": "cminstance",
-      "provider_schema_digest": "sha256:500e603af7c92c2c213b5cbdb574fdea5ac4e4825db9ce520b047c223b245685",
+      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
       "provider_type": "resources",
       "registry_anchor": "canonical-3222030313100232-0200020221122131-3103013213301233-2303233102233002-1131233212323133-1112110023232123-2100323101300011-1201030210101112",
       "registry_path": "docs/guides/resources--cminstance--reference--group-001.md",
@@ -600,20 +600,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cminstance/properties/api_token/index.txt",
-      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
+      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
       "summary": "SecretType is used in an object to indicate a sensitive/confidential field.",
       "tasks": ["configuration"],
       "title": "api_token",
       "upstream_identity": {
-        "release_tag": "v12.0.6",
+        "release_tag": "v12.0.8",
         "schema_components": ["cminstanceCreateRequest"],
-        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
+        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
       }
     },
     {
       "aliases": ["api token blindfold secret info"],
       "body_bytes": 4034,
-      "body_sha256": "sha256:6240746325cc5915bf3546c44f0abe6d1a0d85742e4e6512a55f3cf36b6bb874",
+      "body_sha256": "sha256:46321656d2193c9277b5800a838222dd469cab1da8e8ae0813d684aa71cb9815",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -630,7 +630,7 @@
       "path": "documentation/resources/cminstance/properties/api_token/blindfold_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "cminstance",
-      "provider_schema_digest": "sha256:500e603af7c92c2c213b5cbdb574fdea5ac4e4825db9ce520b047c223b245685",
+      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
       "provider_type": "resources",
       "registry_anchor": "canonical-0122133031100330-0220300330030032-2212101130122033-0231102033113010-0113210121323012-2021331023301333-3222302223103012-0322220023223223",
       "registry_path": "docs/guides/resources--cminstance--reference--group-001.md",
@@ -698,20 +698,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cminstance/properties/api_token/blindfold_secret_info/index.txt",
-      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
+      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
       "summary": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
       "tasks": ["configuration"],
       "title": "api_token.blindfold_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.6",
+        "release_tag": "v12.0.8",
         "schema_components": ["cminstanceCreateRequest"],
-        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
+        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
       }
     },
     {
       "aliases": ["api token clear secret info"],
       "body_bytes": 3070,
-      "body_sha256": "sha256:bf24d94cac09a9021f706d8e51840f3dd5f9f46860916bb4e797c37285892d17",
+      "body_sha256": "sha256:7124c186b5dd86efe2a09d6a9bf3d0b28faa2b59ddc127e084497f4304840f2a",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -728,7 +728,7 @@
       "path": "documentation/resources/cminstance/properties/api_token/clear_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "cminstance",
-      "provider_schema_digest": "sha256:500e603af7c92c2c213b5cbdb574fdea5ac4e4825db9ce520b047c223b245685",
+      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
       "provider_type": "resources",
       "registry_anchor": "canonical-1233220322220122-0220202202101221-3300121202220003-2322022332111122-2321321313331303-2001210000011203-0312100330023102-3300101320032202",
       "registry_path": "docs/guides/resources--cminstance--reference--group-001.md",
@@ -780,20 +780,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cminstance/properties/api_token/clear_secret_info/index.txt",
-      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
+      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
       "summary": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
       "tasks": ["configuration"],
       "title": "api_token.clear_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.6",
+        "release_tag": "v12.0.8",
         "schema_components": ["cminstanceCreateRequest"],
-        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
+        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
       }
     },
     {
       "aliases": ["ip"],
       "body_bytes": 1782,
-      "body_sha256": "sha256:5533a8b3f9244d7ce5a5b16947307999e640d2cfb68a5992f0c88eaa553e23c4",
+      "body_sha256": "sha256:e09f6335808cc3a0f0a7985dc2eb57c8e6305e2511437d51302d4e7833d1e784",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -810,7 +810,7 @@
       "path": "documentation/resources/cminstance/properties/ip/index.md",
       "product": "distributed-cloud",
       "provider_name": "cminstance",
-      "provider_schema_digest": "sha256:500e603af7c92c2c213b5cbdb574fdea5ac4e4825db9ce520b047c223b245685",
+      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
       "provider_type": "resources",
       "registry_anchor": "canonical-1002002022300323-3132232220002130-1211230032132212-1000211102313130-2110020102001122-2320323121310312-3201200233102200-0011203231010231",
       "registry_path": "docs/guides/resources--cminstance--reference--group-001.md",
@@ -837,14 +837,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cminstance/properties/ip/index.txt",
-      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
+      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
       "summary": "IPv4 Address in dot-decimal notation.",
       "tasks": ["configuration"],
       "title": "ip",
       "upstream_identity": {
-        "release_tag": "v12.0.6",
+        "release_tag": "v12.0.8",
         "schema_components": ["cminstanceCreateRequest"],
-        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
+        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
       }
     },
     {
@@ -870,7 +870,7 @@
       "path": "documentation/resources/cminstance/properties/password/index.md",
       "product": "distributed-cloud",
       "provider_name": "cminstance",
-      "provider_schema_digest": "sha256:500e603af7c92c2c213b5cbdb574fdea5ac4e4825db9ce520b047c223b245685",
+      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
       "provider_type": "resources",
       "registry_anchor": "canonical-2133031010321330-0110012311313220-1021213332102332-1032201111113230-0123321302231123-0130032231323311-3003311121000102-2321032213111120",
       "registry_path": "docs/guides/resources--cminstance--reference--group-001.md",
@@ -948,20 +948,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cminstance/properties/password/index.txt",
-      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
+      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
       "summary": "SecretType is used in an object to indicate a sensitive/confidential field.",
       "tasks": ["configuration"],
       "title": "password",
       "upstream_identity": {
-        "release_tag": "v12.0.6",
+        "release_tag": "v12.0.8",
         "schema_components": ["cminstanceCreateRequest"],
-        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
+        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
       }
     },
     {
       "aliases": ["password blindfold secret info"],
       "body_bytes": 4027,
-      "body_sha256": "sha256:fbd57413ae410540b54e518a1a27e7ab25b7f47899c7eb2cb6fa4a6c4c31f109",
+      "body_sha256": "sha256:d0f228b658d8598f5342be457d76fd4dc87340589ccd931018e47c315f9e413e",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -978,7 +978,7 @@
       "path": "documentation/resources/cminstance/properties/password/blindfold_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "cminstance",
-      "provider_schema_digest": "sha256:500e603af7c92c2c213b5cbdb574fdea5ac4e4825db9ce520b047c223b245685",
+      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
       "provider_type": "resources",
       "registry_anchor": "canonical-1311130101033113-2301223330003302-2300110230013231-0312110021321130-1223212303222120-1200122012232332-1032203210120020-2222331103302001",
       "registry_path": "docs/guides/resources--cminstance--reference--group-001.md",
@@ -1046,20 +1046,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cminstance/properties/password/blindfold_secret_info/index.txt",
-      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
+      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
       "summary": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
       "tasks": ["configuration"],
       "title": "password.blindfold_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.6",
+        "release_tag": "v12.0.8",
         "schema_components": ["cminstanceCreateRequest"],
-        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
+        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
       }
     },
     {
       "aliases": ["password clear secret info"],
       "body_bytes": 3064,
-      "body_sha256": "sha256:5ab6bbf0870c42f00282dae3de1f998ad05f3c56cedf152741629c87f7aa1525",
+      "body_sha256": "sha256:de6ff7c48139bb04cabb3f4a8d6166d37c4503c20eaceb05f9ae0e47cbb87344",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -1076,7 +1076,7 @@
       "path": "documentation/resources/cminstance/properties/password/clear_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "cminstance",
-      "provider_schema_digest": "sha256:500e603af7c92c2c213b5cbdb574fdea5ac4e4825db9ce520b047c223b245685",
+      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
       "provider_type": "resources",
       "registry_anchor": "canonical-1112131122013200-0021332010030123-1313021323332023-2300333033003101-1123021313320103-2212213130111210-1222321200332033-2323233301112111",
       "registry_path": "docs/guides/resources--cminstance--reference--group-001.md",
@@ -1128,14 +1128,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cminstance/properties/password/clear_secret_info/index.txt",
-      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
+      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
       "summary": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
       "tasks": ["configuration"],
       "title": "password.clear_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.6",
+        "release_tag": "v12.0.8",
         "schema_components": ["cminstanceCreateRequest"],
-        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
+        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
       }
     },
     {
@@ -1158,7 +1158,7 @@
       "path": "documentation/resources/cminstance/properties/timeouts/index.md",
       "product": "distributed-cloud",
       "provider_name": "cminstance",
-      "provider_schema_digest": "sha256:500e603af7c92c2c213b5cbdb574fdea5ac4e4825db9ce520b047c223b245685",
+      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
       "provider_type": "resources",
       "registry_anchor": "canonical-3012012022112030-3310230301133232-1001311133212011-3332112331333221-3032000313020313-0020131223101003-2012031130303010-3030332222211210",
       "registry_path": "docs/guides/resources--cminstance--reference--group-001.md",
@@ -1268,14 +1268,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cminstance/properties/timeouts/index.txt",
-      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
+      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
       "summary": "timeouts for xcsh_cminstance.",
       "tasks": ["configuration"],
       "title": "timeouts",
       "upstream_identity": {
-        "release_tag": "v12.0.6",
+        "release_tag": "v12.0.8",
         "schema_components": ["cminstanceCreateRequest"],
-        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
+        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
       }
     },
     {
@@ -1298,7 +1298,7 @@
       "path": "documentation/resources/cminstance/examples/index.md",
       "product": "distributed-cloud",
       "provider_name": "cminstance",
-      "provider_schema_digest": "sha256:500e603af7c92c2c213b5cbdb574fdea5ac4e4825db9ce520b047c223b245685",
+      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
       "provider_type": "resources",
       "registry_anchor": "canonical-1211223003023100-1212001021113111-0212321133311311-1111123102100211-1030030320013203-0001211003021032-2211300222200022-3223233112010302",
       "registry_path": "docs/guides/resources--cminstance--examples--group-001.md",
@@ -1308,14 +1308,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cminstance/examples/index.txt",
-      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
+      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
       "summary": "Examples for xcsh_cminstance.",
       "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v12.0.6",
+        "release_tag": "v12.0.8",
         "schema_components": ["cminstanceCreateRequest"],
-        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
+        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
       }
     },
     {
@@ -1345,7 +1345,7 @@
       "path": "documentation/resources/cminstance/examples/resource/index.md",
       "product": "distributed-cloud",
       "provider_name": "cminstance",
-      "provider_schema_digest": "sha256:500e603af7c92c2c213b5cbdb574fdea5ac4e4825db9ce520b047c223b245685",
+      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
       "provider_type": "resources",
       "registry_anchor": "canonical-0030121000332330-0011313010131230-2210212231210232-2200230213002310-0011030312023330-1113011221032011-2000100201032103-0020101333302020",
       "registry_path": "docs/guides/resources--cminstance--examples--group-001.md",
@@ -1355,14 +1355,14 @@
       "schema_path": ["resource"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cminstance/examples/resource/index.txt",
-      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
+      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
       "summary": "Resource for xcsh_cminstance.",
       "tasks": ["configuration"],
       "title": "Resource",
       "upstream_identity": {
-        "release_tag": "v12.0.6",
+        "release_tag": "v12.0.8",
         "schema_components": ["cminstanceCreateRequest"],
-        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
+        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
       }
     },
     {
@@ -1386,7 +1386,7 @@
       "path": "documentation/resources/cminstance/lifecycle/import/index.md",
       "product": "distributed-cloud",
       "provider_name": "cminstance",
-      "provider_schema_digest": "sha256:500e603af7c92c2c213b5cbdb574fdea5ac4e4825db9ce520b047c223b245685",
+      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
       "provider_type": "resources",
       "registry_anchor": "canonical-2123321023110030-3203022323131230-1220120302123131-1030022112120110-0323220331012032-2223233203113221-0320023321330310-3022210001202101",
       "registry_path": "docs/guides/resources--cminstance--lifecycle--group-001.md",
@@ -1396,14 +1396,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cminstance/lifecycle/import/index.txt",
-      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
+      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
       "summary": "Import for xcsh_cminstance.",
       "tasks": ["import"],
       "title": "Import",
       "upstream_identity": {
-        "release_tag": "v12.0.6",
+        "release_tag": "v12.0.8",
         "schema_components": ["cminstanceCreateRequest"],
-        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
+        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
       }
     },
     {
@@ -1426,7 +1426,7 @@
       "path": "documentation/resources/cminstance/lifecycle/timeouts/index.md",
       "product": "distributed-cloud",
       "provider_name": "cminstance",
-      "provider_schema_digest": "sha256:500e603af7c92c2c213b5cbdb574fdea5ac4e4825db9ce520b047c223b245685",
+      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
       "provider_type": "resources",
       "registry_anchor": "canonical-2100330320322201-2020210220021033-0232320333111222-1300001300233232-3032303131222011-3303021003121312-1323223232111013-1210310210032331",
       "registry_path": "docs/guides/resources--cminstance--lifecycle--group-001.md",
@@ -1436,14 +1436,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cminstance/lifecycle/timeouts/index.txt",
-      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
+      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
       "summary": "Timeouts for xcsh_cminstance.",
       "tasks": ["lifecycle"],
       "title": "Timeouts",
       "upstream_identity": {
-        "release_tag": "v12.0.6",
+        "release_tag": "v12.0.8",
         "schema_components": ["cminstanceCreateRequest"],
-        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
+        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
       }
     }
   ],

@@ -1,6 +1,6 @@
 # Resources
 
-This provider includes 126 resources.
+This provider includes 127 resources.
 
 - [xcsh_address_allocator](address_allocator.md)
 - [xcsh_advertise_policy](advertise_policy.md)
@@ -103,6 +103,7 @@ This provider includes 126 resources.
 - [xcsh_registration_approval](registration_approval.md)
 - [xcsh_route](route.md)
 - [xcsh_secret_management_access](secret_management_access.md)
+- [xcsh_secret_policy](secret_policy.md)
 - [xcsh_securemesh_site_v2](securemesh_site_v2.md)
 - [xcsh_segment](segment.md)
 - [xcsh_sensitive_data_policy](sensitive_data_policy.md)

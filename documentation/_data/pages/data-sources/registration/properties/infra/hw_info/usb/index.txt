@@ -2,7 +2,7 @@
 page_title: "infra.hw_info.usb"
 subcategory: ""
 description: "List of USB devices in server."
-xcsh_docs: {"aliases": ["infra hw info usb"], "body_bytes": 10818, "body_sha256": "sha256:78d253a46d17b67f556217b82b1fd13c288072d02faa0e6ba7a0d9094af2c28a", "capabilities": ["infrastructure"], "category": "infrastructure", "child_ids": [], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:data-sources:registration:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:usb", "parent_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info", "path": "documentation/data-sources/registration/properties/infra/hw_info/usb/index.md", "product": "distributed-cloud", "provider_name": "registration", "provider_schema_digest": "sha256:500e603af7c92c2c213b5cbdb574fdea5ac4e4825db9ce520b047c223b245685", "provider_type": "data-sources", "registry_anchor": "canonical-1110023331232012-0110323002300313-0131123232121130-0310333130302000-0321212033001212-2330232222300223-2313213031323201-0101213101122321", "registry_path": "docs/guides/data-sources--registration--reference--group-001.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["infra", "hw_info", "usb"], "schema_version": 1, "sections": [{"aliases": ["infra hw info usb address"], "anchor": "schema-infra--hw_info--usb--address", "description": "Address of the device on the bus in decimal.", "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:usb", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["infra", "hw_info", "usb", "address"], "syntax": "attribute", "type": "number"}, {"aliases": ["infra hw info usb b device class"], "anchor": "schema-infra--hw_info--usb--b_device_class", "description": "The class of this device.", "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:usb", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["infra", "hw_info", "usb", "b_device_class"], "syntax": "attribute", "type": "string"}, {"aliases": ["infra hw info usb b device protocol"], "anchor": "schema-infra--hw_info--usb--b_device_protocol", "description": "The protocol (within the sub-class) of this device.", "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:usb", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["infra", "hw_info", "usb", "b_device_protocol"], "syntax": "attribute", "type": "string"}, {"aliases": ["infra hw info usb b device sub class"], "anchor": "schema-infra--hw_info--usb--b_device_sub_class", "description": "The sub-class (within the class) of this device.", "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:usb", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["infra", "hw_info", "usb", "b_device_sub_class"], "syntax": "attribute", "type": "string"}, {"aliases": ["infra hw info usb b max packet size"], "anchor": "schema-infra--hw_info--usb--b_max_packet_size", "description": "Maximum size of the control transfer.", "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:usb", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["infra", "hw_info", "usb", "b_max_packet_size"], "syntax": "attribute", "type": "number"}, {"aliases": ["infra hw info usb bcd device"], "anchor": "schema-infra--hw_info--usb--bcd_device", "description": "The device version.", "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:usb", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["infra", "hw_info", "usb", "bcd_device"], "syntax": "attribute", "type": "string"}, {"aliases": ["infra hw info usb bcd usb"], "anchor": "schema-infra--hw_info--usb--bcd_usb", "description": "USB Specification Release Number.", "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:usb", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["infra", "hw_info", "usb", "bcd_usb"], "syntax": "attribute", "type": "string"}, {"aliases": ["infra hw info usb bus"], "anchor": "schema-infra--hw_info--usb--bus", "description": "The bus on which the device was detected in decimal.", "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:usb", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["infra", "hw_info", "usb", "bus"], "syntax": "attribute", "type": "number"}, {"aliases": ["infra hw info usb description spec"], "anchor": "schema-infra--hw_info--usb--description_spec", "description": "Description. Device description.", "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:usb", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["infra", "hw_info", "usb", "description_spec"], "syntax": "attribute", "type": "string"}, {"aliases": ["infra hw info usb i manufacturer"], "anchor": "schema-infra--hw_info--usb--i_manufacturer", "description": "Manufacturer name.", "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:usb", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["infra", "hw_info", "usb", "i_manufacturer"], "syntax": "attribute", "type": "string"}, {"aliases": ["infra hw info usb i product"], "anchor": "schema-infra--hw_info--usb--i_product", "description": "Product name reported by device.", "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:usb", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["infra", "hw_info", "usb", "i_product"], "syntax": "attribute", "type": "string"}, {"aliases": ["infra hw info usb i serial"], "anchor": "schema-infra--hw_info--usb--i_serial", "description": "Index of Serial Number String Descriptor.", "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:usb", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["infra", "hw_info", "usb", "i_serial"], "syntax": "attribute", "type": "string"}, {"aliases": ["infra hw info usb id product"], "anchor": "schema-infra--hw_info--usb--id_product", "description": "Product ID (Assigned by Manufacturer) in hex.", "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:usb", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["infra", "hw_info", "usb", "id_product"], "syntax": "attribute", "type": "string"}, {"aliases": ["infra hw info usb id vendor"], "anchor": "schema-infra--hw_info--usb--id_vendor", "description": "Vendor ID (Assigned by USB Org) in hex.", "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:usb", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["infra", "hw_info", "usb", "id_vendor"], "syntax": "attribute", "type": "string"}, {"aliases": ["infra hw info usb port"], "anchor": "schema-infra--hw_info--usb--port", "description": "Port on which the device was detected in decimal.", "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:usb", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["infra", "hw_info", "usb", "port"], "syntax": "attribute", "type": "number"}, {"aliases": ["infra hw info usb product name"], "anchor": "schema-infra--hw_info--usb--product_name", "description": "Product ID translated to name (if available)", "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:usb", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["infra", "hw_info", "usb", "product_name"], "syntax": "attribute", "type": "string"}, {"aliases": ["infra hw info usb speed"], "anchor": "schema-infra--hw_info--usb--speed", "description": "The negotiated operating speed for the device.", "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:usb", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["infra", "hw_info", "usb", "speed"], "syntax": "attribute", "type": "string"}, {"aliases": ["infra hw info usb usb type"], "anchor": "schema-infra--hw_info--usb--usb_type", "description": "Type of USB device Unknown USB device type Internal USB present in Certified HW USB device present during node registration USB device that can be matched by USB rules.", "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:usb", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["infra", "hw_info", "usb", "usb_type"], "syntax": "attribute", "type": "string"}, {"aliases": ["infra hw info usb vendor name"], "anchor": "schema-infra--hw_info--usb--vendor_name", "description": "Vendor ID translated to name (if available)", "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:usb", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["infra", "hw_info", "usb", "vendor_name"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/registration/properties/infra/hw_info/usb/index.txt", "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b", "summary": "List of USB devices in server.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.6", "schema_components": ["registrationCreateRequest"], "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"}}
+xcsh_docs: {"aliases": ["infra hw info usb"], "body_bytes": 10818, "body_sha256": "sha256:4a4c4f44600460448d609ff1bdd999fe6c4a02688ab33e348ac5e5f195d754b5", "capabilities": ["infrastructure"], "category": "infrastructure", "child_ids": [], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:data-sources:registration:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:usb", "parent_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info", "path": "documentation/data-sources/registration/properties/infra/hw_info/usb/index.md", "product": "distributed-cloud", "provider_name": "registration", "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5", "provider_type": "data-sources", "registry_anchor": "canonical-1110023331232012-0110323002300313-0131123232121130-0310333130302000-0321212033001212-2330232222300223-2313213031323201-0101213101122321", "registry_path": "docs/guides/data-sources--registration--reference--group-001.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["infra", "hw_info", "usb"], "schema_version": 1, "sections": [{"aliases": ["infra hw info usb address"], "anchor": "schema-infra--hw_info--usb--address", "description": "Address of the device on the bus in decimal.", "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:usb", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["infra", "hw_info", "usb", "address"], "syntax": "attribute", "type": "number"}, {"aliases": ["infra hw info usb b device class"], "anchor": "schema-infra--hw_info--usb--b_device_class", "description": "The class of this device.", "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:usb", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["infra", "hw_info", "usb", "b_device_class"], "syntax": "attribute", "type": "string"}, {"aliases": ["infra hw info usb b device protocol"], "anchor": "schema-infra--hw_info--usb--b_device_protocol", "description": "The protocol (within the sub-class) of this device.", "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:usb", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["infra", "hw_info", "usb", "b_device_protocol"], "syntax": "attribute", "type": "string"}, {"aliases": ["infra hw info usb b device sub class"], "anchor": "schema-infra--hw_info--usb--b_device_sub_class", "description": "The sub-class (within the class) of this device.", "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:usb", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["infra", "hw_info", "usb", "b_device_sub_class"], "syntax": "attribute", "type": "string"}, {"aliases": ["infra hw info usb b max packet size"], "anchor": "schema-infra--hw_info--usb--b_max_packet_size", "description": "Maximum size of the control transfer.", "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:usb", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["infra", "hw_info", "usb", "b_max_packet_size"], "syntax": "attribute", "type": "number"}, {"aliases": ["infra hw info usb bcd device"], "anchor": "schema-infra--hw_info--usb--bcd_device", "description": "The device version.", "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:usb", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["infra", "hw_info", "usb", "bcd_device"], "syntax": "attribute", "type": "string"}, {"aliases": ["infra hw info usb bcd usb"], "anchor": "schema-infra--hw_info--usb--bcd_usb", "description": "USB Specification Release Number.", "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:usb", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["infra", "hw_info", "usb", "bcd_usb"], "syntax": "attribute", "type": "string"}, {"aliases": ["infra hw info usb bus"], "anchor": "schema-infra--hw_info--usb--bus", "description": "The bus on which the device was detected in decimal.", "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:usb", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["infra", "hw_info", "usb", "bus"], "syntax": "attribute", "type": "number"}, {"aliases": ["infra hw info usb description spec"], "anchor": "schema-infra--hw_info--usb--description_spec", "description": "Description. Device description.", "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:usb", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["infra", "hw_info", "usb", "description_spec"], "syntax": "attribute", "type": "string"}, {"aliases": ["infra hw info usb i manufacturer"], "anchor": "schema-infra--hw_info--usb--i_manufacturer", "description": "Manufacturer name.", "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:usb", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["infra", "hw_info", "usb", "i_manufacturer"], "syntax": "attribute", "type": "string"}, {"aliases": ["infra hw info usb i product"], "anchor": "schema-infra--hw_info--usb--i_product", "description": "Product name reported by device.", "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:usb", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["infra", "hw_info", "usb", "i_product"], "syntax": "attribute", "type": "string"}, {"aliases": ["infra hw info usb i serial"], "anchor": "schema-infra--hw_info--usb--i_serial", "description": "Index of Serial Number String Descriptor.", "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:usb", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["infra", "hw_info", "usb", "i_serial"], "syntax": "attribute", "type": "string"}, {"aliases": ["infra hw info usb id product"], "anchor": "schema-infra--hw_info--usb--id_product", "description": "Product ID (Assigned by Manufacturer) in hex.", "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:usb", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["infra", "hw_info", "usb", "id_product"], "syntax": "attribute", "type": "string"}, {"aliases": ["infra hw info usb id vendor"], "anchor": "schema-infra--hw_info--usb--id_vendor", "description": "Vendor ID (Assigned by USB Org) in hex.", "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:usb", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["infra", "hw_info", "usb", "id_vendor"], "syntax": "attribute", "type": "string"}, {"aliases": ["infra hw info usb port"], "anchor": "schema-infra--hw_info--usb--port", "description": "Port on which the device was detected in decimal.", "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:usb", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["infra", "hw_info", "usb", "port"], "syntax": "attribute", "type": "number"}, {"aliases": ["infra hw info usb product name"], "anchor": "schema-infra--hw_info--usb--product_name", "description": "Product ID translated to name (if available)", "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:usb", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["infra", "hw_info", "usb", "product_name"], "syntax": "attribute", "type": "string"}, {"aliases": ["infra hw info usb speed"], "anchor": "schema-infra--hw_info--usb--speed", "description": "The negotiated operating speed for the device.", "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:usb", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["infra", "hw_info", "usb", "speed"], "syntax": "attribute", "type": "string"}, {"aliases": ["infra hw info usb usb type"], "anchor": "schema-infra--hw_info--usb--usb_type", "description": "Type of USB device Unknown USB device type Internal USB present in Certified HW USB device present during node registration USB device that can be matched by USB rules.", "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:usb", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["infra", "hw_info", "usb", "usb_type"], "syntax": "attribute", "type": "string"}, {"aliases": ["infra hw info usb vendor name"], "anchor": "schema-infra--hw_info--usb--vendor_name", "description": "Vendor ID translated to name (if available)", "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:usb", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["infra", "hw_info", "usb", "vendor_name"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/registration/properties/infra/hw_info/usb/index.txt", "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd", "summary": "List of USB devices in server.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.8", "schema_components": ["registrationCreateRequest"], "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -80,7 +80,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-10-13T13:24:52+00:00"
+      "validatedAt": "2026-10-15T10:49:30+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -111,7 +111,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-10-13T13:24:52+00:00"
+      "validatedAt": "2026-10-15T10:49:30+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -142,7 +142,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-10-13T13:24:52+00:00"
+      "validatedAt": "2026-10-15T10:49:30+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -194,7 +194,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-10-13T13:24:52+00:00"
+      "validatedAt": "2026-10-15T10:49:30+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -225,7 +225,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-10-13T13:24:52+00:00"
+      "validatedAt": "2026-10-15T10:49:30+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -285,7 +285,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-10-13T13:24:52+00:00"
+      "validatedAt": "2026-10-15T10:49:30+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -316,7 +316,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-10-13T13:24:52+00:00"
+      "validatedAt": "2026-10-15T10:49:30+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -347,7 +347,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-10-13T13:24:52+00:00"
+      "validatedAt": "2026-10-15T10:49:30+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -378,7 +378,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-10-13T13:24:52+00:00"
+      "validatedAt": "2026-10-15T10:49:30+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -409,7 +409,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-10-13T13:24:52+00:00"
+      "validatedAt": "2026-10-15T10:49:30+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -441,7 +441,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "inferred",
-      "validatedAt": "2026-10-13T13:24:52+00:00"
+      "validatedAt": "2026-10-15T10:49:30+00:00"
     },
     "minimum": 1,
     "multipleOf": 1
@@ -474,7 +474,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-10-13T13:24:52+00:00"
+      "validatedAt": "2026-10-15T10:49:30+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -505,7 +505,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-10-13T13:24:52+00:00"
+      "validatedAt": "2026-10-15T10:49:30+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -567,7 +567,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-10-13T13:24:52+00:00"
+      "validatedAt": "2026-10-15T10:49:30+00:00"
     }
   },
   "x-f5xc-required-for": {
