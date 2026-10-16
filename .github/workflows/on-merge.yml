@@ -46,6 +46,11 @@ on:
         required: true
         type: boolean
         default: false
+      reconcile-generated:
+        description: Regenerate current main after a superseded generation run, without requiring a pending spec delivery.
+        required: true
+        type: boolean
+        default: false
       dry-run:
         description: Exercise generation and decision paths without creating a tag, release, or regeneration PR.
         required: true
@@ -107,11 +112,25 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
           PENDING_RESUME: ${{ inputs.resume-pending || false }}
+          RECONCILE_GENERATED: ${{ inputs.reconcile-generated || false }}
+          EVENT_NAME: ${{ github.event_name }}
+          DISPATCH_REF: ${{ github.ref }}
           PR_ASSOCIATION_ATTEMPTS: '6'
           PR_ASSOCIATION_RETRY_DELAY_SECONDS: '10'
           TARGET_REPOSITORY: ${{ github.repository }}
         run: |
           set -euo pipefail
+          if [ "${RECONCILE_GENERATED:-false}" = "true" ]; then
+            if [ "$EVENT_NAME" != "workflow_dispatch" ] || [ "$DISPATCH_REF" != "refs/heads/main" ]; then
+              echo "::error::Generation recovery requires a dispatch from current main"
+              exit 1
+            fi
+            # Rebuild and regenerate the exact current tree; artifact and
+            # protected-main checks remain mandatory before publication.
+            echo "Manual current-main generation recovery"
+            echo "is_regeneration=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
           if [ "${PENDING_RESUME:-false}" = "true" ]; then
             # A recovery dispatch regenerates from the current main tree. HEAD may
             # be the previously rejected stale regeneration merge, so it is not a
@@ -430,8 +449,9 @@ jobs:
             echo "code=false" >> "$GITHUB_OUTPUT"
           fi
 
+          # Generation orchestration changes must rebuild their projections.
           # Delivery coordination files never affect generated provider content.
-          TOOL_CHANGES=$(echo "$CHANGED" | grep -E '^tools/|^templates/' \
+          TOOL_CHANGES=$(echo "$CHANGED" | grep -E '^tools/|^templates/|^\.github/workflows/(on-merge|_generate-provider|_generate-docs)\.yml$' \
             | grep -vE '^tools/(provider-publication-receipts|spec-(deliveries|pending-delivery|regeneration-receipt))\.json$' || true)
           if [ -n "$TOOL_CHANGES" ]; then
             echo "tools=true" >> "$GITHUB_OUTPUT"
@@ -488,6 +508,7 @@ jobs:
           HAS_ANY_CHANGES: ${{ steps.changes.outputs.has_any_changes }}
           DELIVERY_METADATA_ONLY: ${{ steps.changes.outputs.delivery_metadata_only }}
           PENDING_DELIVERY: ${{ steps.changes.outputs.pending_delivery }}
+          RECONCILE_GENERATED: ${{ inputs.reconcile-generated || false }}
         run: |
           PROVIDER_REQUIRED=false
           if [[ "$SPECS" == "true" || "$TOOLS" == "true" || "$PENDING_DELIVERY" == "true" ]]; then
@@ -502,9 +523,17 @@ jobs:
             NEEDS_REGEN=true
           fi
           RESULT=false
+          if [[ "${RECONCILE_GENERATED:-false}" == "true" ]]; then
+            PROVIDER_REQUIRED=true
+            DOCS_REQUIRED=true
+            NEEDS_REGEN=true
+          fi
 
           if [[ "$IS_REGENERATION" == "true" ]]; then
             echo "Processing: exact regeneration completion - will proceed to tag/release"
+            RESULT=true
+          elif [[ "${RECONCILE_GENERATED:-false}" == "true" ]]; then
+            echo "Processing: explicit current-main generation recovery"
             RESULT=true
           elif [[ "$DELIVERY_METADATA_ONLY" == "true" && "$PENDING_DELIVERY" != "true" ]]; then
             echo "Skipping: delivery receipt metadata cannot trigger regeneration or a release"
