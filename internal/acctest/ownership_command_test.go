@@ -4,6 +4,7 @@ package acctest
 import (
 	"encoding/json"
 	"os"
+	"os/exec"
 	"testing"
 )
 
@@ -23,19 +24,33 @@ func TestCommandOwnershipInventoryIsExplicit(t *testing.T) {
 	if err = json.Unmarshal(data, &inventory); err != nil {
 		t.Fatal(err)
 	}
-	if inventory.Version != 1 || len(inventory.Resources) != 4 {
+	expected := map[string]string{
+		"public_ip_binding":           "non_disposable_action_scope",
+		"registration_approval":       "non_disposable_action_scope",
+		"smsv2_kvm_runtime_interface": "non_disposable_action_scope",
+		"swagger_object":              "exact_version_content_digest",
+	}
+	if inventory.Version != 1 || len(inventory.Resources) != len(expected) {
 		t.Fatal("incomplete command inventory")
 	}
 	for _, resource := range inventory.Resources {
 		if resource.Reason == "" {
 			t.Fatal("missing operation evidence")
 		}
-		if resource.Type == "swagger_object" {
-			if resource.Handler != "exact_version_content_digest" {
-				t.Fatal("missing Swagger handler")
-			}
-		} else if resource.Handler != "non_disposable_action_scope" {
-			t.Fatal("unsafe command cleanup handler")
+		handler, ok := expected[resource.Type]
+		if !ok || resource.Handler != handler {
+			t.Fatalf("unreviewed cleanup contract: %s %s", resource.Type, resource.Handler)
 		}
+		delete(expected, resource.Type)
+	}
+	if len(expected) != 0 {
+		t.Fatal("missing explicit ownership contracts")
+	}
+}
+
+func TestOwnershipInventoryGeneratorContracts(t *testing.T) {
+	output, err := exec.Command("python3", "../../tools/test_generate_acceptance_inventory.py").CombinedOutput()
+	if err != nil {
+		t.Fatalf("inventory generator: %v\n%s", err, output)
 	}
 }

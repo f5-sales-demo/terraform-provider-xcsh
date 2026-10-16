@@ -7,6 +7,33 @@ import re
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 
+# Reviewed exceptions are operation contracts, never inferred from missing files.
+EXPLICIT_EXCLUSIONS = {
+    "public_ip_binding": (
+        "non_disposable_action_scope",
+        "mutates independently owned infrastructure; no disposable CRUD lifecycle",
+    ),
+    "registration_approval": (
+        "non_disposable_action_scope",
+        "mutates independently owned infrastructure; no disposable CRUD lifecycle",
+    ),
+    "smsv2_kvm_runtime_interface": (
+        "non_disposable_action_scope",
+        "mutates independently owned infrastructure; no disposable CRUD lifecycle",
+    ),
+    "swagger_object": ("exact_version_content_digest", "immutable owned version"),
+}
+
+# Native Secret Policy uses Secret Management, not generated config CRUD.
+NATIVE_CLIENTS = {
+    "secret_policy": (
+        "secret_policy.go",
+        "GetSecretPolicy",
+        "DeleteSecretPolicy",
+        "/api/secret_management/namespaces/%s/secret_policys",
+    ),
+}
+
 
 def generate(root: pathlib.Path) -> None:
     """Write cleanup handlers derived from generated client method signatures."""
@@ -19,47 +46,47 @@ def generate(root: pathlib.Path) -> None:
     routes = []
     exclusions = []
     for name in sorted(resources):
-        if name == "secret_policy":
-            # Native Secret Policy has owned CRUD in secret_management; it is not an infrastructure action.
-            key = json.dumps("xcsh_" + name)
-            collection = "/api/secret_management/namespaces/%s/secret_policys"
-            readers.append(
-                f"{key}: func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {{ return readOwnershipProjection(ctx, c, fmt.Sprintf({json.dumps(collection + '/%s')}, ns, name), ns, name) }},"
-            )
-            verifiers.append(
-                f"{key}: func(ctx context.Context, c *client.Client, ns, name string) error {{ _, err := c.GetSecretPolicy(ctx, ns, name); return err }},"
-            )
-            deleters.append(
-                f"{key}: func(ctx context.Context, c *client.Client, ns, name string) error {{ return c.DeleteSecretPolicy(ctx, ns, name) }},"
-            )
-            routes.append(f"{key}: {json.dumps(collection)},")
-            continue
-        source = root / "internal/client" / (name + "_types.go")
-        if not source.exists():
+        if name in EXPLICIT_EXCLUSIONS:
             exclusions.append(name)
             continue
-        text = source.read_text()
+        native = NATIVE_CLIENTS.get(name)
+        source = (
+            root / "internal/client" / (native[0] if native else name + "_types.go")
+        )
+        if not source.exists():
+            raise RuntimeError("unreviewed ownership lifecycle: " + name)
+        source_text = source.read_text()
         get = re.search(
-            r"func \(c \*Client\) (Get\w+)\(ctx context.Context, namespace, name string\)",
-            text,
+            r"func \(c \*Client\) (Get\w+)\(ctx context.Context, (?:namespace|ns), name string\)",
+            source_text,
         )
         delete = re.search(
-            r"func \(c \*Client\) (Delete\w+)\(ctx context.Context, namespace, name string\)",
-            text,
+            r"func \(c \*Client\) (Delete\w+)\(ctx context.Context, (?:namespace|ns), name string\)",
+            source_text,
         )
-        create = re.search(r"func \(c \*Client\) Create\w+\([^}]+?path := (.*)", text)
+        create = re.search(
+            r"func \(c \*Client\) Create\w+\([^}]+?path := (.*)", source_text
+        )
         if not get or not delete or not create:
-            exclusions.append(name)
-            continue
-        # Read/delete signatures with additional identifiers require explicit handlers.
+            raise RuntimeError("unreviewed ownership signatures: " + name)
+        if native:
+            if (get[1], delete[1]) != native[1:3]:
+                raise RuntimeError("native ownership methods changed: " + name)
+            collection = native[3]
+            if (
+                '"/api/secret_management/namespaces/"' not in create[1]
+                or '"/secret_policys"' not in create[1]
+            ):
+                raise RuntimeError("native ownership collection changed: " + name)
+        else:
+            path = re.search(r'"(/api/[^"]+)"', create[1])
+            if not path:
+                raise RuntimeError("missing collection route: " + name)
+            collection = path[1]
         key = json.dumps("xcsh_" + name)
-        path = re.search(r'"(/api/[^"]+)"', create[1])
-        if not path:
-            raise RuntimeError("missing collection route: " + name)
-        route = path[1] + "/%s"
-        arguments = "ns, name" if path[1].count("%s") else "name"
+        arguments = "ns, name" if collection.count("%s") else "name"
         readers.append(
-            f"{key}: func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {{ return readOwnershipProjection(ctx, c, fmt.Sprintf({json.dumps(route)}, {arguments}), ns, name) }},"
+            f"{key}: func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {{ return readOwnershipProjection(ctx, c, fmt.Sprintf({json.dumps(collection + '/%s')}, {arguments}), ns, name) }},"
         )
         verifiers.append(
             f"{key}: func(ctx context.Context, c *client.Client, ns, name string) error {{ _, err := c.{get[1]}(ctx, ns, name); return err }},"
@@ -67,9 +94,7 @@ def generate(root: pathlib.Path) -> None:
         deleters.append(
             f"{key}: func(ctx context.Context, c *client.Client, ns, name string) error {{ return c.{delete[1]}(ctx, ns, name) }},"
         )
-        path = re.search(r'"(/api/[^"]+)"', create[1])
-        if path:
-            routes.append(f"{key}: {json.dumps(path[1])},")
+        routes.append(f"{key}: {json.dumps(collection)},")
     header = '// Code generated by tools/generate_acceptance_inventory.py. DO NOT EDIT.\npackage acctest\nimport ("context"; "fmt"; "github.com/f5-sales-demo/terraform-provider-xcsh/internal/client")\n'
     result = (
         header
@@ -98,12 +123,8 @@ def generate(root: pathlib.Path) -> None:
                 "resources": [
                     {
                         "type": name,
-                        "handler": "exact_version_content_digest"
-                        if name == "swagger_object"
-                        else "non_disposable_action_scope",
-                        "reason": "immutable owned version"
-                        if name == "swagger_object"
-                        else "mutates independently owned infrastructure; no disposable CRUD lifecycle",
+                        "handler": EXPLICIT_EXCLUSIONS[name][0],
+                        "reason": EXPLICIT_EXCLUSIONS[name][1],
                     }
                     for name in exclusions
                 ],

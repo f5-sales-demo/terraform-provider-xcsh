@@ -20,6 +20,9 @@ class NativePolicyInventoryTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
             (root / "internal/client").mkdir(parents=True)
+            (root / "internal/client/secret_policy.go").write_text(
+                (source.parents[1] / "internal/client/secret_policy.go").read_text()
+            )
             (root / "internal/acctest").mkdir(parents=True)
             (root / "provider-release-surface.json").write_text(
                 json.dumps({"resources": ["secret_policy", "public_ip_binding"]})
