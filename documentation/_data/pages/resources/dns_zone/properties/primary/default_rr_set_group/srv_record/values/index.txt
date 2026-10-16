@@ -2,7 +2,7 @@
 page_title: "primary.default_rr_set_group.srv_record.values"
 subcategory: "DNS"
 description: "Configuration parameter for values"
-xcsh_docs: {"aliases": ["primary default rr set group srv record values"], "body_bytes": 6555, "body_sha256": "sha256:84ae40296709b2c555156d1c7b978303b13fc7f6be96d719c884ffe557a56ec6", "capabilities": ["dns"], "category": "dns", "child_ids": [], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:resources:dns_zone:collection", "completeness": "complete", "id": "xcsh-docs:resources:dns_zone:properties:primary:default_rr_set_group:srv_record:values", "parent_id": "xcsh-docs:resources:dns_zone:properties:primary:default_rr_set_group:srv_record", "path": "documentation/resources/dns_zone/properties/primary/default_rr_set_group/srv_record/values/index.md", "product": "distributed-cloud", "provider_name": "dns_zone", "provider_schema_digest": "sha256:500e603af7c92c2c213b5cbdb574fdea5ac4e4825db9ce520b047c223b245685", "provider_type": "resources", "registry_anchor": "canonical-0220200230321313-1301130010021321-0111211323133021-2233302021322332-0311101110010303-1222201032221100-1000122112231033-2103231133330232", "registry_path": "docs/guides/resources--dns_zone--reference--group-002.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["primary", "default_rr_set_group", "srv_record", "values"], "schema_version": 1, "sections": [{"aliases": ["primary default rr set group srv record values port"], "anchor": "schema-primary--default_rr_set_group--srv_record--values--port", "description": "Port on which the service can be found.", "document_id": "xcsh-docs:resources:dns_zone:properties:primary:default_rr_set_group:srv_record:values", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["primary", "default_rr_set_group", "srv_record", "values", "port"], "syntax": "attribute", "type": "number"}, {"aliases": ["primary default rr set group srv record values priority"], "anchor": "schema-primary--default_rr_set_group--srv_record--values--priority", "description": "Priority of the target. A lower number indicates a higher preference.", "document_id": "xcsh-docs:resources:dns_zone:properties:primary:default_rr_set_group:srv_record:values", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["primary", "default_rr_set_group", "srv_record", "values", "priority"], "syntax": "attribute", "type": "number"}, {"aliases": ["primary default rr set group srv record values target"], "anchor": "schema-primary--default_rr_set_group--srv_record--values--target", "description": "Hostname of the machine providing the service.", "document_id": "xcsh-docs:resources:dns_zone:properties:primary:default_rr_set_group:srv_record:values", "enum_extraction_complete": true, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["primary", "default_rr_set_group", "srv_record", "values", "target"], "syntax": "attribute", "type": "string"}, {"aliases": ["primary default rr set group srv record values weight"], "anchor": "schema-primary--default_rr_set_group--srv_record--values--weight", "description": "Weight of the target. A higher number indicates a higher preference.", "document_id": "xcsh-docs:resources:dns_zone:properties:primary:default_rr_set_group:srv_record:values", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["primary", "default_rr_set_group", "srv_record", "values", "weight"], "syntax": "attribute", "type": "number"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/dns_zone/properties/primary/default_rr_set_group/srv_record/values/index.txt", "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b", "summary": "Configuration parameter for values", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.6", "schema_components": ["dns_zoneCreateRequest"], "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"}}
+xcsh_docs: {"aliases": ["primary default rr set group srv record values"], "body_bytes": 6555, "body_sha256": "sha256:b66b596c775a16b215108b6bb2a3ac43c1270d300811c28d5587244f4bf349df", "capabilities": ["dns"], "category": "dns", "child_ids": [], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:resources:dns_zone:collection", "completeness": "complete", "id": "xcsh-docs:resources:dns_zone:properties:primary:default_rr_set_group:srv_record:values", "parent_id": "xcsh-docs:resources:dns_zone:properties:primary:default_rr_set_group:srv_record", "path": "documentation/resources/dns_zone/properties/primary/default_rr_set_group/srv_record/values/index.md", "product": "distributed-cloud", "provider_name": "dns_zone", "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5", "provider_type": "resources", "registry_anchor": "canonical-0220200230321313-1301130010021321-0111211323133021-2233302021322332-0311101110010303-1222201032221100-1000122112231033-2103231133330232", "registry_path": "docs/guides/resources--dns_zone--reference--group-002.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["primary", "default_rr_set_group", "srv_record", "values"], "schema_version": 1, "sections": [{"aliases": ["primary default rr set group srv record values port"], "anchor": "schema-primary--default_rr_set_group--srv_record--values--port", "description": "Port on which the service can be found.", "document_id": "xcsh-docs:resources:dns_zone:properties:primary:default_rr_set_group:srv_record:values", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["primary", "default_rr_set_group", "srv_record", "values", "port"], "syntax": "attribute", "type": "number"}, {"aliases": ["primary default rr set group srv record values priority"], "anchor": "schema-primary--default_rr_set_group--srv_record--values--priority", "description": "Priority of the target. A lower number indicates a higher preference.", "document_id": "xcsh-docs:resources:dns_zone:properties:primary:default_rr_set_group:srv_record:values", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["primary", "default_rr_set_group", "srv_record", "values", "priority"], "syntax": "attribute", "type": "number"}, {"aliases": ["primary default rr set group srv record values target"], "anchor": "schema-primary--default_rr_set_group--srv_record--values--target", "description": "Hostname of the machine providing the service.", "document_id": "xcsh-docs:resources:dns_zone:properties:primary:default_rr_set_group:srv_record:values", "enum_extraction_complete": true, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["primary", "default_rr_set_group", "srv_record", "values", "target"], "syntax": "attribute", "type": "string"}, {"aliases": ["primary default rr set group srv record values weight"], "anchor": "schema-primary--default_rr_set_group--srv_record--values--weight", "description": "Weight of the target. A higher number indicates a higher preference.", "document_id": "xcsh-docs:resources:dns_zone:properties:primary:default_rr_set_group:srv_record:values", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["primary", "default_rr_set_group", "srv_record", "values", "weight"], "syntax": "attribute", "type": "number"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/dns_zone/properties/primary/default_rr_set_group/srv_record/values/index.txt", "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd", "summary": "Configuration parameter for values", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.0.8", "schema_components": ["dns_zoneCreateRequest"], "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -40,7 +40,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-13T13:24:52+00:00"
+      "validatedAt": "2026-10-15T10:49:30+00:00"
     },
     "minItems": 1
   },
@@ -102,7 +102,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "api-probed",
-      "validatedAt": "2026-10-13T13:24:52+00:00"
+      "validatedAt": "2026-10-15T10:49:30+00:00"
     },
     "minimum": 0,
     "multipleOf": 1
@@ -153,7 +153,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "api-probed",
-      "validatedAt": "2026-10-13T13:24:52+00:00"
+      "validatedAt": "2026-10-15T10:49:30+00:00"
     },
     "minimum": 0,
     "multipleOf": 1
@@ -204,7 +204,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-13T13:24:52+00:00"
+      "validatedAt": "2026-10-15T10:49:30+00:00"
     },
     "pattern": "^[.]$|^([a-zA-Z0-9]{1}[a-zA-Z0-9_-]{0,62})(\\\\.[a-zA-Z0-9_]{1}[a-zA-Z0-9_-]{0,62})*?(\\\\.[a-zA-Z]{1}[a-zA-Z0-9]{0,62})\\\\.?$"
   },
@@ -252,7 +252,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "api-probed",
-      "validatedAt": "2026-10-13T13:24:52+00:00"
+      "validatedAt": "2026-10-15T10:49:30+00:00"
     },
     "minimum": 0,
     "multipleOf": 1

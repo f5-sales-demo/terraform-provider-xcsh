@@ -307,6 +307,9 @@ var ownedReaderRegistry = map[string]OwnedReader{
 	"xcsh_secret_management_access": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
 		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/namespaces/%s/secret_management_accesss/%s", ns, name), ns, name)
 	},
+	"xcsh_secret_policy": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
+		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/secret_management/namespaces/%s/secret_policys/%s", ns, name), ns, name)
+	},
 	"xcsh_securemesh_site_v2": func(ctx context.Context, c *client.Client, ns, name string) (client.Metadata, error) {
 		return readOwnershipProjection(ctx, c, fmt.Sprintf("/api/config/namespaces/%s/securemesh_site_v2s/%s", ns, name), ns, name)
 	},
@@ -477,6 +480,7 @@ var ownedCollectionRoutes = map[string]string{
 	"xcsh_registration":                   "/api/register/namespaces/%s/registrations",
 	"xcsh_route":                          "/api/config/namespaces/%s/routes",
 	"xcsh_secret_management_access":       "/api/config/namespaces/%s/secret_management_accesss",
+	"xcsh_secret_policy":                  "/api/secret_management/namespaces/%s/secret_policys",
 	"xcsh_securemesh_site_v2":             "/api/config/namespaces/%s/securemesh_site_v2s",
 	"xcsh_segment":                        "/api/config/namespaces/%s/segments",
 	"xcsh_sensitive_data_policy":          "/api/config/namespaces/%s/sensitive_data_policys",
@@ -900,6 +904,10 @@ func init() {
 			_, err := c.GetSecretManagementAccess(ctx, ns, name)
 			return err
 		},
+		"xcsh_secret_policy": func(ctx context.Context, c *client.Client, ns, name string) error {
+			_, err := c.GetSecretPolicy(ctx, ns, name)
+			return err
+		},
 		"xcsh_securemesh_site_v2": func(ctx context.Context, c *client.Client, ns, name string) error {
 			_, err := c.GetSecuremeshSiteV2(ctx, ns, name)
 			return err
@@ -1284,6 +1292,9 @@ func init() {
 		},
 		"xcsh_secret_management_access": func(ctx context.Context, c *client.Client, ns, name string) error {
 			return c.DeleteSecretManagementAccess(ctx, ns, name)
+		},
+		"xcsh_secret_policy": func(ctx context.Context, c *client.Client, ns, name string) error {
+			return c.DeleteSecretPolicy(ctx, ns, name)
 		},
 		"xcsh_securemesh_site_v2": func(ctx context.Context, c *client.Client, ns, name string) error {
 			return c.DeleteSecuremeshSiteV2(ctx, ns, name)

@@ -294,7 +294,7 @@
       "path": "documentation/data-sources/cloud_link/index.md",
       "product": "distributed-cloud",
       "provider_name": "cloud_link",
-      "provider_schema_digest": "sha256:500e603af7c92c2c213b5cbdb574fdea5ac4e4825db9ce520b047c223b245685",
+      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0332330102021113-0233121121011202-1311220033203332-0030133101313001-2301002303112120-1100301103023223-3212103000330301-3301101211000103",
       "registry_path": "docs/data-sources/cloud_link.md",
@@ -304,21 +304,21 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cloud_link/index.txt",
-      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
+      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
       "summary": "Reads Cloud Link information from F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_cloud_link",
       "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v12.0.6",
+        "release_tag": "v12.0.8",
         "schema_components": ["cloud_linkCreateRequest"],
-        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
+        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
       }
     },
     {
       "aliases": ["cloud link"],
       "body_bytes": 18352,
-      "body_sha256": "sha256:d81877a36d0fe4666f8b16be683e956694f95d89ef346c75bf01d430d443875e",
+      "body_sha256": "sha256:b09f36837e2306c283e497e25180e6a13ceace9671093d8ac1cc7f9b1bc3c09b",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [
@@ -340,7 +340,7 @@
       "path": "documentation/data-sources/cloud_link/properties/index.md",
       "product": "distributed-cloud",
       "provider_name": "cloud_link",
-      "provider_schema_digest": "sha256:500e603af7c92c2c213b5cbdb574fdea5ac4e4825db9ce520b047c223b245685",
+      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1213002220021231-0321302131202132-0123330031233010-0020203103220000-1121330212132301-3103210130020013-1201230020112100-0121202133202012",
       "registry_path": "docs/guides/data-sources--cloud_link--reference--group-001.md",
@@ -511,20 +511,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cloud_link/properties/index.txt",
-      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
+      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
       "summary": "Property reference for xcsh_cloud_link.",
       "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v12.0.6",
+        "release_tag": "v12.0.8",
         "schema_components": ["cloud_linkCreateRequest"],
-        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
+        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
       }
     },
     {
       "aliases": ["aws"],
       "body_bytes": 2295,
-      "body_sha256": "sha256:b98a487f618e54229e61d276b783614312405fa2abfc6abfee80faeaead08edd",
+      "body_sha256": "sha256:532c5fb52cd648f501d24b760a97b0242862d1b2cc6546a364ddf4d090b0381d",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [
@@ -544,7 +544,7 @@
       "path": "documentation/data-sources/cloud_link/properties/aws/index.md",
       "product": "distributed-cloud",
       "provider_name": "cloud_link",
-      "provider_schema_digest": "sha256:500e603af7c92c2c213b5cbdb574fdea5ac4e4825db9ce520b047c223b245685",
+      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3332012130312211-3232211102111223-2232333321133131-0322312033131212-1013100303010313-0303323220310300-0010310203000000-3200110102030211",
       "registry_path": "docs/guides/data-sources--cloud_link--reference--group-001.md",
@@ -603,20 +603,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cloud_link/properties/aws/index.txt",
-      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
+      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
       "summary": "CloudLink for AWS Cloud Provider.",
       "tasks": ["configuration"],
       "title": "aws",
       "upstream_identity": {
-        "release_tag": "v12.0.6",
+        "release_tag": "v12.0.8",
         "schema_components": ["cloud_linkCreateRequest"],
-        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
+        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
       }
     },
     {
       "aliases": ["aws aws cred"],
       "body_bytes": 4336,
-      "body_sha256": "sha256:f82fb663ee879c2d7776f612db5c46efb8846a809b4b673a1bfe1e11622d4260",
+      "body_sha256": "sha256:33826b8f650b36ba99e1bb9e2584e001e86628aef31772527eaa87d68e73335b",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -633,7 +633,7 @@
       "path": "documentation/data-sources/cloud_link/properties/aws/aws_cred/index.md",
       "product": "distributed-cloud",
       "provider_name": "cloud_link",
-      "provider_schema_digest": "sha256:500e603af7c92c2c213b5cbdb574fdea5ac4e4825db9ce520b047c223b245685",
+      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0222002203323203-1300301323132032-3022013300121312-3110212233213333-2203302103211303-0103331130022100-2332033100121301-3133310221121021",
       "registry_path": "docs/guides/data-sources--cloud_link--reference--group-001.md",
@@ -713,14 +713,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cloud_link/properties/aws/aws_cred/index.txt",
-      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
+      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "aws.aws_cred",
       "upstream_identity": {
-        "release_tag": "v12.0.6",
+        "release_tag": "v12.0.8",
         "schema_components": ["cloud_linkCreateRequest"],
-        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
+        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
       }
     },
     {
@@ -743,7 +743,7 @@
       "path": "documentation/data-sources/cloud_link/properties/aws/byoc/index.md",
       "product": "distributed-cloud",
       "provider_name": "cloud_link",
-      "provider_schema_digest": "sha256:500e603af7c92c2c213b5cbdb574fdea5ac4e4825db9ce520b047c223b245685",
+      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1033213001233100-3203112202003030-0310131022131311-2330001032132113-0301131303010200-1301121103323332-0232201231230233-2133300030122323",
       "registry_path": "docs/guides/data-sources--cloud_link--reference--group-001.md",
@@ -770,20 +770,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cloud_link/properties/aws/byoc/index.txt",
-      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
+      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
       "summary": "List of Bring You Own Connection.",
       "tasks": ["configuration"],
       "title": "aws.byoc",
       "upstream_identity": {
-        "release_tag": "v12.0.6",
+        "release_tag": "v12.0.8",
         "schema_components": ["cloud_linkCreateRequest"],
-        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
+        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
       }
     },
     {
       "aliases": ["aws byoc connections"],
       "body_bytes": 12086,
-      "body_sha256": "sha256:db5a066e7caf11f4f5d64567c189eb1ed3b06409b245210d2880b2ab06d326cc",
+      "body_sha256": "sha256:61a42250bd1f4ef1bcfae8c1e1c3ffad822da125b9e908b992008cac0c398b05",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [
@@ -805,7 +805,7 @@
       "path": "documentation/data-sources/cloud_link/properties/aws/byoc/connections/index.md",
       "product": "distributed-cloud",
       "provider_name": "cloud_link",
-      "provider_schema_digest": "sha256:500e603af7c92c2c213b5cbdb574fdea5ac4e4825db9ce520b047c223b245685",
+      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1032332332221332-0102020012232333-0310303130112211-3011110333000321-3020013110000301-1101131123102203-3123131221012002-1012333233132121",
       "registry_path": "docs/guides/data-sources--cloud_link--reference--group-001.md",
@@ -992,14 +992,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cloud_link/properties/aws/byoc/connections/index.txt",
-      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
+      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
       "summary": "List of Bring You Own Connections. These AWS Direct Connect connections are not managed by F5XC but will be used for connecting sites and REs.",
       "tasks": ["configuration"],
       "title": "aws.byoc.connections",
       "upstream_identity": {
-        "release_tag": "v12.0.6",
+        "release_tag": "v12.0.8",
         "schema_components": ["cloud_linkCreateRequest"],
-        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
+        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
       }
     },
     {
@@ -1025,7 +1025,7 @@
       "path": "documentation/data-sources/cloud_link/properties/aws/byoc/connections/auth_key/index.md",
       "product": "distributed-cloud",
       "provider_name": "cloud_link",
-      "provider_schema_digest": "sha256:500e603af7c92c2c213b5cbdb574fdea5ac4e4825db9ce520b047c223b245685",
+      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3013332200201212-2221123020103131-0033013301231101-2031233110103331-1322031011032202-0131121303312003-3332112101310312-1022031211032101",
       "registry_path": "docs/guides/data-sources--cloud_link--reference--group-001.md",
@@ -1068,20 +1068,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cloud_link/properties/aws/byoc/connections/auth_key/index.txt",
-      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
+      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
       "summary": "SecretType is used in an object to indicate a sensitive/confidential field.",
       "tasks": ["configuration"],
       "title": "aws.byoc.connections.auth_key",
       "upstream_identity": {
-        "release_tag": "v12.0.6",
+        "release_tag": "v12.0.8",
         "schema_components": ["cloud_linkCreateRequest"],
-        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
+        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
       }
     },
     {
       "aliases": ["aws byoc connections auth key blindfold secret info"],
       "body_bytes": 4070,
-      "body_sha256": "sha256:55ba43a253fb500d1d35cee7669a26b3ac5be539747a18c5c5d3d0851263fbb4",
+      "body_sha256": "sha256:ae0858d8746051320f82eb4fc17a106a44aeb27d1c2184abbe2a78407719ae64",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -1098,7 +1098,7 @@
       "path": "documentation/data-sources/cloud_link/properties/aws/byoc/connections/auth_key/blindfold_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "cloud_link",
-      "provider_schema_digest": "sha256:500e603af7c92c2c213b5cbdb574fdea5ac4e4825db9ce520b047c223b245685",
+      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0020032102322010-2220212013303122-2302311232111113-3112020221233121-3001232001301131-1102233110122211-1212003233130032-1223303011303031",
       "registry_path": "docs/guides/data-sources--cloud_link--reference--group-001.md",
@@ -1157,20 +1157,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cloud_link/properties/aws/byoc/connections/auth_key/blindfold_secret_info/index.txt",
-      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
+      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
       "summary": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
       "tasks": ["configuration"],
       "title": "aws.byoc.connections.auth_key.blindfold_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.6",
+        "release_tag": "v12.0.8",
         "schema_components": ["cloud_linkCreateRequest"],
-        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
+        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
       }
     },
     {
       "aliases": ["aws byoc connections auth key clear secret info"],
       "body_bytes": 3092,
-      "body_sha256": "sha256:ce767a4f5101c69295e97a96c5d4f08f94dc3c5c6d270a76d2485af8c0ba847a",
+      "body_sha256": "sha256:3d330c7cdc0da3ea232dadfbd776fc962db3a2350ff60043dde3637bb5a363af",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -1187,7 +1187,7 @@
       "path": "documentation/data-sources/cloud_link/properties/aws/byoc/connections/auth_key/clear_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "cloud_link",
-      "provider_schema_digest": "sha256:500e603af7c92c2c213b5cbdb574fdea5ac4e4825db9ce520b047c223b245685",
+      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1102312021033213-1231133330231313-2101233232212102-2032233231133123-2031221033132033-0202303102102011-2101223111332030-1203021210212301",
       "registry_path": "docs/guides/data-sources--cloud_link--reference--group-001.md",
@@ -1230,20 +1230,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cloud_link/properties/aws/byoc/connections/auth_key/clear_secret_info/index.txt",
-      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
+      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
       "summary": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
       "tasks": ["configuration"],
       "title": "aws.byoc.connections.auth_key.clear_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.6",
+        "release_tag": "v12.0.8",
         "schema_components": ["cloud_linkCreateRequest"],
-        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
+        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
       }
     },
     {
       "aliases": ["aws byoc connections ipv4"],
       "body_bytes": 3282,
-      "body_sha256": "sha256:e61bac8796310f4e5b24ad56a0f9b00ad3ded4d78a722e91e5e819956dffeab6",
+      "body_sha256": "sha256:5edb1542a952f64b94802750bedb2e010443e10687aa73a7dff7f0d9792a5774",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -1260,7 +1260,7 @@
       "path": "documentation/data-sources/cloud_link/properties/aws/byoc/connections/ipv4/index.md",
       "product": "distributed-cloud",
       "provider_name": "cloud_link",
-      "provider_schema_digest": "sha256:500e603af7c92c2c213b5cbdb574fdea5ac4e4825db9ce520b047c223b245685",
+      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1223231323121200-0331331200303102-3033122032332332-2330012220000111-2313000001020112-1202033210133001-3132303113020302-1300321221311220",
       "registry_path": "docs/guides/data-sources--cloud_link--reference--group-001.md",
@@ -1303,20 +1303,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cloud_link/properties/aws/byoc/connections/ipv4/index.txt",
-      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
+      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
       "summary": "Configure BGP IPv4 peering for endpoints.",
       "tasks": ["configuration"],
       "title": "aws.byoc.connections.ipv4",
       "upstream_identity": {
-        "release_tag": "v12.0.6",
+        "release_tag": "v12.0.8",
         "schema_components": ["cloud_linkCreateRequest"],
-        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
+        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
       }
     },
     {
       "aliases": ["aws byoc connections metadata"],
       "body_bytes": 3085,
-      "body_sha256": "sha256:11687e67c2594a78e37a367090bf3d59339251db5bf430f5783a523b6dc94d59",
+      "body_sha256": "sha256:9838fabc6f5c89950b4900dfdbabca1c88b022eac2b91615fb181582b90408d7",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -1333,7 +1333,7 @@
       "path": "documentation/data-sources/cloud_link/properties/aws/byoc/connections/metadata/index.md",
       "product": "distributed-cloud",
       "provider_name": "cloud_link",
-      "provider_schema_digest": "sha256:500e603af7c92c2c213b5cbdb574fdea5ac4e4825db9ce520b047c223b245685",
+      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1223130301101102-1303122312123122-1122011333113020-3223300122331102-2233110331213020-2000220202323332-3112023302000123-3022010332333320",
       "registry_path": "docs/guides/data-sources--cloud_link--reference--group-001.md",
@@ -1376,14 +1376,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cloud_link/properties/aws/byoc/connections/metadata/index.txt",
-      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
+      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
       "summary": "MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create and replace APIs.",
       "tasks": ["configuration"],
       "title": "aws.byoc.connections.metadata",
       "upstream_identity": {
-        "release_tag": "v12.0.6",
+        "release_tag": "v12.0.8",
         "schema_components": ["cloud_linkCreateRequest"],
-        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
+        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
       }
     },
     {
@@ -1406,7 +1406,7 @@
       "path": "documentation/data-sources/cloud_link/properties/aws/byoc/connections/system_generated_name/index.md",
       "product": "distributed-cloud",
       "provider_name": "cloud_link",
-      "provider_schema_digest": "sha256:500e603af7c92c2c213b5cbdb574fdea5ac4e4825db9ce520b047c223b245685",
+      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2212100312030011-2222203211011323-2122230012032120-2113321120213000-2013301113031103-2200210132321211-1132201103012200-0010010121302130",
       "registry_path": "docs/guides/data-sources--cloud_link--reference--group-001.md",
@@ -1416,14 +1416,14 @@
       "schema_path": ["aws", "byoc", "connections", "system_generated_name"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cloud_link/properties/aws/byoc/connections/system_generated_name/index.txt",
-      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
+      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "aws.byoc.connections.system_generated_name",
       "upstream_identity": {
-        "release_tag": "v12.0.6",
+        "release_tag": "v12.0.8",
         "schema_components": ["cloud_linkCreateRequest"],
-        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
+        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
       }
     },
     {
@@ -1446,7 +1446,7 @@
       "path": "documentation/data-sources/cloud_link/properties/disabled/index.md",
       "product": "distributed-cloud",
       "provider_name": "cloud_link",
-      "provider_schema_digest": "sha256:500e603af7c92c2c213b5cbdb574fdea5ac4e4825db9ce520b047c223b245685",
+      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1121222321001003-0301130222132322-3133021003331210-1023121231212320-2033201232121230-1210032112221212-2122331210213200-2213211333131300",
       "registry_path": "docs/guides/data-sources--cloud_link--reference--group-001.md",
@@ -1456,20 +1456,20 @@
       "schema_path": ["disabled"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cloud_link/properties/disabled/index.txt",
-      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
+      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "disabled",
       "upstream_identity": {
-        "release_tag": "v12.0.6",
+        "release_tag": "v12.0.8",
         "schema_components": ["cloud_linkCreateRequest"],
-        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
+        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
       }
     },
     {
       "aliases": ["enabled"],
       "body_bytes": 1708,
-      "body_sha256": "sha256:e52f38ff38478557984d4e3e99c88ae15c6ddf26596518e22403b5a1eda9437d",
+      "body_sha256": "sha256:d6aecf043e3b7d9773353b7e65141267a25b06c5e63b6379f8f5ffb8edfeb765",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -1486,7 +1486,7 @@
       "path": "documentation/data-sources/cloud_link/properties/enabled/index.md",
       "product": "distributed-cloud",
       "provider_name": "cloud_link",
-      "provider_schema_digest": "sha256:500e603af7c92c2c213b5cbdb574fdea5ac4e4825db9ce520b047c223b245685",
+      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2133211113302331-1111103313201201-2300313320232302-1001210232102002-3322223320212110-1202033223333021-1002113012122212-3121000132101120",
       "registry_path": "docs/guides/data-sources--cloud_link--reference--group-001.md",
@@ -1513,14 +1513,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cloud_link/properties/enabled/index.txt",
-      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
+      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
       "summary": "CloudLink ADN Network Config.",
       "tasks": ["configuration"],
       "title": "enabled",
       "upstream_identity": {
-        "release_tag": "v12.0.6",
+        "release_tag": "v12.0.8",
         "schema_components": ["cloud_linkCreateRequest"],
-        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
+        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
       }
     },
     {
@@ -1546,7 +1546,7 @@
       "path": "documentation/data-sources/cloud_link/properties/gcp/index.md",
       "product": "distributed-cloud",
       "provider_name": "cloud_link",
-      "provider_schema_digest": "sha256:500e603af7c92c2c213b5cbdb574fdea5ac4e4825db9ce520b047c223b245685",
+      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1132023021123233-0321010311212023-0313303231201123-3010111320000110-0312123230211210-2100233101120312-2330020333300003-0210301202220230",
       "registry_path": "docs/guides/data-sources--cloud_link--reference--group-001.md",
@@ -1589,14 +1589,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cloud_link/properties/gcp/index.txt",
-      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
+      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
       "summary": "CloudLink for GCP Cloud Provider.",
       "tasks": ["configuration"],
       "title": "gcp",
       "upstream_identity": {
-        "release_tag": "v12.0.6",
+        "release_tag": "v12.0.8",
         "schema_components": ["cloud_linkCreateRequest"],
-        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
+        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
       }
     },
     {
@@ -1619,7 +1619,7 @@
       "path": "documentation/data-sources/cloud_link/properties/gcp/byoc/index.md",
       "product": "distributed-cloud",
       "provider_name": "cloud_link",
-      "provider_schema_digest": "sha256:500e603af7c92c2c213b5cbdb574fdea5ac4e4825db9ce520b047c223b245685",
+      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1002211013312320-2302013121111313-3102213302121321-0120030320121333-0233200223230111-1211103211032121-0021300212220200-2323030011301021",
       "registry_path": "docs/guides/data-sources--cloud_link--reference--group-001.md",
@@ -1646,20 +1646,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cloud_link/properties/gcp/byoc/index.txt",
-      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
+      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
       "summary": "List of GCP Bring You Own Connections.",
       "tasks": ["configuration"],
       "title": "gcp.byoc",
       "upstream_identity": {
-        "release_tag": "v12.0.6",
+        "release_tag": "v12.0.8",
         "schema_components": ["cloud_linkCreateRequest"],
-        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
+        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
       }
     },
     {
       "aliases": ["gcp byoc connections"],
       "body_bytes": 8830,
-      "body_sha256": "sha256:7fcb0fefa1a10eab26dbdae4ceece06c85a0346b6923c354b732053097514d8a",
+      "body_sha256": "sha256:b79d2e0457779314702a3e6821bb332171fddeeb3b36da6049ff3b8bf65e90c2",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [
@@ -1679,7 +1679,7 @@
       "path": "documentation/data-sources/cloud_link/properties/gcp/byoc/connections/index.md",
       "product": "distributed-cloud",
       "provider_name": "cloud_link",
-      "provider_schema_digest": "sha256:500e603af7c92c2c213b5cbdb574fdea5ac4e4825db9ce520b047c223b245685",
+      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3211332303233212-3111110333000133-2201033013212221-0333222331221212-0131011203301013-1222023212130213-0101330021003310-2020323330011333",
       "registry_path": "docs/guides/data-sources--cloud_link--reference--group-001.md",
@@ -1770,20 +1770,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cloud_link/properties/gcp/byoc/connections/index.txt",
-      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
+      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
       "summary": "Each 'Bring Your Own Connection' represents a virtual connection that the customer has provisioned in the Cloud (example: AWS Direct Connect). F5XC will orchestrate networking resources in the cloud to facilitate seamless private connectivity.",
       "tasks": ["configuration"],
       "title": "gcp.byoc.connections",
       "upstream_identity": {
-        "release_tag": "v12.0.6",
+        "release_tag": "v12.0.8",
         "schema_components": ["cloud_linkCreateRequest"],
-        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
+        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
       }
     },
     {
       "aliases": ["gcp byoc connections metadata"],
       "body_bytes": 3085,
-      "body_sha256": "sha256:32f1b4d05d7bb2992fa6fed892d371726ee15ef0487d952bf9dcb9a2a62520ac",
+      "body_sha256": "sha256:79b006fdd4dfa9cdb33135caeb6fc0803eae110c38bc49c10f10cc04160d8902",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -1800,7 +1800,7 @@
       "path": "documentation/data-sources/cloud_link/properties/gcp/byoc/connections/metadata/index.md",
       "product": "distributed-cloud",
       "provider_name": "cloud_link",
-      "provider_schema_digest": "sha256:500e603af7c92c2c213b5cbdb574fdea5ac4e4825db9ce520b047c223b245685",
+      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0203032011003003-3112100022023310-0210203211333311-0011230300100111-1211232013233100-0000313102310212-2231031203202222-1113232110110211",
       "registry_path": "docs/guides/data-sources--cloud_link--reference--group-001.md",
@@ -1843,14 +1843,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cloud_link/properties/gcp/byoc/connections/metadata/index.txt",
-      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
+      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
       "summary": "MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create and replace APIs.",
       "tasks": ["configuration"],
       "title": "gcp.byoc.connections.metadata",
       "upstream_identity": {
-        "release_tag": "v12.0.6",
+        "release_tag": "v12.0.8",
         "schema_components": ["cloud_linkCreateRequest"],
-        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
+        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
       }
     },
     {
@@ -1873,7 +1873,7 @@
       "path": "documentation/data-sources/cloud_link/properties/gcp/byoc/connections/same_as_credential/index.md",
       "product": "distributed-cloud",
       "provider_name": "cloud_link",
-      "provider_schema_digest": "sha256:500e603af7c92c2c213b5cbdb574fdea5ac4e4825db9ce520b047c223b245685",
+      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0211022031021233-2323031302221212-3231231233333323-2321232311230331-3222120312310302-1102113133023123-1120030110330131-2003131030300110",
       "registry_path": "docs/guides/data-sources--cloud_link--reference--group-001.md",
@@ -1883,20 +1883,20 @@
       "schema_path": ["gcp", "byoc", "connections", "same_as_credential"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cloud_link/properties/gcp/byoc/connections/same_as_credential/index.txt",
-      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
+      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "gcp.byoc.connections.same_as_credential",
       "upstream_identity": {
-        "release_tag": "v12.0.6",
+        "release_tag": "v12.0.8",
         "schema_components": ["cloud_linkCreateRequest"],
-        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
+        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
       }
     },
     {
       "aliases": ["gcp gcp cred"],
       "body_bytes": 4336,
-      "body_sha256": "sha256:c99d5d811a71f35fd3e1f60c24b5b4a6705f80af14f9d73546d74859ca6fc3ca",
+      "body_sha256": "sha256:1eb7ccb67e0b4bebdefe8690ccbdea7270c4527e70837dec6faef06dd3c64340",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
@@ -1913,7 +1913,7 @@
       "path": "documentation/data-sources/cloud_link/properties/gcp/gcp_cred/index.md",
       "product": "distributed-cloud",
       "provider_name": "cloud_link",
-      "provider_schema_digest": "sha256:500e603af7c92c2c213b5cbdb574fdea5ac4e4825db9ce520b047c223b245685",
+      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2320030130032030-0102123132202311-3132323022011300-3013011010330131-2302322013333213-2120300333221032-1100311003120012-1331231330022012",
       "registry_path": "docs/guides/data-sources--cloud_link--reference--group-001.md",
@@ -1993,14 +1993,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cloud_link/properties/gcp/gcp_cred/index.txt",
-      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
+      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "gcp.gcp_cred",
       "upstream_identity": {
-        "release_tag": "v12.0.6",
+        "release_tag": "v12.0.8",
         "schema_components": ["cloud_linkCreateRequest"],
-        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
+        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
       }
     },
     {
@@ -2023,7 +2023,7 @@
       "path": "documentation/data-sources/cloud_link/examples/index.md",
       "product": "distributed-cloud",
       "provider_name": "cloud_link",
-      "provider_schema_digest": "sha256:500e603af7c92c2c213b5cbdb574fdea5ac4e4825db9ce520b047c223b245685",
+      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0132232132113111-3321222211103031-1212310102011310-1000030122323222-0011333223100213-3213303310122310-1013321333031321-0301211111333201",
       "registry_path": "docs/guides/data-sources--cloud_link--examples--group-001.md",
@@ -2033,14 +2033,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cloud_link/examples/index.txt",
-      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
+      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
       "summary": "Examples for xcsh_cloud_link.",
       "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v12.0.6",
+        "release_tag": "v12.0.8",
         "schema_components": ["cloud_linkCreateRequest"],
-        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
+        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
       }
     },
     {
@@ -2070,7 +2070,7 @@
       "path": "documentation/data-sources/cloud_link/examples/data-source/index.md",
       "product": "distributed-cloud",
       "provider_name": "cloud_link",
-      "provider_schema_digest": "sha256:500e603af7c92c2c213b5cbdb574fdea5ac4e4825db9ce520b047c223b245685",
+      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3000320003122322-1312212032232010-2110000333131332-2011230231131301-0213030222303311-0323312200322132-0310022312320102-1310332232200132",
       "registry_path": "docs/guides/data-sources--cloud_link--examples--group-001.md",
@@ -2080,14 +2080,14 @@
       "schema_path": ["data-source"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cloud_link/examples/data-source/index.txt",
-      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
+      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
       "summary": "Data source for xcsh_cloud_link.",
       "tasks": ["configuration"],
       "title": "Data source",
       "upstream_identity": {
-        "release_tag": "v12.0.6",
+        "release_tag": "v12.0.8",
         "schema_components": ["cloud_linkCreateRequest"],
-        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
+        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
       }
     }
   ],

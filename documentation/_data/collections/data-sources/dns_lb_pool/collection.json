@@ -324,7 +324,7 @@
       "path": "documentation/data-sources/dns_lb_pool/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_lb_pool",
-      "provider_schema_digest": "sha256:500e603af7c92c2c213b5cbdb574fdea5ac4e4825db9ce520b047c223b245685",
+      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3331103211112201-2233210311233301-1133131300233210-0231310011012223-1221000112222301-0013203111112121-2202031122031100-2323323031110010",
       "registry_path": "docs/data-sources/dns_lb_pool.md",
@@ -334,21 +334,21 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_lb_pool/index.txt",
-      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
+      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
       "summary": "Reads an existing DNS Load Balancer pool in its namespace.",
       "tasks": ["configuration"],
       "title": "xcsh_dns_lb_pool",
       "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v12.0.6",
+        "release_tag": "v12.0.8",
         "schema_components": ["dns_lb_poolCreateRequest"],
-        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
+        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
       }
     },
     {
       "aliases": ["dns lb pool"],
       "body_bytes": 21501,
-      "body_sha256": "sha256:35d4bd65ed6b09b66eb95f4e2ecec0882bd0823307155ff6e19c644f52e3eadd",
+      "body_sha256": "sha256:861facce2234c879d65c0bc3a90d8f1d66edf28c2edf947020370326953d5993",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [
@@ -372,7 +372,7 @@
       "path": "documentation/data-sources/dns_lb_pool/properties/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_lb_pool",
-      "provider_schema_digest": "sha256:500e603af7c92c2c213b5cbdb574fdea5ac4e4825db9ce520b047c223b245685",
+      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2201003233003102-0220100013322230-3020001003132311-2102010200113333-2212332101121122-3000221210320102-0202303311010221-1213321012030033",
       "registry_path": "docs/guides/data-sources--dns_lb_pool--reference--group-001.md",
@@ -607,20 +607,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_lb_pool/properties/index.txt",
-      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
+      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
       "summary": "Property reference for xcsh_dns_lb_pool.",
       "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v12.0.6",
+        "release_tag": "v12.0.8",
         "schema_components": ["dns_lb_poolCreateRequest"],
-        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
+        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
       }
     },
     {
       "aliases": ["a pool"],
       "body_bytes": 2974,
-      "body_sha256": "sha256:d922e66a836719701e12b3283798e12aa44bf0cb00026a9a8ef3a1253192a176",
+      "body_sha256": "sha256:3c7b44ffda4badde5102b0e0d48b1088f75c1a2503f69ce836152568bb7571bd",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [
@@ -641,7 +641,7 @@
       "path": "documentation/data-sources/dns_lb_pool/properties/a_pool/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_lb_pool",
-      "provider_schema_digest": "sha256:500e603af7c92c2c213b5cbdb574fdea5ac4e4825db9ce520b047c223b245685",
+      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3111123132023110-0033301321322121-0320203222211000-2010033200211202-3101101202310110-0310100033023000-1133121301131210-3310320300121300",
       "registry_path": "docs/guides/data-sources--dns_lb_pool--reference--group-001.md",
@@ -716,14 +716,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_lb_pool/properties/a_pool/index.txt",
-      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
+      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
       "summary": "Pool for A Record.",
       "tasks": ["configuration"],
       "title": "a_pool",
       "upstream_identity": {
-        "release_tag": "v12.0.6",
+        "release_tag": "v12.0.8",
         "schema_components": ["dns_lb_poolCreateRequest"],
-        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
+        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
       }
     },
     {
@@ -746,7 +746,7 @@
       "path": "documentation/data-sources/dns_lb_pool/properties/a_pool/disable_health_check/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_lb_pool",
-      "provider_schema_digest": "sha256:500e603af7c92c2c213b5cbdb574fdea5ac4e4825db9ce520b047c223b245685",
+      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1133112221100130-3123112132301222-2303322322303130-0030030211133022-1231000222212312-3133310100120330-1111120022331203-2222133333033123",
       "registry_path": "docs/guides/data-sources--dns_lb_pool--reference--group-001.md",
@@ -756,20 +756,20 @@
       "schema_path": ["a_pool", "disable_health_check"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_lb_pool/properties/a_pool/disable_health_check/index.txt",
-      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
+      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "a_pool.disable_health_check",
       "upstream_identity": {
-        "release_tag": "v12.0.6",
+        "release_tag": "v12.0.8",
         "schema_components": ["dns_lb_poolCreateRequest"],
-        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
+        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
       }
     },
     {
       "aliases": ["a pool health check"],
       "body_bytes": 4381,
-      "body_sha256": "sha256:e8432d67944853cd57cfcb8fd6e027ec8aeb982a6f7c34e8873f3fb2292abcf1",
+      "body_sha256": "sha256:3fcd361fde00bd142ff98526f41a44b78700ae296da90dbe3266fe97f472a140",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -786,7 +786,7 @@
       "path": "documentation/data-sources/dns_lb_pool/properties/a_pool/health_check/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_lb_pool",
-      "provider_schema_digest": "sha256:500e603af7c92c2c213b5cbdb574fdea5ac4e4825db9ce520b047c223b245685",
+      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3213113202220221-2310313301223132-3323301010323001-3310333132133013-3202203112020310-1332210002012201-3232312312030121-1132003233221320",
       "registry_path": "docs/guides/data-sources--dns_lb_pool--reference--group-001.md",
@@ -866,20 +866,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_lb_pool/properties/a_pool/health_check/index.txt",
-      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
+      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "a_pool.health_check",
       "upstream_identity": {
-        "release_tag": "v12.0.6",
+        "release_tag": "v12.0.8",
         "schema_components": ["dns_lb_poolCreateRequest"],
-        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
+        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
       }
     },
     {
       "aliases": ["a pool members"],
       "body_bytes": 5653,
-      "body_sha256": "sha256:fd7e9d96397f084b98ea8c007fcc0e2e75d33b055a197cb51fb515135a6b494f",
+      "body_sha256": "sha256:cc02100a19737e7f5b16cdf604d7cc7eb3f746dfc4fc6ce5ca1b45c143769c1b",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -896,7 +896,7 @@
       "path": "documentation/data-sources/dns_lb_pool/properties/a_pool/members/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_lb_pool",
-      "provider_schema_digest": "sha256:500e603af7c92c2c213b5cbdb574fdea5ac4e4825db9ce520b047c223b245685",
+      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1323202033230000-3122132123112000-3103332322202001-0113201131202111-2233131212313310-1001323310300031-3232331210122223-3310310233321203",
       "registry_path": "docs/guides/data-sources--dns_lb_pool--reference--group-001.md",
@@ -987,20 +987,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_lb_pool/properties/a_pool/members/index.txt",
-      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
+      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
       "summary": "Configuration parameter for members",
       "tasks": ["configuration"],
       "title": "a_pool.members",
       "upstream_identity": {
-        "release_tag": "v12.0.6",
+        "release_tag": "v12.0.8",
         "schema_components": ["dns_lb_poolCreateRequest"],
-        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
+        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
       }
     },
     {
       "aliases": ["aaaa pool"],
       "body_bytes": 1764,
-      "body_sha256": "sha256:1ad9fab1911f4eecc399188c665cfc24ae5c6832fb35f9ff9771d1a85a942839",
+      "body_sha256": "sha256:0349970bf0396a6e5f1d4e27a8da0f850fd8bb5ed58efc14244e1dd5bd947829",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": ["xcsh-docs:data-sources:dns_lb_pool:properties:aaaa_pool:members"],
@@ -1017,7 +1017,7 @@
       "path": "documentation/data-sources/dns_lb_pool/properties/aaaa_pool/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_lb_pool",
-      "provider_schema_digest": "sha256:500e603af7c92c2c213b5cbdb574fdea5ac4e4825db9ce520b047c223b245685",
+      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3113200321003123-3322202013011013-3313213000031121-1133010331020321-1313120230301331-1310313133032133-3331032311202021-1201020223023122",
       "registry_path": "docs/guides/data-sources--dns_lb_pool--reference--group-001.md",
@@ -1060,20 +1060,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_lb_pool/properties/aaaa_pool/index.txt",
-      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
+      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
       "summary": "Pool for AAAA Record.",
       "tasks": ["configuration"],
       "title": "aaaa_pool",
       "upstream_identity": {
-        "release_tag": "v12.0.6",
+        "release_tag": "v12.0.8",
         "schema_components": ["dns_lb_poolCreateRequest"],
-        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
+        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
       }
     },
     {
       "aliases": ["aaaa pool members"],
       "body_bytes": 5680,
-      "body_sha256": "sha256:c2fb7d8f3021602f368e0b5edda958fb6a3857c1c6417a2bc6242e031a2726a3",
+      "body_sha256": "sha256:cc25037d4b5f7c48902f33a81705b8c09505db7cee74d2bb3e8829774616f0ca",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -1090,7 +1090,7 @@
       "path": "documentation/data-sources/dns_lb_pool/properties/aaaa_pool/members/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_lb_pool",
-      "provider_schema_digest": "sha256:500e603af7c92c2c213b5cbdb574fdea5ac4e4825db9ce520b047c223b245685",
+      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3330231313131112-2230323222113321-0232330201121330-1021130323222322-3001220022312012-1323112332011303-2003132101303123-0233222033231313",
       "registry_path": "docs/guides/data-sources--dns_lb_pool--reference--group-001.md",
@@ -1181,14 +1181,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_lb_pool/properties/aaaa_pool/members/index.txt",
-      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
+      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
       "summary": "Configuration parameter for members",
       "tasks": ["configuration"],
       "title": "aaaa_pool.members",
       "upstream_identity": {
-        "release_tag": "v12.0.6",
+        "release_tag": "v12.0.8",
         "schema_components": ["dns_lb_poolCreateRequest"],
-        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
+        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
       }
     },
     {
@@ -1215,7 +1215,7 @@
       "path": "documentation/data-sources/dns_lb_pool/properties/cname_pool/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_lb_pool",
-      "provider_schema_digest": "sha256:500e603af7c92c2c213b5cbdb574fdea5ac4e4825db9ce520b047c223b245685",
+      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1221101101101203-1232231130303113-3233111001012331-0223200211330133-0000031100033023-1121001003332323-0000203310233120-0300332003111211",
       "registry_path": "docs/guides/data-sources--dns_lb_pool--reference--group-001.md",
@@ -1274,14 +1274,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_lb_pool/properties/cname_pool/index.txt",
-      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
+      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
       "summary": "Pool for CNAME Record.",
       "tasks": ["configuration"],
       "title": "cname_pool",
       "upstream_identity": {
-        "release_tag": "v12.0.6",
+        "release_tag": "v12.0.8",
         "schema_components": ["dns_lb_poolCreateRequest"],
-        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
+        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
       }
     },
     {
@@ -1304,7 +1304,7 @@
       "path": "documentation/data-sources/dns_lb_pool/properties/cname_pool/disable_health_check/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_lb_pool",
-      "provider_schema_digest": "sha256:500e603af7c92c2c213b5cbdb574fdea5ac4e4825db9ce520b047c223b245685",
+      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1201123103102100-3223010111202320-3230321311103223-2223101311201330-0321230130122011-2223213000201203-1031320101032012-3213220012012233",
       "registry_path": "docs/guides/data-sources--dns_lb_pool--reference--group-001.md",
@@ -1314,20 +1314,20 @@
       "schema_path": ["cname_pool", "disable_health_check"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_lb_pool/properties/cname_pool/disable_health_check/index.txt",
-      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
+      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "cname_pool.disable_health_check",
       "upstream_identity": {
-        "release_tag": "v12.0.6",
+        "release_tag": "v12.0.8",
         "schema_components": ["dns_lb_poolCreateRequest"],
-        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
+        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
       }
     },
     {
       "aliases": ["cname pool health check"],
       "body_bytes": 4409,
-      "body_sha256": "sha256:b371e3cbfec1e13c4b99b7a41b5bd2d80eaf2c2e89ef5d93d0a8a81b84f03891",
+      "body_sha256": "sha256:b166b295305a1b6a5b8a173abe8207ea19da1b2f6ba3f6485c6b21e54b23fc36",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -1344,7 +1344,7 @@
       "path": "documentation/data-sources/dns_lb_pool/properties/cname_pool/health_check/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_lb_pool",
-      "provider_schema_digest": "sha256:500e603af7c92c2c213b5cbdb574fdea5ac4e4825db9ce520b047c223b245685",
+      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0133233310322030-1131110213032322-0111112003223311-2110013221112111-1022112221030212-0321230012302011-1030111302231313-3313013022133022",
       "registry_path": "docs/guides/data-sources--dns_lb_pool--reference--group-001.md",
@@ -1424,20 +1424,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_lb_pool/properties/cname_pool/health_check/index.txt",
-      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
+      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "cname_pool.health_check",
       "upstream_identity": {
-        "release_tag": "v12.0.6",
+        "release_tag": "v12.0.8",
         "schema_components": ["dns_lb_poolCreateRequest"],
-        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
+        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
       }
     },
     {
       "aliases": ["cname pool members"],
       "body_bytes": 6108,
-      "body_sha256": "sha256:b28788a48680e82cfbc3997d04a2243d2f3b9ed89b21b150544f0aef818c52fb",
+      "body_sha256": "sha256:7ea1bb9acc94350cfcb5e6861ae35fedc119b29d8ebbec70d1c5cb41eb63b494",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -1454,7 +1454,7 @@
       "path": "documentation/data-sources/dns_lb_pool/properties/cname_pool/members/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_lb_pool",
-      "provider_schema_digest": "sha256:500e603af7c92c2c213b5cbdb574fdea5ac4e4825db9ce520b047c223b245685",
+      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0000213312220302-1011113232232320-0133221000321100-0121330130211212-0322202131221000-2013230022132131-1000102103303232-3021200300131033",
       "registry_path": "docs/guides/data-sources--dns_lb_pool--reference--group-001.md",
@@ -1545,20 +1545,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_lb_pool/properties/cname_pool/members/index.txt",
-      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
+      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
       "summary": "Configuration parameter for members",
       "tasks": ["configuration"],
       "title": "cname_pool.members",
       "upstream_identity": {
-        "release_tag": "v12.0.6",
+        "release_tag": "v12.0.8",
         "schema_components": ["dns_lb_poolCreateRequest"],
-        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
+        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
       }
     },
     {
       "aliases": ["mx pool"],
       "body_bytes": 1754,
-      "body_sha256": "sha256:5be1f8f2c8123aff699abc7d2d4608e2cefae646e34e31dde14fad97fc5318fe",
+      "body_sha256": "sha256:d48b1e231d070f2292a1ebeccc7873c83261cd748435850d5d6f4b4b2f3a0292",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": ["xcsh-docs:data-sources:dns_lb_pool:properties:mx_pool:members"],
@@ -1575,7 +1575,7 @@
       "path": "documentation/data-sources/dns_lb_pool/properties/mx_pool/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_lb_pool",
-      "provider_schema_digest": "sha256:500e603af7c92c2c213b5cbdb574fdea5ac4e4825db9ce520b047c223b245685",
+      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0222213301012121-1331313201223331-3230012302232130-1013220221311321-3332133002323312-1320012231332301-2220233021131232-2230101013222001",
       "registry_path": "docs/guides/data-sources--dns_lb_pool--reference--group-001.md",
@@ -1618,20 +1618,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_lb_pool/properties/mx_pool/index.txt",
-      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
+      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
       "summary": "Pool for MX Record.",
       "tasks": ["configuration"],
       "title": "mx_pool",
       "upstream_identity": {
-        "release_tag": "v12.0.6",
+        "release_tag": "v12.0.8",
         "schema_components": ["dns_lb_poolCreateRequest"],
-        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
+        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
       }
     },
     {
       "aliases": ["mx pool members"],
       "body_bytes": 5497,
-      "body_sha256": "sha256:f16e344c06178b2ef5f4de605fd077f78a86fe62b31fd96b0dfb4151847357be",
+      "body_sha256": "sha256:e3c5b6a2154d53d8f24456022706f393ed242ae3d0f02afcf17629ad4565a10c",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -1648,7 +1648,7 @@
       "path": "documentation/data-sources/dns_lb_pool/properties/mx_pool/members/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_lb_pool",
-      "provider_schema_digest": "sha256:500e603af7c92c2c213b5cbdb574fdea5ac4e4825db9ce520b047c223b245685",
+      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3023221002033333-3232100131120122-0301000012212322-0003001123112213-3212210200012321-0031220002200321-2100301333101023-1032233113001220",
       "registry_path": "docs/guides/data-sources--dns_lb_pool--reference--group-001.md",
@@ -1723,20 +1723,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_lb_pool/properties/mx_pool/members/index.txt",
-      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
+      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
       "summary": "Configuration parameter for members",
       "tasks": ["configuration"],
       "title": "mx_pool.members",
       "upstream_identity": {
-        "release_tag": "v12.0.6",
+        "release_tag": "v12.0.8",
         "schema_components": ["dns_lb_poolCreateRequest"],
-        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
+        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
       }
     },
     {
       "aliases": ["srv pool"],
       "body_bytes": 1759,
-      "body_sha256": "sha256:59f393a474c6c223a1d015ce03bd6dd30e6b16feed3c5d9f77a1291936b4d572",
+      "body_sha256": "sha256:5520f990dc08258789929805c2475b6069fa497415bf764a7e66d9c3dc67ac0b",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": ["xcsh-docs:data-sources:dns_lb_pool:properties:srv_pool:members"],
@@ -1753,7 +1753,7 @@
       "path": "documentation/data-sources/dns_lb_pool/properties/srv_pool/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_lb_pool",
-      "provider_schema_digest": "sha256:500e603af7c92c2c213b5cbdb574fdea5ac4e4825db9ce520b047c223b245685",
+      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1033101312200110-3320312032020203-1322213322022011-2111022211202232-2101111013330231-1000030101312201-0203211113230302-3310203000232311",
       "registry_path": "docs/guides/data-sources--dns_lb_pool--reference--group-001.md",
@@ -1796,20 +1796,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_lb_pool/properties/srv_pool/index.txt",
-      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
+      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
       "summary": "Pool for SRV Record.",
       "tasks": ["configuration"],
       "title": "srv_pool",
       "upstream_identity": {
-        "release_tag": "v12.0.6",
+        "release_tag": "v12.0.8",
         "schema_components": ["dns_lb_poolCreateRequest"],
-        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
+        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
       }
     },
     {
       "aliases": ["srv pool members"],
       "body_bytes": 8348,
-      "body_sha256": "sha256:c120a30fc8181aa5235b5e9ff9a3329c762c7dec98dca6ec86a6d6dc8bae1402",
+      "body_sha256": "sha256:58fcf6883d7e748d6ca547ab11e995d1562519b04a25730037947df683be59f5",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -1826,7 +1826,7 @@
       "path": "documentation/data-sources/dns_lb_pool/properties/srv_pool/members/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_lb_pool",
-      "provider_schema_digest": "sha256:500e603af7c92c2c213b5cbdb574fdea5ac4e4825db9ce520b047c223b245685",
+      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3031023030220301-3022123033323001-0301300001121231-3000313222022100-1023111122233311-1332221313300122-0223023303212221-1030323202331332",
       "registry_path": "docs/guides/data-sources--dns_lb_pool--reference--group-001.md",
@@ -1949,14 +1949,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_lb_pool/properties/srv_pool/members/index.txt",
-      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
+      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
       "summary": "Configuration parameter for members",
       "tasks": ["configuration"],
       "title": "srv_pool.members",
       "upstream_identity": {
-        "release_tag": "v12.0.6",
+        "release_tag": "v12.0.8",
         "schema_components": ["dns_lb_poolCreateRequest"],
-        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
+        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
       }
     },
     {
@@ -1979,7 +1979,7 @@
       "path": "documentation/data-sources/dns_lb_pool/properties/use_rrset_ttl/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_lb_pool",
-      "provider_schema_digest": "sha256:500e603af7c92c2c213b5cbdb574fdea5ac4e4825db9ce520b047c223b245685",
+      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3103203103023110-1213233013101233-0020122011003001-2311022001103201-0020331202131321-1010221101300002-1311010322110100-3230130000033321",
       "registry_path": "docs/guides/data-sources--dns_lb_pool--reference--group-001.md",
@@ -1989,14 +1989,14 @@
       "schema_path": ["use_rrset_ttl"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_lb_pool/properties/use_rrset_ttl/index.txt",
-      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
+      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "use_rrset_ttl",
       "upstream_identity": {
-        "release_tag": "v12.0.6",
+        "release_tag": "v12.0.8",
         "schema_components": ["dns_lb_poolCreateRequest"],
-        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
+        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
       }
     },
     {
@@ -2019,7 +2019,7 @@
       "path": "documentation/data-sources/dns_lb_pool/examples/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_lb_pool",
-      "provider_schema_digest": "sha256:500e603af7c92c2c213b5cbdb574fdea5ac4e4825db9ce520b047c223b245685",
+      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3102113221211312-0133303320331212-0120310131233100-1100001001030030-3123130222113223-2230023331002101-1120211132102113-3111330003222002",
       "registry_path": "docs/guides/data-sources--dns_lb_pool--examples--group-001.md",
@@ -2029,14 +2029,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_lb_pool/examples/index.txt",
-      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
+      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
       "summary": "Examples for xcsh_dns_lb_pool.",
       "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v12.0.6",
+        "release_tag": "v12.0.8",
         "schema_components": ["dns_lb_poolCreateRequest"],
-        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
+        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
       }
     },
     {
@@ -2066,7 +2066,7 @@
       "path": "documentation/data-sources/dns_lb_pool/examples/data-source/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_lb_pool",
-      "provider_schema_digest": "sha256:500e603af7c92c2c213b5cbdb574fdea5ac4e4825db9ce520b047c223b245685",
+      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3023200330133301-3130231230213011-0313212203321200-0110222110132101-1212200320230102-3323131102332331-1103313303213021-1033012000322312",
       "registry_path": "docs/guides/data-sources--dns_lb_pool--examples--group-001.md",
@@ -2076,14 +2076,14 @@
       "schema_path": ["data-source"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_lb_pool/examples/data-source/index.txt",
-      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
+      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
       "summary": "Data source for xcsh_dns_lb_pool.",
       "tasks": ["configuration"],
       "title": "Data source",
       "upstream_identity": {
-        "release_tag": "v12.0.6",
+        "release_tag": "v12.0.8",
         "schema_components": ["dns_lb_poolCreateRequest"],
-        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
+        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
       }
     }
   ],

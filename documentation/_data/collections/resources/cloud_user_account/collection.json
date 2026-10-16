@@ -194,7 +194,7 @@
       "path": "documentation/resources/cloud_user_account/index.md",
       "product": "distributed-cloud",
       "provider_name": "cloud_user_account",
-      "provider_schema_digest": "sha256:500e603af7c92c2c213b5cbdb574fdea5ac4e4825db9ce520b047c223b245685",
+      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
       "provider_type": "resources",
       "registry_anchor": "canonical-1031132021211202-3000130330113323-2203111122011131-3322201313323003-2113322122001212-2031120103110031-3122331032002130-0200201122101321",
       "registry_path": "docs/resources/cloud_user_account.md",
@@ -204,21 +204,21 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_user_account/index.txt",
-      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
+      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
       "summary": "Manages a Cloud User Account resource in F5 Distributed Cloud for cloud user account object create specifications. configuration.",
       "tasks": ["configuration"],
       "title": "xcsh_cloud_user_account",
       "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v12.0.6",
+        "release_tag": "v12.0.8",
         "schema_components": ["cloud_user_accountCreateRequest"],
-        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
+        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
       }
     },
     {
       "aliases": ["cloud user account"],
       "body_bytes": 15130,
-      "body_sha256": "sha256:4471c1ff03ec4849de0dc8103779135fcc93b25186b430c1b86a54b0d7ad7f39",
+      "body_sha256": "sha256:82fc8b067ba03f7db4601bd339feed291ac08da974a43bb76d57b9cc488ddfa4",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [
@@ -238,7 +238,7 @@
       "path": "documentation/resources/cloud_user_account/properties/index.md",
       "product": "distributed-cloud",
       "provider_name": "cloud_user_account",
-      "provider_schema_digest": "sha256:500e603af7c92c2c213b5cbdb574fdea5ac4e4825db9ce520b047c223b245685",
+      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
       "provider_type": "resources",
       "registry_anchor": "canonical-3120211002101200-1032113201021233-1220320323313131-0212322201031232-0233112321202013-1303123010311023-0111001022220010-3320211201030303",
       "registry_path": "docs/guides/resources--cloud_user_account--reference--group-001.md",
@@ -418,20 +418,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_user_account/properties/index.txt",
-      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
+      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
       "summary": "Property reference for xcsh_cloud_user_account.",
       "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v12.0.6",
+        "release_tag": "v12.0.8",
         "schema_components": ["cloud_user_accountCreateRequest"],
-        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
+        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
       }
     },
     {
       "aliases": ["aws provider"],
       "body_bytes": 2443,
-      "body_sha256": "sha256:18d92853f3f3850324e8b561c260d7fb7bf70cf91a7bb22516863259533dc184",
+      "body_sha256": "sha256:6e0f2ba6bb8b8f8e326d1731cbf23a3fd6d4b20e12303b09129e7a44eea7de47",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [
@@ -451,7 +451,7 @@
       "path": "documentation/resources/cloud_user_account/properties/aws_provider/index.md",
       "product": "distributed-cloud",
       "provider_name": "cloud_user_account",
-      "provider_schema_digest": "sha256:500e603af7c92c2c213b5cbdb574fdea5ac4e4825db9ce520b047c223b245685",
+      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
       "provider_type": "resources",
       "registry_anchor": "canonical-0012012233031021-3100322321221333-2032113331301133-3312231010011311-1132101332122101-0022323230302012-2330201031132100-3032303003121110",
       "registry_path": "docs/guides/resources--cloud_user_account--reference--group-001.md",
@@ -617,20 +617,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_user_account/properties/aws_provider/index.txt",
-      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
+      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
       "summary": "Create AWS Provider Type.",
       "tasks": ["configuration"],
       "title": "aws_provider",
       "upstream_identity": {
-        "release_tag": "v12.0.6",
+        "release_tag": "v12.0.8",
         "schema_components": ["cloud_user_accountCreateRequest"],
-        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
+        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
       }
     },
     {
       "aliases": ["aws provider aws assume role"],
       "body_bytes": 8926,
-      "body_sha256": "sha256:72871e1ac77a84f08fd196ae5373ceef6240acf167c3b2cc3aa4174c1b40e5de",
+      "body_sha256": "sha256:df319fec7f006fb5c94640fcc15c02b8f03b5fac329b251676c30b40d04e57a7",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [
@@ -650,7 +650,7 @@
       "path": "documentation/resources/cloud_user_account/properties/aws_provider/aws_assume_role/index.md",
       "product": "distributed-cloud",
       "provider_name": "cloud_user_account",
-      "provider_schema_digest": "sha256:500e603af7c92c2c213b5cbdb574fdea5ac4e4825db9ce520b047c223b245685",
+      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
       "provider_type": "resources",
       "registry_anchor": "canonical-0203122032220210-0210012000031000-3100110332321333-1031003211333210-3230132231332023-0000321022123333-3332133100122113-0033301221200031",
       "registry_path": "docs/guides/resources--cloud_user_account--reference--group-001.md",
@@ -846,14 +846,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_user_account/properties/aws_provider/aws_assume_role/index.txt",
-      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
+      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
       "summary": "AWS Assume Role to Handle Delegated Access.",
       "tasks": ["configuration"],
       "title": "aws_provider.aws_assume_role",
       "upstream_identity": {
-        "release_tag": "v12.0.6",
+        "release_tag": "v12.0.8",
         "schema_components": ["cloud_user_accountCreateRequest"],
-        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
+        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
       }
     },
     {
@@ -876,7 +876,7 @@
       "path": "documentation/resources/cloud_user_account/properties/aws_provider/aws_assume_role/external_id_is_optional/index.md",
       "product": "distributed-cloud",
       "provider_name": "cloud_user_account",
-      "provider_schema_digest": "sha256:500e603af7c92c2c213b5cbdb574fdea5ac4e4825db9ce520b047c223b245685",
+      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
       "provider_type": "resources",
       "registry_anchor": "canonical-0111331230012032-3300101331303302-0102302032121321-1132003103313323-0231031210303310-0003123003123011-2221210012032123-1000330030113332",
       "registry_path": "docs/guides/resources--cloud_user_account--reference--group-001.md",
@@ -886,14 +886,14 @@
       "schema_path": ["aws_provider", "aws_assume_role", "external_id_is_optional"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_user_account/properties/aws_provider/aws_assume_role/external_id_is_optional/index.txt",
-      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
+      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "aws_provider.aws_assume_role.external_id_is_optional",
       "upstream_identity": {
-        "release_tag": "v12.0.6",
+        "release_tag": "v12.0.8",
         "schema_components": ["cloud_user_accountCreateRequest"],
-        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
+        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
       }
     },
     {
@@ -916,7 +916,7 @@
       "path": "documentation/resources/cloud_user_account/properties/aws_provider/aws_assume_role/external_id_is_tenant_id/index.md",
       "product": "distributed-cloud",
       "provider_name": "cloud_user_account",
-      "provider_schema_digest": "sha256:500e603af7c92c2c213b5cbdb574fdea5ac4e4825db9ce520b047c223b245685",
+      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
       "provider_type": "resources",
       "registry_anchor": "canonical-2333223212133110-1003021331020013-2212033203133211-0121301122012121-2230110212200112-2033303011223300-0203022312322123-0100133101311120",
       "registry_path": "docs/guides/resources--cloud_user_account--reference--group-001.md",
@@ -926,20 +926,20 @@
       "schema_path": ["aws_provider", "aws_assume_role", "external_id_is_tenant_id"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_user_account/properties/aws_provider/aws_assume_role/external_id_is_tenant_id/index.txt",
-      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
+      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "aws_provider.aws_assume_role.external_id_is_tenant_id",
       "upstream_identity": {
-        "release_tag": "v12.0.6",
+        "release_tag": "v12.0.8",
         "schema_components": ["cloud_user_accountCreateRequest"],
-        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
+        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
       }
     },
     {
       "aliases": ["aws provider aws secret key"],
       "body_bytes": 2379,
-      "body_sha256": "sha256:dadbfec0ccf6a3c1b73a8737f7eb75666f42b4d62203c370b7fe581a344b8ec9",
+      "body_sha256": "sha256:a1ba3d4380aa41e5179a1c1efe70a7e83fbe802e8709a1c1ccfcb7ec6c8ecbc2",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": ["xcsh-docs:resources:cloud_user_account:properties:aws_provider:aws_secret_key:secret_key"],
@@ -956,7 +956,7 @@
       "path": "documentation/resources/cloud_user_account/properties/aws_provider/aws_secret_key/index.md",
       "product": "distributed-cloud",
       "provider_name": "cloud_user_account",
-      "provider_schema_digest": "sha256:500e603af7c92c2c213b5cbdb574fdea5ac4e4825db9ce520b047c223b245685",
+      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
       "provider_type": "resources",
       "registry_anchor": "canonical-3210120310120211-1033322231223001-3203001032300111-3111213102301102-0100132230013100-1012330113030302-1102203301011011-1232122300323130",
       "registry_path": "docs/guides/resources--cloud_user_account--reference--group-001.md",
@@ -1025,14 +1025,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_user_account/properties/aws_provider/aws_secret_key/index.txt",
-      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
+      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
       "summary": "AWS Programmatic Access Credentials type.",
       "tasks": ["configuration"],
       "title": "aws_provider.aws_secret_key",
       "upstream_identity": {
-        "release_tag": "v12.0.6",
+        "release_tag": "v12.0.8",
         "schema_components": ["cloud_user_accountCreateRequest"],
-        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
+        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
       }
     },
     {
@@ -1058,7 +1058,7 @@
       "path": "documentation/resources/cloud_user_account/properties/aws_provider/aws_secret_key/secret_key/index.md",
       "product": "distributed-cloud",
       "provider_name": "cloud_user_account",
-      "provider_schema_digest": "sha256:500e603af7c92c2c213b5cbdb574fdea5ac4e4825db9ce520b047c223b245685",
+      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
       "provider_type": "resources",
       "registry_anchor": "canonical-2001221302332211-2120100113112113-0332202130220011-0122302022011012-2013320011211203-2112222032103022-3201233201320212-1222131110323002",
       "registry_path": "docs/guides/resources--cloud_user_account--reference--group-001.md",
@@ -1136,20 +1136,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_user_account/properties/aws_provider/aws_secret_key/secret_key/index.txt",
-      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
+      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
       "summary": "SecretType is used in an object to indicate a sensitive/confidential field.",
       "tasks": ["configuration"],
       "title": "aws_provider.aws_secret_key.secret_key",
       "upstream_identity": {
-        "release_tag": "v12.0.6",
+        "release_tag": "v12.0.8",
         "schema_components": ["cloud_user_accountCreateRequest"],
-        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
+        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
       }
     },
     {
       "aliases": ["aws provider aws secret key secret key blindfold secret info"],
       "body_bytes": 4561,
-      "body_sha256": "sha256:00e002d2a7d48bde7d742e223272c2fc9252d31bdf858a21bbebc0864f255d4b",
+      "body_sha256": "sha256:ead7ff499ccd7eaa3407e9570146b87542ef83ee616f2fc2fdeb3de688469a85",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],
@@ -1166,7 +1166,7 @@
       "path": "documentation/resources/cloud_user_account/properties/aws_provider/aws_secret_key/secret_key/blindfold_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "cloud_user_account",
-      "provider_schema_digest": "sha256:500e603af7c92c2c213b5cbdb574fdea5ac4e4825db9ce520b047c223b245685",
+      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
       "provider_type": "resources",
       "registry_anchor": "canonical-0031333121202102-1230320232132103-2300023311220330-3111331100113333-3130032020332200-2300012222130123-2301302130002310-1120023001231000",
       "registry_path": "docs/guides/resources--cloud_user_account--reference--group-001.md",
@@ -1240,20 +1240,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_user_account/properties/aws_provider/aws_secret_key/secret_key/blindfold_secret_info/index.txt",
-      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
+      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
       "summary": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
       "tasks": ["configuration"],
       "title": "aws_provider.aws_secret_key.secret_key.blindfold_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.6",
+        "release_tag": "v12.0.8",
         "schema_components": ["cloud_user_accountCreateRequest"],
-        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
+        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
       }
     },
     {
       "aliases": ["aws provider aws secret key secret key clear secret info"],
       "body_bytes": 3566,
-      "body_sha256": "sha256:2ea197686533eb0cb86eb84e26b6b88bdf334b63aaea8c34f013842fd793baf5",
+      "body_sha256": "sha256:28d9f42b5ba9005706e3e16c44518eee9a3c1d1ba9cacce4b6f434e41daac9d4",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],
@@ -1270,7 +1270,7 @@
       "path": "documentation/resources/cloud_user_account/properties/aws_provider/aws_secret_key/secret_key/clear_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "cloud_user_account",
-      "provider_schema_digest": "sha256:500e603af7c92c2c213b5cbdb574fdea5ac4e4825db9ce520b047c223b245685",
+      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
       "provider_type": "resources",
       "registry_anchor": "canonical-1133313101003120-3013100103310303-2231312031111233-0222222011322110-3233320133321320-2211032113123301-1002331322322331-2320323030303113",
       "registry_path": "docs/guides/resources--cloud_user_account--reference--group-001.md",
@@ -1322,14 +1322,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_user_account/properties/aws_provider/aws_secret_key/secret_key/clear_secret_info/index.txt",
-      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
+      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
       "summary": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
       "tasks": ["configuration"],
       "title": "aws_provider.aws_secret_key.secret_key.clear_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.6",
+        "release_tag": "v12.0.8",
         "schema_components": ["cloud_user_accountCreateRequest"],
-        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
+        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
       }
     },
     {
@@ -1352,7 +1352,7 @@
       "path": "documentation/resources/cloud_user_account/properties/timeouts/index.md",
       "product": "distributed-cloud",
       "provider_name": "cloud_user_account",
-      "provider_schema_digest": "sha256:500e603af7c92c2c213b5cbdb574fdea5ac4e4825db9ce520b047c223b245685",
+      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
       "provider_type": "resources",
       "registry_anchor": "canonical-0221113313211300-2231231022211031-3221203221120320-0031001120313020-3123202310330231-1322011032313320-0320332131030022-2003021023203233",
       "registry_path": "docs/guides/resources--cloud_user_account--reference--group-001.md",
@@ -1462,14 +1462,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_user_account/properties/timeouts/index.txt",
-      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
+      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
       "summary": "timeouts for xcsh_cloud_user_account.",
       "tasks": ["configuration"],
       "title": "timeouts",
       "upstream_identity": {
-        "release_tag": "v12.0.6",
+        "release_tag": "v12.0.8",
         "schema_components": ["cloud_user_accountCreateRequest"],
-        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
+        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
       }
     },
     {
@@ -1492,7 +1492,7 @@
       "path": "documentation/resources/cloud_user_account/examples/index.md",
       "product": "distributed-cloud",
       "provider_name": "cloud_user_account",
-      "provider_schema_digest": "sha256:500e603af7c92c2c213b5cbdb574fdea5ac4e4825db9ce520b047c223b245685",
+      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
       "provider_type": "resources",
       "registry_anchor": "canonical-1201010100032201-3121233112123000-2101330232023112-1331201022311202-1331232332031200-3132300021332320-3012231020101202-0111122311221301",
       "registry_path": "docs/guides/resources--cloud_user_account--examples--group-001.md",
@@ -1502,14 +1502,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_user_account/examples/index.txt",
-      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
+      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
       "summary": "Examples for xcsh_cloud_user_account.",
       "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v12.0.6",
+        "release_tag": "v12.0.8",
         "schema_components": ["cloud_user_accountCreateRequest"],
-        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
+        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
       }
     },
     {
@@ -1539,7 +1539,7 @@
       "path": "documentation/resources/cloud_user_account/examples/resource/index.md",
       "product": "distributed-cloud",
       "provider_name": "cloud_user_account",
-      "provider_schema_digest": "sha256:500e603af7c92c2c213b5cbdb574fdea5ac4e4825db9ce520b047c223b245685",
+      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
       "provider_type": "resources",
       "registry_anchor": "canonical-3320102201013303-0323232301333013-3022133202021203-2001003031233102-1100302300311030-2013113123333033-2021303002213021-1123010131030010",
       "registry_path": "docs/guides/resources--cloud_user_account--examples--group-001.md",
@@ -1549,14 +1549,14 @@
       "schema_path": ["resource"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_user_account/examples/resource/index.txt",
-      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
+      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
       "summary": "Resource for xcsh_cloud_user_account.",
       "tasks": ["configuration"],
       "title": "Resource",
       "upstream_identity": {
-        "release_tag": "v12.0.6",
+        "release_tag": "v12.0.8",
         "schema_components": ["cloud_user_accountCreateRequest"],
-        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
+        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
       }
     },
     {
@@ -1580,7 +1580,7 @@
       "path": "documentation/resources/cloud_user_account/lifecycle/import/index.md",
       "product": "distributed-cloud",
       "provider_name": "cloud_user_account",
-      "provider_schema_digest": "sha256:500e603af7c92c2c213b5cbdb574fdea5ac4e4825db9ce520b047c223b245685",
+      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
       "provider_type": "resources",
       "registry_anchor": "canonical-3201120320023322-0133231032231320-1222233130132021-2211030001331102-3101023332001003-2022030322301001-2200000132022010-1133230210131223",
       "registry_path": "docs/guides/resources--cloud_user_account--lifecycle--group-001.md",
@@ -1590,14 +1590,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_user_account/lifecycle/import/index.txt",
-      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
+      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
       "summary": "Import for xcsh_cloud_user_account.",
       "tasks": ["import"],
       "title": "Import",
       "upstream_identity": {
-        "release_tag": "v12.0.6",
+        "release_tag": "v12.0.8",
         "schema_components": ["cloud_user_accountCreateRequest"],
-        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
+        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
       }
     },
     {
@@ -1620,7 +1620,7 @@
       "path": "documentation/resources/cloud_user_account/lifecycle/timeouts/index.md",
       "product": "distributed-cloud",
       "provider_name": "cloud_user_account",
-      "provider_schema_digest": "sha256:500e603af7c92c2c213b5cbdb574fdea5ac4e4825db9ce520b047c223b245685",
+      "provider_schema_digest": "sha256:2a40709de0091cd22196a6618edea0e31e7e6ff85d9e40925107cbffcb22ebe5",
       "provider_type": "resources",
       "registry_anchor": "canonical-3021311123021021-1232011023331221-1133112020230020-0320122303201100-1102130212021200-3300003133022100-0301203212200310-2320223000311203",
       "registry_path": "docs/guides/resources--cloud_user_account--lifecycle--group-001.md",
@@ -1630,14 +1630,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_user_account/lifecycle/timeouts/index.txt",
-      "spec_pin_digest": "sha256:cf249826c2873b41e4c4f1a2341c0bebf16f66cf6d95d5c5b67ae7259e61767b",
+      "spec_pin_digest": "sha256:3be1648c5e375b30aafb719c70acb8365d8b7ebacfbddc9faa09e91b89e848fd",
       "summary": "Timeouts for xcsh_cloud_user_account.",
       "tasks": ["lifecycle"],
       "title": "Timeouts",
       "upstream_identity": {
-        "release_tag": "v12.0.6",
+        "release_tag": "v12.0.8",
         "schema_components": ["cloud_user_accountCreateRequest"],
-        "target_commit": "06989705b3a435748dea253b9277f572cadb19c4"
+        "target_commit": "8e60c07c1d028cdbb49608452f0838e05471be84"
       }
     }
   ],
