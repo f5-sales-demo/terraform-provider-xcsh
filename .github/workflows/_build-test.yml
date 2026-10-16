@@ -90,6 +90,7 @@ jobs:
           find . -name "*.sh" -type f -print0 | xargs -0 "${RUNNER_TEMP}/shellcheck-${SHELLCHECK_VERSION}/shellcheck" --severity=warning
           scripts/test-github-api-download.sh
           scripts/test-classify-spec-release-semantics.sh
+          python3 tests/test_generation_recovery.py
       - name: Validate delivery state and append-only ledgers
         env:
           BASE_REF: ${{ github.base_ref }}
