@@ -25,6 +25,7 @@ type RegistrationPassport struct {
 // tenant-wide (several sites report the same hostname), so it is only a
 // within-site discriminator.
 type RegistrationInfra struct {
+	CertifiedHW string             `json:"certified_hw,omitempty"`
 	Provider    string             `json:"provider,omitempty"`
 	ProviderRef string             `json:"provider_ref,omitempty"`
 	Hostname    string             `json:"hostname,omitempty"`
