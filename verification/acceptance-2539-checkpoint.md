@@ -78,7 +78,6 @@ and cleanup; release and qualify the immutable provider artifact because earlier
 generator behavior changed. Existing task and qualification worktrees remain preserved while their
 runs or evidence are needed.
 
-
 The first frozen corrected-source run exposed further generated fixture gaps:
 discovery lacked a verified site reference; workload lacked container and advertising
 choices; WAF exclusion policy lacked a rule; USB policy fixtures omitted a valid
