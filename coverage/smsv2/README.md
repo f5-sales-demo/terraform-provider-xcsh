@@ -2,8 +2,9 @@
 
 This ledger tracks incremental qualification under
 [#2586](https://github.com/f5-sales-demo/terraform-provider-xcsh/issues/2586). Schema presence does not
-establish lifecycle correctness or traffic enforcement. AWS receipt-backed reference and detachment paths have scoped qualification; Azure remains unqualified. GCP
-and Oracle live qualification is deferred.
+establish lifecycle correctness or traffic enforcement. Historical AWS firewall receipts remain
+scoped to v15.9.0. Frozen v15.10.0 currently qualifies AWS and Azure certified-hardware reads only.
+GCP and Oracle live qualification is deferred.
 
 `capabilities-v1.json` enumerates 7,173 attribute, block and structural object paths across 53 related
 operation surfaces, including 1,362 paths in the SMSv2 resource. `selections` contains description-level
@@ -79,7 +80,7 @@ identity-bearing runtime evidence private; commit only sanitized receipt summari
 | --- | --- | --- |
 | Enhanced Firewall attachment | Partially qualified on AWS | [AWS fixture receipt](https://github.com/f5-sales-demo/multi-cloud-networking/pull/1502) proves scoped TCP 80 allow/deny with HTTPS control, ordered rules, reference replacement, policy import/data-source equality, no-op/drift and deletion/cleanup on v15.9.0. Three reference/detachment paths have scoped AWS runtime receipts; classification and complete parent lifecycle remain unqualified. Both orders of the allow/deny policy pair deny HTTP; cross-policy precedence and Azure remain unqualified. |
 | Forward Proxy attachment | Unqualified | Parent attachment and policy surfaces are present. Prove HTTP URL and TLS/SNI filtering, order, `NEXT_POLICY`, removal and combined firewall operation. Classify TLS decryption separately. |
-| Registration certified hardware | Published v15.10.0; AWS/Azure reads accepted | [#2593](https://github.com/f5-sales-demo/terraform-provider-xcsh/pull/2593) merged the computed-only lookup. The development override returned the exact registration value without XC writes. v15.10.0 is published and its signed installed Linux artifact read the exact Azure registration value without XC writes. The same signed v15.10.0 artifact now passed an exact read from a real task-owned AWS bootstrap registration, also with zero managed changes and XC writes. Separate [AWS receipt](certified-hw-aws-v15.10.0-receipt.json) and [Azure receipt](certified-hw-v15.10.0-receipt.json) retain their saved-plan hashes. #2129 is closed; these receipts do not qualify newer artifacts or other capability families. |
+| Registration certified hardware | Published v15.10.0; AWS/Azure reads accepted | [#2593](https://github.com/f5-sales-demo/terraform-provider-xcsh/pull/2593) added the computed-only lookup. The signed installed v15.10.0 artifact returns the exact authoritative registration value on both clouds, with zero managed changes and XC writes. Separate [AWS receipt](certified-hw-aws-v15.10.0-receipt.json) and [Azure receipt](certified-hw-v15.10.0-receipt.json) retain saved-plan hashes. #2129 is closed; newer artifacts and other capabilities require separate receipts. |
 | Omitted MTU runtime read | Defective, contract unqualified | [#2600](https://github.com/f5-sales-demo/terraform-provider-xcsh/issues/2600): v15.9.0 runtime lookup rejects omitted MTU read as 0 even while fresh HTTP/HTTPS traverse the CE. Establish supported defaults and authoritative physical reads; no invented MTU or broader import exclusions. |
 | In-place version unpinning | Contract-blocked | [#1387](https://github.com/f5-sales-demo/terraform-provider-xcsh/issues/1387) remains open. Audit source adds replacement for changed `software_settings`. Require supported update/clear and authoritative reads; replacement is not an unpinning workaround. |
 | Azure Route Server multihop | Contract-blocked | Compiled contract reports `no_schema_valid_ebgp_multihop_request_control`. Retain rejection until an authoritative successor contract is published. |
