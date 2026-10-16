@@ -343,6 +343,8 @@ func (r *ProtectedDomainResource) Read(ctx context.Context, req resource.ReadReq
 			resp.State.RemoveResource(ctx)
 			return
 		}
+		// An unavailable read cannot verify absence or current policy. Return an
+		// error and retain prior state; never present cached state as refreshed.
 		resp.Diagnostics.AddError("Client Error", client.ProtectedDomainDiagnostic(err))
 		return
 	}
