@@ -269215,7 +269215,7 @@
     "provider_linux_amd64_sha256": "f71b752ae266982fc2c12e4c2584ef46126689fa6a235f34ebf30a558977b480",
     "provider_version": "15.9.0",
     "schema_sha256": "1125c6dccd7425104dc64a71ce36bb7b2d9a4ac78d3c47f7b5ebb6ec6b80e7e5",
-    "terraform_version": "1.16.3"
+    "terraform_version": "1.16.5"
   },
   "selections": [
     {

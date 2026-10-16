@@ -7,5 +7,5 @@
   "contract_source_revision": "8e60c07c1d028cdbb49608452f0838e05471be84",
   "consumer_commit": "947d3f60098eec5f4c1536aa2d338523e53f8687",
   "audit_source_commit": "518ae16dfbb6188bf5d4ff43534cdd501a20a9d2",
-  "terraform_version": "1.16.3"
+  "terraform_version": "1.16.5"
 }
