@@ -34,6 +34,7 @@ func TestNetworkAllowlistPinnedManifest(t *testing.T) {
 	// canonical regeneration, so it cannot describe this binary's embedded data.
 	var manifest struct {
 		APIReleaseTag string `json:"api_release_tag"`
+		SourceSHA256  string `json:"source_sha256"`
 	}
 	if err := json.Unmarshal([]byte(bundledNetworkAllowlistJSON), &manifest); err != nil {
 		t.Fatal(err)
@@ -46,6 +47,9 @@ func TestNetworkAllowlistPinnedManifest(t *testing.T) {
 	}
 	if err := reviewedNetworkAllowlist([]byte(bundledNetworkAllowlistJSON)); err != nil {
 		t.Fatal(err)
+	}
+	if !regexp.MustCompile(`^[a-f0-9]{64}$`).MatchString(manifest.SourceSHA256) || bundledNetworkAllowlist.SourceSHA256 != manifest.SourceSHA256 {
+		t.Fatalf("source digest = %q", bundledNetworkAllowlist.SourceSHA256)
 	}
 	wantLogReceiver := map[string]string{"v12.0.6": "3.64.239.6", "v12.0.8": "3.122.153.132"}[bundledNetworkAllowlist.APIReleaseTag]
 	if got := bundledNetworkAllowlist.Services["global_log_receiver"].SourceEntries[2]; got != wantLogReceiver {
@@ -97,7 +101,6 @@ func TestAPIBackedDataSourceRequiresCredentialsBeforeRequest(t *testing.T) {
 		Steps: []resource.TestStep{{
 			Config: "provider \"xcsh\" { api_url = \"http://127.0.0.1:1\" }\n" +
 				"data \"xcsh_namespace\" \"probe\" {\n" +
-				"  namespace = \"system\"\n" +
 				"  name = \"probe\"\n" +
 				"}\n",
 			PlanOnly:    true,
