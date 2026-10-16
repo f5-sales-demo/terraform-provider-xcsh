@@ -1436,6 +1436,7 @@ func (r *AppFirewallResource) Create(ctx context.Context, req resource.CreateReq
 	}
 	if blockData, ok := apiResource.Spec["detection_settings"].(map[string]interface{}); ok && (isImport || data.DetectionSettings != nil) {
 		blockData = normalization.AppFirewallDetectionSettings(blockData, isImport || (data.DetectionSettings != nil && !data.DetectionSettings.DefaultViolationSettings.IsNull() && !data.DetectionSettings.DefaultViolationSettings.IsUnknown()))
+		blockData = normalization.AppFirewallImplicitDefaults(blockData, isImport || data.DetectionSettings == nil || (data.DetectionSettings.EnableSuppression.IsNull() && data.DetectionSettings.DisableSuppression.IsNull()), isImport || data.DetectionSettings == nil || (data.DetectionSettings.EnableThreatCampaigns.IsNull() && data.DetectionSettings.DisableThreatCampaigns.IsNull()), isImport || data.DetectionSettings == nil || data.DetectionSettings.SignatureSelectionSetting == nil || data.DetectionSettings.SignatureSelectionSetting.SignatureSettingsByAccuracy == nil)
 		data.DetectionSettings = &AppFirewallDetectionSettingsModel{
 			BotProtectionSetting: func() *AppFirewallDetectionSettingsBotProtectionSettingModel {
 				if !isImport && data.DetectionSettings != nil && data.DetectionSettings.BotProtectionSetting != nil {
@@ -1490,45 +1491,30 @@ func (r *AppFirewallResource) Create(ctx context.Context, req resource.CreateReq
 				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			DisableSuppression: func() types.Object {
-				if !isImport && data.DetectionSettings != nil && !data.DetectionSettings.DisableSuppression.IsUnknown() {
-					return data.DetectionSettings.DisableSuppression
-				}
 				if _, ok := blockData["disable_suppression"].(map[string]interface{}); ok {
 					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
 				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			DisableThreatCampaigns: func() types.Object {
-				if !isImport && data.DetectionSettings != nil && !data.DetectionSettings.DisableThreatCampaigns.IsUnknown() {
-					return data.DetectionSettings.DisableThreatCampaigns
-				}
 				if _, ok := blockData["disable_threat_campaigns"].(map[string]interface{}); ok {
 					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
 				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			EnableSuppression: func() types.Object {
-				if !isImport && data.DetectionSettings != nil && !data.DetectionSettings.EnableSuppression.IsUnknown() {
-					return data.DetectionSettings.EnableSuppression
-				}
 				if _, ok := blockData["enable_suppression"].(map[string]interface{}); ok {
 					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
 				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			EnableThreatCampaigns: func() types.Object {
-				if !isImport && data.DetectionSettings != nil && !data.DetectionSettings.EnableThreatCampaigns.IsUnknown() {
-					return data.DetectionSettings.EnableThreatCampaigns
-				}
 				if _, ok := blockData["enable_threat_campaigns"].(map[string]interface{}); ok {
 					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
 				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			SignatureSelectionSetting: func() *AppFirewallDetectionSettingsSignatureSelectionSettingModel {
-				if !isImport && data.DetectionSettings != nil && data.DetectionSettings.SignatureSelectionSetting != nil {
-					return data.DetectionSettings.SignatureSelectionSetting
-				}
 				if SignatureSelectionSettingData, ok := blockData["signature_selection_setting"].(map[string]interface{}); ok {
 					return &AppFirewallDetectionSettingsSignatureSelectionSettingModel{
 						AttackTypeSettings: func() *AppFirewallDetectionSettingsSignatureSelectionSettingAttackTypeSettingsModel {
@@ -1601,9 +1587,6 @@ func (r *AppFirewallResource) Create(ctx context.Context, req resource.CreateReq
 							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						SignatureSettingsByAccuracy: func() *AppFirewallDetectionSettingsSignatureSelectionSettingSignatureSettingsByAccuracyModel {
-							if !isImport && data.DetectionSettings != nil && data.DetectionSettings.SignatureSelectionSetting != nil && data.DetectionSettings.SignatureSelectionSetting.SignatureSettingsByAccuracy != nil {
-								return data.DetectionSettings.SignatureSelectionSetting.SignatureSettingsByAccuracy
-							}
 							if SignatureSettingsByAccuracyData, ok := SignatureSelectionSettingData["signature_settings_by_accuracy"].(map[string]interface{}); ok {
 								return &AppFirewallDetectionSettingsSignatureSelectionSettingSignatureSettingsByAccuracyModel{
 									HighAccuracyAction: func() types.String {
@@ -2081,6 +2064,7 @@ func (r *AppFirewallResource) Read(ctx context.Context, req resource.ReadRequest
 	}
 	if blockData, ok := apiResource.Spec["detection_settings"].(map[string]interface{}); ok && (isImport || data.DetectionSettings != nil) {
 		blockData = normalization.AppFirewallDetectionSettings(blockData, isImport || (data.DetectionSettings != nil && !data.DetectionSettings.DefaultViolationSettings.IsNull() && !data.DetectionSettings.DefaultViolationSettings.IsUnknown()))
+		blockData = normalization.AppFirewallImplicitDefaults(blockData, isImport || data.DetectionSettings == nil || (data.DetectionSettings.EnableSuppression.IsNull() && data.DetectionSettings.DisableSuppression.IsNull()), isImport || data.DetectionSettings == nil || (data.DetectionSettings.EnableThreatCampaigns.IsNull() && data.DetectionSettings.DisableThreatCampaigns.IsNull()), isImport || data.DetectionSettings == nil || data.DetectionSettings.SignatureSelectionSetting == nil || data.DetectionSettings.SignatureSelectionSetting.SignatureSettingsByAccuracy == nil)
 		data.DetectionSettings = &AppFirewallDetectionSettingsModel{
 			BotProtectionSetting: func() *AppFirewallDetectionSettingsBotProtectionSettingModel {
 				if !isImport && data.DetectionSettings != nil && data.DetectionSettings.BotProtectionSetting != nil {
@@ -2135,45 +2119,30 @@ func (r *AppFirewallResource) Read(ctx context.Context, req resource.ReadRequest
 				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			DisableSuppression: func() types.Object {
-				if !isImport && data.DetectionSettings != nil && !data.DetectionSettings.DisableSuppression.IsUnknown() {
-					return data.DetectionSettings.DisableSuppression
-				}
 				if _, ok := blockData["disable_suppression"].(map[string]interface{}); ok {
 					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
 				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			DisableThreatCampaigns: func() types.Object {
-				if !isImport && data.DetectionSettings != nil && !data.DetectionSettings.DisableThreatCampaigns.IsUnknown() {
-					return data.DetectionSettings.DisableThreatCampaigns
-				}
 				if _, ok := blockData["disable_threat_campaigns"].(map[string]interface{}); ok {
 					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
 				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			EnableSuppression: func() types.Object {
-				if !isImport && data.DetectionSettings != nil && !data.DetectionSettings.EnableSuppression.IsUnknown() {
-					return data.DetectionSettings.EnableSuppression
-				}
 				if _, ok := blockData["enable_suppression"].(map[string]interface{}); ok {
 					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
 				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			EnableThreatCampaigns: func() types.Object {
-				if !isImport && data.DetectionSettings != nil && !data.DetectionSettings.EnableThreatCampaigns.IsUnknown() {
-					return data.DetectionSettings.EnableThreatCampaigns
-				}
 				if _, ok := blockData["enable_threat_campaigns"].(map[string]interface{}); ok {
 					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
 				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			SignatureSelectionSetting: func() *AppFirewallDetectionSettingsSignatureSelectionSettingModel {
-				if !isImport && data.DetectionSettings != nil && data.DetectionSettings.SignatureSelectionSetting != nil {
-					return data.DetectionSettings.SignatureSelectionSetting
-				}
 				if SignatureSelectionSettingData, ok := blockData["signature_selection_setting"].(map[string]interface{}); ok {
 					return &AppFirewallDetectionSettingsSignatureSelectionSettingModel{
 						AttackTypeSettings: func() *AppFirewallDetectionSettingsSignatureSelectionSettingAttackTypeSettingsModel {
@@ -2246,9 +2215,6 @@ func (r *AppFirewallResource) Read(ctx context.Context, req resource.ReadRequest
 							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						SignatureSettingsByAccuracy: func() *AppFirewallDetectionSettingsSignatureSelectionSettingSignatureSettingsByAccuracyModel {
-							if !isImport && data.DetectionSettings != nil && data.DetectionSettings.SignatureSelectionSetting != nil && data.DetectionSettings.SignatureSelectionSetting.SignatureSettingsByAccuracy != nil {
-								return data.DetectionSettings.SignatureSelectionSetting.SignatureSettingsByAccuracy
-							}
 							if SignatureSettingsByAccuracyData, ok := SignatureSelectionSettingData["signature_settings_by_accuracy"].(map[string]interface{}); ok {
 								return &AppFirewallDetectionSettingsSignatureSelectionSettingSignatureSettingsByAccuracyModel{
 									HighAccuracyAction: func() types.String {
@@ -2994,6 +2960,7 @@ func (r *AppFirewallResource) Update(ctx context.Context, req resource.UpdateReq
 	}
 	if blockData, ok := apiResource.Spec["detection_settings"].(map[string]interface{}); ok && (isImport || data.DetectionSettings != nil) {
 		blockData = normalization.AppFirewallDetectionSettings(blockData, isImport || (data.DetectionSettings != nil && !data.DetectionSettings.DefaultViolationSettings.IsNull() && !data.DetectionSettings.DefaultViolationSettings.IsUnknown()))
+		blockData = normalization.AppFirewallImplicitDefaults(blockData, isImport || data.DetectionSettings == nil || (data.DetectionSettings.EnableSuppression.IsNull() && data.DetectionSettings.DisableSuppression.IsNull()), isImport || data.DetectionSettings == nil || (data.DetectionSettings.EnableThreatCampaigns.IsNull() && data.DetectionSettings.DisableThreatCampaigns.IsNull()), isImport || data.DetectionSettings == nil || data.DetectionSettings.SignatureSelectionSetting == nil || data.DetectionSettings.SignatureSelectionSetting.SignatureSettingsByAccuracy == nil)
 		data.DetectionSettings = &AppFirewallDetectionSettingsModel{
 			BotProtectionSetting: func() *AppFirewallDetectionSettingsBotProtectionSettingModel {
 				if !isImport && data.DetectionSettings != nil && data.DetectionSettings.BotProtectionSetting != nil {
@@ -3048,45 +3015,30 @@ func (r *AppFirewallResource) Update(ctx context.Context, req resource.UpdateReq
 				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			DisableSuppression: func() types.Object {
-				if !isImport && data.DetectionSettings != nil && !data.DetectionSettings.DisableSuppression.IsUnknown() {
-					return data.DetectionSettings.DisableSuppression
-				}
 				if _, ok := blockData["disable_suppression"].(map[string]interface{}); ok {
 					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
 				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			DisableThreatCampaigns: func() types.Object {
-				if !isImport && data.DetectionSettings != nil && !data.DetectionSettings.DisableThreatCampaigns.IsUnknown() {
-					return data.DetectionSettings.DisableThreatCampaigns
-				}
 				if _, ok := blockData["disable_threat_campaigns"].(map[string]interface{}); ok {
 					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
 				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			EnableSuppression: func() types.Object {
-				if !isImport && data.DetectionSettings != nil && !data.DetectionSettings.EnableSuppression.IsUnknown() {
-					return data.DetectionSettings.EnableSuppression
-				}
 				if _, ok := blockData["enable_suppression"].(map[string]interface{}); ok {
 					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
 				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			EnableThreatCampaigns: func() types.Object {
-				if !isImport && data.DetectionSettings != nil && !data.DetectionSettings.EnableThreatCampaigns.IsUnknown() {
-					return data.DetectionSettings.EnableThreatCampaigns
-				}
 				if _, ok := blockData["enable_threat_campaigns"].(map[string]interface{}); ok {
 					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
 				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			SignatureSelectionSetting: func() *AppFirewallDetectionSettingsSignatureSelectionSettingModel {
-				if !isImport && data.DetectionSettings != nil && data.DetectionSettings.SignatureSelectionSetting != nil {
-					return data.DetectionSettings.SignatureSelectionSetting
-				}
 				if SignatureSelectionSettingData, ok := blockData["signature_selection_setting"].(map[string]interface{}); ok {
 					return &AppFirewallDetectionSettingsSignatureSelectionSettingModel{
 						AttackTypeSettings: func() *AppFirewallDetectionSettingsSignatureSelectionSettingAttackTypeSettingsModel {
@@ -3159,9 +3111,6 @@ func (r *AppFirewallResource) Update(ctx context.Context, req resource.UpdateReq
 							return types.ObjectNull(map[string]attr.Type{})
 						}(),
 						SignatureSettingsByAccuracy: func() *AppFirewallDetectionSettingsSignatureSelectionSettingSignatureSettingsByAccuracyModel {
-							if !isImport && data.DetectionSettings != nil && data.DetectionSettings.SignatureSelectionSetting != nil && data.DetectionSettings.SignatureSelectionSetting.SignatureSettingsByAccuracy != nil {
-								return data.DetectionSettings.SignatureSelectionSetting.SignatureSettingsByAccuracy
-							}
 							if SignatureSettingsByAccuracyData, ok := SignatureSelectionSettingData["signature_settings_by_accuracy"].(map[string]interface{}); ok {
 								return &AppFirewallDetectionSettingsSignatureSelectionSettingSignatureSettingsByAccuracyModel{
 									HighAccuracyAction: func() types.String {

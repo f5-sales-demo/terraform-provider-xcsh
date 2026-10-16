@@ -664,36 +664,24 @@ func (d *AppFirewallDataSource) Read(ctx context.Context, req datasource.ReadReq
 				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			DisableSuppression: func() types.Object {
-				if !isImport && data.DetectionSettings != nil && !data.DetectionSettings.DisableSuppression.IsUnknown() {
-					return data.DetectionSettings.DisableSuppression
-				}
 				if _, ok := blockData["disable_suppression"].(map[string]interface{}); ok {
 					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
 				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			DisableThreatCampaigns: func() types.Object {
-				if !isImport && data.DetectionSettings != nil && !data.DetectionSettings.DisableThreatCampaigns.IsUnknown() {
-					return data.DetectionSettings.DisableThreatCampaigns
-				}
 				if _, ok := blockData["disable_threat_campaigns"].(map[string]interface{}); ok {
 					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
 				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			EnableSuppression: func() types.Object {
-				if !isImport && data.DetectionSettings != nil && !data.DetectionSettings.EnableSuppression.IsUnknown() {
-					return data.DetectionSettings.EnableSuppression
-				}
 				if _, ok := blockData["enable_suppression"].(map[string]interface{}); ok {
 					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
 				return types.ObjectNull(map[string]attr.Type{})
 			}(),
 			EnableThreatCampaigns: func() types.Object {
-				if !isImport && data.DetectionSettings != nil && !data.DetectionSettings.EnableThreatCampaigns.IsUnknown() {
-					return data.DetectionSettings.EnableThreatCampaigns
-				}
 				if _, ok := blockData["enable_threat_campaigns"].(map[string]interface{}); ok {
 					return types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})
 				}
