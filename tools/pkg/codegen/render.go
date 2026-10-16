@@ -722,6 +722,14 @@ func renderUnmarshalTopLevelScalar(sb *strings.Builder, resourceTitleCase string
 		if !attr.EmptyObjectMarker {
 			return fmt.Errorf("unsupported object attribute at field %s", attr.Name)
 		}
+		if resourceTitleCase == "AppFirewall" && jsonName == "disable_ai_enhancements" && !responseAuthoritative {
+			// Disabled is the omitted default; still clear configured disabled state
+			// when the API selects enable, rather than concealing the transition.
+			sb.WriteString(fmt.Sprintf("%sif _, ok := apiResource.Spec[\"%s\"].(map[string]interface{}); ok && !isImport && !data.%s.IsNull() {\n", indent, jsonName, fieldName))
+			sb.WriteString(fmt.Sprintf("%s\tdata.%s = types.ObjectValueMust(map[string]attr.Type{}, map[string]attr.Value{})\n", indent, fieldName))
+			sb.WriteString(fmt.Sprintf("%s} else {\n%s\tdata.%s = types.ObjectNull(map[string]attr.Type{})\n%s}\n", indent, indent, fieldName, indent))
+			break
+		}
 		sb.WriteString(fmt.Sprintf("%sif !isImport && !data.%s.IsUnknown() {\n", indent, fieldName))
 		sb.WriteString(fmt.Sprintf("%s\t// Normal Read: preserve the configured marker presence.\n", indent))
 		sb.WriteString(fmt.Sprintf("%s} else if _, ok := apiResource.Spec[\"%s\"].(map[string]interface{}); ok", indent, jsonName))
@@ -880,7 +888,14 @@ func renderUnmarshalTopLevelSingle(sb *strings.Builder, rc string, attr openapi.
 	if !responseAuthoritative && isImportDefaultSuppressed(rc, jsonName) {
 		buildGuard = fmt.Sprintf("((isImport && len(blockData) > 0) || data.%s != nil)", fieldName)
 	}
+	aiChoice := rc == "AppFirewall" && jsonName == "enable_ai_enhancements"
+	if aiChoice {
+		buildGuard = "true"
+	}
 	sb.WriteString(fmt.Sprintf("%sif blockData, ok := apiResource.Spec[\"%s\"].(map[string]interface{}); ok && %s {\n", indent, jsonName, buildGuard))
+	if rc == "AppFirewall" && jsonName == "detection_settings" && !responseAuthoritative {
+		sb.WriteString(fmt.Sprintf("%s\tblockData = normalization.AppFirewallDetectionSettings(blockData, isImport || (data.%s != nil && !data.%s.DefaultViolationSettings.IsNull() && !data.%s.DefaultViolationSettings.IsUnknown()))\n", indent, fieldName, fieldName, fieldName))
+	}
 	sb.WriteString(fmt.Sprintf("%s\tdata.%s = &%s{\n", indent, fieldName, model))
 	for _, child := range attr.NestedAttributes {
 		if err := renderUnmarshalChild(sb, rc, childPath, child, "blockData", "data."+fieldName, "data."+fieldName+" != nil", "single", indent+"\t\t", responseAuthoritative); err != nil {
@@ -888,6 +903,9 @@ func renderUnmarshalTopLevelSingle(sb *strings.Builder, rc string, attr openapi.
 		}
 	}
 	sb.WriteString(fmt.Sprintf("%s\t}\n", indent))
+	if aiChoice {
+		sb.WriteString(fmt.Sprintf("%s} else {\n%s\tdata.%s = nil\n", indent, indent, fieldName))
+	}
 	sb.WriteString(fmt.Sprintf("%s}\n", indent))
 	return nil
 }
@@ -1001,7 +1019,7 @@ func renderUnmarshalScalarChild(sb *strings.Builder, rc string, attr openapi.Ter
 			return fmt.Errorf("unsupported object attribute at field %s", attr.Name)
 		}
 		sb.WriteString(fmt.Sprintf("%s%s: func() types.Object {\n", indent, fieldName))
-		if stateBase != "" {
+		if stateBase != "" && !appFirewallAuthoritativeMarker(rc, jsonName) {
 			sb.WriteString(fmt.Sprintf("%s\tif !isImport && %s && !%s.%s.IsUnknown() {\n", indent, stateGuard, stateBase, fieldName))
 			sb.WriteString(fmt.Sprintf("%s\t\treturn %s.%s\n", indent, stateBase, fieldName))
 			sb.WriteString(fmt.Sprintf("%s\t}\n", indent))
@@ -1166,7 +1184,7 @@ func renderUnmarshalSingleChild(sb *strings.Builder, rc, childPath string, attr 
 	// reference anywhere: an object-ref's tenant/uid/kind are Computed-only and unknown in
 	// state on create, so any block ON THE PATH to a reference must read those leaves from
 	// the API. See #1079 (direct refs) and #1091 (nested refs, e.g. custom_api_auth_discovery).
-	preserveWhole := container == "single" && stateBase != "" && !hasObjectReferenceDescendant(attr) && !hasComputedDescendant(attr) && !strings.Contains(childPath, "PrivateKey")
+	preserveWhole := container == "single" && stateBase != "" && !hasObjectReferenceDescendant(attr) && !hasComputedDescendant(attr) && !strings.Contains(childPath, "PrivateKey") && !(rc == "AppFirewall" && childPath == "DetectionSettingsViolationSettings")
 
 	// When a block cannot be preserved whole because it merely CONTAINS a reference on one
 	// arm (a "spine" block), reconstruct from the API but thread the prior-state accessor
