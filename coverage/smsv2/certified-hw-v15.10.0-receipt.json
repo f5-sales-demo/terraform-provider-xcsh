@@ -1,0 +1,13 @@
+{
+  "archive_sha256": "93fc483782dfbf1874b80750423380e1ca73682e50e89f66ce2ffb5645be5b71",
+  "cloud": "azure",
+  "computed_only_schema": true,
+  "exact_wire_value_match": true,
+  "installed_binary_sha256": "8a5502e2f388d2bc1b95e7a384f91c5fec05f9669a0cc61f6fd5417aa8547f93",
+  "managed_changes": 0,
+  "provider_version": "15.10.0",
+  "read_plan_sha256": "df58b7d5e0fd6d44f0a844384a770377fbc60e18de72b77b46209964a85539ac",
+  "signature_verified": true,
+  "signer_key_id": "7282C542DC88E217",
+  "xc_mutations": 0
+}

@@ -155062,15 +155062,20 @@
       }
     },
     {
-      "classification": "unqualified",
+      "classification": "defective",
       "id": "data_sources/xcsh_smsv2_aws_runtime/interfaces{}.mtu",
       "lifecycle": {},
       "outstanding": [
-        "Qualify applicable lifecycle and runtime behavior on disposable topology."
+        "Establish supported omitted-MTU default and authoritative physical-read contract; do not synthesize MTU or relax runtime checks."
       ],
       "runtime": {
         "aws": {
-          "receipts": [],
+          "receipts": [
+            {
+              "issue": "https://github.com/f5-sales-demo/terraform-provider-xcsh/issues/2600",
+              "scope": "v15.9.0 omitted MTU reads as 0 and runtime lookup rejects invalid MTU 0 despite proven HTTP/HTTPS forwarding."
+            }
+          ],
           "status": "unqualified"
         },
         "azure": {
@@ -173959,11 +173964,19 @@
       "id": "resources/xcsh_enhanced_firewall_policy/rule_list",
       "lifecycle": {},
       "outstanding": [
-        "Qualify applicable lifecycle and runtime behavior on disposable topology."
+        "Scoped TCP 80 and ordered rules have AWS receipts. Qualify all other matcher/selection/default/lifecycle combinations before promoting this complete path.",
+        "Azure runtime remains unqualified; cross-policy precedence remains unqualified."
       ],
       "runtime": {
         "aws": {
-          "receipts": [],
+          "receipts": [
+            {
+              "provider_version": "15.9.0",
+              "scope": "AWS only: TCP 80 to the controlled origin, HTTPS positive control; create/update/replace/detach. Receipt preserves import, no-op, drift, deletion and verified cleanup separately. Cross-policy precedence remains unqualified.",
+              "sha256": "463e3ccc251c4057e4daac5d7145ff5d87671748dc3c7595f9c45ab176b5ba74",
+              "url": "https://github.com/f5-sales-demo/multi-cloud-networking/blob/249e3d862793bafd7047c2b5b9669be2a4628adc/coverage/smsv2-runtime/aws/receipt-v1.json"
+            }
+          ],
           "status": "unqualified"
         },
         "azure": {
@@ -173995,11 +174008,19 @@
       "id": "resources/xcsh_enhanced_firewall_policy/rule_list.rules",
       "lifecycle": {},
       "outstanding": [
-        "Qualify applicable lifecycle and runtime behavior on disposable topology."
+        "Scoped TCP 80 and ordered rules have AWS receipts. Qualify all other matcher/selection/default/lifecycle combinations before promoting this complete path.",
+        "Azure runtime remains unqualified; cross-policy precedence remains unqualified."
       ],
       "runtime": {
         "aws": {
-          "receipts": [],
+          "receipts": [
+            {
+              "provider_version": "15.9.0",
+              "scope": "AWS only: TCP 80 to the controlled origin, HTTPS positive control; create/update/replace/detach. Receipt preserves import, no-op, drift, deletion and verified cleanup separately. Cross-policy precedence remains unqualified.",
+              "sha256": "463e3ccc251c4057e4daac5d7145ff5d87671748dc3c7595f9c45ab176b5ba74",
+              "url": "https://github.com/f5-sales-demo/multi-cloud-networking/blob/249e3d862793bafd7047c2b5b9669be2a4628adc/coverage/smsv2-runtime/aws/receipt-v1.json"
+            }
+          ],
           "status": "unqualified"
         },
         "azure": {
@@ -174031,11 +174052,19 @@
       "id": "resources/xcsh_enhanced_firewall_policy/rule_list.rules[].advanced_action",
       "lifecycle": {},
       "outstanding": [
-        "Qualify applicable lifecycle and runtime behavior on disposable topology."
+        "Scoped TCP 80 and ordered rules have AWS receipts. Qualify all other matcher/selection/default/lifecycle combinations before promoting this complete path.",
+        "Azure runtime remains unqualified; cross-policy precedence remains unqualified."
       ],
       "runtime": {
         "aws": {
-          "receipts": [],
+          "receipts": [
+            {
+              "provider_version": "15.9.0",
+              "scope": "AWS only: TCP 80 to the controlled origin, HTTPS positive control; create/update/replace/detach. Receipt preserves import, no-op, drift, deletion and verified cleanup separately. Cross-policy precedence remains unqualified.",
+              "sha256": "463e3ccc251c4057e4daac5d7145ff5d87671748dc3c7595f9c45ab176b5ba74",
+              "url": "https://github.com/f5-sales-demo/multi-cloud-networking/blob/249e3d862793bafd7047c2b5b9669be2a4628adc/coverage/smsv2-runtime/aws/receipt-v1.json"
+            }
+          ],
           "status": "unqualified"
         },
         "azure": {
@@ -174067,11 +174096,19 @@
       "id": "resources/xcsh_enhanced_firewall_policy/rule_list.rules[].advanced_action.action",
       "lifecycle": {},
       "outstanding": [
-        "Qualify applicable lifecycle and runtime behavior on disposable topology."
+        "Scoped TCP 80 and ordered rules have AWS receipts. Qualify all other matcher/selection/default/lifecycle combinations before promoting this complete path.",
+        "Azure runtime remains unqualified; cross-policy precedence remains unqualified."
       ],
       "runtime": {
         "aws": {
-          "receipts": [],
+          "receipts": [
+            {
+              "provider_version": "15.9.0",
+              "scope": "AWS only: TCP 80 to the controlled origin, HTTPS positive control; create/update/replace/detach. Receipt preserves import, no-op, drift, deletion and verified cleanup separately. Cross-policy precedence remains unqualified.",
+              "sha256": "463e3ccc251c4057e4daac5d7145ff5d87671748dc3c7595f9c45ab176b5ba74",
+              "url": "https://github.com/f5-sales-demo/multi-cloud-networking/blob/249e3d862793bafd7047c2b5b9669be2a4628adc/coverage/smsv2-runtime/aws/receipt-v1.json"
+            }
+          ],
           "status": "unqualified"
         },
         "azure": {
@@ -174104,11 +174141,19 @@
       "id": "resources/xcsh_enhanced_firewall_policy/rule_list.rules[].all_destinations",
       "lifecycle": {},
       "outstanding": [
-        "Qualify applicable lifecycle and runtime behavior on disposable topology."
+        "Scoped TCP 80 and ordered rules have AWS receipts. Qualify all other matcher/selection/default/lifecycle combinations before promoting this complete path.",
+        "Azure runtime remains unqualified; cross-policy precedence remains unqualified."
       ],
       "runtime": {
         "aws": {
-          "receipts": [],
+          "receipts": [
+            {
+              "provider_version": "15.9.0",
+              "scope": "AWS only: TCP 80 to the controlled origin, HTTPS positive control; create/update/replace/detach. Receipt preserves import, no-op, drift, deletion and verified cleanup separately. Cross-policy precedence remains unqualified.",
+              "sha256": "463e3ccc251c4057e4daac5d7145ff5d87671748dc3c7595f9c45ab176b5ba74",
+              "url": "https://github.com/f5-sales-demo/multi-cloud-networking/blob/249e3d862793bafd7047c2b5b9669be2a4628adc/coverage/smsv2-runtime/aws/receipt-v1.json"
+            }
+          ],
           "status": "unqualified"
         },
         "azure": {
@@ -174144,11 +174189,19 @@
       "id": "resources/xcsh_enhanced_firewall_policy/rule_list.rules[].all_sli_vips",
       "lifecycle": {},
       "outstanding": [
-        "Qualify applicable lifecycle and runtime behavior on disposable topology."
+        "Scoped TCP 80 and ordered rules have AWS receipts. Qualify all other matcher/selection/default/lifecycle combinations before promoting this complete path.",
+        "Azure runtime remains unqualified; cross-policy precedence remains unqualified."
       ],
       "runtime": {
         "aws": {
-          "receipts": [],
+          "receipts": [
+            {
+              "provider_version": "15.9.0",
+              "scope": "AWS only: TCP 80 to the controlled origin, HTTPS positive control; create/update/replace/detach. Receipt preserves import, no-op, drift, deletion and verified cleanup separately. Cross-policy precedence remains unqualified.",
+              "sha256": "463e3ccc251c4057e4daac5d7145ff5d87671748dc3c7595f9c45ab176b5ba74",
+              "url": "https://github.com/f5-sales-demo/multi-cloud-networking/blob/249e3d862793bafd7047c2b5b9669be2a4628adc/coverage/smsv2-runtime/aws/receipt-v1.json"
+            }
+          ],
           "status": "unqualified"
         },
         "azure": {
@@ -174184,11 +174237,19 @@
       "id": "resources/xcsh_enhanced_firewall_policy/rule_list.rules[].all_slo_vips",
       "lifecycle": {},
       "outstanding": [
-        "Qualify applicable lifecycle and runtime behavior on disposable topology."
+        "Scoped TCP 80 and ordered rules have AWS receipts. Qualify all other matcher/selection/default/lifecycle combinations before promoting this complete path.",
+        "Azure runtime remains unqualified; cross-policy precedence remains unqualified."
       ],
       "runtime": {
         "aws": {
-          "receipts": [],
+          "receipts": [
+            {
+              "provider_version": "15.9.0",
+              "scope": "AWS only: TCP 80 to the controlled origin, HTTPS positive control; create/update/replace/detach. Receipt preserves import, no-op, drift, deletion and verified cleanup separately. Cross-policy precedence remains unqualified.",
+              "sha256": "463e3ccc251c4057e4daac5d7145ff5d87671748dc3c7595f9c45ab176b5ba74",
+              "url": "https://github.com/f5-sales-demo/multi-cloud-networking/blob/249e3d862793bafd7047c2b5b9669be2a4628adc/coverage/smsv2-runtime/aws/receipt-v1.json"
+            }
+          ],
           "status": "unqualified"
         },
         "azure": {
@@ -174224,11 +174285,19 @@
       "id": "resources/xcsh_enhanced_firewall_policy/rule_list.rules[].all_sources",
       "lifecycle": {},
       "outstanding": [
-        "Qualify applicable lifecycle and runtime behavior on disposable topology."
+        "Scoped TCP 80 and ordered rules have AWS receipts. Qualify all other matcher/selection/default/lifecycle combinations before promoting this complete path.",
+        "Azure runtime remains unqualified; cross-policy precedence remains unqualified."
       ],
       "runtime": {
         "aws": {
-          "receipts": [],
+          "receipts": [
+            {
+              "provider_version": "15.9.0",
+              "scope": "AWS only: TCP 80 to the controlled origin, HTTPS positive control; create/update/replace/detach. Receipt preserves import, no-op, drift, deletion and verified cleanup separately. Cross-policy precedence remains unqualified.",
+              "sha256": "463e3ccc251c4057e4daac5d7145ff5d87671748dc3c7595f9c45ab176b5ba74",
+              "url": "https://github.com/f5-sales-demo/multi-cloud-networking/blob/249e3d862793bafd7047c2b5b9669be2a4628adc/coverage/smsv2-runtime/aws/receipt-v1.json"
+            }
+          ],
           "status": "unqualified"
         },
         "azure": {
@@ -174264,11 +174333,19 @@
       "id": "resources/xcsh_enhanced_firewall_policy/rule_list.rules[].all_tcp_traffic",
       "lifecycle": {},
       "outstanding": [
-        "Qualify applicable lifecycle and runtime behavior on disposable topology."
+        "Scoped TCP 80 and ordered rules have AWS receipts. Qualify all other matcher/selection/default/lifecycle combinations before promoting this complete path.",
+        "Azure runtime remains unqualified; cross-policy precedence remains unqualified."
       ],
       "runtime": {
         "aws": {
-          "receipts": [],
+          "receipts": [
+            {
+              "provider_version": "15.9.0",
+              "scope": "AWS only: TCP 80 to the controlled origin, HTTPS positive control; create/update/replace/detach. Receipt preserves import, no-op, drift, deletion and verified cleanup separately. Cross-policy precedence remains unqualified.",
+              "sha256": "463e3ccc251c4057e4daac5d7145ff5d87671748dc3c7595f9c45ab176b5ba74",
+              "url": "https://github.com/f5-sales-demo/multi-cloud-networking/blob/249e3d862793bafd7047c2b5b9669be2a4628adc/coverage/smsv2-runtime/aws/receipt-v1.json"
+            }
+          ],
           "status": "unqualified"
         },
         "azure": {
@@ -174304,11 +174381,19 @@
       "id": "resources/xcsh_enhanced_firewall_policy/rule_list.rules[].all_traffic",
       "lifecycle": {},
       "outstanding": [
-        "Qualify applicable lifecycle and runtime behavior on disposable topology."
+        "Scoped TCP 80 and ordered rules have AWS receipts. Qualify all other matcher/selection/default/lifecycle combinations before promoting this complete path.",
+        "Azure runtime remains unqualified; cross-policy precedence remains unqualified."
       ],
       "runtime": {
         "aws": {
-          "receipts": [],
+          "receipts": [
+            {
+              "provider_version": "15.9.0",
+              "scope": "AWS only: TCP 80 to the controlled origin, HTTPS positive control; create/update/replace/detach. Receipt preserves import, no-op, drift, deletion and verified cleanup separately. Cross-policy precedence remains unqualified.",
+              "sha256": "463e3ccc251c4057e4daac5d7145ff5d87671748dc3c7595f9c45ab176b5ba74",
+              "url": "https://github.com/f5-sales-demo/multi-cloud-networking/blob/249e3d862793bafd7047c2b5b9669be2a4628adc/coverage/smsv2-runtime/aws/receipt-v1.json"
+            }
+          ],
           "status": "unqualified"
         },
         "azure": {
@@ -174344,11 +174429,19 @@
       "id": "resources/xcsh_enhanced_firewall_policy/rule_list.rules[].all_udp_traffic",
       "lifecycle": {},
       "outstanding": [
-        "Qualify applicable lifecycle and runtime behavior on disposable topology."
+        "Scoped TCP 80 and ordered rules have AWS receipts. Qualify all other matcher/selection/default/lifecycle combinations before promoting this complete path.",
+        "Azure runtime remains unqualified; cross-policy precedence remains unqualified."
       ],
       "runtime": {
         "aws": {
-          "receipts": [],
+          "receipts": [
+            {
+              "provider_version": "15.9.0",
+              "scope": "AWS only: TCP 80 to the controlled origin, HTTPS positive control; create/update/replace/detach. Receipt preserves import, no-op, drift, deletion and verified cleanup separately. Cross-policy precedence remains unqualified.",
+              "sha256": "463e3ccc251c4057e4daac5d7145ff5d87671748dc3c7595f9c45ab176b5ba74",
+              "url": "https://github.com/f5-sales-demo/multi-cloud-networking/blob/249e3d862793bafd7047c2b5b9669be2a4628adc/coverage/smsv2-runtime/aws/receipt-v1.json"
+            }
+          ],
           "status": "unqualified"
         },
         "azure": {
@@ -174384,11 +174477,19 @@
       "id": "resources/xcsh_enhanced_firewall_policy/rule_list.rules[].allow",
       "lifecycle": {},
       "outstanding": [
-        "Qualify applicable lifecycle and runtime behavior on disposable topology."
+        "Scoped TCP 80 and ordered rules have AWS receipts. Qualify all other matcher/selection/default/lifecycle combinations before promoting this complete path.",
+        "Azure runtime remains unqualified; cross-policy precedence remains unqualified."
       ],
       "runtime": {
         "aws": {
-          "receipts": [],
+          "receipts": [
+            {
+              "provider_version": "15.9.0",
+              "scope": "AWS only: TCP 80 to the controlled origin, HTTPS positive control; create/update/replace/detach. Receipt preserves import, no-op, drift, deletion and verified cleanup separately. Cross-policy precedence remains unqualified.",
+              "sha256": "463e3ccc251c4057e4daac5d7145ff5d87671748dc3c7595f9c45ab176b5ba74",
+              "url": "https://github.com/f5-sales-demo/multi-cloud-networking/blob/249e3d862793bafd7047c2b5b9669be2a4628adc/coverage/smsv2-runtime/aws/receipt-v1.json"
+            }
+          ],
           "status": "unqualified"
         },
         "azure": {
@@ -174424,11 +174525,19 @@
       "id": "resources/xcsh_enhanced_firewall_policy/rule_list.rules[].applications",
       "lifecycle": {},
       "outstanding": [
-        "Qualify applicable lifecycle and runtime behavior on disposable topology."
+        "Scoped TCP 80 and ordered rules have AWS receipts. Qualify all other matcher/selection/default/lifecycle combinations before promoting this complete path.",
+        "Azure runtime remains unqualified; cross-policy precedence remains unqualified."
       ],
       "runtime": {
         "aws": {
-          "receipts": [],
+          "receipts": [
+            {
+              "provider_version": "15.9.0",
+              "scope": "AWS only: TCP 80 to the controlled origin, HTTPS positive control; create/update/replace/detach. Receipt preserves import, no-op, drift, deletion and verified cleanup separately. Cross-policy precedence remains unqualified.",
+              "sha256": "463e3ccc251c4057e4daac5d7145ff5d87671748dc3c7595f9c45ab176b5ba74",
+              "url": "https://github.com/f5-sales-demo/multi-cloud-networking/blob/249e3d862793bafd7047c2b5b9669be2a4628adc/coverage/smsv2-runtime/aws/receipt-v1.json"
+            }
+          ],
           "status": "unqualified"
         },
         "azure": {
@@ -174460,11 +174569,19 @@
       "id": "resources/xcsh_enhanced_firewall_policy/rule_list.rules[].applications.applications",
       "lifecycle": {},
       "outstanding": [
-        "Qualify applicable lifecycle and runtime behavior on disposable topology."
+        "Scoped TCP 80 and ordered rules have AWS receipts. Qualify all other matcher/selection/default/lifecycle combinations before promoting this complete path.",
+        "Azure runtime remains unqualified; cross-policy precedence remains unqualified."
       ],
       "runtime": {
         "aws": {
-          "receipts": [],
+          "receipts": [
+            {
+              "provider_version": "15.9.0",
+              "scope": "AWS only: TCP 80 to the controlled origin, HTTPS positive control; create/update/replace/detach. Receipt preserves import, no-op, drift, deletion and verified cleanup separately. Cross-policy precedence remains unqualified.",
+              "sha256": "463e3ccc251c4057e4daac5d7145ff5d87671748dc3c7595f9c45ab176b5ba74",
+              "url": "https://github.com/f5-sales-demo/multi-cloud-networking/blob/249e3d862793bafd7047c2b5b9669be2a4628adc/coverage/smsv2-runtime/aws/receipt-v1.json"
+            }
+          ],
           "status": "unqualified"
         },
         "azure": {
@@ -174500,11 +174617,19 @@
       "id": "resources/xcsh_enhanced_firewall_policy/rule_list.rules[].deny",
       "lifecycle": {},
       "outstanding": [
-        "Qualify applicable lifecycle and runtime behavior on disposable topology."
+        "Scoped TCP 80 and ordered rules have AWS receipts. Qualify all other matcher/selection/default/lifecycle combinations before promoting this complete path.",
+        "Azure runtime remains unqualified; cross-policy precedence remains unqualified."
       ],
       "runtime": {
         "aws": {
-          "receipts": [],
+          "receipts": [
+            {
+              "provider_version": "15.9.0",
+              "scope": "AWS only: TCP 80 to the controlled origin, HTTPS positive control; create/update/replace/detach. Receipt preserves import, no-op, drift, deletion and verified cleanup separately. Cross-policy precedence remains unqualified.",
+              "sha256": "463e3ccc251c4057e4daac5d7145ff5d87671748dc3c7595f9c45ab176b5ba74",
+              "url": "https://github.com/f5-sales-demo/multi-cloud-networking/blob/249e3d862793bafd7047c2b5b9669be2a4628adc/coverage/smsv2-runtime/aws/receipt-v1.json"
+            }
+          ],
           "status": "unqualified"
         },
         "azure": {
@@ -174540,11 +174665,19 @@
       "id": "resources/xcsh_enhanced_firewall_policy/rule_list.rules[].destination_aws_vpc_ids",
       "lifecycle": {},
       "outstanding": [
-        "Qualify applicable lifecycle and runtime behavior on disposable topology."
+        "Scoped TCP 80 and ordered rules have AWS receipts. Qualify all other matcher/selection/default/lifecycle combinations before promoting this complete path.",
+        "Azure runtime remains unqualified; cross-policy precedence remains unqualified."
       ],
       "runtime": {
         "aws": {
-          "receipts": [],
+          "receipts": [
+            {
+              "provider_version": "15.9.0",
+              "scope": "AWS only: TCP 80 to the controlled origin, HTTPS positive control; create/update/replace/detach. Receipt preserves import, no-op, drift, deletion and verified cleanup separately. Cross-policy precedence remains unqualified.",
+              "sha256": "463e3ccc251c4057e4daac5d7145ff5d87671748dc3c7595f9c45ab176b5ba74",
+              "url": "https://github.com/f5-sales-demo/multi-cloud-networking/blob/249e3d862793bafd7047c2b5b9669be2a4628adc/coverage/smsv2-runtime/aws/receipt-v1.json"
+            }
+          ],
           "status": "unqualified"
         },
         "azure": {
@@ -174576,11 +174709,19 @@
       "id": "resources/xcsh_enhanced_firewall_policy/rule_list.rules[].destination_aws_vpc_ids.vpc_id",
       "lifecycle": {},
       "outstanding": [
-        "Qualify applicable lifecycle and runtime behavior on disposable topology."
+        "Scoped TCP 80 and ordered rules have AWS receipts. Qualify all other matcher/selection/default/lifecycle combinations before promoting this complete path.",
+        "Azure runtime remains unqualified; cross-policy precedence remains unqualified."
       ],
       "runtime": {
         "aws": {
-          "receipts": [],
+          "receipts": [
+            {
+              "provider_version": "15.9.0",
+              "scope": "AWS only: TCP 80 to the controlled origin, HTTPS positive control; create/update/replace/detach. Receipt preserves import, no-op, drift, deletion and verified cleanup separately. Cross-policy precedence remains unqualified.",
+              "sha256": "463e3ccc251c4057e4daac5d7145ff5d87671748dc3c7595f9c45ab176b5ba74",
+              "url": "https://github.com/f5-sales-demo/multi-cloud-networking/blob/249e3d862793bafd7047c2b5b9669be2a4628adc/coverage/smsv2-runtime/aws/receipt-v1.json"
+            }
+          ],
           "status": "unqualified"
         },
         "azure": {
@@ -174616,11 +174757,19 @@
       "id": "resources/xcsh_enhanced_firewall_policy/rule_list.rules[].destination_ip_prefix_set",
       "lifecycle": {},
       "outstanding": [
-        "Qualify applicable lifecycle and runtime behavior on disposable topology."
+        "Scoped TCP 80 and ordered rules have AWS receipts. Qualify all other matcher/selection/default/lifecycle combinations before promoting this complete path.",
+        "Azure runtime remains unqualified; cross-policy precedence remains unqualified."
       ],
       "runtime": {
         "aws": {
-          "receipts": [],
+          "receipts": [
+            {
+              "provider_version": "15.9.0",
+              "scope": "AWS only: TCP 80 to the controlled origin, HTTPS positive control; create/update/replace/detach. Receipt preserves import, no-op, drift, deletion and verified cleanup separately. Cross-policy precedence remains unqualified.",
+              "sha256": "463e3ccc251c4057e4daac5d7145ff5d87671748dc3c7595f9c45ab176b5ba74",
+              "url": "https://github.com/f5-sales-demo/multi-cloud-networking/blob/249e3d862793bafd7047c2b5b9669be2a4628adc/coverage/smsv2-runtime/aws/receipt-v1.json"
+            }
+          ],
           "status": "unqualified"
         },
         "azure": {
@@ -174652,11 +174801,19 @@
       "id": "resources/xcsh_enhanced_firewall_policy/rule_list.rules[].destination_ip_prefix_set.ref",
       "lifecycle": {},
       "outstanding": [
-        "Qualify applicable lifecycle and runtime behavior on disposable topology."
+        "Scoped TCP 80 and ordered rules have AWS receipts. Qualify all other matcher/selection/default/lifecycle combinations before promoting this complete path.",
+        "Azure runtime remains unqualified; cross-policy precedence remains unqualified."
       ],
       "runtime": {
         "aws": {
-          "receipts": [],
+          "receipts": [
+            {
+              "provider_version": "15.9.0",
+              "scope": "AWS only: TCP 80 to the controlled origin, HTTPS positive control; create/update/replace/detach. Receipt preserves import, no-op, drift, deletion and verified cleanup separately. Cross-policy precedence remains unqualified.",
+              "sha256": "463e3ccc251c4057e4daac5d7145ff5d87671748dc3c7595f9c45ab176b5ba74",
+              "url": "https://github.com/f5-sales-demo/multi-cloud-networking/blob/249e3d862793bafd7047c2b5b9669be2a4628adc/coverage/smsv2-runtime/aws/receipt-v1.json"
+            }
+          ],
           "status": "unqualified"
         },
         "azure": {
@@ -174688,11 +174845,19 @@
       "id": "resources/xcsh_enhanced_firewall_policy/rule_list.rules[].destination_ip_prefix_set.ref[].kind",
       "lifecycle": {},
       "outstanding": [
-        "Qualify applicable lifecycle and runtime behavior on disposable topology."
+        "Scoped TCP 80 and ordered rules have AWS receipts. Qualify all other matcher/selection/default/lifecycle combinations before promoting this complete path.",
+        "Azure runtime remains unqualified; cross-policy precedence remains unqualified."
       ],
       "runtime": {
         "aws": {
-          "receipts": [],
+          "receipts": [
+            {
+              "provider_version": "15.9.0",
+              "scope": "AWS only: TCP 80 to the controlled origin, HTTPS positive control; create/update/replace/detach. Receipt preserves import, no-op, drift, deletion and verified cleanup separately. Cross-policy precedence remains unqualified.",
+              "sha256": "463e3ccc251c4057e4daac5d7145ff5d87671748dc3c7595f9c45ab176b5ba74",
+              "url": "https://github.com/f5-sales-demo/multi-cloud-networking/blob/249e3d862793bafd7047c2b5b9669be2a4628adc/coverage/smsv2-runtime/aws/receipt-v1.json"
+            }
+          ],
           "status": "unqualified"
         },
         "azure": {
@@ -174725,11 +174890,19 @@
       "id": "resources/xcsh_enhanced_firewall_policy/rule_list.rules[].destination_ip_prefix_set.ref[].name",
       "lifecycle": {},
       "outstanding": [
-        "Qualify applicable lifecycle and runtime behavior on disposable topology."
+        "Scoped TCP 80 and ordered rules have AWS receipts. Qualify all other matcher/selection/default/lifecycle combinations before promoting this complete path.",
+        "Azure runtime remains unqualified; cross-policy precedence remains unqualified."
       ],
       "runtime": {
         "aws": {
-          "receipts": [],
+          "receipts": [
+            {
+              "provider_version": "15.9.0",
+              "scope": "AWS only: TCP 80 to the controlled origin, HTTPS positive control; create/update/replace/detach. Receipt preserves import, no-op, drift, deletion and verified cleanup separately. Cross-policy precedence remains unqualified.",
+              "sha256": "463e3ccc251c4057e4daac5d7145ff5d87671748dc3c7595f9c45ab176b5ba74",
+              "url": "https://github.com/f5-sales-demo/multi-cloud-networking/blob/249e3d862793bafd7047c2b5b9669be2a4628adc/coverage/smsv2-runtime/aws/receipt-v1.json"
+            }
+          ],
           "status": "unqualified"
         },
         "azure": {
@@ -174762,11 +174935,19 @@
       "id": "resources/xcsh_enhanced_firewall_policy/rule_list.rules[].destination_ip_prefix_set.ref[].namespace",
       "lifecycle": {},
       "outstanding": [
-        "Qualify applicable lifecycle and runtime behavior on disposable topology."
+        "Scoped TCP 80 and ordered rules have AWS receipts. Qualify all other matcher/selection/default/lifecycle combinations before promoting this complete path.",
+        "Azure runtime remains unqualified; cross-policy precedence remains unqualified."
       ],
       "runtime": {
         "aws": {
-          "receipts": [],
+          "receipts": [
+            {
+              "provider_version": "15.9.0",
+              "scope": "AWS only: TCP 80 to the controlled origin, HTTPS positive control; create/update/replace/detach. Receipt preserves import, no-op, drift, deletion and verified cleanup separately. Cross-policy precedence remains unqualified.",
+              "sha256": "463e3ccc251c4057e4daac5d7145ff5d87671748dc3c7595f9c45ab176b5ba74",
+              "url": "https://github.com/f5-sales-demo/multi-cloud-networking/blob/249e3d862793bafd7047c2b5b9669be2a4628adc/coverage/smsv2-runtime/aws/receipt-v1.json"
+            }
+          ],
           "status": "unqualified"
         },
         "azure": {
@@ -174800,11 +174981,19 @@
       "id": "resources/xcsh_enhanced_firewall_policy/rule_list.rules[].destination_ip_prefix_set.ref[].tenant",
       "lifecycle": {},
       "outstanding": [
-        "Qualify applicable lifecycle and runtime behavior on disposable topology."
+        "Scoped TCP 80 and ordered rules have AWS receipts. Qualify all other matcher/selection/default/lifecycle combinations before promoting this complete path.",
+        "Azure runtime remains unqualified; cross-policy precedence remains unqualified."
       ],
       "runtime": {
         "aws": {
-          "receipts": [],
+          "receipts": [
+            {
+              "provider_version": "15.9.0",
+              "scope": "AWS only: TCP 80 to the controlled origin, HTTPS positive control; create/update/replace/detach. Receipt preserves import, no-op, drift, deletion and verified cleanup separately. Cross-policy precedence remains unqualified.",
+              "sha256": "463e3ccc251c4057e4daac5d7145ff5d87671748dc3c7595f9c45ab176b5ba74",
+              "url": "https://github.com/f5-sales-demo/multi-cloud-networking/blob/249e3d862793bafd7047c2b5b9669be2a4628adc/coverage/smsv2-runtime/aws/receipt-v1.json"
+            }
+          ],
           "status": "unqualified"
         },
         "azure": {
@@ -174837,11 +175026,19 @@
       "id": "resources/xcsh_enhanced_firewall_policy/rule_list.rules[].destination_ip_prefix_set.ref[].uid",
       "lifecycle": {},
       "outstanding": [
-        "Qualify applicable lifecycle and runtime behavior on disposable topology."
+        "Scoped TCP 80 and ordered rules have AWS receipts. Qualify all other matcher/selection/default/lifecycle combinations before promoting this complete path.",
+        "Azure runtime remains unqualified; cross-policy precedence remains unqualified."
       ],
       "runtime": {
         "aws": {
-          "receipts": [],
+          "receipts": [
+            {
+              "provider_version": "15.9.0",
+              "scope": "AWS only: TCP 80 to the controlled origin, HTTPS positive control; create/update/replace/detach. Receipt preserves import, no-op, drift, deletion and verified cleanup separately. Cross-policy precedence remains unqualified.",
+              "sha256": "463e3ccc251c4057e4daac5d7145ff5d87671748dc3c7595f9c45ab176b5ba74",
+              "url": "https://github.com/f5-sales-demo/multi-cloud-networking/blob/249e3d862793bafd7047c2b5b9669be2a4628adc/coverage/smsv2-runtime/aws/receipt-v1.json"
+            }
+          ],
           "status": "unqualified"
         },
         "azure": {
@@ -174874,11 +175071,19 @@
       "id": "resources/xcsh_enhanced_firewall_policy/rule_list.rules[].destination_label_selector",
       "lifecycle": {},
       "outstanding": [
-        "Qualify applicable lifecycle and runtime behavior on disposable topology."
+        "Scoped TCP 80 and ordered rules have AWS receipts. Qualify all other matcher/selection/default/lifecycle combinations before promoting this complete path.",
+        "Azure runtime remains unqualified; cross-policy precedence remains unqualified."
       ],
       "runtime": {
         "aws": {
-          "receipts": [],
+          "receipts": [
+            {
+              "provider_version": "15.9.0",
+              "scope": "AWS only: TCP 80 to the controlled origin, HTTPS positive control; create/update/replace/detach. Receipt preserves import, no-op, drift, deletion and verified cleanup separately. Cross-policy precedence remains unqualified.",
+              "sha256": "463e3ccc251c4057e4daac5d7145ff5d87671748dc3c7595f9c45ab176b5ba74",
+              "url": "https://github.com/f5-sales-demo/multi-cloud-networking/blob/249e3d862793bafd7047c2b5b9669be2a4628adc/coverage/smsv2-runtime/aws/receipt-v1.json"
+            }
+          ],
           "status": "unqualified"
         },
         "azure": {
@@ -174910,11 +175115,19 @@
       "id": "resources/xcsh_enhanced_firewall_policy/rule_list.rules[].destination_label_selector.expressions",
       "lifecycle": {},
       "outstanding": [
-        "Qualify applicable lifecycle and runtime behavior on disposable topology."
+        "Scoped TCP 80 and ordered rules have AWS receipts. Qualify all other matcher/selection/default/lifecycle combinations before promoting this complete path.",
+        "Azure runtime remains unqualified; cross-policy precedence remains unqualified."
       ],
       "runtime": {
         "aws": {
-          "receipts": [],
+          "receipts": [
+            {
+              "provider_version": "15.9.0",
+              "scope": "AWS only: TCP 80 to the controlled origin, HTTPS positive control; create/update/replace/detach. Receipt preserves import, no-op, drift, deletion and verified cleanup separately. Cross-policy precedence remains unqualified.",
+              "sha256": "463e3ccc251c4057e4daac5d7145ff5d87671748dc3c7595f9c45ab176b5ba74",
+              "url": "https://github.com/f5-sales-demo/multi-cloud-networking/blob/249e3d862793bafd7047c2b5b9669be2a4628adc/coverage/smsv2-runtime/aws/receipt-v1.json"
+            }
+          ],
           "status": "unqualified"
         },
         "azure": {
@@ -174950,11 +175163,19 @@
       "id": "resources/xcsh_enhanced_firewall_policy/rule_list.rules[].destination_prefix_list",
       "lifecycle": {},
       "outstanding": [
-        "Qualify applicable lifecycle and runtime behavior on disposable topology."
+        "Scoped TCP 80 and ordered rules have AWS receipts. Qualify all other matcher/selection/default/lifecycle combinations before promoting this complete path.",
+        "Azure runtime remains unqualified; cross-policy precedence remains unqualified."
       ],
       "runtime": {
         "aws": {
-          "receipts": [],
+          "receipts": [
+            {
+              "provider_version": "15.9.0",
+              "scope": "AWS only: TCP 80 to the controlled origin, HTTPS positive control; create/update/replace/detach. Receipt preserves import, no-op, drift, deletion and verified cleanup separately. Cross-policy precedence remains unqualified.",
+              "sha256": "463e3ccc251c4057e4daac5d7145ff5d87671748dc3c7595f9c45ab176b5ba74",
+              "url": "https://github.com/f5-sales-demo/multi-cloud-networking/blob/249e3d862793bafd7047c2b5b9669be2a4628adc/coverage/smsv2-runtime/aws/receipt-v1.json"
+            }
+          ],
           "status": "unqualified"
         },
         "azure": {
@@ -174986,11 +175207,19 @@
       "id": "resources/xcsh_enhanced_firewall_policy/rule_list.rules[].destination_prefix_list.prefixes",
       "lifecycle": {},
       "outstanding": [
-        "Qualify applicable lifecycle and runtime behavior on disposable topology."
+        "Scoped TCP 80 and ordered rules have AWS receipts. Qualify all other matcher/selection/default/lifecycle combinations before promoting this complete path.",
+        "Azure runtime remains unqualified; cross-policy precedence remains unqualified."
       ],
       "runtime": {
         "aws": {
-          "receipts": [],
+          "receipts": [
+            {
+              "provider_version": "15.9.0",
+              "scope": "AWS only: TCP 80 to the controlled origin, HTTPS positive control; create/update/replace/detach. Receipt preserves import, no-op, drift, deletion and verified cleanup separately. Cross-policy precedence remains unqualified.",
+              "sha256": "463e3ccc251c4057e4daac5d7145ff5d87671748dc3c7595f9c45ab176b5ba74",
+              "url": "https://github.com/f5-sales-demo/multi-cloud-networking/blob/249e3d862793bafd7047c2b5b9669be2a4628adc/coverage/smsv2-runtime/aws/receipt-v1.json"
+            }
+          ],
           "status": "unqualified"
         },
         "azure": {
@@ -175026,11 +175255,19 @@
       "id": "resources/xcsh_enhanced_firewall_policy/rule_list.rules[].insert_service",
       "lifecycle": {},
       "outstanding": [
-        "Qualify applicable lifecycle and runtime behavior on disposable topology."
+        "Scoped TCP 80 and ordered rules have AWS receipts. Qualify all other matcher/selection/default/lifecycle combinations before promoting this complete path.",
+        "Azure runtime remains unqualified; cross-policy precedence remains unqualified."
       ],
       "runtime": {
         "aws": {
-          "receipts": [],
+          "receipts": [
+            {
+              "provider_version": "15.9.0",
+              "scope": "AWS only: TCP 80 to the controlled origin, HTTPS positive control; create/update/replace/detach. Receipt preserves import, no-op, drift, deletion and verified cleanup separately. Cross-policy precedence remains unqualified.",
+              "sha256": "463e3ccc251c4057e4daac5d7145ff5d87671748dc3c7595f9c45ab176b5ba74",
+              "url": "https://github.com/f5-sales-demo/multi-cloud-networking/blob/249e3d862793bafd7047c2b5b9669be2a4628adc/coverage/smsv2-runtime/aws/receipt-v1.json"
+            }
+          ],
           "status": "unqualified"
         },
         "azure": {
@@ -175062,11 +175299,19 @@
       "id": "resources/xcsh_enhanced_firewall_policy/rule_list.rules[].insert_service.nfv_service",
       "lifecycle": {},
       "outstanding": [
-        "Qualify applicable lifecycle and runtime behavior on disposable topology."
+        "Scoped TCP 80 and ordered rules have AWS receipts. Qualify all other matcher/selection/default/lifecycle combinations before promoting this complete path.",
+        "Azure runtime remains unqualified; cross-policy precedence remains unqualified."
       ],
       "runtime": {
         "aws": {
-          "receipts": [],
+          "receipts": [
+            {
+              "provider_version": "15.9.0",
+              "scope": "AWS only: TCP 80 to the controlled origin, HTTPS positive control; create/update/replace/detach. Receipt preserves import, no-op, drift, deletion and verified cleanup separately. Cross-policy precedence remains unqualified.",
+              "sha256": "463e3ccc251c4057e4daac5d7145ff5d87671748dc3c7595f9c45ab176b5ba74",
+              "url": "https://github.com/f5-sales-demo/multi-cloud-networking/blob/249e3d862793bafd7047c2b5b9669be2a4628adc/coverage/smsv2-runtime/aws/receipt-v1.json"
+            }
+          ],
           "status": "unqualified"
         },
         "azure": {
@@ -175098,11 +175343,19 @@
       "id": "resources/xcsh_enhanced_firewall_policy/rule_list.rules[].insert_service.nfv_service.name",
       "lifecycle": {},
       "outstanding": [
-        "Qualify applicable lifecycle and runtime behavior on disposable topology."
+        "Scoped TCP 80 and ordered rules have AWS receipts. Qualify all other matcher/selection/default/lifecycle combinations before promoting this complete path.",
+        "Azure runtime remains unqualified; cross-policy precedence remains unqualified."
       ],
       "runtime": {
         "aws": {
-          "receipts": [],
+          "receipts": [
+            {
+              "provider_version": "15.9.0",
+              "scope": "AWS only: TCP 80 to the controlled origin, HTTPS positive control; create/update/replace/detach. Receipt preserves import, no-op, drift, deletion and verified cleanup separately. Cross-policy precedence remains unqualified.",
+              "sha256": "463e3ccc251c4057e4daac5d7145ff5d87671748dc3c7595f9c45ab176b5ba74",
+              "url": "https://github.com/f5-sales-demo/multi-cloud-networking/blob/249e3d862793bafd7047c2b5b9669be2a4628adc/coverage/smsv2-runtime/aws/receipt-v1.json"
+            }
+          ],
           "status": "unqualified"
         },
         "azure": {
@@ -175135,11 +175388,19 @@
       "id": "resources/xcsh_enhanced_firewall_policy/rule_list.rules[].insert_service.nfv_service.namespace",
       "lifecycle": {},
       "outstanding": [
-        "Qualify applicable lifecycle and runtime behavior on disposable topology."
+        "Scoped TCP 80 and ordered rules have AWS receipts. Qualify all other matcher/selection/default/lifecycle combinations before promoting this complete path.",
+        "Azure runtime remains unqualified; cross-policy precedence remains unqualified."
       ],
       "runtime": {
         "aws": {
-          "receipts": [],
+          "receipts": [
+            {
+              "provider_version": "15.9.0",
+              "scope": "AWS only: TCP 80 to the controlled origin, HTTPS positive control; create/update/replace/detach. Receipt preserves import, no-op, drift, deletion and verified cleanup separately. Cross-policy precedence remains unqualified.",
+              "sha256": "463e3ccc251c4057e4daac5d7145ff5d87671748dc3c7595f9c45ab176b5ba74",
+              "url": "https://github.com/f5-sales-demo/multi-cloud-networking/blob/249e3d862793bafd7047c2b5b9669be2a4628adc/coverage/smsv2-runtime/aws/receipt-v1.json"
+            }
+          ],
           "status": "unqualified"
         },
         "azure": {
@@ -175173,11 +175434,19 @@
       "id": "resources/xcsh_enhanced_firewall_policy/rule_list.rules[].insert_service.nfv_service.tenant",
       "lifecycle": {},
       "outstanding": [
-        "Qualify applicable lifecycle and runtime behavior on disposable topology."
+        "Scoped TCP 80 and ordered rules have AWS receipts. Qualify all other matcher/selection/default/lifecycle combinations before promoting this complete path.",
+        "Azure runtime remains unqualified; cross-policy precedence remains unqualified."
       ],
       "runtime": {
         "aws": {
-          "receipts": [],
+          "receipts": [
+            {
+              "provider_version": "15.9.0",
+              "scope": "AWS only: TCP 80 to the controlled origin, HTTPS positive control; create/update/replace/detach. Receipt preserves import, no-op, drift, deletion and verified cleanup separately. Cross-policy precedence remains unqualified.",
+              "sha256": "463e3ccc251c4057e4daac5d7145ff5d87671748dc3c7595f9c45ab176b5ba74",
+              "url": "https://github.com/f5-sales-demo/multi-cloud-networking/blob/249e3d862793bafd7047c2b5b9669be2a4628adc/coverage/smsv2-runtime/aws/receipt-v1.json"
+            }
+          ],
           "status": "unqualified"
         },
         "azure": {
@@ -175210,11 +175479,19 @@
       "id": "resources/xcsh_enhanced_firewall_policy/rule_list.rules[].inside_destinations",
       "lifecycle": {},
       "outstanding": [
-        "Qualify applicable lifecycle and runtime behavior on disposable topology."
+        "Scoped TCP 80 and ordered rules have AWS receipts. Qualify all other matcher/selection/default/lifecycle combinations before promoting this complete path.",
+        "Azure runtime remains unqualified; cross-policy precedence remains unqualified."
       ],
       "runtime": {
         "aws": {
-          "receipts": [],
+          "receipts": [
+            {
+              "provider_version": "15.9.0",
+              "scope": "AWS only: TCP 80 to the controlled origin, HTTPS positive control; create/update/replace/detach. Receipt preserves import, no-op, drift, deletion and verified cleanup separately. Cross-policy precedence remains unqualified.",
+              "sha256": "463e3ccc251c4057e4daac5d7145ff5d87671748dc3c7595f9c45ab176b5ba74",
+              "url": "https://github.com/f5-sales-demo/multi-cloud-networking/blob/249e3d862793bafd7047c2b5b9669be2a4628adc/coverage/smsv2-runtime/aws/receipt-v1.json"
+            }
+          ],
           "status": "unqualified"
         },
         "azure": {
@@ -175250,11 +175527,19 @@
       "id": "resources/xcsh_enhanced_firewall_policy/rule_list.rules[].inside_sources",
       "lifecycle": {},
       "outstanding": [
-        "Qualify applicable lifecycle and runtime behavior on disposable topology."
+        "Scoped TCP 80 and ordered rules have AWS receipts. Qualify all other matcher/selection/default/lifecycle combinations before promoting this complete path.",
+        "Azure runtime remains unqualified; cross-policy precedence remains unqualified."
       ],
       "runtime": {
         "aws": {
-          "receipts": [],
+          "receipts": [
+            {
+              "provider_version": "15.9.0",
+              "scope": "AWS only: TCP 80 to the controlled origin, HTTPS positive control; create/update/replace/detach. Receipt preserves import, no-op, drift, deletion and verified cleanup separately. Cross-policy precedence remains unqualified.",
+              "sha256": "463e3ccc251c4057e4daac5d7145ff5d87671748dc3c7595f9c45ab176b5ba74",
+              "url": "https://github.com/f5-sales-demo/multi-cloud-networking/blob/249e3d862793bafd7047c2b5b9669be2a4628adc/coverage/smsv2-runtime/aws/receipt-v1.json"
+            }
+          ],
           "status": "unqualified"
         },
         "azure": {
@@ -175290,11 +175575,19 @@
       "id": "resources/xcsh_enhanced_firewall_policy/rule_list.rules[].label_matcher",
       "lifecycle": {},
       "outstanding": [
-        "Qualify applicable lifecycle and runtime behavior on disposable topology."
+        "Scoped TCP 80 and ordered rules have AWS receipts. Qualify all other matcher/selection/default/lifecycle combinations before promoting this complete path.",
+        "Azure runtime remains unqualified; cross-policy precedence remains unqualified."
       ],
       "runtime": {
         "aws": {
-          "receipts": [],
+          "receipts": [
+            {
+              "provider_version": "15.9.0",
+              "scope": "AWS only: TCP 80 to the controlled origin, HTTPS positive control; create/update/replace/detach. Receipt preserves import, no-op, drift, deletion and verified cleanup separately. Cross-policy precedence remains unqualified.",
+              "sha256": "463e3ccc251c4057e4daac5d7145ff5d87671748dc3c7595f9c45ab176b5ba74",
+              "url": "https://github.com/f5-sales-demo/multi-cloud-networking/blob/249e3d862793bafd7047c2b5b9669be2a4628adc/coverage/smsv2-runtime/aws/receipt-v1.json"
+            }
+          ],
           "status": "unqualified"
         },
         "azure": {
@@ -175326,11 +175619,19 @@
       "id": "resources/xcsh_enhanced_firewall_policy/rule_list.rules[].label_matcher.keys",
       "lifecycle": {},
       "outstanding": [
-        "Qualify applicable lifecycle and runtime behavior on disposable topology."
+        "Scoped TCP 80 and ordered rules have AWS receipts. Qualify all other matcher/selection/default/lifecycle combinations before promoting this complete path.",
+        "Azure runtime remains unqualified; cross-policy precedence remains unqualified."
       ],
       "runtime": {
         "aws": {
-          "receipts": [],
+          "receipts": [
+            {
+              "provider_version": "15.9.0",
+              "scope": "AWS only: TCP 80 to the controlled origin, HTTPS positive control; create/update/replace/detach. Receipt preserves import, no-op, drift, deletion and verified cleanup separately. Cross-policy precedence remains unqualified.",
+              "sha256": "463e3ccc251c4057e4daac5d7145ff5d87671748dc3c7595f9c45ab176b5ba74",
+              "url": "https://github.com/f5-sales-demo/multi-cloud-networking/blob/249e3d862793bafd7047c2b5b9669be2a4628adc/coverage/smsv2-runtime/aws/receipt-v1.json"
+            }
+          ],
           "status": "unqualified"
         },
         "azure": {
@@ -175366,11 +175667,19 @@
       "id": "resources/xcsh_enhanced_firewall_policy/rule_list.rules[].metadata",
       "lifecycle": {},
       "outstanding": [
-        "Qualify applicable lifecycle and runtime behavior on disposable topology."
+        "Scoped TCP 80 and ordered rules have AWS receipts. Qualify all other matcher/selection/default/lifecycle combinations before promoting this complete path.",
+        "Azure runtime remains unqualified; cross-policy precedence remains unqualified."
       ],
       "runtime": {
         "aws": {
-          "receipts": [],
+          "receipts": [
+            {
+              "provider_version": "15.9.0",
+              "scope": "AWS only: TCP 80 to the controlled origin, HTTPS positive control; create/update/replace/detach. Receipt preserves import, no-op, drift, deletion and verified cleanup separately. Cross-policy precedence remains unqualified.",
+              "sha256": "463e3ccc251c4057e4daac5d7145ff5d87671748dc3c7595f9c45ab176b5ba74",
+              "url": "https://github.com/f5-sales-demo/multi-cloud-networking/blob/249e3d862793bafd7047c2b5b9669be2a4628adc/coverage/smsv2-runtime/aws/receipt-v1.json"
+            }
+          ],
           "status": "unqualified"
         },
         "azure": {
@@ -175402,11 +175711,19 @@
       "id": "resources/xcsh_enhanced_firewall_policy/rule_list.rules[].metadata.description_spec",
       "lifecycle": {},
       "outstanding": [
-        "Qualify applicable lifecycle and runtime behavior on disposable topology."
+        "Scoped TCP 80 and ordered rules have AWS receipts. Qualify all other matcher/selection/default/lifecycle combinations before promoting this complete path.",
+        "Azure runtime remains unqualified; cross-policy precedence remains unqualified."
       ],
       "runtime": {
         "aws": {
-          "receipts": [],
+          "receipts": [
+            {
+              "provider_version": "15.9.0",
+              "scope": "AWS only: TCP 80 to the controlled origin, HTTPS positive control; create/update/replace/detach. Receipt preserves import, no-op, drift, deletion and verified cleanup separately. Cross-policy precedence remains unqualified.",
+              "sha256": "463e3ccc251c4057e4daac5d7145ff5d87671748dc3c7595f9c45ab176b5ba74",
+              "url": "https://github.com/f5-sales-demo/multi-cloud-networking/blob/249e3d862793bafd7047c2b5b9669be2a4628adc/coverage/smsv2-runtime/aws/receipt-v1.json"
+            }
+          ],
           "status": "unqualified"
         },
         "azure": {
@@ -175439,11 +175756,19 @@
       "id": "resources/xcsh_enhanced_firewall_policy/rule_list.rules[].metadata.name",
       "lifecycle": {},
       "outstanding": [
-        "Qualify applicable lifecycle and runtime behavior on disposable topology."
+        "Scoped TCP 80 and ordered rules have AWS receipts. Qualify all other matcher/selection/default/lifecycle combinations before promoting this complete path.",
+        "Azure runtime remains unqualified; cross-policy precedence remains unqualified."
       ],
       "runtime": {
         "aws": {
-          "receipts": [],
+          "receipts": [
+            {
+              "provider_version": "15.9.0",
+              "scope": "AWS only: TCP 80 to the controlled origin, HTTPS positive control; create/update/replace/detach. Receipt preserves import, no-op, drift, deletion and verified cleanup separately. Cross-policy precedence remains unqualified.",
+              "sha256": "463e3ccc251c4057e4daac5d7145ff5d87671748dc3c7595f9c45ab176b5ba74",
+              "url": "https://github.com/f5-sales-demo/multi-cloud-networking/blob/249e3d862793bafd7047c2b5b9669be2a4628adc/coverage/smsv2-runtime/aws/receipt-v1.json"
+            }
+          ],
           "status": "unqualified"
         },
         "azure": {
@@ -175476,11 +175801,19 @@
       "id": "resources/xcsh_enhanced_firewall_policy/rule_list.rules[].outside_destinations",
       "lifecycle": {},
       "outstanding": [
-        "Qualify applicable lifecycle and runtime behavior on disposable topology."
+        "Scoped TCP 80 and ordered rules have AWS receipts. Qualify all other matcher/selection/default/lifecycle combinations before promoting this complete path.",
+        "Azure runtime remains unqualified; cross-policy precedence remains unqualified."
       ],
       "runtime": {
         "aws": {
-          "receipts": [],
+          "receipts": [
+            {
+              "provider_version": "15.9.0",
+              "scope": "AWS only: TCP 80 to the controlled origin, HTTPS positive control; create/update/replace/detach. Receipt preserves import, no-op, drift, deletion and verified cleanup separately. Cross-policy precedence remains unqualified.",
+              "sha256": "463e3ccc251c4057e4daac5d7145ff5d87671748dc3c7595f9c45ab176b5ba74",
+              "url": "https://github.com/f5-sales-demo/multi-cloud-networking/blob/249e3d862793bafd7047c2b5b9669be2a4628adc/coverage/smsv2-runtime/aws/receipt-v1.json"
+            }
+          ],
           "status": "unqualified"
         },
         "azure": {
@@ -175516,11 +175849,19 @@
       "id": "resources/xcsh_enhanced_firewall_policy/rule_list.rules[].outside_sources",
       "lifecycle": {},
       "outstanding": [
-        "Qualify applicable lifecycle and runtime behavior on disposable topology."
+        "Scoped TCP 80 and ordered rules have AWS receipts. Qualify all other matcher/selection/default/lifecycle combinations before promoting this complete path.",
+        "Azure runtime remains unqualified; cross-policy precedence remains unqualified."
       ],
       "runtime": {
         "aws": {
-          "receipts": [],
+          "receipts": [
+            {
+              "provider_version": "15.9.0",
+              "scope": "AWS only: TCP 80 to the controlled origin, HTTPS positive control; create/update/replace/detach. Receipt preserves import, no-op, drift, deletion and verified cleanup separately. Cross-policy precedence remains unqualified.",
+              "sha256": "463e3ccc251c4057e4daac5d7145ff5d87671748dc3c7595f9c45ab176b5ba74",
+              "url": "https://github.com/f5-sales-demo/multi-cloud-networking/blob/249e3d862793bafd7047c2b5b9669be2a4628adc/coverage/smsv2-runtime/aws/receipt-v1.json"
+            }
+          ],
           "status": "unqualified"
         },
         "azure": {
@@ -175556,11 +175897,19 @@
       "id": "resources/xcsh_enhanced_firewall_policy/rule_list.rules[].protocol_port_range",
       "lifecycle": {},
       "outstanding": [
-        "Qualify applicable lifecycle and runtime behavior on disposable topology."
+        "Scoped TCP 80 and ordered rules have AWS receipts. Qualify all other matcher/selection/default/lifecycle combinations before promoting this complete path.",
+        "Azure runtime remains unqualified; cross-policy precedence remains unqualified."
       ],
       "runtime": {
         "aws": {
-          "receipts": [],
+          "receipts": [
+            {
+              "provider_version": "15.9.0",
+              "scope": "AWS only: TCP 80 to the controlled origin, HTTPS positive control; create/update/replace/detach. Receipt preserves import, no-op, drift, deletion and verified cleanup separately. Cross-policy precedence remains unqualified.",
+              "sha256": "463e3ccc251c4057e4daac5d7145ff5d87671748dc3c7595f9c45ab176b5ba74",
+              "url": "https://github.com/f5-sales-demo/multi-cloud-networking/blob/249e3d862793bafd7047c2b5b9669be2a4628adc/coverage/smsv2-runtime/aws/receipt-v1.json"
+            }
+          ],
           "status": "unqualified"
         },
         "azure": {
@@ -175592,11 +175941,19 @@
       "id": "resources/xcsh_enhanced_firewall_policy/rule_list.rules[].protocol_port_range.port_ranges",
       "lifecycle": {},
       "outstanding": [
-        "Qualify applicable lifecycle and runtime behavior on disposable topology."
+        "Scoped TCP 80 and ordered rules have AWS receipts. Qualify all other matcher/selection/default/lifecycle combinations before promoting this complete path.",
+        "Azure runtime remains unqualified; cross-policy precedence remains unqualified."
       ],
       "runtime": {
         "aws": {
-          "receipts": [],
+          "receipts": [
+            {
+              "provider_version": "15.9.0",
+              "scope": "AWS only: TCP 80 to the controlled origin, HTTPS positive control; create/update/replace/detach. Receipt preserves import, no-op, drift, deletion and verified cleanup separately. Cross-policy precedence remains unqualified.",
+              "sha256": "463e3ccc251c4057e4daac5d7145ff5d87671748dc3c7595f9c45ab176b5ba74",
+              "url": "https://github.com/f5-sales-demo/multi-cloud-networking/blob/249e3d862793bafd7047c2b5b9669be2a4628adc/coverage/smsv2-runtime/aws/receipt-v1.json"
+            }
+          ],
           "status": "unqualified"
         },
         "azure": {
@@ -175632,11 +175989,19 @@
       "id": "resources/xcsh_enhanced_firewall_policy/rule_list.rules[].protocol_port_range.protocol",
       "lifecycle": {},
       "outstanding": [
-        "Qualify applicable lifecycle and runtime behavior on disposable topology."
+        "Scoped TCP 80 and ordered rules have AWS receipts. Qualify all other matcher/selection/default/lifecycle combinations before promoting this complete path.",
+        "Azure runtime remains unqualified; cross-policy precedence remains unqualified."
       ],
       "runtime": {
         "aws": {
-          "receipts": [],
+          "receipts": [
+            {
+              "provider_version": "15.9.0",
+              "scope": "AWS only: TCP 80 to the controlled origin, HTTPS positive control; create/update/replace/detach. Receipt preserves import, no-op, drift, deletion and verified cleanup separately. Cross-policy precedence remains unqualified.",
+              "sha256": "463e3ccc251c4057e4daac5d7145ff5d87671748dc3c7595f9c45ab176b5ba74",
+              "url": "https://github.com/f5-sales-demo/multi-cloud-networking/blob/249e3d862793bafd7047c2b5b9669be2a4628adc/coverage/smsv2-runtime/aws/receipt-v1.json"
+            }
+          ],
           "status": "unqualified"
         },
         "azure": {
@@ -175669,11 +176034,19 @@
       "id": "resources/xcsh_enhanced_firewall_policy/rule_list.rules[].source_aws_vpc_ids",
       "lifecycle": {},
       "outstanding": [
-        "Qualify applicable lifecycle and runtime behavior on disposable topology."
+        "Scoped TCP 80 and ordered rules have AWS receipts. Qualify all other matcher/selection/default/lifecycle combinations before promoting this complete path.",
+        "Azure runtime remains unqualified; cross-policy precedence remains unqualified."
       ],
       "runtime": {
         "aws": {
-          "receipts": [],
+          "receipts": [
+            {
+              "provider_version": "15.9.0",
+              "scope": "AWS only: TCP 80 to the controlled origin, HTTPS positive control; create/update/replace/detach. Receipt preserves import, no-op, drift, deletion and verified cleanup separately. Cross-policy precedence remains unqualified.",
+              "sha256": "463e3ccc251c4057e4daac5d7145ff5d87671748dc3c7595f9c45ab176b5ba74",
+              "url": "https://github.com/f5-sales-demo/multi-cloud-networking/blob/249e3d862793bafd7047c2b5b9669be2a4628adc/coverage/smsv2-runtime/aws/receipt-v1.json"
+            }
+          ],
           "status": "unqualified"
         },
         "azure": {
@@ -175705,11 +176078,19 @@
       "id": "resources/xcsh_enhanced_firewall_policy/rule_list.rules[].source_aws_vpc_ids.vpc_id",
       "lifecycle": {},
       "outstanding": [
-        "Qualify applicable lifecycle and runtime behavior on disposable topology."
+        "Scoped TCP 80 and ordered rules have AWS receipts. Qualify all other matcher/selection/default/lifecycle combinations before promoting this complete path.",
+        "Azure runtime remains unqualified; cross-policy precedence remains unqualified."
       ],
       "runtime": {
         "aws": {
-          "receipts": [],
+          "receipts": [
+            {
+              "provider_version": "15.9.0",
+              "scope": "AWS only: TCP 80 to the controlled origin, HTTPS positive control; create/update/replace/detach. Receipt preserves import, no-op, drift, deletion and verified cleanup separately. Cross-policy precedence remains unqualified.",
+              "sha256": "463e3ccc251c4057e4daac5d7145ff5d87671748dc3c7595f9c45ab176b5ba74",
+              "url": "https://github.com/f5-sales-demo/multi-cloud-networking/blob/249e3d862793bafd7047c2b5b9669be2a4628adc/coverage/smsv2-runtime/aws/receipt-v1.json"
+            }
+          ],
           "status": "unqualified"
         },
         "azure": {
@@ -175745,11 +176126,19 @@
       "id": "resources/xcsh_enhanced_firewall_policy/rule_list.rules[].source_ip_prefix_set",
       "lifecycle": {},
       "outstanding": [
-        "Qualify applicable lifecycle and runtime behavior on disposable topology."
+        "Scoped TCP 80 and ordered rules have AWS receipts. Qualify all other matcher/selection/default/lifecycle combinations before promoting this complete path.",
+        "Azure runtime remains unqualified; cross-policy precedence remains unqualified."
       ],
       "runtime": {
         "aws": {
-          "receipts": [],
+          "receipts": [
+            {
+              "provider_version": "15.9.0",
+              "scope": "AWS only: TCP 80 to the controlled origin, HTTPS positive control; create/update/replace/detach. Receipt preserves import, no-op, drift, deletion and verified cleanup separately. Cross-policy precedence remains unqualified.",
+              "sha256": "463e3ccc251c4057e4daac5d7145ff5d87671748dc3c7595f9c45ab176b5ba74",
+              "url": "https://github.com/f5-sales-demo/multi-cloud-networking/blob/249e3d862793bafd7047c2b5b9669be2a4628adc/coverage/smsv2-runtime/aws/receipt-v1.json"
+            }
+          ],
           "status": "unqualified"
         },
         "azure": {
@@ -175781,11 +176170,19 @@
       "id": "resources/xcsh_enhanced_firewall_policy/rule_list.rules[].source_ip_prefix_set.ref",
       "lifecycle": {},
       "outstanding": [
-        "Qualify applicable lifecycle and runtime behavior on disposable topology."
+        "Scoped TCP 80 and ordered rules have AWS receipts. Qualify all other matcher/selection/default/lifecycle combinations before promoting this complete path.",
+        "Azure runtime remains unqualified; cross-policy precedence remains unqualified."
       ],
       "runtime": {
         "aws": {
-          "receipts": [],
+          "receipts": [
+            {
+              "provider_version": "15.9.0",
+              "scope": "AWS only: TCP 80 to the controlled origin, HTTPS positive control; create/update/replace/detach. Receipt preserves import, no-op, drift, deletion and verified cleanup separately. Cross-policy precedence remains unqualified.",
+              "sha256": "463e3ccc251c4057e4daac5d7145ff5d87671748dc3c7595f9c45ab176b5ba74",
+              "url": "https://github.com/f5-sales-demo/multi-cloud-networking/blob/249e3d862793bafd7047c2b5b9669be2a4628adc/coverage/smsv2-runtime/aws/receipt-v1.json"
+            }
+          ],
           "status": "unqualified"
         },
         "azure": {
@@ -175817,11 +176214,19 @@
       "id": "resources/xcsh_enhanced_firewall_policy/rule_list.rules[].source_ip_prefix_set.ref[].kind",
       "lifecycle": {},
       "outstanding": [
-        "Qualify applicable lifecycle and runtime behavior on disposable topology."
+        "Scoped TCP 80 and ordered rules have AWS receipts. Qualify all other matcher/selection/default/lifecycle combinations before promoting this complete path.",
+        "Azure runtime remains unqualified; cross-policy precedence remains unqualified."
       ],
       "runtime": {
         "aws": {
-          "receipts": [],
+          "receipts": [
+            {
+              "provider_version": "15.9.0",
+              "scope": "AWS only: TCP 80 to the controlled origin, HTTPS positive control; create/update/replace/detach. Receipt preserves import, no-op, drift, deletion and verified cleanup separately. Cross-policy precedence remains unqualified.",
+              "sha256": "463e3ccc251c4057e4daac5d7145ff5d87671748dc3c7595f9c45ab176b5ba74",
+              "url": "https://github.com/f5-sales-demo/multi-cloud-networking/blob/249e3d862793bafd7047c2b5b9669be2a4628adc/coverage/smsv2-runtime/aws/receipt-v1.json"
+            }
+          ],
           "status": "unqualified"
         },
         "azure": {
@@ -175854,11 +176259,19 @@
       "id": "resources/xcsh_enhanced_firewall_policy/rule_list.rules[].source_ip_prefix_set.ref[].name",
       "lifecycle": {},
       "outstanding": [
-        "Qualify applicable lifecycle and runtime behavior on disposable topology."
+        "Scoped TCP 80 and ordered rules have AWS receipts. Qualify all other matcher/selection/default/lifecycle combinations before promoting this complete path.",
+        "Azure runtime remains unqualified; cross-policy precedence remains unqualified."
       ],
       "runtime": {
         "aws": {
-          "receipts": [],
+          "receipts": [
+            {
+              "provider_version": "15.9.0",
+              "scope": "AWS only: TCP 80 to the controlled origin, HTTPS positive control; create/update/replace/detach. Receipt preserves import, no-op, drift, deletion and verified cleanup separately. Cross-policy precedence remains unqualified.",
+              "sha256": "463e3ccc251c4057e4daac5d7145ff5d87671748dc3c7595f9c45ab176b5ba74",
+              "url": "https://github.com/f5-sales-demo/multi-cloud-networking/blob/249e3d862793bafd7047c2b5b9669be2a4628adc/coverage/smsv2-runtime/aws/receipt-v1.json"
+            }
+          ],
           "status": "unqualified"
         },
         "azure": {
@@ -175891,11 +176304,19 @@
       "id": "resources/xcsh_enhanced_firewall_policy/rule_list.rules[].source_ip_prefix_set.ref[].namespace",
       "lifecycle": {},
       "outstanding": [
-        "Qualify applicable lifecycle and runtime behavior on disposable topology."
+        "Scoped TCP 80 and ordered rules have AWS receipts. Qualify all other matcher/selection/default/lifecycle combinations before promoting this complete path.",
+        "Azure runtime remains unqualified; cross-policy precedence remains unqualified."
       ],
       "runtime": {
         "aws": {
-          "receipts": [],
+          "receipts": [
+            {
+              "provider_version": "15.9.0",
+              "scope": "AWS only: TCP 80 to the controlled origin, HTTPS positive control; create/update/replace/detach. Receipt preserves import, no-op, drift, deletion and verified cleanup separately. Cross-policy precedence remains unqualified.",
+              "sha256": "463e3ccc251c4057e4daac5d7145ff5d87671748dc3c7595f9c45ab176b5ba74",
+              "url": "https://github.com/f5-sales-demo/multi-cloud-networking/blob/249e3d862793bafd7047c2b5b9669be2a4628adc/coverage/smsv2-runtime/aws/receipt-v1.json"
+            }
+          ],
           "status": "unqualified"
         },
         "azure": {
@@ -175929,11 +176350,19 @@
       "id": "resources/xcsh_enhanced_firewall_policy/rule_list.rules[].source_ip_prefix_set.ref[].tenant",
       "lifecycle": {},
       "outstanding": [
-        "Qualify applicable lifecycle and runtime behavior on disposable topology."
+        "Scoped TCP 80 and ordered rules have AWS receipts. Qualify all other matcher/selection/default/lifecycle combinations before promoting this complete path.",
+        "Azure runtime remains unqualified; cross-policy precedence remains unqualified."
       ],
       "runtime": {
         "aws": {
-          "receipts": [],
+          "receipts": [
+            {
+              "provider_version": "15.9.0",
+              "scope": "AWS only: TCP 80 to the controlled origin, HTTPS positive control; create/update/replace/detach. Receipt preserves import, no-op, drift, deletion and verified cleanup separately. Cross-policy precedence remains unqualified.",
+              "sha256": "463e3ccc251c4057e4daac5d7145ff5d87671748dc3c7595f9c45ab176b5ba74",
+              "url": "https://github.com/f5-sales-demo/multi-cloud-networking/blob/249e3d862793bafd7047c2b5b9669be2a4628adc/coverage/smsv2-runtime/aws/receipt-v1.json"
+            }
+          ],
           "status": "unqualified"
         },
         "azure": {
@@ -175966,11 +176395,19 @@
       "id": "resources/xcsh_enhanced_firewall_policy/rule_list.rules[].source_ip_prefix_set.ref[].uid",
       "lifecycle": {},
       "outstanding": [
-        "Qualify applicable lifecycle and runtime behavior on disposable topology."
+        "Scoped TCP 80 and ordered rules have AWS receipts. Qualify all other matcher/selection/default/lifecycle combinations before promoting this complete path.",
+        "Azure runtime remains unqualified; cross-policy precedence remains unqualified."
       ],
       "runtime": {
         "aws": {
-          "receipts": [],
+          "receipts": [
+            {
+              "provider_version": "15.9.0",
+              "scope": "AWS only: TCP 80 to the controlled origin, HTTPS positive control; create/update/replace/detach. Receipt preserves import, no-op, drift, deletion and verified cleanup separately. Cross-policy precedence remains unqualified.",
+              "sha256": "463e3ccc251c4057e4daac5d7145ff5d87671748dc3c7595f9c45ab176b5ba74",
+              "url": "https://github.com/f5-sales-demo/multi-cloud-networking/blob/249e3d862793bafd7047c2b5b9669be2a4628adc/coverage/smsv2-runtime/aws/receipt-v1.json"
+            }
+          ],
           "status": "unqualified"
         },
         "azure": {
@@ -176003,11 +176440,19 @@
       "id": "resources/xcsh_enhanced_firewall_policy/rule_list.rules[].source_label_selector",
       "lifecycle": {},
       "outstanding": [
-        "Qualify applicable lifecycle and runtime behavior on disposable topology."
+        "Scoped TCP 80 and ordered rules have AWS receipts. Qualify all other matcher/selection/default/lifecycle combinations before promoting this complete path.",
+        "Azure runtime remains unqualified; cross-policy precedence remains unqualified."
       ],
       "runtime": {
         "aws": {
-          "receipts": [],
+          "receipts": [
+            {
+              "provider_version": "15.9.0",
+              "scope": "AWS only: TCP 80 to the controlled origin, HTTPS positive control; create/update/replace/detach. Receipt preserves import, no-op, drift, deletion and verified cleanup separately. Cross-policy precedence remains unqualified.",
+              "sha256": "463e3ccc251c4057e4daac5d7145ff5d87671748dc3c7595f9c45ab176b5ba74",
+              "url": "https://github.com/f5-sales-demo/multi-cloud-networking/blob/249e3d862793bafd7047c2b5b9669be2a4628adc/coverage/smsv2-runtime/aws/receipt-v1.json"
+            }
+          ],
           "status": "unqualified"
         },
         "azure": {
@@ -176039,11 +176484,19 @@
       "id": "resources/xcsh_enhanced_firewall_policy/rule_list.rules[].source_label_selector.expressions",
       "lifecycle": {},
       "outstanding": [
-        "Qualify applicable lifecycle and runtime behavior on disposable topology."
+        "Scoped TCP 80 and ordered rules have AWS receipts. Qualify all other matcher/selection/default/lifecycle combinations before promoting this complete path.",
+        "Azure runtime remains unqualified; cross-policy precedence remains unqualified."
       ],
       "runtime": {
         "aws": {
-          "receipts": [],
+          "receipts": [
+            {
+              "provider_version": "15.9.0",
+              "scope": "AWS only: TCP 80 to the controlled origin, HTTPS positive control; create/update/replace/detach. Receipt preserves import, no-op, drift, deletion and verified cleanup separately. Cross-policy precedence remains unqualified.",
+              "sha256": "463e3ccc251c4057e4daac5d7145ff5d87671748dc3c7595f9c45ab176b5ba74",
+              "url": "https://github.com/f5-sales-demo/multi-cloud-networking/blob/249e3d862793bafd7047c2b5b9669be2a4628adc/coverage/smsv2-runtime/aws/receipt-v1.json"
+            }
+          ],
           "status": "unqualified"
         },
         "azure": {
@@ -176079,11 +176532,19 @@
       "id": "resources/xcsh_enhanced_firewall_policy/rule_list.rules[].source_prefix_list",
       "lifecycle": {},
       "outstanding": [
-        "Qualify applicable lifecycle and runtime behavior on disposable topology."
+        "Scoped TCP 80 and ordered rules have AWS receipts. Qualify all other matcher/selection/default/lifecycle combinations before promoting this complete path.",
+        "Azure runtime remains unqualified; cross-policy precedence remains unqualified."
       ],
       "runtime": {
         "aws": {
-          "receipts": [],
+          "receipts": [
+            {
+              "provider_version": "15.9.0",
+              "scope": "AWS only: TCP 80 to the controlled origin, HTTPS positive control; create/update/replace/detach. Receipt preserves import, no-op, drift, deletion and verified cleanup separately. Cross-policy precedence remains unqualified.",
+              "sha256": "463e3ccc251c4057e4daac5d7145ff5d87671748dc3c7595f9c45ab176b5ba74",
+              "url": "https://github.com/f5-sales-demo/multi-cloud-networking/blob/249e3d862793bafd7047c2b5b9669be2a4628adc/coverage/smsv2-runtime/aws/receipt-v1.json"
+            }
+          ],
           "status": "unqualified"
         },
         "azure": {
@@ -176115,11 +176576,19 @@
       "id": "resources/xcsh_enhanced_firewall_policy/rule_list.rules[].source_prefix_list.prefixes",
       "lifecycle": {},
       "outstanding": [
-        "Qualify applicable lifecycle and runtime behavior on disposable topology."
+        "Scoped TCP 80 and ordered rules have AWS receipts. Qualify all other matcher/selection/default/lifecycle combinations before promoting this complete path.",
+        "Azure runtime remains unqualified; cross-policy precedence remains unqualified."
       ],
       "runtime": {
         "aws": {
-          "receipts": [],
+          "receipts": [
+            {
+              "provider_version": "15.9.0",
+              "scope": "AWS only: TCP 80 to the controlled origin, HTTPS positive control; create/update/replace/detach. Receipt preserves import, no-op, drift, deletion and verified cleanup separately. Cross-policy precedence remains unqualified.",
+              "sha256": "463e3ccc251c4057e4daac5d7145ff5d87671748dc3c7595f9c45ab176b5ba74",
+              "url": "https://github.com/f5-sales-demo/multi-cloud-networking/blob/249e3d862793bafd7047c2b5b9669be2a4628adc/coverage/smsv2-runtime/aws/receipt-v1.json"
+            }
+          ],
           "status": "unqualified"
         },
         "azure": {
@@ -214693,12 +215162,21 @@
       "id": "resources/xcsh_securemesh_site_v2/active_enhanced_firewall_policies.enhanced_firewall_policies[].name",
       "lifecycle": {},
       "outstanding": [
-        "Qualify applicable lifecycle and runtime behavior on disposable topology."
+        "Qualify complete parent import/default/contradictory selection and drift lifecycle separately.",
+        "Azure runtime remains unqualified. GCP and Oracle live qualification remains deferred.",
+        "Cross-policy enforcement precedence remains unqualified; both attachment orders denied HTTP."
       ],
       "runtime": {
         "aws": {
-          "receipts": [],
-          "status": "unqualified"
+          "receipts": [
+            {
+              "provider_version": "15.9.0",
+              "scope": "AWS only: TCP 80 to the controlled origin, HTTPS positive control; create/update/replace/detach. Receipt preserves import, no-op, drift, deletion and verified cleanup separately. Cross-policy precedence remains unqualified.",
+              "sha256": "463e3ccc251c4057e4daac5d7145ff5d87671748dc3c7595f9c45ab176b5ba74",
+              "url": "https://github.com/f5-sales-demo/multi-cloud-networking/blob/249e3d862793bafd7047c2b5b9669be2a4628adc/coverage/smsv2-runtime/aws/receipt-v1.json"
+            }
+          ],
+          "status": "qualified"
         },
         "azure": {
           "receipts": [],
@@ -214730,12 +215208,21 @@
       "id": "resources/xcsh_securemesh_site_v2/active_enhanced_firewall_policies.enhanced_firewall_policies[].namespace",
       "lifecycle": {},
       "outstanding": [
-        "Qualify applicable lifecycle and runtime behavior on disposable topology."
+        "Qualify complete parent import/default/contradictory selection and drift lifecycle separately.",
+        "Azure runtime remains unqualified. GCP and Oracle live qualification remains deferred.",
+        "Cross-policy enforcement precedence remains unqualified; both attachment orders denied HTTP."
       ],
       "runtime": {
         "aws": {
-          "receipts": [],
-          "status": "unqualified"
+          "receipts": [
+            {
+              "provider_version": "15.9.0",
+              "scope": "AWS only: TCP 80 to the controlled origin, HTTPS positive control; create/update/replace/detach. Receipt preserves import, no-op, drift, deletion and verified cleanup separately. Cross-policy precedence remains unqualified.",
+              "sha256": "463e3ccc251c4057e4daac5d7145ff5d87671748dc3c7595f9c45ab176b5ba74",
+              "url": "https://github.com/f5-sales-demo/multi-cloud-networking/blob/249e3d862793bafd7047c2b5b9669be2a4628adc/coverage/smsv2-runtime/aws/receipt-v1.json"
+            }
+          ],
+          "status": "qualified"
         },
         "azure": {
           "receipts": [],
@@ -245079,12 +245566,21 @@
       "id": "resources/xcsh_securemesh_site_v2/no_network_policy",
       "lifecycle": {},
       "outstanding": [
-        "Qualify applicable lifecycle and runtime behavior on disposable topology."
+        "Qualify complete parent import/default/contradictory selection and drift lifecycle separately.",
+        "Azure runtime remains unqualified. GCP and Oracle live qualification remains deferred.",
+        "Cross-policy enforcement precedence remains unqualified; both attachment orders denied HTTP."
       ],
       "runtime": {
         "aws": {
-          "receipts": [],
-          "status": "unqualified"
+          "receipts": [
+            {
+              "provider_version": "15.9.0",
+              "scope": "AWS only: TCP 80 to the controlled origin, HTTPS positive control; create/update/replace/detach. Receipt preserves import, no-op, drift, deletion and verified cleanup separately. Cross-policy precedence remains unqualified.",
+              "sha256": "463e3ccc251c4057e4daac5d7145ff5d87671748dc3c7595f9c45ab176b5ba74",
+              "url": "https://github.com/f5-sales-demo/multi-cloud-networking/blob/249e3d862793bafd7047c2b5b9669be2a4628adc/coverage/smsv2-runtime/aws/receipt-v1.json"
+            }
+          ],
+          "status": "qualified"
         },
         "azure": {
           "receipts": [],
@@ -261487,11 +261983,18 @@
       }
     },
     {
-      "classification": "unqualified",
+      "classification": "contract-blocked",
       "id": "resources/xcsh_securemesh_site_v2/software_settings",
-      "lifecycle": {},
+      "lifecycle": {
+        "azure_import": {
+          "receipt": "Current v15.9.0 read-only Azure import lost create-only/write-only software_settings and introduced empty interface labels. Pinned baseline plans replacement. No API mutations or import exclusions were used. Raw receipts remain private under the umbrella.",
+          "status": "unqualified"
+        }
+      },
       "outstanding": [
-        "Qualify applicable lifecycle and runtime behavior on disposable topology."
+        "Current software_settings is a create-only/write-only input; it is not authoritative installed-version telemetry.",
+        "Require a supported update/clear plus authoritative read contract before in-place unpinning. Do not apply the replacement plan as a workaround.",
+        "Parent import with pinned create inputs remains unqualified; retain the first failure without exclusions."
       ],
       "runtime": {
         "aws": {
