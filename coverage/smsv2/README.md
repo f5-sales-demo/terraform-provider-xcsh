@@ -2,7 +2,7 @@
 
 This ledger tracks incremental qualification under
 [#2586](https://github.com/f5-sales-demo/terraform-provider-xcsh/issues/2586). Schema presence does not
-establish lifecycle correctness or traffic enforcement. AWS and Azure runtime fields start unqualified; GCP
+establish lifecycle correctness or traffic enforcement. AWS receipt-backed reference and detachment paths have scoped qualification; Azure remains unqualified. GCP
 and Oracle live qualification is deferred.
 
 `capabilities-v1.json` enumerates 7,173 attribute, block and structural object paths across 53 related
@@ -77,9 +77,10 @@ identity-bearing runtime evidence private; commit only sanitized receipt summari
 
 | Capability | Classification | Current evidence and remaining work |
 | --- | --- | --- |
-| Enhanced Firewall attachment | Unqualified | Existing parent attachment and policy surfaces are present. Historical attachment tests are plan-only. Prove creation, updates, order, replacement, detachment, import, drift and enforcement on both clouds. |
+| Enhanced Firewall attachment | Partially qualified on AWS | [AWS fixture receipt](https://github.com/f5-sales-demo/multi-cloud-networking/pull/1502) proves scoped TCP 80 allow/deny with HTTPS control, ordered rules, reference replacement, policy import/data-source equality, no-op/drift and deletion/cleanup on v15.9.0. Three reference/detachment paths have scoped AWS runtime receipts; classification and complete parent lifecycle remain unqualified. Both orders of the allow/deny policy pair deny HTTP; cross-policy precedence and Azure remain unqualified. |
 | Forward Proxy attachment | Unqualified | Parent attachment and policy surfaces are present. Prove HTTP URL and TLS/SNI filtering, order, `NEXT_POLICY`, removal and combined firewall operation. Classify TLS decryption separately. |
-| Registration certified hardware | Defective | [#2129](https://github.com/f5-sales-demo/terraform-provider-xcsh/issues/2129) remains open; the convenience lookup omits `certified_hw`. Add a computed lookup field and qualify exact response mapping without adding site-create fields. |
+| Registration certified hardware | Published; Azure read accepted | [#2593](https://github.com/f5-sales-demo/terraform-provider-xcsh/pull/2593) merged the computed-only lookup. The development override returned the exact registration value without XC writes. v15.10.0 is published and its signed installed Linux artifact read the exact Azure registration value without XC writes. Positive AWS acceptance on that artifact remains required before closing #2129. |
+| Omitted MTU runtime read | Defective, contract unqualified | [#2600](https://github.com/f5-sales-demo/terraform-provider-xcsh/issues/2600): v15.9.0 runtime lookup rejects omitted MTU read as 0 even while fresh HTTP/HTTPS traverse the CE. Establish supported defaults and authoritative physical reads; no invented MTU or broader import exclusions. |
 | In-place version unpinning | Contract-blocked | [#1387](https://github.com/f5-sales-demo/terraform-provider-xcsh/issues/1387) remains open. Audit source adds replacement for changed `software_settings`. Require supported update/clear and authoritative reads; replacement is not an unpinning workaround. |
 | Azure Route Server multihop | Contract-blocked | Compiled contract reports `no_schema_valid_ebgp_multihop_request_control`. Retain rejection until an authoritative successor contract is published. |
 | AWS multi-node site HA | Contract-blocked | Published node-configuration contract is single-node, two interfaces and HA disabled. Establish a multi-node contract before claiming site HA; independent sites are a different resilience topology. |
@@ -111,3 +112,18 @@ documentation validation, public PII/secret checks, PR review/CI, regeneration, 
 installed AWS/Azure acceptance. Destroy and verify task-owned cloud and XC absence at cycle completion. Close
 live child issues only with receipts; the umbrella remains open while any deferred or contract-blocked
 qualifications remain.
+
+AWS receipt references are pinned to the exact consumer commit and content hash. They qualify only
+the recorded v15.9.0 scenario. They do not promote all firewall matcher paths, ordered policy
+precedence, a newer provider, Azure, TLS decryption or later SMSv2 families. First failures and
+corrective runs are preserved in the receipt; all raw state and identity-bearing evidence stays private.
+
+The current Azure parent import probe on v15.9.0 did not converge: create-only/write-only
+`software_settings` was absent from imported state and interface labels changed from null to empty
+maps. The pinned baseline then proposed replacement. This was a read-only probe with zero XC
+mutations and no excluded attributes; it does not establish supported in-place unpinning.
+
+`capabilities-v2.json` freezes provider v15.10.0 and API v12.0.9 with 7,174 paths and 53
+operation surfaces. It retains prior receipts while resetting their current-artifact runtime
+status to unqualified. Only the newly published Azure `certified_hw` read has successor
+qualification. Exact pins and the public-safe signed-artifact receipt are adjacent to the ledger.

@@ -1,0 +1,11 @@
+{
+  "api_version": "12.0.9",
+  "audit_source_commit": "b46becca0c97b437f74e35bcd770ca387d95829c",
+  "consumer_commit": "d530b5f2c4f1a5b002c5d4c661ab54dae05955ff",
+  "contract_source_revision": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc",
+  "provider_commit": "b46becca0c97b437f74e35bcd770ca387d95829c",
+  "provider_linux_amd64_sha256": "8a5502e2f388d2bc1b95e7a384f91c5fec05f9669a0cc61f6fd5417aa8547f93",
+  "provider_version": "15.10.0",
+  "schema_sha256": "350eac14fe41ec47ff2eebe4700b1e4a0b38b66b7dbb5c3e6b19ce12ec50a3cd",
+  "terraform_version": "1.16.5"
+}
