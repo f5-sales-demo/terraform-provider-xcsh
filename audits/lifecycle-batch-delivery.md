@@ -61,7 +61,6 @@ All 330 release-surface and 76 maintained examples plus schema compatibility pas
 Biome 2.5.6 is task-private; host 2.5.8 mismatch required a docs rerun.
 Console browser inventory is empty; csd#1296 remains open.
 
-
 Final verification update: full Go race suite with the domain-key delete contract
 passed. Documentation pipeline passed with exact Biome 2.5.6: 330 collections,
 16,366 pages, 34,603 exact property destinations; 1,426 Registry documents,
