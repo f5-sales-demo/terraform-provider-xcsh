@@ -35,6 +35,7 @@ type generatedImport struct {
 // cache. This keeps generation identical on a cold immutable runner and a warm
 // hosted runner.
 var generatedSelectorImports = map[string]generatedImport{
+	"normalization":     {path: "github.com/f5-sales-demo/terraform-provider-xcsh/internal/normalization"},
 	"attr":              {path: "github.com/hashicorp/terraform-plugin-framework/attr"},
 	"boolplanmodifier":  {path: "github.com/hashicorp/terraform-plugin-framework/resource/schema/boolplanmodifier"},
 	"int64planmodifier": {path: "github.com/hashicorp/terraform-plugin-framework/resource/schema/int64planmodifier"},
