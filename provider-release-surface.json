@@ -309,6 +309,7 @@
     "registration_approval",
     "route",
     "secret_management_access",
+    "secret_policy",
     "securemesh_site_v2",
     "segment",
     "sensitive_data_policy",
