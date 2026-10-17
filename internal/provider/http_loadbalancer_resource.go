@@ -19256,7 +19256,9 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 						MarkdownDescription: "DNS records for domains will be managed automatically by F5 Distributed Cloud. As a prerequisite, the domain must be delegated to F5 Distributed Cloud using Delegated domain feature or a DNS CNAME record should be created in your DNS provider's portal.",
 						Optional:            true,
 						PlanModifiers: []planmodifier.Bool{
-							boolplanmodifier.RequiresReplace(),
+							boolplanmodifier.RequiresReplaceIf(func(ctx context.Context, req planmodifier.BoolRequest, resp *boolplanmodifier.RequiresReplaceIfFuncResponse) {
+								resp.RequiresReplace = req.StateValue.IsUnknown() || req.PlanValue.IsUnknown() || req.StateValue.ValueBool() != req.PlanValue.ValueBool()
+							}, "Replace when effective DNS ownership changes.", "Replace when effective DNS ownership changes."),
 						},
 					},
 					"port": schema.Int64Attribute{
@@ -34894,6 +34896,13 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 	// response before checking diagnostics), so recording ownership earlier would claim
 	// keys the server never received.
 	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
+
+	routeIdentities, routeIdentityErr := encodeRouteIdentities(apiResource.Spec, data.Namespace.ValueString(), data.Name.ValueString(), apiResource.ResourceVersion)
+	if routeIdentityErr != nil {
+		resp.Diagnostics.AddError("Unable to Record Route Identities", routeIdentityErr.Error())
+		return
+	}
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, routeIdentitiesPrivateSlot, routeIdentities)...)
 	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
 	if resp.Diagnostics.HasError() {
 		return
@@ -47079,8 +47088,10 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 	if blockData, ok := apiResource.Spec["http"].(map[string]interface{}); ok && (isImport || data.HTTP != nil) {
 		data.HTTP = &HTTPLoadBalancerHTTPModel{
 			DNSVolterraManaged: func() types.Bool {
-				if !isImport && data.HTTP != nil && !data.HTTP.DNSVolterraManaged.IsUnknown() {
-					return data.HTTP.DNSVolterraManaged
+				if !isImport && data.HTTP != nil && data.HTTP.DNSVolterraManaged.IsNull() {
+					if v, ok := blockData["dns_volterra_managed"].(bool); ok && !v {
+						return types.BoolNull()
+					}
 				}
 				if isImport {
 					if v, ok := blockData["dns_volterra_managed"].(bool); ok && !v {
@@ -52525,6 +52536,9 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 											}(),
 											Priority: func() types.String {
 												if v, ok := AdvancedOptionsData["priority"].(string); ok && v != "" {
+													if v == "DEFAULT" && (isImport || (len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].SimpleRoute != nil && existingRoutesItems[listIdx].SimpleRoute.AdvancedOptions != nil && existingRoutesItems[listIdx].SimpleRoute.AdvancedOptions.Priority.IsNull())) {
+														return types.StringNull()
+													}
 													return types.StringValue(v)
 												}
 												return types.StringNull()
@@ -53398,10 +53412,10 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 												return nil
 											}(),
 											Timeout: func() types.Int64 {
-												if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].SimpleRoute != nil && existingRoutesItems[listIdx].SimpleRoute.AdvancedOptions != nil && !existingRoutesItems[listIdx].SimpleRoute.AdvancedOptions.Timeout.IsUnknown() {
-													return existingRoutesItems[listIdx].SimpleRoute.AdvancedOptions.Timeout
-												}
-												if v, ok := AdvancedOptionsData["timeout"].(float64); ok && v != 0 {
+												if v, ok := AdvancedOptionsData["timeout"].(float64); ok {
+													if v == 0 && (isImport || (len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].SimpleRoute != nil && existingRoutesItems[listIdx].SimpleRoute.AdvancedOptions != nil && existingRoutesItems[listIdx].SimpleRoute.AdvancedOptions.Timeout.IsNull())) {
+														return types.Int64Null()
+													}
 													return types.Int64Value(int64(v))
 												}
 												return types.Int64Null()
@@ -55113,6 +55127,13 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 		resp.Diagnostics.AddError("Unable to Refresh Concurrency Token", tokenErr.Error())
 		return
 	}
+
+	routeIdentities, routeIdentityErr := encodeRouteIdentities(apiResource.Spec, data.Namespace.ValueString(), data.Name.ValueString(), apiResource.ResourceVersion)
+	if routeIdentityErr != nil {
+		resp.Diagnostics.AddError("Unable to Record Route Identities", routeIdentityErr.Error())
+		return
+	}
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, routeIdentitiesPrivateSlot, routeIdentities)...)
 	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
 	if resp.Diagnostics.HasError() {
 		return
@@ -67364,8 +67385,10 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 	if blockData, ok := apiResource.Spec["http"].(map[string]interface{}); ok && (isImport || data.HTTP != nil) {
 		data.HTTP = &HTTPLoadBalancerHTTPModel{
 			DNSVolterraManaged: func() types.Bool {
-				if !isImport && data.HTTP != nil && !data.HTTP.DNSVolterraManaged.IsUnknown() {
-					return data.HTTP.DNSVolterraManaged
+				if !isImport && data.HTTP != nil && data.HTTP.DNSVolterraManaged.IsNull() {
+					if v, ok := blockData["dns_volterra_managed"].(bool); ok && !v {
+						return types.BoolNull()
+					}
 				}
 				if isImport {
 					if v, ok := blockData["dns_volterra_managed"].(bool); ok && !v {
@@ -72810,6 +72833,9 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 											}(),
 											Priority: func() types.String {
 												if v, ok := AdvancedOptionsData["priority"].(string); ok && v != "" {
+													if v == "DEFAULT" && (isImport || (len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].SimpleRoute != nil && existingRoutesItems[listIdx].SimpleRoute.AdvancedOptions != nil && existingRoutesItems[listIdx].SimpleRoute.AdvancedOptions.Priority.IsNull())) {
+														return types.StringNull()
+													}
 													return types.StringValue(v)
 												}
 												return types.StringNull()
@@ -73683,10 +73709,10 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 												return nil
 											}(),
 											Timeout: func() types.Int64 {
-												if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].SimpleRoute != nil && existingRoutesItems[listIdx].SimpleRoute.AdvancedOptions != nil && !existingRoutesItems[listIdx].SimpleRoute.AdvancedOptions.Timeout.IsUnknown() {
-													return existingRoutesItems[listIdx].SimpleRoute.AdvancedOptions.Timeout
-												}
-												if v, ok := AdvancedOptionsData["timeout"].(float64); ok && v != 0 {
+												if v, ok := AdvancedOptionsData["timeout"].(float64); ok {
+													if v == 0 && (isImport || (len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].SimpleRoute != nil && existingRoutesItems[listIdx].SimpleRoute.AdvancedOptions != nil && existingRoutesItems[listIdx].SimpleRoute.AdvancedOptions.Timeout.IsNull())) {
+														return types.Int64Null()
+													}
 													return types.Int64Value(int64(v))
 												}
 												return types.Int64Null()
@@ -84803,6 +84829,17 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 		apiResource.Spec["user_id_client_ip"] = map[string]interface{}{}
 	}
 
+	rawRouteIdentities, routeIdentityDiags := req.Private.GetKey(ctx, routeIdentitiesPrivateSlot)
+	resp.Diagnostics.Append(routeIdentityDiags...)
+	if resp.Diagnostics.HasError() {
+		return
+	}
+	preservedSpec, routeIdentityErr := preserveRouteIdentities(rawRouteIdentities, apiResource.Spec, data.Namespace.ValueString(), data.Name.ValueString(), concurrencyToken)
+	if routeIdentityErr != nil {
+		resp.Diagnostics.AddError("Unable to Preserve Route Identities", routeIdentityErr.Error())
+		return
+	}
+	apiResource.Spec = preservedSpec
 	_, err := r.client.UpdateHTTPLoadBalancer(ctx, apiResource)
 	if err != nil {
 		var apiErr *xcsherrors.XCSHError
@@ -84849,6 +84886,17 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 		resp.Diagnostics.AddError("Unable to Record Updated Concurrency Token", tokenErr.Error())
 		return
 	}
+
+	if routeIdentityErr := verifyPreservedRouteIdentities(apiResource.Spec, fetched.Spec); routeIdentityErr != nil {
+		resp.Diagnostics.AddError("Updated Route Identity Verification Failed", routeIdentityErr.Error())
+		return
+	}
+	routeIdentities, routeIdentityErr := encodeRouteIdentities(fetched.Spec, data.Namespace.ValueString(), data.Name.ValueString(), fetched.ResourceVersion)
+	if routeIdentityErr != nil {
+		resp.Diagnostics.AddError("Unable to Record Updated Route Identities", routeIdentityErr.Error())
+		return
+	}
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, routeIdentitiesPrivateSlot, routeIdentities)...)
 	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
 	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
 	if resp.Diagnostics.HasError() {
@@ -97042,8 +97090,10 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 	if blockData, ok := apiResource.Spec["http"].(map[string]interface{}); ok && (isImport || data.HTTP != nil) {
 		data.HTTP = &HTTPLoadBalancerHTTPModel{
 			DNSVolterraManaged: func() types.Bool {
-				if !isImport && data.HTTP != nil && !data.HTTP.DNSVolterraManaged.IsUnknown() {
-					return data.HTTP.DNSVolterraManaged
+				if !isImport && data.HTTP != nil && data.HTTP.DNSVolterraManaged.IsNull() {
+					if v, ok := blockData["dns_volterra_managed"].(bool); ok && !v {
+						return types.BoolNull()
+					}
 				}
 				if isImport {
 					if v, ok := blockData["dns_volterra_managed"].(bool); ok && !v {
@@ -102488,6 +102538,9 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 											}(),
 											Priority: func() types.String {
 												if v, ok := AdvancedOptionsData["priority"].(string); ok && v != "" {
+													if v == "DEFAULT" && (isImport || (len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].SimpleRoute != nil && existingRoutesItems[listIdx].SimpleRoute.AdvancedOptions != nil && existingRoutesItems[listIdx].SimpleRoute.AdvancedOptions.Priority.IsNull())) {
+														return types.StringNull()
+													}
 													return types.StringValue(v)
 												}
 												return types.StringNull()
@@ -103361,10 +103414,10 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 												return nil
 											}(),
 											Timeout: func() types.Int64 {
-												if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].SimpleRoute != nil && existingRoutesItems[listIdx].SimpleRoute.AdvancedOptions != nil && !existingRoutesItems[listIdx].SimpleRoute.AdvancedOptions.Timeout.IsUnknown() {
-													return existingRoutesItems[listIdx].SimpleRoute.AdvancedOptions.Timeout
-												}
-												if v, ok := AdvancedOptionsData["timeout"].(float64); ok && v != 0 {
+												if v, ok := AdvancedOptionsData["timeout"].(float64); ok {
+													if v == 0 && (isImport || (len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].SimpleRoute != nil && existingRoutesItems[listIdx].SimpleRoute.AdvancedOptions != nil && existingRoutesItems[listIdx].SimpleRoute.AdvancedOptions.Timeout.IsNull())) {
+														return types.Int64Null()
+													}
 													return types.Int64Value(int64(v))
 												}
 												return types.Int64Null()
