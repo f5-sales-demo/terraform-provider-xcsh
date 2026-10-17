@@ -922,6 +922,35 @@ func renderUnmarshalTopLevelSingle(sb *strings.Builder, rc string, attr openapi.
 func renderUnmarshalChild(sb *strings.Builder, rc, prefixPath string, child openapi.TerraformAttribute, srcMap, stateBase, stateGuard, container, indent string, responseAuthoritativeOpt ...bool) error {
 	responseAuthoritative := len(responseAuthoritativeOpt) > 0 && responseAuthoritativeOpt[0]
 	if !child.IsBlock {
+		// HTTP LB simple-route priority defaults to DEFAULT. Omitted intent must
+		// stay null after apply/import, while non-default live drift remains visible.
+		if rc == "HTTPLoadBalancer" && prefixPath == "RoutesSimpleRouteAdvancedOptions" && child.JsonName == "priority" && child.Optional && !child.Computed && !responseAuthoritative {
+			sb.WriteString(fmt.Sprintf("%s%s: func() types.String {\n", indent, child.GoName))
+			sb.WriteString(fmt.Sprintf("%s\tif v, ok := %s[\"priority\"].(string); ok && v != \"\" {\n", indent, srcMap))
+			guard := "isImport"
+			if stateBase != "" {
+				guard += fmt.Sprintf(" || (%s && %s.%s.IsNull())", stateGuard, stateBase, child.GoName)
+			}
+			sb.WriteString(fmt.Sprintf("%s\t\tif v == \"DEFAULT\" && (%s) { return types.StringNull() }\n", indent, guard))
+			sb.WriteString(fmt.Sprintf("%s\t\treturn types.StringValue(v)\n", indent))
+			sb.WriteString(fmt.Sprintf("%s\t}\n%s\treturn types.StringNull()\n%s}(),\n", indent, indent, indent))
+			return nil
+		}
+		// Route timeout 0 means infinite; it is an observable value, not an
+		// absent scalar. Preserve only the omitted API default, never a known
+		// configured timeout that would conceal external drift.
+		if rc == "HTTPLoadBalancer" && prefixPath == "RoutesSimpleRouteAdvancedOptions" && child.JsonName == "timeout" && child.Optional && !child.Computed && !responseAuthoritative {
+			sb.WriteString(fmt.Sprintf("%s%s: func() types.Int64 {\n", indent, child.GoName))
+			sb.WriteString(fmt.Sprintf("%s\tif v, ok := %s[\"timeout\"].(float64); ok {\n", indent, srcMap))
+			guard := "isImport"
+			if stateBase != "" {
+				guard += fmt.Sprintf(" || (%s && %s.%s.IsNull())", stateGuard, stateBase, child.GoName)
+			}
+			sb.WriteString(fmt.Sprintf("%s\t\tif v == 0 && (%s) { return types.Int64Null() }\n", indent, guard))
+			sb.WriteString(fmt.Sprintf("%s\t\treturn types.Int64Value(int64(v))\n", indent))
+			sb.WriteString(fmt.Sprintf("%s\t}\n%s\treturn types.Int64Null()\n%s}(),\n", indent, indent, indent))
+			return nil
+		}
 		if err := renderUnmarshalScalarChild(sb, rc, child, srcMap, stateBase, stateGuard, container, indent, responseAuthoritative); err != nil {
 			return fmt.Errorf("field %q: %w", child.Name, err)
 		}
@@ -950,7 +979,8 @@ func renderUnmarshalScalarChild(sb *strings.Builder, rc string, attr openapi.Ter
 		jsonName = attr.TfsdkTag
 	}
 	// Single-block Optional int64/bool preserve prior state on normal read to avoid API default drift.
-	preserve := container == "single" && attr.Optional && stateBase != "" && (attr.Type == "int64" || attr.Type == "bool")
+	dnsOwnership := rc == "HTTPLoadBalancer" && jsonName == "dns_volterra_managed"
+	preserve := container == "single" && attr.Optional && stateBase != "" && (attr.Type == "int64" || attr.Type == "bool") && !dnsOwnership
 
 	switch attr.Type {
 	case "string":
@@ -1001,6 +1031,13 @@ func renderUnmarshalScalarChild(sb *strings.Builder, rc string, attr openapi.Ter
 			// returning an unknown here trips "invalid result object after apply".
 			sb.WriteString(fmt.Sprintf("%s\tif !isImport && %s && !%s.%s.IsUnknown() {\n", indent, stateGuard, stateBase, fieldName))
 			sb.WriteString(fmt.Sprintf("%s\t\treturn %s.%s\n", indent, stateBase, fieldName))
+			sb.WriteString(fmt.Sprintf("%s\t}\n", indent))
+		}
+		if dnsOwnership && !responseAuthoritative && stateBase != "" {
+			// An omitted flag and explicit false both mean tenant-managed DNS.
+			// Keep omitted defaults null, but observe real ownership changes.
+			sb.WriteString(fmt.Sprintf("%s\tif !isImport && %s && %s.%s.IsNull() {\n", indent, stateGuard, stateBase, fieldName))
+			sb.WriteString(fmt.Sprintf("%s\t\tif v, ok := %s[\"%s\"].(bool); ok && !v { return types.BoolNull() }\n", indent, srcMap, jsonName))
 			sb.WriteString(fmt.Sprintf("%s\t}\n", indent))
 		}
 		if !responseAuthoritative && isImportDefaultSuppressed(rc, jsonName) {
@@ -1455,7 +1492,15 @@ func RenderNestedAttributes(attrs []openapi.TerraformAttribute, indent string) s
 			}
 			switch attr.PlanModifier {
 			case "RequiresReplace":
-				sb.WriteString(fmt.Sprintf("%s\t\t\t%s.RequiresReplace(),\n", indent, pkgName))
+				if attr.Type == "bool" && attr.TfsdkTag == "dns_volterra_managed" {
+					// API omission defaults to false; only an effective DNS owner change
+					// requires replacement. Unknown ownership remains conservative.
+					sb.WriteString(fmt.Sprintf("%s\t\t\tboolplanmodifier.RequiresReplaceIf(func(ctx context.Context, req planmodifier.BoolRequest, resp *boolplanmodifier.RequiresReplaceIfFuncResponse) {\n", indent))
+					sb.WriteString(fmt.Sprintf("%s\t\t\t\tresp.RequiresReplace = req.StateValue.IsUnknown() || req.PlanValue.IsUnknown() || req.StateValue.ValueBool() != req.PlanValue.ValueBool()\n", indent))
+					sb.WriteString(fmt.Sprintf("%s\t\t\t}, \"Replace when effective DNS ownership changes.\", \"Replace when effective DNS ownership changes.\"),\n", indent))
+				} else {
+					sb.WriteString(fmt.Sprintf("%s\t\t\t%s.RequiresReplace(),\n", indent, pkgName))
+				}
 			default:
 				if attr.PlanModifier != "" {
 					sb.WriteString(fmt.Sprintf("%s\t\t\t%s.UseStateForUnknown(),\n", indent, pkgName))

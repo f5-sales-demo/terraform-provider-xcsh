@@ -45,7 +45,7 @@ func TestHTTPDNSOwnershipMetadataGeneratesNestedReplacement(t *testing.T) {
 		t.Fatal(err)
 	}
 	text := string(bytes)
-	if !strings.Contains(text, "boolplanmodifier.RequiresReplace()") || !strings.Contains(text, "resource/schema/boolplanmodifier") {
+	if !strings.Contains(text, "boolplanmodifier.RequiresReplaceIf(") || !strings.Contains(text, "resource/schema/boolplanmodifier") {
 		t.Fatal("nested replacement modifier or import missing")
 	}
 }

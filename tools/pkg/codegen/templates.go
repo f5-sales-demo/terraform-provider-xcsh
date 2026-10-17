@@ -598,6 +598,15 @@ func (r *{{.TitleCase}}Resource) Create(ctx context.Context, req resource.Create
 	// keys the server never received.
 	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
 	{{- if .HasConcurrencyToken}}
+{{- if eq .Name "http_loadbalancer"}}
+
+	routeIdentities, routeIdentityErr := encodeRouteIdentities(apiResource.Spec, data.Namespace.ValueString(), data.Name.ValueString(), apiResource.{{.ConcurrencyTokenGoName}})
+	if routeIdentityErr != nil {
+		resp.Diagnostics.AddError("Unable to Record Route Identities", routeIdentityErr.Error())
+		return
+	}
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, routeIdentitiesPrivateSlot, routeIdentities)...)
+{{- end}}
 	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
 	{{- end}}
 	if resp.Diagnostics.HasError() {
@@ -673,6 +682,15 @@ func (r *{{.TitleCase}}Resource) Read(ctx context.Context, req resource.ReadRequ
 		resp.Diagnostics.AddError("Unable to Refresh Concurrency Token", tokenErr.Error())
 		return
 	}
+{{- if eq .Name "http_loadbalancer"}}
+
+	routeIdentities, routeIdentityErr := encodeRouteIdentities(apiResource.Spec, data.Namespace.ValueString(), data.Name.ValueString(), apiResource.{{.ConcurrencyTokenGoName}})
+	if routeIdentityErr != nil {
+		resp.Diagnostics.AddError("Unable to Record Route Identities", routeIdentityErr.Error())
+		return
+	}
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, routeIdentitiesPrivateSlot, routeIdentities)...)
+{{- end}}
 	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
 	if resp.Diagnostics.HasError() {
 		return
@@ -928,6 +946,20 @@ func (r *{{.TitleCase}}Resource) Update(ctx context.Context, req resource.Update
 	}
 
 {{- end}}
+{{- if eq .Name "http_loadbalancer"}}
+
+	rawRouteIdentities, routeIdentityDiags := req.Private.GetKey(ctx, routeIdentitiesPrivateSlot)
+	resp.Diagnostics.Append(routeIdentityDiags...)
+	if resp.Diagnostics.HasError() {
+		return
+	}
+	preservedSpec, routeIdentityErr := preserveRouteIdentities(rawRouteIdentities, apiResource.Spec, data.Namespace.ValueString(), data.Name.ValueString(), concurrencyToken)
+	if routeIdentityErr != nil {
+		resp.Diagnostics.AddError("Unable to Preserve Route Identities", routeIdentityErr.Error())
+		return
+	}
+	apiResource.Spec = preservedSpec
+{{- end}}
 	_, err := r.client.Update{{.TitleCase}}(ctx, apiResource)
 	if err != nil {
 		{{- if .HasConcurrencyToken}}
@@ -983,6 +1015,19 @@ func (r *{{.TitleCase}}Resource) Update(ctx context.Context, req resource.Update
 		resp.Diagnostics.AddError("Unable to Record Updated Concurrency Token", tokenErr.Error())
 		return
 	}
+{{- if eq .Name "http_loadbalancer"}}
+
+	if routeIdentityErr := verifyPreservedRouteIdentities(apiResource.Spec, fetched.Spec); routeIdentityErr != nil {
+		resp.Diagnostics.AddError("Updated Route Identity Verification Failed", routeIdentityErr.Error())
+		return
+	}
+	routeIdentities, routeIdentityErr := encodeRouteIdentities(fetched.Spec, data.Namespace.ValueString(), data.Name.ValueString(), fetched.{{.ConcurrencyTokenGoName}})
+	if routeIdentityErr != nil {
+		resp.Diagnostics.AddError("Unable to Record Updated Route Identities", routeIdentityErr.Error())
+		return
+	}
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, routeIdentitiesPrivateSlot, routeIdentities)...)
+{{- end}}
 	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
 	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
 	if resp.Diagnostics.HasError() {
