@@ -12,7 +12,7 @@ import (
 
 // This read evidence is paired with the same optimistic-concurrency token as
 // the saved plan. It never comes from a GET performed during an update.
-const routeIdentitiesPrivateKey = "f5xcRouteIdentities"
+const routeIdentitiesPrivateSlot = "f5xcRouteIdentities"
 
 var routeUUIDPattern = regexp.MustCompile(`^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$`)
 var routeSelectorPattern = regexp.MustCompile(`^[0-9a-f]{64}$`)

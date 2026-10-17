@@ -30,7 +30,7 @@ func TestHTTPLoadBalancerRouteIdentityWiring(t *testing.T) {
 		if end >= 0 {
 			tail = tail[:end+1]
 		}
-		if !strings.Contains(tail, "encodeRouteIdentities(") || !strings.Contains(tail, "routeIdentitiesPrivateKey") {
+		if !strings.Contains(tail, "encodeRouteIdentities(") || !strings.Contains(tail, "routeIdentitiesPrivateSlot") {
 			t.Fatalf("%s does not retain route evidence", method)
 		}
 		if method == "Update" {

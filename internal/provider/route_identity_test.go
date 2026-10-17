@@ -45,8 +45,8 @@ func TestRouteIdentityPreservesSelectorMatchesAcrossPolicyEditAndReorder(t *test
 	desired := testRouteSpec(testRoute("/two/", ""), testRoute("/new/", ""), testRoute("/one/", ""))
 	desired["routes"].([]interface{})[2].(map[string]interface{})["simple_route"].(map[string]interface{})["advanced_options"].(map[string]interface{})["timeout"] = float64(20)
 	before := cloneRouteSpec(t, desired)
-	privateState := map[string][]byte{routeIdentitiesPrivateKey: raw}
-	result, err := preserveRouteIdentities(privateState[routeIdentitiesPrivateKey], desired, "demo", "lb", "token")
+	privateState := map[string][]byte{routeIdentitiesPrivateSlot: raw}
+	result, err := preserveRouteIdentities(privateState[routeIdentitiesPrivateSlot], desired, "demo", "lb", "token")
 	if err != nil {
 		t.Fatal(err)
 	}

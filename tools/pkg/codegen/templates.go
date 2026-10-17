@@ -605,7 +605,7 @@ func (r *{{.TitleCase}}Resource) Create(ctx context.Context, req resource.Create
 		resp.Diagnostics.AddError("Unable to Record Route Identities", routeIdentityErr.Error())
 		return
 	}
-	resp.Diagnostics.Append(resp.Private.SetKey(ctx, routeIdentitiesPrivateKey, routeIdentities)...)
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, routeIdentitiesPrivateSlot, routeIdentities)...)
 {{- end}}
 	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
 	{{- end}}
@@ -689,7 +689,7 @@ func (r *{{.TitleCase}}Resource) Read(ctx context.Context, req resource.ReadRequ
 		resp.Diagnostics.AddError("Unable to Record Route Identities", routeIdentityErr.Error())
 		return
 	}
-	resp.Diagnostics.Append(resp.Private.SetKey(ctx, routeIdentitiesPrivateKey, routeIdentities)...)
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, routeIdentitiesPrivateSlot, routeIdentities)...)
 {{- end}}
 	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
 	if resp.Diagnostics.HasError() {
@@ -948,7 +948,7 @@ func (r *{{.TitleCase}}Resource) Update(ctx context.Context, req resource.Update
 {{- end}}
 {{- if eq .Name "http_loadbalancer"}}
 
-	rawRouteIdentities, routeIdentityDiags := req.Private.GetKey(ctx, routeIdentitiesPrivateKey)
+	rawRouteIdentities, routeIdentityDiags := req.Private.GetKey(ctx, routeIdentitiesPrivateSlot)
 	resp.Diagnostics.Append(routeIdentityDiags...)
 	if resp.Diagnostics.HasError() {
 		return
@@ -1026,7 +1026,7 @@ func (r *{{.TitleCase}}Resource) Update(ctx context.Context, req resource.Update
 		resp.Diagnostics.AddError("Unable to Record Updated Route Identities", routeIdentityErr.Error())
 		return
 	}
-	resp.Diagnostics.Append(resp.Private.SetKey(ctx, routeIdentitiesPrivateKey, routeIdentities)...)
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, routeIdentitiesPrivateSlot, routeIdentities)...)
 {{- end}}
 	resp.Diagnostics.Append(resp.Private.SetKey(ctx, concurrencyTokenPrivateKey, concurrencyTokenPrivate)...)
 	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
