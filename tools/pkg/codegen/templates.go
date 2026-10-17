@@ -19,7 +19,9 @@ import (
 	{{- if eq .Name "securemesh_site_v2"}}
 	"reflect"
 	{{- end}}
+{{- if or .HasNamespaceInPath (eq .Name "token")}}
 	"strings"
+{{- end}}
 	"time"
 
 	"github.com/hashicorp/terraform-plugin-framework-timeouts/resource/timeouts"
@@ -1097,9 +1099,7 @@ func (r *{{.TitleCase}}Resource) Delete(ctx context.Context, req resource.Delete
 		if err == nil {
 			break
 		}
-		msg := err.Error()
-		transient := (strings.Contains(msg, "400") || strings.Contains(msg, "BAD_REQUEST")) &&
-			!strings.Contains(msg, "NOT_FOUND") && !strings.Contains(msg, "404") && !strings.Contains(msg, "501")
+		transient := client.HasHTTPStatus(err, 400)
 		if !transient || attempt >= 5 {
 			break
 		}
@@ -1121,7 +1121,7 @@ func (r *{{.TitleCase}}Resource) Delete(ctx context.Context, req resource.Delete
 		// successful out-of-band deletion. Confirm absence with GET before treating
 		// that response as idempotent success; otherwise preserve the DELETE error.
 		_, verifyErr := r.client.GetAlertPolicy(ctx, data.Namespace.ValueString(), data.Name.ValueString())
-		if verifyErr != nil && (strings.Contains(verifyErr.Error(), "NOT_FOUND") || strings.Contains(verifyErr.Error(), "404")) {
+		if client.HasHTTPStatus(verifyErr, 404) {
 			tflog.Warn(ctx, "AlertPolicy delete returned an error after the object disappeared, removing from state", map[string]interface{}{
 				"name":      data.Name.ValueString(),
 				"namespace": data.Namespace.ValueString(),
@@ -1130,7 +1130,7 @@ func (r *{{.TitleCase}}Resource) Delete(ctx context.Context, req resource.Delete
 		}
 {{- end}}
 		// If the resource is already gone, consider deletion successful (idempotent delete)
-		if {{if eq .Name "protected_domain"}}client.HasHTTPStatus(err, 404){{else}}strings.Contains(err.Error(), "NOT_FOUND") || strings.Contains(err.Error(), "404"){{end}} {
+		if client.HasHTTPStatus(err, 404) {
 			tflog.Warn(ctx, "{{.TitleCase}} already deleted, removing from state", map[string]interface{}{
 				"name":      data.Name.ValueString(),
 				"namespace": data.Namespace.ValueString(),
