@@ -2383,7 +2383,9 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 								MarkdownDescription: "DNS records for domains will be managed automatically by F5 Distributed Cloud. As a prerequisite, the domain must be delegated to F5 Distributed Cloud using Delegated domain feature or a DNS CNAME record should be created in your DNS provider's portal.",
 								Optional:            true,
 								PlanModifiers: []planmodifier.Bool{
-									boolplanmodifier.RequiresReplace(),
+									boolplanmodifier.RequiresReplaceIf(func(ctx context.Context, req planmodifier.BoolRequest, resp *boolplanmodifier.RequiresReplaceIfFuncResponse) {
+										resp.RequiresReplace = req.StateValue.IsUnknown() || req.PlanValue.IsUnknown() || req.StateValue.ValueBool() != req.PlanValue.ValueBool()
+									}, "Replace when effective DNS ownership changes.", "Replace when effective DNS ownership changes."),
 								},
 							},
 							"port": schema.Int64Attribute{
