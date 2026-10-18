@@ -233,63 +233,58 @@ jq -cS . "$pending" >"$expected_pending"
 jq -cS . "$regeneration_receipt" >"$expected_regeneration"
 git fetch origin main
 git checkout --detach origin/main
-if [ ! -e "$pending" ]; then
-  [ ! -e "$regeneration_receipt" ] ||
-    fail "Latest main has a regeneration receipt without pending delivery"
-  validate_ledgers
-  jq -e --arg id "$delivery_id" --slurpfile expected "$expected_pending" '
-    .deliveries[$id] == ($expected[0] | del(.delivery_id))
-  ' "$ledger" >/dev/null || fail "Latest main removed or changed the durable delivery receipt"
-  jq -e \
-    --arg id "$delivery_id" \
-    --slurpfile expected "$expected_pending" \
-    --slurpfile receipt "$provider_receipt" '
-    .receipts[$id] == {
-      delivery:($expected[0] | del(.delivery_id)),
-      publication:$receipt[0]
-    }
-  ' "$detailed_ledger" >/dev/null ||
-    fail "Latest main removed or changed the provider publication evidence"
-  echo "changed=false" >>"$GITHUB_OUTPUT"
-  echo "Delivery is already durably receipted on main"
-  exit 0
-fi
-[ "$(jq -cS . "$pending")" = "$(cat "$expected_pending")" ] ||
-  fail "Latest main no longer carries the released pending identity"
-[ "$(jq -cS . "$regeneration_receipt")" = "$(cat "$expected_regeneration")" ] ||
-  fail "Latest main no longer carries the released regeneration receipt"
-[ "$(shasum -a 256 "$pin" | awk '{print $1}')" = "$pin_sha" ] ||
-  fail "Latest main no longer carries the released spec pin"
+# The publication belongs to the immutable released tree, while main may now
+# carry a newer pending source. Validate current state independently and append
+# the verified historical publication without replacing those newer inputs.
 validate_ledgers
+TARGET_REPOSITORY=$TARGET_REPOSITORY scripts/validate-provider-delivery-state.sh
+clear_released_pending=false
+if [ -e "$pending" ] && [ "$(jq -er '.delivery_id' "$pending")" = "$delivery_id" ]; then
+  [ "$(jq -cS . "$pending")" = "$(cat "$expected_pending")" ] ||
+    fail "Latest main changed the released pending identity"
+  [ "$(jq -cS . "$regeneration_receipt")" = "$(cat "$expected_regeneration")" ] ||
+    fail "Latest main changed the released regeneration receipt"
+  [ "$(shasum -a 256 "$pin" | awk '{print $1}')" = "$pin_sha" ] ||
+    fail "Latest main changed the released spec pin"
+  clear_released_pending=true
+fi
+changed=false
 
 if jq -e --arg id "$delivery_id" '.deliveries[$id] != null' "$ledger" >/dev/null; then
-  jq -e --arg id "$delivery_id" --slurpfile pending "$pending" '
+  jq -e --arg id "$delivery_id" --slurpfile pending "$expected_pending" '
     .deliveries[$id] == ($pending[0] | del(.delivery_id))
   ' "$ledger" >/dev/null || fail "Existing delivery receipt conflicts with pending identity"
 else
   tmp_ledger=$(mktemp)
-  jq -S --arg id "$delivery_id" --slurpfile pending "$pending" '
+  jq -S --arg id "$delivery_id" --slurpfile pending "$expected_pending" '
     .deliveries[$id] = ($pending[0] | del(.delivery_id))
   ' "$ledger" >"$tmp_ledger"
   mv "$tmp_ledger" "$ledger"
+  changed=true
 fi
 
 if jq -e --arg id "$delivery_id" '.receipts[$id] != null' "$detailed_ledger" >/dev/null; then
-  jq -e --arg id "$delivery_id" --slurpfile pending "$pending" --slurpfile receipt "$provider_receipt" '
+  jq -e --arg id "$delivery_id" --slurpfile pending "$expected_pending" --slurpfile receipt "$provider_receipt" '
     .receipts[$id] == {delivery:($pending[0] | del(.delivery_id)),publication:$receipt[0]}
   ' "$detailed_ledger" >/dev/null ||
     fail "Existing provider publication evidence conflicts with measured release"
 else
   tmp_detailed=$(mktemp)
-  jq -S --arg id "$delivery_id" --slurpfile pending "$pending" --slurpfile receipt "$provider_receipt" '
+  jq -S --arg id "$delivery_id" --slurpfile pending "$expected_pending" --slurpfile receipt "$provider_receipt" '
     .receipts[$id] = {delivery:($pending[0] | del(.delivery_id)),publication:$receipt[0]}
   ' "$detailed_ledger" >"$tmp_detailed"
   mv "$tmp_detailed" "$detailed_ledger"
+  changed=true
 fi
 
-rm "$pending" "$regeneration_receipt"
+if [ "$clear_released_pending" = true ]; then
+  rm "$pending" "$regeneration_receipt"
+  changed=true
+fi
 TARGET_REPOSITORY=$TARGET_REPOSITORY scripts/validate-provider-delivery-state.sh
 {
-  echo "changed=true"
-  echo "delivery_id=$delivery_id"
+  echo "changed=$changed"
+  if [ "$changed" = true ]; then
+    echo "delivery_id=$delivery_id"
+  fi
 } >>"$GITHUB_OUTPUT"
