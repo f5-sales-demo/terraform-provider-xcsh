@@ -553,15 +553,15 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/code_base_integration/index.txt",
-      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
+      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
       "summary": "Manages integration details in F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_code_base_integration",
       "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v12.1.1",
+        "release_tag": "v12.1.3",
         "schema_components": ["code_base_integrationCreateRequest"],
-        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
+        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
       }
     },
     {
@@ -1079,14 +1079,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/code_base_integration/properties/index.txt",
-      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
+      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
       "summary": "Property reference for xcsh_code_base_integration.",
       "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v12.1.1",
+        "release_tag": "v12.1.3",
         "schema_components": ["code_base_integrationCreateRequest"],
-        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
+        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
       }
     },
     {
@@ -1638,14 +1638,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/code_base_integration/properties/code_base_integration/index.txt",
-      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
+      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
       "summary": "Choose your code base (e.g. GitHub, GitLab, Bitbucket, Azure) and provide credentials and connection details.",
       "tasks": ["configuration"],
       "title": "code_base_integration",
       "upstream_identity": {
-        "release_tag": "v12.1.1",
+        "release_tag": "v12.1.3",
         "schema_components": ["code_base_integrationCreateRequest"],
-        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
+        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
       }
     },
     {
@@ -1714,14 +1714,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/code_base_integration/properties/code_base_integration/azure_repos/index.txt",
-      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
+      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
       "summary": "Configuration parameter for azure repos.",
       "tasks": ["configuration"],
       "title": "code_base_integration.azure_repos",
       "upstream_identity": {
-        "release_tag": "v12.1.1",
+        "release_tag": "v12.1.3",
         "schema_components": ["code_base_integrationCreateRequest"],
-        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
+        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
       }
     },
     {
@@ -1825,14 +1825,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/code_base_integration/properties/code_base_integration/azure_repos/access_token/index.txt",
-      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
+      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
       "summary": "SecretType is used in an object to indicate a sensitive/confidential field.",
       "tasks": ["configuration"],
       "title": "code_base_integration.azure_repos.access_token",
       "upstream_identity": {
-        "release_tag": "v12.1.1",
+        "release_tag": "v12.1.3",
         "schema_components": ["code_base_integrationCreateRequest"],
-        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
+        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
       }
     },
     {
@@ -1935,14 +1935,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/code_base_integration/properties/code_base_integration/azure_repos/access_token/blindfold_secret_info/index.txt",
-      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
+      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
       "summary": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
       "tasks": ["configuration"],
       "title": "code_base_integration.azure_repos.access_token.blindfold_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.1.1",
+        "release_tag": "v12.1.3",
         "schema_components": ["code_base_integrationCreateRequest"],
-        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
+        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
       }
     },
     {
@@ -2017,14 +2017,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/code_base_integration/properties/code_base_integration/azure_repos/access_token/clear_secret_info/index.txt",
-      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
+      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
       "summary": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
       "tasks": ["configuration"],
       "title": "code_base_integration.azure_repos.access_token.clear_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.1.1",
+        "release_tag": "v12.1.3",
         "schema_components": ["code_base_integrationCreateRequest"],
-        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
+        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
       }
     },
     {
@@ -2116,14 +2116,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/code_base_integration/properties/code_base_integration/bitbucket/index.txt",
-      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
+      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
       "summary": "BitBucket Cloud Integration.",
       "tasks": ["configuration"],
       "title": "code_base_integration.bitbucket",
       "upstream_identity": {
-        "release_tag": "v12.1.1",
+        "release_tag": "v12.1.3",
         "schema_components": ["code_base_integrationCreateRequest"],
-        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
+        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
       }
     },
     {
@@ -2227,14 +2227,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/code_base_integration/properties/code_base_integration/bitbucket/passwd/index.txt",
-      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
+      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
       "summary": "SecretType is used in an object to indicate a sensitive/confidential field.",
       "tasks": ["configuration"],
       "title": "code_base_integration.bitbucket.passwd",
       "upstream_identity": {
-        "release_tag": "v12.1.1",
+        "release_tag": "v12.1.3",
         "schema_components": ["code_base_integrationCreateRequest"],
-        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
+        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
       }
     },
     {
@@ -2331,14 +2331,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/code_base_integration/properties/code_base_integration/bitbucket/passwd/blindfold_secret_info/index.txt",
-      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
+      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
       "summary": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
       "tasks": ["configuration"],
       "title": "code_base_integration.bitbucket.passwd.blindfold_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.1.1",
+        "release_tag": "v12.1.3",
         "schema_components": ["code_base_integrationCreateRequest"],
-        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
+        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
       }
     },
     {
@@ -2413,14 +2413,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/code_base_integration/properties/code_base_integration/bitbucket/passwd/clear_secret_info/index.txt",
-      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
+      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
       "summary": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
       "tasks": ["configuration"],
       "title": "code_base_integration.bitbucket.passwd.clear_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.1.1",
+        "release_tag": "v12.1.3",
         "schema_components": ["code_base_integrationCreateRequest"],
-        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
+        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
       }
     },
     {
@@ -2554,14 +2554,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/code_base_integration/properties/code_base_integration/bitbucket_server/index.txt",
-      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
+      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
       "summary": "Configuration parameter for bitbucket server.",
       "tasks": ["configuration"],
       "title": "code_base_integration.bitbucket_server",
       "upstream_identity": {
-        "release_tag": "v12.1.1",
+        "release_tag": "v12.1.3",
         "schema_components": ["code_base_integrationCreateRequest"],
-        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
+        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
       }
     },
     {
@@ -2665,14 +2665,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/code_base_integration/properties/code_base_integration/bitbucket_server/passwd/index.txt",
-      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
+      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
       "summary": "SecretType is used in an object to indicate a sensitive/confidential field.",
       "tasks": ["configuration"],
       "title": "code_base_integration.bitbucket_server.passwd",
       "upstream_identity": {
-        "release_tag": "v12.1.1",
+        "release_tag": "v12.1.3",
         "schema_components": ["code_base_integrationCreateRequest"],
-        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
+        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
       }
     },
     {
@@ -2775,14 +2775,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/code_base_integration/properties/code_base_integration/bitbucket_server/passwd/blindfold_secret_info/index.txt",
-      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
+      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
       "summary": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
       "tasks": ["configuration"],
       "title": "code_base_integration.bitbucket_server.passwd.blindfold_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.1.1",
+        "release_tag": "v12.1.3",
         "schema_components": ["code_base_integrationCreateRequest"],
-        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
+        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
       }
     },
     {
@@ -2857,14 +2857,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/code_base_integration/properties/code_base_integration/bitbucket_server/passwd/clear_secret_info/index.txt",
-      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
+      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
       "summary": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
       "tasks": ["configuration"],
       "title": "code_base_integration.bitbucket_server.passwd.clear_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.1.1",
+        "release_tag": "v12.1.3",
         "schema_components": ["code_base_integrationCreateRequest"],
-        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
+        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
       }
     },
     {
@@ -2972,14 +2972,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/code_base_integration/properties/code_base_integration/github/index.txt",
-      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
+      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
       "summary": "Github Integration.",
       "tasks": ["configuration"],
       "title": "code_base_integration.github",
       "upstream_identity": {
-        "release_tag": "v12.1.1",
+        "release_tag": "v12.1.3",
         "schema_components": ["code_base_integrationCreateRequest"],
-        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
+        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
       }
     },
     {
@@ -3083,14 +3083,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/code_base_integration/properties/code_base_integration/github/access_token/index.txt",
-      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
+      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
       "summary": "SecretType is used in an object to indicate a sensitive/confidential field.",
       "tasks": ["configuration"],
       "title": "code_base_integration.github.access_token",
       "upstream_identity": {
-        "release_tag": "v12.1.1",
+        "release_tag": "v12.1.3",
         "schema_components": ["code_base_integrationCreateRequest"],
-        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
+        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
       }
     },
     {
@@ -3187,14 +3187,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/code_base_integration/properties/code_base_integration/github/access_token/blindfold_secret_info/index.txt",
-      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
+      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
       "summary": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
       "tasks": ["configuration"],
       "title": "code_base_integration.github.access_token.blindfold_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.1.1",
+        "release_tag": "v12.1.3",
         "schema_components": ["code_base_integrationCreateRequest"],
-        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
+        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
       }
     },
     {
@@ -3269,14 +3269,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/code_base_integration/properties/code_base_integration/github/access_token/clear_secret_info/index.txt",
-      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
+      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
       "summary": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
       "tasks": ["configuration"],
       "title": "code_base_integration.github.access_token.clear_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.1.1",
+        "release_tag": "v12.1.3",
         "schema_components": ["code_base_integrationCreateRequest"],
-        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
+        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
       }
     },
     {
@@ -3394,14 +3394,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/code_base_integration/properties/code_base_integration/github_enterprise/index.txt",
-      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
+      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
       "summary": "Configuration parameter for github enterprise.",
       "tasks": ["configuration"],
       "title": "code_base_integration.github_enterprise",
       "upstream_identity": {
-        "release_tag": "v12.1.1",
+        "release_tag": "v12.1.3",
         "schema_components": ["code_base_integrationCreateRequest"],
-        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
+        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
       }
     },
     {
@@ -3505,14 +3505,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/code_base_integration/properties/code_base_integration/github_enterprise/access_token/index.txt",
-      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
+      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
       "summary": "SecretType is used in an object to indicate a sensitive/confidential field.",
       "tasks": ["configuration"],
       "title": "code_base_integration.github_enterprise.access_token",
       "upstream_identity": {
-        "release_tag": "v12.1.1",
+        "release_tag": "v12.1.3",
         "schema_components": ["code_base_integrationCreateRequest"],
-        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
+        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
       }
     },
     {
@@ -3621,14 +3621,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/code_base_integration/properties/code_base_integration/github_enterprise/access_token/blindfold_secret_info/index.txt",
-      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
+      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
       "summary": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
       "tasks": ["configuration"],
       "title": "code_base_integration.github_enterprise.access_token.blindfold_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.1.1",
+        "release_tag": "v12.1.3",
         "schema_components": ["code_base_integrationCreateRequest"],
-        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
+        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
       }
     },
     {
@@ -3709,14 +3709,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/code_base_integration/properties/code_base_integration/github_enterprise/access_token/clear_secret_info/index.txt",
-      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
+      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
       "summary": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
       "tasks": ["configuration"],
       "title": "code_base_integration.github_enterprise.access_token.clear_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.1.1",
+        "release_tag": "v12.1.3",
         "schema_components": ["code_base_integrationCreateRequest"],
-        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
+        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
       }
     },
     {
@@ -3783,14 +3783,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/code_base_integration/properties/code_base_integration/gitlab/index.txt",
-      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
+      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
       "summary": "GitLab Cloud Integration.",
       "tasks": ["configuration"],
       "title": "code_base_integration.gitlab",
       "upstream_identity": {
-        "release_tag": "v12.1.1",
+        "release_tag": "v12.1.3",
         "schema_components": ["code_base_integrationCreateRequest"],
-        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
+        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
       }
     },
     {
@@ -3894,14 +3894,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/code_base_integration/properties/code_base_integration/gitlab/access_token/index.txt",
-      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
+      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
       "summary": "SecretType is used in an object to indicate a sensitive/confidential field.",
       "tasks": ["configuration"],
       "title": "code_base_integration.gitlab.access_token",
       "upstream_identity": {
-        "release_tag": "v12.1.1",
+        "release_tag": "v12.1.3",
         "schema_components": ["code_base_integrationCreateRequest"],
-        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
+        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
       }
     },
     {
@@ -3998,14 +3998,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/code_base_integration/properties/code_base_integration/gitlab/access_token/blindfold_secret_info/index.txt",
-      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
+      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
       "summary": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
       "tasks": ["configuration"],
       "title": "code_base_integration.gitlab.access_token.blindfold_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.1.1",
+        "release_tag": "v12.1.3",
         "schema_components": ["code_base_integrationCreateRequest"],
-        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
+        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
       }
     },
     {
@@ -4080,14 +4080,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/code_base_integration/properties/code_base_integration/gitlab/access_token/clear_secret_info/index.txt",
-      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
+      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
       "summary": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
       "tasks": ["configuration"],
       "title": "code_base_integration.gitlab.access_token.clear_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.1.1",
+        "release_tag": "v12.1.3",
         "schema_components": ["code_base_integrationCreateRequest"],
-        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
+        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
       }
     },
     {
@@ -4181,14 +4181,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/code_base_integration/properties/code_base_integration/gitlab_enterprise/index.txt",
-      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
+      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
       "summary": "Configuration parameter for gitlab enterprise.",
       "tasks": ["configuration"],
       "title": "code_base_integration.gitlab_enterprise",
       "upstream_identity": {
-        "release_tag": "v12.1.1",
+        "release_tag": "v12.1.3",
         "schema_components": ["code_base_integrationCreateRequest"],
-        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
+        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
       }
     },
     {
@@ -4292,14 +4292,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/code_base_integration/properties/code_base_integration/gitlab_enterprise/access_token/index.txt",
-      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
+      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
       "summary": "SecretType is used in an object to indicate a sensitive/confidential field.",
       "tasks": ["configuration"],
       "title": "code_base_integration.gitlab_enterprise.access_token",
       "upstream_identity": {
-        "release_tag": "v12.1.1",
+        "release_tag": "v12.1.3",
         "schema_components": ["code_base_integrationCreateRequest"],
-        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
+        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
       }
     },
     {
@@ -4408,14 +4408,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/code_base_integration/properties/code_base_integration/gitlab_enterprise/access_token/blindfold_secret_info/index.txt",
-      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
+      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
       "summary": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
       "tasks": ["configuration"],
       "title": "code_base_integration.gitlab_enterprise.access_token.blindfold_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.1.1",
+        "release_tag": "v12.1.3",
         "schema_components": ["code_base_integrationCreateRequest"],
-        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
+        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
       }
     },
     {
@@ -4496,14 +4496,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/code_base_integration/properties/code_base_integration/gitlab_enterprise/access_token/clear_secret_info/index.txt",
-      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
+      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
       "summary": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
       "tasks": ["configuration"],
       "title": "code_base_integration.gitlab_enterprise.access_token.clear_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.1.1",
+        "release_tag": "v12.1.3",
         "schema_components": ["code_base_integrationCreateRequest"],
-        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
+        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
       }
     },
     {
@@ -4636,14 +4636,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/code_base_integration/properties/timeouts/index.txt",
-      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
+      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
       "summary": "timeouts for xcsh_code_base_integration.",
       "tasks": ["configuration"],
       "title": "timeouts",
       "upstream_identity": {
-        "release_tag": "v12.1.1",
+        "release_tag": "v12.1.3",
         "schema_components": ["code_base_integrationCreateRequest"],
-        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
+        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
       }
     },
     {
@@ -4676,14 +4676,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/code_base_integration/examples/index.txt",
-      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
+      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
       "summary": "Examples for xcsh_code_base_integration.",
       "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v12.1.1",
+        "release_tag": "v12.1.3",
         "schema_components": ["code_base_integrationCreateRequest"],
-        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
+        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
       }
     },
     {
@@ -4723,14 +4723,14 @@
       "schema_path": ["resource"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/code_base_integration/examples/resource/index.txt",
-      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
+      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
       "summary": "Resource for xcsh_code_base_integration.",
       "tasks": ["configuration"],
       "title": "Resource",
       "upstream_identity": {
-        "release_tag": "v12.1.1",
+        "release_tag": "v12.1.3",
         "schema_components": ["code_base_integrationCreateRequest"],
-        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
+        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
       }
     },
     {
@@ -4764,14 +4764,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/code_base_integration/lifecycle/import/index.txt",
-      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
+      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
       "summary": "Import for xcsh_code_base_integration.",
       "tasks": ["import"],
       "title": "Import",
       "upstream_identity": {
-        "release_tag": "v12.1.1",
+        "release_tag": "v12.1.3",
         "schema_components": ["code_base_integrationCreateRequest"],
-        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
+        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
       }
     },
     {
@@ -4804,14 +4804,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/code_base_integration/lifecycle/timeouts/index.txt",
-      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
+      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
       "summary": "Timeouts for xcsh_code_base_integration.",
       "tasks": ["lifecycle"],
       "title": "Timeouts",
       "upstream_identity": {
-        "release_tag": "v12.1.1",
+        "release_tag": "v12.1.3",
         "schema_components": ["code_base_integrationCreateRequest"],
-        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
+        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
       }
     }
   ],

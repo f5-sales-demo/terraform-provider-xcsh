@@ -340,15 +340,15 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tunnel/index.txt",
-      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
+      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
       "summary": "Manages tunnel in a given namespace. If one already exist it will give a error in F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_tunnel",
       "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v12.1.1",
+        "release_tag": "v12.1.3",
         "schema_components": ["tunnelCreateRequest"],
-        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
+        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
       }
     },
     {
@@ -622,14 +622,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tunnel/properties/index.txt",
-      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
+      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
       "summary": "Property reference for xcsh_tunnel.",
       "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v12.1.1",
+        "release_tag": "v12.1.3",
         "schema_components": ["tunnelCreateRequest"],
-        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
+        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
       }
     },
     {
@@ -732,14 +732,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tunnel/properties/local_ip/index.txt",
-      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
+      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
       "summary": "Defines the OPTIONS to select local IP address and virtual network for tunnel object OPTIONS available are - 1. Local Interface - Network Interface from which IP address and network will be selected 2. IP Address - IP address and network can be configured explicitly.",
       "tasks": ["configuration"],
       "title": "local_ip",
       "upstream_identity": {
-        "release_tag": "v12.1.1",
+        "release_tag": "v12.1.3",
         "schema_components": ["tunnelCreateRequest"],
-        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
+        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
       }
     },
     {
@@ -789,14 +789,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tunnel/properties/local_ip/intf/index.txt",
-      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
+      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
       "summary": "Provides the local interface to pick up source IP and network for transporting encapsulated packet.",
       "tasks": ["configuration"],
       "title": "local_ip.intf",
       "upstream_identity": {
-        "release_tag": "v12.1.1",
+        "release_tag": "v12.1.3",
         "schema_components": ["tunnelCreateRequest"],
-        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
+        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
       }
     },
     {
@@ -945,14 +945,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tunnel/properties/local_ip/intf/local_intf/index.txt",
-      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
+      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
       "summary": "Local interface to be used for filling in source information of IP and network for transport.",
       "tasks": ["configuration"],
       "title": "local_ip.intf.local_intf",
       "upstream_identity": {
-        "release_tag": "v12.1.1",
+        "release_tag": "v12.1.3",
         "schema_components": ["tunnelCreateRequest"],
-        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
+        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
       }
     },
     {
@@ -1153,14 +1153,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tunnel/properties/local_ip/ip_address/index.txt",
-      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
+      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
       "summary": "Provides the configuration to pick up source IP and network for transporting encapsulated packet.",
       "tasks": ["configuration"],
       "title": "local_ip.ip_address",
       "upstream_identity": {
-        "release_tag": "v12.1.1",
+        "release_tag": "v12.1.3",
         "schema_components": ["tunnelCreateRequest"],
-        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
+        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
       }
     },
     {
@@ -1193,14 +1193,14 @@
       "schema_path": ["local_ip", "ip_address", "auto"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tunnel/properties/local_ip/ip_address/auto/index.txt",
-      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
+      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "local_ip.ip_address.auto",
       "upstream_identity": {
-        "release_tag": "v12.1.1",
+        "release_tag": "v12.1.3",
         "schema_components": ["tunnelCreateRequest"],
-        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
+        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
       }
     },
     {
@@ -1335,14 +1335,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tunnel/properties/local_ip/ip_address/ip_address/index.txt",
-      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
+      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
       "summary": "IP Address used to specify an IPv4 or IPv6 address.",
       "tasks": ["configuration"],
       "title": "local_ip.ip_address.ip_address",
       "upstream_identity": {
-        "release_tag": "v12.1.1",
+        "release_tag": "v12.1.3",
         "schema_components": ["tunnelCreateRequest"],
-        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
+        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
       }
     },
     {
@@ -1411,14 +1411,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tunnel/properties/local_ip/ip_address/ip_address/dual_stack/index.txt",
-      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
+      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
       "summary": "DualStackAddressType represents both IPv4 and IPv6 together.",
       "tasks": ["configuration"],
       "title": "local_ip.ip_address.ip_address.dual_stack",
       "upstream_identity": {
-        "release_tag": "v12.1.1",
+        "release_tag": "v12.1.3",
         "schema_components": ["tunnelCreateRequest"],
-        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
+        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
       }
     },
     {
@@ -1468,14 +1468,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tunnel/properties/local_ip/ip_address/ip_address/dual_stack/ipv4/index.txt",
-      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
+      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
       "summary": "IPv4 Address in dot-decimal notation.",
       "tasks": ["configuration"],
       "title": "local_ip.ip_address.ip_address.dual_stack.ipv4",
       "upstream_identity": {
-        "release_tag": "v12.1.1",
+        "release_tag": "v12.1.3",
         "schema_components": ["tunnelCreateRequest"],
-        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
+        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
       }
     },
     {
@@ -1525,14 +1525,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tunnel/properties/local_ip/ip_address/ip_address/dual_stack/ipv6/index.txt",
-      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
+      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
       "summary": "IPv6 Address specified as hexadecimal numbers separated by ':'",
       "tasks": ["configuration"],
       "title": "local_ip.ip_address.ip_address.dual_stack.ipv6",
       "upstream_identity": {
-        "release_tag": "v12.1.1",
+        "release_tag": "v12.1.3",
         "schema_components": ["tunnelCreateRequest"],
-        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
+        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
       }
     },
     {
@@ -1582,14 +1582,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tunnel/properties/local_ip/ip_address/ip_address/ipv4/index.txt",
-      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
+      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
       "summary": "IPv4 Address in dot-decimal notation.",
       "tasks": ["configuration"],
       "title": "local_ip.ip_address.ip_address.ipv4",
       "upstream_identity": {
-        "release_tag": "v12.1.1",
+        "release_tag": "v12.1.3",
         "schema_components": ["tunnelCreateRequest"],
-        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
+        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
       }
     },
     {
@@ -1639,14 +1639,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tunnel/properties/local_ip/ip_address/ip_address/ipv6/index.txt",
-      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
+      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
       "summary": "IPv6 Address specified as hexadecimal numbers separated by ':'",
       "tasks": ["configuration"],
       "title": "local_ip.ip_address.ip_address.ipv6",
       "upstream_identity": {
-        "release_tag": "v12.1.1",
+        "release_tag": "v12.1.3",
         "schema_components": ["tunnelCreateRequest"],
-        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
+        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
       }
     },
     {
@@ -1781,14 +1781,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tunnel/properties/local_ip/ip_address/virtual_network_type/index.txt",
-      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
+      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
       "summary": "Different types of virtual networks understood by the system.",
       "tasks": ["configuration"],
       "title": "local_ip.ip_address.virtual_network_type",
       "upstream_identity": {
-        "release_tag": "v12.1.1",
+        "release_tag": "v12.1.3",
         "schema_components": ["tunnelCreateRequest"],
-        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
+        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
       }
     },
     {
@@ -1821,14 +1821,14 @@
       "schema_path": ["local_ip", "ip_address", "virtual_network_type", "public"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tunnel/properties/local_ip/ip_address/virtual_network_type/public/index.txt",
-      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
+      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "local_ip.ip_address.virtual_network_type.public",
       "upstream_identity": {
-        "release_tag": "v12.1.1",
+        "release_tag": "v12.1.3",
         "schema_components": ["tunnelCreateRequest"],
-        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
+        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
       }
     },
     {
@@ -1861,14 +1861,14 @@
       "schema_path": ["local_ip", "ip_address", "virtual_network_type", "site_local"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tunnel/properties/local_ip/ip_address/virtual_network_type/site_local/index.txt",
-      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
+      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "local_ip.ip_address.virtual_network_type.site_local",
       "upstream_identity": {
-        "release_tag": "v12.1.1",
+        "release_tag": "v12.1.3",
         "schema_components": ["tunnelCreateRequest"],
-        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
+        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
       }
     },
     {
@@ -1901,14 +1901,14 @@
       "schema_path": ["local_ip", "ip_address", "virtual_network_type", "site_local_inside"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tunnel/properties/local_ip/ip_address/virtual_network_type/site_local_inside/index.txt",
-      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
+      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "local_ip.ip_address.virtual_network_type.site_local_inside",
       "upstream_identity": {
-        "release_tag": "v12.1.1",
+        "release_tag": "v12.1.3",
         "schema_components": ["tunnelCreateRequest"],
-        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
+        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
       }
     },
     {
@@ -1958,14 +1958,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tunnel/properties/params/index.txt",
-      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
+      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
       "summary": "Tunnel configuration parameters for supported encapsulation 1. IPsec is supported with PSK for which PSK can be configured.",
       "tasks": ["configuration"],
       "title": "params",
       "upstream_identity": {
-        "release_tag": "v12.1.1",
+        "release_tag": "v12.1.3",
         "schema_components": ["tunnelCreateRequest"],
-        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
+        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
       }
     },
     {
@@ -2032,14 +2032,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tunnel/properties/params/ipsec/index.txt",
-      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
+      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
       "summary": "Configuration for IPsec encapsulation are: 1. PSK - pre shared key to be used by IKE.",
       "tasks": ["configuration"],
       "title": "params.ipsec",
       "upstream_identity": {
-        "release_tag": "v12.1.1",
+        "release_tag": "v12.1.3",
         "schema_components": ["tunnelCreateRequest"],
-        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
+        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
       }
     },
     {
@@ -2143,14 +2143,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tunnel/properties/params/ipsec/ipsec_psk/index.txt",
-      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
+      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
       "summary": "SecretType is used in an object to indicate a sensitive/confidential field.",
       "tasks": ["configuration"],
       "title": "params.ipsec.ipsec_psk",
       "upstream_identity": {
-        "release_tag": "v12.1.1",
+        "release_tag": "v12.1.3",
         "schema_components": ["tunnelCreateRequest"],
-        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
+        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
       }
     },
     {
@@ -2241,14 +2241,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tunnel/properties/params/ipsec/ipsec_psk/blindfold_secret_info/index.txt",
-      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
+      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
       "summary": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
       "tasks": ["configuration"],
       "title": "params.ipsec.ipsec_psk.blindfold_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.1.1",
+        "release_tag": "v12.1.3",
         "schema_components": ["tunnelCreateRequest"],
-        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
+        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
       }
     },
     {
@@ -2323,14 +2323,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tunnel/properties/params/ipsec/ipsec_psk/clear_secret_info/index.txt",
-      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
+      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
       "summary": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
       "tasks": ["configuration"],
       "title": "params.ipsec.ipsec_psk.clear_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.1.1",
+        "release_tag": "v12.1.3",
         "schema_components": ["tunnelCreateRequest"],
-        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
+        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
       }
     },
     {
@@ -2465,14 +2465,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tunnel/properties/remote_ip/index.txt",
-      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
+      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
       "summary": "Defines the OPTIONS to select remote IP address for tunnel object OPTIONS available are - 1. IP Address - Specifies the remote IP to which tunnel has to be connected 2. Remote endpoint - Is a map of IP address on per ver node basis.",
       "tasks": ["configuration"],
       "title": "remote_ip",
       "upstream_identity": {
-        "release_tag": "v12.1.1",
+        "release_tag": "v12.1.3",
         "schema_components": ["tunnelCreateRequest"],
-        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
+        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
       }
     },
     {
@@ -2522,14 +2522,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tunnel/properties/remote_ip/endpoints/index.txt",
-      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
+      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
       "summary": "Provides a map of ver node name to remote node attributes Ver node should use these attributes to configure as remote tunnel.",
       "tasks": ["configuration"],
       "title": "remote_ip.endpoints",
       "upstream_identity": {
-        "release_tag": "v12.1.1",
+        "release_tag": "v12.1.3",
         "schema_components": ["tunnelCreateRequest"],
-        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
+        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
       }
     },
     {
@@ -2562,14 +2562,14 @@
       "schema_path": ["remote_ip", "endpoints", "endpoints"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tunnel/properties/remote_ip/endpoints/endpoints/index.txt",
-      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
+      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
       "summary": "Map of remote attributes to which tunnel will be established on per site node basis Every node can have a different attributes and IP address to connect to Key is ver node name and value is Remote node attributes.",
       "tasks": ["configuration"],
       "title": "remote_ip.endpoints.endpoints",
       "upstream_identity": {
-        "release_tag": "v12.1.1",
+        "release_tag": "v12.1.3",
         "schema_components": ["tunnelCreateRequest"],
-        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
+        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
       }
     },
     {
@@ -2704,14 +2704,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tunnel/properties/remote_ip/ip/index.txt",
-      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
+      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
       "summary": "IP Address used to specify an IPv4 or IPv6 address.",
       "tasks": ["configuration"],
       "title": "remote_ip.ip",
       "upstream_identity": {
-        "release_tag": "v12.1.1",
+        "release_tag": "v12.1.3",
         "schema_components": ["tunnelCreateRequest"],
-        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
+        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
       }
     },
     {
@@ -2780,14 +2780,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tunnel/properties/remote_ip/ip/dual_stack/index.txt",
-      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
+      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
       "summary": "DualStackAddressType represents both IPv4 and IPv6 together.",
       "tasks": ["configuration"],
       "title": "remote_ip.ip.dual_stack",
       "upstream_identity": {
-        "release_tag": "v12.1.1",
+        "release_tag": "v12.1.3",
         "schema_components": ["tunnelCreateRequest"],
-        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
+        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
       }
     },
     {
@@ -2837,14 +2837,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tunnel/properties/remote_ip/ip/dual_stack/ipv4/index.txt",
-      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
+      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
       "summary": "IPv4 Address in dot-decimal notation.",
       "tasks": ["configuration"],
       "title": "remote_ip.ip.dual_stack.ipv4",
       "upstream_identity": {
-        "release_tag": "v12.1.1",
+        "release_tag": "v12.1.3",
         "schema_components": ["tunnelCreateRequest"],
-        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
+        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
       }
     },
     {
@@ -2894,14 +2894,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tunnel/properties/remote_ip/ip/dual_stack/ipv6/index.txt",
-      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
+      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
       "summary": "IPv6 Address specified as hexadecimal numbers separated by ':'",
       "tasks": ["configuration"],
       "title": "remote_ip.ip.dual_stack.ipv6",
       "upstream_identity": {
-        "release_tag": "v12.1.1",
+        "release_tag": "v12.1.3",
         "schema_components": ["tunnelCreateRequest"],
-        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
+        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
       }
     },
     {
@@ -2951,14 +2951,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tunnel/properties/remote_ip/ip/ipv4/index.txt",
-      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
+      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
       "summary": "IPv4 Address in dot-decimal notation.",
       "tasks": ["configuration"],
       "title": "remote_ip.ip.ipv4",
       "upstream_identity": {
-        "release_tag": "v12.1.1",
+        "release_tag": "v12.1.3",
         "schema_components": ["tunnelCreateRequest"],
-        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
+        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
       }
     },
     {
@@ -3008,14 +3008,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tunnel/properties/remote_ip/ip/ipv6/index.txt",
-      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
+      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
       "summary": "IPv6 Address specified as hexadecimal numbers separated by ':'",
       "tasks": ["configuration"],
       "title": "remote_ip.ip.ipv6",
       "upstream_identity": {
-        "release_tag": "v12.1.1",
+        "release_tag": "v12.1.3",
         "schema_components": ["tunnelCreateRequest"],
-        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
+        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
       }
     },
     {
@@ -3148,14 +3148,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tunnel/properties/timeouts/index.txt",
-      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
+      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
       "summary": "timeouts for xcsh_tunnel.",
       "tasks": ["configuration"],
       "title": "timeouts",
       "upstream_identity": {
-        "release_tag": "v12.1.1",
+        "release_tag": "v12.1.3",
         "schema_components": ["tunnelCreateRequest"],
-        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
+        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
       }
     },
     {
@@ -3188,14 +3188,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tunnel/examples/index.txt",
-      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
+      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
       "summary": "Examples for xcsh_tunnel.",
       "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v12.1.1",
+        "release_tag": "v12.1.3",
         "schema_components": ["tunnelCreateRequest"],
-        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
+        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
       }
     },
     {
@@ -3235,14 +3235,14 @@
       "schema_path": ["resource"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tunnel/examples/resource/index.txt",
-      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
+      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
       "summary": "Resource for xcsh_tunnel.",
       "tasks": ["configuration"],
       "title": "Resource",
       "upstream_identity": {
-        "release_tag": "v12.1.1",
+        "release_tag": "v12.1.3",
         "schema_components": ["tunnelCreateRequest"],
-        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
+        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
       }
     },
     {
@@ -3276,14 +3276,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tunnel/lifecycle/import/index.txt",
-      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
+      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
       "summary": "Import for xcsh_tunnel.",
       "tasks": ["import"],
       "title": "Import",
       "upstream_identity": {
-        "release_tag": "v12.1.1",
+        "release_tag": "v12.1.3",
         "schema_components": ["tunnelCreateRequest"],
-        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
+        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
       }
     },
     {
@@ -3316,14 +3316,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tunnel/lifecycle/timeouts/index.txt",
-      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
+      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
       "summary": "Timeouts for xcsh_tunnel.",
       "tasks": ["lifecycle"],
       "title": "Timeouts",
       "upstream_identity": {
-        "release_tag": "v12.1.1",
+        "release_tag": "v12.1.3",
         "schema_components": ["tunnelCreateRequest"],
-        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
+        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
       }
     }
   ],

@@ -299,15 +299,15 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/authentication/index.txt",
-      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
+      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
       "summary": "Manages an Authentication resource in F5 Distributed Cloud.",
       "tasks": ["authentication", "configuration"],
       "title": "xcsh_authentication",
       "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v12.1.1",
+        "release_tag": "v12.1.3",
         "schema_components": ["authenticationCreateRequest"],
-        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
+        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
       }
     },
     {
@@ -547,14 +547,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/authentication/properties/index.txt",
-      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
+      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
       "summary": "Property reference for xcsh_authentication.",
       "tasks": ["authentication", "configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v12.1.1",
+        "release_tag": "v12.1.3",
         "schema_components": ["authenticationCreateRequest"],
-        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
+        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
       }
     },
     {
@@ -705,14 +705,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/authentication/properties/cookie_params/index.txt",
-      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
+      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
       "summary": "Specifies different cookie related config parameters for authentication.",
       "tasks": ["authentication", "configuration"],
       "title": "cookie_params",
       "upstream_identity": {
-        "release_tag": "v12.1.1",
+        "release_tag": "v12.1.3",
         "schema_components": ["authenticationCreateRequest"],
-        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
+        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
       }
     },
     {
@@ -864,14 +864,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/authentication/properties/cookie_params/auth_hmac/index.txt",
-      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
+      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
       "summary": "HMAC primary and secondary keys to be used for hashing the Cookie. Each key also have an associated expiry timestamp, beyond which key is invalid.",
       "tasks": ["authentication", "configuration"],
       "title": "cookie_params.auth_hmac",
       "upstream_identity": {
-        "release_tag": "v12.1.1",
+        "release_tag": "v12.1.3",
         "schema_components": ["authenticationCreateRequest"],
-        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
+        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
       }
     },
     {
@@ -975,14 +975,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/authentication/properties/cookie_params/auth_hmac/prim_key/index.txt",
-      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
+      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
       "summary": "SecretType is used in an object to indicate a sensitive/confidential field.",
       "tasks": ["authentication", "configuration"],
       "title": "cookie_params.auth_hmac.prim_key",
       "upstream_identity": {
-        "release_tag": "v12.1.1",
+        "release_tag": "v12.1.3",
         "schema_components": ["authenticationCreateRequest"],
-        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
+        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
       }
     },
     {
@@ -1073,14 +1073,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/authentication/properties/cookie_params/auth_hmac/prim_key/blindfold_secret_info/index.txt",
-      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
+      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
       "summary": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
       "tasks": ["authentication", "configuration"],
       "title": "cookie_params.auth_hmac.prim_key.blindfold_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.1.1",
+        "release_tag": "v12.1.3",
         "schema_components": ["authenticationCreateRequest"],
-        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
+        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
       }
     },
     {
@@ -1155,14 +1155,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/authentication/properties/cookie_params/auth_hmac/prim_key/clear_secret_info/index.txt",
-      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
+      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
       "summary": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
       "tasks": ["authentication", "configuration"],
       "title": "cookie_params.auth_hmac.prim_key.clear_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.1.1",
+        "release_tag": "v12.1.3",
         "schema_components": ["authenticationCreateRequest"],
-        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
+        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
       }
     },
     {
@@ -1266,14 +1266,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/authentication/properties/cookie_params/auth_hmac/sec_key/index.txt",
-      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
+      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
       "summary": "SecretType is used in an object to indicate a sensitive/confidential field.",
       "tasks": ["authentication", "configuration"],
       "title": "cookie_params.auth_hmac.sec_key",
       "upstream_identity": {
-        "release_tag": "v12.1.1",
+        "release_tag": "v12.1.3",
         "schema_components": ["authenticationCreateRequest"],
-        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
+        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
       }
     },
     {
@@ -1364,14 +1364,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/authentication/properties/cookie_params/auth_hmac/sec_key/blindfold_secret_info/index.txt",
-      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
+      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
       "summary": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
       "tasks": ["authentication", "configuration"],
       "title": "cookie_params.auth_hmac.sec_key.blindfold_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.1.1",
+        "release_tag": "v12.1.3",
         "schema_components": ["authenticationCreateRequest"],
-        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
+        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
       }
     },
     {
@@ -1446,14 +1446,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/authentication/properties/cookie_params/auth_hmac/sec_key/clear_secret_info/index.txt",
-      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
+      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
       "summary": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
       "tasks": ["authentication", "configuration"],
       "title": "cookie_params.auth_hmac.sec_key.clear_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.1.1",
+        "release_tag": "v12.1.3",
         "schema_components": ["authenticationCreateRequest"],
-        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
+        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
       }
     },
     {
@@ -1486,14 +1486,14 @@
       "schema_path": ["cookie_params", "kms_key_hmac"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/authentication/properties/cookie_params/kms_key_hmac/index.txt",
-      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
+      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
       "summary": "Reference to KMS Key Object.",
       "tasks": ["authentication", "configuration"],
       "title": "cookie_params.kms_key_hmac",
       "upstream_identity": {
-        "release_tag": "v12.1.1",
+        "release_tag": "v12.1.3",
         "schema_components": ["authenticationCreateRequest"],
-        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
+        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
       }
     },
     {
@@ -1661,14 +1661,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/authentication/properties/oidc_auth/index.txt",
-      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
+      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
       "summary": "OIDCAuthType.",
       "tasks": ["authentication", "configuration"],
       "title": "oidc_auth",
       "upstream_identity": {
-        "release_tag": "v12.1.1",
+        "release_tag": "v12.1.3",
         "schema_components": ["authenticationCreateRequest"],
-        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
+        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
       }
     },
     {
@@ -1772,14 +1772,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/authentication/properties/oidc_auth/client_secret/index.txt",
-      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
+      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
       "summary": "SecretType is used in an object to indicate a sensitive/confidential field.",
       "tasks": ["authentication", "configuration"],
       "title": "oidc_auth.client_secret",
       "upstream_identity": {
-        "release_tag": "v12.1.1",
+        "release_tag": "v12.1.3",
         "schema_components": ["authenticationCreateRequest"],
-        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
+        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
       }
     },
     {
@@ -1870,14 +1870,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/authentication/properties/oidc_auth/client_secret/blindfold_secret_info/index.txt",
-      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
+      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
       "summary": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
       "tasks": ["authentication", "configuration"],
       "title": "oidc_auth.client_secret.blindfold_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.1.1",
+        "release_tag": "v12.1.3",
         "schema_components": ["authenticationCreateRequest"],
-        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
+        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
       }
     },
     {
@@ -1952,14 +1952,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/authentication/properties/oidc_auth/client_secret/clear_secret_info/index.txt",
-      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
+      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
       "summary": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
       "tasks": ["authentication", "configuration"],
       "title": "oidc_auth.client_secret.clear_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.1.1",
+        "release_tag": "v12.1.3",
         "schema_components": ["authenticationCreateRequest"],
-        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
+        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
       }
     },
     {
@@ -2066,14 +2066,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/authentication/properties/oidc_auth/oidc_auth_params/index.txt",
-      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
+      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
       "summary": "Configuration parameter for oidc auth params.",
       "tasks": ["authentication", "configuration"],
       "title": "oidc_auth.oidc_auth_params",
       "upstream_identity": {
-        "release_tag": "v12.1.1",
+        "release_tag": "v12.1.3",
         "schema_components": ["authenticationCreateRequest"],
-        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
+        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
       }
     },
     {
@@ -2206,14 +2206,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/authentication/properties/timeouts/index.txt",
-      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
+      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
       "summary": "timeouts for xcsh_authentication.",
       "tasks": ["authentication", "configuration"],
       "title": "timeouts",
       "upstream_identity": {
-        "release_tag": "v12.1.1",
+        "release_tag": "v12.1.3",
         "schema_components": ["authenticationCreateRequest"],
-        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
+        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
       }
     },
     {
@@ -2246,14 +2246,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/authentication/examples/index.txt",
-      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
+      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
       "summary": "Examples for xcsh_authentication.",
       "tasks": ["authentication", "configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v12.1.1",
+        "release_tag": "v12.1.3",
         "schema_components": ["authenticationCreateRequest"],
-        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
+        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
       }
     },
     {
@@ -2293,14 +2293,14 @@
       "schema_path": ["resource"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/authentication/examples/resource/index.txt",
-      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
+      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
       "summary": "Resource for xcsh_authentication.",
       "tasks": ["authentication", "configuration"],
       "title": "Resource",
       "upstream_identity": {
-        "release_tag": "v12.1.1",
+        "release_tag": "v12.1.3",
         "schema_components": ["authenticationCreateRequest"],
-        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
+        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
       }
     },
     {
@@ -2334,14 +2334,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/authentication/lifecycle/import/index.txt",
-      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
+      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
       "summary": "Import for xcsh_authentication.",
       "tasks": ["authentication", "import"],
       "title": "Import",
       "upstream_identity": {
-        "release_tag": "v12.1.1",
+        "release_tag": "v12.1.3",
         "schema_components": ["authenticationCreateRequest"],
-        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
+        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
       }
     },
     {
@@ -2374,14 +2374,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/authentication/lifecycle/timeouts/index.txt",
-      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
+      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
       "summary": "Timeouts for xcsh_authentication.",
       "tasks": ["authentication", "lifecycle"],
       "title": "Timeouts",
       "upstream_identity": {
-        "release_tag": "v12.1.1",
+        "release_tag": "v12.1.3",
         "schema_components": ["authenticationCreateRequest"],
-        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
+        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
       }
     }
   ],

@@ -5837,6 +5837,6 @@
     { "path": "documentation/registry-projection/sections-0090.json", "section_count": 381 },
     { "path": "documentation/registry-projection/sections-0091.json", "section_count": 469 }
   ],
-  "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
+  "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
   "target_bytes": 450000
 }

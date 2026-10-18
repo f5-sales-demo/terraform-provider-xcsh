@@ -174,15 +174,15 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protocol_policer/index.txt",
-      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
+      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
       "summary": "Manages protocol_policer object, protocol_policer object contains list of L4 protocol match condition and corresponding traffic rate limits in F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_protocol_policer",
       "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v12.1.1",
+        "release_tag": "v12.1.3",
         "schema_components": ["protocol_policerCreateRequest"],
-        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
+        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
       }
     },
     {
@@ -381,14 +381,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protocol_policer/properties/index.txt",
-      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
+      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
       "summary": "Property reference for xcsh_protocol_policer.",
       "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v12.1.1",
+        "release_tag": "v12.1.3",
         "schema_components": ["protocol_policerCreateRequest"],
-        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
+        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
       }
     },
     {
@@ -563,14 +563,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protocol_policer/properties/protocol_policer/index.txt",
-      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
+      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
       "summary": "List of L4 protocol match condition and associated traffic rate limits.",
       "tasks": ["configuration"],
       "title": "protocol_policer",
       "upstream_identity": {
-        "release_tag": "v12.1.1",
+        "release_tag": "v12.1.3",
         "schema_components": ["protocol_policerCreateRequest"],
-        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
+        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
       }
     },
     {
@@ -719,14 +719,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protocol_policer/properties/protocol_policer/policer/index.txt",
-      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
+      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
       "summary": "Reference to policer object to apply traffic rate limits.",
       "tasks": ["configuration"],
       "title": "protocol_policer.policer",
       "upstream_identity": {
-        "release_tag": "v12.1.1",
+        "release_tag": "v12.1.3",
         "schema_components": ["protocol_policerCreateRequest"],
-        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
+        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
       }
     },
     {
@@ -926,14 +926,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protocol_policer/properties/protocol_policer/protocol/index.txt",
-      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
+      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
       "summary": "Protocol and protocol specific flags to be matched in packet.",
       "tasks": ["configuration"],
       "title": "protocol_policer.protocol",
       "upstream_identity": {
-        "release_tag": "v12.1.1",
+        "release_tag": "v12.1.3",
         "schema_components": ["protocol_policerCreateRequest"],
-        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
+        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
       }
     },
     {
@@ -966,14 +966,14 @@
       "schema_path": ["protocol_policer", "protocol", "dns"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protocol_policer/properties/protocol_policer/protocol/dns/index.txt",
-      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
+      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
       "summary": "Match all DNS packets including UDP and TCP.",
       "tasks": ["configuration"],
       "title": "protocol_policer.protocol.dns",
       "upstream_identity": {
-        "release_tag": "v12.1.1",
+        "release_tag": "v12.1.3",
         "schema_components": ["protocol_policerCreateRequest"],
-        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
+        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
       }
     },
     {
@@ -1023,14 +1023,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protocol_policer/properties/protocol_policer/protocol/icmp/index.txt",
-      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
+      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
       "summary": "ICMP message type to match in packet.",
       "tasks": ["configuration"],
       "title": "protocol_policer.protocol.icmp",
       "upstream_identity": {
-        "release_tag": "v12.1.1",
+        "release_tag": "v12.1.3",
         "schema_components": ["protocol_policerCreateRequest"],
-        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
+        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
       }
     },
     {
@@ -1080,14 +1080,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protocol_policer/properties/protocol_policer/protocol/tcp/index.txt",
-      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
+      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
       "summary": "Specification of TCP flag to be matched in a TCP packet.",
       "tasks": ["configuration"],
       "title": "protocol_policer.protocol.tcp",
       "upstream_identity": {
-        "release_tag": "v12.1.1",
+        "release_tag": "v12.1.3",
         "schema_components": ["protocol_policerCreateRequest"],
-        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
+        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
       }
     },
     {
@@ -1120,14 +1120,14 @@
       "schema_path": ["protocol_policer", "protocol", "udp"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protocol_policer/properties/protocol_policer/protocol/udp/index.txt",
-      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
+      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
       "summary": "Match all UDP packets.",
       "tasks": ["configuration"],
       "title": "protocol_policer.protocol.udp",
       "upstream_identity": {
-        "release_tag": "v12.1.1",
+        "release_tag": "v12.1.3",
         "schema_components": ["protocol_policerCreateRequest"],
-        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
+        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
       }
     },
     {
@@ -1260,14 +1260,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protocol_policer/properties/timeouts/index.txt",
-      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
+      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
       "summary": "timeouts for xcsh_protocol_policer.",
       "tasks": ["configuration"],
       "title": "timeouts",
       "upstream_identity": {
-        "release_tag": "v12.1.1",
+        "release_tag": "v12.1.3",
         "schema_components": ["protocol_policerCreateRequest"],
-        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
+        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
       }
     },
     {
@@ -1300,14 +1300,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protocol_policer/examples/index.txt",
-      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
+      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
       "summary": "Examples for xcsh_protocol_policer.",
       "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v12.1.1",
+        "release_tag": "v12.1.3",
         "schema_components": ["protocol_policerCreateRequest"],
-        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
+        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
       }
     },
     {
@@ -1347,14 +1347,14 @@
       "schema_path": ["resource"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protocol_policer/examples/resource/index.txt",
-      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
+      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
       "summary": "Resource for xcsh_protocol_policer.",
       "tasks": ["configuration"],
       "title": "Resource",
       "upstream_identity": {
-        "release_tag": "v12.1.1",
+        "release_tag": "v12.1.3",
         "schema_components": ["protocol_policerCreateRequest"],
-        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
+        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
       }
     },
     {
@@ -1388,14 +1388,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protocol_policer/lifecycle/import/index.txt",
-      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
+      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
       "summary": "Import for xcsh_protocol_policer.",
       "tasks": ["import"],
       "title": "Import",
       "upstream_identity": {
-        "release_tag": "v12.1.1",
+        "release_tag": "v12.1.3",
         "schema_components": ["protocol_policerCreateRequest"],
-        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
+        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
       }
     },
     {
@@ -1428,14 +1428,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protocol_policer/lifecycle/timeouts/index.txt",
-      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
+      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
       "summary": "Timeouts for xcsh_protocol_policer.",
       "tasks": ["lifecycle"],
       "title": "Timeouts",
       "upstream_identity": {
-        "release_tag": "v12.1.1",
+        "release_tag": "v12.1.3",
         "schema_components": ["protocol_policerCreateRequest"],
-        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
+        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
       }
     }
   ],
