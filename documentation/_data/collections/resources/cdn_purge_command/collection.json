@@ -154,21 +154,21 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cdn_purge_command/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "Manages a CDN Purge Command resource in F5 Distributed Cloud for cdn purge command specification. configuration.",
       "tasks": ["configuration"],
       "title": "xcsh_cdn_purge_command",
       "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["cdn_purge_commandCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
       "aliases": ["cdn purge command"],
       "body_bytes": 15099,
-      "body_sha256": "sha256:d2146cf9af04698a4945a6d11c86d93a711554b574b00ca0fe6cc12ffcdd0c5b",
+      "body_sha256": "sha256:5c7324140fa04510cf83d431ac2b6ea9f229ebfde0fcfeb5497fe673cd6f0bc3",
       "capabilities": ["cdn"],
       "category": "cdn",
       "child_ids": [
@@ -451,14 +451,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cdn_purge_command/properties/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "Property reference for xcsh_cdn_purge_command.",
       "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["cdn_purge_commandCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -491,14 +491,14 @@
       "schema_path": ["hard_purge"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cdn_purge_command/properties/hard_purge/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "hard_purge",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["cdn_purge_commandCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -531,14 +531,14 @@
       "schema_path": ["purge_all"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cdn_purge_command/properties/purge_all/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "purge_all",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["cdn_purge_commandCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -571,14 +571,14 @@
       "schema_path": ["soft_purge"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cdn_purge_command/properties/soft_purge/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "soft_purge",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["cdn_purge_commandCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -711,20 +711,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cdn_purge_command/properties/timeouts/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "timeouts for xcsh_cdn_purge_command.",
       "tasks": ["configuration"],
       "title": "timeouts",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["cdn_purge_commandCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
       "aliases": ["virtual host"],
       "body_bytes": 5054,
-      "body_sha256": "sha256:fbefc7cdddb38766a48ad0c2166f93707423b50df129d60bbcb6658f52a3239d",
+      "body_sha256": "sha256:35307e68acfd1250c32d8eba9418b5712f2272a1878196d81ef74f758c34cdfd",
       "capabilities": ["cdn"],
       "category": "cdn",
       "child_ids": [],
@@ -830,14 +830,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cdn_purge_command/properties/virtual_host/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "virtual_host",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["cdn_purge_commandCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -870,14 +870,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cdn_purge_command/examples/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "Examples for xcsh_cdn_purge_command.",
       "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["cdn_purge_commandCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -917,14 +917,14 @@
       "schema_path": ["resource"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cdn_purge_command/examples/resource/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "Resource for xcsh_cdn_purge_command.",
       "tasks": ["configuration"],
       "title": "Resource",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["cdn_purge_commandCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -958,14 +958,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cdn_purge_command/lifecycle/import/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "Import for xcsh_cdn_purge_command.",
       "tasks": ["import"],
       "title": "Import",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["cdn_purge_commandCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -998,14 +998,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cdn_purge_command/lifecycle/timeouts/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "Timeouts for xcsh_cdn_purge_command.",
       "tasks": ["lifecycle"],
       "title": "Timeouts",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["cdn_purge_commandCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     }
   ],

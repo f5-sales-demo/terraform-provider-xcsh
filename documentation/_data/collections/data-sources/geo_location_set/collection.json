@@ -87,21 +87,21 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/geo_location_set/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "Reads Geo Location Set information from F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_geo_location_set",
       "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["geo_location_setCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
       "aliases": ["geo location set"],
       "body_bytes": 8347,
-      "body_sha256": "sha256:6e61879e81d77181c638200ce2e9ad72daa386b09c7e0ee62288d48dbf991fc2",
+      "body_sha256": "sha256:58031ecf800adbc3be3567ec90d7a31dd83370fca6f6194f36daf664ef26d9d5",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -260,20 +260,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/geo_location_set/properties/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "Property reference for xcsh_geo_location_set.",
       "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["geo_location_setCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
       "aliases": ["custom geo location selector"],
       "body_bytes": 3744,
-      "body_sha256": "sha256:2e4923480f400e51dcf7a80ea2e58dbea67b04e1d9f24fa4da5ffb9fbc48311c",
+      "body_sha256": "sha256:f4a199e43d75dc86a1ac7d79f76fcf549fa8fc1622754b296684b9602cb8c515",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -317,14 +317,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/geo_location_set/properties/custom_geo_location_selector/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "This type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects. A null label selector matches no objects.",
       "tasks": ["configuration"],
       "title": "custom_geo_location_selector",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["geo_location_setCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -357,14 +357,14 @@
       "schema_path": ["global"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/geo_location_set/properties/global/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "global",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["geo_location_setCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -397,14 +397,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/geo_location_set/examples/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "Examples for xcsh_geo_location_set.",
       "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["geo_location_setCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -444,14 +444,14 @@
       "schema_path": ["data-source"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/geo_location_set/examples/data-source/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "Data source for xcsh_geo_location_set.",
       "tasks": ["configuration"],
       "title": "Data source",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["geo_location_setCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     }
   ],

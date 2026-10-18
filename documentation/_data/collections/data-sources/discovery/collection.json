@@ -707,21 +707,21 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "Reads Discovery information from F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_discovery",
       "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["discoveryCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
       "aliases": ["discovery"],
       "body_bytes": 37566,
-      "body_sha256": "sha256:204706f0b41a7f15ad7d562cac925a2091692cd0341083f98a8603516daf1560",
+      "body_sha256": "sha256:d2f5d6134b1c98361c1e09e7ccf3fb46d92df7ac3dabf651673aa63a69f2c01d",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -930,14 +930,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "Property reference for xcsh_discovery.",
       "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["discoveryCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -1006,14 +1006,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/discovery_consul/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "Discovery configuration for Hashicorp Consul.",
       "tasks": ["configuration"],
       "title": "discovery_consul",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["discoveryCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -1082,20 +1082,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/discovery_consul/access_info/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "Hashicorp Consul API server information.",
       "tasks": ["configuration"],
       "title": "discovery_consul.access_info",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["discoveryCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
       "aliases": ["discovery consul access info connection info"],
       "body_bytes": 2262,
-      "body_sha256": "sha256:9257fccb0e557463e013566cca533126aa8f061582057d3e0841482f0529b0be",
+      "body_sha256": "sha256:628bcfdc71f7648239193ce6dd20a73fb57247dfb16289bb297869c0f9a6b118",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -1157,20 +1157,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/discovery_consul/access_info/connection_info/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "Configuration details to access discovery service REST API.",
       "tasks": ["configuration"],
       "title": "discovery_consul.access_info.connection_info",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["discoveryCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
       "aliases": ["discovery consul access info connection info tls info"],
       "body_bytes": 4819,
-      "body_sha256": "sha256:b8cfcc91138a8c42aff9a985317ca452b4585d551890ee37c41db4f3f4f280b9",
+      "body_sha256": "sha256:91deb414c8b89581336d61e1fbc596531445a19640abd0a99f23b0b154b9e1a3",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -1264,14 +1264,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/discovery_consul/access_info/connection_info/tls_info/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "TLS config for client of discovery service.",
       "tasks": ["configuration"],
       "title": "discovery_consul.access_info.connection_info.tls_info",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["discoveryCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -1354,20 +1354,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/discovery_consul/access_info/connection_info/tls_info/key_url/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "SecretType is used in an object to indicate a sensitive/confidential field.",
       "tasks": ["configuration"],
       "title": "discovery_consul.access_info.connection_info.tls_info.key_url",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["discoveryCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
       "aliases": ["discovery consul access info connection info tls info key url blindfold secret info"],
       "body_bytes": 4608,
-      "body_sha256": "sha256:b8c7bcc7a94129929a4a6985372004ce6232cd6423e6ebd38828d95d6a561c96",
+      "body_sha256": "sha256:37fc574717e1c257bed89e23910afb043dd12ec8d1613b969c4f0a18090addc5",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -1478,20 +1478,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/discovery_consul/access_info/connection_info/tls_info/key_url/blindfold_secret_info/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
       "tasks": ["configuration"],
       "title": "discovery_consul.access_info.connection_info.tls_info.key_url.blindfold_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["discoveryCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
       "aliases": ["discovery consul access info connection info tls info key url clear secret info"],
       "body_bytes": 3597,
-      "body_sha256": "sha256:75662402c83672fff14a09dd2a427220bc0741b12a4bc18923e7f5cefd7489d1",
+      "body_sha256": "sha256:a034e22261529211d189f9df9c02e50831c13119d3d749538d7e02b0263bf1da",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -1567,20 +1567,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/discovery_consul/access_info/connection_info/tls_info/key_url/clear_secret_info/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
       "tasks": ["configuration"],
       "title": "discovery_consul.access_info.connection_info.tls_info.key_url.clear_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["discoveryCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
       "aliases": ["discovery consul access info http basic auth info"],
       "body_bytes": 2012,
-      "body_sha256": "sha256:531d926ad62a6df3d043195c7d52957df8fc51533ec54513efbbd3c5c68a79ce",
+      "body_sha256": "sha256:aa551d14fc77bf5967f1d067da6c3bc4163fd83b54caa04456827af4265f430a",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -1642,14 +1642,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/discovery_consul/access_info/http_basic_auth_info/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "Authentication parameters to access Hashicorp Consul.",
       "tasks": ["configuration"],
       "title": "discovery_consul.access_info.http_basic_auth_info",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["discoveryCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -1724,20 +1724,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/discovery_consul/access_info/http_basic_auth_info/passwd_url/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "SecretType is used in an object to indicate a sensitive/confidential field.",
       "tasks": ["configuration"],
       "title": "discovery_consul.access_info.http_basic_auth_info.passwd_url",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["discoveryCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
       "aliases": ["discovery consul access info http basic auth info passwd url blindfold secret info"],
       "body_bytes": 4404,
-      "body_sha256": "sha256:6cd67a77395098178cc27987fcc15f997699c4b0c2bac70601e4f864a349c233",
+      "body_sha256": "sha256:7efdc2d31d9b27006ea1fd1de7c2ed1c5f12e655308fbb81b2772ed25f9a622c",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -1838,20 +1838,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/discovery_consul/access_info/http_basic_auth_info/passwd_url/blindfold_secret_info/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
       "tasks": ["configuration"],
       "title": "discovery_consul.access_info.http_basic_auth_info.passwd_url.blindfold_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["discoveryCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
       "aliases": ["discovery consul access info http basic auth info passwd url clear secret info"],
       "body_bytes": 3395,
-      "body_sha256": "sha256:182507c16778567f3f6648c670d0ab95a81294132527203f3dc20dd4182dfd8d",
+      "body_sha256": "sha256:f48025f6d10a9465cd237fd4f462899c887279d078f7c0157cde60392dcf94ee",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -1925,14 +1925,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/discovery_consul/access_info/http_basic_auth_info/passwd_url/clear_secret_info/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
       "tasks": ["configuration"],
       "title": "discovery_consul.access_info.http_basic_auth_info.passwd_url.clear_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["discoveryCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -2001,14 +2001,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/discovery_consul/publish_info/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "Consul Configuration to publish VIPs.",
       "tasks": ["configuration"],
       "title": "discovery_consul.publish_info",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["discoveryCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -2041,14 +2041,14 @@
       "schema_path": ["discovery_consul", "publish_info", "disable_spec"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/discovery_consul/publish_info/disable_spec/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "Enable this option",
       "tasks": ["configuration"],
       "title": "discovery_consul.publish_info.disable_spec",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["discoveryCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -2081,14 +2081,14 @@
       "schema_path": ["discovery_consul", "publish_info", "publish"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/discovery_consul/publish_info/publish/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "discovery_consul.publish_info.publish",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["discoveryCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -2191,14 +2191,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/discovery_k8s/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "Discovery configuration for K8s.",
       "tasks": ["configuration"],
       "title": "discovery_k8s",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["discoveryCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -2301,20 +2301,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/discovery_k8s/access_info/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "K8s API server access.",
       "tasks": ["configuration"],
       "title": "discovery_k8s.access_info",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["discoveryCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
       "aliases": ["discovery k8s access info connection info"],
       "body_bytes": 2238,
-      "body_sha256": "sha256:fd1d75792c01ec6f367ed6e5321ec59819612274842e07daf07bf52f0b1ee9c1",
+      "body_sha256": "sha256:f64db318a2e09e98e5c724f0900f2a84c49956f109a76eb8d4a6834883b6e432",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:discovery:properties:discovery_k8s:access_info:connection_info:tls_info"],
@@ -2374,20 +2374,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/discovery_k8s/access_info/connection_info/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "Configuration details to access discovery service REST API.",
       "tasks": ["configuration"],
       "title": "discovery_k8s.access_info.connection_info",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["discoveryCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
       "aliases": ["discovery k8s access info connection info tls info"],
       "body_bytes": 4783,
-      "body_sha256": "sha256:360fba4b6750dbef55dddf1d3013c6fbdb7615788fc5548f5234abddd665d687",
+      "body_sha256": "sha256:2e1c1c61a9d9cfe731d3b3ee01fb8ae0ad27bbf4ed994cb1d11cd756ce9376ab",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -2481,14 +2481,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/discovery_k8s/access_info/connection_info/tls_info/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "TLS config for client of discovery service.",
       "tasks": ["configuration"],
       "title": "discovery_k8s.access_info.connection_info.tls_info",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["discoveryCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -2571,20 +2571,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/discovery_k8s/access_info/connection_info/tls_info/key_url/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "SecretType is used in an object to indicate a sensitive/confidential field.",
       "tasks": ["configuration"],
       "title": "discovery_k8s.access_info.connection_info.tls_info.key_url",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["discoveryCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
       "aliases": ["discovery k8s access info connection info tls info key url blindfold secret info"],
       "body_bytes": 4563,
-      "body_sha256": "sha256:f8c1c1b920f211bc58e2c333c6c0c5ffb198e62d0e97fe2705b0b0721913f248",
+      "body_sha256": "sha256:0988037da4d3eed0274b27e09dd5b3ba2b4b23f758ad86b0363ae7f75f65e59a",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -2695,20 +2695,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/discovery_k8s/access_info/connection_info/tls_info/key_url/blindfold_secret_info/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
       "tasks": ["configuration"],
       "title": "discovery_k8s.access_info.connection_info.tls_info.key_url.blindfold_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["discoveryCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
       "aliases": ["discovery k8s access info connection info tls info key url clear secret info"],
       "body_bytes": 3555,
-      "body_sha256": "sha256:4b0827f8218d82a2496655a6bebe3b31ea093166a4e565695aae21e0a14dac17",
+      "body_sha256": "sha256:bfc5bbf6982aecfce6e088c8b5a0b70715979982ae29b3bf4819e96e84c04028",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -2784,14 +2784,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/discovery_k8s/access_info/connection_info/tls_info/key_url/clear_secret_info/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
       "tasks": ["configuration"],
       "title": "discovery_k8s.access_info.connection_info.tls_info.key_url.clear_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["discoveryCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -2824,14 +2824,14 @@
       "schema_path": ["discovery_k8s", "access_info", "isolated"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/discovery_k8s/access_info/isolated/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "discovery_k8s.access_info.isolated",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["discoveryCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -2900,20 +2900,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/discovery_k8s/access_info/kubeconfig_url/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "SecretType is used in an object to indicate a sensitive/confidential field.",
       "tasks": ["configuration"],
       "title": "discovery_k8s.access_info.kubeconfig_url",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["discoveryCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
       "aliases": ["discovery k8s access info kubeconfig url blindfold secret info"],
       "body_bytes": 4053,
-      "body_sha256": "sha256:096a26476321a74ffc230a4c5b8983c6065afcaf975ed6aad291f20efaf4e5d6",
+      "body_sha256": "sha256:ed7d417265501a5279c388d95cb5c55e345db1b28838ee01ec208c06a45949f1",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -2995,20 +2995,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/discovery_k8s/access_info/kubeconfig_url/blindfold_secret_info/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
       "tasks": ["configuration"],
       "title": "discovery_k8s.access_info.kubeconfig_url.blindfold_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["discoveryCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
       "aliases": ["discovery k8s access info kubeconfig url clear secret info"],
       "body_bytes": 3065,
-      "body_sha256": "sha256:e86e8a7ac4c66161c43545602cacd49a72b5a49af08c7a7da6c8ddb304ef1c0b",
+      "body_sha256": "sha256:057fafc568296a4aaae57fbf3418ca337f4ab202f9c908d65b2e59be6646e05e",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -3068,14 +3068,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/discovery_k8s/access_info/kubeconfig_url/clear_secret_info/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
       "tasks": ["configuration"],
       "title": "discovery_k8s.access_info.kubeconfig_url.clear_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["discoveryCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -3108,14 +3108,14 @@
       "schema_path": ["discovery_k8s", "access_info", "reachable"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/discovery_k8s/access_info/reachable/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "discovery_k8s.access_info.reachable",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["discoveryCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -3148,14 +3148,14 @@
       "schema_path": ["discovery_k8s", "default_all"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/discovery_k8s/default_all/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "discovery_k8s.default_all",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["discoveryCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -3205,20 +3205,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/discovery_k8s/namespace_mapping/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "Select the mapping between K8s namespaces from which services will be discovered and App Namespace to which the discovered services will be shared.",
       "tasks": ["configuration"],
       "title": "discovery_k8s.namespace_mapping",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["discoveryCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
       "aliases": ["discovery k8s namespace mapping items"],
       "body_bytes": 3955,
-      "body_sha256": "sha256:43a98a77d160fa70f6260df7a22fa84912f119eb90ae61cb6f3ae8378075ac59",
+      "body_sha256": "sha256:8f653788a80c149da92d1d40407afd89ba5ee3381f85de9781ff98f2778659f0",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -3278,14 +3278,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/discovery_k8s/namespace_mapping/items/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "Map K8s namespace(s) to App Namespaces. In Shared Configuration, Discovered Services can only be mapped to a single App Namespace, which is determined by the first matched regex.",
       "tasks": ["configuration"],
       "title": "discovery_k8s.namespace_mapping.items",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["discoveryCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -3388,14 +3388,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/discovery_k8s/publish_info/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "K8s Configuration to publish VIPs.",
       "tasks": ["configuration"],
       "title": "discovery_k8s.publish_info",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["discoveryCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -3428,20 +3428,20 @@
       "schema_path": ["discovery_k8s", "publish_info", "disable_spec"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/discovery_k8s/publish_info/disable_spec/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "Enable this option",
       "tasks": ["configuration"],
       "title": "discovery_k8s.publish_info.disable_spec",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["discoveryCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
       "aliases": ["discovery k8s publish info dns delegation"],
       "body_bytes": 2519,
-      "body_sha256": "sha256:1526ddf4d1e189987837eb9c6eb23925c0845af619c4dc357807a448d3512115",
+      "body_sha256": "sha256:8c468c321132fa3419eb2c9ab93273042f20a11918d4640306bf05593bbd4446",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -3501,20 +3501,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/discovery_k8s/publish_info/dns_delegation/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "Configuration parameter for dns delegation.",
       "tasks": ["configuration"],
       "title": "discovery_k8s.publish_info.dns_delegation",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["discoveryCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
       "aliases": ["discovery k8s publish info publish"],
       "body_bytes": 2448,
-      "body_sha256": "sha256:59a4381beff608d1f145c341f0fd60a776b028000221bf5612e24ea6407181df",
+      "body_sha256": "sha256:1adaddbb2ebc568c49c5634a09b3ae1bf786ab97e039970112939682e81870ed",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -3558,14 +3558,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/discovery_k8s/publish_info/publish/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "K8SPublishType.",
       "tasks": ["configuration"],
       "title": "discovery_k8s.publish_info.publish",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["discoveryCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -3598,14 +3598,14 @@
       "schema_path": ["discovery_k8s", "publish_info", "publish_fqdns"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/discovery_k8s/publish_info/publish_fqdns/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "discovery_k8s.publish_info.publish_fqdns",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["discoveryCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -3638,14 +3638,14 @@
       "schema_path": ["no_cluster_id"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/no_cluster_id/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "no_cluster_id",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["discoveryCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -3731,14 +3731,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/where/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "NetworkSiteRefSelector defines a union of reference to site or reference to virtual_network or reference to virtual_site It is used to determine virtual network using following rules * Direct reference to virtual_network object * Site local network when referring to site object * All site local networks for sites",
       "tasks": ["configuration"],
       "title": "where",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["discoveryCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -3840,14 +3840,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/where/site/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "This specifies a direct reference to a site configuration object.",
       "tasks": ["configuration"],
       "title": "where.site",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["discoveryCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -3880,14 +3880,14 @@
       "schema_path": ["where", "site", "disable_internet_vip"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/where/site/disable_internet_vip/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "where.site.disable_internet_vip",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["discoveryCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -3920,20 +3920,20 @@
       "schema_path": ["where", "site", "enable_internet_vip"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/where/site/enable_internet_vip/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "where.site.enable_internet_vip",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["discoveryCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
       "aliases": ["where site ref"],
       "body_bytes": 5331,
-      "body_sha256": "sha256:b2660248c106c46c4facc58b0a1fd62c52cc59cff15616b0e8309af3041c82ba",
+      "body_sha256": "sha256:5b8184acb11c4c3938f06722f66faf7217e1722b1fc806a4a34cdebfc44c74d5",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -4076,14 +4076,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/where/site/ref/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "A site direct reference.",
       "tasks": ["configuration"],
       "title": "where.site.ref",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["discoveryCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -4133,20 +4133,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/where/virtual_network/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "This specifies a direct reference to a network configuration object.",
       "tasks": ["configuration"],
       "title": "where.virtual_network",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["discoveryCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
       "aliases": ["where virtual network ref"],
       "body_bytes": 5441,
-      "body_sha256": "sha256:8c08e7df575cdbb3fb45c3cb67107a0b30cc9eae3b21cefc9895dd8cb73c2783",
+      "body_sha256": "sha256:09131f5e06b28631b72b4a36fcc01596b8fad5b3b8e44a3da7b143c5b7f77247",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -4289,14 +4289,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/where/virtual_network/ref/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "A virtual network direct reference.",
       "tasks": ["configuration"],
       "title": "where.virtual_network.ref",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["discoveryCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -4398,14 +4398,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/where/virtual_site/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "A reference to virtual_site object.",
       "tasks": ["configuration"],
       "title": "where.virtual_site",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["discoveryCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -4438,14 +4438,14 @@
       "schema_path": ["where", "virtual_site", "disable_internet_vip"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/where/virtual_site/disable_internet_vip/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "where.virtual_site.disable_internet_vip",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["discoveryCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -4478,20 +4478,20 @@
       "schema_path": ["where", "virtual_site", "enable_internet_vip"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/where/virtual_site/enable_internet_vip/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "where.virtual_site.enable_internet_vip",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["discoveryCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
       "aliases": ["where virtual site ref"],
       "body_bytes": 5412,
-      "body_sha256": "sha256:dfe69872b8db9ef2758d24c1119645a59cc4664f4689c250f7e59d78af482587",
+      "body_sha256": "sha256:b6157021b1c987d75029b6e02aee9fea487527099da19c835d0160696aacb6ef",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -4634,14 +4634,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/properties/where/virtual_site/ref/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "A virtual_site direct reference.",
       "tasks": ["configuration"],
       "title": "where.virtual_site.ref",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["discoveryCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -4674,14 +4674,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/examples/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "Examples for xcsh_discovery.",
       "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["discoveryCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -4721,14 +4721,14 @@
       "schema_path": ["data-source"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/discovery/examples/data-source/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "Data source for xcsh_discovery.",
       "tasks": ["configuration"],
       "title": "Data source",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["discoveryCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     }
   ],

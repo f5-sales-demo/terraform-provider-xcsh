@@ -1554,21 +1554,21 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "Manages applications protected by Bot Defense in F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_protected_application",
       "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
       "aliases": ["protected application"],
       "body_bytes": 92769,
-      "body_sha256": "sha256:1e361578d730263a0ba0ba37038bd9213b0e73052ed9adda0af3e652516094ad",
+      "body_sha256": "sha256:80129e318147cc661274e22a0948295d805dcaffd02a903c88905810c960aa47",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -2064,14 +2064,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "Property reference for xcsh_protected_application.",
       "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -2104,14 +2104,14 @@
       "schema_path": ["adobe_commerce_connector"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/adobe_commerce_connector/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "adobe_commerce_connector",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -2144,20 +2144,20 @@
       "schema_path": ["big_ip_iapp"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/big_ip_iapp/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "big_ip_iapp",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
       "aliases": ["cloudflare"],
       "body_bytes": 6505,
-      "body_sha256": "sha256:8d671a56063c5b9d7d923539b4970a5daa39ef57390cfc9a97b6e9b6f7b5430a",
+      "body_sha256": "sha256:a064b46d853785ea8ed0d3e46853049c476240aada19e4b8ef2ac554d8c6f9bf",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -2534,14 +2534,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudflare/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "Bot Defense policy configuration for Cloudflare.",
       "tasks": ["configuration"],
       "title": "cloudflare",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -2574,14 +2574,14 @@
       "schema_path": ["cloudflare", "disable_js_insert"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudflare/disable_js_insert/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "Disables JavaScript insertion for Cloudflare-protected applications.",
       "tasks": ["configuration"],
       "title": "cloudflare.disable_js_insert",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -2614,20 +2614,20 @@
       "schema_path": ["cloudflare", "disable_mobile_sdk"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudflare/disable_mobile_sdk/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "Disables Mobile SDK configuration for the protected application.",
       "tasks": ["configuration"],
       "title": "cloudflare.disable_mobile_sdk",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
       "aliases": ["cloudflare js insertion rules"],
       "body_bytes": 3930,
-      "body_sha256": "sha256:1796966620d0936cfe4dc701704687f7c34e0ba504612cd3e55d48b94cb2e48a",
+      "body_sha256": "sha256:72c2db1bdb6970ed511bcabb4b036663bd3fe97570e4e2357a03b52ed0868d38",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -2822,20 +2822,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudflare/js_insertion_rules/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "This defines custom JavaScript insertion rules for Bot Defense Policy.",
       "tasks": ["configuration"],
       "title": "cloudflare.js_insertion_rules",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
       "aliases": ["cloudflare js insertion rules exclude list"],
       "body_bytes": 2751,
-      "body_sha256": "sha256:41a98d7249a82ae10b55612d40979cb5918b482b1b77075ff546fc0ca9c82cb0",
+      "body_sha256": "sha256:8fd4cc2f28affc83970864ee934ecf1f7fca86096e90a3c788698c764f9d744d",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -3056,14 +3056,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudflare/js_insertion_rules/exclude_list/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "Optional JavaScript insertions exclude list of domain and path matchers.",
       "tasks": ["configuration"],
       "title": "cloudflare.js_insertion_rules.exclude_list",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -3096,20 +3096,20 @@
       "schema_path": ["cloudflare", "js_insertion_rules", "exclude_list", "any_domain"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudflare/js_insertion_rules/exclude_list/any_domain/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "cloudflare.js_insertion_rules.exclude_list.any_domain",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
       "aliases": ["cloudflare js insertion rules exclude list domain"],
       "body_bytes": 5844,
-      "body_sha256": "sha256:eae66743cc942ec0dfd76a772e5d77f036ff06a36b394963b720570a5ebf58ee",
+      "body_sha256": "sha256:ea2bea11c4193aaae9747601e6311e1d5ed218ddb37c3eba50c7e01145404156",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -3234,20 +3234,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudflare/js_insertion_rules/exclude_list/domain/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "Domains names.",
       "tasks": ["configuration"],
       "title": "cloudflare.js_insertion_rules.exclude_list.domain",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
       "aliases": ["cloudflare js insertion rules exclude list metadata"],
       "body_bytes": 3951,
-      "body_sha256": "sha256:16276e34d4c65fef0fb16bf1340a77ec1dccf9ea0aa8a3b09015b147cc33628c",
+      "body_sha256": "sha256:cffc706136605a503e25152dd17ec3b22f5fba243fd6344c30f4f92b9865332f",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -3316,20 +3316,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudflare/js_insertion_rules/exclude_list/metadata/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create and replace APIs.",
       "tasks": ["configuration"],
       "title": "cloudflare.js_insertion_rules.exclude_list.metadata",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
       "aliases": ["cloudflare js insertion rules exclude list path"],
       "body_bytes": 5386,
-      "body_sha256": "sha256:813b0a1d47a419bd64e70ad34f21bc445fb81d7262bd6b75c06b7434dc0f49ec",
+      "body_sha256": "sha256:8287a0fed5e44017c98df5e1b448037d1fa5e77595820fad4de80a89eeb8ae3d",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -3454,20 +3454,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudflare/js_insertion_rules/exclude_list/path/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "Path match of the URI can be either be, Prefix match or exact match or regular expression match.",
       "tasks": ["configuration"],
       "title": "cloudflare.js_insertion_rules.exclude_list.path",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
       "aliases": ["cloudflare js insertion rules rules"],
       "body_bytes": 6626,
-      "body_sha256": "sha256:fb3915782f9af552e3d4662cfdcfcd5dc7ab1fd9a0c697a22dc0abd9c5979649",
+      "body_sha256": "sha256:2d79d527e372e3fc5f6268f5be13ca1cb8890f94be506bbcc9f4c0b6ad114414",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -3718,14 +3718,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudflare/js_insertion_rules/rules/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "Required list of pages to insert Bot Defense client JavaScript.",
       "tasks": ["configuration"],
       "title": "cloudflare.js_insertion_rules.rules",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -3758,20 +3758,20 @@
       "schema_path": ["cloudflare", "js_insertion_rules", "rules", "any_domain"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudflare/js_insertion_rules/rules/any_domain/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "cloudflare.js_insertion_rules.rules.any_domain",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
       "aliases": ["cloudflare js insertion rules rules domain"],
       "body_bytes": 5795,
-      "body_sha256": "sha256:4e201013a938b90c49405e8354284f3bf5a2ac4921af6e87b9cec8dfbd876081",
+      "body_sha256": "sha256:95e4b00e643c9b34cec888fd264a4ecfb2c07b812542d64273b2251508780cde",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -3896,20 +3896,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudflare/js_insertion_rules/rules/domain/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "Domains names.",
       "tasks": ["configuration"],
       "title": "cloudflare.js_insertion_rules.rules.domain",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
       "aliases": ["cloudflare js insertion rules rules metadata"],
       "body_bytes": 3909,
-      "body_sha256": "sha256:278851a909bb2c75e6e46a2c7062201f11c46d51de8a02108467e3bfcdfe7873",
+      "body_sha256": "sha256:e67693aa649399a9deefc9ba1cd684452293df85ed17058ba54f2290f310bf3d",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -3978,20 +3978,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudflare/js_insertion_rules/rules/metadata/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create and replace APIs.",
       "tasks": ["configuration"],
       "title": "cloudflare.js_insertion_rules.rules.metadata",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
       "aliases": ["cloudflare manual js insert"],
       "body_bytes": 1864,
-      "body_sha256": "sha256:e4a74381fb4372bddfc7683f7082c5ef5a022db9b377a204faeda63ee79e4b20",
+      "body_sha256": "sha256:a31fa6a3e68f11057556817e30d91992f7ec05065ea3253e23b91d4cb4ea99cd",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -4035,14 +4035,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudflare/manual_js_insert/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "Insert JavaScript manually.",
       "tasks": ["configuration"],
       "title": "cloudflare.manual_js_insert",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -4094,14 +4094,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudflare/mobile_sdk_config/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "Mobile SDK configuration.",
       "tasks": ["configuration"],
       "title": "cloudflare.mobile_sdk_config",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -4178,20 +4178,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudflare/mobile_sdk_config/mobile_identifier/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "Mobile traffic identifier type.",
       "tasks": ["configuration"],
       "title": "cloudflare.mobile_sdk_config.mobile_identifier",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
       "aliases": ["cloudflare mobile sdk config mobile identifier headers"],
       "body_bytes": 6459,
-      "body_sha256": "sha256:3ab074b393688bbcddb4dbeff1a1eaebfb5c2220e6aa49ff60c84a0387c851a2",
+      "body_sha256": "sha256:28e110dc2f94e1b594a3c8c52cb5b7c7c23e9cf879a7215b1ccfeae118fa9cc9",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -4292,20 +4292,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudflare/mobile_sdk_config/mobile_identifier/headers/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "A list of headers that can be used to identify mobile traffic.",
       "tasks": ["configuration"],
       "title": "cloudflare.mobile_sdk_config.mobile_identifier.headers",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
       "aliases": ["cloudflare protected endpoints"],
       "body_bytes": 6653,
-      "body_sha256": "sha256:605294ae0d16ddede5304698119980e1bf9ab18739fd551b0f769dcd07784495",
+      "body_sha256": "sha256:022c8a52d74c0d6fd6f3eea27024bec0392d5e792e41401fae8c5306b883d0ec",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -4756,14 +4756,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudflare/protected_endpoints/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "List of protected endpoints (max 128 items)",
       "tasks": ["configuration"],
       "title": "cloudflare.protected_endpoints",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -4796,20 +4796,20 @@
       "schema_path": ["cloudflare", "protected_endpoints", "any_domain"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudflare/protected_endpoints/any_domain/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "cloudflare.protected_endpoints.any_domain",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
       "aliases": ["cloudflare protected endpoints domain"],
       "body_bytes": 5592,
-      "body_sha256": "sha256:a7d00415b72d0da6a55613fb6592a744c8860da54e7c6b67c203fa950284f7d3",
+      "body_sha256": "sha256:b3675b0f046e19890cb739ba65ec08456ad72b6d718ad6cefdc5bbeb802ff608",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -4934,20 +4934,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudflare/protected_endpoints/domain/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "Domains names.",
       "tasks": ["configuration"],
       "title": "cloudflare.protected_endpoints.domain",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
       "aliases": ["cloudflare protected endpoints metadata"],
       "body_bytes": 3712,
-      "body_sha256": "sha256:371cd67be32813f9aaa33d9d31898076fef364b23b1f5563e41fcfd7120d2e29",
+      "body_sha256": "sha256:6702a816a9772cfa7d23d61ec215208b57236e213d2f9e88e1b1847d593aa3ea",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -5016,14 +5016,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudflare/protected_endpoints/metadata/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create and replace APIs.",
       "tasks": ["configuration"],
       "title": "cloudflare.protected_endpoints.metadata",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -5126,20 +5126,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudflare/protected_endpoints/mobile_client/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "Mobile client configuration OPTIONS.",
       "tasks": ["configuration"],
       "title": "cloudflare.protected_endpoints.mobile_client",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
       "aliases": ["cloudflare protected endpoints mobile client block"],
       "body_bytes": 11578,
-      "body_sha256": "sha256:7a1f26204a996361f687c6c8635302586e8b84c4edd52fa41050b54e9b5863a6",
+      "body_sha256": "sha256:be8af9d5b7019794fe387afba174e22d1bb4763a81737d2c851b0752b85345ee",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -5282,14 +5282,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudflare/protected_endpoints/mobile_client/block/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "Block Response.",
       "tasks": ["configuration"],
       "title": "cloudflare.protected_endpoints.mobile_client.block",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -5375,14 +5375,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudflare/protected_endpoints/mobile_client/continue/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "Continue mitigation action.",
       "tasks": ["configuration"],
       "title": "cloudflare.protected_endpoints.mobile_client.continue",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -5415,14 +5415,14 @@
       "schema_path": ["cloudflare", "protected_endpoints", "mobile_client", "continue", "add_header"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudflare/protected_endpoints/mobile_client/continue/add_header/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "cloudflare.protected_endpoints.mobile_client.continue.add_header",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -5455,20 +5455,20 @@
       "schema_path": ["cloudflare", "protected_endpoints", "mobile_client", "continue", "no_header"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudflare/protected_endpoints/mobile_client/continue/no_header/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "cloudflare.protected_endpoints.mobile_client.continue.no_header",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
       "aliases": ["cloudflare protected endpoints path"],
       "body_bytes": 3093,
-      "body_sha256": "sha256:002b7869c3b9300d5f08cb35e9a7fc037018453f1b50a5fcd6cc8ef042448ac7",
+      "body_sha256": "sha256:1c0c500cdb8bf81460d9734bec0640c148df3f058bee9a841c715114529b240a",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -5537,14 +5537,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudflare/protected_endpoints/path/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "URI Path",
       "tasks": ["configuration"],
       "title": "cloudflare.protected_endpoints.path",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -5705,20 +5705,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudflare/protected_endpoints/web_client/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "Web client configuration OPTIONS.",
       "tasks": ["configuration"],
       "title": "cloudflare.protected_endpoints.web_client",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
       "aliases": ["cloudflare protected endpoints web client block"],
       "body_bytes": 11546,
-      "body_sha256": "sha256:15ee8c3df0cfb995e683e2e0f49fcff9d5210faed33f45d0efcb9d99949e2c59",
+      "body_sha256": "sha256:237f918cc63eddbb80fe2660b3e4532b2b20b9dcbce3cde30e874e99d29cd7ea",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -5861,14 +5861,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudflare/protected_endpoints/web_client/block/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "Block Response.",
       "tasks": ["configuration"],
       "title": "cloudflare.protected_endpoints.web_client.block",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -5954,14 +5954,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudflare/protected_endpoints/web_client/continue/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "Continue mitigation action.",
       "tasks": ["configuration"],
       "title": "cloudflare.protected_endpoints.web_client.continue",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -5994,14 +5994,14 @@
       "schema_path": ["cloudflare", "protected_endpoints", "web_client", "continue", "add_header"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudflare/protected_endpoints/web_client/continue/add_header/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "cloudflare.protected_endpoints.web_client.continue.add_header",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -6034,20 +6034,20 @@
       "schema_path": ["cloudflare", "protected_endpoints", "web_client", "continue", "no_header"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudflare/protected_endpoints/web_client/continue/no_header/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "cloudflare.protected_endpoints.web_client.continue.no_header",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
       "aliases": ["cloudflare protected endpoints web client redirect"],
       "body_bytes": 11035,
-      "body_sha256": "sha256:36f31c9a6c8e0f3e2584cd158eb7665b64c1ff1862ace056d903420fe1cc33f1",
+      "body_sha256": "sha256:bcbfecb1c056ff528e69f74de361aba9878cea324e5766d00f3d275da06c57d7",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -6183,14 +6183,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudflare/protected_endpoints/web_client/redirect/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "Redirect.",
       "tasks": ["configuration"],
       "title": "cloudflare.protected_endpoints.web_client.redirect",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -6418,20 +6418,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudflare/protected_endpoints/web_mobile_client/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "Web and Mobile client configuration OPTIONS.",
       "tasks": ["configuration"],
       "title": "cloudflare.protected_endpoints.web_mobile_client",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
       "aliases": ["cloudflare protected endpoints web mobile client block mobile"],
       "body_bytes": 11648,
-      "body_sha256": "sha256:f5f19a38b6e27935a53d07c0b444c32a3cb8731f46cf164c87d8598552d9eebe",
+      "body_sha256": "sha256:5b28efdf7e1d9843642342e63285422e7e05e3bd23b7ce52384fae6881cd78b2",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -6574,20 +6574,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudflare/protected_endpoints/web_mobile_client/block_mobile/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "Block Response.",
       "tasks": ["configuration"],
       "title": "cloudflare.protected_endpoints.web_mobile_client.block_mobile",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
       "aliases": ["cloudflare protected endpoints web mobile client block web"],
       "body_bytes": 11619,
-      "body_sha256": "sha256:9755e0e8998a7ca4f1276dd8fc69b9d7f24eea35a6a97366e03dff496e43936a",
+      "body_sha256": "sha256:92ea3c1a8c4d9b459c1a43538dc3e6f914e283a3681dd5614bd0e9b538ef709f",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -6730,14 +6730,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudflare/protected_endpoints/web_mobile_client/block_web/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "Block Response.",
       "tasks": ["configuration"],
       "title": "cloudflare.protected_endpoints.web_mobile_client.block_web",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -6823,14 +6823,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudflare/protected_endpoints/web_mobile_client/continue_mobile/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "Continue mitigation action.",
       "tasks": ["configuration"],
       "title": "cloudflare.protected_endpoints.web_mobile_client.continue_mobile",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -6863,14 +6863,14 @@
       "schema_path": ["cloudflare", "protected_endpoints", "web_mobile_client", "continue_mobile", "add_header"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudflare/protected_endpoints/web_mobile_client/continue_mobile/add_header/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "cloudflare.protected_endpoints.web_mobile_client.continue_mobile.add_header",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -6903,14 +6903,14 @@
       "schema_path": ["cloudflare", "protected_endpoints", "web_mobile_client", "continue_mobile", "no_header"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudflare/protected_endpoints/web_mobile_client/continue_mobile/no_header/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "cloudflare.protected_endpoints.web_mobile_client.continue_mobile.no_header",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -6996,14 +6996,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudflare/protected_endpoints/web_mobile_client/continue_web/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "Continue mitigation action.",
       "tasks": ["configuration"],
       "title": "cloudflare.protected_endpoints.web_mobile_client.continue_web",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -7036,14 +7036,14 @@
       "schema_path": ["cloudflare", "protected_endpoints", "web_mobile_client", "continue_web", "add_header"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudflare/protected_endpoints/web_mobile_client/continue_web/add_header/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "cloudflare.protected_endpoints.web_mobile_client.continue_web.add_header",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -7076,20 +7076,20 @@
       "schema_path": ["cloudflare", "protected_endpoints", "web_mobile_client", "continue_web", "no_header"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudflare/protected_endpoints/web_mobile_client/continue_web/no_header/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "cloudflare.protected_endpoints.web_mobile_client.continue_web.no_header",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
       "aliases": ["cloudflare protected endpoints web mobile client redirect web"],
       "body_bytes": 11097,
-      "body_sha256": "sha256:37afbd5d28a06dd34f29b3df646c50912f0350388d4c322f3bef07e45a2918e7",
+      "body_sha256": "sha256:4feedd967c11af78873fa6260cd4e38b23f802f4c6a1dd81f7f7e68eb853e5e3",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -7225,20 +7225,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudflare/protected_endpoints/web_mobile_client/redirect_web/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "Redirect.",
       "tasks": ["configuration"],
       "title": "cloudflare.protected_endpoints.web_mobile_client.redirect_web",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
       "aliases": ["cloudflare trusted clients"],
       "body_bytes": 3138,
-      "body_sha256": "sha256:22f6e77e09f373e1e70cb4f1473971ee25c645b91e565feca36eed368dd02561",
+      "body_sha256": "sha256:6bc28a509f8b7f3976e233b2ff8841eb5f02a04b77d38ad16cd1c4675477604d",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -7352,14 +7352,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudflare/trusted_clients/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "Define your allowlists to skip Bot Defense inference processing.",
       "tasks": ["configuration"],
       "title": "cloudflare.trusted_clients",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -7445,20 +7445,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudflare/trusted_clients/http_header/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "Request header name and value pairs.",
       "tasks": ["configuration"],
       "title": "cloudflare.trusted_clients.http_header",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
       "aliases": ["cloudflare trusted clients http header headers"],
       "body_bytes": 6480,
-      "body_sha256": "sha256:74037d354fbf4db831e32944daa506a0b8beb629c7dd3b90ce3307056ea62e7e",
+      "body_sha256": "sha256:9bc873c5185ade3d92a28e55b53403392a2c82d3fea9248ea2024b2a96533d79",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -7559,20 +7559,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudflare/trusted_clients/http_header/headers/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "List of HTTP header name and value pairs.",
       "tasks": ["configuration"],
       "title": "cloudflare.trusted_clients.http_header.headers",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
       "aliases": ["cloudflare trusted clients metadata"],
       "body_bytes": 3688,
-      "body_sha256": "sha256:28c2c3c0a7ccceec663cfc1a2250f5684a0f9c9cb3a51805d7e09dbd57a3d8c7",
+      "body_sha256": "sha256:18d99622edaaf891c6b7977d64cdb96d8b27e5769cb5820b1c0fe1e2e15e9d63",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -7641,20 +7641,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudflare/trusted_clients/metadata/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create and replace APIs.",
       "tasks": ["configuration"],
       "title": "cloudflare.trusted_clients.metadata",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
       "aliases": ["cloudfront"],
       "body_bytes": 8714,
-      "body_sha256": "sha256:2d0e8d68168d14c80df156bb16c83b448da5f0b9bbdb7f49125249795127a381",
+      "body_sha256": "sha256:118b6ee4b3def7e1fed13d33c32db5b8af4939d529cf21751a5fe0b99b3ac14e",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -8188,20 +8188,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudfront/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "Bot Defense policy configuration for AWS Cloudfront.",
       "tasks": ["configuration"],
       "title": "cloudfront",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
       "aliases": ["cloudfront aws configuration id selector"],
       "body_bytes": 2991,
-      "body_sha256": "sha256:aa25272aeef67eead1f808ba08385e11713acc8ee34adddbe930853920e422a8",
+      "body_sha256": "sha256:cb01a3b33defb9a295abde5bbd99a64e4197ce0fa95a6e446c194c05198df58d",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -8254,14 +8254,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudfront/aws_configuration_id_selector/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "List of CloudFront distributions.",
       "tasks": ["configuration"],
       "title": "cloudfront.aws_configuration_id_selector",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -8320,14 +8320,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudfront/aws_configuration_tag_selector/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "CloudFront distribution tag list.",
       "tasks": ["configuration"],
       "title": "cloudfront.aws_configuration_tag_selector",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -8360,14 +8360,14 @@
       "schema_path": ["cloudfront", "disable_aws_configuration"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudfront/disable_aws_configuration/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "cloudfront.disable_aws_configuration",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -8400,14 +8400,14 @@
       "schema_path": ["cloudfront", "disable_js_insert"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudfront/disable_js_insert/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "cloudfront.disable_js_insert",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -8440,20 +8440,20 @@
       "schema_path": ["cloudfront", "disable_mobile_sdk"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudfront/disable_mobile_sdk/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "cloudfront.disable_mobile_sdk",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
       "aliases": ["cloudfront js insertion rules"],
       "body_bytes": 5921,
-      "body_sha256": "sha256:769427fb307ee7694c9e9336edc86241bfb92b58785e410598970ce920847806",
+      "body_sha256": "sha256:d2965621d9b57d75bfb3d9e3e5038c82cbcb4f37a86f5797d444aa23337ae9de",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -8673,20 +8673,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudfront/js_insertion_rules/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "This defines custom JavaScript insertion rules for Bot Defense Policy.",
       "tasks": ["configuration"],
       "title": "cloudfront.js_insertion_rules",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
       "aliases": ["cloudfront js insertion rules exclude list"],
       "body_bytes": 2751,
-      "body_sha256": "sha256:3e4f961eb53d7a05e9c13ebf345c4785521704f94b669b44efd90687dc616a4c",
+      "body_sha256": "sha256:27016c56a8e63b3557fb25dd2dbe3835d18fdff4a2061e1b4bab24aabd41212b",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -8907,14 +8907,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudfront/js_insertion_rules/exclude_list/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "Optional JavaScript insertions exclude list of domain and path matchers.",
       "tasks": ["configuration"],
       "title": "cloudfront.js_insertion_rules.exclude_list",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -8947,20 +8947,20 @@
       "schema_path": ["cloudfront", "js_insertion_rules", "exclude_list", "any_domain"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudfront/js_insertion_rules/exclude_list/any_domain/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "cloudfront.js_insertion_rules.exclude_list.any_domain",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
       "aliases": ["cloudfront js insertion rules exclude list domain"],
       "body_bytes": 5844,
-      "body_sha256": "sha256:9a329e7735cbe14f380df3806f35e0dba51f6194ad88e89a6fd082990cea30f2",
+      "body_sha256": "sha256:7f2935635587928ba9636cec30454b13f412e6049a4010543a1a31c0cc07c299",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -9085,20 +9085,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudfront/js_insertion_rules/exclude_list/domain/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "Domains names.",
       "tasks": ["configuration"],
       "title": "cloudfront.js_insertion_rules.exclude_list.domain",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
       "aliases": ["cloudfront js insertion rules exclude list metadata"],
       "body_bytes": 3951,
-      "body_sha256": "sha256:d986710d26441c2f4816b60224a390b0741a3da5aef820a7325a464b3f969631",
+      "body_sha256": "sha256:e49a3b5cee104cdd825f86f88c9923715140b482c9cb2a11d5359d916820b72d",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -9167,20 +9167,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudfront/js_insertion_rules/exclude_list/metadata/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create and replace APIs.",
       "tasks": ["configuration"],
       "title": "cloudfront.js_insertion_rules.exclude_list.metadata",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
       "aliases": ["cloudfront js insertion rules exclude list path"],
       "body_bytes": 5386,
-      "body_sha256": "sha256:5892c152a84baef9bbee1d2058f3a97930a0239c7323862868f88063170d9266",
+      "body_sha256": "sha256:e4498ce007b997aeeb0a7180f7f81eae0dcd9cfd8137d056d4cb83aa28d9d0bf",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -9305,20 +9305,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudfront/js_insertion_rules/exclude_list/path/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "Path match of the URI can be either be, Prefix match or exact match or regular expression match.",
       "tasks": ["configuration"],
       "title": "cloudfront.js_insertion_rules.exclude_list.path",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
       "aliases": ["cloudfront js insertion rules rules"],
       "body_bytes": 6626,
-      "body_sha256": "sha256:3d82210af5211d63828c39052d6026e8b0a5601da45f4ca6a6adce02b2cb952a",
+      "body_sha256": "sha256:9a5d3b164f826c38e3695c27ea97d420b2f019a252f3e6a61d17344f67aefe70",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -9569,14 +9569,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudfront/js_insertion_rules/rules/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "Required list of pages to insert Bot Defense client JavaScript.",
       "tasks": ["configuration"],
       "title": "cloudfront.js_insertion_rules.rules",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -9609,20 +9609,20 @@
       "schema_path": ["cloudfront", "js_insertion_rules", "rules", "any_domain"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudfront/js_insertion_rules/rules/any_domain/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "cloudfront.js_insertion_rules.rules.any_domain",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
       "aliases": ["cloudfront js insertion rules rules domain"],
       "body_bytes": 5795,
-      "body_sha256": "sha256:6a5eb567b51367a564de2c4d4ced3904cacb1640481542a943b308f13ab63836",
+      "body_sha256": "sha256:bd16baa6a82562f5c650b127df8ddea99f687f095041175b67c2a3177bacb358",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -9747,20 +9747,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudfront/js_insertion_rules/rules/domain/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "Domains names.",
       "tasks": ["configuration"],
       "title": "cloudfront.js_insertion_rules.rules.domain",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
       "aliases": ["cloudfront js insertion rules rules metadata"],
       "body_bytes": 3909,
-      "body_sha256": "sha256:f7aee82ff9520d4602f5160edbef90e1f6ab4637b36e02a37b0975aa38678dd2",
+      "body_sha256": "sha256:cc4b039c57252dffead6bc6373019ae3a758cd38b80c30381965945f7af53b69",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -9829,20 +9829,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudfront/js_insertion_rules/rules/metadata/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create and replace APIs.",
       "tasks": ["configuration"],
       "title": "cloudfront.js_insertion_rules.rules.metadata",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
       "aliases": ["cloudfront manual js insert"],
       "body_bytes": 3853,
-      "body_sha256": "sha256:22b16d43fbbec1e0475b694d2e1c4fe29a77db16958d29b5a47ab94b9f391180",
+      "body_sha256": "sha256:1137f65a74a569369ceff50da800977f4103126607a2c41dd61924d37a42d82d",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -9911,14 +9911,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudfront/manual_js_insert/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "Insert JavaScript manually.",
       "tasks": ["configuration"],
       "title": "cloudfront.manual_js_insert",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -9970,14 +9970,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudfront/mobile_sdk_config/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "Mobile SDK configuration.",
       "tasks": ["configuration"],
       "title": "cloudfront.mobile_sdk_config",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -10054,20 +10054,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudfront/mobile_sdk_config/mobile_identifier/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "Mobile traffic identifier type.",
       "tasks": ["configuration"],
       "title": "cloudfront.mobile_sdk_config.mobile_identifier",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
       "aliases": ["cloudfront mobile sdk config mobile identifier headers"],
       "body_bytes": 6459,
-      "body_sha256": "sha256:4211f53041662eb2db307dfd49d4e981e7fca950e452ba96299736877fafc887",
+      "body_sha256": "sha256:49651db09ef35b9b765fd60857f09192bae25138867312d2b193afdd93cf6e76",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -10168,20 +10168,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudfront/mobile_sdk_config/mobile_identifier/headers/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "A list of headers that can be used to identify mobile traffic.",
       "tasks": ["configuration"],
       "title": "cloudfront.mobile_sdk_config.mobile_identifier.headers",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
       "aliases": ["cloudfront protected endpoints"],
       "body_bytes": 8501,
-      "body_sha256": "sha256:545e122a531fbb04d040422fc029e72d7f170fa16ddf407db5102bf3c8c0eb9b",
+      "body_sha256": "sha256:694896ce16b1c17179518437d032bb8ca1c63c412def54fc209bb90da39b258b",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -11017,14 +11017,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudfront/protected_endpoints/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "List of protected endpoints (max 128 items)",
       "tasks": ["configuration"],
       "title": "cloudfront.protected_endpoints",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -11057,20 +11057,20 @@
       "schema_path": ["cloudfront", "protected_endpoints", "any_domain"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudfront/protected_endpoints/any_domain/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "cloudfront.protected_endpoints.any_domain",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
       "aliases": ["cloudfront protected endpoints domain"],
       "body_bytes": 5592,
-      "body_sha256": "sha256:b6a57d4ee1eeb337b7328463f213e92ebbd4d4d37864dbbba1537692d87e98bc",
+      "body_sha256": "sha256:9b628f3ae173e383dfd6a811df507ecb736c974df9c1d29a32fbb9eebe2e39c2",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -11195,14 +11195,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudfront/protected_endpoints/domain/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "Domains names.",
       "tasks": ["configuration"],
       "title": "cloudfront.protected_endpoints.domain",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -13096,14 +13096,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudfront/protected_endpoints/flow_label/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "Bot Defense Flow Label Category allows to associate traffic with selected category.",
       "tasks": ["configuration"],
       "title": "cloudfront.protected_endpoints.flow_label",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -13189,14 +13189,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudfront/protected_endpoints/flow_label/account_management/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "Bot Defense Flow Label Account Management Category.",
       "tasks": ["configuration"],
       "title": "cloudfront.protected_endpoints.flow_label.account_management",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -13229,14 +13229,14 @@
       "schema_path": ["cloudfront", "protected_endpoints", "flow_label", "account_management", "create"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudfront/protected_endpoints/flow_label/account_management/create/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "cloudfront.protected_endpoints.flow_label.account_management.create",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -13269,14 +13269,14 @@
       "schema_path": ["cloudfront", "protected_endpoints", "flow_label", "account_management", "password_reset"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudfront/protected_endpoints/flow_label/account_management/password_reset/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "cloudfront.protected_endpoints.flow_label.account_management.password_reset",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -13594,14 +13594,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudfront/protected_endpoints/flow_label/authentication/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "Bot Defense Flow Label Authentication Category.",
       "tasks": ["configuration"],
       "title": "cloudfront.protected_endpoints.flow_label.authentication",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -13711,14 +13711,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudfront/protected_endpoints/flow_label/authentication/login/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "Bot Defense Transaction Result.",
       "tasks": ["configuration"],
       "title": "cloudfront.protected_endpoints.flow_label.authentication.login",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -13763,14 +13763,14 @@
       ],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudfront/protected_endpoints/flow_label/authentication/login/disable_transaction_result/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "cloudfront.protected_endpoints.flow_label.authentication.login.disable_transaction_result",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -13881,14 +13881,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudfront/protected_endpoints/flow_label/authentication/login/transaction_result/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "Bot Defense Transaction ResultType.",
       "tasks": ["configuration"],
       "title": "cloudfront.protected_endpoints.flow_label.authentication.login.transaction_result",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -13899,7 +13899,7 @@
         "sign in"
       ],
       "body_bytes": 14292,
-      "body_sha256": "sha256:7cbe9f49226d9211d8dcf88eae45adb079ad5da9baee565195b53a924879a64c",
+      "body_sha256": "sha256:cc67936099583e9c149ecdd9928307fbad6a360bc10093f07bc117de5cad7b75",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -14093,14 +14093,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudfront/protected_endpoints/flow_label/authentication/login/transaction_result/failure_conditions/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "Failure Conditions.",
       "tasks": ["configuration"],
       "title": "cloudfront.protected_endpoints.flow_label.authentication.login.transaction_result.failure_conditions",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -14115,7 +14115,7 @@
         "successful"
       ],
       "body_bytes": 14292,
-      "body_sha256": "sha256:ba4090914d34714dbb29f982424a48b0108c4e9afd5fef2482cc8169a7bdbdff",
+      "body_sha256": "sha256:e25b68b34d67c989779d7a4aa1ac4940504a6785b43317244fd72f3f63d68ee6",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -14318,14 +14318,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudfront/protected_endpoints/flow_label/authentication/login/transaction_result/success_conditions/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "Success Conditions.",
       "tasks": ["configuration"],
       "title": "cloudfront.protected_endpoints.flow_label.authentication.login.transaction_result.success_conditions",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -14363,14 +14363,14 @@
       "schema_path": ["cloudfront", "protected_endpoints", "flow_label", "authentication", "login_mfa"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudfront/protected_endpoints/flow_label/authentication/login_mfa/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "cloudfront.protected_endpoints.flow_label.authentication.login_mfa",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -14408,14 +14408,14 @@
       "schema_path": ["cloudfront", "protected_endpoints", "flow_label", "authentication", "login_partner"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudfront/protected_endpoints/flow_label/authentication/login_partner/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "cloudfront.protected_endpoints.flow_label.authentication.login_partner",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -14448,14 +14448,14 @@
       "schema_path": ["cloudfront", "protected_endpoints", "flow_label", "authentication", "logout"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudfront/protected_endpoints/flow_label/authentication/logout/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "cloudfront.protected_endpoints.flow_label.authentication.logout",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -14488,14 +14488,14 @@
       "schema_path": ["cloudfront", "protected_endpoints", "flow_label", "authentication", "token_refresh"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudfront/protected_endpoints/flow_label/authentication/token_refresh/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "cloudfront.protected_endpoints.flow_label.authentication.token_refresh",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -14581,14 +14581,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudfront/protected_endpoints/flow_label/financial_services/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "Bot Defense Flow Label Financial Services Category.",
       "tasks": ["configuration"],
       "title": "cloudfront.protected_endpoints.flow_label.financial_services",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -14621,14 +14621,14 @@
       "schema_path": ["cloudfront", "protected_endpoints", "flow_label", "financial_services", "apply"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudfront/protected_endpoints/flow_label/financial_services/apply/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "cloudfront.protected_endpoints.flow_label.financial_services.apply",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -14661,14 +14661,14 @@
       "schema_path": ["cloudfront", "protected_endpoints", "flow_label", "financial_services", "money_transfer"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudfront/protected_endpoints/flow_label/financial_services/money_transfer/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "cloudfront.protected_endpoints.flow_label.financial_services.money_transfer",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -14720,14 +14720,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudfront/protected_endpoints/flow_label/flight/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "Bot Defense Flow Label Flight Category.",
       "tasks": ["configuration"],
       "title": "cloudfront.protected_endpoints.flow_label.flight",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -14760,14 +14760,14 @@
       "schema_path": ["cloudfront", "protected_endpoints", "flow_label", "flight", "checkin"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudfront/protected_endpoints/flow_label/flight/checkin/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "cloudfront.protected_endpoints.flow_label.flight.checkin",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -14902,14 +14902,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudfront/protected_endpoints/flow_label/profile_management/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "Bot Defense Flow Label Profile Management Category.",
       "tasks": ["configuration"],
       "title": "cloudfront.protected_endpoints.flow_label.profile_management",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -14942,14 +14942,14 @@
       "schema_path": ["cloudfront", "protected_endpoints", "flow_label", "profile_management", "create"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudfront/protected_endpoints/flow_label/profile_management/create/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "cloudfront.protected_endpoints.flow_label.profile_management.create",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -14982,14 +14982,14 @@
       "schema_path": ["cloudfront", "protected_endpoints", "flow_label", "profile_management", "update"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudfront/protected_endpoints/flow_label/profile_management/update/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "cloudfront.protected_endpoints.flow_label.profile_management.update",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -15022,14 +15022,14 @@
       "schema_path": ["cloudfront", "protected_endpoints", "flow_label", "profile_management", "view"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudfront/protected_endpoints/flow_label/profile_management/view/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "cloudfront.protected_endpoints.flow_label.profile_management.view",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -15229,14 +15229,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudfront/protected_endpoints/flow_label/search/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "Bot Defense Flow Label Search Category.",
       "tasks": ["configuration"],
       "title": "cloudfront.protected_endpoints.flow_label.search",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -15269,14 +15269,14 @@
       "schema_path": ["cloudfront", "protected_endpoints", "flow_label", "search", "flight_search"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudfront/protected_endpoints/flow_label/search/flight_search/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "cloudfront.protected_endpoints.flow_label.search.flight_search",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -15309,14 +15309,14 @@
       "schema_path": ["cloudfront", "protected_endpoints", "flow_label", "search", "product_search"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudfront/protected_endpoints/flow_label/search/product_search/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "cloudfront.protected_endpoints.flow_label.search.product_search",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -15349,14 +15349,14 @@
       "schema_path": ["cloudfront", "protected_endpoints", "flow_label", "search", "reservation_search"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudfront/protected_endpoints/flow_label/search/reservation_search/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "cloudfront.protected_endpoints.flow_label.search.reservation_search",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -15389,14 +15389,14 @@
       "schema_path": ["cloudfront", "protected_endpoints", "flow_label", "search", "room_search"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudfront/protected_endpoints/flow_label/search/room_search/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "cloudfront.protected_endpoints.flow_label.search.room_search",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -16742,14 +16742,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudfront/protected_endpoints/flow_label/shopping_gift_cards/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "Bot Defense Flow Label Shopping & Gift Cards Category.",
       "tasks": ["configuration"],
       "title": "cloudfront.protected_endpoints.flow_label.shopping_gift_cards",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -16790,14 +16790,14 @@
       ],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudfront/protected_endpoints/flow_label/shopping_gift_cards/gift_card_make_purchase_with_gift_card/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "cloudfront.protected_endpoints.flow_label.shopping_gift_cards.gift_card_make_purchase_with_gift_card",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -16830,14 +16830,14 @@
       "schema_path": ["cloudfront", "protected_endpoints", "flow_label", "shopping_gift_cards", "gift_card_validation"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudfront/protected_endpoints/flow_label/shopping_gift_cards/gift_card_validation/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "cloudfront.protected_endpoints.flow_label.shopping_gift_cards.gift_card_validation",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -16870,14 +16870,14 @@
       "schema_path": ["cloudfront", "protected_endpoints", "flow_label", "shopping_gift_cards", "shop_add_to_cart"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudfront/protected_endpoints/flow_label/shopping_gift_cards/shop_add_to_cart/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "cloudfront.protected_endpoints.flow_label.shopping_gift_cards.shop_add_to_cart",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -16910,14 +16910,14 @@
       "schema_path": ["cloudfront", "protected_endpoints", "flow_label", "shopping_gift_cards", "shop_checkout"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudfront/protected_endpoints/flow_label/shopping_gift_cards/shop_checkout/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "cloudfront.protected_endpoints.flow_label.shopping_gift_cards.shop_checkout",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -16950,14 +16950,14 @@
       "schema_path": ["cloudfront", "protected_endpoints", "flow_label", "shopping_gift_cards", "shop_choose_seat"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudfront/protected_endpoints/flow_label/shopping_gift_cards/shop_choose_seat/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "cloudfront.protected_endpoints.flow_label.shopping_gift_cards.shop_choose_seat",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -16996,14 +16996,14 @@
       ],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudfront/protected_endpoints/flow_label/shopping_gift_cards/shop_enter_drawing_submission/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "cloudfront.protected_endpoints.flow_label.shopping_gift_cards.shop_enter_drawing_submission",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -17036,14 +17036,14 @@
       "schema_path": ["cloudfront", "protected_endpoints", "flow_label", "shopping_gift_cards", "shop_make_payment"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudfront/protected_endpoints/flow_label/shopping_gift_cards/shop_make_payment/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "cloudfront.protected_endpoints.flow_label.shopping_gift_cards.shop_make_payment",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -17076,14 +17076,14 @@
       "schema_path": ["cloudfront", "protected_endpoints", "flow_label", "shopping_gift_cards", "shop_order"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudfront/protected_endpoints/flow_label/shopping_gift_cards/shop_order/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "cloudfront.protected_endpoints.flow_label.shopping_gift_cards.shop_order",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -17116,14 +17116,14 @@
       "schema_path": ["cloudfront", "protected_endpoints", "flow_label", "shopping_gift_cards", "shop_price_inquiry"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudfront/protected_endpoints/flow_label/shopping_gift_cards/shop_price_inquiry/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "cloudfront.protected_endpoints.flow_label.shopping_gift_cards.shop_price_inquiry",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -17162,14 +17162,14 @@
       ],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudfront/protected_endpoints/flow_label/shopping_gift_cards/shop_promo_code_validation/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "cloudfront.protected_endpoints.flow_label.shopping_gift_cards.shop_promo_code_validation",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -17208,14 +17208,14 @@
       ],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudfront/protected_endpoints/flow_label/shopping_gift_cards/shop_purchase_gift_card/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "cloudfront.protected_endpoints.flow_label.shopping_gift_cards.shop_purchase_gift_card",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -17248,20 +17248,20 @@
       "schema_path": ["cloudfront", "protected_endpoints", "flow_label", "shopping_gift_cards", "shop_update_quantity"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudfront/protected_endpoints/flow_label/shopping_gift_cards/shop_update_quantity/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "cloudfront.protected_endpoints.flow_label.shopping_gift_cards.shop_update_quantity",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
       "aliases": ["cloudfront protected endpoints metadata"],
       "body_bytes": 3712,
-      "body_sha256": "sha256:b0b627da1db577ecf02b5cab6b871e057a8ef1281f9abb712ea27a9584fe6278",
+      "body_sha256": "sha256:1294fd00d47472021eedd8781ea2bac546dd336c6b6321a6be9cf1c24ffff208",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -17330,14 +17330,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudfront/protected_endpoints/metadata/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create and replace APIs.",
       "tasks": ["configuration"],
       "title": "cloudfront.protected_endpoints.metadata",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -17440,20 +17440,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudfront/protected_endpoints/mobile_client/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "Mobile client configuration OPTIONS.",
       "tasks": ["configuration"],
       "title": "cloudfront.protected_endpoints.mobile_client",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
       "aliases": ["cloudfront protected endpoints mobile client block"],
       "body_bytes": 11578,
-      "body_sha256": "sha256:c1e7cf31643463565a6afb3808754f0218ebe2c1682ab3c3fc3b1c27d867130b",
+      "body_sha256": "sha256:44a1134d5432ccf0bb2d6097dc6d5f6c43c04e4e8988a07c236941a87ea54a0e",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -17596,14 +17596,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudfront/protected_endpoints/mobile_client/block/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "Block Response.",
       "tasks": ["configuration"],
       "title": "cloudfront.protected_endpoints.mobile_client.block",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -17689,14 +17689,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudfront/protected_endpoints/mobile_client/continue/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "Continue mitigation action.",
       "tasks": ["configuration"],
       "title": "cloudfront.protected_endpoints.mobile_client.continue",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -17729,14 +17729,14 @@
       "schema_path": ["cloudfront", "protected_endpoints", "mobile_client", "continue", "add_header"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudfront/protected_endpoints/mobile_client/continue/add_header/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "cloudfront.protected_endpoints.mobile_client.continue.add_header",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -17769,14 +17769,14 @@
       "schema_path": ["cloudfront", "protected_endpoints", "mobile_client", "continue", "no_header"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudfront/protected_endpoints/mobile_client/continue/no_header/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "cloudfront.protected_endpoints.mobile_client.continue.no_header",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -17809,14 +17809,14 @@
       "schema_path": ["cloudfront", "protected_endpoints", "undefined_flow_label"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudfront/protected_endpoints/undefined_flow_label/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "cloudfront.protected_endpoints.undefined_flow_label",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -17977,20 +17977,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudfront/protected_endpoints/web_client/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "Web client configuration OPTIONS.",
       "tasks": ["configuration"],
       "title": "cloudfront.protected_endpoints.web_client",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
       "aliases": ["cloudfront protected endpoints web client block"],
       "body_bytes": 11546,
-      "body_sha256": "sha256:5512f23c8ca613b8d90d86381e137f1d0ac7d8a086fc6e3daaaa2dd41780dc34",
+      "body_sha256": "sha256:7a4920f810c54c0a120a2d142993e066015f3b8a08bc20f2b4e826e467714577",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -18133,14 +18133,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudfront/protected_endpoints/web_client/block/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "Block Response.",
       "tasks": ["configuration"],
       "title": "cloudfront.protected_endpoints.web_client.block",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -18226,14 +18226,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudfront/protected_endpoints/web_client/continue/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "Continue mitigation action.",
       "tasks": ["configuration"],
       "title": "cloudfront.protected_endpoints.web_client.continue",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -18266,14 +18266,14 @@
       "schema_path": ["cloudfront", "protected_endpoints", "web_client", "continue", "add_header"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudfront/protected_endpoints/web_client/continue/add_header/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "cloudfront.protected_endpoints.web_client.continue.add_header",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -18306,20 +18306,20 @@
       "schema_path": ["cloudfront", "protected_endpoints", "web_client", "continue", "no_header"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudfront/protected_endpoints/web_client/continue/no_header/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "cloudfront.protected_endpoints.web_client.continue.no_header",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
       "aliases": ["cloudfront protected endpoints web client redirect"],
       "body_bytes": 11035,
-      "body_sha256": "sha256:28617bcaa0e3f383308bf6ab657e0833ec2655ed970b63f9157ac3297eb6bff0",
+      "body_sha256": "sha256:e4ea00c38a69fae2ba8a9be61d95143a25207551630f1432ba212605e63b8ce0",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -18455,14 +18455,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudfront/protected_endpoints/web_client/redirect/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "Redirect.",
       "tasks": ["configuration"],
       "title": "cloudfront.protected_endpoints.web_client.redirect",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -18690,20 +18690,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudfront/protected_endpoints/web_mobile_client/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "Web and Mobile client configuration OPTIONS.",
       "tasks": ["configuration"],
       "title": "cloudfront.protected_endpoints.web_mobile_client",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
       "aliases": ["cloudfront protected endpoints web mobile client block mobile"],
       "body_bytes": 11648,
-      "body_sha256": "sha256:ea9ae13f44d748c7a3110045e98af632b05f3e3e85b55dbb61c60a6b83e2beef",
+      "body_sha256": "sha256:acb4085f0231e84fc84533d7b0da6c4b8b38d5e4c071c7ad35aadc8d31d365ad",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -18846,20 +18846,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudfront/protected_endpoints/web_mobile_client/block_mobile/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "Block Response.",
       "tasks": ["configuration"],
       "title": "cloudfront.protected_endpoints.web_mobile_client.block_mobile",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
       "aliases": ["cloudfront protected endpoints web mobile client block web"],
       "body_bytes": 11619,
-      "body_sha256": "sha256:7c1d469afd4a16a237b6a3d71908839fb3eb61295fa571ca0d97b49b228733bd",
+      "body_sha256": "sha256:8135ea2c3db832c594c03b8100b3b451db11a55f3004a53ba9378c7a2a18c2b6",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -19002,14 +19002,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudfront/protected_endpoints/web_mobile_client/block_web/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "Block Response.",
       "tasks": ["configuration"],
       "title": "cloudfront.protected_endpoints.web_mobile_client.block_web",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -19095,14 +19095,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudfront/protected_endpoints/web_mobile_client/continue_mobile/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "Continue mitigation action.",
       "tasks": ["configuration"],
       "title": "cloudfront.protected_endpoints.web_mobile_client.continue_mobile",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -19135,14 +19135,14 @@
       "schema_path": ["cloudfront", "protected_endpoints", "web_mobile_client", "continue_mobile", "add_header"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudfront/protected_endpoints/web_mobile_client/continue_mobile/add_header/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "cloudfront.protected_endpoints.web_mobile_client.continue_mobile.add_header",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -19175,14 +19175,14 @@
       "schema_path": ["cloudfront", "protected_endpoints", "web_mobile_client", "continue_mobile", "no_header"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudfront/protected_endpoints/web_mobile_client/continue_mobile/no_header/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "cloudfront.protected_endpoints.web_mobile_client.continue_mobile.no_header",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -19268,14 +19268,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudfront/protected_endpoints/web_mobile_client/continue_web/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "Continue mitigation action.",
       "tasks": ["configuration"],
       "title": "cloudfront.protected_endpoints.web_mobile_client.continue_web",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -19308,14 +19308,14 @@
       "schema_path": ["cloudfront", "protected_endpoints", "web_mobile_client", "continue_web", "add_header"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudfront/protected_endpoints/web_mobile_client/continue_web/add_header/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "cloudfront.protected_endpoints.web_mobile_client.continue_web.add_header",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -19348,20 +19348,20 @@
       "schema_path": ["cloudfront", "protected_endpoints", "web_mobile_client", "continue_web", "no_header"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudfront/protected_endpoints/web_mobile_client/continue_web/no_header/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "cloudfront.protected_endpoints.web_mobile_client.continue_web.no_header",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
       "aliases": ["cloudfront protected endpoints web mobile client redirect web"],
       "body_bytes": 11097,
-      "body_sha256": "sha256:835f5d1b0ec4e6f1165068dd3858204ef2e945b1a117a4fc8a6f1d8d51ec3801",
+      "body_sha256": "sha256:de8d93f161ae053cf4140a90fffab23d4cdb79591fc676e8d59d00fc469f4002",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -19497,20 +19497,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudfront/protected_endpoints/web_mobile_client/redirect_web/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "Redirect.",
       "tasks": ["configuration"],
       "title": "cloudfront.protected_endpoints.web_mobile_client.redirect_web",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
       "aliases": ["cloudfront trusted clients"],
       "body_bytes": 3138,
-      "body_sha256": "sha256:79ff763e02cf3fb20ba9e7c591aa273a04f27fca3bcc81a705c7811fcb911dcc",
+      "body_sha256": "sha256:1ac6cd33633dcd7204da432caf714251fc2c77d3497ef73c5082c7d4ecc6e32f",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -19624,14 +19624,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudfront/trusted_clients/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "Define your allowlists to skip Bot Defense inference processing.",
       "tasks": ["configuration"],
       "title": "cloudfront.trusted_clients",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -19717,20 +19717,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudfront/trusted_clients/http_header/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "Request header name and value pairs.",
       "tasks": ["configuration"],
       "title": "cloudfront.trusted_clients.http_header",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
       "aliases": ["cloudfront trusted clients http header headers"],
       "body_bytes": 6480,
-      "body_sha256": "sha256:ccf921767a1e26dbf1658a2e3e359f1cf855208369d1f2dd9676236238b32d5d",
+      "body_sha256": "sha256:8f6a56add63a4834001e88e2ca1db1842925168793fb5bb50a6f6c5d64005558",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -19831,20 +19831,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudfront/trusted_clients/http_header/headers/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "List of HTTP header name and value pairs.",
       "tasks": ["configuration"],
       "title": "cloudfront.trusted_clients.http_header.headers",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
       "aliases": ["cloudfront trusted clients metadata"],
       "body_bytes": 3688,
-      "body_sha256": "sha256:72e126a001698553714b727ef8a637796daa147a7644d4556056d1fb663984ac",
+      "body_sha256": "sha256:cd936961616ad73829fb324970e092d563a902d80440b76cd6e528faa9e33115",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -19913,14 +19913,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/cloudfront/trusted_clients/metadata/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create and replace APIs.",
       "tasks": ["configuration"],
       "title": "cloudfront.trusted_clients.metadata",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -19953,14 +19953,14 @@
       "schema_path": ["custom_connector"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/custom_connector/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "custom_connector",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -19993,14 +19993,14 @@
       "schema_path": ["f5_big_ip"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/f5_big_ip/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "f5_big_ip",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -20033,14 +20033,14 @@
       "schema_path": ["salesforce_commerce_connector"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/salesforce_commerce_connector/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "salesforce_commerce_connector",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -20173,14 +20173,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/properties/timeouts/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "timeouts for xcsh_protected_application.",
       "tasks": ["configuration"],
       "title": "timeouts",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -20213,14 +20213,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/examples/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "Examples for xcsh_protected_application.",
       "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -20260,14 +20260,14 @@
       "schema_path": ["resource"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/examples/resource/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "Resource for xcsh_protected_application.",
       "tasks": ["configuration"],
       "title": "Resource",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -20301,14 +20301,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/lifecycle/import/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "Import for xcsh_protected_application.",
       "tasks": ["import"],
       "title": "Import",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     },
     {
@@ -20341,14 +20341,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protected_application/lifecycle/timeouts/index.txt",
-      "spec_pin_digest": "sha256:d5e8f282045e20f8be00960c9e0ed5287ab3532b8da7d4b559f1cea17fd51bca",
+      "spec_pin_digest": "sha256:66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
       "summary": "Timeouts for xcsh_protected_application.",
       "tasks": ["lifecycle"],
       "title": "Timeouts",
       "upstream_identity": {
-        "release_tag": "v12.0.9",
+        "release_tag": "v12.1.1",
         "schema_components": ["protected_applicationCreateRequest"],
-        "target_commit": "e04c5d45f7a4e103e2dc84bf52b767182b4de3bc"
+        "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3"
       }
     }
   ],

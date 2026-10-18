@@ -134,7 +134,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-16T10:31:02+00:00"
+      "validatedAt": "2026-10-17T10:10:42+00:00"
     },
     "minLength": 0
   },
@@ -306,7 +306,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "inferred",
-      "validatedAt": "2026-10-16T10:31:02+00:00"
+      "validatedAt": "2026-10-17T10:10:42+00:00"
     },
     "minLength": 1,
     "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
@@ -378,7 +378,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "inferred",
-      "validatedAt": "2026-10-16T10:31:02+00:00"
+      "validatedAt": "2026-10-17T10:10:42+00:00"
     },
     "minLength": 1,
     "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
@@ -462,7 +462,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "api-probed",
-      "validatedAt": "2026-10-16T10:31:02+00:00"
+      "validatedAt": "2026-10-17T10:10:42+00:00"
     },
     "minimum": 0
   },

@@ -1,0 +1,8 @@
+{
+  "delivery_id": "3c99b4c38bb52ff2cebbaffd7763e2e7aa6547a63834e11a76681a8e304b304f",
+  "release_tag": "v12.1.1",
+  "source_commit": "46908c45e34b9b8ec6cdc613c7052075066d2bc5",
+  "spec_release_sha256": "66dcd7f1752e908b5a58a7638e63662f0daa121544d954167e4fab269122ff4a",
+  "target_commit": "bafefa99cbad3ad2e3c2c4fd9c0611a0cbcc36b3",
+  "version": "12.1.1"
+}
