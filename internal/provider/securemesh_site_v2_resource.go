@@ -21852,8 +21852,15 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																	return types.ObjectNull(map[string]attr.Type{})
 																}(),
 																Priority: func() types.Int64 {
-																	if v, ok := InterfaceListItemMap["priority"].(float64); ok && v != 0 {
-																		return types.Int64Value(int64(v))
+																	if v, ok := InterfaceListItemMap["priority"].(float64); ok {
+																		if v != 0 {
+																			return types.Int64Value(int64(v))
+																		}
+																		if !isImport && len(InterfaceListExisting) > InterfaceListIdx && !InterfaceListExisting[InterfaceListIdx].Priority.IsNull() && !InterfaceListExisting[InterfaceListIdx].Priority.IsUnknown() {
+																			if InterfaceListExisting[InterfaceListIdx].Priority.ValueInt64() == 0 {
+																				return InterfaceListExisting[InterfaceListIdx].Priority
+																			}
+																		}
 																	}
 																	return types.Int64Null()
 																}(),
@@ -21982,8 +21989,15 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 												return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2AWSNotManagedNodeListInterfaceListModelAttrTypes})
 											}(),
 											PublicIP: func() types.String {
-												if v, ok := NodeListItemMap["public_ip"].(string); ok && v != "" {
-													return types.StringValue(v)
+												if v, ok := NodeListItemMap["public_ip"].(string); ok {
+													if v != "" {
+														return types.StringValue(v)
+													}
+													if !isImport && len(NodeListExisting) > NodeListIdx && !NodeListExisting[NodeListIdx].PublicIP.IsNull() && !NodeListExisting[NodeListIdx].PublicIP.IsUnknown() {
+														if NodeListExisting[NodeListIdx].PublicIP.ValueString() == "" {
+															return NodeListExisting[NodeListIdx].PublicIP
+														}
+													}
 												}
 												return types.StringNull()
 											}(),
@@ -22632,8 +22646,15 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																	return types.ObjectNull(map[string]attr.Type{})
 																}(),
 																Priority: func() types.Int64 {
-																	if v, ok := InterfaceListItemMap["priority"].(float64); ok && v != 0 {
-																		return types.Int64Value(int64(v))
+																	if v, ok := InterfaceListItemMap["priority"].(float64); ok {
+																		if v != 0 {
+																			return types.Int64Value(int64(v))
+																		}
+																		if !isImport && len(InterfaceListExisting) > InterfaceListIdx && !InterfaceListExisting[InterfaceListIdx].Priority.IsNull() && !InterfaceListExisting[InterfaceListIdx].Priority.IsUnknown() {
+																			if InterfaceListExisting[InterfaceListIdx].Priority.ValueInt64() == 0 {
+																				return InterfaceListExisting[InterfaceListIdx].Priority
+																			}
+																		}
 																	}
 																	return types.Int64Null()
 																}(),
@@ -22762,8 +22783,15 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 												return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2AzureNotManagedNodeListInterfaceListModelAttrTypes})
 											}(),
 											PublicIP: func() types.String {
-												if v, ok := NodeListItemMap["public_ip"].(string); ok && v != "" {
-													return types.StringValue(v)
+												if v, ok := NodeListItemMap["public_ip"].(string); ok {
+													if v != "" {
+														return types.StringValue(v)
+													}
+													if !isImport && len(NodeListExisting) > NodeListIdx && !NodeListExisting[NodeListIdx].PublicIP.IsNull() && !NodeListExisting[NodeListIdx].PublicIP.IsUnknown() {
+														if NodeListExisting[NodeListIdx].PublicIP.ValueString() == "" {
+															return NodeListExisting[NodeListIdx].PublicIP
+														}
+													}
 												}
 												return types.StringNull()
 											}(),
@@ -23412,8 +23440,15 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																	return types.ObjectNull(map[string]attr.Type{})
 																}(),
 																Priority: func() types.Int64 {
-																	if v, ok := InterfaceListItemMap["priority"].(float64); ok && v != 0 {
-																		return types.Int64Value(int64(v))
+																	if v, ok := InterfaceListItemMap["priority"].(float64); ok {
+																		if v != 0 {
+																			return types.Int64Value(int64(v))
+																		}
+																		if !isImport && len(InterfaceListExisting) > InterfaceListIdx && !InterfaceListExisting[InterfaceListIdx].Priority.IsNull() && !InterfaceListExisting[InterfaceListIdx].Priority.IsUnknown() {
+																			if InterfaceListExisting[InterfaceListIdx].Priority.ValueInt64() == 0 {
+																				return InterfaceListExisting[InterfaceListIdx].Priority
+																			}
+																		}
 																	}
 																	return types.Int64Null()
 																}(),
@@ -23542,8 +23577,15 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 												return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListModelAttrTypes})
 											}(),
 											PublicIP: func() types.String {
-												if v, ok := NodeListItemMap["public_ip"].(string); ok && v != "" {
-													return types.StringValue(v)
+												if v, ok := NodeListItemMap["public_ip"].(string); ok {
+													if v != "" {
+														return types.StringValue(v)
+													}
+													if !isImport && len(NodeListExisting) > NodeListIdx && !NodeListExisting[NodeListIdx].PublicIP.IsNull() && !NodeListExisting[NodeListIdx].PublicIP.IsUnknown() {
+														if NodeListExisting[NodeListIdx].PublicIP.ValueString() == "" {
+															return NodeListExisting[NodeListIdx].PublicIP
+														}
+													}
 												}
 												return types.StringNull()
 											}(),
@@ -24607,8 +24649,15 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																	return types.ObjectNull(map[string]attr.Type{})
 																}(),
 																Priority: func() types.Int64 {
-																	if v, ok := InterfaceListItemMap["priority"].(float64); ok && v != 0 {
-																		return types.Int64Value(int64(v))
+																	if v, ok := InterfaceListItemMap["priority"].(float64); ok {
+																		if v != 0 {
+																			return types.Int64Value(int64(v))
+																		}
+																		if !isImport && len(InterfaceListExisting) > InterfaceListIdx && !InterfaceListExisting[InterfaceListIdx].Priority.IsNull() && !InterfaceListExisting[InterfaceListIdx].Priority.IsUnknown() {
+																			if InterfaceListExisting[InterfaceListIdx].Priority.ValueInt64() == 0 {
+																				return InterfaceListExisting[InterfaceListIdx].Priority
+																			}
+																		}
 																	}
 																	return types.Int64Null()
 																}(),
@@ -24737,8 +24786,15 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 												return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2EksK8SNotManagedNodeListInterfaceListModelAttrTypes})
 											}(),
 											PublicIP: func() types.String {
-												if v, ok := NodeListItemMap["public_ip"].(string); ok && v != "" {
-													return types.StringValue(v)
+												if v, ok := NodeListItemMap["public_ip"].(string); ok {
+													if v != "" {
+														return types.StringValue(v)
+													}
+													if !isImport && len(NodeListExisting) > NodeListIdx && !NodeListExisting[NodeListIdx].PublicIP.IsNull() && !NodeListExisting[NodeListIdx].PublicIP.IsUnknown() {
+														if NodeListExisting[NodeListIdx].PublicIP.ValueString() == "" {
+															return NodeListExisting[NodeListIdx].PublicIP
+														}
+													}
 												}
 												return types.StringNull()
 											}(),
@@ -25422,8 +25478,15 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																	return types.ObjectNull(map[string]attr.Type{})
 																}(),
 																Priority: func() types.Int64 {
-																	if v, ok := InterfaceListItemMap["priority"].(float64); ok && v != 0 {
-																		return types.Int64Value(int64(v))
+																	if v, ok := InterfaceListItemMap["priority"].(float64); ok {
+																		if v != 0 {
+																			return types.Int64Value(int64(v))
+																		}
+																		if !isImport && len(InterfaceListExisting) > InterfaceListIdx && !InterfaceListExisting[InterfaceListIdx].Priority.IsNull() && !InterfaceListExisting[InterfaceListIdx].Priority.IsUnknown() {
+																			if InterfaceListExisting[InterfaceListIdx].Priority.ValueInt64() == 0 {
+																				return InterfaceListExisting[InterfaceListIdx].Priority
+																			}
+																		}
 																	}
 																	return types.Int64Null()
 																}(),
@@ -25552,8 +25615,15 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 												return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListModelAttrTypes})
 											}(),
 											PublicIP: func() types.String {
-												if v, ok := NodeListItemMap["public_ip"].(string); ok && v != "" {
-													return types.StringValue(v)
+												if v, ok := NodeListItemMap["public_ip"].(string); ok {
+													if v != "" {
+														return types.StringValue(v)
+													}
+													if !isImport && len(NodeListExisting) > NodeListIdx && !NodeListExisting[NodeListIdx].PublicIP.IsNull() && !NodeListExisting[NodeListIdx].PublicIP.IsUnknown() {
+														if NodeListExisting[NodeListIdx].PublicIP.ValueString() == "" {
+															return NodeListExisting[NodeListIdx].PublicIP
+														}
+													}
 												}
 												return types.StringNull()
 											}(),
@@ -26209,8 +26279,15 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																	return types.ObjectNull(map[string]attr.Type{})
 																}(),
 																Priority: func() types.Int64 {
-																	if v, ok := InterfaceListItemMap["priority"].(float64); ok && v != 0 {
-																		return types.Int64Value(int64(v))
+																	if v, ok := InterfaceListItemMap["priority"].(float64); ok {
+																		if v != 0 {
+																			return types.Int64Value(int64(v))
+																		}
+																		if !isImport && len(InterfaceListExisting) > InterfaceListIdx && !InterfaceListExisting[InterfaceListIdx].Priority.IsNull() && !InterfaceListExisting[InterfaceListIdx].Priority.IsUnknown() {
+																			if InterfaceListExisting[InterfaceListIdx].Priority.ValueInt64() == 0 {
+																				return InterfaceListExisting[InterfaceListIdx].Priority
+																			}
+																		}
 																	}
 																	return types.Int64Null()
 																}(),
@@ -26339,8 +26416,15 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 												return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2GCPNotManagedNodeListInterfaceListModelAttrTypes})
 											}(),
 											PublicIP: func() types.String {
-												if v, ok := NodeListItemMap["public_ip"].(string); ok && v != "" {
-													return types.StringValue(v)
+												if v, ok := NodeListItemMap["public_ip"].(string); ok {
+													if v != "" {
+														return types.StringValue(v)
+													}
+													if !isImport && len(NodeListExisting) > NodeListIdx && !NodeListExisting[NodeListIdx].PublicIP.IsNull() && !NodeListExisting[NodeListIdx].PublicIP.IsUnknown() {
+														if NodeListExisting[NodeListIdx].PublicIP.ValueString() == "" {
+															return NodeListExisting[NodeListIdx].PublicIP
+														}
+													}
 												}
 												return types.StringNull()
 											}(),
@@ -26989,8 +27073,15 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																	return types.ObjectNull(map[string]attr.Type{})
 																}(),
 																Priority: func() types.Int64 {
-																	if v, ok := InterfaceListItemMap["priority"].(float64); ok && v != 0 {
-																		return types.Int64Value(int64(v))
+																	if v, ok := InterfaceListItemMap["priority"].(float64); ok {
+																		if v != 0 {
+																			return types.Int64Value(int64(v))
+																		}
+																		if !isImport && len(InterfaceListExisting) > InterfaceListIdx && !InterfaceListExisting[InterfaceListIdx].Priority.IsNull() && !InterfaceListExisting[InterfaceListIdx].Priority.IsUnknown() {
+																			if InterfaceListExisting[InterfaceListIdx].Priority.ValueInt64() == 0 {
+																				return InterfaceListExisting[InterfaceListIdx].Priority
+																			}
+																		}
 																	}
 																	return types.Int64Null()
 																}(),
@@ -27119,8 +27210,15 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 												return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2KvmNotManagedNodeListInterfaceListModelAttrTypes})
 											}(),
 											PublicIP: func() types.String {
-												if v, ok := NodeListItemMap["public_ip"].(string); ok && v != "" {
-													return types.StringValue(v)
+												if v, ok := NodeListItemMap["public_ip"].(string); ok {
+													if v != "" {
+														return types.StringValue(v)
+													}
+													if !isImport && len(NodeListExisting) > NodeListIdx && !NodeListExisting[NodeListIdx].PublicIP.IsNull() && !NodeListExisting[NodeListIdx].PublicIP.IsUnknown() {
+														if NodeListExisting[NodeListIdx].PublicIP.ValueString() == "" {
+															return NodeListExisting[NodeListIdx].PublicIP
+														}
+													}
 												}
 												return types.StringNull()
 											}(),
@@ -28624,8 +28722,15 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																	return types.ObjectNull(map[string]attr.Type{})
 																}(),
 																Priority: func() types.Int64 {
-																	if v, ok := InterfaceListItemMap["priority"].(float64); ok && v != 0 {
-																		return types.Int64Value(int64(v))
+																	if v, ok := InterfaceListItemMap["priority"].(float64); ok {
+																		if v != 0 {
+																			return types.Int64Value(int64(v))
+																		}
+																		if !isImport && len(InterfaceListExisting) > InterfaceListIdx && !InterfaceListExisting[InterfaceListIdx].Priority.IsNull() && !InterfaceListExisting[InterfaceListIdx].Priority.IsUnknown() {
+																			if InterfaceListExisting[InterfaceListIdx].Priority.ValueInt64() == 0 {
+																				return InterfaceListExisting[InterfaceListIdx].Priority
+																			}
+																		}
 																	}
 																	return types.Int64Null()
 																}(),
@@ -28754,8 +28859,15 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 												return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListModelAttrTypes})
 											}(),
 											PublicIP: func() types.String {
-												if v, ok := NodeListItemMap["public_ip"].(string); ok && v != "" {
-													return types.StringValue(v)
+												if v, ok := NodeListItemMap["public_ip"].(string); ok {
+													if v != "" {
+														return types.StringValue(v)
+													}
+													if !isImport && len(NodeListExisting) > NodeListIdx && !NodeListExisting[NodeListIdx].PublicIP.IsNull() && !NodeListExisting[NodeListIdx].PublicIP.IsUnknown() {
+														if NodeListExisting[NodeListIdx].PublicIP.ValueString() == "" {
+															return NodeListExisting[NodeListIdx].PublicIP
+														}
+													}
 												}
 												return types.StringNull()
 											}(),
@@ -29404,8 +29516,15 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																	return types.ObjectNull(map[string]attr.Type{})
 																}(),
 																Priority: func() types.Int64 {
-																	if v, ok := InterfaceListItemMap["priority"].(float64); ok && v != 0 {
-																		return types.Int64Value(int64(v))
+																	if v, ok := InterfaceListItemMap["priority"].(float64); ok {
+																		if v != 0 {
+																			return types.Int64Value(int64(v))
+																		}
+																		if !isImport && len(InterfaceListExisting) > InterfaceListIdx && !InterfaceListExisting[InterfaceListIdx].Priority.IsNull() && !InterfaceListExisting[InterfaceListIdx].Priority.IsUnknown() {
+																			if InterfaceListExisting[InterfaceListIdx].Priority.ValueInt64() == 0 {
+																				return InterfaceListExisting[InterfaceListIdx].Priority
+																			}
+																		}
 																	}
 																	return types.Int64Null()
 																}(),
@@ -29534,8 +29653,15 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 												return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2OciNotManagedNodeListInterfaceListModelAttrTypes})
 											}(),
 											PublicIP: func() types.String {
-												if v, ok := NodeListItemMap["public_ip"].(string); ok && v != "" {
-													return types.StringValue(v)
+												if v, ok := NodeListItemMap["public_ip"].(string); ok {
+													if v != "" {
+														return types.StringValue(v)
+													}
+													if !isImport && len(NodeListExisting) > NodeListIdx && !NodeListExisting[NodeListIdx].PublicIP.IsNull() && !NodeListExisting[NodeListIdx].PublicIP.IsUnknown() {
+														if NodeListExisting[NodeListIdx].PublicIP.ValueString() == "" {
+															return NodeListExisting[NodeListIdx].PublicIP
+														}
+													}
 												}
 												return types.StringNull()
 											}(),
@@ -30206,8 +30332,15 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																	return types.ObjectNull(map[string]attr.Type{})
 																}(),
 																Priority: func() types.Int64 {
-																	if v, ok := InterfaceListItemMap["priority"].(float64); ok && v != 0 {
-																		return types.Int64Value(int64(v))
+																	if v, ok := InterfaceListItemMap["priority"].(float64); ok {
+																		if v != 0 {
+																			return types.Int64Value(int64(v))
+																		}
+																		if !isImport && len(InterfaceListExisting) > InterfaceListIdx && !InterfaceListExisting[InterfaceListIdx].Priority.IsNull() && !InterfaceListExisting[InterfaceListIdx].Priority.IsUnknown() {
+																			if InterfaceListExisting[InterfaceListIdx].Priority.ValueInt64() == 0 {
+																				return InterfaceListExisting[InterfaceListIdx].Priority
+																			}
+																		}
 																	}
 																	return types.Int64Null()
 																}(),
@@ -30336,8 +30469,15 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 												return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListModelAttrTypes})
 											}(),
 											PublicIP: func() types.String {
-												if v, ok := NodeListItemMap["public_ip"].(string); ok && v != "" {
-													return types.StringValue(v)
+												if v, ok := NodeListItemMap["public_ip"].(string); ok {
+													if v != "" {
+														return types.StringValue(v)
+													}
+													if !isImport && len(NodeListExisting) > NodeListIdx && !NodeListExisting[NodeListIdx].PublicIP.IsNull() && !NodeListExisting[NodeListIdx].PublicIP.IsUnknown() {
+														if NodeListExisting[NodeListIdx].PublicIP.ValueString() == "" {
+															return NodeListExisting[NodeListIdx].PublicIP
+														}
+													}
 												}
 												return types.StringNull()
 											}(),
@@ -30986,8 +31126,15 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																	return types.ObjectNull(map[string]attr.Type{})
 																}(),
 																Priority: func() types.Int64 {
-																	if v, ok := InterfaceListItemMap["priority"].(float64); ok && v != 0 {
-																		return types.Int64Value(int64(v))
+																	if v, ok := InterfaceListItemMap["priority"].(float64); ok {
+																		if v != 0 {
+																			return types.Int64Value(int64(v))
+																		}
+																		if !isImport && len(InterfaceListExisting) > InterfaceListIdx && !InterfaceListExisting[InterfaceListIdx].Priority.IsNull() && !InterfaceListExisting[InterfaceListIdx].Priority.IsUnknown() {
+																			if InterfaceListExisting[InterfaceListIdx].Priority.ValueInt64() == 0 {
+																				return InterfaceListExisting[InterfaceListIdx].Priority
+																			}
+																		}
 																	}
 																	return types.Int64Null()
 																}(),
@@ -31116,8 +31263,15 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 												return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListModelAttrTypes})
 											}(),
 											PublicIP: func() types.String {
-												if v, ok := NodeListItemMap["public_ip"].(string); ok && v != "" {
-													return types.StringValue(v)
+												if v, ok := NodeListItemMap["public_ip"].(string); ok {
+													if v != "" {
+														return types.StringValue(v)
+													}
+													if !isImport && len(NodeListExisting) > NodeListIdx && !NodeListExisting[NodeListIdx].PublicIP.IsNull() && !NodeListExisting[NodeListIdx].PublicIP.IsUnknown() {
+														if NodeListExisting[NodeListIdx].PublicIP.ValueString() == "" {
+															return NodeListExisting[NodeListIdx].PublicIP
+														}
+													}
 												}
 												return types.StringNull()
 											}(),
@@ -32426,8 +32580,15 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																	return types.ObjectNull(map[string]attr.Type{})
 																}(),
 																Priority: func() types.Int64 {
-																	if v, ok := InterfaceListItemMap["priority"].(float64); ok && v != 0 {
-																		return types.Int64Value(int64(v))
+																	if v, ok := InterfaceListItemMap["priority"].(float64); ok {
+																		if v != 0 {
+																			return types.Int64Value(int64(v))
+																		}
+																		if !isImport && len(InterfaceListExisting) > InterfaceListIdx && !InterfaceListExisting[InterfaceListIdx].Priority.IsNull() && !InterfaceListExisting[InterfaceListIdx].Priority.IsUnknown() {
+																			if InterfaceListExisting[InterfaceListIdx].Priority.ValueInt64() == 0 {
+																				return InterfaceListExisting[InterfaceListIdx].Priority
+																			}
+																		}
 																	}
 																	return types.Int64Null()
 																}(),
@@ -32556,8 +32717,15 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 												return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListModelAttrTypes})
 											}(),
 											PublicIP: func() types.String {
-												if v, ok := NodeListItemMap["public_ip"].(string); ok && v != "" {
-													return types.StringValue(v)
+												if v, ok := NodeListItemMap["public_ip"].(string); ok {
+													if v != "" {
+														return types.StringValue(v)
+													}
+													if !isImport && len(NodeListExisting) > NodeListIdx && !NodeListExisting[NodeListIdx].PublicIP.IsNull() && !NodeListExisting[NodeListIdx].PublicIP.IsUnknown() {
+														if NodeListExisting[NodeListIdx].PublicIP.ValueString() == "" {
+															return NodeListExisting[NodeListIdx].PublicIP
+														}
+													}
 												}
 												return types.StringNull()
 											}(),
@@ -33494,8 +33662,15 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																	return types.ObjectNull(map[string]attr.Type{})
 																}(),
 																Priority: func() types.Int64 {
-																	if v, ok := InterfaceListItemMap["priority"].(float64); ok && v != 0 {
-																		return types.Int64Value(int64(v))
+																	if v, ok := InterfaceListItemMap["priority"].(float64); ok {
+																		if v != 0 {
+																			return types.Int64Value(int64(v))
+																		}
+																		if !isImport && len(InterfaceListExisting) > InterfaceListIdx && !InterfaceListExisting[InterfaceListIdx].Priority.IsNull() && !InterfaceListExisting[InterfaceListIdx].Priority.IsUnknown() {
+																			if InterfaceListExisting[InterfaceListIdx].Priority.ValueInt64() == 0 {
+																				return InterfaceListExisting[InterfaceListIdx].Priority
+																			}
+																		}
 																	}
 																	return types.Int64Null()
 																}(),
@@ -33624,8 +33799,15 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 												return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2AWSNotManagedNodeListInterfaceListModelAttrTypes})
 											}(),
 											PublicIP: func() types.String {
-												if v, ok := NodeListItemMap["public_ip"].(string); ok && v != "" {
-													return types.StringValue(v)
+												if v, ok := NodeListItemMap["public_ip"].(string); ok {
+													if v != "" {
+														return types.StringValue(v)
+													}
+													if !isImport && len(NodeListExisting) > NodeListIdx && !NodeListExisting[NodeListIdx].PublicIP.IsNull() && !NodeListExisting[NodeListIdx].PublicIP.IsUnknown() {
+														if NodeListExisting[NodeListIdx].PublicIP.ValueString() == "" {
+															return NodeListExisting[NodeListIdx].PublicIP
+														}
+													}
 												}
 												return types.StringNull()
 											}(),
@@ -34274,8 +34456,15 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																	return types.ObjectNull(map[string]attr.Type{})
 																}(),
 																Priority: func() types.Int64 {
-																	if v, ok := InterfaceListItemMap["priority"].(float64); ok && v != 0 {
-																		return types.Int64Value(int64(v))
+																	if v, ok := InterfaceListItemMap["priority"].(float64); ok {
+																		if v != 0 {
+																			return types.Int64Value(int64(v))
+																		}
+																		if !isImport && len(InterfaceListExisting) > InterfaceListIdx && !InterfaceListExisting[InterfaceListIdx].Priority.IsNull() && !InterfaceListExisting[InterfaceListIdx].Priority.IsUnknown() {
+																			if InterfaceListExisting[InterfaceListIdx].Priority.ValueInt64() == 0 {
+																				return InterfaceListExisting[InterfaceListIdx].Priority
+																			}
+																		}
 																	}
 																	return types.Int64Null()
 																}(),
@@ -34404,8 +34593,15 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 												return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2AzureNotManagedNodeListInterfaceListModelAttrTypes})
 											}(),
 											PublicIP: func() types.String {
-												if v, ok := NodeListItemMap["public_ip"].(string); ok && v != "" {
-													return types.StringValue(v)
+												if v, ok := NodeListItemMap["public_ip"].(string); ok {
+													if v != "" {
+														return types.StringValue(v)
+													}
+													if !isImport && len(NodeListExisting) > NodeListIdx && !NodeListExisting[NodeListIdx].PublicIP.IsNull() && !NodeListExisting[NodeListIdx].PublicIP.IsUnknown() {
+														if NodeListExisting[NodeListIdx].PublicIP.ValueString() == "" {
+															return NodeListExisting[NodeListIdx].PublicIP
+														}
+													}
 												}
 												return types.StringNull()
 											}(),
@@ -35054,8 +35250,15 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																	return types.ObjectNull(map[string]attr.Type{})
 																}(),
 																Priority: func() types.Int64 {
-																	if v, ok := InterfaceListItemMap["priority"].(float64); ok && v != 0 {
-																		return types.Int64Value(int64(v))
+																	if v, ok := InterfaceListItemMap["priority"].(float64); ok {
+																		if v != 0 {
+																			return types.Int64Value(int64(v))
+																		}
+																		if !isImport && len(InterfaceListExisting) > InterfaceListIdx && !InterfaceListExisting[InterfaceListIdx].Priority.IsNull() && !InterfaceListExisting[InterfaceListIdx].Priority.IsUnknown() {
+																			if InterfaceListExisting[InterfaceListIdx].Priority.ValueInt64() == 0 {
+																				return InterfaceListExisting[InterfaceListIdx].Priority
+																			}
+																		}
 																	}
 																	return types.Int64Null()
 																}(),
@@ -35184,8 +35387,15 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 												return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListModelAttrTypes})
 											}(),
 											PublicIP: func() types.String {
-												if v, ok := NodeListItemMap["public_ip"].(string); ok && v != "" {
-													return types.StringValue(v)
+												if v, ok := NodeListItemMap["public_ip"].(string); ok {
+													if v != "" {
+														return types.StringValue(v)
+													}
+													if !isImport && len(NodeListExisting) > NodeListIdx && !NodeListExisting[NodeListIdx].PublicIP.IsNull() && !NodeListExisting[NodeListIdx].PublicIP.IsUnknown() {
+														if NodeListExisting[NodeListIdx].PublicIP.ValueString() == "" {
+															return NodeListExisting[NodeListIdx].PublicIP
+														}
+													}
 												}
 												return types.StringNull()
 											}(),
@@ -36249,8 +36459,15 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																	return types.ObjectNull(map[string]attr.Type{})
 																}(),
 																Priority: func() types.Int64 {
-																	if v, ok := InterfaceListItemMap["priority"].(float64); ok && v != 0 {
-																		return types.Int64Value(int64(v))
+																	if v, ok := InterfaceListItemMap["priority"].(float64); ok {
+																		if v != 0 {
+																			return types.Int64Value(int64(v))
+																		}
+																		if !isImport && len(InterfaceListExisting) > InterfaceListIdx && !InterfaceListExisting[InterfaceListIdx].Priority.IsNull() && !InterfaceListExisting[InterfaceListIdx].Priority.IsUnknown() {
+																			if InterfaceListExisting[InterfaceListIdx].Priority.ValueInt64() == 0 {
+																				return InterfaceListExisting[InterfaceListIdx].Priority
+																			}
+																		}
 																	}
 																	return types.Int64Null()
 																}(),
@@ -36379,8 +36596,15 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 												return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2EksK8SNotManagedNodeListInterfaceListModelAttrTypes})
 											}(),
 											PublicIP: func() types.String {
-												if v, ok := NodeListItemMap["public_ip"].(string); ok && v != "" {
-													return types.StringValue(v)
+												if v, ok := NodeListItemMap["public_ip"].(string); ok {
+													if v != "" {
+														return types.StringValue(v)
+													}
+													if !isImport && len(NodeListExisting) > NodeListIdx && !NodeListExisting[NodeListIdx].PublicIP.IsNull() && !NodeListExisting[NodeListIdx].PublicIP.IsUnknown() {
+														if NodeListExisting[NodeListIdx].PublicIP.ValueString() == "" {
+															return NodeListExisting[NodeListIdx].PublicIP
+														}
+													}
 												}
 												return types.StringNull()
 											}(),
@@ -37064,8 +37288,15 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																	return types.ObjectNull(map[string]attr.Type{})
 																}(),
 																Priority: func() types.Int64 {
-																	if v, ok := InterfaceListItemMap["priority"].(float64); ok && v != 0 {
-																		return types.Int64Value(int64(v))
+																	if v, ok := InterfaceListItemMap["priority"].(float64); ok {
+																		if v != 0 {
+																			return types.Int64Value(int64(v))
+																		}
+																		if !isImport && len(InterfaceListExisting) > InterfaceListIdx && !InterfaceListExisting[InterfaceListIdx].Priority.IsNull() && !InterfaceListExisting[InterfaceListIdx].Priority.IsUnknown() {
+																			if InterfaceListExisting[InterfaceListIdx].Priority.ValueInt64() == 0 {
+																				return InterfaceListExisting[InterfaceListIdx].Priority
+																			}
+																		}
 																	}
 																	return types.Int64Null()
 																}(),
@@ -37194,8 +37425,15 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 												return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListModelAttrTypes})
 											}(),
 											PublicIP: func() types.String {
-												if v, ok := NodeListItemMap["public_ip"].(string); ok && v != "" {
-													return types.StringValue(v)
+												if v, ok := NodeListItemMap["public_ip"].(string); ok {
+													if v != "" {
+														return types.StringValue(v)
+													}
+													if !isImport && len(NodeListExisting) > NodeListIdx && !NodeListExisting[NodeListIdx].PublicIP.IsNull() && !NodeListExisting[NodeListIdx].PublicIP.IsUnknown() {
+														if NodeListExisting[NodeListIdx].PublicIP.ValueString() == "" {
+															return NodeListExisting[NodeListIdx].PublicIP
+														}
+													}
 												}
 												return types.StringNull()
 											}(),
@@ -37851,8 +38089,15 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																	return types.ObjectNull(map[string]attr.Type{})
 																}(),
 																Priority: func() types.Int64 {
-																	if v, ok := InterfaceListItemMap["priority"].(float64); ok && v != 0 {
-																		return types.Int64Value(int64(v))
+																	if v, ok := InterfaceListItemMap["priority"].(float64); ok {
+																		if v != 0 {
+																			return types.Int64Value(int64(v))
+																		}
+																		if !isImport && len(InterfaceListExisting) > InterfaceListIdx && !InterfaceListExisting[InterfaceListIdx].Priority.IsNull() && !InterfaceListExisting[InterfaceListIdx].Priority.IsUnknown() {
+																			if InterfaceListExisting[InterfaceListIdx].Priority.ValueInt64() == 0 {
+																				return InterfaceListExisting[InterfaceListIdx].Priority
+																			}
+																		}
 																	}
 																	return types.Int64Null()
 																}(),
@@ -37981,8 +38226,15 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 												return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2GCPNotManagedNodeListInterfaceListModelAttrTypes})
 											}(),
 											PublicIP: func() types.String {
-												if v, ok := NodeListItemMap["public_ip"].(string); ok && v != "" {
-													return types.StringValue(v)
+												if v, ok := NodeListItemMap["public_ip"].(string); ok {
+													if v != "" {
+														return types.StringValue(v)
+													}
+													if !isImport && len(NodeListExisting) > NodeListIdx && !NodeListExisting[NodeListIdx].PublicIP.IsNull() && !NodeListExisting[NodeListIdx].PublicIP.IsUnknown() {
+														if NodeListExisting[NodeListIdx].PublicIP.ValueString() == "" {
+															return NodeListExisting[NodeListIdx].PublicIP
+														}
+													}
 												}
 												return types.StringNull()
 											}(),
@@ -38631,8 +38883,15 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																	return types.ObjectNull(map[string]attr.Type{})
 																}(),
 																Priority: func() types.Int64 {
-																	if v, ok := InterfaceListItemMap["priority"].(float64); ok && v != 0 {
-																		return types.Int64Value(int64(v))
+																	if v, ok := InterfaceListItemMap["priority"].(float64); ok {
+																		if v != 0 {
+																			return types.Int64Value(int64(v))
+																		}
+																		if !isImport && len(InterfaceListExisting) > InterfaceListIdx && !InterfaceListExisting[InterfaceListIdx].Priority.IsNull() && !InterfaceListExisting[InterfaceListIdx].Priority.IsUnknown() {
+																			if InterfaceListExisting[InterfaceListIdx].Priority.ValueInt64() == 0 {
+																				return InterfaceListExisting[InterfaceListIdx].Priority
+																			}
+																		}
 																	}
 																	return types.Int64Null()
 																}(),
@@ -38761,8 +39020,15 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 												return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2KvmNotManagedNodeListInterfaceListModelAttrTypes})
 											}(),
 											PublicIP: func() types.String {
-												if v, ok := NodeListItemMap["public_ip"].(string); ok && v != "" {
-													return types.StringValue(v)
+												if v, ok := NodeListItemMap["public_ip"].(string); ok {
+													if v != "" {
+														return types.StringValue(v)
+													}
+													if !isImport && len(NodeListExisting) > NodeListIdx && !NodeListExisting[NodeListIdx].PublicIP.IsNull() && !NodeListExisting[NodeListIdx].PublicIP.IsUnknown() {
+														if NodeListExisting[NodeListIdx].PublicIP.ValueString() == "" {
+															return NodeListExisting[NodeListIdx].PublicIP
+														}
+													}
 												}
 												return types.StringNull()
 											}(),
@@ -40266,8 +40532,15 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																	return types.ObjectNull(map[string]attr.Type{})
 																}(),
 																Priority: func() types.Int64 {
-																	if v, ok := InterfaceListItemMap["priority"].(float64); ok && v != 0 {
-																		return types.Int64Value(int64(v))
+																	if v, ok := InterfaceListItemMap["priority"].(float64); ok {
+																		if v != 0 {
+																			return types.Int64Value(int64(v))
+																		}
+																		if !isImport && len(InterfaceListExisting) > InterfaceListIdx && !InterfaceListExisting[InterfaceListIdx].Priority.IsNull() && !InterfaceListExisting[InterfaceListIdx].Priority.IsUnknown() {
+																			if InterfaceListExisting[InterfaceListIdx].Priority.ValueInt64() == 0 {
+																				return InterfaceListExisting[InterfaceListIdx].Priority
+																			}
+																		}
 																	}
 																	return types.Int64Null()
 																}(),
@@ -40396,8 +40669,15 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 												return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListModelAttrTypes})
 											}(),
 											PublicIP: func() types.String {
-												if v, ok := NodeListItemMap["public_ip"].(string); ok && v != "" {
-													return types.StringValue(v)
+												if v, ok := NodeListItemMap["public_ip"].(string); ok {
+													if v != "" {
+														return types.StringValue(v)
+													}
+													if !isImport && len(NodeListExisting) > NodeListIdx && !NodeListExisting[NodeListIdx].PublicIP.IsNull() && !NodeListExisting[NodeListIdx].PublicIP.IsUnknown() {
+														if NodeListExisting[NodeListIdx].PublicIP.ValueString() == "" {
+															return NodeListExisting[NodeListIdx].PublicIP
+														}
+													}
 												}
 												return types.StringNull()
 											}(),
@@ -41046,8 +41326,15 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																	return types.ObjectNull(map[string]attr.Type{})
 																}(),
 																Priority: func() types.Int64 {
-																	if v, ok := InterfaceListItemMap["priority"].(float64); ok && v != 0 {
-																		return types.Int64Value(int64(v))
+																	if v, ok := InterfaceListItemMap["priority"].(float64); ok {
+																		if v != 0 {
+																			return types.Int64Value(int64(v))
+																		}
+																		if !isImport && len(InterfaceListExisting) > InterfaceListIdx && !InterfaceListExisting[InterfaceListIdx].Priority.IsNull() && !InterfaceListExisting[InterfaceListIdx].Priority.IsUnknown() {
+																			if InterfaceListExisting[InterfaceListIdx].Priority.ValueInt64() == 0 {
+																				return InterfaceListExisting[InterfaceListIdx].Priority
+																			}
+																		}
 																	}
 																	return types.Int64Null()
 																}(),
@@ -41176,8 +41463,15 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 												return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2OciNotManagedNodeListInterfaceListModelAttrTypes})
 											}(),
 											PublicIP: func() types.String {
-												if v, ok := NodeListItemMap["public_ip"].(string); ok && v != "" {
-													return types.StringValue(v)
+												if v, ok := NodeListItemMap["public_ip"].(string); ok {
+													if v != "" {
+														return types.StringValue(v)
+													}
+													if !isImport && len(NodeListExisting) > NodeListIdx && !NodeListExisting[NodeListIdx].PublicIP.IsNull() && !NodeListExisting[NodeListIdx].PublicIP.IsUnknown() {
+														if NodeListExisting[NodeListIdx].PublicIP.ValueString() == "" {
+															return NodeListExisting[NodeListIdx].PublicIP
+														}
+													}
 												}
 												return types.StringNull()
 											}(),
@@ -41848,8 +42142,15 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																	return types.ObjectNull(map[string]attr.Type{})
 																}(),
 																Priority: func() types.Int64 {
-																	if v, ok := InterfaceListItemMap["priority"].(float64); ok && v != 0 {
-																		return types.Int64Value(int64(v))
+																	if v, ok := InterfaceListItemMap["priority"].(float64); ok {
+																		if v != 0 {
+																			return types.Int64Value(int64(v))
+																		}
+																		if !isImport && len(InterfaceListExisting) > InterfaceListIdx && !InterfaceListExisting[InterfaceListIdx].Priority.IsNull() && !InterfaceListExisting[InterfaceListIdx].Priority.IsUnknown() {
+																			if InterfaceListExisting[InterfaceListIdx].Priority.ValueInt64() == 0 {
+																				return InterfaceListExisting[InterfaceListIdx].Priority
+																			}
+																		}
 																	}
 																	return types.Int64Null()
 																}(),
@@ -41978,8 +42279,15 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 												return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListModelAttrTypes})
 											}(),
 											PublicIP: func() types.String {
-												if v, ok := NodeListItemMap["public_ip"].(string); ok && v != "" {
-													return types.StringValue(v)
+												if v, ok := NodeListItemMap["public_ip"].(string); ok {
+													if v != "" {
+														return types.StringValue(v)
+													}
+													if !isImport && len(NodeListExisting) > NodeListIdx && !NodeListExisting[NodeListIdx].PublicIP.IsNull() && !NodeListExisting[NodeListIdx].PublicIP.IsUnknown() {
+														if NodeListExisting[NodeListIdx].PublicIP.ValueString() == "" {
+															return NodeListExisting[NodeListIdx].PublicIP
+														}
+													}
 												}
 												return types.StringNull()
 											}(),
@@ -42628,8 +42936,15 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																	return types.ObjectNull(map[string]attr.Type{})
 																}(),
 																Priority: func() types.Int64 {
-																	if v, ok := InterfaceListItemMap["priority"].(float64); ok && v != 0 {
-																		return types.Int64Value(int64(v))
+																	if v, ok := InterfaceListItemMap["priority"].(float64); ok {
+																		if v != 0 {
+																			return types.Int64Value(int64(v))
+																		}
+																		if !isImport && len(InterfaceListExisting) > InterfaceListIdx && !InterfaceListExisting[InterfaceListIdx].Priority.IsNull() && !InterfaceListExisting[InterfaceListIdx].Priority.IsUnknown() {
+																			if InterfaceListExisting[InterfaceListIdx].Priority.ValueInt64() == 0 {
+																				return InterfaceListExisting[InterfaceListIdx].Priority
+																			}
+																		}
 																	}
 																	return types.Int64Null()
 																}(),
@@ -42758,8 +43073,15 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 												return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListModelAttrTypes})
 											}(),
 											PublicIP: func() types.String {
-												if v, ok := NodeListItemMap["public_ip"].(string); ok && v != "" {
-													return types.StringValue(v)
+												if v, ok := NodeListItemMap["public_ip"].(string); ok {
+													if v != "" {
+														return types.StringValue(v)
+													}
+													if !isImport && len(NodeListExisting) > NodeListIdx && !NodeListExisting[NodeListIdx].PublicIP.IsNull() && !NodeListExisting[NodeListIdx].PublicIP.IsUnknown() {
+														if NodeListExisting[NodeListIdx].PublicIP.ValueString() == "" {
+															return NodeListExisting[NodeListIdx].PublicIP
+														}
+													}
 												}
 												return types.StringNull()
 											}(),
@@ -44068,8 +44390,15 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																	return types.ObjectNull(map[string]attr.Type{})
 																}(),
 																Priority: func() types.Int64 {
-																	if v, ok := InterfaceListItemMap["priority"].(float64); ok && v != 0 {
-																		return types.Int64Value(int64(v))
+																	if v, ok := InterfaceListItemMap["priority"].(float64); ok {
+																		if v != 0 {
+																			return types.Int64Value(int64(v))
+																		}
+																		if !isImport && len(InterfaceListExisting) > InterfaceListIdx && !InterfaceListExisting[InterfaceListIdx].Priority.IsNull() && !InterfaceListExisting[InterfaceListIdx].Priority.IsUnknown() {
+																			if InterfaceListExisting[InterfaceListIdx].Priority.ValueInt64() == 0 {
+																				return InterfaceListExisting[InterfaceListIdx].Priority
+																			}
+																		}
 																	}
 																	return types.Int64Null()
 																}(),
@@ -44198,8 +44527,15 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 												return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListModelAttrTypes})
 											}(),
 											PublicIP: func() types.String {
-												if v, ok := NodeListItemMap["public_ip"].(string); ok && v != "" {
-													return types.StringValue(v)
+												if v, ok := NodeListItemMap["public_ip"].(string); ok {
+													if v != "" {
+														return types.StringValue(v)
+													}
+													if !isImport && len(NodeListExisting) > NodeListIdx && !NodeListExisting[NodeListIdx].PublicIP.IsNull() && !NodeListExisting[NodeListIdx].PublicIP.IsUnknown() {
+														if NodeListExisting[NodeListIdx].PublicIP.ValueString() == "" {
+															return NodeListExisting[NodeListIdx].PublicIP
+														}
+													}
 												}
 												return types.StringNull()
 											}(),
@@ -50906,8 +51242,15 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																	return types.ObjectNull(map[string]attr.Type{})
 																}(),
 																Priority: func() types.Int64 {
-																	if v, ok := InterfaceListItemMap["priority"].(float64); ok && v != 0 {
-																		return types.Int64Value(int64(v))
+																	if v, ok := InterfaceListItemMap["priority"].(float64); ok {
+																		if v != 0 {
+																			return types.Int64Value(int64(v))
+																		}
+																		if !isImport && len(InterfaceListExisting) > InterfaceListIdx && !InterfaceListExisting[InterfaceListIdx].Priority.IsNull() && !InterfaceListExisting[InterfaceListIdx].Priority.IsUnknown() {
+																			if InterfaceListExisting[InterfaceListIdx].Priority.ValueInt64() == 0 {
+																				return InterfaceListExisting[InterfaceListIdx].Priority
+																			}
+																		}
 																	}
 																	return types.Int64Null()
 																}(),
@@ -51036,8 +51379,15 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 												return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2AWSNotManagedNodeListInterfaceListModelAttrTypes})
 											}(),
 											PublicIP: func() types.String {
-												if v, ok := NodeListItemMap["public_ip"].(string); ok && v != "" {
-													return types.StringValue(v)
+												if v, ok := NodeListItemMap["public_ip"].(string); ok {
+													if v != "" {
+														return types.StringValue(v)
+													}
+													if !isImport && len(NodeListExisting) > NodeListIdx && !NodeListExisting[NodeListIdx].PublicIP.IsNull() && !NodeListExisting[NodeListIdx].PublicIP.IsUnknown() {
+														if NodeListExisting[NodeListIdx].PublicIP.ValueString() == "" {
+															return NodeListExisting[NodeListIdx].PublicIP
+														}
+													}
 												}
 												return types.StringNull()
 											}(),
@@ -51686,8 +52036,15 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																	return types.ObjectNull(map[string]attr.Type{})
 																}(),
 																Priority: func() types.Int64 {
-																	if v, ok := InterfaceListItemMap["priority"].(float64); ok && v != 0 {
-																		return types.Int64Value(int64(v))
+																	if v, ok := InterfaceListItemMap["priority"].(float64); ok {
+																		if v != 0 {
+																			return types.Int64Value(int64(v))
+																		}
+																		if !isImport && len(InterfaceListExisting) > InterfaceListIdx && !InterfaceListExisting[InterfaceListIdx].Priority.IsNull() && !InterfaceListExisting[InterfaceListIdx].Priority.IsUnknown() {
+																			if InterfaceListExisting[InterfaceListIdx].Priority.ValueInt64() == 0 {
+																				return InterfaceListExisting[InterfaceListIdx].Priority
+																			}
+																		}
 																	}
 																	return types.Int64Null()
 																}(),
@@ -51816,8 +52173,15 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 												return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2AzureNotManagedNodeListInterfaceListModelAttrTypes})
 											}(),
 											PublicIP: func() types.String {
-												if v, ok := NodeListItemMap["public_ip"].(string); ok && v != "" {
-													return types.StringValue(v)
+												if v, ok := NodeListItemMap["public_ip"].(string); ok {
+													if v != "" {
+														return types.StringValue(v)
+													}
+													if !isImport && len(NodeListExisting) > NodeListIdx && !NodeListExisting[NodeListIdx].PublicIP.IsNull() && !NodeListExisting[NodeListIdx].PublicIP.IsUnknown() {
+														if NodeListExisting[NodeListIdx].PublicIP.ValueString() == "" {
+															return NodeListExisting[NodeListIdx].PublicIP
+														}
+													}
 												}
 												return types.StringNull()
 											}(),
@@ -52466,8 +52830,15 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																	return types.ObjectNull(map[string]attr.Type{})
 																}(),
 																Priority: func() types.Int64 {
-																	if v, ok := InterfaceListItemMap["priority"].(float64); ok && v != 0 {
-																		return types.Int64Value(int64(v))
+																	if v, ok := InterfaceListItemMap["priority"].(float64); ok {
+																		if v != 0 {
+																			return types.Int64Value(int64(v))
+																		}
+																		if !isImport && len(InterfaceListExisting) > InterfaceListIdx && !InterfaceListExisting[InterfaceListIdx].Priority.IsNull() && !InterfaceListExisting[InterfaceListIdx].Priority.IsUnknown() {
+																			if InterfaceListExisting[InterfaceListIdx].Priority.ValueInt64() == 0 {
+																				return InterfaceListExisting[InterfaceListIdx].Priority
+																			}
+																		}
 																	}
 																	return types.Int64Null()
 																}(),
@@ -52596,8 +52967,15 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 												return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListModelAttrTypes})
 											}(),
 											PublicIP: func() types.String {
-												if v, ok := NodeListItemMap["public_ip"].(string); ok && v != "" {
-													return types.StringValue(v)
+												if v, ok := NodeListItemMap["public_ip"].(string); ok {
+													if v != "" {
+														return types.StringValue(v)
+													}
+													if !isImport && len(NodeListExisting) > NodeListIdx && !NodeListExisting[NodeListIdx].PublicIP.IsNull() && !NodeListExisting[NodeListIdx].PublicIP.IsUnknown() {
+														if NodeListExisting[NodeListIdx].PublicIP.ValueString() == "" {
+															return NodeListExisting[NodeListIdx].PublicIP
+														}
+													}
 												}
 												return types.StringNull()
 											}(),
@@ -53661,8 +54039,15 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																	return types.ObjectNull(map[string]attr.Type{})
 																}(),
 																Priority: func() types.Int64 {
-																	if v, ok := InterfaceListItemMap["priority"].(float64); ok && v != 0 {
-																		return types.Int64Value(int64(v))
+																	if v, ok := InterfaceListItemMap["priority"].(float64); ok {
+																		if v != 0 {
+																			return types.Int64Value(int64(v))
+																		}
+																		if !isImport && len(InterfaceListExisting) > InterfaceListIdx && !InterfaceListExisting[InterfaceListIdx].Priority.IsNull() && !InterfaceListExisting[InterfaceListIdx].Priority.IsUnknown() {
+																			if InterfaceListExisting[InterfaceListIdx].Priority.ValueInt64() == 0 {
+																				return InterfaceListExisting[InterfaceListIdx].Priority
+																			}
+																		}
 																	}
 																	return types.Int64Null()
 																}(),
@@ -53791,8 +54176,15 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 												return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2EksK8SNotManagedNodeListInterfaceListModelAttrTypes})
 											}(),
 											PublicIP: func() types.String {
-												if v, ok := NodeListItemMap["public_ip"].(string); ok && v != "" {
-													return types.StringValue(v)
+												if v, ok := NodeListItemMap["public_ip"].(string); ok {
+													if v != "" {
+														return types.StringValue(v)
+													}
+													if !isImport && len(NodeListExisting) > NodeListIdx && !NodeListExisting[NodeListIdx].PublicIP.IsNull() && !NodeListExisting[NodeListIdx].PublicIP.IsUnknown() {
+														if NodeListExisting[NodeListIdx].PublicIP.ValueString() == "" {
+															return NodeListExisting[NodeListIdx].PublicIP
+														}
+													}
 												}
 												return types.StringNull()
 											}(),
@@ -54476,8 +54868,15 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																	return types.ObjectNull(map[string]attr.Type{})
 																}(),
 																Priority: func() types.Int64 {
-																	if v, ok := InterfaceListItemMap["priority"].(float64); ok && v != 0 {
-																		return types.Int64Value(int64(v))
+																	if v, ok := InterfaceListItemMap["priority"].(float64); ok {
+																		if v != 0 {
+																			return types.Int64Value(int64(v))
+																		}
+																		if !isImport && len(InterfaceListExisting) > InterfaceListIdx && !InterfaceListExisting[InterfaceListIdx].Priority.IsNull() && !InterfaceListExisting[InterfaceListIdx].Priority.IsUnknown() {
+																			if InterfaceListExisting[InterfaceListIdx].Priority.ValueInt64() == 0 {
+																				return InterfaceListExisting[InterfaceListIdx].Priority
+																			}
+																		}
 																	}
 																	return types.Int64Null()
 																}(),
@@ -54606,8 +55005,15 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 												return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2EquinixNotManagedNodeListInterfaceListModelAttrTypes})
 											}(),
 											PublicIP: func() types.String {
-												if v, ok := NodeListItemMap["public_ip"].(string); ok && v != "" {
-													return types.StringValue(v)
+												if v, ok := NodeListItemMap["public_ip"].(string); ok {
+													if v != "" {
+														return types.StringValue(v)
+													}
+													if !isImport && len(NodeListExisting) > NodeListIdx && !NodeListExisting[NodeListIdx].PublicIP.IsNull() && !NodeListExisting[NodeListIdx].PublicIP.IsUnknown() {
+														if NodeListExisting[NodeListIdx].PublicIP.ValueString() == "" {
+															return NodeListExisting[NodeListIdx].PublicIP
+														}
+													}
 												}
 												return types.StringNull()
 											}(),
@@ -55263,8 +55669,15 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																	return types.ObjectNull(map[string]attr.Type{})
 																}(),
 																Priority: func() types.Int64 {
-																	if v, ok := InterfaceListItemMap["priority"].(float64); ok && v != 0 {
-																		return types.Int64Value(int64(v))
+																	if v, ok := InterfaceListItemMap["priority"].(float64); ok {
+																		if v != 0 {
+																			return types.Int64Value(int64(v))
+																		}
+																		if !isImport && len(InterfaceListExisting) > InterfaceListIdx && !InterfaceListExisting[InterfaceListIdx].Priority.IsNull() && !InterfaceListExisting[InterfaceListIdx].Priority.IsUnknown() {
+																			if InterfaceListExisting[InterfaceListIdx].Priority.ValueInt64() == 0 {
+																				return InterfaceListExisting[InterfaceListIdx].Priority
+																			}
+																		}
 																	}
 																	return types.Int64Null()
 																}(),
@@ -55393,8 +55806,15 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 												return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2GCPNotManagedNodeListInterfaceListModelAttrTypes})
 											}(),
 											PublicIP: func() types.String {
-												if v, ok := NodeListItemMap["public_ip"].(string); ok && v != "" {
-													return types.StringValue(v)
+												if v, ok := NodeListItemMap["public_ip"].(string); ok {
+													if v != "" {
+														return types.StringValue(v)
+													}
+													if !isImport && len(NodeListExisting) > NodeListIdx && !NodeListExisting[NodeListIdx].PublicIP.IsNull() && !NodeListExisting[NodeListIdx].PublicIP.IsUnknown() {
+														if NodeListExisting[NodeListIdx].PublicIP.ValueString() == "" {
+															return NodeListExisting[NodeListIdx].PublicIP
+														}
+													}
 												}
 												return types.StringNull()
 											}(),
@@ -56043,8 +56463,15 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																	return types.ObjectNull(map[string]attr.Type{})
 																}(),
 																Priority: func() types.Int64 {
-																	if v, ok := InterfaceListItemMap["priority"].(float64); ok && v != 0 {
-																		return types.Int64Value(int64(v))
+																	if v, ok := InterfaceListItemMap["priority"].(float64); ok {
+																		if v != 0 {
+																			return types.Int64Value(int64(v))
+																		}
+																		if !isImport && len(InterfaceListExisting) > InterfaceListIdx && !InterfaceListExisting[InterfaceListIdx].Priority.IsNull() && !InterfaceListExisting[InterfaceListIdx].Priority.IsUnknown() {
+																			if InterfaceListExisting[InterfaceListIdx].Priority.ValueInt64() == 0 {
+																				return InterfaceListExisting[InterfaceListIdx].Priority
+																			}
+																		}
 																	}
 																	return types.Int64Null()
 																}(),
@@ -56173,8 +56600,15 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 												return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2KvmNotManagedNodeListInterfaceListModelAttrTypes})
 											}(),
 											PublicIP: func() types.String {
-												if v, ok := NodeListItemMap["public_ip"].(string); ok && v != "" {
-													return types.StringValue(v)
+												if v, ok := NodeListItemMap["public_ip"].(string); ok {
+													if v != "" {
+														return types.StringValue(v)
+													}
+													if !isImport && len(NodeListExisting) > NodeListIdx && !NodeListExisting[NodeListIdx].PublicIP.IsNull() && !NodeListExisting[NodeListIdx].PublicIP.IsUnknown() {
+														if NodeListExisting[NodeListIdx].PublicIP.ValueString() == "" {
+															return NodeListExisting[NodeListIdx].PublicIP
+														}
+													}
 												}
 												return types.StringNull()
 											}(),
@@ -57678,8 +58112,15 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																	return types.ObjectNull(map[string]attr.Type{})
 																}(),
 																Priority: func() types.Int64 {
-																	if v, ok := InterfaceListItemMap["priority"].(float64); ok && v != 0 {
-																		return types.Int64Value(int64(v))
+																	if v, ok := InterfaceListItemMap["priority"].(float64); ok {
+																		if v != 0 {
+																			return types.Int64Value(int64(v))
+																		}
+																		if !isImport && len(InterfaceListExisting) > InterfaceListIdx && !InterfaceListExisting[InterfaceListIdx].Priority.IsNull() && !InterfaceListExisting[InterfaceListIdx].Priority.IsUnknown() {
+																			if InterfaceListExisting[InterfaceListIdx].Priority.ValueInt64() == 0 {
+																				return InterfaceListExisting[InterfaceListIdx].Priority
+																			}
+																		}
 																	}
 																	return types.Int64Null()
 																}(),
@@ -57808,8 +58249,15 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 												return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2NutanixNotManagedNodeListInterfaceListModelAttrTypes})
 											}(),
 											PublicIP: func() types.String {
-												if v, ok := NodeListItemMap["public_ip"].(string); ok && v != "" {
-													return types.StringValue(v)
+												if v, ok := NodeListItemMap["public_ip"].(string); ok {
+													if v != "" {
+														return types.StringValue(v)
+													}
+													if !isImport && len(NodeListExisting) > NodeListIdx && !NodeListExisting[NodeListIdx].PublicIP.IsNull() && !NodeListExisting[NodeListIdx].PublicIP.IsUnknown() {
+														if NodeListExisting[NodeListIdx].PublicIP.ValueString() == "" {
+															return NodeListExisting[NodeListIdx].PublicIP
+														}
+													}
 												}
 												return types.StringNull()
 											}(),
@@ -58458,8 +58906,15 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																	return types.ObjectNull(map[string]attr.Type{})
 																}(),
 																Priority: func() types.Int64 {
-																	if v, ok := InterfaceListItemMap["priority"].(float64); ok && v != 0 {
-																		return types.Int64Value(int64(v))
+																	if v, ok := InterfaceListItemMap["priority"].(float64); ok {
+																		if v != 0 {
+																			return types.Int64Value(int64(v))
+																		}
+																		if !isImport && len(InterfaceListExisting) > InterfaceListIdx && !InterfaceListExisting[InterfaceListIdx].Priority.IsNull() && !InterfaceListExisting[InterfaceListIdx].Priority.IsUnknown() {
+																			if InterfaceListExisting[InterfaceListIdx].Priority.ValueInt64() == 0 {
+																				return InterfaceListExisting[InterfaceListIdx].Priority
+																			}
+																		}
 																	}
 																	return types.Int64Null()
 																}(),
@@ -58588,8 +59043,15 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 												return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2OciNotManagedNodeListInterfaceListModelAttrTypes})
 											}(),
 											PublicIP: func() types.String {
-												if v, ok := NodeListItemMap["public_ip"].(string); ok && v != "" {
-													return types.StringValue(v)
+												if v, ok := NodeListItemMap["public_ip"].(string); ok {
+													if v != "" {
+														return types.StringValue(v)
+													}
+													if !isImport && len(NodeListExisting) > NodeListIdx && !NodeListExisting[NodeListIdx].PublicIP.IsNull() && !NodeListExisting[NodeListIdx].PublicIP.IsUnknown() {
+														if NodeListExisting[NodeListIdx].PublicIP.ValueString() == "" {
+															return NodeListExisting[NodeListIdx].PublicIP
+														}
+													}
 												}
 												return types.StringNull()
 											}(),
@@ -59260,8 +59722,15 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																	return types.ObjectNull(map[string]attr.Type{})
 																}(),
 																Priority: func() types.Int64 {
-																	if v, ok := InterfaceListItemMap["priority"].(float64); ok && v != 0 {
-																		return types.Int64Value(int64(v))
+																	if v, ok := InterfaceListItemMap["priority"].(float64); ok {
+																		if v != 0 {
+																			return types.Int64Value(int64(v))
+																		}
+																		if !isImport && len(InterfaceListExisting) > InterfaceListIdx && !InterfaceListExisting[InterfaceListIdx].Priority.IsNull() && !InterfaceListExisting[InterfaceListIdx].Priority.IsUnknown() {
+																			if InterfaceListExisting[InterfaceListIdx].Priority.ValueInt64() == 0 {
+																				return InterfaceListExisting[InterfaceListIdx].Priority
+																			}
+																		}
 																	}
 																	return types.Int64Null()
 																}(),
@@ -59390,8 +59859,15 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 												return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2OpenshiftVirtualizationNotManagedNodeListInterfaceListModelAttrTypes})
 											}(),
 											PublicIP: func() types.String {
-												if v, ok := NodeListItemMap["public_ip"].(string); ok && v != "" {
-													return types.StringValue(v)
+												if v, ok := NodeListItemMap["public_ip"].(string); ok {
+													if v != "" {
+														return types.StringValue(v)
+													}
+													if !isImport && len(NodeListExisting) > NodeListIdx && !NodeListExisting[NodeListIdx].PublicIP.IsNull() && !NodeListExisting[NodeListIdx].PublicIP.IsUnknown() {
+														if NodeListExisting[NodeListIdx].PublicIP.ValueString() == "" {
+															return NodeListExisting[NodeListIdx].PublicIP
+														}
+													}
 												}
 												return types.StringNull()
 											}(),
@@ -60040,8 +60516,15 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																	return types.ObjectNull(map[string]attr.Type{})
 																}(),
 																Priority: func() types.Int64 {
-																	if v, ok := InterfaceListItemMap["priority"].(float64); ok && v != 0 {
-																		return types.Int64Value(int64(v))
+																	if v, ok := InterfaceListItemMap["priority"].(float64); ok {
+																		if v != 0 {
+																			return types.Int64Value(int64(v))
+																		}
+																		if !isImport && len(InterfaceListExisting) > InterfaceListIdx && !InterfaceListExisting[InterfaceListIdx].Priority.IsNull() && !InterfaceListExisting[InterfaceListIdx].Priority.IsUnknown() {
+																			if InterfaceListExisting[InterfaceListIdx].Priority.ValueInt64() == 0 {
+																				return InterfaceListExisting[InterfaceListIdx].Priority
+																			}
+																		}
 																	}
 																	return types.Int64Null()
 																}(),
@@ -60170,8 +60653,15 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 												return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2OpenstackNotManagedNodeListInterfaceListModelAttrTypes})
 											}(),
 											PublicIP: func() types.String {
-												if v, ok := NodeListItemMap["public_ip"].(string); ok && v != "" {
-													return types.StringValue(v)
+												if v, ok := NodeListItemMap["public_ip"].(string); ok {
+													if v != "" {
+														return types.StringValue(v)
+													}
+													if !isImport && len(NodeListExisting) > NodeListIdx && !NodeListExisting[NodeListIdx].PublicIP.IsNull() && !NodeListExisting[NodeListIdx].PublicIP.IsUnknown() {
+														if NodeListExisting[NodeListIdx].PublicIP.ValueString() == "" {
+															return NodeListExisting[NodeListIdx].PublicIP
+														}
+													}
 												}
 												return types.StringNull()
 											}(),
@@ -61480,8 +61970,15 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																	return types.ObjectNull(map[string]attr.Type{})
 																}(),
 																Priority: func() types.Int64 {
-																	if v, ok := InterfaceListItemMap["priority"].(float64); ok && v != 0 {
-																		return types.Int64Value(int64(v))
+																	if v, ok := InterfaceListItemMap["priority"].(float64); ok {
+																		if v != 0 {
+																			return types.Int64Value(int64(v))
+																		}
+																		if !isImport && len(InterfaceListExisting) > InterfaceListIdx && !InterfaceListExisting[InterfaceListIdx].Priority.IsNull() && !InterfaceListExisting[InterfaceListIdx].Priority.IsUnknown() {
+																			if InterfaceListExisting[InterfaceListIdx].Priority.ValueInt64() == 0 {
+																				return InterfaceListExisting[InterfaceListIdx].Priority
+																			}
+																		}
 																	}
 																	return types.Int64Null()
 																}(),
@@ -61610,8 +62107,15 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 												return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListModelAttrTypes})
 											}(),
 											PublicIP: func() types.String {
-												if v, ok := NodeListItemMap["public_ip"].(string); ok && v != "" {
-													return types.StringValue(v)
+												if v, ok := NodeListItemMap["public_ip"].(string); ok {
+													if v != "" {
+														return types.StringValue(v)
+													}
+													if !isImport && len(NodeListExisting) > NodeListIdx && !NodeListExisting[NodeListIdx].PublicIP.IsNull() && !NodeListExisting[NodeListIdx].PublicIP.IsUnknown() {
+														if NodeListExisting[NodeListIdx].PublicIP.ValueString() == "" {
+															return NodeListExisting[NodeListIdx].PublicIP
+														}
+													}
 												}
 												return types.StringNull()
 											}(),

@@ -2953,3 +2953,68 @@ func TestNestedDefaultOneOfMarkerPlanning(t *testing.T) {
 		t.Fatal("nested-only marker modifier import missing")
 	}
 }
+
+func TestSMSv2ExplicitDefaultReadbackIssue2661(t *testing.T) {
+	for _, tc := range []struct{ name, goName, typ string }{
+		{"public_ip", "PublicIP", "string"}, {"priority", "Priority", "int64"},
+	} {
+		t.Run(tc.name, func(t *testing.T) {
+			attr := openapi.TerraformAttribute{GoName: tc.goName, TfsdkTag: tc.name, JsonName: tc.name, Type: tc.typ, Optional: true}
+			var sb strings.Builder
+			if err := renderUnmarshalScalarChild(&sb, "SecuremeshSiteV2", attr, "m", "prior", "hasPrior", "list", "\t"); err != nil {
+				t.Fatal(err)
+			}
+			generated := sb.String()
+			if !strings.Contains(generated, "!isImport && hasPrior && !prior."+tc.goName+".IsNull() && !prior."+tc.goName+".IsUnknown()") {
+				t.Fatalf("explicit default must distinguish omitted/unknown/import state: %s", generated)
+			}
+			if !strings.Contains(generated, "return prior."+tc.goName) {
+				t.Fatalf("explicit default lost: %s", generated)
+			}
+		})
+	}
+}
+
+func TestSMSv2ExplicitDefaultExpressionsExecuteIssue2661(t *testing.T) {
+	var fields strings.Builder
+	for _, attr := range []openapi.TerraformAttribute{
+		{GoName: "PublicIP", TfsdkTag: "public_ip", JsonName: "public_ip", Type: "string", Optional: true},
+		{GoName: "Priority", TfsdkTag: "priority", JsonName: "priority", Type: "int64", Optional: true},
+	} {
+		if err := renderUnmarshalScalarChild(&fields, "SecuremeshSiteV2", attr, "m", "prior", "hasPrior", "list", "\t"); err != nil {
+			t.Fatal(err)
+		}
+	}
+	source := `package main
+import "github.com/hashicorp/terraform-plugin-framework/types"
+type model struct { PublicIP types.String; Priority types.Int64 }
+func read(m map[string]interface{}, prior model, hasPrior, isImport bool) model { return model{
+` + fields.String() + `}}
+func main() {
+ defaults:=map[string]interface{}{"public_ip":"", "priority":float64(0)}
+ explicit:=model{types.StringValue(""),types.Int64Value(0)}
+ got:=read(defaults,explicit,true,false)
+ if got.PublicIP.IsNull() || got.Priority.IsNull() { panic("explicit defaults lost") }
+ for _, prior:=range []model{{types.StringNull(),types.Int64Null()},{types.StringUnknown(),types.Int64Unknown()}} {
+  got=read(defaults,prior,true,false)
+  if !got.PublicIP.IsNull() || !got.Priority.IsNull() { panic("omitted/unknown defaults invented") }
+ }
+ got=read(defaults,explicit,true,true)
+ if !got.PublicIP.IsNull() || !got.Priority.IsNull() { panic("import inferred explicit intent") }
+ got=read(map[string]interface{}{},explicit,true,false)
+ if !got.PublicIP.IsNull() || !got.Priority.IsNull() { panic("missing API field fabricated") }
+ got=read(map[string]interface{}{"public_ip":"192.0.2.1","priority":float64(10)},explicit,true,false)
+ if got.PublicIP.ValueString()!="192.0.2.1" || got.Priority.ValueInt64()!=10 { panic("nondefault drift concealed") }
+}
+`
+	directory := t.TempDir()
+	if err := os.WriteFile(filepath.Join(directory, "main.go"), []byte(source), 0600); err != nil {
+		t.Fatal(err)
+	}
+	root := filepath.Join("..", "..", "..")
+	cmd := exec.Command("go", "run", filepath.Join(directory, "main.go"))
+	cmd.Dir = root
+	if output, err := cmd.CombinedOutput(); err != nil {
+		t.Fatalf("generated behavior failed: %v\n%s", err, output)
+	}
+}
