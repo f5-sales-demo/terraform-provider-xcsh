@@ -1532,3 +1532,25 @@ func TestLatestSpecSyncTriggerMutationsFail(t *testing.T) {
 		})
 	}
 }
+
+func TestProviderCIUsesOnePullRequestEntryPoint(t *testing.T) {
+	content, err := os.ReadFile(filepath.Join("..", ".github", "workflows", "ci.yml"))
+	if err != nil {
+		t.Fatal(err)
+	}
+	var workflow workflowDocument
+	if err := yaml.Unmarshal(content, &workflow); err != nil {
+		t.Fatal(err)
+	}
+	triggers, err := triggerMapping(workflow.On)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(triggers) != 1 {
+		t.Fatalf("CI creates duplicate runs outside PR updates: %v", triggers)
+	}
+	pull, ok := triggers["pull_request"].(map[string]any)
+	if !ok || !reflect.DeepEqual(pull["branches"], []any{"main"}) {
+		t.Fatal("PR CI is not bounded to main")
+	}
+}

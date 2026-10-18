@@ -1,5 +1,5 @@
 # CI workflow for pull request validation
-# Runs on all PRs and pushes to feature branches
+# Runs once per PR update. On Merge validates and publishes main.
 # Replaces: lint.yml
 name: CI
 
@@ -7,15 +7,6 @@ on:
   pull_request:
     branches:
       - main
-  push:
-    branches:
-      - 'feature/**'
-      - 'bugfix/**'
-      - 'fix/**'
-      - 'refactor/**'
-      - 'auto-generate/**'
-      - 'auto-regenerate/**'
-      - 'openapi-update'
 
 # Least privilege: every job here only reads the repository. `statuses: write`
 # and `checks: write` were granted workflow-wide but nothing consumed them —

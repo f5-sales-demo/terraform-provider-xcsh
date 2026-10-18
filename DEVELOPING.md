@@ -14,8 +14,9 @@ of completed publications.
 
 Sync OpenAPI Specs resolves latest on every upstream notification, manual run,
 and hourly reconciliation. A newer release supersedes an unpublished older
-delivery. An identical pending delivery resumes, and a completed delivery is a
-no-op. Invalid receipts and conflicting identities fail.
+delivery. An identical pending delivery resumes after active generation,
+publication, and receipt PRs finish. A completed delivery is a no-op. Invalid
+receipts and conflicting identities fail.
 
 ## Generate and verify
 

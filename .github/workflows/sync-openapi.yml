@@ -200,7 +200,25 @@ jobs:
         if: steps.dispatch_contract.outputs.resume == 'true'
         env:
           GH_TOKEN: ${{ secrets.REPO_SYNC_TOKEN }}
-        run: gh workflow run on-merge.yml --ref main -f resume-pending=true
+          SOURCE_COMMIT: ${{ github.sha }}
+          DELIVERY_ID: ${{ steps.latest.outputs.delivery_id }}
+        run: |
+          set -euo pipefail
+          RUNS=$(gh run list --workflow on-merge.yml --branch main --limit 20 --json status)
+          jq -e 'type == "array" and all(.[]; (.status | type) == "string")' <<< "$RUNS" >/dev/null
+          if jq -e 'any(.[]; .status != "completed")' <<< "$RUNS" >/dev/null; then
+            echo "::notice::Pending delivery already has active generation or publication"
+            exit 0
+          fi
+          PULLS=$(gh pr list --state open --limit 100 --json headRefName)
+          jq -e 'type == "array" and all(.[]; (.headRefName | type) == "string")' <<< "$PULLS" >/dev/null
+          if jq -e --arg generation "auto-regenerate/${SOURCE_COMMIT}" \
+            --arg receipt "spec-delivery-receipt/${DELIVERY_ID}" \
+            'any(.[]; .headRefName == $generation or .headRefName == $receipt)' <<< "$PULLS" >/dev/null; then
+            echo "::notice::Pending delivery already has its generation or receipt PR"
+            exit 0
+          fi
+          gh workflow run on-merge.yml --ref main -f resume-pending=true
 
       - name: Determine spec version
         if: steps.dispatch_contract.outputs.process == 'true'

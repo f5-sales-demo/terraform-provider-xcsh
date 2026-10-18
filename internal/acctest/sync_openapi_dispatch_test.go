@@ -750,3 +750,52 @@ func TestSyncOpenAPILatestResolutionRejectsFailedOrMalformedProducer(t *testing.
 		})
 	}
 }
+
+func TestLatestDeliveryRecoveryWaitsForActiveGenerationAndPublication(t *testing.T) {
+	script := extractSyncOpenAPIStep(t, "Resume exact pending publication")
+	source := strings.Repeat("a", 40)
+	delivery := strings.Repeat("b", 64)
+	for _, tc := range []struct {
+		name, runs, pulls string
+		dispatch, fail    bool
+	}{
+		{"active generation", `[{"status":"in_progress"}]`, `[]`, false, false},
+		{"queued publication", `[{"status":"queued"}]`, `[]`, false, false},
+		{"generation PR", `[]`, `[{"headRefName":"auto-regenerate/` + source + `"}]`, false, false},
+		{"receipt PR", `[]`, `[{"headRefName":"spec-delivery-receipt/` + delivery + `"}]`, false, false},
+		{"completed failure recovery", `[{"status":"completed"}]`, `[]`, true, false},
+		{"stale generation recovery", `[]`, `[{"headRefName":"auto-regenerate/` + strings.Repeat("c", 40) + `"}]`, true, false},
+		{"failed API", "API_FAILURE", `[]`, false, true},
+		{"malformed runs", `[{"wrong":"field"}]`, `[]`, false, true},
+		{"malformed PRs", `[]`, `[{"wrong":"field"}]`, false, true},
+	} {
+		t.Run(tc.name, func(t *testing.T) {
+			tmp := t.TempDir()
+			stub := `#!/bin/bash
+case "$1 $2" in
+ "run list") [ "$RUNS_JSON" != API_FAILURE ] || exit 1; printf '%s\n' "$RUNS_JSON" ;;
+ "pr list") printf '%s\n' "$PULLS_JSON" ;;
+ "workflow run") printf '%s\n' "$*" > "$DISPATCH_RECEIPT" ;;
+ *) exit 1 ;;
+esac
+`
+			if err := os.WriteFile(filepath.Join(tmp, "gh"), []byte(stub), 0o700); err != nil {
+				t.Fatal(err)
+			}
+			receipt := filepath.Join(tmp, "dispatch")
+			cmd := exec.Command("bash", "-eo", "pipefail", "-c", script)
+			cmd.Env = append(os.Environ(), "PATH="+tmp+":"+os.Getenv("PATH"), "RUNS_JSON="+tc.runs, "PULLS_JSON="+tc.pulls, "DISPATCH_RECEIPT="+receipt, "SOURCE_COMMIT="+source, "DELIVERY_ID="+delivery)
+			log, err := cmd.CombinedOutput()
+			if (err != nil) != tc.fail {
+				t.Fatalf("recovery status: %v\n%s", err, log)
+			}
+			dispatched, err := os.ReadFile(receipt)
+			if (err == nil) != tc.dispatch {
+				t.Fatalf("unexpected recovery dispatch: %s\n%s", dispatched, log)
+			}
+			if tc.dispatch && !strings.Contains(string(dispatched), "workflow run on-merge.yml --ref main -f resume-pending=true") {
+				t.Fatal("recovery did not target current main")
+			}
+		})
+	}
+}
