@@ -2912,3 +2912,99 @@ func testRepositoryRoot(t *testing.T) string {
 	}
 	return root
 }
+
+func TestPrepareSpecDeliveryReceiptPreservesNewerPendingDelivery(t *testing.T) {
+	for _, withGeneration := range []bool{false, true} {
+		t.Run(fmt.Sprintf("generation_%t", withGeneration), func(t *testing.T) {
+			fixture := newReceiptFixture(t, false, false)
+			released := strings.TrimSpace(runReleaseTestCommand(t, fixture.repo, nil, "git", "rev-list", "-n", "1", "v9.8.7"))
+			raw, err := os.ReadFile(filepath.Join(fixture.repo, "tools/spec-release.json"))
+			if err != nil {
+				t.Fatal(err)
+			}
+			var pin map[string]any
+			if err := json.Unmarshal(raw, &pin); err != nil {
+				t.Fatal(err)
+			}
+			assets := pin["assets"].(map[string]any)
+			assets["f5xc-api-specs-v2.1.209.zip"] = assets["f5xc-api-specs-v2.1.208.zip"]
+			delete(assets, "f5xc-api-specs-v2.1.208.zip")
+			commit := strings.Repeat("b", 40)
+			id := providerDeliveryID(t, "2.1.209", "v2.1.209", commit)
+			pin["release_tag"], pin["version"], pin["target_commit"] = "v2.1.209", "2.1.209", commit
+			writeReleaseTestJSON(t, filepath.Join(fixture.repo, "tools/spec-release.json"), pin)
+			pending := map[string]string{"delivery_id": id, "release_tag": "v2.1.209", "version": "2.1.209", "target_commit": commit}
+			writeReleaseTestJSON(t, filepath.Join(fixture.repo, "tools/spec-pending-delivery.json"), pending)
+			writeReleaseTestFile(t, fixture.repo, "tools/spec-version.txt", "v2.1.209\n", 0o600)
+			if err := os.Remove(filepath.Join(fixture.repo, "tools/spec-regeneration-receipt.json")); err != nil {
+				t.Fatal(err)
+			}
+			runReleaseTestCommand(t, fixture.repo, nil, "git", "add", "tools")
+			runReleaseTestCommand(t, fixture.repo, nil, "git", "commit", "-qm", "latest source inputs")
+			runReleaseTestCommand(t, fixture.repo, fixture.env, filepath.Join(testRepositoryRoot(t), "scripts", "validate-source-supersession.sh"), "HEAD^")
+			source := strings.TrimSpace(runReleaseTestCommand(t, fixture.repo, nil, "git", "rev-parse", "HEAD"))
+			if withGeneration {
+				raw, err := os.ReadFile(filepath.Join(fixture.repo, "tools/spec-release.json"))
+				if err != nil {
+					t.Fatal(err)
+				}
+				generation := map[string]string{}
+				for key, value := range pending {
+					generation[key] = value
+				}
+				generation["source_commit"] = source
+				generation["spec_release_sha256"] = fmt.Sprintf("%x", sha256.Sum256(raw))
+				writeReleaseTestJSON(t, filepath.Join(fixture.repo, "tools/spec-regeneration-receipt.json"), generation)
+				runReleaseTestCommand(t, fixture.repo, nil, "git", "add", "tools")
+				runReleaseTestCommand(t, fixture.repo, nil, "git", "commit", "-qm", "latest generation receipt")
+			}
+			runReleaseTestCommand(t, fixture.repo, nil, "git", "push", "-q", "origin", "HEAD:main")
+			paths := []string{"tools/spec-release.json", "tools/spec-version.txt", "tools/spec-pending-delivery.json"}
+			if withGeneration {
+				paths = append(paths, "tools/spec-regeneration-receipt.json")
+			}
+			before := map[string]string{}
+			for _, path := range paths {
+				data, err := os.ReadFile(filepath.Join(fixture.repo, path))
+				if err != nil {
+					t.Fatal(err)
+				}
+				before[path] = string(data)
+			}
+			runReleaseTestCommand(t, fixture.repo, nil, "git", "checkout", "-q", "--detach", released)
+			runReleaseTestCommand(t, fixture.repo, fixture.env, fixture.script)
+			for _, path := range paths {
+				data, err := os.ReadFile(filepath.Join(fixture.repo, path))
+				if err != nil {
+					t.Fatal(err)
+				}
+				if string(data) != before[path] {
+					t.Fatalf("newer input %s changed", path)
+				}
+			}
+			if !withGeneration {
+				if _, err := os.Stat(filepath.Join(fixture.repo, "tools/spec-regeneration-receipt.json")); !os.IsNotExist(err) {
+					t.Fatal("obsolete generation receipt restored")
+				}
+			}
+			assertJSONPathExists(t, filepath.Join(fixture.repo, "tools/spec-deliveries.json"), ".deliveries[\""+fixture.deliveryID+"\"]")
+			assertJSONPathExists(t, filepath.Join(fixture.repo, "tools/provider-publication-receipts.json"), ".receipts[\""+fixture.deliveryID+"\"].publication.assets")
+			runReleaseTestCommand(t, fixture.repo, nil, "git", "add", "tools/spec-deliveries.json", "tools/provider-publication-receipts.json")
+			runReleaseTestCommand(t, fixture.repo, nil, "git", "commit", "-qm", "chore: receipt published spec delivery")
+			runReleaseTestCommand(t, fixture.repo, fixture.env, filepath.Join(testRepositoryRoot(t), "scripts", "validate-prior-publication-receipt.sh"), fixture.deliveryID, "HEAD^")
+
+		})
+	}
+}
+
+func TestSourceSupersessionRejectsReceiptDeletionWithoutNewSource(t *testing.T) {
+	fixture := newReceiptFixture(t, false, false)
+	runReleaseTestCommand(t, fixture.repo, nil, "git", "rm", "-q", "tools/spec-regeneration-receipt.json")
+	runReleaseTestCommand(t, fixture.repo, nil, "git", "commit", "-qm", "unauthorized receipt removal")
+	cmd := exec.Command(filepath.Join(testRepositoryRoot(t), "scripts", "validate-source-supersession.sh"), "HEAD^")
+	cmd.Dir = fixture.repo
+	cmd.Env = append(os.Environ(), fixture.env...)
+	if output, err := cmd.CombinedOutput(); err == nil {
+		t.Fatalf("bare receipt removal accepted: %s", output)
+	}
+}

@@ -278,27 +278,34 @@ jobs:
               'D tools/spec-pending-delivery.json' \
               'D tools/spec-regeneration-receipt.json')
             ACTUAL_RECEIPT_CHANGES=$(git diff --name-status HEAD^ HEAD | sort -k2,2 | tr '\t' ' ')
-            [ "$ACTUAL_RECEIPT_CHANGES" = "$EXPECTED_RECEIPT_CHANGES" ] || {
-              echo "::error::Receipt merge changed files outside the exact durable receipt set"
-              exit 1
-            }
-            [ ! -e "$PENDING" ] && [ ! -e "$RECEIPT" ] || {
-              echo "::error::Receipt merge did not remove both transient delivery files"
-              exit 1
-            }
-            PREVIOUS_PENDING=$(git show "HEAD^:$PENDING") || {
-              echo "::error::Receipt merge parent has no pending delivery"
-              exit 1
-            }
-            PREVIOUS_RECEIPT=$(git show "HEAD^:$RECEIPT") || {
-              echo "::error::Receipt merge parent has no regeneration receipt"
-              exit 1
-            }
-            [ "$(jq -r '.delivery_id // empty' <<< "$PREVIOUS_PENDING")" = "$RECEIPT_DELIVERY_ID" ] &&
-              [ "$(jq -r '.delivery_id // empty' <<< "$PREVIOUS_RECEIPT")" = "$RECEIPT_DELIVERY_ID" ] || {
-              echo "::error::Receipt pull request branch differs from the transient delivery identity"
-              exit 1
-            }
+            PRIOR_RECEIPT_CHANGES=$(printf '%s\n' \
+              'M tools/provider-publication-receipts.json' \
+              'M tools/spec-deliveries.json')
+            if [ "$ACTUAL_RECEIPT_CHANGES" = "$PRIOR_RECEIPT_CHANGES" ]; then
+              scripts/validate-prior-publication-receipt.sh "$RECEIPT_DELIVERY_ID" HEAD^
+            else
+              [ "$ACTUAL_RECEIPT_CHANGES" = "$EXPECTED_RECEIPT_CHANGES" ] || {
+                echo "::error::Receipt merge changed files outside the exact durable receipt set"
+                exit 1
+              }
+              [ ! -e "$PENDING" ] && [ ! -e "$RECEIPT" ] || {
+                echo "::error::Receipt merge did not remove both transient delivery files"
+                exit 1
+              }
+              PREVIOUS_PENDING=$(git show "HEAD^:$PENDING") || {
+                echo "::error::Receipt merge parent has no pending delivery"
+                exit 1
+              }
+              PREVIOUS_RECEIPT=$(git show "HEAD^:$RECEIPT") || {
+                echo "::error::Receipt merge parent has no regeneration receipt"
+                exit 1
+              }
+              [ "$(jq -r '.delivery_id // empty' <<< "$PREVIOUS_PENDING")" = "$RECEIPT_DELIVERY_ID" ] &&
+                [ "$(jq -r '.delivery_id // empty' <<< "$PREVIOUS_RECEIPT")" = "$RECEIPT_DELIVERY_ID" ] || {
+                echo "::error::Receipt pull request branch differs from the transient delivery identity"
+                exit 1
+              }
+            fi
             scripts/validate-provider-delivery-state.sh || {
               echo "::error::Receipt merge did not produce valid durable delivery state"
               exit 1
@@ -403,6 +410,8 @@ jobs:
             fi
           elif [ "$IS_RECEIPT" = true ]; then
             : # Valid durable receipt metadata must not trigger another release.
+          elif [ "$RECEIPT_CHANGED" = true ] && scripts/validate-source-supersession.sh HEAD^; then
+            echo "Validated removal of an obsolete generation receipt during latest source supersession"
           elif [ "$RECEIPT_CHANGED" = true ]; then
             echo "::error::Only the exact regeneration merge may add or modify a receipt"
             exit 1
