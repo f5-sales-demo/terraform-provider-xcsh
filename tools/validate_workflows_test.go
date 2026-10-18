@@ -110,22 +110,20 @@ func TestOnMergeRegenerationSubjectBindsSquashPRNumber(t *testing.T) {
 	}
 }
 
-func TestConstitutionAllowsOnlyExactPendingWorkflowRecovery(t *testing.T) {
+func TestConstitutionValidatesSourceReceiptsWithoutBlockingLatestUpdates(t *testing.T) {
 	content, err := os.ReadFile(filepath.Join("..", ".github", "workflows", "ci.yml"))
 	if err != nil {
-		t.Fatalf("read CI workflow: %v", err)
+		t.Fatal(err)
 	}
 	workflow := string(content)
-	required := []string{
-		`ALLOW_PENDING_DELIVERY=false`,
-		`ALLOW_PENDING_DELIVERY=true`,
-		`scripts/is-release-recovery-only.sh`,
-		`tools/spec-pending-delivery.json`,
+	if !strings.Contains(workflow, "run: scripts/validate-provider-delivery-state.sh") {
+		t.Fatal("source receipts are not validated")
 	}
-	for _, fragment := range required {
-		if !strings.Contains(workflow, fragment) {
-			t.Errorf("constitution pending-recovery contract is missing %q", fragment)
-		}
+	if strings.Contains(workflow, "Check Spec Version Freshness") {
+		t.Fatal("recorded build version blocks updates")
+	}
+	if !strings.Contains(workflow, "Check for generated files") {
+		t.Fatal("generated ownership check removed")
 	}
 }
 
@@ -156,8 +154,6 @@ func TestReleaseRecoveryPathClassifier(t *testing.T) {
 				"scripts/generate-provider-docs.sh",
 				"scripts/verify-tfplugindocs.sh",
 				"tools/verify_tfplugindocs_test.go",
-				"scripts/check-spec-version-freshness.sh",
-				"scripts/test-check-spec-version-freshness.sh",
 				"scripts/prepare-spec-delivery-receipt.sh",
 				"scripts/validate-provider-delivery-state.sh",
 				"scripts/is-pending-delivery-active.sh",
@@ -673,7 +669,7 @@ var protectedJobs = []jobContract{
 	{"acc-tests.yml", "mock-tests", canonicalGitHubHostedRunsOn, "", map[string]string{"checks": "write", "contents": "read"}, []string{"pull_request", "schedule", "workflow_dispatch"}, nil, nil},
 	{"acc-tests.yml", "real-api-tests", canonicalManagedSocketlessRunsOn, "acceptance-tests", map[string]string{"checks": "write", "contents": "read"}, []string{"pull_request", "schedule", "workflow_dispatch"}, strptr("always() &&\ngithub.event_name != 'pull_request' &&\n((github.event_name == 'schedule' &&\n  needs.mock-tests.result == 'success') ||\n (github.event_name == 'workflow_dispatch' &&\n  github.event.inputs.mode == 'full' &&\n  needs.mock-tests.result == 'success') ||\n (github.event_name == 'workflow_dispatch' &&\n  github.event.inputs.mode == 'real-only' &&\n  needs.mock-tests.result == 'skipped'))\n"), []string{"XCSH_API_TOKEN", "XCSH_API_URL"}},
 	{"discover-defaults.yml", "discover", canonicalManagedSocketlessRunsOn, "default-discovery", map[string]string{}, []string{"schedule", "workflow_dispatch"}, nil, []string{"REPO_SYNC_TOKEN", "XCSH_API_TOKEN", "XCSH_API_URL"}},
-	{"sync-openapi.yml", "sync", canonicalManagedSocketlessRunsOn, "provider-delivery", map[string]string{}, []string{"repository_dispatch", "workflow_dispatch"}, nil, []string{"GITHUB_TOKEN", "REPO_SYNC_TOKEN"}},
+	{"sync-openapi.yml", "sync", canonicalManagedSocketlessRunsOn, "provider-delivery", map[string]string{}, []string{"repository_dispatch", "schedule", "workflow_dispatch"}, nil, []string{"GITHUB_TOKEN", "REPO_SYNC_TOKEN"}},
 	{"on-merge.yml", "create-regeneration-pr", canonicalManagedSocketlessRunsOn, "provider-delivery", map[string]string{"contents": "read"}, []string{"push", "workflow_dispatch"}, nil, []string{"REPO_SYNC_TOKEN"}},
 	{"on-merge.yml", "tag-release", nil, "", map[string]string{"contents": "write"}, []string{"push", "workflow_dispatch"}, nil, []string{"GPG_PRIVATE_KEY", "PASSPHRASE", "REPO_SYNC_TOKEN"}},
 	{"on-merge.yml", "receipt-spec-delivery", canonicalManagedSocketlessRunsOn, "provider-delivery", map[string]string{"contents": "read"}, []string{"push", "workflow_dispatch"}, nil, []string{"REPO_SYNC_TOKEN"}},
@@ -698,7 +694,7 @@ var expectedTriggerHashes = map[string]string{
 	"auto-merge.yml":        "8effa43649d3b4a53cffb5aabf06e4906c55c0875d15b5ddf86c73e2d5a9137c",
 	"discover-defaults.yml": "a096243c69275bdfc113bb1830a4ac0ce6a3c6c627bc62e5fad7c295315b943d",
 	"on-merge.yml":          "c560f1d567e1c564318f111fc026679d03a771099c027a116408e408c4aad849",
-	"sync-openapi.yml":      "e9c7b7e72246dd9a3d8a549998232f3d436b2c563273c205cac2435c8c8bfdea",
+	"sync-openapi.yml":      "e838b227fb2006671f0a2688fe549905e4bcc54a2b9cf811b9030d27ece4d750",
 }
 
 var environmentBoundSecrets = map[string]bool{
@@ -1508,6 +1504,30 @@ func TestGeneratorRunnerContractsMatchOnMerge(t *testing.T) {
 				if (err == nil) != tc.pass {
 					t.Errorf("runner %q accepted = %v, want %v: %s", tc.label, err == nil, tc.pass, output)
 				}
+			}
+		})
+	}
+}
+
+func TestLatestSpecSyncTriggerMutationsFail(t *testing.T) {
+	base, err := os.ReadFile(filepath.Join("..", ".github", "workflows", "sync-openapi.yml"))
+	if err != nil {
+		t.Fatal(err)
+	}
+	if issues := validateWorkflowBytes("sync-openapi.yml", base); len(issues) != 0 {
+		t.Fatalf("latest sync contract: %v", issues)
+	}
+	for name, replacement := range map[string]string{
+		"changed cadence":        "    - cron: '*/5 * * * *'",
+		"removed reconciliation": "",
+	} {
+		t.Run(name, func(t *testing.T) {
+			changed := strings.Replace(string(base), "    - cron: '17 * * * *'", replacement, 1)
+			if changed == string(base) {
+				t.Fatal("mutation did not apply")
+			}
+			if issues := validateWorkflowBytes("sync-openapi.yml", []byte(changed)); len(issues) == 0 {
+				t.Fatal("changed latest reconciliation contract passed")
 			}
 		})
 	}

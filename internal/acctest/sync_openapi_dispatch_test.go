@@ -225,20 +225,20 @@ func TestSyncOpenAPIDispatchRejectsReusedDurableIdentityDimensions(t *testing.T)
 	}
 }
 
-func TestSyncOpenAPIUsesDispatchedTagAndRetainsCatalog(t *testing.T) {
+func TestSyncOpenAPIUsesResolvedLatestTagAndRetainsCatalog(t *testing.T) {
 	determine := extractSyncOpenAPIStep(t, "Determine spec version")
 	download := extractSyncOpenAPIStep(t, "Download OpenAPI specs")
 	record := extractSyncOpenAPIStep(t, "Record resolved spec version (tracked marker)")
 
 	if !strings.Contains(determine, `SPEC_VERSION="$DISPATCH_RELEASE_TAG"`) {
-		t.Fatal("repository_dispatch does not replace the manual tag with release_tag")
+		t.Fatal("download does not use the resolved latest tag")
 	}
 	if strings.Contains(download, ".[0].assets") ||
 		!strings.Contains(download, `releases/tags/${SPEC_VERSION}`) {
 		t.Fatal("download is not scoped to the resolved release tag")
 	}
 	if strings.Contains(determine, "releases/latest") || strings.Contains(determine, `"latest"`) {
-		t.Fatal("version resolution still contains a mutable latest fallback")
+		t.Fatal("download reselects latest after binding this build")
 	}
 	catalogDownload := strings.Index(download, `for asset in api-catalog.json concurrency_contracts.json index.json minimal-export-defaults.json openapi.json`)
 	promotion := strings.Index(download, `cp -a "${STAGED_SPECS}/." "${SPEC_DIR}/"`)
@@ -641,4 +641,112 @@ func extractSyncOpenAPIStep(t *testing.T, name string) string {
 	}
 	t.Fatalf("workflow step %q not found", name)
 	return ""
+}
+
+func TestSyncOpenAPISupersedesUnpublishedOlderDelivery(t *testing.T) {
+	script := extractSyncOpenAPIStep(t, "Validate dispatched release and delivery identity")
+	tmp := t.TempDir()
+	ledger := filepath.Join(tmp, "deliveries.json")
+	pending := filepath.Join(tmp, "pending.json")
+	versionFile := filepath.Join(tmp, "spec-version.txt")
+	writeReleaseTestJSON(t, ledger, map[string]any{"version": 1, "deliveries": map[string]any{}})
+	oldCommit := strings.Repeat("a", 40)
+	writeReleaseTestJSON(t, pending, map[string]string{
+		"delivery_id": providerDeliveryID(t, "2.1.208", "v2.1.208", oldCommit),
+		"release_tag": "v2.1.208", "version": "2.1.208", "target_commit": oldCommit,
+	})
+	if err := os.WriteFile(versionFile, []byte("v2.1.208\n"), 0o600); err != nil {
+		t.Fatal(err)
+	}
+	commit := strings.Repeat("b", 40)
+	id := providerDeliveryID(t, "2.1.209", "v2.1.209", commit)
+	outputs, log, err := runDispatchContract(t, script, tmp, ledger, pending, versionFile, id, "2.1.209", "v2.1.209", commit)
+	if err != nil || !strings.Contains(outputs, "process=true") || !strings.Contains(outputs, "supersede=true") {
+		t.Fatalf("latest delivery did not supersede unpublished older work: %v\n%s\n%s", err, log, outputs)
+	}
+	raw, err := os.ReadFile(ledger)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if strings.Contains(string(raw), id) {
+		t.Fatal("unpublished delivery entered the durable ledger")
+	}
+	tools := filepath.Join(tmp, "tools")
+	if err := os.Mkdir(tools, 0o700); err != nil {
+		t.Fatal(err)
+	}
+	receipt := filepath.Join(tools, "spec-regeneration-receipt.json")
+	if err := os.WriteFile(receipt, []byte("obsolete receipt"), 0o600); err != nil {
+		t.Fatal(err)
+	}
+	record := extractSyncOpenAPIStep(t, "Record resolved spec version (tracked marker)")
+	cmd := exec.Command("bash", "-eo", "pipefail", "-c", record)
+	cmd.Dir = tmp
+	cmd.Env = append(os.Environ(), "SUPERSEDE=true", "RESOLVED_SPEC_VERSION=v2.1.209", "DELIVERY_ID="+id, "PENDING_DELIVERY="+pending, "RELEASE_VERSION=2.1.209", "SPEC_VERSION_FILE="+versionFile, "TARGET_COMMIT="+commit)
+	if log, err := cmd.CombinedOutput(); err != nil {
+		t.Fatalf("supersession record: %v\n%s", err, log)
+	}
+	if _, err := os.Stat(receipt); !os.IsNotExist(err) {
+		t.Fatal("superseded generation receipt remains")
+	}
+	recorded, err := os.ReadFile(pending)
+	if err != nil {
+		t.Fatal(err)
+	}
+	var identity map[string]string
+	if err := json.Unmarshal(recorded, &identity); err != nil {
+		t.Fatal(err)
+	}
+	if identity["delivery_id"] != id || identity["release_tag"] != "v2.1.209" {
+		t.Fatal("latest pending identity was not recorded")
+	}
+}
+
+func TestSyncOpenAPIResolvesLatestBeforeBindingDelivery(t *testing.T) {
+	script := extractSyncOpenAPIStep(t, "Resolve latest upstream release")
+	tmp := t.TempDir()
+	stub := "#!/bin/bash\ncase \"$*\" in\n *releases/latest*) echo v2.1.209 ;;\n *commits/v2.1.209*) echo " + strings.Repeat("b", 40) + " ;;\n *) exit 1 ;;\nesac\n"
+	if err := os.WriteFile(filepath.Join(tmp, "gh"), []byte(stub), 0o700); err != nil {
+		t.Fatal(err)
+	}
+	output := filepath.Join(tmp, "outputs")
+	cmd := exec.Command("bash", "-eo", "pipefail", "-c", script)
+	cmd.Env = append(os.Environ(), "PATH="+tmp+":"+os.Getenv("PATH"), "ENRICHED_REPO="+dispatchSource, "TARGET_REPOSITORY="+dispatchTarget, "GITHUB_OUTPUT="+output)
+	if log, err := cmd.CombinedOutput(); err != nil {
+		t.Fatalf("resolve latest: %v\n%s", err, log)
+	}
+	raw, err := os.ReadFile(output)
+	if err != nil {
+		t.Fatal(err)
+	}
+	for _, value := range []string{"release_tag=v2.1.209", "target_commit=" + strings.Repeat("b", 40), "delivery_id=" + providerDeliveryID(t, "2.1.209", "v2.1.209", strings.Repeat("b", 40))} {
+		if !strings.Contains(string(raw), value) {
+			t.Fatalf("missing %s in %s", value, raw)
+		}
+	}
+}
+
+func TestSyncOpenAPILatestResolutionRejectsFailedOrMalformedProducer(t *testing.T) {
+	script := extractSyncOpenAPIStep(t, "Resolve latest upstream release")
+	for name, body := range map[string]string{
+		"API failure":    "exit 1",
+		"invalid tag":    "echo invalid",
+		"invalid commit": "case \"$*\" in *releases/latest*) echo v2.1.209 ;; *) echo invalid ;; esac",
+	} {
+		t.Run(name, func(t *testing.T) {
+			tmp := t.TempDir()
+			if err := os.WriteFile(filepath.Join(tmp, "gh"), []byte("#!/bin/bash\n"+body+"\n"), 0o700); err != nil {
+				t.Fatal(err)
+			}
+			output := filepath.Join(tmp, "output")
+			cmd := exec.Command("bash", "-eo", "pipefail", "-c", script)
+			cmd.Env = append(os.Environ(), "PATH="+tmp+":"+os.Getenv("PATH"), "ENRICHED_REPO="+dispatchSource, "TARGET_REPOSITORY="+dispatchTarget, "GITHUB_OUTPUT="+output)
+			if log, err := cmd.CombinedOutput(); err == nil {
+				t.Fatalf("bad producer accepted: %s", log)
+			}
+			if _, err := os.Stat(output); !os.IsNotExist(err) {
+				t.Fatal("failed producer emitted delivery authorization")
+			}
+		})
+	}
 }

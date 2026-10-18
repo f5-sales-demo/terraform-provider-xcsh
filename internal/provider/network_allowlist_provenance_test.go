@@ -9,7 +9,7 @@ import (
 )
 
 // Use the declared bundled artifact itself. Canonical regeneration and native
-// qualification exercise the reviewed v12.0.9 bytes; pending source pins never
+// qualification exercise the reviewed content; pending source pins never
 // substitute for this binary's actual artifact identity.
 func TestNetworkAllowlistReviewedArtifactRejectsChanges(t *testing.T) {
 	raw := bundledNetworkAllowlistJSON
@@ -29,10 +29,11 @@ func TestNetworkAllowlistReviewedArtifactRejectsChanges(t *testing.T) {
 	}
 	domains := literal(botDomains)
 	cases := []struct{ name, before, after string }{
-		{"unknown_release", literal(bundledNetworkAllowlist.APIReleaseTag), literal("v0.0.0")},
+		{"unresolved_release", literal(bundledNetworkAllowlist.APIReleaseTag), literal("unresolved")},
 		{"source_digest", literal(bundledNetworkAllowlist.SourceSHA256), literal(strings.Repeat("0", 64))},
 		{"source_url", literal(bundledNetworkAllowlist.SourceURL), literal("https://example.invalid/manifest.json")},
 		{"generated_at", literal(bundledNetworkAllowlist.GeneratedAt), literal("2000-01-01T00:00:00Z")},
+		{"unknown_field", `"customer_edge":`, `"unreviewed_field":true,"customer_edge":`},
 		{"added_domain", domains, strings.TrimSuffix(domains, "]") + `,"unreviewed.example.invalid"]`},
 		{"existing_domain", literal(botDomains[0]), literal("changed.example.invalid")},
 		{"ip_group", literal(bundledNetworkAllowlist.Services["global_log_receiver"].SourceEntries[2]), literal("192.0.2.1")},

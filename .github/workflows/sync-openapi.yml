@@ -1,20 +1,17 @@
 ---
-# Sync a specific F5 Distributed Cloud OpenAPI release into the provider.
+# Consume the latest F5 Distributed Cloud OpenAPI release into the provider.
 # The on-merge.yml workflow handles regeneration when this PR merges
 #
-# The sole source is a versioned api-specs-enriched release. No alternate source
-# or compatibility fallback exists; every run follows the same artifact contract.
+# Resolve latest on every trigger, then bind this build to immutable release bytes.
+# Tracked version and digest files are build receipts, not an update policy.
 name: Sync OpenAPI Specs
 
 on:
   repository_dispatch:
     types: [enriched-specs-updated]
   workflow_dispatch:
-    inputs:
-      spec_version:
-        description: 'Exact enriched spec release tag (for example, v2.1.208)'
-        required: true
-        type: string
+  schedule:
+    - cron: '17 * * * *'
 
 concurrency:
   group: openapi-sync
@@ -25,9 +22,6 @@ permissions: {}
 env:
   SPEC_DIR: docs/specifications/api
   ENRICHED_REPO: f5-sales-demo/api-specs-enriched
-  # Manual recovery requires an exact tag. repository_dispatch uses its validated
-  # release_tag/version contract; neither path ever resolves a mutable latest.
-  REQUESTED_SPEC_VERSION: ${{ inputs.spec_version }}
 
 jobs:
   sync:
@@ -58,20 +52,42 @@ jobs:
       - name: Validate tracked delivery state
         run: scripts/validate-provider-delivery-state.sh
 
+      - name: Resolve latest upstream release
+        id: latest
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TARGET_REPOSITORY: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          RELEASE_TAG=$(gh api "repos/${ENRICHED_REPO}/releases/latest" --jq '.tag_name')
+          [[ "$RELEASE_TAG" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]] || exit 1
+          TARGET_COMMIT=$(gh api "repos/${ENRICHED_REPO}/commits/${RELEASE_TAG}" --jq '.sha')
+          [[ "$TARGET_COMMIT" =~ ^[0-9a-f]{40}$ ]] || exit 1
+          VERSION=${RELEASE_TAG#v}
+          CANONICAL=$(jq -cnS --arg commit "$TARGET_COMMIT" \
+            --arg event_type enriched-specs-updated --arg source "$ENRICHED_REPO" \
+            --arg tag "$RELEASE_TAG" --arg target "$TARGET_REPOSITORY" --arg version "$VERSION" \
+            '{commit:$commit,event_type:$event_type,source:$source,tag:$tag,target:$target,version:$version}')
+          DELIVERY_ID=$(printf '%s' "$CANONICAL" | shasum -a 256 | awk '{print $1}')
+          {
+            echo "release_tag=$RELEASE_TAG"
+            echo "version=$VERSION"
+            echo "target_commit=$TARGET_COMMIT"
+            echo "delivery_id=$DELIVERY_ID"
+          } >> "$GITHUB_OUTPUT"
+
       - name: Validate dispatched release and delivery identity
         id: dispatch_contract
         env:
-          EVENT_NAME: ${{ github.event_name }}
-          DELIVERY_ID: ${{ github.event.client_payload.delivery_id }}
-          RELEASE_TAG: ${{ github.event.client_payload.release_tag }}
-          RELEASE_VERSION: ${{ github.event.client_payload.version }}
-          TARGET_COMMIT: ${{ github.event.client_payload.target_commit }}
-          TRIGGER_SOURCE: ${{ github.event.client_payload.trigger_source }}
+          DELIVERY_ID: ${{ steps.latest.outputs.delivery_id }}
+          RELEASE_TAG: ${{ steps.latest.outputs.release_tag }}
+          RELEASE_VERSION: ${{ steps.latest.outputs.version }}
+          TARGET_COMMIT: ${{ steps.latest.outputs.target_commit }}
+          TRIGGER_SOURCE: f5-sales-demo/api-specs-enriched
           DELIVERY_LEDGER: tools/spec-deliveries.json
           PENDING_DELIVERY: tools/spec-pending-delivery.json
           CURRENT_SPEC_VERSION_FILE: tools/spec-version.txt
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          REQUESTED_RELEASE_TAG: ${{ inputs.spec_version }}
           TARGET_REPOSITORY: ${{ github.repository }}
         run: |
           set -euo pipefail
@@ -80,26 +96,6 @@ jobs:
             echo "::error::$*"
             exit 1
           }
-
-          if [ "$EVENT_NAME" != "repository_dispatch" ]; then
-            RELEASE_TAG=$REQUESTED_RELEASE_TAG
-            [[ "$RELEASE_TAG" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]] \
-              || fail "manual spec_version must be an exact vMAJOR.MINOR.PATCH tag"
-            RELEASE_VERSION=${RELEASE_TAG#v}
-            TARGET_COMMIT=$(gh api "repos/${ENRICHED_REPO}/commits/${RELEASE_TAG}" --jq '.sha')
-            TRIGGER_SOURCE=$ENRICHED_REPO
-            [[ "$TARGET_COMMIT" =~ ^[0-9a-f]{40}$ ]] \
-              || fail "manual release tag did not resolve to a full commit"
-            CANONICAL=$(jq -cnS \
-              --arg commit "$TARGET_COMMIT" \
-              --arg event_type enriched-specs-updated \
-              --arg source "$TRIGGER_SOURCE" \
-              --arg tag "$RELEASE_TAG" \
-              --arg target "$TARGET_REPOSITORY" \
-              --arg version "$RELEASE_VERSION" \
-              '{commit:$commit,event_type:$event_type,source:$source,tag:$tag,target:$target,version:$version}')
-            DELIVERY_ID=$(printf '%s' "$CANONICAL" | shasum -a 256 | awk '{print $1}')
-          fi
 
           [[ "$DELIVERY_ID" =~ ^[0-9a-f]{64}$ ]] || fail "dispatch delivery_id must be 64 lowercase hexadecimal characters"
           [[ "$RELEASE_TAG" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]] || fail "dispatch release_tag must be vMAJOR.MINOR.PATCH"
@@ -156,20 +152,22 @@ jobs:
           fi
 
           if [ -e "$PENDING_DELIVERY" ]; then
-            jq -e \
-              --arg id "$DELIVERY_ID" \
-              --arg tag "$RELEASE_TAG" \
-              --arg version "$RELEASE_VERSION" \
-              --arg commit "$TARGET_COMMIT" \
-              'type == "object" and
-               (keys | sort) == ["delivery_id", "release_tag", "target_commit", "version"] and
-               . == {delivery_id:$id,release_tag:$tag,target_commit:$commit,version:$version}' \
-              "$PENDING_DELIVERY" >/dev/null \
-              || fail "another delivery is pending publication"
-            echo "::notice::Delivery ${DELIVERY_ID} is already pending publication"
-            echo "process=false" >> "$GITHUB_OUTPUT"
-            echo "resume=true" >> "$GITHUB_OUTPUT"
-            exit 0
+            PENDING_TAG=$(jq -er '.release_tag' "$PENDING_DELIVERY")
+            if [ "$PENDING_TAG" = "$RELEASE_TAG" ]; then
+              jq -e --arg id "$DELIVERY_ID" --arg tag "$RELEASE_TAG" \
+                --arg version "$RELEASE_VERSION" --arg commit "$TARGET_COMMIT" \
+                '. == {delivery_id:$id,release_tag:$tag,target_commit:$commit,version:$version}' \
+                "$PENDING_DELIVERY" >/dev/null || fail "pending delivery identity differs"
+              echo "process=false" >> "$GITHUB_OUTPUT"
+              echo "resume=true" >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+            jq -en --arg old "$PENDING_TAG" --arg new "$RELEASE_TAG" '
+              def semver: ltrimstr("v") | split(".") | map(tonumber);
+              ($new | semver) > ($old | semver)
+            ' >/dev/null || fail "stale dispatch cannot replace a newer pending delivery"
+            echo "::notice::Latest ${RELEASE_TAG} supersedes unpublished ${PENDING_TAG}"
+            echo "supersede=true" >> "$GITHUB_OUTPUT"
           fi
 
           if [ -f "$CURRENT_SPEC_VERSION_FILE" ]; then
@@ -209,27 +207,11 @@ jobs:
         id: spec_config
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          EVENT_NAME: ${{ github.event_name }}
           DISPATCH_RELEASE_TAG: ${{ steps.dispatch_contract.outputs.release_tag }}
         run: |
-          SPEC_VERSION="$REQUESTED_SPEC_VERSION"
-
-          if [ "$EVENT_NAME" = "repository_dispatch" ]; then
-            SPEC_VERSION="$DISPATCH_RELEASE_TAG"
-          fi
-
-          [[ "$SPEC_VERSION" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]] || {
-            echo "::error::Spec version must be vMAJOR.MINOR.PATCH"
-            exit 1
-          }
+          SPEC_VERSION="$DISPATCH_RELEASE_TAG"
+          [[ "$SPEC_VERSION" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]] || exit 1
           gh api "repos/${ENRICHED_REPO}/releases/tags/${SPEC_VERSION}" >/dev/null
-          if [ -f tools/spec-pending-delivery.json ]; then
-            PENDING_TAG=$(jq -er '.release_tag' tools/spec-pending-delivery.json)
-            [ "$SPEC_VERSION" = "$PENDING_TAG" ] || {
-              echo "::error::Cannot replace pending delivery ${PENDING_TAG} with ${SPEC_VERSION}"
-              exit 1
-            }
-          fi
           echo "spec_version=$SPEC_VERSION" >> "$GITHUB_OUTPUT"
 
       - name: Classify provider release semantics
@@ -465,7 +447,12 @@ jobs:
           RELEASE_VERSION: ${{ steps.dispatch_contract.outputs.version }}
           SPEC_VERSION_FILE: tools/spec-version.txt
           TARGET_COMMIT: ${{ steps.dispatch_contract.outputs.target_commit }}
+          SUPERSEDE: ${{ steps.dispatch_contract.outputs.supersede }}
         run: |
+          set -euo pipefail
+          if [ "${SUPERSEDE:-false}" = "true" ]; then
+            rm -f tools/spec-regeneration-receipt.json
+          fi
           printf '%s\n' "$RESOLVED_SPEC_VERSION" > "$SPEC_VERSION_FILE"
           if [ -n "$DELIVERY_ID" ]; then
             jq -nS \
