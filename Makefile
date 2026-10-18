@@ -103,20 +103,32 @@ fmt:
 	@echo "Formatting code..."
 	$(GOFMT) -s -w .
 
-# Download the exact pinned F5 XC API specs from the enriched repository.
+# Resolve the latest upstream release. Record exact bytes only after download verification.
 download-specs:
-	@echo "Downloading pinned F5 XC API specs..."
+	@echo "Downloading latest F5 XC API specs..."
 	@mkdir -p $(SPEC_DIR)
-	@RELEASE_TAG=$$(tr -d '[:space:]' < tools/spec-version.txt); \
-		echo "Version: $$RELEASE_TAG"; \
+	@set -eu; \
+		scripts/validate-provider-delivery-state.sh; \
 		STAGING_ROOT=$$(mktemp -d); \
 		trap 'rm -rf "$$STAGING_ROOT"' EXIT; \
+		gh api "repos/$(ENRICHED_REPO)/releases/latest" > "$$STAGING_ROOT/release.json"; \
+		jq -e '.immutable == true and .draft == false and .prerelease == false' "$$STAGING_ROOT/release.json" >/dev/null; \
+		RELEASE_TAG=$$(jq -er '.tag_name | select(test("^v[0-9]+\\.[0-9]+\\.[0-9]+$$"))' "$$STAGING_ROOT/release.json"); \
+		TARGET_COMMIT=$$(gh api "repos/$(ENRICHED_REPO)/commits/$$RELEASE_TAG" --jq '.sha'); \
+		jq -r '.body' "$$STAGING_ROOT/release.json" | sed -n 's/^<!-- publication-receipt:\(.*\) -->$$/\1/p' > "$$STAGING_ROOT/receipt.json"; \
+		jq -es --arg tag "$$RELEASE_TAG" --arg commit "$$TARGET_COMMIT" \
+			'length == 1 and .[0].version == ($$tag | ltrimstr("v")) and .[0].commit == $$commit' "$$STAGING_ROOT/receipt.json" >/dev/null; \
+		jq -en --slurpfile release "$$STAGING_ROOT/release.json" --slurpfile receipt "$$STAGING_ROOT/receipt.json" \
+			'($$release[0].assets | map({key:.name,value:.digest}) | from_entries) == $$receipt[0].assets' >/dev/null; \
+		jq -S --arg tag "$$RELEASE_TAG" '{assets:.assets,release_tag:$$tag,target_commit:.commit,version:.version}' \
+			"$$STAGING_ROOT/receipt.json" > "$$STAGING_ROOT/spec-release.json"; \
+		echo "Latest: $$RELEASE_TAG"; \
 		SPEC_ZIP="$$STAGING_ROOT/specs.zip"; \
 		BUNDLE_NAME="f5xc-api-specs-$$RELEASE_TAG.zip"; \
 		ASSET_URL="https://github.com/$(ENRICHED_REPO)/releases/download/$$RELEASE_TAG/$$BUNDLE_NAME"; \
 		curl --fail --location --silent --show-error --retry 3 --retry-all-errors --connect-timeout 20 \
 			--output "$$SPEC_ZIP" "$$ASSET_URL"; \
-		EXPECTED_SHA=$$(jq -r --arg name "$$BUNDLE_NAME" '.assets[$$name]' tools/spec-release.json); \
+		EXPECTED_SHA=$$(jq -r --arg name "$$BUNDLE_NAME" '.assets[$$name]' "$$STAGING_ROOT/spec-release.json"); \
 		ACTUAL_SHA="sha256:$$(sha256sum "$$SPEC_ZIP" | awk '{print $$1}')"; \
 		[ "$$ACTUAL_SHA" = "$$EXPECTED_SHA" ] || { echo "Release digest mismatch: $$BUNDLE_NAME" >&2; exit 1; }; \
 		rm -rf $(SPEC_DIR)/*; \
@@ -131,16 +143,33 @@ download-specs:
 			smsv2-contract.json \
 			smsv2-evidence-receipt.json \
 			smsv2_parity_manifest.json \
+			enrichment-coverage.json \
 			upstream-contract-changes.json \
 			upstream-contract-removals.json; do \
 			ASSET_URL="https://github.com/$(ENRICHED_REPO)/releases/download/$$RELEASE_TAG/$$asset"; \
 			curl --fail --location --silent --show-error --retry 3 --retry-all-errors --connect-timeout 20 \
 				--output $(SPEC_DIR)/$$asset "$$ASSET_URL"; \
-			EXPECTED_SHA=$$(jq -r --arg name "$$asset" '.assets[$$name]' tools/spec-release.json); \
+			EXPECTED_SHA=$$(jq -r --arg name "$$asset" '.assets[$$name]' "$$STAGING_ROOT/spec-release.json"); \
 			ACTUAL_SHA="sha256:$$(sha256sum $(SPEC_DIR)/$$asset | awk '{print $$1}')"; \
 			[ "$$ACTUAL_SHA" = "$$EXPECTED_SHA" ] || { echo "Release digest mismatch: $$asset" >&2; exit 1; }; \
 		done; \
-		echo "Specs downloaded to $(SPEC_DIR)"
+		python3 scripts/validate-smsv2-release.py "$(SPEC_DIR)" "$$RELEASE_TAG" "$$TARGET_COMMIT"; \
+		CANONICAL=$$(jq -cnS --arg commit "$$TARGET_COMMIT" --arg event_type enriched-specs-updated \
+			--arg source "$(ENRICHED_REPO)" --arg tag "$$RELEASE_TAG" --arg target f5-sales-demo/terraform-provider-xcsh \
+			--arg version "$${RELEASE_TAG#v}" '{commit:$$commit,event_type:$$event_type,source:$$source,tag:$$tag,target:$$target,version:$$version}'); \
+		DELIVERY_ID=$$(printf '%s' "$$CANONICAL" | sha256sum | awk '{print $$1}'); \
+		jq -nS --arg id "$$DELIVERY_ID" --arg tag "$$RELEASE_TAG" --arg commit "$$TARGET_COMMIT" --arg version "$${RELEASE_TAG#v}" \
+			'{delivery_id:$$id,release_tag:$$tag,target_commit:$$commit,version:$$version}' > "$$STAGING_ROOT/pending.json"; \
+		cp "$$STAGING_ROOT/spec-release.json" tools/spec-release.json; \
+		printf '%s\n' "$$RELEASE_TAG" > tools/spec-version.txt; \
+		if ! jq -e --arg id "$$DELIVERY_ID" '.deliveries[$$id] != null' tools/spec-deliveries.json >/dev/null; then \
+			if [ ! -f tools/spec-pending-delivery.json ] || ! jq -e --arg id "$$DELIVERY_ID" ' .delivery_id == $$id' tools/spec-pending-delivery.json >/dev/null; then \
+				rm -f tools/spec-regeneration-receipt.json; \
+			fi; \
+			cp "$$STAGING_ROOT/pending.json" tools/spec-pending-delivery.json; \
+		fi; \
+		scripts/validate-provider-delivery-state.sh; \
+		echo "Latest specs verified and recorded in $(SPEC_DIR)"
 
 # Generate resources from OpenAPI specs
 generate: generate-schemas
@@ -154,7 +183,7 @@ emit-import-suppressions:
 	@echo "Deriving import-default suppressions from $(TOOLS_DIR)/api-defaults.json..."
 	@$(GO) run $(TOOLS_DIR)/emit-import-suppressions.go
 
-generate-schemas:
+generate-schemas: download-specs
 	@echo "Generating schemas from OpenAPI specs..."
 	@if [ -d "$(SPEC_DIR)" ] && [ -f "$(SPEC_DIR)/index.json" ] && [ -d "$(SPEC_DIR)/domains" ]; then \
 		$(GO) run $(TOOLS_DIR)/generate-all-schemas.go --spec-dir=$(SPEC_DIR); \

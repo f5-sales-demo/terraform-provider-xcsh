@@ -26,10 +26,8 @@ while IFS= read -r path; do
     tools/verify_tfplugindocs_test.go | \
     scripts/validate-smsv2-release.py | \
     tests/test-smsv2-release-validator.sh | \
-    scripts/check-spec-version-freshness.sh | \
     scripts/classify-spec-release-semantics.sh | \
     scripts/test-classify-spec-release-semantics.sh | \
-    scripts/test-check-spec-version-freshness.sh | \
     scripts/prepare-spec-delivery-receipt.sh | \
     scripts/validate-provider-delivery-state.sh | \
     scripts/is-pending-delivery-active.sh | \
