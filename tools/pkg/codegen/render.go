@@ -978,6 +978,27 @@ func renderUnmarshalScalarChild(sb *strings.Builder, rc string, attr openapi.Ter
 	if jsonName == "" {
 		jsonName = attr.TfsdkTag
 	}
+	// #2661: SMSv2 readback returns these optional default-valued leaves explicitly.
+	// Preserve only an explicitly planned default; never turn omitted or unknown intent
+	// into a value. Nondefault API values continue through normal drift observation.
+	if rc == "SecuremeshSiteV2" && attr.Optional && stateBase != "" &&
+		((jsonName == "public_ip" && attr.Type == "string") || (jsonName == "priority" && attr.Type == "int64")) {
+		tfType, goType, defaultValue, constructor := "String", "string", `""`, "StringValue(v)"
+		if attr.Type == "int64" {
+			tfType, goType, defaultValue, constructor = "Int64", "float64", "0", "Int64Value(int64(v))"
+		}
+		sb.WriteString(fmt.Sprintf("%s%s: func() types.%s {\n", indent, fieldName, tfType))
+		sb.WriteString(fmt.Sprintf("%s\tif v, ok := %s[%q].(%s); ok {\n", indent, srcMap, jsonName, goType))
+		sb.WriteString(fmt.Sprintf("%s\t\tif v != %s { return types.%s }\n", indent, defaultValue, constructor))
+		sb.WriteString(fmt.Sprintf("%s\t\tif !isImport && %s && !%s.%s.IsNull() && !%s.%s.IsUnknown() {\n", indent, stateGuard, stateBase, fieldName, stateBase, fieldName))
+		method := "ValueString()"
+		if attr.Type == "int64" {
+			method = "ValueInt64()"
+		}
+		sb.WriteString(fmt.Sprintf("%s\t\t\tif %s.%s.%s == %s { return %s.%s }\n", indent, stateBase, fieldName, method, defaultValue, stateBase, fieldName))
+		sb.WriteString(fmt.Sprintf("%s\t\t}\n%s\t}\n%s\treturn types.%sNull()\n%s}(),\n", indent, indent, indent, tfType, indent))
+		return nil
+	}
 	// Single-block Optional int64/bool preserve prior state on normal read to avoid API default drift.
 	dnsOwnership := rc == "HTTPLoadBalancer" && jsonName == "dns_volterra_managed"
 	preserve := container == "single" && attr.Optional && stateBase != "" && (attr.Type == "int64" || attr.Type == "bool") && !dnsOwnership
