@@ -23,6 +23,14 @@ type TokenSystemMetadata struct {
 	UID string `json:"uid,omitempty"`
 }
 
+// ImmutableUID reads the server identity without selecting registration credentials.
+func (r *Token) ImmutableUID() string {
+	if r == nil || r.SystemMetadata == nil {
+		return ""
+	}
+	return r.SystemMetadata.UID
+}
+
 // CreateToken creates a new Token
 func (c *Client) CreateToken(ctx context.Context, resource *Token) (*Token, error) {
 	var result Token

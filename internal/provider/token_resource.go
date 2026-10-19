@@ -47,18 +47,19 @@ type TokenResource struct {
 }
 
 type TokenResourceModel struct {
-	Name        types.String   `tfsdk:"name"`
-	Namespace   types.String   `tfsdk:"namespace"`
-	Annotations types.Map      `tfsdk:"annotations"`
-	Description types.String   `tfsdk:"description"`
-	Disable     types.Bool     `tfsdk:"disable"`
-	Labels      types.Map      `tfsdk:"labels"`
-	ID          types.String   `tfsdk:"id"`
-	Uid         types.String   `tfsdk:"uid"`
-	Content     types.String   `tfsdk:"content"`
-	SiteName    types.String   `tfsdk:"site_name"`
-	Type        types.Int64    `tfsdk:"type"`
-	Timeouts    timeouts.Value `tfsdk:"timeouts"`
+	CreationIdentitySHA256 types.String   `tfsdk:"creation_identity_sha256"`
+	Name                   types.String   `tfsdk:"name"`
+	Namespace              types.String   `tfsdk:"namespace"`
+	Annotations            types.Map      `tfsdk:"annotations"`
+	Description            types.String   `tfsdk:"description"`
+	Disable                types.Bool     `tfsdk:"disable"`
+	Labels                 types.Map      `tfsdk:"labels"`
+	ID                     types.String   `tfsdk:"id"`
+	Uid                    types.String   `tfsdk:"uid"`
+	Content                types.String   `tfsdk:"content"`
+	SiteName               types.String   `tfsdk:"site_name"`
+	Type                   types.Int64    `tfsdk:"type"`
+	Timeouts               timeouts.Value `tfsdk:"timeouts"`
 }
 
 func (r *TokenResource) Metadata(ctx context.Context, req resource.MetadataRequest, resp *resource.MetadataResponse) {
@@ -69,6 +70,11 @@ func (r *TokenResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 	resp.Schema = schema.Schema{
 		MarkdownDescription: "Manages new token. Token object is used to manage site admission. User must generate token before provisioning and pass this token to site during it's registration in F5 Distributed Cloud.",
 		Attributes: map[string]schema.Attribute{
+			"creation_identity_sha256": schema.StringAttribute{
+				MarkdownDescription: "SHA-256 of the immutable system_metadata.uid returned by the original creation. Never inferred during import or refresh. Null when the creation response did not retain an identity; null does not establish ownership.",
+				Computed:            true,
+				PlanModifiers:       []planmodifier.String{stringplanmodifier.UseStateForUnknown()},
+			},
 			"name": schema.StringAttribute{
 				MarkdownDescription: "Name of the Token. Must be unique within the namespace.",
 				Required:            true,
@@ -304,9 +310,17 @@ func (r *TokenResource) Create(ctx context.Context, req resource.CreateRequest, 
 		createReq.Spec["type"] = data.Type.ValueInt64()
 	}
 
-	_, err := r.client.CreateToken(ctx, createReq)
+	created, err := r.client.CreateToken(ctx, createReq)
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to create Token: %s", err))
+		return
+	}
+	data.CreationIdentitySHA256 = creationIdentityReceipt(created.ImmutableUID())
+	// Persist the successful POST before any follow-up read can fail. This is
+	// creation evidence, never ownership inferred from a later GET.
+	data.ID = data.Name
+	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
+	if resp.Diagnostics.HasError() {
 		return
 	}
 
@@ -335,7 +349,10 @@ func (r *TokenResource) Create(ctx context.Context, req resource.CreateRequest, 
 	if resp.Diagnostics.HasError() {
 		return
 	}
-
+	if err := verifyCreationIdentity(data.CreationIdentitySHA256, apiResource.ImmutableUID()); err != nil {
+		resp.Diagnostics.AddError("Original Creation Identity Changed", err.Error())
+		return
+	}
 	data.ID = types.StringValue(apiResource.Metadata.Name)
 
 	// Unmarshal spec fields from API response to Terraform state
@@ -404,7 +421,10 @@ func (r *TokenResource) Read(ctx context.Context, req resource.ReadRequest, resp
 	if resp.Diagnostics.HasError() {
 		return
 	}
-
+	if err := verifyCreationIdentity(data.CreationIdentitySHA256, apiResource.ImmutableUID()); err != nil {
+		resp.Diagnostics.AddError("Original Creation Identity Changed", err.Error())
+		return
+	}
 	data.ID = types.StringValue(apiResource.Metadata.Name)
 	data.Name = types.StringValue(apiResource.Metadata.Name)
 	data.Namespace = types.StringValue(apiResource.Metadata.Namespace)
@@ -510,7 +530,12 @@ func (r *TokenResource) Update(ctx context.Context, req resource.UpdateRequest, 
 	if resp.Diagnostics.HasError() {
 		return
 	}
-
+	var original TokenResourceModel
+	resp.Diagnostics.Append(req.State.Get(ctx, &original)...)
+	if resp.Diagnostics.HasError() {
+		return
+	}
+	data.CreationIdentitySHA256 = original.CreationIdentitySHA256
 	updateTimeout, diags := data.Timeouts.Update(ctx, inttimeouts.DefaultUpdate)
 	resp.Diagnostics.Append(diags...)
 	if resp.Diagnostics.HasError() {
@@ -593,6 +618,15 @@ func (r *TokenResource) Update(ctx context.Context, req resource.UpdateRequest, 
 		apiResource.Spec["type"] = data.Type.ValueInt64()
 	}
 
+	originalObject, identityErr := r.client.GetToken(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	if identityErr != nil {
+		resp.Diagnostics.AddError("Unable to Verify Original Creation Identity", "The update was not sent; original identity could not be verified.")
+		return
+	}
+	if err := verifyCreationIdentity(data.CreationIdentitySHA256, originalObject.ImmutableUID()); err != nil {
+		resp.Diagnostics.AddError("Original Creation Identity Changed", err.Error())
+		return
+	}
 	_, err := r.client.UpdateToken(ctx, apiResource)
 	if err != nil {
 		var apiErr *xcsherrors.XCSHError
@@ -705,8 +739,23 @@ func (r *TokenResource) Delete(ctx context.Context, req resource.DeleteRequest, 
 	// pool, an origin pool by a load balancer, etc.), which the API rejects with 400 until
 	// the referrer is gone. NOT_FOUND/404 (already deleted) and 501 (delete unsupported) are
 	// terminal and handled after the loop.
+
 	var err error
 	for attempt := 0; ; attempt++ {
+		if !data.CreationIdentitySHA256.IsNull() {
+			observed, err := r.client.GetToken(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+			if err != nil {
+				if client.HasHTTPStatus(err, 404) {
+					return
+				}
+				resp.Diagnostics.AddError("Unable to Verify Original Creation Identity", "The delete was not sent; original identity could not be verified.")
+				return
+			}
+			if err := verifyCreationIdentity(data.CreationIdentitySHA256, observed.ImmutableUID()); err != nil {
+				resp.Diagnostics.AddError("Original Creation Identity Changed", err.Error())
+				return
+			}
+		}
 		err = r.client.DeleteToken(ctx, data.Namespace.ValueString(), data.Name.ValueString())
 		if err == nil {
 			break

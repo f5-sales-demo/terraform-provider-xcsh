@@ -5764,6 +5764,7 @@ var SecuremeshSiteV2VmwareNotManagedNodeListInterfaceListVLANInterfaceModelAttrT
 }
 
 type SecuremeshSiteV2ResourceModel struct {
+	CreationIdentitySHA256         types.String                                         `tfsdk:"creation_identity_sha256"`
 	Name                           types.String                                         `tfsdk:"name"`
 	Namespace                      types.String                                         `tfsdk:"namespace"`
 	Annotations                    types.Map                                            `tfsdk:"annotations"`
@@ -5834,6 +5835,11 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 	resp.Schema = schema.Schema{
 		MarkdownDescription: "Manages a Securemesh Site V2 resource in F5 Distributed Cloud for deploying secure mesh edge sites with security and networking controls.",
 		Attributes: map[string]schema.Attribute{
+			"creation_identity_sha256": schema.StringAttribute{
+				MarkdownDescription: "SHA-256 of the immutable system_metadata.uid returned by the original creation. Never inferred during import or refresh. Null when the creation response did not retain an identity; null does not establish ownership.",
+				Computed:            true,
+				PlanModifiers:       []planmodifier.String{stringplanmodifier.UseStateForUnknown()},
+			},
 			"name": schema.StringAttribute{
 				MarkdownDescription: "Name of the Securemesh Site V2. Must be unique within the namespace. Must be at most 63 characters (DNS-1035).",
 				Required:            true,
@@ -21031,9 +21037,17 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 		createReq.Spec["tunnel_type"] = data.TunnelType.ValueString()
 	}
 
-	_, err := r.client.CreateSecuremeshSiteV2(ctx, createReq)
+	created, err := r.client.CreateSecuremeshSiteV2(ctx, createReq)
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to create SecuremeshSiteV2: %s", err))
+		return
+	}
+	data.CreationIdentitySHA256 = creationIdentityReceipt(created.ImmutableUID())
+	// Persist the successful POST before any follow-up read can fail. This is
+	// creation evidence, never ownership inferred from a later GET.
+	data.ID = data.Name
+	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
+	if resp.Diagnostics.HasError() {
 		return
 	}
 
@@ -21062,7 +21076,10 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 	if resp.Diagnostics.HasError() {
 		return
 	}
-
+	if err := verifyCreationIdentity(data.CreationIdentitySHA256, apiResource.ImmutableUID()); err != nil {
+		resp.Diagnostics.AddError("Original Creation Identity Changed", err.Error())
+		return
+	}
 	data.ID = types.StringValue(apiResource.Metadata.Name)
 
 	// Unmarshal spec fields from API response to Terraform state
@@ -32806,7 +32823,10 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 	if resp.Diagnostics.HasError() {
 		return
 	}
-
+	if err := verifyCreationIdentity(data.CreationIdentitySHA256, apiResource.ImmutableUID()); err != nil {
+		resp.Diagnostics.AddError("Original Creation Identity Changed", err.Error())
+		return
+	}
 	data.ID = types.StringValue(apiResource.Metadata.Name)
 	data.Name = types.StringValue(apiResource.Metadata.Name)
 	data.Namespace = types.StringValue(apiResource.Metadata.Namespace)
@@ -44587,7 +44607,12 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 	if resp.Diagnostics.HasError() {
 		return
 	}
-
+	var original SecuremeshSiteV2ResourceModel
+	resp.Diagnostics.Append(req.State.Get(ctx, &original)...)
+	if resp.Diagnostics.HasError() {
+		return
+	}
+	data.CreationIdentitySHA256 = original.CreationIdentitySHA256
 	updateTimeout, diags := data.Timeouts.Update(ctx, inttimeouts.DefaultUpdate)
 	resp.Diagnostics.Append(diags...)
 	if resp.Diagnostics.HasError() {
@@ -44685,6 +44710,10 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 				"resource must read the platform's own discovery labels first and send them back, or the "+
 				"update would delete them. Reading SecuremeshSiteV2 failed: %s", currentErr),
 		)
+		return
+	}
+	if err := verifyCreationIdentity(data.CreationIdentitySHA256, current.ImmutableUID()); err != nil {
+		resp.Diagnostics.AddError("Original Creation Identity Changed", err.Error())
 		return
 	}
 	apiResource.Metadata.Labels = mergePreservedLabels(
@@ -62174,8 +62203,23 @@ func (r *SecuremeshSiteV2Resource) Delete(ctx context.Context, req resource.Dele
 	// pool, an origin pool by a load balancer, etc.), which the API rejects with 400 until
 	// the referrer is gone. NOT_FOUND/404 (already deleted) and 501 (delete unsupported) are
 	// terminal and handled after the loop.
+
 	var err error
 	for attempt := 0; ; attempt++ {
+		if !data.CreationIdentitySHA256.IsNull() {
+			observed, err := r.client.GetSecuremeshSiteV2(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+			if err != nil {
+				if client.HasHTTPStatus(err, 404) {
+					return
+				}
+				resp.Diagnostics.AddError("Unable to Verify Original Creation Identity", "The delete was not sent; original identity could not be verified.")
+				return
+			}
+			if err := verifyCreationIdentity(data.CreationIdentitySHA256, observed.ImmutableUID()); err != nil {
+				resp.Diagnostics.AddError("Original Creation Identity Changed", err.Error())
+				return
+			}
+		}
 		err = r.client.DeleteSecuremeshSiteV2(ctx, data.Namespace.ValueString(), data.Name.ValueString())
 		if err == nil {
 			break
