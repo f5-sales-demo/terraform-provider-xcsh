@@ -396,7 +396,6 @@ func (r *AppTypeResource) Create(ctx context.Context, req resource.CreateRequest
 	if resp.Diagnostics.HasError() {
 		return
 	}
-
 	data.ID = types.StringValue(apiResource.Metadata.Name)
 
 	// Unmarshal spec fields from API response to Terraform state
@@ -520,7 +519,6 @@ func (r *AppTypeResource) Read(ctx context.Context, req resource.ReadRequest, re
 	if resp.Diagnostics.HasError() {
 		return
 	}
-
 	data.ID = types.StringValue(apiResource.Metadata.Name)
 	data.Name = types.StringValue(apiResource.Metadata.Name)
 	data.Namespace = types.StringValue(apiResource.Metadata.Namespace)
@@ -681,7 +679,6 @@ func (r *AppTypeResource) Update(ctx context.Context, req resource.UpdateRequest
 	if resp.Diagnostics.HasError() {
 		return
 	}
-
 	updateTimeout, diags := data.Timeouts.Update(ctx, inttimeouts.DefaultUpdate)
 	resp.Diagnostics.Append(diags...)
 	if resp.Diagnostics.HasError() {
@@ -944,6 +941,7 @@ func (r *AppTypeResource) Delete(ctx context.Context, req resource.DeleteRequest
 	// pool, an origin pool by a load balancer, etc.), which the API rejects with 400 until
 	// the referrer is gone. NOT_FOUND/404 (already deleted) and 501 (delete unsupported) are
 	// terminal and handled after the loop.
+
 	var err error
 	for attempt := 0; ; attempt++ {
 		err = r.client.DeleteAppType(ctx, data.Namespace.ValueString(), data.Name.ValueString())

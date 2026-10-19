@@ -3,6 +3,129 @@
   "sections": [
     {
       "canonical_id": "xcsh-docs:data-sources:site_registrations_by_state:properties:items:object:spec:gc_spec:infra",
+      "section_id": "xcsh-docs:data-sources:site_registrations_by_state:properties:items:object:spec:gc_spec:infra:section:0",
+      "source_sha256": "sha256:cb3a4e593dd1a3c0ff7f26af6225ea12413f5e54403e6a203fd423ab35e3642d",
+      "source_bytes": 1150,
+      "canonical_source_sha256": "sha256:9f5013c46924fd6e520a5c53439d1186b2def3b41ad8ea785e1970fc4e401acf",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/site_registrations_by_state/properties/items/object/spec/gc_spec/infra/",
+      "anchor": "canonical-2311032302313011-3133111000003211-0232321221321111-3110112201113112-3121220013111032-0001133110213113-3310011221132020-0131221232203131",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-0322012312202012-3203203331212210-2312102122321013-0103123100230000-3100231120023222-1031133030321203-1101331012222101-0122112003120223"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--site_registrations_by_state--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:site_registrations_by_state:properties:items:object:spec:gc_spec:infra",
+      "section_id": "xcsh-docs:data-sources:site_registrations_by_state:properties:items:object:spec:gc_spec:infra:section:1",
+      "source_sha256": "sha256:b6dbb907d4f2842150279dc70e8bd19392c6cd0eae07d7b9bc693fa5d7317a8c",
+      "source_bytes": 551,
+      "canonical_source_sha256": "sha256:9f5013c46924fd6e520a5c53439d1186b2def3b41ad8ea785e1970fc4e401acf",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/site_registrations_by_state/properties/items/object/spec/gc_spec/infra/",
+      "anchor": "canonical-3101112223312212-3210302212103212-2332002012210310-1233112223022312-3011012020012301-0023132303300011-2102233202321011-3313310100210031",
+      "anchor_map": [
+        [
+          "schema-items--object--spec--gc_spec--infra--availability_zone",
+          "canonical-1112221031002300-3330133003133130-2230001333103222-1300223320020331-1102300312132111-2132220023132211-1312310300323010-2212113120032302"
+        ],
+        [
+          "schema-items--object--spec--gc_spec--infra--certified_hw",
+          "canonical-3002230103132001-0210000133103302-0230310101201302-3303002301002232-2002313220233032-3122022201300030-0030233122110013-0212312133022313"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--site_registrations_by_state--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:site_registrations_by_state:properties:items:object:spec:gc_spec:infra",
+      "section_id": "xcsh-docs:data-sources:site_registrations_by_state:properties:items:object:spec:gc_spec:infra:section:2",
+      "source_sha256": "sha256:85da97aa14a1834810b747a9482a5720604080fba36a1cb25858aeffb335cbe0",
+      "source_bytes": 194,
+      "canonical_source_sha256": "sha256:9f5013c46924fd6e520a5c53439d1186b2def3b41ad8ea785e1970fc4e401acf",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/site_registrations_by_state/properties/items/object/spec/gc_spec/infra/",
+      "anchor": "canonical-1303300323121011-2221122233200201-1011011103220032-3121010022230202-3003001203113103-2212121233311130-0332131103311233-3220131222101232",
+      "anchor_map": [
+        [
+          "schema-items--object--spec--gc_spec--infra--domain",
+          "canonical-1302030302301020-1203210021001303-1222203113303310-2333132311211110-0303211123212131-3210201121222212-1023100313201302-3311103211220031"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--site_registrations_by_state--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:site_registrations_by_state:properties:items:object:spec:gc_spec:infra",
+      "section_id": "xcsh-docs:data-sources:site_registrations_by_state:properties:items:object:spec:gc_spec:infra:section:3",
+      "source_sha256": "sha256:66191aaed18d04d21bbfc114b40aca9b41893ee65ef9917cff65d63560d1905d",
+      "source_bytes": 231,
+      "canonical_source_sha256": "sha256:9f5013c46924fd6e520a5c53439d1186b2def3b41ad8ea785e1970fc4e401acf",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/site_registrations_by_state/properties/items/object/spec/gc_spec/infra/",
+      "anchor": "canonical-1111202313331301-2012121000303133-1301121011031021-0303320220313302-1000232212213233-3222130013120110-0310230330003023-1213130031321031",
+      "anchor_map": [
+        [
+          "schema-items--object--spec--gc_spec--infra--hostname",
+          "canonical-3100103201211010-2233332111112101-2101101032033011-1010123002220323-3122123001023101-3133311322233222-1032230220022121-0320213230111302"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--site_registrations_by_state--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:site_registrations_by_state:properties:items:object:spec:gc_spec:infra",
+      "section_id": "xcsh-docs:data-sources:site_registrations_by_state:properties:items:object:spec:gc_spec:infra:section:4",
+      "source_sha256": "sha256:264a2d1aa9cdad220f9a717cf285e52ca4ad5973b8133f386c1eedc7b32f6d58",
+      "source_bytes": 927,
+      "canonical_source_sha256": "sha256:9f5013c46924fd6e520a5c53439d1186b2def3b41ad8ea785e1970fc4e401acf",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/site_registrations_by_state/properties/items/object/spec/gc_spec/infra/",
+      "anchor": "canonical-3313002202023310-0021333123223112-0110322000010231-0223021022002222-2212200132103033-2230212211311332-3203302321131211-3022203300022002",
+      "anchor_map": [
+        [
+          "schema-items--object--spec--gc_spec--infra--instance_id",
+          "canonical-1022103020321231-0011032023233000-3131012103022101-0022322321212300-2322200301321111-0032332022132333-0003313023131313-2213201331022133"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--site_registrations_by_state--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:site_registrations_by_state:properties:items:object:spec:gc_spec:infra",
+      "section_id": "xcsh-docs:data-sources:site_registrations_by_state:properties:items:object:spec:gc_spec:infra:section:5",
+      "source_sha256": "sha256:653cdaca58dcb2d44aaab66a59229afcbb24a075246d3dde250d665923b45dd1",
+      "source_bytes": 589,
+      "canonical_source_sha256": "sha256:9f5013c46924fd6e520a5c53439d1186b2def3b41ad8ea785e1970fc4e401acf",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/site_registrations_by_state/properties/items/object/spec/gc_spec/infra/",
+      "anchor": "canonical-2212121311323120-3201333130221312-0002300221323203-3232131232102210-3032301102211331-2331110110310030-2201000120132220-2331302221013311",
+      "anchor_map": [
+        [
+          "schema-items--object--spec--gc_spec--infra--is_slo_static",
+          "canonical-0113003333333222-3132033331100110-2103321300313010-1133200013321111-1112233311120323-1322232012310122-1112030003221222-1313210211200231"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--site_registrations_by_state--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:site_registrations_by_state:properties:items:object:spec:gc_spec:infra",
+      "section_id": "xcsh-docs:data-sources:site_registrations_by_state:properties:items:object:spec:gc_spec:infra:section:6",
+      "source_sha256": "sha256:4d4d2b96d725dbd35e780ffc27070ad421ba3e5ac219ac1105f87eafebfc565b",
+      "source_bytes": 177,
+      "canonical_source_sha256": "sha256:9f5013c46924fd6e520a5c53439d1186b2def3b41ad8ea785e1970fc4e401acf",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/site_registrations_by_state/properties/items/object/spec/gc_spec/infra/",
+      "anchor": "canonical-0023211110031120-0033320102013220-3312210213330330-0202011200013000-0301022230102332-2230020320123220-2310220033323302-1031232122331303",
+      "anchor_map": [
+        [
+          "schema-items--object--spec--gc_spec--infra--machine_id",
+          "canonical-1301033330223301-3001101003220211-0222330232002303-1320333110321130-3032310330202311-0320031013321022-3003120331020232-2330230223022110"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--site_registrations_by_state--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:site_registrations_by_state:properties:items:object:spec:gc_spec:infra",
       "section_id": "xcsh-docs:data-sources:site_registrations_by_state:properties:items:object:spec:gc_spec:infra:section:7",
       "source_sha256": "sha256:a8c0faf6d47e79ca6c78a091f21aed9e5f8f2434913ef820b572b133806d1bba",
       "source_bytes": 170,
@@ -7682,145 +7805,6 @@
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/tcp_loadbalancer/properties/origin_pools_weights/",
       "anchor": "canonical-2030131001230230-2312321032310332-2023312103331003-3232122300301322-2321312103201312-2132033023122313-3121321033331333-2110110123220223",
       "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--tcp_loadbalancer--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:origin_pools_weights:cluster",
-      "section_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:origin_pools_weights:cluster:section:0",
-      "source_sha256": "sha256:c3ab2ee34954be6f57d1a3940add63906e1fe848d05fa5272ddfb61d495c8745",
-      "source_bytes": 936,
-      "canonical_source_sha256": "sha256:e110e002f84e091d20c767271e2efeb0c041f9028fe52bd0e6644715c8aa34ab",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/tcp_loadbalancer/properties/origin_pools_weights/cluster/",
-      "anchor": "canonical-1100323120213031-0021203033221103-0232210303113332-1232122132332320-2022312033230033-3203211222032232-2203103200232310-0120121202303230",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-1113012100011030-2001322102301030-1131010011033030-1313003012021101-0110011203030111-0032230200000311-3003320330302213-1200101331100111"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--tcp_loadbalancer--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:origin_pools_weights:cluster",
-      "section_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:origin_pools_weights:cluster:section:1",
-      "source_sha256": "sha256:7a820b16d2371e5afb06c40c5dceff39ede6bf8648716a396f3ddf39fb6c1fdd",
-      "source_bytes": 1257,
-      "canonical_source_sha256": "sha256:e110e002f84e091d20c767271e2efeb0c041f9028fe52bd0e6644715c8aa34ab",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/tcp_loadbalancer/properties/origin_pools_weights/cluster/",
-      "anchor": "canonical-1103030032332202-0212212312100131-1012331133221330-2131122221110112-0031010012312113-1112131133031210-1302333320302312-2013031000202032",
-      "anchor_map": [
-        [
-          "schema-origin_pools_weights--cluster--name",
-          "canonical-2212013331103221-3031332033320031-1210122323123331-1031313113310310-3100223311311321-3120113311131312-3112322132002012-3220331130032303"
-        ],
-        [
-          "schema-origin_pools_weights--cluster--namespace",
-          "canonical-3200332330131231-3103203300030030-3031323302132210-3132221121211320-1230030120120212-0003023213012210-1221001331011023-1200032332022033"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--tcp_loadbalancer--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:origin_pools_weights:cluster",
-      "section_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:origin_pools_weights:cluster:section:2",
-      "source_sha256": "sha256:eca17a2dbb9839964bebc2073ddde5faaa74154d13018a54254ec1cdd7b7a59d",
-      "source_bytes": 1419,
-      "canonical_source_sha256": "sha256:e110e002f84e091d20c767271e2efeb0c041f9028fe52bd0e6644715c8aa34ab",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/tcp_loadbalancer/properties/origin_pools_weights/cluster/",
-      "anchor": "canonical-2023021211333022-1221132201201211-3113130301210113-3132101011001223-3000120111221103-0120221202103223-0102321031112223-1200022103032300",
-      "anchor_map": [
-        [
-          "schema-origin_pools_weights--cluster--tenant",
-          "canonical-0300331231310020-2221010013102111-3022100132132022-3312032231320012-2101033320221132-1123310201312103-1221200033010122-2222310330220323"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--tcp_loadbalancer--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:origin_pools_weights:cluster",
-      "section_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:origin_pools_weights:cluster:section:3",
-      "source_sha256": "sha256:e62cedafd47e78256d114d56b7874e9459e126db36bae1b285c8b1b82c61adc2",
-      "source_bytes": 862,
-      "canonical_source_sha256": "sha256:e110e002f84e091d20c767271e2efeb0c041f9028fe52bd0e6644715c8aa34ab",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/tcp_loadbalancer/properties/origin_pools_weights/cluster/",
-      "anchor": "canonical-2201311012021312-0120330111301333-1302011102133022-0101311221030223-1131303210112322-2210203123032332-1320302232120221-1030123310210121",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--tcp_loadbalancer--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:origin_pools_weights:endpoint_subsets",
-      "section_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:origin_pools_weights:endpoint_subsets:section:0",
-      "source_sha256": "sha256:79945a46804dbe4e47bbfad09d3b03a7a464e40e885c24743d226b2cb721f8b2",
-      "source_bytes": 2013,
-      "canonical_source_sha256": "sha256:79945a46804dbe4e47bbfad09d3b03a7a464e40e885c24743d226b2cb721f8b2",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/tcp_loadbalancer/properties/origin_pools_weights/endpoint_subsets/",
-      "anchor": "canonical-3233020300102002-3212200311012103-3303223032200213-0321120133210212-1310320312202012-3223222313112032-1320233023030102-3010212231102021",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-3220123132322001-0221230110222113-2301001313220031-2003111011112222-0210003310111311-0231121311123233-3110203332231311-1100133102333121"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--tcp_loadbalancer--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:origin_pools_weights:pool",
-      "section_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:origin_pools_weights:pool:section:0",
-      "source_sha256": "sha256:c185b24578f95a1ef16919ae3e5bf995431b481e550205dc8a94d3c6b632b873",
-      "source_bytes": 930,
-      "canonical_source_sha256": "sha256:58a9198924fe52a12f4edcec0d44ff94d3ac631250e1202c6102e765461efd54",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/tcp_loadbalancer/properties/origin_pools_weights/pool/",
-      "anchor": "canonical-3113021102231311-3020330031331101-3221032221322031-1022322103230303-1130012222122212-3122202323303323-3113103301320101-3130030230221032",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-1132213133202332-1322012003101323-3330023000200011-0331233133011332-2222300223122200-0331130322222123-2231333130011310-3012311322322233"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--tcp_loadbalancer--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:origin_pools_weights:pool",
-      "section_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:origin_pools_weights:pool:section:1",
-      "source_sha256": "sha256:e819728f92c326d05f9bed5b57cf2d2cf9b1b47b0a0e9a4108090c3d184701e1",
-      "source_bytes": 1251,
-      "canonical_source_sha256": "sha256:58a9198924fe52a12f4edcec0d44ff94d3ac631250e1202c6102e765461efd54",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/tcp_loadbalancer/properties/origin_pools_weights/pool/",
-      "anchor": "canonical-0120003031302120-2211013231221101-0121001101202030-2133322111230220-1012301120121331-3000100011303203-1103313022323122-0301310013232232",
-      "anchor_map": [
-        [
-          "schema-origin_pools_weights--pool--name",
-          "canonical-1202230130301301-0102231022221021-1132312202023331-0323033331101101-2200020223321123-2133213330222033-3113001133033031-1130322302230120"
-        ],
-        [
-          "schema-origin_pools_weights--pool--namespace",
-          "canonical-3233100010300122-3230221023120200-1113012021131032-0020202101121311-3100220330130000-2333032032122032-2033230320321232-0220233100122310"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--tcp_loadbalancer--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:origin_pools_weights:pool",
-      "section_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:origin_pools_weights:pool:section:2",
-      "source_sha256": "sha256:bc2d10525ce74811a59e0578554c7c706cb01593f7d03f1ecc4039ede6abe3ac",
-      "source_bytes": 1416,
-      "canonical_source_sha256": "sha256:58a9198924fe52a12f4edcec0d44ff94d3ac631250e1202c6102e765461efd54",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/tcp_loadbalancer/properties/origin_pools_weights/pool/",
-      "anchor": "canonical-0023003102301233-2002101101120201-0102020033210030-1110232032011132-0312112031332321-0202032120001201-0200200203302003-2010123202121033",
-      "anchor_map": [
-        [
-          "schema-origin_pools_weights--pool--tenant",
-          "canonical-3321202331223033-2020301031110310-2212010110322331-2220302023003201-3012111002301110-0111013231221032-1311310333220110-1123230331332102"
-        ]
-      ],
       "mode": "embedded",
       "registry_path": "docs/guides/data-sources--tcp_loadbalancer--reference--group-002.md"
     }

@@ -1131,7 +1131,6 @@ func (r *K8SPodSecurityPolicyResource) Create(ctx context.Context, req resource.
 	if resp.Diagnostics.HasError() {
 		return
 	}
-
 	data.ID = types.StringValue(apiResource.Metadata.Name)
 
 	// Unmarshal spec fields from API response to Terraform state
@@ -1734,7 +1733,6 @@ func (r *K8SPodSecurityPolicyResource) Read(ctx context.Context, req resource.Re
 	if resp.Diagnostics.HasError() {
 		return
 	}
-
 	data.ID = types.StringValue(apiResource.Metadata.Name)
 	data.Name = types.StringValue(apiResource.Metadata.Name)
 	data.Namespace = types.StringValue(apiResource.Metadata.Namespace)
@@ -2374,7 +2372,6 @@ func (r *K8SPodSecurityPolicyResource) Update(ctx context.Context, req resource.
 	if resp.Diagnostics.HasError() {
 		return
 	}
-
 	updateTimeout, diags := data.Timeouts.Update(ctx, inttimeouts.DefaultUpdate)
 	resp.Diagnostics.Append(diags...)
 	if resp.Diagnostics.HasError() {
@@ -3355,6 +3352,7 @@ func (r *K8SPodSecurityPolicyResource) Delete(ctx context.Context, req resource.
 	// pool, an origin pool by a load balancer, etc.), which the API rejects with 400 until
 	// the referrer is gone. NOT_FOUND/404 (already deleted) and 501 (delete unsupported) are
 	// terminal and handled after the loop.
+
 	var err error
 	for attempt := 0; ; attempt++ {
 		err = r.client.DeleteK8SPodSecurityPolicy(ctx, data.Namespace.ValueString(), data.Name.ValueString())

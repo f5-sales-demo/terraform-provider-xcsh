@@ -3,6 +3,23 @@
   "sections": [
     {
       "canonical_id": "xcsh-docs:resources:securemesh_site_v2:properties:custom_proxy_bypass",
+      "section_id": "xcsh-docs:resources:securemesh_site_v2:properties:custom_proxy_bypass:section:0",
+      "source_sha256": "sha256:0d031af1d56993446f139c643c774ddfda05d2ac01ffd8796c6c5cd1784c1d61",
+      "source_bytes": 1345,
+      "canonical_source_sha256": "sha256:c84a4fe137bdff2aa39352f726ba2465f56b13073dfb2d7eb190b9d0695beb97",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site_v2/properties/custom_proxy_bypass/",
+      "anchor": "canonical-1201120122021230-3013113003303010-0312222210310120-1032233221132010-0003011010201111-3212223322123210-1233330103221220-3111220102212230",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-0321121310031302-3001323333210001-0332113021331022-3202330233302121-1322302022300111-3020133013030000-1333032113321213-2300231103033123"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-006.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:resources:securemesh_site_v2:properties:custom_proxy_bypass",
       "section_id": "xcsh-docs:resources:securemesh_site_v2:properties:custom_proxy_bypass:section:1",
       "source_sha256": "sha256:c07698b0b07035a58fc881e3ffd599e33e680d21736dc462489c4573d59cc64b",
       "source_bytes": 1381,
@@ -7246,27 +7263,6 @@
         [
           "section",
           "canonical-1332111221010100-2212323313001321-0310311323122132-1013310112322200-1210001221031010-1032301032312313-1033010010201220-1301133330121310"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-010.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:securemesh_site_v2:properties:kvm:not_managed:node_list:interface_list:vlan_interface",
-      "section_id": "xcsh-docs:resources:securemesh_site_v2:properties:kvm:not_managed:node_list:interface_list:vlan_interface:section:1",
-      "source_sha256": "sha256:b1e24de4f31b45e0acc87b230755bacce83e39a94b330de37d4535e5f8812950",
-      "source_bytes": 1323,
-      "canonical_source_sha256": "sha256:559a5e25af9e1e7bef437446eee1c07adf25be42688b43f866a354b515e08024",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site_v2/properties/kvm/not_managed/node_list/interface_list/vlan_interface/",
-      "anchor": "canonical-1231230220132111-3231012233311112-1121233222332031-3032011313232211-3100320001303300-0002011210333300-0210303221310101-1030312103130101",
-      "anchor_map": [
-        [
-          "schema-kvm--not_managed--node_list--interface_list--vlan_interface--device",
-          "canonical-1230102201012000-0011310023130003-1133303123131311-0010211020121010-1331101221111301-0022121132231022-1113200232200230-1003020102301103"
-        ],
-        [
-          "schema-kvm--not_managed--node_list--interface_list--vlan_interface--vlan_id",
-          "canonical-1301223103203223-0133032313110121-1001211202210221-1230213220031003-2011022102130311-0210310101231011-0332112120113133-3010221301230232"
         ]
       ],
       "mode": "embedded",

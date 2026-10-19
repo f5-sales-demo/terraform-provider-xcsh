@@ -2,6 +2,85 @@
   "schema_version": 1,
   "sections": [
     {
+      "canonical_id": "xcsh-docs:data-sources:api_testing:properties:domains",
+      "section_id": "xcsh-docs:data-sources:api_testing:properties:domains:section:1",
+      "source_sha256": "sha256:a12f6e27454216882e8305126b71e5f05051a2db9aabf1431807dfab0036d33a",
+      "source_bytes": 642,
+      "canonical_source_sha256": "sha256:ab74e625ddc185f417b28ba1d683af78212c61ac37c6bc539843f3ff503e98f1",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/api_testing/properties/domains/",
+      "anchor": "canonical-0332012101221103-0322030323120311-3311013322330022-1003130130011023-3302011213230303-3221032321231000-3133312131332103-3103133232023002",
+      "anchor_map": [
+        [
+          "schema-domains--allow_destructive_methods",
+          "canonical-2132023131232033-3322113010110310-3122223100323213-0233131230331211-1302213211031320-3232320130131103-3230110130122313-1121201222001002"
+        ],
+        [
+          "schema-domains--domain",
+          "canonical-1201001100231012-3113213203003213-2201232331230112-3202131033012223-0212331102030303-3110233100330212-2000311011300120-2122112210010101"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--api_testing--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:api_testing:properties:domains",
+      "section_id": "xcsh-docs:data-sources:api_testing:properties:domains:section:2",
+      "source_sha256": "sha256:8a564c88054c93a3ab6f4f268dba0edc5d2ad26fafa2977399475ccfecfe7b32",
+      "source_bytes": 1101,
+      "canonical_source_sha256": "sha256:ab74e625ddc185f417b28ba1d683af78212c61ac37c6bc539843f3ff503e98f1",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/api_testing/properties/domains/",
+      "anchor": "canonical-0133201131012111-3021003033121302-2221212121332021-0123331311122323-0203100331332000-2133110002231021-1021130302302123-3323001101012032",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--api_testing--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:api_testing:properties:domains:credentials",
+      "section_id": "xcsh-docs:data-sources:api_testing:properties:domains:credentials:section:0",
+      "source_sha256": "sha256:7d419f4a7b54c2bb659402f40dfb684efc132725331bf5ca738b45a2ea75fdc7",
+      "source_bytes": 953,
+      "canonical_source_sha256": "sha256:0f0d5ca51aef5055190a32f5fb40f82bd10b93844b2e8f136cc3517b44006c6f",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/api_testing/properties/domains/credentials/",
+      "anchor": "canonical-3300302021011323-1233011033232202-0001131123022203-0113010333011001-2021301130020132-0223321201313022-3300013030331020-3221333322300112",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-2113121020221110-2212320211211302-2110001303131031-1023132322323102-3011330130301300-0301030123033300-1131111201013113-0131100212202222"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--api_testing--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:api_testing:properties:domains:credentials",
+      "section_id": "xcsh-docs:data-sources:api_testing:properties:domains:credentials:section:1",
+      "source_sha256": "sha256:21c7d2e943c960f75770b17ce090061c76e126ddecf63e4a7f79f4e0280edc35",
+      "source_bytes": 761,
+      "canonical_source_sha256": "sha256:0f0d5ca51aef5055190a32f5fb40f82bd10b93844b2e8f136cc3517b44006c6f",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/api_testing/properties/domains/credentials/",
+      "anchor": "canonical-1211031122301113-0300121203213132-1302332232311010-3121111232232231-2113121300233231-2011210121100323-2221131300220212-3201202303213010",
+      "anchor_map": [
+        [
+          "schema-domains--credentials--credential_name",
+          "canonical-2102032210331320-2200030321320122-1310211130303012-3113032112320303-0303233202232021-1110232301233302-1020100020331302-0201113101023332"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--api_testing--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:api_testing:properties:domains:credentials",
+      "section_id": "xcsh-docs:data-sources:api_testing:properties:domains:credentials:section:2",
+      "source_sha256": "sha256:863aaf242b4b2cc8e1b573c0b81e559fc6c09a291f470314a03a3502fe49b69c",
+      "source_bytes": 1194,
+      "canonical_source_sha256": "sha256:0f0d5ca51aef5055190a32f5fb40f82bd10b93844b2e8f136cc3517b44006c6f",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/api_testing/properties/domains/credentials/",
+      "anchor": "canonical-2222033320131032-3201133203122022-1022012222130033-3012321300310012-2012332112331010-1211013212113203-3133220311310213-2322000100100322",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--api_testing--reference--group-001.md"
+    },
+    {
       "canonical_id": "xcsh-docs:data-sources:api_testing:properties:domains:credentials:admin",
       "section_id": "xcsh-docs:data-sources:api_testing:properties:domains:credentials:admin:section:0",
       "source_sha256": "sha256:46fab9ba600b8b697cfe615b79442e930badc404b622016b872bc904bc25c4af",
@@ -7762,78 +7841,6 @@
         [
           "section",
           "canonical-0111303033120332-3212222230103002-1130222323000111-1122332302102222-1201303031332111-0001211231200012-0101300313323110-2011320002122311"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--application_profiles--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:application_profiles:properties:virtual_server:http3:http_client_profile",
-      "section_id": "xcsh-docs:data-sources:application_profiles:properties:virtual_server:http3:http_client_profile:section:1",
-      "source_sha256": "sha256:3ca486d25505d86885b0a9ca2f221926cafd314dde7ac75664f1927e11c113ff",
-      "source_bytes": 903,
-      "canonical_source_sha256": "sha256:f0d1bcb9aef3444dbf2c8e3a3bd6167375dbe75f6e945d27677fe00e61675132",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/application_profiles/properties/virtual_server/http3/http_client_profile/",
-      "anchor": "canonical-0222111021000110-1113012233222103-3330313000310000-0033121312210020-3122102111023333-1002203030003132-1111010311133031-1213001012300100",
-      "anchor_map": [
-        [
-          "schema-virtual_server--http3--http_client_profile--kind",
-          "canonical-2200202211102132-3330231311121203-0031101230223300-1112023020223203-3120232213213200-3022331010033130-0131321303031111-2210303121203000"
-        ],
-        [
-          "schema-virtual_server--http3--http_client_profile--name",
-          "canonical-1221301021233131-2123220302230000-1003133311333212-0230013231000302-2032022023213211-2302201121132103-0232112103303030-1200301302220303"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--application_profiles--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:application_profiles:properties:virtual_server:http3:http_client_profile",
-      "section_id": "xcsh-docs:data-sources:application_profiles:properties:virtual_server:http3:http_client_profile:section:2",
-      "source_sha256": "sha256:e0ca307aa0ee65df183fd73753cbf76a814de51448511261da2590ff6d3875bb",
-      "source_bytes": 678,
-      "canonical_source_sha256": "sha256:f0d1bcb9aef3444dbf2c8e3a3bd6167375dbe75f6e945d27677fe00e61675132",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/application_profiles/properties/virtual_server/http3/http_client_profile/",
-      "anchor": "canonical-3233033120121102-1013132132100223-2130112110320303-3121112212110113-1212223310302102-1130012322031203-1212002312021011-2330133300021303",
-      "anchor_map": [
-        [
-          "schema-virtual_server--http3--http_client_profile--namespace",
-          "canonical-1320213213032310-0031223033202201-2030311113223331-0212230001330133-3033003332220010-0003300001302120-0023021022000313-3233122021020312"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--application_profiles--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:application_profiles:properties:virtual_server:http3:http_client_profile",
-      "section_id": "xcsh-docs:data-sources:application_profiles:properties:virtual_server:http3:http_client_profile:section:3",
-      "source_sha256": "sha256:722f1616284e31d8a4351a6a663affe67ab651930be28394e4a8a2911713b325",
-      "source_bytes": 1202,
-      "canonical_source_sha256": "sha256:f0d1bcb9aef3444dbf2c8e3a3bd6167375dbe75f6e945d27677fe00e61675132",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/application_profiles/properties/virtual_server/http3/http_client_profile/",
-      "anchor": "canonical-2232102033200303-2011233212311303-3210102010110031-3103012210010132-2031322303111303-2130022022301321-0003211313031131-3312320112102313",
-      "anchor_map": [
-        [
-          "schema-virtual_server--http3--http_client_profile--tenant",
-          "canonical-2212113133011312-2110111302222332-2120213221033022-2031203211000323-1023113003030331-0322300321332121-0021000232113332-3021232022231002"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--application_profiles--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:application_profiles:properties:virtual_server:http3:http_client_profile",
-      "section_id": "xcsh-docs:data-sources:application_profiles:properties:virtual_server:http3:http_client_profile:section:4",
-      "source_sha256": "sha256:a8980bb2a3a80ed676fed2f580320a2b8bce0f60412df08655e5d4194cf27b79",
-      "source_bytes": 678,
-      "canonical_source_sha256": "sha256:f0d1bcb9aef3444dbf2c8e3a3bd6167375dbe75f6e945d27677fe00e61675132",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/application_profiles/properties/virtual_server/http3/http_client_profile/",
-      "anchor": "canonical-0310332202330210-3031011311300313-3103111313301003-3310110121010302-1103023203103211-3222002321320302-3122202230102230-3312002033120300",
-      "anchor_map": [
-        [
-          "schema-virtual_server--http3--http_client_profile--uid",
-          "canonical-1232303301322000-1231030012103001-1131120020012023-0030100113120313-2230303110102000-2020220231300302-0103300133302130-1211122220000310"
         ]
       ],
       "mode": "embedded",

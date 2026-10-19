@@ -323,7 +323,6 @@ func (r *AlertTemplateResource) Create(ctx context.Context, req resource.CreateR
 	if resp.Diagnostics.HasError() {
 		return
 	}
-
 	data.ID = types.StringValue(apiResource.Metadata.Name)
 
 	// Unmarshal spec fields from API response to Terraform state
@@ -387,7 +386,6 @@ func (r *AlertTemplateResource) Read(ctx context.Context, req resource.ReadReque
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read AlertTemplate: %s", err))
 		return
 	}
-
 	data.ID = types.StringValue(apiResource.Metadata.Name)
 	data.Name = types.StringValue(apiResource.Metadata.Name)
 	data.Namespace = types.StringValue(apiResource.Metadata.Namespace)
@@ -530,6 +528,7 @@ func (r *AlertTemplateResource) Delete(ctx context.Context, req resource.DeleteR
 	// pool, an origin pool by a load balancer, etc.), which the API rejects with 400 until
 	// the referrer is gone. NOT_FOUND/404 (already deleted) and 501 (delete unsupported) are
 	// terminal and handled after the loop.
+
 	var err error
 	for attempt := 0; ; attempt++ {
 		err = r.client.DeleteAlertTemplate(ctx, data.Namespace.ValueString(), data.Name.ValueString())

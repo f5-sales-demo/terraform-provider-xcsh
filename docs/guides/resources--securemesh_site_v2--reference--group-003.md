@@ -6,7 +6,7 @@ description: "Complete grouped canonical reference for xcsh_securemesh_site_v2 r
 
 # xcsh_securemesh_site_v2 reference
 
-<a id="canonical-0023310210201330-3102312111300011-1302203300102301-1000300202020000-2303031202300230-2310001013230020-1001333220310303-3132231320033232"></a>
+<a id="canonical-3300311213331030-1011103201022002-3031212002200303-1020332231020120-0323311231032331-1211102322112023-2300303101133100-1033301303200003"></a>
 
 ## All schema paths for `xcsh_securemesh_site_v2`
 
@@ -14,6 +14,7 @@ Each exact path has one authoritative reference destination. Collection element 
 
 | Schema path | Complete reference |
 | --- | --- |
+| `segment_vrf.segment_config.static_routes.static_routes.node_interface.list.interface` | [segment_vrf.segment_config.static_routes.static_routes.node_interface.list.interface](resources--securemesh_site_v2--reference--group-016.md#canonical-3022211220121201-2022013101133301-1233201333313120-0121211230012123-0120220333030001-2332232210030033-3010212323113030-3302220320233020) |
 | `segment_vrf.segment_config.static_routes.static_routes.node_interface.list.interface.kind` | [segment_vrf.segment_config.static_routes.static_routes.node_interface.list.interface.kind](resources--securemesh_site_v2--reference--group-016.md#canonical-3030031033011122-0331231131221032-1220311000131130-2213201220020030-2131330003110212-3310232331201032-0122330332222322-1031010003123233) |
 | `segment_vrf.segment_config.static_routes.static_routes.node_interface.list.interface.name` | [segment_vrf.segment_config.static_routes.static_routes.node_interface.list.interface.name](resources--securemesh_site_v2--reference--group-016.md#canonical-3211232013022131-1130010212233230-2111032110202120-3112320221221020-3021202111300301-1303202231113000-2320330332230232-3100000213302212) |
 | `segment_vrf.segment_config.static_routes.static_routes.node_interface.list.interface.namespace` | [segment_vrf.segment_config.static_routes.static_routes.node_interface.list.interface.namespace](resources--securemesh_site_v2--reference--group-016.md#canonical-1202233113223212-1211203112100200-1110202232130030-0323112112231330-3322200100100103-0020020102121120-0013331120313013-2001213211331023) |

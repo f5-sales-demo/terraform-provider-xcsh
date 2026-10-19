@@ -2,9 +2,9 @@
   "complete": false,
   "complete_fields": 1556,
   "enum_fields": 341,
-  "installed_fields": 35128,
+  "installed_fields": 35130,
   "runtime_registration_verified": false,
-  "schema_digest": "sha256:a43a21ec82c017926d35acc6efc3b0a8740fd394357a09aa0e63e65503eb7aff",
+  "schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
   "unresolved": [
     {
       "reason": "coverage-not-exported",
@@ -122667,6 +122667,11 @@
       "source": "securemesh_site_v2_resource.go"
     },
     {
+      "reason": "coverage-not-exported",
+      "schema_path": "creation_identity_sha256",
+      "source": "securemesh_site_v2_resource.go"
+    },
+    {
       "reason": "bounded-extraction-unresolved",
       "schema_path": "custom_proxy",
       "source": "securemesh_site_v2_resource.go"
@@ -142074,6 +142079,11 @@
     {
       "reason": "coverage-not-exported",
       "schema_path": "content",
+      "source": "token_resource.go"
+    },
+    {
+      "reason": "coverage-not-exported",
+      "schema_path": "creation_identity_sha256",
       "source": "token_resource.go"
     },
     {
@@ -167867,6 +167877,6 @@
       "source": "workload_resource.go"
     }
   ],
-  "unresolved_fields": 33572,
+  "unresolved_fields": 33574,
   "version": 1
 }

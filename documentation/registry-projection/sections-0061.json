@@ -3,6 +3,95 @@
   "sections": [
     {
       "canonical_id": "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:netapp_trident:netapp_backend_ontap_san:volume_defaults",
+      "section_id": "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:netapp_trident:netapp_backend_ontap_san:volume_defaults:section:0",
+      "source_sha256": "sha256:cb048759877f72bb6c0a1966b9709bcdf832599d3d93983b68aac02336f2cfa0",
+      "source_bytes": 1680,
+      "canonical_source_sha256": "sha256:80fe866598896dec5a504192934b0752ec1f551a29a5d9f67c6adf04d4b9cc56",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fleet/properties/storage_device_list/storage_devices/netapp_trident/netapp_backend_ontap_san/volume_defaults/",
+      "anchor": "canonical-0312231301000023-1223223123130323-1300021202220113-1200230003223230-0121123321012302-1111201303220322-3001223112113203-2120323230132130",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-1332120030303100-1011030102300031-1320033110110031-2221101323321313-1001122120023202-1122303033122221-2011320210112110-3301302212233320"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--fleet--reference--group-003.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:netapp_trident:netapp_backend_ontap_san:volume_defaults",
+      "section_id": "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:netapp_trident:netapp_backend_ontap_san:volume_defaults:section:1",
+      "source_sha256": "sha256:e12090757e537f0b27a59214e51569be247ff2fadbf279891088f4a40d2b7c84",
+      "source_bytes": 1252,
+      "canonical_source_sha256": "sha256:80fe866598896dec5a504192934b0752ec1f551a29a5d9f67c6adf04d4b9cc56",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fleet/properties/storage_device_list/storage_devices/netapp_trident/netapp_backend_ontap_san/volume_defaults/",
+      "anchor": "canonical-0023121211121031-1021021203300320-0203313231213020-0111002132220330-2213132100332323-0311030033003001-1300103111212303-2111210113103100",
+      "anchor_map": [
+        [
+          "schema-storage_device_list--storage_devices--netapp_trident--netapp_backend_ontap_san--volume_defaults--adaptive_qos_policy",
+          "canonical-0223312230221031-2223213122223030-3201123231233102-1211211210013000-0000101231233033-1122112233103021-0211132103033023-3030330123123131"
+        ],
+        [
+          "schema-storage_device_list--storage_devices--netapp_trident--netapp_backend_ontap_san--volume_defaults--encryption",
+          "canonical-3011310020100202-3001033230102321-3010133231100130-2120311321122211-2001003321333132-0030130133301023-2023310113301230-1123311130320231"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--fleet--reference--group-003.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:netapp_trident:netapp_backend_ontap_san:volume_defaults",
+      "section_id": "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:netapp_trident:netapp_backend_ontap_san:volume_defaults:section:2",
+      "source_sha256": "sha256:b8884a3c49862d69f27e039c569f3e2a44d57aaf109085eba697e8ac2a5347b6",
+      "source_bytes": 412,
+      "canonical_source_sha256": "sha256:80fe866598896dec5a504192934b0752ec1f551a29a5d9f67c6adf04d4b9cc56",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fleet/properties/storage_device_list/storage_devices/netapp_trident/netapp_backend_ontap_san/volume_defaults/",
+      "anchor": "canonical-0320320311113030-3021103010222001-2233013311203320-3303332122102021-2131001332110330-0201012023311311-0022100321121113-3222321113332132",
+      "anchor_map": [
+        [
+          "schema-storage_device_list--storage_devices--netapp_trident--netapp_backend_ontap_san--volume_defaults--export_policy",
+          "canonical-1331313020000122-2332221302010221-0120000130322233-2112010230022122-0222233113312112-3331123001232100-1033222001000120-0131002032012223"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--fleet--reference--group-003.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:netapp_trident:netapp_backend_ontap_san:volume_defaults",
+      "section_id": "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:netapp_trident:netapp_backend_ontap_san:volume_defaults:section:3",
+      "source_sha256": "sha256:360aec2880a893f90b0333678bf13ac80911a2c087b6fe74a266b61a65bd0136",
+      "source_bytes": 925,
+      "canonical_source_sha256": "sha256:80fe866598896dec5a504192934b0752ec1f551a29a5d9f67c6adf04d4b9cc56",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fleet/properties/storage_device_list/storage_devices/netapp_trident/netapp_backend_ontap_san/volume_defaults/",
+      "anchor": "canonical-0033300200011232-0130301033331022-1000012112110113-3003033120103102-2133301023330333-0322102223000121-1100332101303120-3021333202133123",
+      "anchor_map": [
+        [
+          "schema-storage_device_list--storage_devices--netapp_trident--netapp_backend_ontap_san--volume_defaults--qos_policy",
+          "canonical-1001113023012001-3131000323101332-2012021220333012-0003122123313331-0303213333202120-2031203313001111-1320221032022110-0310231121103212"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--fleet--reference--group-003.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:netapp_trident:netapp_backend_ontap_san:volume_defaults",
+      "section_id": "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:netapp_trident:netapp_backend_ontap_san:volume_defaults:section:4",
+      "source_sha256": "sha256:711e3238f86c0c3ddc2325640b936ac2911ef1453807245891a3c91d1e7330dd",
+      "source_bytes": 1088,
+      "canonical_source_sha256": "sha256:80fe866598896dec5a504192934b0752ec1f551a29a5d9f67c6adf04d4b9cc56",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fleet/properties/storage_device_list/storage_devices/netapp_trident/netapp_backend_ontap_san/volume_defaults/",
+      "anchor": "canonical-3132332302331232-2102303002101123-1211000021322200-3032212012021310-0113021110301113-2002222102232122-0332021322131130-3302213031223011",
+      "anchor_map": [
+        [
+          "schema-storage_device_list--storage_devices--netapp_trident--netapp_backend_ontap_san--volume_defaults--security_style",
+          "canonical-2323313100102031-3223022212130221-3323123312200312-0100010032031300-1021202031130002-2033120300302300-1100133201212101-3011101000332110"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--fleet--reference--group-003.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:netapp_trident:netapp_backend_ontap_san:volume_defaults",
       "section_id": "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:netapp_trident:netapp_backend_ontap_san:volume_defaults:section:5",
       "source_sha256": "sha256:aa520dfa9e922e142dffd52f3a136c945d707878bbd6bfc1be5f4cda38f0fcc8",
       "source_bytes": 653,
@@ -7666,120 +7755,6 @@
         [
           "schema-http_receiver--use_tls--trusted_ca_url",
           "canonical-0302313312222112-0030303133011212-3021220013013321-3123013131232303-3211233023211032-2030212111022112-0133112030200120-0003100032123032"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--global_log_receiver--reference--group-003.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:global_log_receiver:properties:http_receiver:use_tls",
-      "section_id": "xcsh-docs:data-sources:global_log_receiver:properties:http_receiver:use_tls:section:2",
-      "source_sha256": "sha256:1c87c622cafb808c31c3d8c1ad219fc9c31d333e87bd4953bcc00f506dc87347",
-      "source_bytes": 1013,
-      "canonical_source_sha256": "sha256:bf2d5f106b06564bac692a7b50f288a7e4904b6354fd95e9b52ed9c744c5db02",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/global_log_receiver/properties/http_receiver/use_tls/",
-      "anchor": "canonical-1313031311221100-3221213022221233-2103110302223013-0223032020312330-1021212332222012-2031133310331111-2032230112113111-1201031212032033",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--global_log_receiver--reference--group-003.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:global_log_receiver:properties:http_receiver:use_tls:disable_verify_certificate",
-      "section_id": "xcsh-docs:data-sources:global_log_receiver:properties:http_receiver:use_tls:disable_verify_certificate:section:0",
-      "source_sha256": "sha256:799240f9ebb11b33b3dc04ec93ae11123ecd3112b32709429cc7b38bd2890b13",
-      "source_bytes": 1195,
-      "canonical_source_sha256": "sha256:799240f9ebb11b33b3dc04ec93ae11123ecd3112b32709429cc7b38bd2890b13",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/global_log_receiver/properties/http_receiver/use_tls/disable_verify_certificate/",
-      "anchor": "canonical-3121210011330223-0011111000110101-1030131212012132-2102023131112230-2220102020223101-2322231221313100-3232012030001031-1332131102220010",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-1012311323221212-1102020011022033-2323111232000032-1111101011332113-1331301002323202-0301331220010002-1003330322203033-1022303203233220"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--global_log_receiver--reference--group-003.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:global_log_receiver:properties:http_receiver:use_tls:disable_verify_hostname",
-      "section_id": "xcsh-docs:data-sources:global_log_receiver:properties:http_receiver:use_tls:disable_verify_hostname:section:0",
-      "source_sha256": "sha256:a6acf3d3b6b7f0063f8a01bd9867073e454a02c6eca9b27aa1b013986f294b8a",
-      "source_bytes": 1152,
-      "canonical_source_sha256": "sha256:a6acf3d3b6b7f0063f8a01bd9867073e454a02c6eca9b27aa1b013986f294b8a",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/global_log_receiver/properties/http_receiver/use_tls/disable_verify_hostname/",
-      "anchor": "canonical-0023301120112000-3120122331121331-1122230222132231-2221031123010011-0312011213312333-0022213312120331-2211202002220002-2132230200032101",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-2300022131232303-0333023333023330-3301102313132320-3003310311323320-0320312230101203-2003111011031200-1012120022112223-2021122200120100"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--global_log_receiver--reference--group-003.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:global_log_receiver:properties:http_receiver:use_tls:enable_verify_certificate",
-      "section_id": "xcsh-docs:data-sources:global_log_receiver:properties:http_receiver:use_tls:enable_verify_certificate:section:0",
-      "source_sha256": "sha256:8d08818c1587d44fd35c46e15fc2d0eda005d21a101f910e4b099b922d7a07a0",
-      "source_bytes": 1192,
-      "canonical_source_sha256": "sha256:8d08818c1587d44fd35c46e15fc2d0eda005d21a101f910e4b099b922d7a07a0",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/global_log_receiver/properties/http_receiver/use_tls/enable_verify_certificate/",
-      "anchor": "canonical-0120130211222022-3201212221100103-1101202210112001-1211110200113300-0103321001132022-2131230210313302-3300121031322300-1130330013133133",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-3232301210023212-0212212322110103-2200322003223232-1221013221010220-1121321120032311-2332122323030113-1331031302030120-2332110300022131"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--global_log_receiver--reference--group-003.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:global_log_receiver:properties:http_receiver:use_tls:enable_verify_hostname",
-      "section_id": "xcsh-docs:data-sources:global_log_receiver:properties:http_receiver:use_tls:enable_verify_hostname:section:0",
-      "source_sha256": "sha256:ad4ee7ba2c551d0bb6edde3cc9e26105d2836e590e2ec88112275b86b114fc6e",
-      "source_bytes": 1150,
-      "canonical_source_sha256": "sha256:ad4ee7ba2c551d0bb6edde3cc9e26105d2836e590e2ec88112275b86b114fc6e",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/global_log_receiver/properties/http_receiver/use_tls/enable_verify_hostname/",
-      "anchor": "canonical-0111321111331201-1120111320131111-1121213021103220-3222102320100220-1021233221102302-3331200100022003-1030220103333200-3221310112302033",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-3320320313031323-0100101101321230-0313122233131211-3313212130113120-3001211033122312-2100120310000110-3303320002133330-0011231032020230"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--global_log_receiver--reference--group-003.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:global_log_receiver:properties:http_receiver:use_tls:mtls_disabled",
-      "section_id": "xcsh-docs:data-sources:global_log_receiver:properties:http_receiver:use_tls:mtls_disabled:section:0",
-      "source_sha256": "sha256:875d89ccc6bc9ca973da7b087ff97312d08bf54aba8b11ca9048138d66b3c595",
-      "source_bytes": 1132,
-      "canonical_source_sha256": "sha256:875d89ccc6bc9ca973da7b087ff97312d08bf54aba8b11ca9048138d66b3c595",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/global_log_receiver/properties/http_receiver/use_tls/mtls_disabled/",
-      "anchor": "canonical-1221213212132032-2030312030121210-2101011333001223-2013110011120031-0212322100331312-0303103123212310-2311112312030320-2303223110233330",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-0010222301110230-0311211203023000-3010201033013031-0331230300332203-1213100321300013-0020200332123210-2113021203110132-3302233303222012"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--global_log_receiver--reference--group-003.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:global_log_receiver:properties:http_receiver:use_tls:mtls_enable",
-      "section_id": "xcsh-docs:data-sources:global_log_receiver:properties:http_receiver:use_tls:mtls_enable:section:0",
-      "source_sha256": "sha256:fd4893d5e2d468a1ae71c66a3c9de00e36f26b2bd1b5f111ed655e60324a5b24",
-      "source_bytes": 1007,
-      "canonical_source_sha256": "sha256:7d0e60b77e4e85cbfc094acbbe019fcc44459db6231984e08f5c76bfa1fa23ee",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/global_log_receiver/properties/http_receiver/use_tls/mtls_enable/",
-      "anchor": "canonical-3013001012332100-1311123110003032-0230112313223203-2032232022012302-3123112231323032-2103101220012102-1323131022301203-0011200000223032",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-2113120302213213-1123011121122130-3212233323101200-3310302003320121-3223232330321201-0232202133330102-0021012322103320-2301311211223020"
         ]
       ],
       "mode": "embedded",

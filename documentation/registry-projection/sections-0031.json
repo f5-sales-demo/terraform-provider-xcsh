@@ -3,6 +3,27 @@
   "sections": [
     {
       "canonical_id": "xcsh-docs:resources:securemesh_site_v2:properties:kvm:not_managed:node_list:interface_list:vlan_interface",
+      "section_id": "xcsh-docs:resources:securemesh_site_v2:properties:kvm:not_managed:node_list:interface_list:vlan_interface:section:1",
+      "source_sha256": "sha256:b1e24de4f31b45e0acc87b230755bacce83e39a94b330de37d4535e5f8812950",
+      "source_bytes": 1323,
+      "canonical_source_sha256": "sha256:559a5e25af9e1e7bef437446eee1c07adf25be42688b43f866a354b515e08024",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site_v2/properties/kvm/not_managed/node_list/interface_list/vlan_interface/",
+      "anchor": "canonical-1231230220132111-3231012233311112-1121233222332031-3032011313232211-3100320001303300-0002011210333300-0210303221310101-1030312103130101",
+      "anchor_map": [
+        [
+          "schema-kvm--not_managed--node_list--interface_list--vlan_interface--device",
+          "canonical-1230102201012000-0011310023130003-1133303123131311-0010211020121010-1331101221111301-0022121132231022-1113200232200230-1003020102301103"
+        ],
+        [
+          "schema-kvm--not_managed--node_list--interface_list--vlan_interface--vlan_id",
+          "canonical-1301223103203223-0133032313110121-1001211202210221-1230213220031003-2011022102130311-0210310101231011-0332112120113133-3010221301230232"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-010.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:resources:securemesh_site_v2:properties:kvm:not_managed:node_list:interface_list:vlan_interface",
       "section_id": "xcsh-docs:resources:securemesh_site_v2:properties:kvm:not_managed:node_list:interface_list:vlan_interface:section:2",
       "source_sha256": "sha256:3c0c181fcd0c6bec9c7e21b66b5dc18d5169ed7fed24ea4a5fdce8df7e6f6f55",
       "source_bytes": 982,
@@ -7145,35 +7166,6 @@
           "canonical-3123030311230312-2223203313103321-0310121332230121-2113331310013222-2030222322000320-0102100011323222-1132132130102321-1032311320030330"
         ]
       ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-016.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:securemesh_site_v2:properties:openstack:not_managed:node_list:interface_list:bond_interface",
-      "section_id": "xcsh-docs:resources:securemesh_site_v2:properties:openstack:not_managed:node_list:interface_list:bond_interface:section:4",
-      "source_sha256": "sha256:5fd38581bde717ccc782af6d6907008937f1583c20b0476bbd5d59df5fed66f7",
-      "source_bytes": 1168,
-      "canonical_source_sha256": "sha256:52ab090e943fad4420bb83b5a1deeee32a16bfcd46324d789258eca8c38bd16a",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site_v2/properties/openstack/not_managed/node_list/interface_list/bond_interface/",
-      "anchor": "canonical-0100331232200311-2132020033201020-2021213103211022-3322033020333310-0121323232333130-1232033122323113-1210321313001111-2030313120203110",
-      "anchor_map": [
-        [
-          "schema-openstack--not_managed--node_list--interface_list--bond_interface--name",
-          "canonical-1031033000212131-0003103011013322-3203202330303102-1322003020322232-0121121222121110-1131231010323111-0233310102212033-3010300032212233"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-016.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:securemesh_site_v2:properties:openstack:not_managed:node_list:interface_list:bond_interface",
-      "section_id": "xcsh-docs:resources:securemesh_site_v2:properties:openstack:not_managed:node_list:interface_list:bond_interface:section:5",
-      "source_sha256": "sha256:963e4bb2965239c2dbe8321bf71d6a42c9fb5ad557268972e58dc59ecfd7f567",
-      "source_bytes": 1554,
-      "canonical_source_sha256": "sha256:52ab090e943fad4420bb83b5a1deeee32a16bfcd46324d789258eca8c38bd16a",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site_v2/properties/openstack/not_managed/node_list/interface_list/bond_interface/",
-      "anchor": "canonical-1122120031333332-0311331300011211-3131012323123320-3022331223210112-1121110213103211-3021300132102133-3212231231110331-1310301003202002",
-      "anchor_map": [],
       "mode": "embedded",
       "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-016.md"
     }

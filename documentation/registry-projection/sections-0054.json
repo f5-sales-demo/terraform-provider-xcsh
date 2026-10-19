@@ -2,6 +2,98 @@
   "schema_version": 1,
   "sections": [
     {
+      "canonical_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:bot_defense:policy:protected_app_endpoints:flow_label:account_management:password_reset",
+      "section_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:bot_defense:policy:protected_app_endpoints:flow_label:account_management:password_reset:section:0",
+      "source_sha256": "sha256:168d94d5b2c1dd99a8a8ae604b2ffdcbb0869b0ad082dc48639e132dc46470fa",
+      "source_bytes": 1885,
+      "canonical_source_sha256": "sha256:168d94d5b2c1dd99a8a8ae604b2ffdcbb0869b0ad082dc48639e132dc46470fa",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/cdn_loadbalancer/properties/bot_defense/policy/protected_app_endpoints/flow_label/account_management/password_reset/",
+      "anchor": "canonical-3232030013331112-3001310332222322-0231131002323203-2220203001330222-1031300122223013-3100321312111310-3033321323222033-2310011333132222",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-0003201131100133-1012131001000121-2132233001202310-2231321211310210-0231131320220233-3111011111023101-1331311021110112-0330211302031220"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--cdn_loadbalancer--reference--group-008.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:bot_defense:policy:protected_app_endpoints:flow_label:authentication",
+      "section_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:bot_defense:policy:protected_app_endpoints:flow_label:authentication:section:0",
+      "source_sha256": "sha256:bdfd091e81828eca0affa74e41d503a6d7672c143446861ef71460b3edfbeb26",
+      "source_bytes": 1548,
+      "canonical_source_sha256": "sha256:2b71bd1cf68ab0c76678f8a44391674fee08f937a403219bed76f392d81b1f5b",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/cdn_loadbalancer/properties/bot_defense/policy/protected_app_endpoints/flow_label/authentication/",
+      "anchor": "canonical-0133130221211133-1300102212120332-3201303213303223-3031222030133020-2030121323210032-0133120201032121-0102101220323121-2113120320011023",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-0201123103200010-2210202301212311-2312331101322033-3330302203212033-2133313013022001-0231232032323011-3110230211112131-3300000023120232"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--cdn_loadbalancer--reference--group-008.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:bot_defense:policy:protected_app_endpoints:flow_label:authentication",
+      "section_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:bot_defense:policy:protected_app_endpoints:flow_label:authentication:section:1",
+      "source_sha256": "sha256:e06e8628f9c86cde2aa349d8fdb47df97da2c7227d938f4a02f5b3031cf79676",
+      "source_bytes": 1148,
+      "canonical_source_sha256": "sha256:2b71bd1cf68ab0c76678f8a44391674fee08f937a403219bed76f392d81b1f5b",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/cdn_loadbalancer/properties/bot_defense/policy/protected_app_endpoints/flow_label/authentication/",
+      "anchor": "canonical-0331332333220113-0231212112021133-2321232132230031-0303230210130230-0000321012032201-1332213021221211-2103310211222003-3012331201103132",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--cdn_loadbalancer--reference--group-008.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:bot_defense:policy:protected_app_endpoints:flow_label:authentication:login",
+      "section_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:bot_defense:policy:protected_app_endpoints:flow_label:authentication:login:section:0",
+      "source_sha256": "sha256:af92357b9c17e4b234ff99b7135475abeb36903f51e2b0c4dba822142d04be0a",
+      "source_bytes": 1813,
+      "canonical_source_sha256": "sha256:f6d2bc86a47e4cd7b9b7320e60c072c07eb7d046a0be140c244a13221b7dd587",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/cdn_loadbalancer/properties/bot_defense/policy/protected_app_endpoints/flow_label/authentication/login/",
+      "anchor": "canonical-3131113030220122-0202331010323001-2122322201031222-2313130113302010-2320111320101310-1113132210221330-1210023001313110-1031131310202220",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-0011033201321023-0313020223032020-3023331123121022-2320311111200100-2213213111021210-3031011023331032-2202331101320122-2302333013322203"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--cdn_loadbalancer--reference--group-008.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:bot_defense:policy:protected_app_endpoints:flow_label:authentication:login",
+      "section_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:bot_defense:policy:protected_app_endpoints:flow_label:authentication:login:section:1",
+      "source_sha256": "sha256:bc572010e36ad1fbd4de2b9b27e504764f4b62d8d89bcaa7d89d573ba1fefeb7",
+      "source_bytes": 535,
+      "canonical_source_sha256": "sha256:f6d2bc86a47e4cd7b9b7320e60c072c07eb7d046a0be140c244a13221b7dd587",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/cdn_loadbalancer/properties/bot_defense/policy/protected_app_endpoints/flow_label/authentication/login/",
+      "anchor": "canonical-1320122321101111-3313113333231321-3123102032013100-2332031002023302-1023120022222200-2321021322203211-3300102331013211-2112330021212132",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--cdn_loadbalancer--reference--group-008.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:bot_defense:policy:protected_app_endpoints:flow_label:authentication:login:disable_transaction_result",
+      "section_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:bot_defense:policy:protected_app_endpoints:flow_label:authentication:login:disable_transaction_result:section:0",
+      "source_sha256": "sha256:541bce4b0a6fd29a8c45bfc6491e65994884325a42dc877f13c7b40cc5228205",
+      "source_bytes": 2133,
+      "canonical_source_sha256": "sha256:541bce4b0a6fd29a8c45bfc6491e65994884325a42dc877f13c7b40cc5228205",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/cdn_loadbalancer/properties/bot_defense/policy/protected_app_endpoints/flow_label/authentication/login/disable_transaction_result/",
+      "anchor": "canonical-3233102101112130-2221002133001201-3120023200110232-2310201331023211-0131321332222323-2221033123311123-3122332120132302-0011220111132031",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-2301221232331022-1032321131133122-1201313102222021-3230310002232130-0310231113231321-0021131120010133-1123302013311201-1210301323002020"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--cdn_loadbalancer--reference--group-008.md"
+    },
+    {
       "canonical_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:bot_defense:policy:protected_app_endpoints:flow_label:authentication:login:transaction_result",
       "section_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:bot_defense:policy:protected_app_endpoints:flow_label:authentication:login:transaction_result:section:0",
       "source_sha256": "sha256:b37321419b8db72a4de122d3f4acf3f237aed8af8243264611b6507521c9e363",
@@ -7403,103 +7495,6 @@
         [
           "section",
           "canonical-0003200131302013-1200020211102123-1330312010211333-3101111130312011-3110123320101313-3001320131000312-3131113312323322-2203233312010210"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--cdn_loadbalancer--reference--group-012.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:origin_pool:use_tls",
-      "section_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:origin_pool:use_tls:section:1",
-      "source_sha256": "sha256:1ae65fa0d621146e13ac0a4a0a37cbe0972d5ed56b9070068b1d0b9169c10433",
-      "source_bytes": 686,
-      "canonical_source_sha256": "sha256:5d33eede982b5ecfe517e25e47b693bdbbe9212984cb45b1ee2fa94750453f7c",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/cdn_loadbalancer/properties/origin_pool/use_tls/",
-      "anchor": "canonical-3200021312113010-0020310121021003-2322031202202212-0113332022000313-0100022033231112-1132223233220333-0022022323210322-2212301333233112",
-      "anchor_map": [
-        [
-          "schema-origin_pool--use_tls--max_session_keys",
-          "canonical-3220221323303223-2031333130023333-2213322232031032-1330100232230303-3012310213200320-2101123010233031-0102102210001302-0200110000332203"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--cdn_loadbalancer--reference--group-012.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:origin_pool:use_tls",
-      "section_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:origin_pool:use_tls:section:2",
-      "source_sha256": "sha256:20804c255ae04529de5d3d11fe411f3e8c16dd6d7481f2fd0293fed4a0867b71",
-      "source_bytes": 1305,
-      "canonical_source_sha256": "sha256:5d33eede982b5ecfe517e25e47b693bdbbe9212984cb45b1ee2fa94750453f7c",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/cdn_loadbalancer/properties/origin_pool/use_tls/",
-      "anchor": "canonical-1132321212001001-1302110333303211-2201102330122230-2321322233132222-1103200221223021-1031120213112333-0010111333301031-3223310313213203",
-      "anchor_map": [
-        [
-          "schema-origin_pool--use_tls--sni",
-          "canonical-1320312313113303-2011010031013223-0233221200333300-0311233110001221-2001012203022002-1100113221102110-3103313300202131-1230113003021201"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--cdn_loadbalancer--reference--group-012.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:origin_pool:use_tls",
-      "section_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:origin_pool:use_tls:section:3",
-      "source_sha256": "sha256:6baa27402594b0072530203d964a36a86cb395105713748dced834412b4b4ca0",
-      "source_bytes": 2018,
-      "canonical_source_sha256": "sha256:5d33eede982b5ecfe517e25e47b693bdbbe9212984cb45b1ee2fa94750453f7c",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/cdn_loadbalancer/properties/origin_pool/use_tls/",
-      "anchor": "canonical-0010300321100233-0320121323302323-1003132123132031-2012100333302013-2303332222001310-3312323330301311-0323213231312101-0022002310030020",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--cdn_loadbalancer--reference--group-012.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:origin_pool:use_tls:default_session_key_caching",
-      "section_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:origin_pool:use_tls:default_session_key_caching:section:0",
-      "source_sha256": "sha256:b125ce4cd4906d72dd71726388916b252e3b344356a2e9c4062f4ec5eee856cc",
-      "source_bytes": 1233,
-      "canonical_source_sha256": "sha256:b125ce4cd4906d72dd71726388916b252e3b344356a2e9c4062f4ec5eee856cc",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/cdn_loadbalancer/properties/origin_pool/use_tls/default_session_key_caching/",
-      "anchor": "canonical-0310120301010101-3131230121130233-1322302023102302-2002122310023320-2322302120001113-3203332201120201-2112233200130133-0023110312323020",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-1220322321200121-2012131033312202-3123222130311212-3211100313313130-2132110130212300-0002321103301121-1011131023332111-3130003310302122"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--cdn_loadbalancer--reference--group-012.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:origin_pool:use_tls:disable_session_key_caching",
-      "section_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:origin_pool:use_tls:disable_session_key_caching:section:0",
-      "source_sha256": "sha256:28d4dda7c134f320496306a31c86b6fdc01431384f4978993b5552ef58503814",
-      "source_bytes": 1171,
-      "canonical_source_sha256": "sha256:28d4dda7c134f320496306a31c86b6fdc01431384f4978993b5552ef58503814",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/cdn_loadbalancer/properties/origin_pool/use_tls/disable_session_key_caching/",
-      "anchor": "canonical-2201331101003332-3031310321031033-1232133131310233-3020001012000112-0322223322031313-2022300331033122-3020203103122311-3213332311202002",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-0201033002303332-0203303111102201-0331210320200010-0313032230311133-2022210020011111-2303132233310232-2312221310113232-3221211011212031"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--cdn_loadbalancer--reference--group-012.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:origin_pool:use_tls:disable_sni",
-      "section_id": "xcsh-docs:data-sources:cdn_loadbalancer:properties:origin_pool:use_tls:disable_sni:section:0",
-      "source_sha256": "sha256:cdd869a9a8c17ec0f893a58833d50a32d7e689f06b1201c385f721ff6710ef5b",
-      "source_bytes": 1123,
-      "canonical_source_sha256": "sha256:cdd869a9a8c17ec0f893a58833d50a32d7e689f06b1201c385f721ff6710ef5b",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/cdn_loadbalancer/properties/origin_pool/use_tls/disable_sni/",
-      "anchor": "canonical-1112232301011020-1301220131310321-3102321333232231-3320132321310223-3221222102332123-0333301222120123-0233200031031131-2303321013123113",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-0233322330131233-2212022020220203-3223233221201123-1033303310331200-1232033122201031-1232023203111112-3001002201102022-0303120031233032"
         ]
       ],
       "mode": "embedded",
