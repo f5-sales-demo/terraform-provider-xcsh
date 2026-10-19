@@ -94,6 +94,9 @@ type {{.TitleCase}}Resource struct {
 }
 
 {{renderNestedModelTypes .TitleCase .Attributes}}type {{.TitleCase}}ResourceModel struct {
+{{- if or (eq .Name "token") (eq .Name "securemesh_site_v2")}}
+ CreationIdentitySHA256 types.String ` + "`" + `tfsdk:"creation_identity_sha256"` + "`" + `
+{{- end}}
 {{- range .Attributes}}
 {{- if not .IsBlock}}
 	{{.GoName}} types.{{if eq .Type "string"}}String{{else if eq .Type "int64"}}Int64{{else if eq .Type "bool"}}Bool{{else if eq .Type "map"}}Map{{else if eq .Type "list"}}List{{else if eq .Type "object"}}Object{{else}}String{{end}} ` + "`" + `tfsdk:"{{.TfsdkTag}}"` + "`" + `
@@ -110,6 +113,13 @@ func (r *{{.TitleCase}}Resource) Schema(ctx context.Context, req resource.Schema
 	resp.Schema = schema.Schema{
 		MarkdownDescription: "{{.Description}}",
 		Attributes: map[string]schema.Attribute{
+{{- if or (eq .Name "token") (eq .Name "securemesh_site_v2")}}
+ "creation_identity_sha256": schema.StringAttribute{
+  MarkdownDescription: "SHA-256 of the immutable system_metadata.uid returned by the original creation. Never inferred during import or refresh. Null when the creation response did not retain an identity; null does not establish ownership.",
+  Computed: true,
+  PlanModifiers: []planmodifier.String{stringplanmodifier.UseStateForUnknown()},
+ },
+{{- end}}
 {{- range .Attributes}}
 {{- if not .IsBlock}}
 			"{{.TfsdkTag}}": schema.{{if eq .Type "string"}}String{{else if eq .Type "int64"}}Int64{{else if eq .Type "bool"}}Bool{{else if eq .Type "map"}}Map{{else if eq .Type "list"}}List{{else if eq .Type "object"}}Object{{else}}String{{end}}Attribute{
@@ -549,7 +559,7 @@ func (r *{{.TitleCase}}Resource) Create(ctx context.Context, req resource.Create
 {{renderSpecMarshalCodeForCreate .Attributes "\t" .TitleCase}}
 
 	{{- if .HasConcurrencyToken}}
-	_, err := r.client.Create{{.TitleCase}}(ctx, createReq)
+	{{if or (eq .Name "token") (eq .Name "securemesh_site_v2")}}created, err{{else}}_, err{{end}} := r.client.Create{{.TitleCase}}(ctx, createReq)
 	{{- else}}
 	{{if eq .Name "protected_domain"}}apiResource, created, err := r.client.CreateProtectedDomainRegistration(ctx, createReq){{else}}apiResource, err := r.client.Create{{.TitleCase}}(ctx, createReq){{end}}
 	{{- end}}
@@ -562,6 +572,14 @@ func (r *{{.TitleCase}}Resource) Create(ctx context.Context, req resource.Create
 {{else}}		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to create {{.TitleCase}}: %s", err))
 {{end}}		return
 	}
+{{- if or (eq .Name "token") (eq .Name "securemesh_site_v2")}}
+ data.CreationIdentitySHA256 = creationIdentityReceipt({{if .HasConcurrencyToken}}created{{else}}apiResource{{end}}.ImmutableUID())
+ // Persist the successful POST before any follow-up read can fail. This is
+ // creation evidence, never ownership inferred from a later GET.
+ data.ID = data.Name
+ resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
+ if resp.Diagnostics.HasError() { return }
+{{- end}}
 {{- if .HasConcurrencyToken}}
 
 	// The concurrency token is declared only on GET responses. Read back the object
@@ -613,6 +631,12 @@ func (r *{{.TitleCase}}Resource) Create(ctx context.Context, req resource.Create
 		return
 	}
 
+{{- if or (eq .Name "token") (eq .Name "securemesh_site_v2")}}
+ if err := verifyCreationIdentity(data.CreationIdentitySHA256, apiResource.ImmutableUID()); err != nil {
+  resp.Diagnostics.AddError("Original Creation Identity Changed", err.Error())
+  return
+ }
+{{- end}}
 	data.ID = {{if eq .Name "protected_domain"}}data.Name{{else}}types.StringValue(apiResource.Metadata.Name){{end}}
 {{- if not .HasNamespaceInPath}}
 	// For resources without namespace in API path, namespace is computed from API response
@@ -697,6 +721,12 @@ func (r *{{.TitleCase}}Resource) Read(ctx context.Context, req resource.ReadRequ
 	}
 {{- end}}
 
+{{- if or (eq .Name "token") (eq .Name "securemesh_site_v2")}}
+ if err := verifyCreationIdentity(data.CreationIdentitySHA256, apiResource.ImmutableUID()); err != nil {
+  resp.Diagnostics.AddError("Original Creation Identity Changed", err.Error())
+  return
+ }
+{{- end}}
 {{if ne .Name "protected_domain"}}	data.ID = types.StringValue(apiResource.Metadata.Name)
 	data.Name = types.StringValue(apiResource.Metadata.Name)
 	data.Namespace = types.StringValue(apiResource.Metadata.Namespace){{end}}
@@ -817,6 +847,12 @@ func (r *{{.TitleCase}}Resource) Update(ctx context.Context, req resource.Update
 	return
 {{- else}}
 
+{{- if or (eq .Name "token") (eq .Name "securemesh_site_v2")}}
+ var original {{.TitleCase}}ResourceModel
+ resp.Diagnostics.Append(req.State.Get(ctx, &original)...)
+ if resp.Diagnostics.HasError() { return }
+ data.CreationIdentitySHA256 = original.CreationIdentitySHA256
+{{- end}}
 	updateTimeout, diags := data.Timeouts.Update(ctx, inttimeouts.DefaultUpdate)
 	resp.Diagnostics.Append(diags...)
 	if resp.Diagnostics.HasError() {
@@ -923,6 +959,12 @@ func (r *{{.TitleCase}}Resource) Update(ctx context.Context, req resource.Update
 		)
 		return
 	}
+{{- if or (eq .Name "token") (eq .Name "securemesh_site_v2")}}
+ if err := verifyCreationIdentity(data.CreationIdentitySHA256, current.ImmutableUID()); err != nil {
+  resp.Diagnostics.AddError("Original Creation Identity Changed", err.Error())
+  return
+ }
+{{- end}}
 	apiResource.Metadata.Labels = mergePreservedLabels(
 		apiResource.Metadata.Labels, preservedPlatformLabels(current.Metadata.Labels))
 {{- end}}
@@ -959,6 +1001,17 @@ func (r *{{.TitleCase}}Resource) Update(ctx context.Context, req resource.Update
 		return
 	}
 	apiResource.Spec = preservedSpec
+{{- end}}
+{{- if eq .Name "token"}}
+ originalObject, identityErr := r.client.GetToken(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+ if identityErr != nil {
+  resp.Diagnostics.AddError("Unable to Verify Original Creation Identity", "The update was not sent; original identity could not be verified.")
+  return
+ }
+ if err := verifyCreationIdentity(data.CreationIdentitySHA256, originalObject.ImmutableUID()); err != nil {
+  resp.Diagnostics.AddError("Original Creation Identity Changed", err.Error())
+  return
+ }
 {{- end}}
 	_, err := r.client.Update{{.TitleCase}}(ctx, apiResource)
 	if err != nil {
@@ -1086,8 +1139,23 @@ func (r *{{.TitleCase}}Resource) Delete(ctx context.Context, req resource.Delete
 	// pool, an origin pool by a load balancer, etc.), which the API rejects with 400 until
 	// the referrer is gone. NOT_FOUND/404 (already deleted) and 501 (delete unsupported) are
 	// terminal and handled after the loop.
+
 	var err error
 	for attempt := 0; ; attempt++ {
+{{- if or (eq .Name "token") (eq .Name "securemesh_site_v2")}}
+ if !data.CreationIdentitySHA256.IsNull() {
+  observed, err := r.client.Get{{.TitleCase}}(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+  if err != nil {
+   if client.HasHTTPStatus(err, 404) { return }
+   resp.Diagnostics.AddError("Unable to Verify Original Creation Identity", "The delete was not sent; original identity could not be verified.")
+   return
+  }
+  if err := verifyCreationIdentity(data.CreationIdentitySHA256, observed.ImmutableUID()); err != nil {
+   resp.Diagnostics.AddError("Original Creation Identity Changed", err.Error())
+   return
+  }
+ }
+{{- end}}
 {{- if eq .TitleCase "Namespace"}}
 		// Namespace requires cascade_delete endpoint (standard DELETE returns 501)
 		err = r.client.CascadeDeleteNamespace(ctx, data.Name.ValueString())
@@ -1231,17 +1299,29 @@ type {{.TitleCase}} struct {
 {{- if .HasConcurrencyToken}}
 	{{.ConcurrencyTokenGoName}} string ` + "`" + `json:"{{.ConcurrencyTokenJSONName}},omitempty"` + "`" + `
 {{- end}}
-{{- if .ExposeUID}}
+{{- if or .ExposeUID (eq .Name "securemesh_site_v2")}}
 	SystemMetadata *{{.TitleCase}}SystemMetadata ` + "`" + `json:"system_metadata,omitempty"` + "`" + `
 {{- end}}
 }
-{{- if .ExposeUID}}
+{{- if or .ExposeUID (eq .Name "securemesh_site_v2")}}
 
 // {{.TitleCase}}SystemMetadata carries server-generated object metadata returned in
 // {{.TitleCase}} API responses. Only uid is surfaced: it is the value a consumer needs
 // (e.g. the token value a Customer Edge registers with).
 type {{.TitleCase}}SystemMetadata struct {
 	UID string ` + "`" + `json:"uid,omitempty"` + "`" + `
+}
+{{- end}}
+
+{{- if or (eq .Name "token") (eq .Name "securemesh_site_v2")}}
+// ImmutableUID reads the server identity without selecting registration credentials.
+func (r *{{.TitleCase}}) ImmutableUID() string {
+{{- if or .ExposeUID (eq .Name "securemesh_site_v2")}}
+ if r == nil || r.SystemMetadata == nil { return "" }
+ return r.SystemMetadata.UID
+{{- else}}
+ return ""
+{{- end}}
 }
 {{- end}}
 

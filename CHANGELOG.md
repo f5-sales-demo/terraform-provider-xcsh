@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- Retain original creation identity hashes for site tokens and Secure Mesh Site V2 resources, including failed follow-up reads. Refuse updates and deletion when the observed immutable identity differs from that receipt. Imported and legacy resources retain their existing behavior.
 - Own immutable Swagger object versions with `xcsh_swagger_object`, exact-version import, verified content hashes, and deletion limited to the owned version.
 
 ## [v14.0.0](https://github.com/f5-sales-demo/terraform-provider-xcsh/releases/tag/v14.0.0) - 2026-10-05

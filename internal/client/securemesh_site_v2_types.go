@@ -10,9 +10,25 @@ import (
 
 // SecuremeshSiteV2 represents a F5XC SecuremeshSiteV2
 type SecuremeshSiteV2 struct {
-	Metadata        Metadata               `json:"metadata"`
-	Spec            map[string]interface{} `json:"spec"`
-	ResourceVersion string                 `json:"resource_version,omitempty"`
+	Metadata        Metadata                        `json:"metadata"`
+	Spec            map[string]interface{}          `json:"spec"`
+	ResourceVersion string                          `json:"resource_version,omitempty"`
+	SystemMetadata  *SecuremeshSiteV2SystemMetadata `json:"system_metadata,omitempty"`
+}
+
+// SecuremeshSiteV2SystemMetadata carries server-generated object metadata returned in
+// SecuremeshSiteV2 API responses. Only uid is surfaced: it is the value a consumer needs
+// (e.g. the token value a Customer Edge registers with).
+type SecuremeshSiteV2SystemMetadata struct {
+	UID string `json:"uid,omitempty"`
+}
+
+// ImmutableUID reads the server identity without selecting registration credentials.
+func (r *SecuremeshSiteV2) ImmutableUID() string {
+	if r == nil || r.SystemMetadata == nil {
+		return ""
+	}
+	return r.SystemMetadata.UID
 }
 
 // CreateSecuremeshSiteV2 creates a new SecuremeshSiteV2
