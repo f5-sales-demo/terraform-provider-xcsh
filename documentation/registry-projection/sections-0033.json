@@ -2,6 +2,35 @@
   "schema_version": 1,
   "sections": [
     {
+      "canonical_id": "xcsh-docs:resources:service_policy:properties:rule_list:rules:spec:domain_matcher",
+      "section_id": "xcsh-docs:resources:service_policy:properties:rule_list:rules:spec:domain_matcher:section:2",
+      "source_sha256": "sha256:fb3fe563ff3327d2ff8148c6f842d0dabc78dda34ece81fd1133c8b77cfa8545",
+      "source_bytes": 1506,
+      "canonical_source_sha256": "sha256:09e6ebebf4aefab36adc9702fad666c2aecc2b617f4cae99cdce8edfd218a2cd",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/service_policy/properties/rule_list/rules/spec/domain_matcher/",
+      "anchor": "canonical-1003012100121013-3330220110232012-0020210032001203-1121012021210313-2300322200003201-1023221331223332-2330121320323233-0031232311031122",
+      "anchor_map": [
+        [
+          "schema-rule_list--rules--spec--domain_matcher--transformers",
+          "canonical-3301301003231322-3300012022231202-0203302333223321-2013030110222013-3021213232310311-3103102131033032-1300212331312220-1013110010320323"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/resources--service_policy--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:resources:service_policy:properties:rule_list:rules:spec:domain_matcher",
+      "section_id": "xcsh-docs:resources:service_policy:properties:rule_list:rules:spec:domain_matcher:section:3",
+      "source_sha256": "sha256:2d7ddd0353945800090a9431eccc9a95a185f8d660bc014d43d8732de0e3956d",
+      "source_bytes": 1505,
+      "canonical_source_sha256": "sha256:09e6ebebf4aefab36adc9702fad666c2aecc2b617f4cae99cdce8edfd218a2cd",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/service_policy/properties/rule_list/rules/spec/domain_matcher/",
+      "anchor": "canonical-2023201212222230-2332132103110230-1012000122233110-0000212003311222-3130301000230213-2300021212003332-0022133213100203-3323221003133112",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/resources--service_policy--reference--group-002.md"
+    },
+    {
       "canonical_id": "xcsh-docs:resources:service_policy:properties:rule_list:rules:spec:headers",
       "section_id": "xcsh-docs:resources:service_policy:properties:rule_list:rules:spec:headers:section:0",
       "source_sha256": "sha256:e8c81e8c00a6ded068dba774eb00abc7fcf44c91a45b5640bd3557585e7aed1f",
@@ -8137,42 +8166,6 @@
       ],
       "mode": "embedded",
       "registry_path": "docs/guides/resources--subnet--reference--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:subnet:properties:timeouts",
-      "section_id": "xcsh-docs:resources:subnet:properties:timeouts:section:4",
-      "source_sha256": "sha256:4ae065275a0166edac160b00f1eb2f389e56d725282f1649528e36beb6153e6b",
-      "source_bytes": 271,
-      "canonical_source_sha256": "sha256:da9235dccf9fa1285b8c45ebaf42dcc12c61848ef4ff0115f73eb5f79d8fa861",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/subnet/properties/timeouts/",
-      "anchor": "canonical-2031232013321033-2322121333131213-1310213113030320-0312322101113022-2333323033310231-3030330322002113-3201003232012323-1223310031310233",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--subnet--reference--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:subnet:examples",
-      "section_id": "xcsh-docs:resources:subnet:examples:section:0",
-      "source_sha256": "sha256:19323459bb7910220d014bbfd65a27bb5918b3919e44a221c6d467f51ca13f82",
-      "source_bytes": 228,
-      "canonical_source_sha256": "sha256:d3fdbf47bcf7b7eb2a8c074f19646bd2016e8406f31fcd064bf61c53bd06ba47",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/subnet/examples/",
-      "anchor": "canonical-1213033300321211-3212302313120023-3023002000313103-0301300230331231-2033020103022203-2213121013303233-1020023113123100-3013010000012213",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--subnet--examples--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:subnet:examples",
-      "section_id": "xcsh-docs:resources:subnet:examples:section:1",
-      "source_sha256": "sha256:92446af86acf8bb16f2d70889e8596dccc890e45dcc1aaa10f425dbf99836330",
-      "source_bytes": 156,
-      "canonical_source_sha256": "sha256:d3fdbf47bcf7b7eb2a8c074f19646bd2016e8406f31fcd064bf61c53bd06ba47",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/subnet/examples/",
-      "anchor": "canonical-0002122310122011-2000202003233220-2003011123322211-0203213033131122-1100331322111021-2013031320233000-0303110112330321-1121313223010231",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--subnet--examples--group-001.md"
     }
   ]
 }

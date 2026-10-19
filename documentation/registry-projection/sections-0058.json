@@ -2,6 +2,103 @@
   "schema_version": 1,
   "sections": [
     {
+      "canonical_id": "xcsh-docs:data-sources:dns_lb_health_check:properties:https_health_check",
+      "section_id": "xcsh-docs:data-sources:dns_lb_health_check:properties:https_health_check:section:1",
+      "source_sha256": "sha256:085fceb9f4ef1081dd968f6db8b8d2b629fa34c976076c41ef256769539e365f",
+      "source_bytes": 281,
+      "canonical_source_sha256": "sha256:f162d02cae9ab35e266b88a110c5cda1ed4e73d16c7b94af6a065b877cad2c6a",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/dns_lb_health_check/properties/https_health_check/",
+      "anchor": "canonical-3123133201323030-1122303002133103-0312121012002100-0323031331221032-3320220013233031-0021320203033221-3131032122330111-0021032132323012",
+      "anchor_map": [
+        [
+          "schema-https_health_check--health_check_port",
+          "canonical-3012120200320200-1032122030313021-3212031021323110-2022122103030332-0221133022002113-0102030001032210-1020300212320302-0030320113203210"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--dns_lb_health_check--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:dns_lb_health_check:properties:https_health_check",
+      "section_id": "xcsh-docs:data-sources:dns_lb_health_check:properties:https_health_check:section:2",
+      "source_sha256": "sha256:da265fe3299f3500bb61e33b256f08394a6b4ade001fb77c56ede2127eed6d9b",
+      "source_bytes": 998,
+      "canonical_source_sha256": "sha256:f162d02cae9ab35e266b88a110c5cda1ed4e73d16c7b94af6a065b877cad2c6a",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/dns_lb_health_check/properties/https_health_check/",
+      "anchor": "canonical-2300013230120313-0330023003003033-2012221323112113-3032331232212330-3310303003232113-0321000112102110-0001002301013022-3113202003110310",
+      "anchor_map": [
+        [
+          "schema-https_health_check--health_check_secondary_port",
+          "canonical-0130221222200221-2113300220002023-1311021200012102-3300220200231223-0333031000223322-3300231003330332-1132132330010132-2103010010332021"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--dns_lb_health_check--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:dns_lb_health_check:properties:https_health_check",
+      "section_id": "xcsh-docs:data-sources:dns_lb_health_check:properties:https_health_check:section:3",
+      "source_sha256": "sha256:4a185ecfb5b1c009d3fdc601b402f8ddd88da8a24218133799170cf0323267a2",
+      "source_bytes": 1159,
+      "canonical_source_sha256": "sha256:f162d02cae9ab35e266b88a110c5cda1ed4e73d16c7b94af6a065b877cad2c6a",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/dns_lb_health_check/properties/https_health_check/",
+      "anchor": "canonical-3132300232310123-1030101101113203-2013110131322230-0322212332303312-2032322100133131-3100002110213031-3322313210322022-1133303222023130",
+      "anchor_map": [
+        [
+          "schema-https_health_check--receive",
+          "canonical-2333201120013111-2301000221312013-2110022222312201-0032233230311000-1313323313103112-1222120100013312-2303330022202210-2201100012301232"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--dns_lb_health_check--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:dns_lb_health_check:properties:https_health_check",
+      "section_id": "xcsh-docs:data-sources:dns_lb_health_check:properties:https_health_check:section:4",
+      "source_sha256": "sha256:7407a3c1e23f531e0a38a8e8658617aa95e58da814f0dbdf1f3b361dfa36001d",
+      "source_bytes": 1013,
+      "canonical_source_sha256": "sha256:f162d02cae9ab35e266b88a110c5cda1ed4e73d16c7b94af6a065b877cad2c6a",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/dns_lb_health_check/properties/https_health_check/",
+      "anchor": "canonical-0003330210331111-2202030202313330-1130130220012033-0300123123003102-3010303123313221-2002113110202231-3003232133210010-0310133121330213",
+      "anchor_map": [
+        [
+          "schema-https_health_check--send",
+          "canonical-3001001003123213-1120222313020322-2332220001320010-3131312123303212-1133211031023123-2331331110230132-0303213312022332-3200330300233023"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--dns_lb_health_check--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:dns_lb_health_check:properties:https_health_check",
+      "section_id": "xcsh-docs:data-sources:dns_lb_health_check:properties:https_health_check:section:5",
+      "source_sha256": "sha256:ed0c590c0b5e89ccdd35a89f55d3629f67b9391338d5a1f1d2471ac602b992fe",
+      "source_bytes": 782,
+      "canonical_source_sha256": "sha256:f162d02cae9ab35e266b88a110c5cda1ed4e73d16c7b94af6a065b877cad2c6a",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/dns_lb_health_check/properties/https_health_check/",
+      "anchor": "canonical-2011211121021020-0211221002002231-1001303000132301-3212332210133233-2131331202033133-0120332320121102-2011333033011102-1232123231101032",
+      "anchor_map": [
+        [
+          "schema-https_health_check--virtual_host",
+          "canonical-3000031110211120-2320113000312322-2302112031213200-2130033001303010-3230213000221212-2131132022322132-0030322222031100-1020303113120321"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--dns_lb_health_check--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:dns_lb_health_check:properties:https_health_check",
+      "section_id": "xcsh-docs:data-sources:dns_lb_health_check:properties:https_health_check:section:6",
+      "source_sha256": "sha256:395bbc02989271f7cb73447bb5040936e41fdd667f47dc8f089f1b7c18affed6",
+      "source_bytes": 927,
+      "canonical_source_sha256": "sha256:f162d02cae9ab35e266b88a110c5cda1ed4e73d16c7b94af6a065b877cad2c6a",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/dns_lb_health_check/properties/https_health_check/",
+      "anchor": "canonical-2002002303031101-1202011333000323-0002022101321223-2023132230000102-2103231232220121-0112130313310022-0302023232103311-2002121002011013",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--dns_lb_health_check--reference--group-001.md"
+    },
+    {
       "canonical_id": "xcsh-docs:data-sources:dns_lb_health_check:properties:https_health_check:disable_virtual_host",
       "section_id": "xcsh-docs:data-sources:dns_lb_health_check:properties:https_health_check:disable_virtual_host:section:0",
       "source_sha256": "sha256:b4d05cf35478cfdcbad3e578286b702324c3e182ff07b4b14bd5c7b14421dd05",
@@ -7832,102 +7929,6 @@
           "canonical-0133101022110312-1012230221200332-0112223131330022-3122233333232332-0303220302221003-1230223103002022-3112210203012202-3333110013323211"
         ]
       ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--dns_zone--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:dns_zone:properties:primary:dnssec_mode:enable",
-      "section_id": "xcsh-docs:data-sources:dns_zone:properties:primary:dnssec_mode:enable:section:0",
-      "source_sha256": "sha256:9e349a6906263094b5cf4c18f275c9ed074fb0d2cfa473bd21a460d0c905bdc3",
-      "source_bytes": 958,
-      "canonical_source_sha256": "sha256:9e349a6906263094b5cf4c18f275c9ed074fb0d2cfa473bd21a460d0c905bdc3",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/dns_zone/properties/primary/dnssec_mode/enable/",
-      "anchor": "canonical-1221121130033221-2123222101202023-0201332012131001-0303022301203123-0122210132133332-2203321123031100-2100301320102120-1203023103200100",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-1021202202023231-1203202332111212-0003030323332333-2100202023101323-3223302330203000-3231022021132313-1010101012320311-0033321331223221"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--dns_zone--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:dns_zone:properties:primary:rr_set_group",
-      "section_id": "xcsh-docs:data-sources:dns_zone:properties:primary:rr_set_group:section:0",
-      "source_sha256": "sha256:afbe59714f6b148027567fbb8a18fa3e8543570b8358e78f2da56c910b23b056",
-      "source_bytes": 1399,
-      "canonical_source_sha256": "sha256:3ecdbdd79f75e04503492afb87bf2b2e38b00bdba87fe6e56dafccef2440bc08",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/dns_zone/properties/primary/rr_set_group/",
-      "anchor": "canonical-1123222033113212-3322310132230022-0003203213303322-3032311213113203-3003230323212030-2021000103002312-2303100332113121-0122303013013202",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-2231202303211010-2021101001111030-2013023101223233-3321213130020213-3332320300011023-2121211132011013-2312031132210200-1131031002133031"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--dns_zone--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:dns_zone:properties:primary:rr_set_group",
-      "section_id": "xcsh-docs:data-sources:dns_zone:properties:primary:rr_set_group:section:1",
-      "source_sha256": "sha256:f8e6c78d2ab7c8a90b178322abe57872faf7da76f44b548317b52e2900b9d1dd",
-      "source_bytes": 351,
-      "canonical_source_sha256": "sha256:3ecdbdd79f75e04503492afb87bf2b2e38b00bdba87fe6e56dafccef2440bc08",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/dns_zone/properties/primary/rr_set_group/",
-      "anchor": "canonical-2321302230002300-0123313012322121-0231023323030011-2300222332033323-0101121133201303-2033102022133111-3232121332113200-1330230102100220",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--dns_zone--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:dns_zone:properties:primary:rr_set_group:metadata",
-      "section_id": "xcsh-docs:data-sources:dns_zone:properties:primary:rr_set_group:metadata:section:0",
-      "source_sha256": "sha256:5f713df773909a3ed8a3c7f06aef1129ea85a626bf1fe104adb2236c5412a96b",
-      "source_bytes": 1181,
-      "canonical_source_sha256": "sha256:ff877489b18965a6ec806b5c1b7264c6b69b6f6cc446ee8fd25d2e228580ebc3",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/dns_zone/properties/primary/rr_set_group/metadata/",
-      "anchor": "canonical-2300002332200332-3300012320121033-1323312230331320-0222210111132311-1030011331333111-1212002231231222-1321113113133330-0222303310223013",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-1330003303230112-2023000311003232-0313021100232031-2130100211300330-1322102200310132-0111211310022101-3331032000001001-1003333223010012"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--dns_zone--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:dns_zone:properties:primary:rr_set_group:metadata",
-      "section_id": "xcsh-docs:data-sources:dns_zone:properties:primary:rr_set_group:metadata:section:1",
-      "source_sha256": "sha256:e80b49a5bd5cff3771066e0772025aec7b949e4d97483cf87822715b7e2091d9",
-      "source_bytes": 254,
-      "canonical_source_sha256": "sha256:ff877489b18965a6ec806b5c1b7264c6b69b6f6cc446ee8fd25d2e228580ebc3",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/dns_zone/properties/primary/rr_set_group/metadata/",
-      "anchor": "canonical-1010113313101123-3113222020321022-2103203033123130-3110301311311222-3211213133003111-2121331132132210-1031223303312000-2111120000221023",
-      "anchor_map": [
-        [
-          "schema-primary--rr_set_group--metadata--description_spec",
-          "canonical-1322330123203331-2320210002222202-3221301311020012-2330303222321212-1031011322100311-2110232000022102-0032000113233121-0303020233122311"
-        ],
-        [
-          "schema-primary--rr_set_group--metadata--name",
-          "canonical-2202023131100022-1103302232221201-3011011233003132-1222131313102331-0013123113203032-1301132213112102-3002233120002323-1130303100213221"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--dns_zone--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:dns_zone:properties:primary:rr_set_group:metadata",
-      "section_id": "xcsh-docs:data-sources:dns_zone:properties:primary:rr_set_group:metadata:section:2",
-      "source_sha256": "sha256:09d23fc3b56c23a2e52afc56aec1006575c088a1dca9d2f85e623f960474625e",
-      "source_bytes": 1531,
-      "canonical_source_sha256": "sha256:ff877489b18965a6ec806b5c1b7264c6b69b6f6cc446ee8fd25d2e228580ebc3",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/dns_zone/properties/primary/rr_set_group/metadata/",
-      "anchor": "canonical-0122022112303300-0110123112132030-0321103100312000-0022333130020331-3002132032033213-3103123301231331-3000212332211233-1121023210131032",
-      "anchor_map": [],
       "mode": "embedded",
       "registry_path": "docs/guides/data-sources--dns_zone--reference--group-002.md"
     }

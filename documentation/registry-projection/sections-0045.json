@@ -2,6 +2,74 @@
   "schema_version": 1,
   "sections": [
     {
+      "canonical_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:allowed_vip_port:custom_ports",
+      "section_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:allowed_vip_port:custom_ports:section:1",
+      "source_sha256": "sha256:83bfa1cf0416b53ce4ed76d427f890b7b36c53e846a5a61252aaf2d0f453cba9",
+      "source_bytes": 1155,
+      "canonical_source_sha256": "sha256:03dee6394f1957c99e96bdbbb8c83532688a3754d1f8155cb6bae73201f1a0d7",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/aws_tgw_site/properties/vn_config/allowed_vip_port/custom_ports/",
+      "anchor": "canonical-1023201022300222-3122010021332333-0133103232121301-3012121223302023-3133300000032323-3131113123210203-3233333133102123-2102322033232113",
+      "anchor_map": [
+        [
+          "schema-vn_config--allowed_vip_port--custom_ports--port_ranges",
+          "canonical-0312113303023131-0302230332300302-2131130001212303-3030103022122010-3333102103131232-2001202003001203-1200012313223323-1003032020232130"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--aws_tgw_site--reference--group-003.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:allowed_vip_port:disable_allowed_vip_port",
+      "section_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:allowed_vip_port:disable_allowed_vip_port:section:0",
+      "source_sha256": "sha256:5e234da016e2d1caa38211aa16c6df2b512b9b8c6e43a546160cca54baf7709e",
+      "source_bytes": 1131,
+      "canonical_source_sha256": "sha256:5e234da016e2d1caa38211aa16c6df2b512b9b8c6e43a546160cca54baf7709e",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/aws_tgw_site/properties/vn_config/allowed_vip_port/disable_allowed_vip_port/",
+      "anchor": "canonical-1110313231010221-0013213233122020-2313331002013113-3120130021222331-3112213231031000-0033201322312023-2101012211312030-0111113211022133",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-0303321021030230-3022302111323231-3333211023022112-3021032032021311-3303332103003000-1000132323112233-2302013200113123-0110103011233222"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--aws_tgw_site--reference--group-003.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:allowed_vip_port:use_http_https_port",
+      "section_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:allowed_vip_port:use_http_https_port:section:0",
+      "source_sha256": "sha256:50cb1a0eafbaf148b9e0ad95c4bb290836436594338e946c3a0f0341429061fc",
+      "source_bytes": 1121,
+      "canonical_source_sha256": "sha256:50cb1a0eafbaf148b9e0ad95c4bb290836436594338e946c3a0f0341429061fc",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/aws_tgw_site/properties/vn_config/allowed_vip_port/use_http_https_port/",
+      "anchor": "canonical-0312111012100000-1113120233111022-0202203022301031-0112203310003002-2211000110303222-0202210022130020-1302033100303232-3223313012011220",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-3133013112010310-3310120103132101-3121201100233122-0232322211001033-1120012011021023-0201010133233032-2222031012320302-3230033231310010"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--aws_tgw_site--reference--group-003.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:allowed_vip_port:use_http_port",
+      "section_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:allowed_vip_port:use_http_port:section:0",
+      "source_sha256": "sha256:4319365fc5f043c26c6a84729a722ab15be6d89493bba900f3913ebdd4d01981",
+      "source_bytes": 1109,
+      "canonical_source_sha256": "sha256:4319365fc5f043c26c6a84729a722ab15be6d89493bba900f3913ebdd4d01981",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/aws_tgw_site/properties/vn_config/allowed_vip_port/use_http_port/",
+      "anchor": "canonical-2033110213302332-1232023311221133-2231201003203103-0321313311302302-2011200120212030-0232100022213213-2211121000231220-3200020330233232",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-2333123322021212-1012023313221123-1303112311003132-2232321331112220-3200201022002112-0113013200223201-2233132203032031-0100010102023021"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--aws_tgw_site--reference--group-003.md"
+    },
+    {
       "canonical_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:allowed_vip_port:use_https_port",
       "section_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:allowed_vip_port:use_https_port:section:0",
       "source_sha256": "sha256:8b4cd5a9d956551a06d897ad3ccc7db2b9e397b48d01557f34848e92f165af14",
@@ -7574,78 +7642,6 @@
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bigip_http_proxy/properties/proxy_config/http/",
       "anchor": "canonical-3032103032031330-0011013321011301-0212301333201302-0330020211321112-1221230112210113-1110110210020233-3130312201232032-0101212231032102",
       "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--bigip_http_proxy--reference--group-003.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:bigip_http_proxy:properties:proxy_config:https",
-      "section_id": "xcsh-docs:data-sources:bigip_http_proxy:properties:proxy_config:https:section:0",
-      "source_sha256": "sha256:2c76faa56f7e1ebfaad0c6f81e93738c36cf31adc274795562317875f58e8e94",
-      "source_bytes": 1298,
-      "canonical_source_sha256": "sha256:5fcfc35da0babaa1e7fbe2ebc6d13c47aa3449d7a8d7c353649fbf6d39cdf4e2",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bigip_http_proxy/properties/proxy_config/https/",
-      "anchor": "canonical-3110001102111133-2000223133210133-0322102231212333-3100320000212223-0120130310121013-2120131112130020-3313012000111032-1013000111001321",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-3131210001331111-1202123021322110-2023023311130330-0230100302301332-3210232200200233-3231011021323203-0223301322310112-2131200112121210"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--bigip_http_proxy--reference--group-003.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:bigip_http_proxy:properties:proxy_config:https",
-      "section_id": "xcsh-docs:data-sources:bigip_http_proxy:properties:proxy_config:https:section:1",
-      "source_sha256": "sha256:0293d72d700a55ec62a440c803ea68642737eef8f0fc49ec30f98e7d5e724e05",
-      "source_bytes": 412,
-      "canonical_source_sha256": "sha256:5fcfc35da0babaa1e7fbe2ebc6d13c47aa3449d7a8d7c353649fbf6d39cdf4e2",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bigip_http_proxy/properties/proxy_config/https/",
-      "anchor": "canonical-3203002313200223-2213210311200230-0010201133212121-0223031023320031-2123231312303132-1133013303102010-1113100030003200-3033002033010301",
-      "anchor_map": [
-        [
-          "schema-proxy_config--https--add_hsts",
-          "canonical-1033332002033311-0310122232131012-3000123133001122-1133033130213120-1012202021300310-1113210103231132-3120110302221133-1230033211020032"
-        ],
-        [
-          "schema-proxy_config--https--append_server_name",
-          "canonical-0223203231112032-2102010131131012-0010222220012032-2320121200110231-0201231312120210-3313312210212133-2103233013121220-2322213331032110"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--bigip_http_proxy--reference--group-003.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:bigip_http_proxy:properties:proxy_config:https",
-      "section_id": "xcsh-docs:data-sources:bigip_http_proxy:properties:proxy_config:https:section:2",
-      "source_sha256": "sha256:a80042360f0340c28797305fbf99b772a77fe2245e7b93ea40e061a14e4ecc58",
-      "source_bytes": 1148,
-      "canonical_source_sha256": "sha256:5fcfc35da0babaa1e7fbe2ebc6d13c47aa3449d7a8d7c353649fbf6d39cdf4e2",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bigip_http_proxy/properties/proxy_config/https/",
-      "anchor": "canonical-1312303230003233-3131233303110123-2230230232102003-1310131211222103-0131212330232320-3223033102123123-1211022032313000-3213003301120033",
-      "anchor_map": [
-        [
-          "schema-proxy_config--https--connection_idle_timeout",
-          "canonical-2233330131102310-0213111020102010-3103212210033110-1323001302233332-3030301321022101-1100131331000023-2301102112310332-2120310102200102"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--bigip_http_proxy--reference--group-003.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:bigip_http_proxy:properties:proxy_config:https",
-      "section_id": "xcsh-docs:data-sources:bigip_http_proxy:properties:proxy_config:https:section:3",
-      "source_sha256": "sha256:6ef72c3845251fc93c78272c063a27687a58e3ff0cdf2e80ab74f29068bd8668",
-      "source_bytes": 2060,
-      "canonical_source_sha256": "sha256:5fcfc35da0babaa1e7fbe2ebc6d13c47aa3449d7a8d7c353649fbf6d39cdf4e2",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bigip_http_proxy/properties/proxy_config/https/",
-      "anchor": "canonical-1022130211002112-2231000333031021-1123221102300101-3132201222103101-1300300230211323-2203101013022302-1301302201211201-0110003033110132",
-      "anchor_map": [
-        [
-          "schema-proxy_config--https--http_redirect",
-          "canonical-0200210020210213-3213310120131313-3221320311112110-2100001202031232-2311022013033230-0211323002212202-2131212311012203-1311323331322023"
-        ]
-      ],
       "mode": "embedded",
       "registry_path": "docs/guides/data-sources--bigip_http_proxy--reference--group-003.md"
     }

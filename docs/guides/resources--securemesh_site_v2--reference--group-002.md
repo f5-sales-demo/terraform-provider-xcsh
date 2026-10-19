@@ -6,7 +6,7 @@ description: "Complete grouped canonical reference for xcsh_securemesh_site_v2 r
 
 # xcsh_securemesh_site_v2 reference
 
-<a id="canonical-1130301202331101-1202321111021233-2123111301031112-2320202031301320-2031003022100003-1112132000212001-1131032013111300-1012031230013100"></a>
+<a id="canonical-0023310210201330-3102312111300011-1302203300102301-1000300202020000-2303031202300230-2310001013230020-1001333220310303-3132231320033232"></a>
 
 ## All schema paths for `xcsh_securemesh_site_v2`
 
@@ -315,6 +315,7 @@ Each exact path has one authoritative reference destination. Collection element 
 | `blocked_services.blocked_service.network_type` | [blocked_services.blocked_service.network_type](resources--securemesh_site_v2--reference--group-005.md#canonical-0010131031320012-1032123113200302-3123213012232200-2001232110000033-3310220331321000-1111100233203123-3022321011310230-1321002310003121) |
 | `blocked_services.blocked_service.ssh` | [blocked_services.blocked_service.ssh](resources--securemesh_site_v2--reference--group-006.md#canonical-0333302002332220-2132030323021223-1301110310321313-2110121232033303-2002113030200230-2113313030002011-2313231000122210-2121111030201112) |
 | `blocked_services.blocked_service.web_user_interface` | [blocked_services.blocked_service.web_user_interface](resources--securemesh_site_v2--reference--group-006.md#canonical-1331200200130100-0002102132110323-2011012011321222-2333332031310103-1000022000122032-2033303011202321-3231220110301310-2202321210013111) |
+| `creation_identity_sha256` | [creation_identity_sha256](resources--securemesh_site_v2--reference--group-001.md#canonical-1330333020211113-1000313223201012-1033310121300132-3330311130032213-3310301131331213-1301311212223301-0322121303331223-2313130032101102) |
 | `custom_proxy` | [custom_proxy](resources--securemesh_site_v2--reference--group-006.md#canonical-0133132100102112-1321232211122100-3231121222211020-1323020332320220-3100221323323313-2002012322321002-1030330013212022-1310232101232330) |
 | `custom_proxy.disable_re_tunnel` | [custom_proxy.disable_re_tunnel](resources--securemesh_site_v2--reference--group-006.md#canonical-0222132233202311-1201122313011312-3033332201320120-2321223013222012-3331221311313002-2101233132312200-1221031102232311-3322032120321012) |
 | `custom_proxy.enable_re_tunnel` | [custom_proxy.enable_re_tunnel](resources--securemesh_site_v2--reference--group-006.md#canonical-0323330233113230-2322321011003320-1002323332210003-3322233232000123-2120102000232021-1201100020311221-0000020133030031-3001222002031021) |
@@ -1223,4 +1224,3 @@ Each exact path has one authoritative reference destination. Collection element 
 | `segment_vrf.segment_config.static_routes.static_routes.ip_prefixes` | [segment_vrf.segment_config.static_routes.static_routes.ip_prefixes](resources--securemesh_site_v2--reference--group-016.md#canonical-2213131301232031-2133021313210212-0310001311313323-3201203013331232-1302320002012133-0003122110131301-3201212203320101-0321323222021030) |
 | `segment_vrf.segment_config.static_routes.static_routes.node_interface` | [segment_vrf.segment_config.static_routes.static_routes.node_interface](resources--securemesh_site_v2--reference--group-016.md#canonical-1320203221023300-0021031131002102-1021311003003020-3323323011211201-1021121210020133-1131111201132123-0032330123022032-1222301301331310) |
 | `segment_vrf.segment_config.static_routes.static_routes.node_interface.list` | [segment_vrf.segment_config.static_routes.static_routes.node_interface.list](resources--securemesh_site_v2--reference--group-016.md#canonical-2103303232131212-3003030331112110-3300020230202223-0111330033021210-3101131302200201-1023102032001201-3022232021200213-3212333031002210) |
-| `segment_vrf.segment_config.static_routes.static_routes.node_interface.list.interface` | [segment_vrf.segment_config.static_routes.static_routes.node_interface.list.interface](resources--securemesh_site_v2--reference--group-016.md#canonical-3022211220121201-2022013101133301-1233201333313120-0121211230012123-0120220333030001-2332232210030033-3010212323113030-3302220320233020) |
