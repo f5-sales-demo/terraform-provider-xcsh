@@ -543,21 +543,21 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/udp_loadbalancer/index.txt",
-      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
+      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
       "summary": "Reads UDP Loadbalancer information from F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_udp_loadbalancer",
       "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v12.1.3",
+        "release_tag": "v12.1.4",
         "schema_components": ["udp_loadbalancerCreateRequest"],
-        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
+        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
       }
     },
     {
       "aliases": ["udp loadbalancer"],
       "body_bytes": 41365,
-      "body_sha256": "sha256:ade30d0f9569a66a86a2cdf81a1d4b2f106d5bed9106c69e22a0a2dcd325303f",
+      "body_sha256": "sha256:ac1b9e829fbb22ae30b1e7ea4bde46d98661a9e45c20e97aee91961faccf3d69",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [
@@ -966,14 +966,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/udp_loadbalancer/properties/index.txt",
-      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
+      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
       "summary": "Property reference for xcsh_udp_loadbalancer.",
       "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v12.1.3",
+        "release_tag": "v12.1.4",
         "schema_components": ["udp_loadbalancerCreateRequest"],
-        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
+        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
       }
     },
     {
@@ -1023,20 +1023,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/udp_loadbalancer/properties/active_service_policies/index.txt",
-      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
+      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
       "summary": "List of service policies.",
       "tasks": ["configuration"],
       "title": "active_service_policies",
       "upstream_identity": {
-        "release_tag": "v12.1.3",
+        "release_tag": "v12.1.4",
         "schema_components": ["udp_loadbalancerCreateRequest"],
-        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
+        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
       }
     },
     {
       "aliases": ["active service policies policies"],
       "body_bytes": 5795,
-      "body_sha256": "sha256:c24834058bd13a43fe8070c65a58b509cf6dd762b90b05e32b041dac470563cb",
+      "body_sha256": "sha256:44ae5faee3016d0d7873c13a7204c750f7136823291cf5bd4e79f0b3cb168749",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -1133,14 +1133,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/udp_loadbalancer/properties/active_service_policies/policies/index.txt",
-      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
+      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
       "summary": "Service Policies is a sequential engine where policies (and rules within the policy) are evaluated one after the other. It's important to define the correct order (policies evaluated from top to bottom in the list) for service policies, to GET the intended result. For each request, its characteristics are evaluated",
       "tasks": ["configuration"],
       "title": "active_service_policies.policies",
       "upstream_identity": {
-        "release_tag": "v12.1.3",
+        "release_tag": "v12.1.4",
         "schema_components": ["udp_loadbalancerCreateRequest"],
-        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
+        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
       }
     },
     {
@@ -1190,20 +1190,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/udp_loadbalancer/properties/advertise_custom/index.txt",
-      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
+      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
       "summary": "This defines a way to advertise a VIP on specific sites.",
       "tasks": ["configuration"],
       "title": "advertise_custom",
       "upstream_identity": {
-        "release_tag": "v12.1.3",
+        "release_tag": "v12.1.4",
         "schema_components": ["udp_loadbalancerCreateRequest"],
-        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
+        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
       }
     },
     {
       "aliases": ["advertise custom advertise where"],
       "body_bytes": 5804,
-      "body_sha256": "sha256:c10b80a4379ffc154f6307d51e1f95a1007ba1eabf7a33ae87e16780a246f311",
+      "body_sha256": "sha256:2b0f574eb4b921bdf96448281b06547dd49938755f3c12b98794074641c36c0c",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [
@@ -1417,14 +1417,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/udp_loadbalancer/properties/advertise_custom/advertise_where/index.txt",
-      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
+      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
       "summary": "Where should this load balancer be available.",
       "tasks": ["configuration"],
       "title": "advertise_custom.advertise_where",
       "upstream_identity": {
-        "release_tag": "v12.1.3",
+        "release_tag": "v12.1.4",
         "schema_components": ["udp_loadbalancerCreateRequest"],
-        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
+        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
       }
     },
     {
@@ -1476,20 +1476,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/udp_loadbalancer/properties/advertise_custom/advertise_where/advertise_dualstack_on_public/index.txt",
-      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
+      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
       "summary": "This defines a way to advertise a load balancer on public. If optional public_ip is provided, it will only be advertised on RE sites where that public_ip is available.",
       "tasks": ["configuration"],
       "title": "advertise_custom.advertise_where.advertise_dualstack_on_public",
       "upstream_identity": {
-        "release_tag": "v12.1.3",
+        "release_tag": "v12.1.4",
         "schema_components": ["udp_loadbalancerCreateRequest"],
-        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
+        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
       }
     },
     {
       "aliases": ["advertise custom advertise where advertise dualstack on public public ip"],
       "body_bytes": 5090,
-      "body_sha256": "sha256:ff11590c20b85812f32a7f32a72a9ccaafb6bf9d0a6b36f0e361edbb756aeb71",
+      "body_sha256": "sha256:4097e6a926b19ec611175900e930494934cdbf8608655b120d6d6d3925d3b545",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -1598,14 +1598,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/udp_loadbalancer/properties/advertise_custom/advertise_where/advertise_dualstack_on_public/public_ip/index.txt",
-      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
+      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "advertise_custom.advertise_where.advertise_dualstack_on_public.public_ip",
       "upstream_identity": {
-        "release_tag": "v12.1.3",
+        "release_tag": "v12.1.4",
         "schema_components": ["udp_loadbalancerCreateRequest"],
-        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
+        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
       }
     },
     {
@@ -1657,20 +1657,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/udp_loadbalancer/properties/advertise_custom/advertise_where/advertise_on_public/index.txt",
-      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
+      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
       "summary": "This defines a way to advertise a load balancer on public. If optional public_ip is provided, it will only be advertised on RE sites where that public_ip is available.",
       "tasks": ["configuration"],
       "title": "advertise_custom.advertise_where.advertise_on_public",
       "upstream_identity": {
-        "release_tag": "v12.1.3",
+        "release_tag": "v12.1.4",
         "schema_components": ["udp_loadbalancerCreateRequest"],
-        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
+        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
       }
     },
     {
       "aliases": ["advertise custom advertise where advertise on public public ip"],
       "body_bytes": 5020,
-      "body_sha256": "sha256:035a422607dd7ccb7531153743aaaf2a655ec98186d3e1c60c0a98168082cd3e",
+      "body_sha256": "sha256:c558990701322a83c187d1516bd9da3ae41952909069f93a8affc0c0a783859c",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -1767,14 +1767,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/udp_loadbalancer/properties/advertise_custom/advertise_where/advertise_on_public/public_ip/index.txt",
-      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
+      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "advertise_custom.advertise_where.advertise_on_public.public_ip",
       "upstream_identity": {
-        "release_tag": "v12.1.3",
+        "release_tag": "v12.1.4",
         "schema_components": ["udp_loadbalancerCreateRequest"],
-        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
+        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
       }
     },
     {
@@ -1826,20 +1826,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/udp_loadbalancer/properties/advertise_custom/advertise_where/advertise_v6_on_public/index.txt",
-      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
+      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
       "summary": "This defines a way to advertise a load balancer on public. If optional public_ip is provided, it will only be advertised on RE sites where that public_ip is available.",
       "tasks": ["configuration"],
       "title": "advertise_custom.advertise_where.advertise_v6_on_public",
       "upstream_identity": {
-        "release_tag": "v12.1.3",
+        "release_tag": "v12.1.4",
         "schema_components": ["udp_loadbalancerCreateRequest"],
-        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
+        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
       }
     },
     {
       "aliases": ["advertise custom advertise where advertise v6 on public public ip"],
       "body_bytes": 5041,
-      "body_sha256": "sha256:3b26fccf4dc53f98eecf8ffec0cc7a15f7af15486ff772c56e8f7c33f51b07e2",
+      "body_sha256": "sha256:3f0a40237a6591cc6a5f9c6673e69fecf66350b936b6ffb3fa86411247fa3758",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -1936,20 +1936,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/udp_loadbalancer/properties/advertise_custom/advertise_where/advertise_v6_on_public/public_ip/index.txt",
-      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
+      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "advertise_custom.advertise_where.advertise_v6_on_public.public_ip",
       "upstream_identity": {
-        "release_tag": "v12.1.3",
+        "release_tag": "v12.1.4",
         "schema_components": ["udp_loadbalancerCreateRequest"],
-        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
+        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
       }
     },
     {
       "aliases": ["advertise custom advertise where site"],
       "body_bytes": 3839,
-      "body_sha256": "sha256:3d136fd1cd17887ea14e24e8a166c38b5772372b76cbbbf2d468303804311157",
+      "body_sha256": "sha256:29a65c95e3ad7b94b28d75a3ee120c14d8fa8425b313f6f3a91abc456b68cb9c",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": ["xcsh-docs:data-sources:udp_loadbalancer:properties:advertise_custom:advertise_where:site:site"],
@@ -2025,20 +2025,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/udp_loadbalancer/properties/advertise_custom/advertise_where/site/index.txt",
-      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
+      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
       "summary": "This defines a reference to a CE site along with network type and an optional IP address where a load balancer could be advertised.",
       "tasks": ["configuration"],
       "title": "advertise_custom.advertise_where.site",
       "upstream_identity": {
-        "release_tag": "v12.1.3",
+        "release_tag": "v12.1.4",
         "schema_components": ["udp_loadbalancerCreateRequest"],
-        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
+        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
       }
     },
     {
       "aliases": ["advertise custom advertise where site site"],
       "body_bytes": 4890,
-      "body_sha256": "sha256:5a723c9d405b5cda6a5fafd49bd1a5a6e7da3975cdbd67cdf482052320d0fc10",
+      "body_sha256": "sha256:4a08d0df0d0fce031c0cb53b1a6080b7af8df349cdb09ba3435c19bd48dbf842",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -2135,14 +2135,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/udp_loadbalancer/properties/advertise_custom/advertise_where/site/site/index.txt",
-      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
+      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "advertise_custom.advertise_where.site.site",
       "upstream_identity": {
-        "release_tag": "v12.1.3",
+        "release_tag": "v12.1.4",
         "schema_components": ["udp_loadbalancerCreateRequest"],
-        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
+        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
       }
     },
     {
@@ -2175,20 +2175,20 @@
       "schema_path": ["advertise_custom", "advertise_where", "use_default_port"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/udp_loadbalancer/properties/advertise_custom/advertise_where/use_default_port/index.txt",
-      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
+      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "advertise_custom.advertise_where.use_default_port",
       "upstream_identity": {
-        "release_tag": "v12.1.3",
+        "release_tag": "v12.1.4",
         "schema_components": ["udp_loadbalancerCreateRequest"],
-        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
+        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
       }
     },
     {
       "aliases": ["advertise custom advertise where virtual network"],
       "body_bytes": 3563,
-      "body_sha256": "sha256:124533cfb1d4b5ec780e428b177940578a57b2d2a3b7a23656b007513d285d85",
+      "body_sha256": "sha256:e604b1b8e752c2bcb56e258566d772a401079995066717cd99b185ae6d343751",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [
@@ -2300,14 +2300,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/udp_loadbalancer/properties/advertise_custom/advertise_where/virtual_network/index.txt",
-      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
+      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
       "summary": "Parameters to advertise on a given virtual network.",
       "tasks": ["configuration"],
       "title": "advertise_custom.advertise_where.virtual_network",
       "upstream_identity": {
-        "release_tag": "v12.1.3",
+        "release_tag": "v12.1.4",
         "schema_components": ["udp_loadbalancerCreateRequest"],
-        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
+        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
       }
     },
     {
@@ -2340,14 +2340,14 @@
       "schema_path": ["advertise_custom", "advertise_where", "virtual_network", "default_v6_vip"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/udp_loadbalancer/properties/advertise_custom/advertise_where/virtual_network/default_v6_vip/index.txt",
-      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
+      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "advertise_custom.advertise_where.virtual_network.default_v6_vip",
       "upstream_identity": {
-        "release_tag": "v12.1.3",
+        "release_tag": "v12.1.4",
         "schema_components": ["udp_loadbalancerCreateRequest"],
-        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
+        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
       }
     },
     {
@@ -2380,20 +2380,20 @@
       "schema_path": ["advertise_custom", "advertise_where", "virtual_network", "default_vip"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/udp_loadbalancer/properties/advertise_custom/advertise_where/virtual_network/default_vip/index.txt",
-      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
+      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "advertise_custom.advertise_where.virtual_network.default_vip",
       "upstream_identity": {
-        "release_tag": "v12.1.3",
+        "release_tag": "v12.1.4",
         "schema_components": ["udp_loadbalancerCreateRequest"],
-        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
+        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
       }
     },
     {
       "aliases": ["advertise custom advertise where virtual network virtual network"],
       "body_bytes": 5022,
-      "body_sha256": "sha256:5e975c1ffbc237dc32077b3a5c17a99926a3a1fef8beccfbfe5d408fed9470df",
+      "body_sha256": "sha256:37881d9abbb1d2ca74d4f2c00f76599367209f1f82d4010d035479e75f7bc63d",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -2490,14 +2490,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/udp_loadbalancer/properties/advertise_custom/advertise_where/virtual_network/virtual_network/index.txt",
-      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
+      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "advertise_custom.advertise_where.virtual_network.virtual_network",
       "upstream_identity": {
-        "release_tag": "v12.1.3",
+        "release_tag": "v12.1.4",
         "schema_components": ["udp_loadbalancerCreateRequest"],
-        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
+        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
       }
     },
     {
@@ -2565,20 +2565,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/udp_loadbalancer/properties/advertise_custom/advertise_where/virtual_site/index.txt",
-      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
+      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
       "summary": "This defines a reference to a customer site virtual site along with network type where a load balancer could be advertised.",
       "tasks": ["configuration"],
       "title": "advertise_custom.advertise_where.virtual_site",
       "upstream_identity": {
-        "release_tag": "v12.1.3",
+        "release_tag": "v12.1.4",
         "schema_components": ["udp_loadbalancerCreateRequest"],
-        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
+        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
       }
     },
     {
       "aliases": ["advertise custom advertise where virtual site virtual site"],
       "body_bytes": 4986,
-      "body_sha256": "sha256:4da7cba9599cdca9cd881f9f9dcbf051a79436a3ec6381638a48a69b5d3e9fa2",
+      "body_sha256": "sha256:d6e77ef74def93c8dd7502df0ff423ac6aabb27aeed7b6401b2e88533ec3ba56",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -2675,20 +2675,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/udp_loadbalancer/properties/advertise_custom/advertise_where/virtual_site/virtual_site/index.txt",
-      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
+      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "advertise_custom.advertise_where.virtual_site.virtual_site",
       "upstream_identity": {
-        "release_tag": "v12.1.3",
+        "release_tag": "v12.1.4",
         "schema_components": ["udp_loadbalancerCreateRequest"],
-        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
+        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
       }
     },
     {
       "aliases": ["advertise custom advertise where virtual site with vip"],
       "body_bytes": 3114,
-      "body_sha256": "sha256:f8e3dacfa4deec1838a9a132feca4dbf6673e92e95594cc6ace3196d33da9a45",
+      "body_sha256": "sha256:054932fd690c35b5437dcead1b8acf56d125828ff7228e4c89e465f4199d5b99",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [
@@ -2766,20 +2766,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/udp_loadbalancer/properties/advertise_custom/advertise_where/virtual_site_with_vip/index.txt",
-      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
+      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
       "summary": "This defines a reference to a customer site virtual site along with network type and IP where a load balancer could be advertised.",
       "tasks": ["configuration"],
       "title": "advertise_custom.advertise_where.virtual_site_with_vip",
       "upstream_identity": {
-        "release_tag": "v12.1.3",
+        "release_tag": "v12.1.4",
         "schema_components": ["udp_loadbalancerCreateRequest"],
-        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
+        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
       }
     },
     {
       "aliases": ["advertise custom advertise where virtual site with vip virtual site"],
       "body_bytes": 5049,
-      "body_sha256": "sha256:6e1d00e45d90f03a3fb8fb9e3361c376dbb6fef7b1e6be88907cfe647d3311d8",
+      "body_sha256": "sha256:f25a85a50b46fefbac94f4a828fa9699c26322351aa9d11f96ff9df1fc685662",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -2876,14 +2876,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/udp_loadbalancer/properties/advertise_custom/advertise_where/virtual_site_with_vip/virtual_site/index.txt",
-      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
+      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "advertise_custom.advertise_where.virtual_site_with_vip.virtual_site",
       "upstream_identity": {
-        "release_tag": "v12.1.3",
+        "release_tag": "v12.1.4",
         "schema_components": ["udp_loadbalancerCreateRequest"],
-        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
+        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
       }
     },
     {
@@ -2952,20 +2952,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/udp_loadbalancer/properties/advertise_custom/advertise_where/vk8s_service/index.txt",
-      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
+      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
       "summary": "This defines a reference to a RE site or virtual site where a load balancer could be advertised in the vK8s service network.",
       "tasks": ["configuration"],
       "title": "advertise_custom.advertise_where.vk8s_service",
       "upstream_identity": {
-        "release_tag": "v12.1.3",
+        "release_tag": "v12.1.4",
         "schema_components": ["udp_loadbalancerCreateRequest"],
-        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
+        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
       }
     },
     {
       "aliases": ["advertise custom advertise where vk8s service site"],
       "body_bytes": 4946,
-      "body_sha256": "sha256:78a4c7f994e5c5c683226632b4b8123cad6053a7336f88b0f7f7ecbb1933ef18",
+      "body_sha256": "sha256:bc7b91496d13fe029919d8df6208c1de1cbbc65fee4205de061e3e1061b3e369",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -3062,20 +3062,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/udp_loadbalancer/properties/advertise_custom/advertise_where/vk8s_service/site/index.txt",
-      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
+      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "advertise_custom.advertise_where.vk8s_service.site",
       "upstream_identity": {
-        "release_tag": "v12.1.3",
+        "release_tag": "v12.1.4",
         "schema_components": ["udp_loadbalancerCreateRequest"],
-        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
+        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
       }
     },
     {
       "aliases": ["advertise custom advertise where vk8s service virtual site"],
       "body_bytes": 4986,
-      "body_sha256": "sha256:7bf6b97005839597e95427dd30a916589c096d59077d451367a0b616355a5077",
+      "body_sha256": "sha256:7eaaeee45f1e7f7aa42adc74d370e8b6d47bade34fa94d18124f908764d817e6",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -3172,14 +3172,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/udp_loadbalancer/properties/advertise_custom/advertise_where/vk8s_service/virtual_site/index.txt",
-      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
+      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "advertise_custom.advertise_where.vk8s_service.virtual_site",
       "upstream_identity": {
-        "release_tag": "v12.1.3",
+        "release_tag": "v12.1.4",
         "schema_components": ["udp_loadbalancerCreateRequest"],
-        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
+        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
       }
     },
     {
@@ -3229,20 +3229,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/udp_loadbalancer/properties/advertise_on_public/index.txt",
-      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
+      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
       "summary": "This defines a way to advertise a load balancer on public. If optional public_ip is provided, it will only be advertised on RE sites where that public_ip is available.",
       "tasks": ["configuration"],
       "title": "advertise_on_public",
       "upstream_identity": {
-        "release_tag": "v12.1.3",
+        "release_tag": "v12.1.4",
         "schema_components": ["udp_loadbalancerCreateRequest"],
-        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
+        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
       }
     },
     {
       "aliases": ["advertise on public public ip"],
       "body_bytes": 4477,
-      "body_sha256": "sha256:225f32698da33610249c8cf9123b59bfebe962b3f8a7f920b5a3019223a28da8",
+      "body_sha256": "sha256:8b141228af16c1ec4800c12863da2f98245749a88d184a7bc8304dbaaf6f0803",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -3339,14 +3339,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/udp_loadbalancer/properties/advertise_on_public/public_ip/index.txt",
-      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
+      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "advertise_on_public.public_ip",
       "upstream_identity": {
-        "release_tag": "v12.1.3",
+        "release_tag": "v12.1.4",
         "schema_components": ["udp_loadbalancerCreateRequest"],
-        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
+        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
       }
     },
     {
@@ -3379,14 +3379,14 @@
       "schema_path": ["advertise_on_public_default_vip"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/udp_loadbalancer/properties/advertise_on_public_default_vip/index.txt",
-      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
+      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "advertise_on_public_default_vip",
       "upstream_identity": {
-        "release_tag": "v12.1.3",
+        "release_tag": "v12.1.4",
         "schema_components": ["udp_loadbalancerCreateRequest"],
-        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
+        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
       }
     },
     {
@@ -3419,14 +3419,14 @@
       "schema_path": ["do_not_advertise"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/udp_loadbalancer/properties/do_not_advertise/index.txt",
-      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
+      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "do_not_advertise",
       "upstream_identity": {
-        "release_tag": "v12.1.3",
+        "release_tag": "v12.1.4",
         "schema_components": ["udp_loadbalancerCreateRequest"],
-        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
+        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
       }
     },
     {
@@ -3459,14 +3459,14 @@
       "schema_path": ["hash_policy_choice_random"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/udp_loadbalancer/properties/hash_policy_choice_random/index.txt",
-      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
+      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "hash_policy_choice_random",
       "upstream_identity": {
-        "release_tag": "v12.1.3",
+        "release_tag": "v12.1.4",
         "schema_components": ["udp_loadbalancerCreateRequest"],
-        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
+        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
       }
     },
     {
@@ -3499,14 +3499,14 @@
       "schema_path": ["hash_policy_choice_round_robin"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/udp_loadbalancer/properties/hash_policy_choice_round_robin/index.txt",
-      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
+      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "hash_policy_choice_round_robin",
       "upstream_identity": {
-        "release_tag": "v12.1.3",
+        "release_tag": "v12.1.4",
         "schema_components": ["udp_loadbalancerCreateRequest"],
-        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
+        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
       }
     },
     {
@@ -3539,14 +3539,14 @@
       "schema_path": ["hash_policy_choice_source_ip_stickiness"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/udp_loadbalancer/properties/hash_policy_choice_source_ip_stickiness/index.txt",
-      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
+      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "hash_policy_choice_source_ip_stickiness",
       "upstream_identity": {
-        "release_tag": "v12.1.3",
+        "release_tag": "v12.1.4",
         "schema_components": ["udp_loadbalancerCreateRequest"],
-        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
+        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
       }
     },
     {
@@ -3579,20 +3579,20 @@
       "schema_path": ["no_service_policies"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/udp_loadbalancer/properties/no_service_policies/index.txt",
-      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
+      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "no_service_policies",
       "upstream_identity": {
-        "release_tag": "v12.1.3",
+        "release_tag": "v12.1.4",
         "schema_components": ["udp_loadbalancerCreateRequest"],
-        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
+        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
       }
     },
     {
       "aliases": ["backend servers", "origin pools weights", "origin servers", "upstream servers"],
       "body_bytes": 3530,
-      "body_sha256": "sha256:5f9e9a005a71684ad39f98a59d4196d921be4a675a6992571d8cbc952177c7d1",
+      "body_sha256": "sha256:dc21dc448e56a8b7a71d7c2566b6a136133921841ff0efde5990a33fc141edfa",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [
@@ -3704,20 +3704,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/udp_loadbalancer/properties/origin_pools_weights/index.txt",
-      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
+      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
       "summary": "Origin pools with weights and priorities used for this load balancer.",
       "tasks": ["configuration"],
       "title": "origin_pools_weights",
       "upstream_identity": {
-        "release_tag": "v12.1.3",
+        "release_tag": "v12.1.4",
         "schema_components": ["udp_loadbalancerCreateRequest"],
-        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
+        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
       }
     },
     {
       "aliases": ["origin pools weights cluster"],
       "body_bytes": 4474,
-      "body_sha256": "sha256:fcf099e88db00efb9e3835547587d76b475d7fa67846560f20096f964488b39f",
+      "body_sha256": "sha256:c88a4037363afa679d74536daccf7a098dc08b110de8973ed8a797522c50ac57",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -3814,14 +3814,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/udp_loadbalancer/properties/origin_pools_weights/cluster/index.txt",
-      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
+      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "origin_pools_weights.cluster",
       "upstream_identity": {
-        "release_tag": "v12.1.3",
+        "release_tag": "v12.1.4",
         "schema_components": ["udp_loadbalancerCreateRequest"],
-        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
+        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
       }
     },
     {
@@ -3854,20 +3854,20 @@
       "schema_path": ["origin_pools_weights", "endpoint_subsets"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/udp_loadbalancer/properties/origin_pools_weights/endpoint_subsets/index.txt",
-      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
+      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
       "summary": "Upstream origin pool may be configured to divide its origin servers into subsets based on metadata attached to the origin servers. Routes may then specify the metadata that a endpoint must match in order to be selected by the load balancer For origin servers which are discovered in K8s or Consul cluster, the label of",
       "tasks": ["configuration"],
       "title": "origin_pools_weights.endpoint_subsets",
       "upstream_identity": {
-        "release_tag": "v12.1.3",
+        "release_tag": "v12.1.4",
         "schema_components": ["udp_loadbalancerCreateRequest"],
-        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
+        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
       }
     },
     {
       "aliases": ["origin pools weights pool"],
       "body_bytes": 4459,
-      "body_sha256": "sha256:3e4e15fb0f8fadcad5e84f18a92c64acf4e60afb668e84ef6bb1a017c529c1ae",
+      "body_sha256": "sha256:e9914403c5e6eaa3c38cb1443150a1dbaad04ea530d1994b2c950a46038cdb29",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
@@ -3964,14 +3964,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/udp_loadbalancer/properties/origin_pools_weights/pool/index.txt",
-      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
+      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "origin_pools_weights.pool",
       "upstream_identity": {
-        "release_tag": "v12.1.3",
+        "release_tag": "v12.1.4",
         "schema_components": ["udp_loadbalancerCreateRequest"],
-        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
+        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
       }
     },
     {
@@ -4004,14 +4004,14 @@
       "schema_path": ["service_policies_from_namespace"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/udp_loadbalancer/properties/service_policies_from_namespace/index.txt",
-      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
+      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "service_policies_from_namespace",
       "upstream_identity": {
-        "release_tag": "v12.1.3",
+        "release_tag": "v12.1.4",
         "schema_components": ["udp_loadbalancerCreateRequest"],
-        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
+        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
       }
     },
     {
@@ -4044,14 +4044,14 @@
       "schema_path": ["udp"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/udp_loadbalancer/properties/udp/index.txt",
-      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
+      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "udp",
       "upstream_identity": {
-        "release_tag": "v12.1.3",
+        "release_tag": "v12.1.4",
         "schema_components": ["udp_loadbalancerCreateRequest"],
-        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
+        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
       }
     },
     {
@@ -4084,14 +4084,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/udp_loadbalancer/examples/index.txt",
-      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
+      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
       "summary": "Examples for xcsh_udp_loadbalancer.",
       "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v12.1.3",
+        "release_tag": "v12.1.4",
         "schema_components": ["udp_loadbalancerCreateRequest"],
-        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
+        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
       }
     },
     {
@@ -4131,14 +4131,14 @@
       "schema_path": ["data-source"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/udp_loadbalancer/examples/data-source/index.txt",
-      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
+      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
       "summary": "Data source for xcsh_udp_loadbalancer.",
       "tasks": ["configuration"],
       "title": "Data source",
       "upstream_identity": {
-        "release_tag": "v12.1.3",
+        "release_tag": "v12.1.4",
         "schema_components": ["udp_loadbalancerCreateRequest"],
-        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
+        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
       }
     }
   ],

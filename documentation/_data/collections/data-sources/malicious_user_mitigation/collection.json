@@ -122,21 +122,21 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/malicious_user_mitigation/index.txt",
-      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
+      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
       "summary": "Reads Malicious User Mitigation information from F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_malicious_user_mitigation",
       "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v12.1.3",
+        "release_tag": "v12.1.4",
         "schema_components": ["malicious_user_mitigationCreateRequest"],
-        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
+        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
       }
     },
     {
       "aliases": ["malicious user mitigation"],
       "body_bytes": 10151,
-      "body_sha256": "sha256:e985341689ca1982f37b87b27889640dae7335e6b8ab508328c16bf030967ba9",
+      "body_sha256": "sha256:a5c696cddf945ad1e0db335f1ee6d697869af2f2fda9c9c8c3a95ee62116f33a",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": ["xcsh-docs:data-sources:malicious_user_mitigation:properties:mitigation_type"],
@@ -276,14 +276,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/malicious_user_mitigation/properties/index.txt",
-      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
+      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
       "summary": "Property reference for xcsh_malicious_user_mitigation.",
       "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v12.1.3",
+        "release_tag": "v12.1.4",
         "schema_components": ["malicious_user_mitigationCreateRequest"],
-        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
+        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
       }
     },
     {
@@ -333,20 +333,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/malicious_user_mitigation/properties/mitigation_type/index.txt",
-      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
+      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
       "summary": "Settings that specify the actions to be taken when malicious users are determined to be at different threat levels. User's activity is monitored and continuously analyzed for malicious behavior. From this analysis, a threat-level is assigned to each user. The settings defined in malicious user mitigation specify what",
       "tasks": ["configuration"],
       "title": "mitigation_type",
       "upstream_identity": {
-        "release_tag": "v12.1.3",
+        "release_tag": "v12.1.4",
         "schema_components": ["malicious_user_mitigationCreateRequest"],
-        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
+        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
       }
     },
     {
       "aliases": ["mitigation type rules"],
       "body_bytes": 2115,
-      "body_sha256": "sha256:79fa5de458b4975f37209593081b548a43012058b20c82f6a8cf673c5f1feea5",
+      "body_sha256": "sha256:a706ad5bf4397c618c7b35d3798857dd4ae18e43660bf79d385af5d723d2c4ea",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -409,14 +409,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/malicious_user_mitigation/properties/mitigation_type/rules/index.txt",
-      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
+      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
       "summary": "Define the threat levels and the corresponding mitigation actions to be taken.",
       "tasks": ["configuration"],
       "title": "mitigation_type.rules",
       "upstream_identity": {
-        "release_tag": "v12.1.3",
+        "release_tag": "v12.1.4",
         "schema_components": ["malicious_user_mitigationCreateRequest"],
-        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
+        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
       }
     },
     {
@@ -502,14 +502,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/malicious_user_mitigation/properties/mitigation_type/rules/mitigation_action/index.txt",
-      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
+      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
       "summary": "Supported actions that can be taken to mitigate malicious activity from a user.",
       "tasks": ["configuration"],
       "title": "mitigation_type.rules.mitigation_action",
       "upstream_identity": {
-        "release_tag": "v12.1.3",
+        "release_tag": "v12.1.4",
         "schema_components": ["malicious_user_mitigationCreateRequest"],
-        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
+        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
       }
     },
     {
@@ -542,14 +542,14 @@
       "schema_path": ["mitigation_type", "rules", "mitigation_action", "block_temporarily"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/malicious_user_mitigation/properties/mitigation_type/rules/mitigation_action/block_temporarily/index.txt",
-      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
+      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "mitigation_type.rules.mitigation_action.block_temporarily",
       "upstream_identity": {
-        "release_tag": "v12.1.3",
+        "release_tag": "v12.1.4",
         "schema_components": ["malicious_user_mitigationCreateRequest"],
-        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
+        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
       }
     },
     {
@@ -582,14 +582,14 @@
       "schema_path": ["mitigation_type", "rules", "mitigation_action", "captcha_challenge"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/malicious_user_mitigation/properties/mitigation_type/rules/mitigation_action/captcha_challenge/index.txt",
-      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
+      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "mitigation_type.rules.mitigation_action.captcha_challenge",
       "upstream_identity": {
-        "release_tag": "v12.1.3",
+        "release_tag": "v12.1.4",
         "schema_components": ["malicious_user_mitigationCreateRequest"],
-        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
+        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
       }
     },
     {
@@ -622,14 +622,14 @@
       "schema_path": ["mitigation_type", "rules", "mitigation_action", "javascript_challenge"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/malicious_user_mitigation/properties/mitigation_type/rules/mitigation_action/javascript_challenge/index.txt",
-      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
+      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "mitigation_type.rules.mitigation_action.javascript_challenge",
       "upstream_identity": {
-        "release_tag": "v12.1.3",
+        "release_tag": "v12.1.4",
         "schema_components": ["malicious_user_mitigationCreateRequest"],
-        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
+        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
       }
     },
     {
@@ -715,14 +715,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/malicious_user_mitigation/properties/mitigation_type/rules/threat_level/index.txt",
-      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
+      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
       "summary": "Threat level estimated for each user based on the user's activity and reputation.",
       "tasks": ["configuration"],
       "title": "mitigation_type.rules.threat_level",
       "upstream_identity": {
-        "release_tag": "v12.1.3",
+        "release_tag": "v12.1.4",
         "schema_components": ["malicious_user_mitigationCreateRequest"],
-        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
+        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
       }
     },
     {
@@ -755,14 +755,14 @@
       "schema_path": ["mitigation_type", "rules", "threat_level", "high"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/malicious_user_mitigation/properties/mitigation_type/rules/threat_level/high/index.txt",
-      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
+      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "mitigation_type.rules.threat_level.high",
       "upstream_identity": {
-        "release_tag": "v12.1.3",
+        "release_tag": "v12.1.4",
         "schema_components": ["malicious_user_mitigationCreateRequest"],
-        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
+        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
       }
     },
     {
@@ -795,14 +795,14 @@
       "schema_path": ["mitigation_type", "rules", "threat_level", "low"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/malicious_user_mitigation/properties/mitigation_type/rules/threat_level/low/index.txt",
-      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
+      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "mitigation_type.rules.threat_level.low",
       "upstream_identity": {
-        "release_tag": "v12.1.3",
+        "release_tag": "v12.1.4",
         "schema_components": ["malicious_user_mitigationCreateRequest"],
-        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
+        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
       }
     },
     {
@@ -835,14 +835,14 @@
       "schema_path": ["mitigation_type", "rules", "threat_level", "medium"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/malicious_user_mitigation/properties/mitigation_type/rules/threat_level/medium/index.txt",
-      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
+      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "mitigation_type.rules.threat_level.medium",
       "upstream_identity": {
-        "release_tag": "v12.1.3",
+        "release_tag": "v12.1.4",
         "schema_components": ["malicious_user_mitigationCreateRequest"],
-        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
+        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
       }
     },
     {
@@ -875,14 +875,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/malicious_user_mitigation/examples/index.txt",
-      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
+      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
       "summary": "Examples for xcsh_malicious_user_mitigation.",
       "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v12.1.3",
+        "release_tag": "v12.1.4",
         "schema_components": ["malicious_user_mitigationCreateRequest"],
-        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
+        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
       }
     },
     {
@@ -922,14 +922,14 @@
       "schema_path": ["data-source"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/malicious_user_mitigation/examples/data-source/index.txt",
-      "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb",
+      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
       "summary": "Data source for xcsh_malicious_user_mitigation.",
       "tasks": ["configuration"],
       "title": "Data source",
       "upstream_identity": {
-        "release_tag": "v12.1.3",
+        "release_tag": "v12.1.4",
         "schema_components": ["malicious_user_mitigationCreateRequest"],
-        "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"
+        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
       }
     }
   ],
