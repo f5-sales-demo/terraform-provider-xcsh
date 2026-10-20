@@ -2,7 +2,7 @@
 page_title: "elements"
 subcategory: ""
 description: "List of API group elements with methods and path regex for matching requests."
-xcsh_docs: {"aliases": ["elements"], "body_bytes": 4182, "body_sha256": "sha256:664dd6c18812525f41e80c8a1e7bf6095b77c2a20388713d633ae3eae821af7d", "capabilities": ["api-management"], "category": "api-management", "child_ids": [], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:data-sources:app_api_group:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:app_api_group:properties:elements", "parent_id": "xcsh-docs:data-sources:app_api_group:reference", "path": "documentation/data-sources/app_api_group/properties/elements/index.md", "product": "distributed-cloud", "provider_name": "app_api_group", "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015", "provider_type": "data-sources", "registry_anchor": "canonical-1202110301212310-3021113332133021-2031201131331320-0121110133320022-0312131300213201-2112323020001113-2232203201223111-3033200313231311", "registry_path": "docs/guides/data-sources--app_api_group--reference--group-001.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["elements"], "schema_version": 1, "sections": [{"aliases": ["elements methods"], "anchor": "schema-elements--methods", "description": "List of method values to match the input request API method against. The match is considered to succeed if the input request API method is a member of the list.", "document_id": "xcsh-docs:data-sources:app_api_group:properties:elements", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["elements", "methods"], "syntax": "attribute", "type": "list"}, {"aliases": ["elements path regex"], "anchor": "schema-elements--path_regex", "description": "Regular expression to match the input request API path against. The match is considered to succeed if the input request API path matches the specified path regex.", "document_id": "xcsh-docs:data-sources:app_api_group:properties:elements", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["elements", "path_regex"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/app_api_group/properties/elements/index.txt", "spec_pin_digest": "sha256:ea0d80973b5efe05eb3575be6beda9c96b86701d264dc1aee3972e6a23ebb3fb", "summary": "List of API group elements with methods and path regex for matching requests.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.1.3", "schema_components": ["app_api_groupCreateRequest"], "target_commit": "6ee1e85b2e917d58078f38a270b790077b3fba12"}}
+xcsh_docs: {"aliases": ["elements"], "body_bytes": 4182, "body_sha256": "sha256:620be90a30c0bee6bc08d84e0930e01a7c01c341a3411fbd27ba8c169a332436", "capabilities": ["api-management"], "category": "api-management", "child_ids": [], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:data-sources:app_api_group:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:app_api_group:properties:elements", "parent_id": "xcsh-docs:data-sources:app_api_group:reference", "path": "documentation/data-sources/app_api_group/properties/elements/index.md", "product": "distributed-cloud", "provider_name": "app_api_group", "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015", "provider_type": "data-sources", "registry_anchor": "canonical-1202110301212310-3021113332133021-2031201131331320-0121110133320022-0312131300213201-2112323020001113-2232203201223111-3033200313231311", "registry_path": "docs/guides/data-sources--app_api_group--reference--group-001.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["elements"], "schema_version": 1, "sections": [{"aliases": ["elements methods"], "anchor": "schema-elements--methods", "description": "List of method values to match the input request API method against. The match is considered to succeed if the input request API method is a member of the list.", "document_id": "xcsh-docs:data-sources:app_api_group:properties:elements", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["elements", "methods"], "syntax": "attribute", "type": "list"}, {"aliases": ["elements path regex"], "anchor": "schema-elements--path_regex", "description": "Regular expression to match the input request API path against. The match is considered to succeed if the input request API path matches the specified path regex.", "document_id": "xcsh-docs:data-sources:app_api_group:properties:elements", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["elements", "path_regex"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/app_api_group/properties/elements/index.txt", "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492", "summary": "List of API group elements with methods and path regex for matching requests.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.1.4", "schema_components": ["app_api_groupCreateRequest"], "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -36,7 +36,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-17T10:10:42+00:00"
+      "validatedAt": "2026-10-20T00:10:01+00:00"
     },
     "minItems": 0,
     "uniqueItems": false
@@ -83,7 +83,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-17T10:10:42+00:00"
+      "validatedAt": "2026-10-20T00:10:01+00:00"
     },
     "minItems": 1,
     "uniqueItems": true
@@ -138,7 +138,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-17T10:10:42+00:00"
+      "validatedAt": "2026-10-20T00:10:01+00:00"
     },
     "minLength": 1
   },
