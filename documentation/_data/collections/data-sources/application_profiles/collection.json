@@ -1962,21 +1962,21 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/application_profiles/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "Reads Application Profiles information from F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_application_profiles",
       "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["application_profilesCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["application profiles"],
       "body_bytes": 113894,
-      "body_sha256": "sha256:0985b0d399980b31740a35d2d556faa0a481fdfa8429da88fa39ee45cdd14dc5",
+      "body_sha256": "sha256:546ae0e7ce4f56d41302a677eae8500032cb9c6d64c82f7a734a020bcda6b137",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -2169,14 +2169,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/application_profiles/properties/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "Property reference for xcsh_application_profiles.",
       "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["application_profilesCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -2245,14 +2245,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/application_profiles/properties/advanced_tcp_profile/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "BIG-IP Advanced TCP Profile.",
       "tasks": ["configuration"],
       "title": "advanced_tcp_profile",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["application_profilesCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -2285,14 +2285,14 @@
       "schema_path": ["advanced_tcp_profile", "disable_tcp_advanced_profile"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/application_profiles/properties/advanced_tcp_profile/disable_tcp_advanced_profile/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "advanced_tcp_profile.disable_tcp_advanced_profile",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["application_profilesCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -2325,14 +2325,14 @@
       "schema_path": ["advanced_tcp_profile", "enable_tcp_advanced_profile"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/application_profiles/properties/advanced_tcp_profile/enable_tcp_advanced_profile/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "advanced_tcp_profile.enable_tcp_advanced_profile",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["application_profilesCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -2401,14 +2401,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/application_profiles/properties/ddos_profile/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "BIG-IP DDoS Protection Rules.",
       "tasks": ["configuration"],
       "title": "ddos_profile",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["application_profilesCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -2441,14 +2441,14 @@
       "schema_path": ["ddos_profile", "disable_ddos_mitigation"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/application_profiles/properties/ddos_profile/disable_ddos_mitigation/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "ddos_profile.disable_ddos_mitigation",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["application_profilesCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -2481,20 +2481,20 @@
       "schema_path": ["ddos_profile", "enable_ddos_mitigation"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/application_profiles/properties/ddos_profile/enable_ddos_mitigation/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "ddos_profile.enable_ddos_mitigation",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["application_profilesCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["irules"],
       "body_bytes": 5111,
-      "body_sha256": "sha256:c3baf9d8ad9cd2067b3c3f6a79707fcdbf66228525711a4b9cad2cd4a2635a62",
+      "body_sha256": "sha256:7ced1c76ac2069b2adb502c53af9f6092399479a7b4c8e51ac58ecae52524c65",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -2637,20 +2637,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/application_profiles/properties/irules/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "OPTIONS for attaching iRules to BIG-IP Proxy.",
       "tasks": ["configuration"],
       "title": "irules",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["application_profilesCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["virtual server"],
       "body_bytes": 8451,
-      "body_sha256": "sha256:6d1bf5eef748eaec10e26bcf657e9056108871c9dd2ef0934bd05228f84d63cf",
+      "body_sha256": "sha256:a0a9013311cd04cc36a478f42daffa8581479286c78c0029a3a0c6df73329a4b",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -3118,20 +3118,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/application_profiles/properties/virtual_server/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "Specifies configuration related to virtual server.",
       "tasks": ["configuration"],
       "title": "virtual_server",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["application_profilesCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["virtual server access profile"],
       "body_bytes": 5502,
-      "body_sha256": "sha256:f25149038b232ae59646a72fbbeb0285de72336495d21431cfb2e19548de71d3",
+      "body_sha256": "sha256:8f36e6d1c96e8d9091877c3a529456bb74b6b8b074cc3c0887d47284542a75d3",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -3274,14 +3274,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/application_profiles/properties/virtual_server/access_profile/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "Specifies an access policy that determines the authentication rules and access controls applied to user sessions for this virtual server.",
       "tasks": ["configuration"],
       "title": "virtual_server.access_profile",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["application_profilesCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -3350,14 +3350,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/application_profiles/properties/virtual_server/address_translation/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "Specifies, when checked (enabled), that the system translates the address of the virtual server. When cleared (disabled), specifies that the system uses the address without translation. This option is useful when the system is load balancing devices that have the same IP address. The default is enabled.",
       "tasks": ["configuration"],
       "title": "virtual_server.address_translation",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["application_profilesCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -3390,14 +3390,14 @@
       "schema_path": ["virtual_server", "address_translation", "address_translation_disable"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/application_profiles/properties/virtual_server/address_translation/address_translation_disable/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "virtual_server.address_translation.address_translation_disable",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["application_profilesCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -3430,14 +3430,14 @@
       "schema_path": ["virtual_server", "address_translation", "address_translation_enable"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/application_profiles/properties/virtual_server/address_translation/address_translation_enable/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "virtual_server.address_translation.address_translation_enable",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["application_profilesCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -3523,14 +3523,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/application_profiles/properties/virtual_server/auto_last_hop/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "When enabled, allows the system to send return traffic to the MAC address that transmitted the request, even if the routing table points to a different network or interface. As a result, the system can send return traffic to clients even when there is no matching route. For example, if the system does not have a",
       "tasks": ["configuration"],
       "title": "virtual_server.auto_last_hop",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["application_profilesCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -3563,14 +3563,14 @@
       "schema_path": ["virtual_server", "auto_last_hop", "auto_last_hop_default"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/application_profiles/properties/virtual_server/auto_last_hop/auto_last_hop_default/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "virtual_server.auto_last_hop.auto_last_hop_default",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["application_profilesCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -3603,14 +3603,14 @@
       "schema_path": ["virtual_server", "auto_last_hop", "auto_last_hop_disable"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/application_profiles/properties/virtual_server/auto_last_hop/auto_last_hop_disable/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "virtual_server.auto_last_hop.auto_last_hop_disable",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["application_profilesCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -3643,20 +3643,20 @@
       "schema_path": ["virtual_server", "auto_last_hop", "auto_last_hop_enable"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/application_profiles/properties/virtual_server/auto_last_hop/auto_last_hop_enable/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "virtual_server.auto_last_hop.auto_last_hop_enable",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["application_profilesCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["virtual server clone pool client"],
       "body_bytes": 5491,
-      "body_sha256": "sha256:b4f145214446e22800d7839eb2e553891e7a7482230dfedbed28d066e6849f7e",
+      "body_sha256": "sha256:6f024aeecca7b1ce75cb9789babc4635aff806a3c315f9d8e1fc8219320d6568",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -3799,20 +3799,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/application_profiles/properties/virtual_server/clone_pool_client/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "Replicates client-side traffic (that is, prior to address translation) to a member of the specified pool.",
       "tasks": ["configuration"],
       "title": "virtual_server.clone_pool_client",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["application_profilesCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["virtual server clone pool server"],
       "body_bytes": 5491,
-      "body_sha256": "sha256:5bd744c85ca023e0b3425d4440c11989f95218d4462618a74cad479317862849",
+      "body_sha256": "sha256:b86935a336f08e5526f4abd45ca9efe89d64f14dfcd14507187923ea804c6b53",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -3955,14 +3955,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/application_profiles/properties/virtual_server/clone_pool_server/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "Replicates server-side traffic (that is, prior to address translation) to a member of the specified pool.",
       "tasks": ["configuration"],
       "title": "virtual_server.clone_pool_server",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["application_profilesCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -4120,20 +4120,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/application_profiles/properties/virtual_server/connection_rate_limit_mode/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "Configuration parameter for connection rate limit mode.",
       "tasks": ["configuration"],
       "title": "virtual_server.connection_rate_limit_mode",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["application_profilesCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["virtual server connection rate limit mode per destination address"],
       "body_bytes": 2025,
-      "body_sha256": "sha256:ecd48325aff3b550adbe3e6b40f20ffa5f655f01ffcc4e2491ab3cdb77c45595",
+      "body_sha256": "sha256:87a8d114b1b554a8236ed10de61985e3607e85868fc00b0068cc53f84ef9f082",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -4182,20 +4182,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/application_profiles/properties/virtual_server/connection_rate_limit_mode/per_destination_address/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "Destination Address Mask.",
       "tasks": ["configuration"],
       "title": "virtual_server.connection_rate_limit_mode.per_destination_address",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["application_profilesCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["virtual server connection rate limit mode per source address"],
       "body_bytes": 1990,
-      "body_sha256": "sha256:b82bc1f8de6312a60405585f826fc4eb862054fc0aec49187c51dc1650b22d39",
+      "body_sha256": "sha256:2dc8c4890bb5b5029707a6afad551e6cf98f59c1b60c3b5056f21796febc31ef",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -4239,20 +4239,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/application_profiles/properties/virtual_server/connection_rate_limit_mode/per_source_address/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "Source Address Mask.",
       "tasks": ["configuration"],
       "title": "virtual_server.connection_rate_limit_mode.per_source_address",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["application_profilesCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["virtual server connection rate limit mode per source destination address"],
       "body_bytes": 2973,
-      "body_sha256": "sha256:2a587fe97a87ccdc1c4053486bbda2a31a67afacb762c9d79c7b4d603b5c2770",
+      "body_sha256": "sha256:4347ad51549c4db10cfd8ff8928020ec9e47b4cd3a0bfcba304a1dd16e1fee7f",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -4322,14 +4322,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/application_profiles/properties/virtual_server/connection_rate_limit_mode/per_source_destination_address/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "Destination and Source Address Mask.",
       "tasks": ["configuration"],
       "title": "virtual_server.connection_rate_limit_mode.per_source_destination_address",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["application_profilesCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -4362,20 +4362,20 @@
       "schema_path": ["virtual_server", "connection_rate_limit_mode", "per_virtual_server"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/application_profiles/properties/virtual_server/connection_rate_limit_mode/per_virtual_server/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "virtual_server.connection_rate_limit_mode.per_virtual_server",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["application_profilesCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["virtual server connection rate limit mode per virtual server destination address"],
       "body_bytes": 2070,
-      "body_sha256": "sha256:c477f25af13aac08822012dc95cb64b2cafb4b20db9c5b7c1d90a298224b981c",
+      "body_sha256": "sha256:a8be05167b4b3364c99077da042227be5198afadf2e8229d0b47d20f2d7c9ae7",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -4426,20 +4426,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/application_profiles/properties/virtual_server/connection_rate_limit_mode/per_virtual_server_destination_address/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "Destination Address Mask.",
       "tasks": ["configuration"],
       "title": "virtual_server.connection_rate_limit_mode.per_virtual_server_destination_address",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["application_profilesCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["virtual server connection rate limit mode per virtual server source address"],
       "body_bytes": 2035,
-      "body_sha256": "sha256:388649c8106d3933151519bee979804c58b17b5b06f7902c7fe6476f99ceb880",
+      "body_sha256": "sha256:efe512ec4966b05d0f364fda494116df97920866dff42a154fe9c817390e2a7c",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -4488,20 +4488,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/application_profiles/properties/virtual_server/connection_rate_limit_mode/per_virtual_server_source_address/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "Source Address Mask.",
       "tasks": ["configuration"],
       "title": "virtual_server.connection_rate_limit_mode.per_virtual_server_source_address",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["application_profilesCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["virtual server connection rate limit mode per virtual server source destination address"],
       "body_bytes": 3033,
-      "body_sha256": "sha256:5a31a17095c937486913c8127aedca80587c6f6cc02f96adc7a621c102c06dac",
+      "body_sha256": "sha256:05b0ffd4fc701fb95c38761860620040a456fc80283f9b764c7eaa39066ff3d5",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -4575,20 +4575,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/application_profiles/properties/virtual_server/connection_rate_limit_mode/per_virtual_server_source_destination_address/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "Destination and Source Address Mask.",
       "tasks": ["configuration"],
       "title": "virtual_server.connection_rate_limit_mode.per_virtual_server_source_destination_address",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["application_profilesCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["virtual server default persistence profile"],
       "body_bytes": 5512,
-      "body_sha256": "sha256:3ef4c1d1416f4bea4a423ad21960d2c7786badf3a68250797c5191c60784ca4b",
+      "body_sha256": "sha256:ab5fe3a7e5da926fb7e26fdadcde4bb85de0abd3b776e69c5b6465dbc32eca57",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -4731,20 +4731,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/application_profiles/properties/virtual_server/default_persistence_profile/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "Configuration parameter for default persistence profile",
       "tasks": ["configuration"],
       "title": "virtual_server.default_persistence_profile",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["application_profilesCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["virtual server default pool"],
       "body_bytes": 5589,
-      "body_sha256": "sha256:243a98f98a6bdda611f5633f3be07a85cf6a6c37736e0333044ddacfd6ce2ba4",
+      "body_sha256": "sha256:2a1815b64ebc252bc0355f97699303f81f6d9408d568a742af2605b2b602a3b8",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -4887,20 +4887,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/application_profiles/properties/virtual_server/default_pool/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "Specifies the pool name that you want the virtual server to use as the default pool. A load balancing virtual server sends traffic to this pool automatically, unless an iRule directs the server to send the traffic to another pool instead.",
       "tasks": ["configuration"],
       "title": "virtual_server.default_pool",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["application_profilesCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["virtual server fallback persistence profile"],
       "body_bytes": 5520,
-      "body_sha256": "sha256:b2e12eed2110a5e440649eb7eb4a7d3faa1208371ce306a301c3a4963ce9cbff",
+      "body_sha256": "sha256:9759323d364d8e80c9dec5e9f913e205bdb059d9a8ef1bcbc722733c1caf6773",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -5043,20 +5043,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/application_profiles/properties/virtual_server/fallback_persistence_profile/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "Configuration parameter for fallback persistence profile",
       "tasks": ["configuration"],
       "title": "virtual_server.fallback_persistence_profile",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["application_profilesCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["virtual server fix profile"],
       "body_bytes": 5384,
-      "body_sha256": "sha256:c6c3105d6b755eaf4b8a9e35e5ae57cbcd587af727bfc792e585bffdf3c25ddd",
+      "body_sha256": "sha256:440593e2c5bf0466070a4eb311525c6a79dc766c43ea527753cd3808dc55b2e6",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -5199,14 +5199,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/application_profiles/properties/virtual_server/fix_profile/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "Configuration parameter for fix profile",
       "tasks": ["configuration"],
       "title": "virtual_server.fix_profile",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["application_profilesCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -5445,20 +5445,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/application_profiles/properties/virtual_server/http/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "HTTP profiles.",
       "tasks": ["configuration"],
       "title": "virtual_server.http",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["application_profilesCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["virtual server http client ssl profile"],
       "body_bytes": 5629,
-      "body_sha256": "sha256:1fd99d6c27cfa2a2d6d19d0bab4ab6f5ee2921b27faf06c08df009e5de1baf8f",
+      "body_sha256": "sha256:627a50dc1b4359ed74b7fbf87c71aeaa5874129a94b0109aa434d918d4c68a46",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -5601,20 +5601,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/application_profiles/properties/virtual_server/http/client_ssl_profile/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "Client-side configuration",
       "tasks": ["configuration"],
       "title": "virtual_server.http.client_ssl_profile",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["application_profilesCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["virtual server http http2 client profile"],
       "body_bytes": 5642,
-      "body_sha256": "sha256:dfbdfe8fa131ee3b48ce2bb64a45fe49387cac143610210268596bc1ee981904",
+      "body_sha256": "sha256:c258528a0c0c6e7e1e3abfb4c572be936ba3030cc01740f395091071510c6fa9",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -5757,20 +5757,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/application_profiles/properties/virtual_server/http/http2_client_profile/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "Client-side configuration",
       "tasks": ["configuration"],
       "title": "virtual_server.http.http2_client_profile",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["application_profilesCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["virtual server http http2 server profile"],
       "body_bytes": 5643,
-      "body_sha256": "sha256:e33c967a82b145dc6771ef617bf12b1b770b6ce069ff95a3af853d38f8c7b8a5",
+      "body_sha256": "sha256:46701b8702ef2a6dbd8770440ab9f079a88cd507c20452032367739c559000fe",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -5913,20 +5913,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/application_profiles/properties/virtual_server/http/http2_server_profile/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "Configuration parameter for http2 server profile",
       "tasks": ["configuration"],
       "title": "virtual_server.http.http2_server_profile",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["application_profilesCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["virtual server http http client profile"],
       "body_bytes": 5635,
-      "body_sha256": "sha256:242e83f3879b0a27760c4f4a2d8b9556ef81476954e1bb3c02b01ab44feb8cfd",
+      "body_sha256": "sha256:9fe98ecead71f709a0e1534c5798108132b4253760b62b6027968505b9982dfa",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -6069,20 +6069,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/application_profiles/properties/virtual_server/http/http_client_profile/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "Client-side configuration",
       "tasks": ["configuration"],
       "title": "virtual_server.http.http_client_profile",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["application_profilesCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["virtual server http http server profile"],
       "body_bytes": 5635,
-      "body_sha256": "sha256:a42e3cc9a07cb28063788bb53aa9ede5df06f7882ca6eab3c045cc253027c1f0",
+      "body_sha256": "sha256:5f0570b74f4ff53cae8f257f6f733079059f3013b7b5113f6bb1da4697befeeb",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -6225,20 +6225,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/application_profiles/properties/virtual_server/http/http_server_profile/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "Configuration parameter for http server profile",
       "tasks": ["configuration"],
       "title": "virtual_server.http.http_server_profile",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["application_profilesCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["virtual server http ocsp profile"],
       "body_bytes": 5579,
-      "body_sha256": "sha256:806b564ff696413c38ecb61856036a46be8216b9299b425a78113390473cc79f",
+      "body_sha256": "sha256:ecf95413690db88b370c67936d7296d62501df2f56329f41f9e54c6028bb19d3",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -6381,20 +6381,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/application_profiles/properties/virtual_server/http/ocsp_profile/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "Configuration parameter for ocsp profile",
       "tasks": ["configuration"],
       "title": "virtual_server.http.ocsp_profile",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["application_profilesCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["virtual server http server ssl profile"],
       "body_bytes": 5631,
-      "body_sha256": "sha256:a9a07d594fb23c05264608190e9a2b9d33d5bad2365acbf357bcda90b6fd5da7",
+      "body_sha256": "sha256:f057e5179b6cda03846247653e6672b9d266ca9347e1176abb277f42909daf04",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -6537,20 +6537,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/application_profiles/properties/virtual_server/http/server_ssl_profile/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "Configuration parameter for server ssl profile",
       "tasks": ["configuration"],
       "title": "virtual_server.http.server_ssl_profile",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["application_profilesCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["virtual server http stream profile"],
       "body_bytes": 5595,
-      "body_sha256": "sha256:c6282e9ca112d2da09feb8426a4dc575a22524c8e4dae21438ce2f7b022f4047",
+      "body_sha256": "sha256:2a6cf663de6411b030226e98f49cf2e77b26dd5d88e7164f991d369208ffed27",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -6693,20 +6693,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/application_profiles/properties/virtual_server/http/stream_profile/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "Configuration parameter for stream profile",
       "tasks": ["configuration"],
       "title": "virtual_server.http.stream_profile",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["application_profilesCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["virtual server http tcp client profile"],
       "body_bytes": 5632,
-      "body_sha256": "sha256:e601e17cb58d8763fe6975c3ff73c87dbbc1a04882821068e35e9e30ece2cbc6",
+      "body_sha256": "sha256:eb37385dde5e69313e4764454858b85bdec065c919f1e0d9405f9c9e5452d366",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -6849,20 +6849,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/application_profiles/properties/virtual_server/http/tcp_client_profile/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "Client-side configuration",
       "tasks": ["configuration"],
       "title": "virtual_server.http.tcp_client_profile",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["application_profilesCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["virtual server http tcp server profile"],
       "body_bytes": 5627,
-      "body_sha256": "sha256:7da10dab801c758a659f7ec8062d269aa4001a3843277b79f2927bd4f5abde9c",
+      "body_sha256": "sha256:7dbf20dbadeb015015613ac34c3bcac997e17ec517b2e35add9a283c868c7343",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -7005,20 +7005,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/application_profiles/properties/virtual_server/http/tcp_server_profile/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "Configuration parameter for tcp server profile",
       "tasks": ["configuration"],
       "title": "virtual_server.http.tcp_server_profile",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["application_profilesCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["virtual server http websocket client profile"],
       "body_bytes": 5673,
-      "body_sha256": "sha256:0254e6417a0c67e527608faee9d43fe0f2d726cbd77cafdfc5e69308f1a7f3f1",
+      "body_sha256": "sha256:e2ae5aa6e284671af061eb2d996d6beffa7be12c632c4490847faed947bfd637",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -7161,20 +7161,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/application_profiles/properties/virtual_server/http/websocket_client_profile/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "Web-related configuration",
       "tasks": ["configuration"],
       "title": "virtual_server.http.websocket_client_profile",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["application_profilesCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["virtual server http websocket server profile"],
       "body_bytes": 5673,
-      "body_sha256": "sha256:c6564d79efa2e9de617d74b4bc50c147423df9b5631dd2312022ac03589f62ec",
+      "body_sha256": "sha256:8c354da0aad6d05384134e9db4327626d7a28c441a86044021363b97d9798541",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -7317,14 +7317,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/application_profiles/properties/virtual_server/http/websocket_server_profile/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "Web-related configuration",
       "tasks": ["configuration"],
       "title": "virtual_server.http.websocket_server_profile",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["application_profilesCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -7512,20 +7512,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/application_profiles/properties/virtual_server/http3/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "HTTP/3 profiles.",
       "tasks": ["configuration"],
       "title": "virtual_server.http3",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["application_profilesCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["virtual server http3 client ssl profile"],
       "body_bytes": 5638,
-      "body_sha256": "sha256:f4f0defba10a2356c757fe1fce04abbed3f48013cdfbbb59a5763cfb02aedfde",
+      "body_sha256": "sha256:f153dc090bc76ac15c8be2ea9d44a4433fd341e1c26520154697da59f4474c98",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -7668,20 +7668,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/application_profiles/properties/virtual_server/http3/client_ssl_profile/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "Client-side configuration",
       "tasks": ["configuration"],
       "title": "virtual_server.http3.client_ssl_profile",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["application_profilesCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["virtual server http3 http3 profile"],
       "body_bytes": 5596,
-      "body_sha256": "sha256:a0e867283c9428051c131f0bc4bd4099dc373ee8a329f316d7b348f2891cac80",
+      "body_sha256": "sha256:036a3ba748e9c9e3bb0f19df26f194820469afcd3e381d1469365fab1bd48538",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -7824,20 +7824,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/application_profiles/properties/virtual_server/http3/http3_profile/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "Configuration parameter for http3 profile",
       "tasks": ["configuration"],
       "title": "virtual_server.http3.http3_profile",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["application_profilesCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["virtual server http3 http client profile"],
       "body_bytes": 5644,
-      "body_sha256": "sha256:21655135d77c632a4c2803792eb709c5ab79be4da750418e9bca9500345cf2bd",
+      "body_sha256": "sha256:8e04528412c316468af8d22c70976f1ec0682341a510eff5187168a4cf401eb6",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -7980,20 +7980,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/application_profiles/properties/virtual_server/http3/http_client_profile/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "Client-side configuration",
       "tasks": ["configuration"],
       "title": "virtual_server.http3.http_client_profile",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["application_profilesCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["virtual server http3 http server profile"],
       "body_bytes": 5644,
-      "body_sha256": "sha256:4e2672a6699e5f555a6f500bd38f1167df32669404374ed862425c1285a2d9bd",
+      "body_sha256": "sha256:7a8a49e941f2381eb9691a01f30e56f7a1a9e3f48b79f07bca176cd6eab542ef",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -8136,20 +8136,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/application_profiles/properties/virtual_server/http3/http_server_profile/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "Configuration parameter for http server profile",
       "tasks": ["configuration"],
       "title": "virtual_server.http3.http_server_profile",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["application_profilesCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["virtual server http3 quic profile"],
       "body_bytes": 5588,
-      "body_sha256": "sha256:d99ac716cb8ad3c4fa3b0a0f0c34c4e6707e2cd7b0a5e893616bae58860e8a73",
+      "body_sha256": "sha256:251195f2fe42e8591ee6ca773428ea985fdecb7440927ee58d3d86621f7c5eda",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -8292,20 +8292,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/application_profiles/properties/virtual_server/http3/quic_profile/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "Configuration parameter for quic profile",
       "tasks": ["configuration"],
       "title": "virtual_server.http3.quic_profile",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["application_profilesCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["virtual server http3 server ssl profile"],
       "body_bytes": 5640,
-      "body_sha256": "sha256:64b560c07f030699ae33affb1c43ccea494eb041a80629d6740a72f8212ca3b1",
+      "body_sha256": "sha256:6174f471f34111d0468470b806343927e27d55e3c46c291c28e30a7d8a8c8153",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -8448,20 +8448,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/application_profiles/properties/virtual_server/http3/server_ssl_profile/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "Configuration parameter for server ssl profile",
       "tasks": ["configuration"],
       "title": "virtual_server.http3.server_ssl_profile",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["application_profilesCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["virtual server http3 tcp server profile"],
       "body_bytes": 5636,
-      "body_sha256": "sha256:f705cac9825fa54c79615090db88475b4ece91dfd53699ac8826839fd966d570",
+      "body_sha256": "sha256:7f6ae4bd7769dae1fda47cfb9f8924b4d58caaa84e155a42cef532ed2e7d6e1f",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -8604,20 +8604,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/application_profiles/properties/virtual_server/http3/tcp_server_profile/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "Configuration parameter for tcp server profile",
       "tasks": ["configuration"],
       "title": "virtual_server.http3.tcp_server_profile",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["application_profilesCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["virtual server http3 udp client profile"],
       "body_bytes": 5641,
-      "body_sha256": "sha256:07ff19661ee48e6f7ae5d0c2e1a969116a6d307e90c091587c46cb018058b320",
+      "body_sha256": "sha256:c139dd5b15b238814000b4fa3a392f90383b57ffd265d0ee105dc74b70e3eb17",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -8760,20 +8760,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/application_profiles/properties/virtual_server/http3/udp_client_profile/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "Client-side configuration",
       "tasks": ["configuration"],
       "title": "virtual_server.http3.udp_client_profile",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["application_profilesCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["virtual server http3 udp server profile"],
       "body_bytes": 5636,
-      "body_sha256": "sha256:b574aca568ab206a0b03b294130b3b2e6dcc72adda872f9c0f7fef6e5f6392cc",
+      "body_sha256": "sha256:715c242cbd6b02dddcad8e4580fc45b2f0748ea374f423ed54299dd509f2f0e6",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -8916,14 +8916,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/application_profiles/properties/virtual_server/http3/udp_server_profile/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "Configuration parameter for udp server profile",
       "tasks": ["configuration"],
       "title": "virtual_server.http3.udp_server_profile",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["application_profilesCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -9162,20 +9162,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/application_profiles/properties/virtual_server/https/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "HTTP profiles.",
       "tasks": ["configuration"],
       "title": "virtual_server.https",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["application_profilesCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["virtual server https client ssl profile"],
       "body_bytes": 5638,
-      "body_sha256": "sha256:9e1f4031485f9b895b9a74a5eb71cd61338f97372157aad1059fb6bf10445f2f",
+      "body_sha256": "sha256:6f631e767ad83a33f17fb0a939492b80c4feae48fc97d35c6886624ff58b930f",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -9318,20 +9318,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/application_profiles/properties/virtual_server/https/client_ssl_profile/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "Client-side configuration",
       "tasks": ["configuration"],
       "title": "virtual_server.https.client_ssl_profile",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["application_profilesCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["virtual server https http2 client profile"],
       "body_bytes": 5651,
-      "body_sha256": "sha256:cdf286f3f72cca356b1fc0c513b76e4554c52b385d2e9320b7de96734738598a",
+      "body_sha256": "sha256:06ba25a74fc1fdb5f6ef5352609542a124371ed97d8a38b9db0a4bb4a3e61bd0",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -9474,20 +9474,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/application_profiles/properties/virtual_server/https/http2_client_profile/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "Client-side configuration",
       "tasks": ["configuration"],
       "title": "virtual_server.https.http2_client_profile",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["application_profilesCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["virtual server https http2 server profile"],
       "body_bytes": 5652,
-      "body_sha256": "sha256:6da936057348389026c9a722d982bdc12230de770f4db4453cfe405d5633642f",
+      "body_sha256": "sha256:0655de049c8de77bd69dc6c17c53258cd13f0cc769c921a8c7b4f5f843a8b8e0",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -9630,20 +9630,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/application_profiles/properties/virtual_server/https/http2_server_profile/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "Configuration parameter for http2 server profile",
       "tasks": ["configuration"],
       "title": "virtual_server.https.http2_server_profile",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["application_profilesCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["virtual server https http client profile"],
       "body_bytes": 5644,
-      "body_sha256": "sha256:ea45d2c641d7d4023b8d1a2b02f0d1e789dacc230afc2c59301f3afd17383524",
+      "body_sha256": "sha256:c5c36178f3e6cf557b226af2583d1efdc5ac2f51ab3e202d806a13580b42499b",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -9786,20 +9786,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/application_profiles/properties/virtual_server/https/http_client_profile/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "Client-side configuration",
       "tasks": ["configuration"],
       "title": "virtual_server.https.http_client_profile",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["application_profilesCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["virtual server https http server profile"],
       "body_bytes": 5644,
-      "body_sha256": "sha256:6f7e123299e73890d7a09ad973f7d240d1f020ab9dd37f7b63ad7a2b326822f0",
+      "body_sha256": "sha256:ca31cc63d5f7b1147d2cb287f199dd69a4a048577a81a8008581e5bbc716bfeb",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -9942,20 +9942,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/application_profiles/properties/virtual_server/https/http_server_profile/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "Configuration parameter for http server profile",
       "tasks": ["configuration"],
       "title": "virtual_server.https.http_server_profile",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["application_profilesCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["virtual server https ocsp profile"],
       "body_bytes": 5588,
-      "body_sha256": "sha256:8d0172f001141a21ab453eed3c70c391a4ec2da1788666576ce39c96a14cfdbf",
+      "body_sha256": "sha256:44568cf35d185275775b53ce3a9b6dfe4762fd206529c4ae1162434d5e5eddfd",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -10098,20 +10098,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/application_profiles/properties/virtual_server/https/ocsp_profile/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "Configuration parameter for ocsp profile",
       "tasks": ["configuration"],
       "title": "virtual_server.https.ocsp_profile",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["application_profilesCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["virtual server https server ssl profile"],
       "body_bytes": 5640,
-      "body_sha256": "sha256:699eaa70cb2cd62ea24927dcd12e99a4eb015af91f89004e7490abfc425e416a",
+      "body_sha256": "sha256:cea9d7701aff0532127a5a59ba7712b849c20f8c11297ce072b595bf2ad09438",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -10254,20 +10254,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/application_profiles/properties/virtual_server/https/server_ssl_profile/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "Configuration parameter for server ssl profile",
       "tasks": ["configuration"],
       "title": "virtual_server.https.server_ssl_profile",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["application_profilesCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["virtual server https stream profile"],
       "body_bytes": 5604,
-      "body_sha256": "sha256:128f14f0470d334bb30e0756ae0d707cb4b148298ed67dff00e8be082cf94682",
+      "body_sha256": "sha256:2978808554506a7eab8084be0562187b911395d3090908095c0ea4b01582ace5",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -10410,20 +10410,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/application_profiles/properties/virtual_server/https/stream_profile/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "Configuration parameter for stream profile",
       "tasks": ["configuration"],
       "title": "virtual_server.https.stream_profile",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["application_profilesCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["virtual server https tcp client profile"],
       "body_bytes": 5641,
-      "body_sha256": "sha256:39835775f794e6c528c12337cca9e97e09e60f5684dc178fb46e557f7be67ae6",
+      "body_sha256": "sha256:f65b41f8041dc0b85884c4cb99483e4b46aae83195e206297fa4b9177861672b",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -10566,20 +10566,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/application_profiles/properties/virtual_server/https/tcp_client_profile/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "Client-side configuration",
       "tasks": ["configuration"],
       "title": "virtual_server.https.tcp_client_profile",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["application_profilesCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["virtual server https tcp server profile"],
       "body_bytes": 5636,
-      "body_sha256": "sha256:9c9f476d16152840ebd861d11bc6dfed13a6026808d9b16f69efd7ce67c927ef",
+      "body_sha256": "sha256:f9d902a0317bcf00f1942f5766126430cdea84aee2f11f7a5a14aca6eff40483",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -10722,20 +10722,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/application_profiles/properties/virtual_server/https/tcp_server_profile/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "Configuration parameter for tcp server profile",
       "tasks": ["configuration"],
       "title": "virtual_server.https.tcp_server_profile",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["application_profilesCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["virtual server https websocket client profile"],
       "body_bytes": 5682,
-      "body_sha256": "sha256:3b967aaa1a10d07232e7149052734a6724e1300abd408be03ffc7412b9f5af67",
+      "body_sha256": "sha256:57d6a9bb3d44a07b4abbb5858ae4ab7f5fd90403fad168bbea3cf94ef593b2ae",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -10878,20 +10878,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/application_profiles/properties/virtual_server/https/websocket_client_profile/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "Web-related configuration",
       "tasks": ["configuration"],
       "title": "virtual_server.https.websocket_client_profile",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["application_profilesCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["virtual server https websocket server profile"],
       "body_bytes": 5682,
-      "body_sha256": "sha256:cefc35009c3d3ecd7181230f92295ac401d03c9730eea7b72327efa60306a556",
+      "body_sha256": "sha256:8c946e57f617d71789d1f390b61e325943467ff5c88d6cf7cef35f46e54bc2b6",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -11034,14 +11034,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/application_profiles/properties/virtual_server/https/websocket_server_profile/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "Web-related configuration",
       "tasks": ["configuration"],
       "title": "virtual_server.https.websocket_server_profile",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["application_profilesCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -11139,14 +11139,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/application_profiles/properties/virtual_server/immediate_action_on_service_down/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "Specifies the immediate action the BIG-IP system should respond with upon the receipt of the initial client's SYN packet, if the availability status of the virtual server is Offline or Unavailable. This is supported for the virtual server of Standard type and TCP protocol. The default is None. None: Specifies that the",
       "tasks": ["configuration"],
       "title": "virtual_server.immediate_action_on_service_down",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["application_profilesCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -11179,14 +11179,14 @@
       "schema_path": ["virtual_server", "immediate_action_on_service_down", "immediate_action_on_service_down_drop"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/application_profiles/properties/virtual_server/immediate_action_on_service_down/immediate_action_on_service_down_drop/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "virtual_server.immediate_action_on_service_down.immediate_action_on_service_down_drop",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["application_profilesCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -11219,14 +11219,14 @@
       "schema_path": ["virtual_server", "immediate_action_on_service_down", "immediate_action_on_service_down_none"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/application_profiles/properties/virtual_server/immediate_action_on_service_down/immediate_action_on_service_down_none/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "virtual_server.immediate_action_on_service_down.immediate_action_on_service_down_none",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["application_profilesCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -11259,20 +11259,20 @@
       "schema_path": ["virtual_server", "immediate_action_on_service_down", "immediate_action_on_service_down_reset"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/application_profiles/properties/virtual_server/immediate_action_on_service_down/immediate_action_on_service_down_reset/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "virtual_server.immediate_action_on_service_down.immediate_action_on_service_down_reset",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["application_profilesCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["virtual server last hop pool"],
       "body_bytes": 5428,
-      "body_sha256": "sha256:4e96554ffcc0cbee0feb92e7e56939eb3711970650b77fc3cd5332fdf6c420cf",
+      "body_sha256": "sha256:0ba486491de9efad751f3b26fbddf4be067c0e64861a2c903d3e400450b1f7f9",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -11415,14 +11415,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/application_profiles/properties/virtual_server/last_hop_pool/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "Directs reply traffic to the last hop router using the specified pool.",
       "tasks": ["configuration"],
       "title": "virtual_server.last_hop_pool",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["application_profilesCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -11491,14 +11491,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/application_profiles/properties/virtual_server/nat64/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "When enabled, allows the system to send return traffic to the MAC address that transmitted the request, even if the routing table points to a different network or interface. As a result, the system can send return traffic to clients even when there is no matching route. For example, if the system does not have a",
       "tasks": ["configuration"],
       "title": "virtual_server.nat64",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["application_profilesCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -11531,14 +11531,14 @@
       "schema_path": ["virtual_server", "nat64", "nat64_disable"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/application_profiles/properties/virtual_server/nat64/nat64_disable/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "virtual_server.nat64.nat64_disable",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["application_profilesCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -11571,14 +11571,14 @@
       "schema_path": ["virtual_server", "nat64", "nat64_enable"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/application_profiles/properties/virtual_server/nat64/nat64_enable/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "virtual_server.nat64.nat64_enable",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["application_profilesCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -11647,14 +11647,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/application_profiles/properties/virtual_server/port_translation/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "Specifies, when checked (enabled), that the system translates the port of the virtual server. When cleared (disabled), specifies that the system uses the port without translation. Turning off port translation for a virtual server is useful if you want to use the virtual server to load balance connections to any",
       "tasks": ["configuration"],
       "title": "virtual_server.port_translation",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["application_profilesCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -11687,14 +11687,14 @@
       "schema_path": ["virtual_server", "port_translation", "port_translation_disable"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/application_profiles/properties/virtual_server/port_translation/port_translation_disable/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "virtual_server.port_translation.port_translation_disable",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["application_profilesCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -11727,20 +11727,20 @@
       "schema_path": ["virtual_server", "port_translation", "port_translation_enable"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/application_profiles/properties/virtual_server/port_translation/port_translation_enable/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "virtual_server.port_translation.port_translation_enable",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["application_profilesCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["virtual server request logging profile"],
       "body_bytes": 5480,
-      "body_sha256": "sha256:cf9a33ff46495078c8aa5e22cd257a27e9e0dbbfa5e711f7266cac3e4fe5fe8c",
+      "body_sha256": "sha256:0ed9fdd280820d258863bfe1dd4377984b5af2b84cc729b2e288212b0d28c3ee",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -11883,14 +11883,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/application_profiles/properties/virtual_server/request_logging_profile/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "Configuration parameter for request logging profile",
       "tasks": ["configuration"],
       "title": "virtual_server.request_logging_profile",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["application_profilesCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -11976,14 +11976,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/application_profiles/properties/virtual_server/source_port/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "Specifies whether the system preserves the source port of the connection. The default is Preserve.",
       "tasks": ["configuration"],
       "title": "virtual_server.source_port",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["application_profilesCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -12016,14 +12016,14 @@
       "schema_path": ["virtual_server", "source_port", "source_port_change"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/application_profiles/properties/virtual_server/source_port/source_port_change/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "virtual_server.source_port.source_port_change",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["application_profilesCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -12056,14 +12056,14 @@
       "schema_path": ["virtual_server", "source_port", "source_port_preserve"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/application_profiles/properties/virtual_server/source_port/source_port_preserve/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "virtual_server.source_port.source_port_preserve",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["application_profilesCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -12096,20 +12096,20 @@
       "schema_path": ["virtual_server", "source_port", "source_port_preserve_strict"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/application_profiles/properties/virtual_server/source_port/source_port_preserve_strict/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "virtual_server.source_port.source_port_preserve_strict",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["application_profilesCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["virtual server statistics profile"],
       "body_bytes": 5440,
-      "body_sha256": "sha256:ba8b9c1495cc84d80b2665acf424f62f2909c0129c30795cd6acedb499c0d543",
+      "body_sha256": "sha256:d0b0337068e14997c6f54da4a576807e9a07bc7e4ded049c48b711e0cde40648",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -12252,14 +12252,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/application_profiles/properties/virtual_server/statistics_profile/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "Configuration parameter for statistics profile",
       "tasks": ["configuration"],
       "title": "virtual_server.statistics_profile",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["application_profilesCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -12379,20 +12379,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/application_profiles/properties/virtual_server/tcp/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "TCP profiles.",
       "tasks": ["configuration"],
       "title": "virtual_server.tcp",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["application_profilesCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["virtual server tcp client ssl profile"],
       "body_bytes": 5478,
-      "body_sha256": "sha256:279a15208eeab757af87ab098e6a64fcc52726364db68115594710cd8892d328",
+      "body_sha256": "sha256:5bc1f62b9ee0031e5c41aaa223968db4fa3e04f1b590923605712080b549d461",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -12535,20 +12535,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/application_profiles/properties/virtual_server/tcp/client_ssl_profile/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "Client-side configuration",
       "tasks": ["configuration"],
       "title": "virtual_server.tcp.client_ssl_profile",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["application_profilesCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["virtual server tcp ocsp profile"],
       "body_bytes": 5570,
-      "body_sha256": "sha256:0da5ed12b7f7ef43b6f169ae252cfe1898b5dd1fed0c6589b9b7991e020025e5",
+      "body_sha256": "sha256:108bd4fc2b7484044733f6f696326eb61e0d340e55731e533eabd4c667ddfa0e",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -12691,20 +12691,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/application_profiles/properties/virtual_server/tcp/ocsp_profile/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "Configuration parameter for ocsp profile",
       "tasks": ["configuration"],
       "title": "virtual_server.tcp.ocsp_profile",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["application_profilesCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["virtual server tcp server ssl profile"],
       "body_bytes": 5480,
-      "body_sha256": "sha256:0212ec78f5b996037537c90290709410ef1454084b10d9444c3e1577e45226ae",
+      "body_sha256": "sha256:52a1bd8bd798b01585d322bf079426777e6f67cf64e035d18a2eae1af60a73ec",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -12847,20 +12847,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/application_profiles/properties/virtual_server/tcp/server_ssl_profile/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "Configuration parameter for server ssl profile",
       "tasks": ["configuration"],
       "title": "virtual_server.tcp.server_ssl_profile",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["application_profilesCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["virtual server tcp tcp client profile"],
       "body_bytes": 5623,
-      "body_sha256": "sha256:2f750732a93d86114472caf0f424676ec812a05ee8933aa76c3da237dd9fe104",
+      "body_sha256": "sha256:b90f4830af934b0835dc3c10f9cbbe3eefed39cf36eca0db66c634e540b05b64",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -13003,20 +13003,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/application_profiles/properties/virtual_server/tcp/tcp_client_profile/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "Client-side configuration",
       "tasks": ["configuration"],
       "title": "virtual_server.tcp.tcp_client_profile",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["application_profilesCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["virtual server tcp tcp server profile"],
       "body_bytes": 5618,
-      "body_sha256": "sha256:c1c73a4740656762c24cee1fad7567a5150cbf0dff19ea03688cb0dfdf434242",
+      "body_sha256": "sha256:ca62f90918542c129c65733cf42294ec5a21776a56d6ea00bf1e69d24f585752",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -13159,14 +13159,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/application_profiles/properties/virtual_server/tcp/tcp_server_profile/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "Configuration parameter for tcp server profile",
       "tasks": ["configuration"],
       "title": "virtual_server.tcp.tcp_server_profile",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["application_profilesCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -13269,20 +13269,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/application_profiles/properties/virtual_server/udp/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "UDP profiles.",
       "tasks": ["configuration"],
       "title": "virtual_server.udp",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["application_profilesCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["virtual server udp client ssl profile"],
       "body_bytes": 5620,
-      "body_sha256": "sha256:1d403a9f0b884f19b385b7aebc9f836da7afeeba6281747291e296c67c5f8ee4",
+      "body_sha256": "sha256:8d52d73ea2821024e405144d6a1ab17ddad16dec434a2268676b04dcacb72f23",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -13425,20 +13425,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/application_profiles/properties/virtual_server/udp/client_ssl_profile/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "Client-side configuration",
       "tasks": ["configuration"],
       "title": "virtual_server.udp.client_ssl_profile",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["application_profilesCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["virtual server udp server ssl profile"],
       "body_bytes": 5622,
-      "body_sha256": "sha256:6cd4d7adc2420c61d76cbf96651c39dd4c35f6fdf5f4e7f7e4ec9b54c8cafdd6",
+      "body_sha256": "sha256:15c82e2683f3992eccb0330a20c562e42e8c850d7cf47ae951716f7b6a275f6b",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -13581,20 +13581,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/application_profiles/properties/virtual_server/udp/server_ssl_profile/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "Configuration parameter for server ssl profile",
       "tasks": ["configuration"],
       "title": "virtual_server.udp.server_ssl_profile",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["application_profilesCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["virtual server udp udp client profile"],
       "body_bytes": 5623,
-      "body_sha256": "sha256:e4a1e6a26ef741be611f227d6cc8459ced1f218a94903c85c34abca914fb27e4",
+      "body_sha256": "sha256:937bb8fc08135e7987e182767b769002a972b21b18920f46961b02fe47c7d39a",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -13737,20 +13737,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/application_profiles/properties/virtual_server/udp/udp_client_profile/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "Client-side configuration",
       "tasks": ["configuration"],
       "title": "virtual_server.udp.udp_client_profile",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["application_profilesCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["virtual server udp udp server profile"],
       "body_bytes": 5618,
-      "body_sha256": "sha256:d3f215b900d865ac1096d7320ae702c5922f32ccc00b22feb71f0c8b05ddf5c1",
+      "body_sha256": "sha256:a51f6ddd1cdf3b8b0aa5ffeddd4017480221262c9b8a37059c7b5ae9081b15fc",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -13893,14 +13893,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/application_profiles/properties/virtual_server/udp/udp_server_profile/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "Configuration parameter for udp server profile",
       "tasks": ["configuration"],
       "title": "virtual_server.udp.udp_server_profile",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["application_profilesCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -13969,14 +13969,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/application_profiles/properties/virtual_server/virtual_server_state/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "Displays the current state on the object.",
       "tasks": ["configuration"],
       "title": "virtual_server.virtual_server_state",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["application_profilesCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -14009,14 +14009,14 @@
       "schema_path": ["virtual_server", "virtual_server_state", "state_disabled"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/application_profiles/properties/virtual_server/virtual_server_state/state_disabled/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "virtual_server.virtual_server_state.state_disabled",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["application_profilesCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -14049,14 +14049,14 @@
       "schema_path": ["virtual_server", "virtual_server_state", "state_enabled"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/application_profiles/properties/virtual_server/virtual_server_state/state_enabled/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "virtual_server.virtual_server_state.state_enabled",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["application_profilesCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -14089,14 +14089,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/application_profiles/examples/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "Examples for xcsh_application_profiles.",
       "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["application_profilesCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -14136,14 +14136,14 @@
       "schema_path": ["data-source"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/application_profiles/examples/data-source/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "Data source for xcsh_application_profiles.",
       "tasks": ["configuration"],
       "title": "Data source",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["application_profilesCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     }
   ],
