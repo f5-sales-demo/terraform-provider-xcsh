@@ -994,21 +994,21 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/service_policy_rule/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "Manages service_policy_rule creates a new object in the storage backend for metadata.namespace in F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_service_policy_rule",
       "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["service_policy_ruleCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["service policy rule"],
       "body_bytes": 58701,
-      "body_sha256": "sha256:1d9ab22ffae53075ffee3ab54542babbb606b3f5d6756abd2772c51b4b34f277",
+      "body_sha256": "sha256:f79135c2645f8df8c734ff1e4a9f594fd598898384a8de75eda5deec9438004a",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -2437,14 +2437,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/service_policy_rule/properties/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "Property reference for xcsh_service_policy_rule.",
       "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["service_policy_ruleCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -2477,14 +2477,14 @@
       "schema_path": ["any_asn"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/service_policy_rule/properties/any_asn/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "any_asn",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["service_policy_ruleCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -2517,14 +2517,14 @@
       "schema_path": ["any_client"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/service_policy_rule/properties/any_client/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "any_client",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["service_policy_ruleCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -2557,20 +2557,20 @@
       "schema_path": ["any_ip"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/service_policy_rule/properties/any_ip/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "any_ip",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["service_policy_ruleCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["api group matcher", "succeeded", "success", "successful"],
       "body_bytes": 2790,
-      "body_sha256": "sha256:173c30f9f54010ab5b4fe8dadf1dcf1e18204c266ec1f82ed54d8a12fd8a57f3",
+      "body_sha256": "sha256:3dbd1bd76d63b7b0b7a4bf12be53d55e0338f600854503796e761a61e0ae03af",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -2639,20 +2639,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/service_policy_rule/properties/api_group_matcher/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "A matcher specifies a list of values for matching an input string. The match is considered successful if the input value is present in the list. The result of the match is inverted if invert_matcher is true.",
       "tasks": ["configuration"],
       "title": "api_group_matcher",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["service_policy_ruleCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["arg matchers"],
       "body_bytes": 4622,
-      "body_sha256": "sha256:37f9a8712bcb3e5259cd71182f052497576c0fcfddcb18c74e0eaa67593d8678",
+      "body_sha256": "sha256:3132eb86352cb5b37550b79b8dc5d6a4afc2ec449926db6a6f8f0dbbccdd4e47",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -2821,14 +2821,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/service_policy_rule/properties/arg_matchers/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "A list of predicates for all POST args that need to be matched. The criteria for matching each arg are described in individual instances of ArgMatcherType. The actual arg values are extracted from the request API as a list of strings for each arg selector name. Note that all specified arg matcher predicates must",
       "tasks": ["configuration"],
       "title": "arg_matchers",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["service_policy_ruleCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -2861,14 +2861,14 @@
       "schema_path": ["arg_matchers", "check_not_present"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/service_policy_rule/properties/arg_matchers/check_not_present/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "arg_matchers.check_not_present",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["service_policy_ruleCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -2901,20 +2901,20 @@
       "schema_path": ["arg_matchers", "check_present"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/service_policy_rule/properties/arg_matchers/check_present/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "arg_matchers.check_present",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["service_policy_ruleCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["arg matchers item", "succeeded", "success", "successful"],
       "body_bytes": 5527,
-      "body_sha256": "sha256:648e64d7203e32716b34e8fc6a3931daf1b998730e23b7b1612bc0ac1264e6e8",
+      "body_sha256": "sha256:c6cc121105450828100858428134b1b1bc7eaa7a2c552c1e03247f0bb400b6f7",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -2990,20 +2990,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/service_policy_rule/properties/arg_matchers/item/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "A matcher specifies multiple criteria for matching an input string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of exact values and a list of regular expressions.",
       "tasks": ["configuration"],
       "title": "arg_matchers.item",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["service_policy_ruleCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["asn list"],
       "body_bytes": 2616,
-      "body_sha256": "sha256:4628f6b6a76e74865ee8d779b2a95ba804800ff612f7615f75e69d6e8ad5c699",
+      "body_sha256": "sha256:ca42fc1784f9ca202dfca911114002abc50718b90cb98a1e717397ac179ade50",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -3056,14 +3056,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/service_policy_rule/properties/asn_list/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "An unordered set of RFC 6793 defined 4-byte AS numbers that can be used to create allow or deny lists for use in network policy or service policy. It can be used to create the allow list only for DNS Load Balancer.",
       "tasks": ["configuration"],
       "title": "asn_list",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["service_policy_ruleCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -3122,20 +3122,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/service_policy_rule/properties/asn_matcher/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "Match any AS number contained in the list of bgp_asn_sets.",
       "tasks": ["configuration"],
       "title": "asn_matcher",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["service_policy_ruleCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["asn matcher asn sets"],
       "body_bytes": 5694,
-      "body_sha256": "sha256:5b3d6167a16546d940218e8bab86a98b83d23659a38a03fae3312aa92b2f8c56",
+      "body_sha256": "sha256:61fc7afa261972466a3d419ad17b48215725fbb225465a484eee02f70d3d68e6",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -3278,20 +3278,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/service_policy_rule/properties/asn_matcher/asn_sets/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "A list of references to bgp_asn_set objects.",
       "tasks": ["configuration"],
       "title": "asn_matcher.asn_sets",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["service_policy_ruleCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["body matcher", "succeeded", "success", "successful"],
       "body_bytes": 5378,
-      "body_sha256": "sha256:18d7f56f87a6ae0a7cc20f29c7649c654dfc727c5b76e3712306bcb32b0ff749",
+      "body_sha256": "sha256:a2d32ac83a216d4f77e46e868545061fa6c83473f79d913ef1ed80bb1052cef7",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -3367,14 +3367,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/service_policy_rule/properties/body_matcher/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "A matcher specifies multiple criteria for matching an input string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of exact values and a list of regular expressions.",
       "tasks": ["configuration"],
       "title": "body_matcher",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["service_policy_ruleCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -3460,14 +3460,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/service_policy_rule/properties/bot_action/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "Modify Bot protection behavior for a matching request. The modification could be to entirely skip Bot processing.",
       "tasks": ["configuration"],
       "title": "bot_action",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["service_policy_ruleCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -3500,14 +3500,14 @@
       "schema_path": ["bot_action", "bot_skip_processing"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/service_policy_rule/properties/bot_action/bot_skip_processing/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "bot_action.bot_skip_processing",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["service_policy_ruleCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -3540,20 +3540,20 @@
       "schema_path": ["bot_action", "none"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/service_policy_rule/properties/bot_action/none/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "bot_action.none",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["service_policy_ruleCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["client name matcher", "succeeded", "success", "successful"],
       "body_bytes": 3859,
-      "body_sha256": "sha256:b419d18643853b9b0b31097ba88021f314f20b48e96cd730dcde79be0c76c2a0",
+      "body_sha256": "sha256:45e56044dbf3fa6dc4553cf59de83f7da166bbd1be4c28d9ab0ef2ac23368e16",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -3613,20 +3613,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/service_policy_rule/properties/client_name_matcher/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "A matcher specifies multiple criteria for matching an input string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of exact values and a list of regular expressions.",
       "tasks": ["configuration"],
       "title": "client_name_matcher",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["service_policy_ruleCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["client selector"],
       "body_bytes": 3525,
-      "body_sha256": "sha256:67c90c97c59a320ce13550bda75e88026ca313d5c3517301fb9297af8a919610",
+      "body_sha256": "sha256:aac4ce7d3f57e6f4230d3c7cfe1c9a934dd59c6b539bea0f51a0025a8a7f6b60",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -3679,20 +3679,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/service_policy_rule/properties/client_selector/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "This type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects. A null label selector matches no objects.",
       "tasks": ["configuration"],
       "title": "client_selector",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["service_policy_ruleCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["cookie matchers"],
       "body_bytes": 4479,
-      "body_sha256": "sha256:bee3ed235d4e7897906dab0c1e91afeec267e1c0c10d881dbc897fc3b6bab7be",
+      "body_sha256": "sha256:042bbb7f4c9624538ad5a35ef497de634ef44056428762264641fbb7ca0626b1",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -3861,14 +3861,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/service_policy_rule/properties/cookie_matchers/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "A list of predicates for all cookies that need to be matched. The criteria for matching each cookie is described in individual instances of CookieMatcherType. The actual cookie values are extracted from the request API as a list of strings for each cookie name. Note that all specified cookie matcher predicates must",
       "tasks": ["configuration"],
       "title": "cookie_matchers",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["service_policy_ruleCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -3901,14 +3901,14 @@
       "schema_path": ["cookie_matchers", "check_not_present"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/service_policy_rule/properties/cookie_matchers/check_not_present/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "cookie_matchers.check_not_present",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["service_policy_ruleCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -3941,20 +3941,20 @@
       "schema_path": ["cookie_matchers", "check_present"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/service_policy_rule/properties/cookie_matchers/check_present/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "cookie_matchers.check_present",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["service_policy_ruleCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["cookie matchers item", "succeeded", "success", "successful"],
       "body_bytes": 5548,
-      "body_sha256": "sha256:eba56ee9408830b2999caa154d47a2cbea4aa931de4dbc7b3858df9b0b9738fa",
+      "body_sha256": "sha256:733aad5f89ed95433d2b11df7e25f53f31182fc6b99ea58ed4fcee9b100a3081",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -4030,20 +4030,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/service_policy_rule/properties/cookie_matchers/item/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "A matcher specifies multiple criteria for matching an input string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of exact values and a list of regular expressions.",
       "tasks": ["configuration"],
       "title": "cookie_matchers.item",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["service_policy_ruleCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["domain matcher", "succeeded", "success", "successful"],
       "body_bytes": 3834,
-      "body_sha256": "sha256:c97ccba4ca026065e6ca5c28529313fdc8c78ebbd06e1da721b8f6a5b6d7a0ce",
+      "body_sha256": "sha256:964ae83c80d1d916943cb209899d9a28c562726fdf9070f6bb698d4b434a3dbf",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -4103,20 +4103,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/service_policy_rule/properties/domain_matcher/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "A matcher specifies multiple criteria for matching an input string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of exact values and a list of regular expressions.",
       "tasks": ["configuration"],
       "title": "domain_matcher",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["service_policy_ruleCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["headers"],
       "body_bytes": 4588,
-      "body_sha256": "sha256:d41c437d94058baa8a0c7eef61cd99b750c76d0b59ec4293ef7cb6c26866498d",
+      "body_sha256": "sha256:ada756a99e761a02f9517b443de125aa6772d22d1665c50946b71de5bfad6384",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -4285,14 +4285,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/service_policy_rule/properties/headers/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "A list of predicates for various HTTP headers that need to match. The criteria for matching each HTTP header are described in individual HeaderMatcherType instances. The actual HTTP header values are extracted from the request API as a list of strings for each HTTP header type. Note that all specified header",
       "tasks": ["configuration"],
       "title": "headers",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["service_policy_ruleCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -4325,14 +4325,14 @@
       "schema_path": ["headers", "check_not_present"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/service_policy_rule/properties/headers/check_not_present/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "headers.check_not_present",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["service_policy_ruleCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -4365,20 +4365,20 @@
       "schema_path": ["headers", "check_present"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/service_policy_rule/properties/headers/check_present/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "headers.check_present",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["service_policy_ruleCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["headers item", "succeeded", "success", "successful"],
       "body_bytes": 5492,
-      "body_sha256": "sha256:ba94831241f25ba15ed02120ace2c10a0103d16fbf60d27f84d41d9139638a9e",
+      "body_sha256": "sha256:a0d4265c4a38cb31c7145addbe2af1ba8a37c56b0060ffe36e68f471905da328",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -4454,20 +4454,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/service_policy_rule/properties/headers/item/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "A matcher specifies multiple criteria for matching an input string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of exact values and a list of regular expressions.",
       "tasks": ["configuration"],
       "title": "headers.item",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["service_policy_ruleCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["http method", "succeeded", "success", "successful"],
       "body_bytes": 2756,
-      "body_sha256": "sha256:95d7083263aa2e8ebd0224e69ad1943e1ad356514a27dedbb567ba85ebce98e8",
+      "body_sha256": "sha256:5e3bcae83679f995170450636c8d67d7aa0ad0102df1b5e654683bf0fce90105",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -4527,14 +4527,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/service_policy_rule/properties/http_method/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "A HTTP method matcher specifies a list of methods to match an input HTTP method. The match is considered successful if the input method is a member of the list. The result of the match based on the method list is inverted if invert_matcher is true.",
       "tasks": ["configuration"],
       "title": "http_method",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["service_policy_ruleCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -4609,20 +4609,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/service_policy_rule/properties/ip_matcher/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "Match any IP prefix contained in the list of ip_prefix_sets. The result of the match is inverted if invert_matcher is true.",
       "tasks": ["configuration"],
       "title": "ip_matcher",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["service_policy_ruleCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["ip matcher prefix sets"],
       "body_bytes": 5711,
-      "body_sha256": "sha256:159e3831d6516989f812d72a7da69bf0b9a4270d722eabb110b463bd55a37cdd",
+      "body_sha256": "sha256:7fe9758b3f230303d930a56456132f4ea72fcdce16cee2c938bf3fb9fa09f4f4",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -4765,20 +4765,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/service_policy_rule/properties/ip_matcher/prefix_sets/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "A list of references to ip_prefix_set objects.",
       "tasks": ["configuration"],
       "title": "ip_matcher.prefix_sets",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["service_policy_ruleCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["ip prefix list"],
       "body_bytes": 2483,
-      "body_sha256": "sha256:9bbfc2c0d917d782a45231d79cdf4dd7377c1ff85e47d17502417589f8aa9a94",
+      "body_sha256": "sha256:7a3882bf87b44d40eabd44e9915945b61a5fd7a904a3ccaf26de7ae25c8d2765",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -4838,20 +4838,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/service_policy_rule/properties/ip_prefix_list/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "List of IP Prefix strings to match against.",
       "tasks": ["configuration"],
       "title": "ip_prefix_list",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["service_policy_ruleCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["ip threat category list"],
       "body_bytes": 2721,
-      "body_sha256": "sha256:b88a8361d9f7f3eaa689541e5307f1065c1db2aef7d236955714b15cd1d3e27b",
+      "body_sha256": "sha256:9364d2cb33d048709c0a2c78a5ae6579138de5268fb32e1754e0ef475469e82c",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -4904,20 +4904,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/service_policy_rule/properties/ip_threat_category_list/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "List of IP threat categories.",
       "tasks": ["configuration"],
       "title": "ip_threat_category_list",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["service_policy_ruleCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["ja4 tls fingerprint"],
       "body_bytes": 2857,
-      "body_sha256": "sha256:cb37fa3448259518596276b385a1baf3b000dc0840955c38a61887798bf3ef8d",
+      "body_sha256": "sha256:0cfe3f67a3ee74c1e390a0ced317010135d7c1cc382a693aa2526091a1350cb2",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -4961,20 +4961,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/service_policy_rule/properties/ja4_tls_fingerprint/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "An extended version of JA3 that includes additional fields for more comprehensive fingerprinting of SSL/TLS clients and potentially has a different structure and length.",
       "tasks": ["configuration"],
       "title": "ja4_tls_fingerprint",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["service_policy_ruleCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["jwt claims"],
       "body_bytes": 4396,
-      "body_sha256": "sha256:2a95620a6a027c66e6d4ba0bd96d00113d7f2f79b3594dec0ab660cd39e00fe4",
+      "body_sha256": "sha256:223b928246822f2310078fe8b36ce197e62f5973eb83ce88fbc14f2154dc40e6",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -5143,14 +5143,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/service_policy_rule/properties/jwt_claims/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "A list of predicates for various JWT claims that need to match. The criteria for matching each JWT claim are described in individual JWTClaimMatcherType instances. The actual JWT claims values are extracted from the JWT payload as a list of strings. Note that all specified JWT claim predicates must evaluate to true.",
       "tasks": ["configuration"],
       "title": "jwt_claims",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["service_policy_ruleCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -5183,14 +5183,14 @@
       "schema_path": ["jwt_claims", "check_not_present"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/service_policy_rule/properties/jwt_claims/check_not_present/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "jwt_claims.check_not_present",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["service_policy_ruleCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -5223,20 +5223,20 @@
       "schema_path": ["jwt_claims", "check_present"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/service_policy_rule/properties/jwt_claims/check_present/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "jwt_claims.check_present",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["service_policy_ruleCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["jwt claims item", "succeeded", "success", "successful"],
       "body_bytes": 5513,
-      "body_sha256": "sha256:d28da19cfaf3db19a2a87ffe48340efcfdfb9a7c6afabc8e24d9e8234bd9236f",
+      "body_sha256": "sha256:77af3182ee8d6511dd774da75a50bb9e938b97ea2a8c950f5bdb5ae629efef5f",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -5312,20 +5312,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/service_policy_rule/properties/jwt_claims/item/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "A matcher specifies multiple criteria for matching an input string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of exact values and a list of regular expressions.",
       "tasks": ["configuration"],
       "title": "jwt_claims.item",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["service_policy_ruleCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["label matcher"],
       "body_bytes": 2320,
-      "body_sha256": "sha256:4a199950f38abcc4d386eae35fd3333f5bbbd44308242f34163549d918cad2d8",
+      "body_sha256": "sha256:da73ed2dadb154b25f89858f871c32d11e7d9fa0b11f8245ed79e5025a74773e",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -5369,14 +5369,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/service_policy_rule/properties/label_matcher/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "A label matcher specifies a list of label keys whose values need to match for source/client and destination/server. Note that the actual label values are not specified and do not matter. This allows an ability to scope grouping by the label key name.",
       "tasks": ["configuration"],
       "title": "label_matcher",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["service_policy_ruleCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -5462,14 +5462,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/service_policy_rule/properties/mum_action/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "Modify behavior for a matching request. The modification could be to entirely skip processing.",
       "tasks": ["configuration"],
       "title": "mum_action",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["service_policy_ruleCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -5502,14 +5502,14 @@
       "schema_path": ["mum_action", "default"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/service_policy_rule/properties/mum_action/default/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "mum_action.default",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["service_policy_ruleCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -5542,20 +5542,20 @@
       "schema_path": ["mum_action", "skip_processing"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/service_policy_rule/properties/mum_action/skip_processing/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "mum_action.skip_processing",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["service_policy_ruleCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["path", "succeeded", "success", "successful"],
       "body_bytes": 9021,
-      "body_sha256": "sha256:e0c8a4f2beda57ddcbd8cfe92bce4ae777997ac9feb175d33ae8ffb6dfa337d9",
+      "body_sha256": "sha256:fcfe685d82d3af55f25a777906149fce782a4a8db6ef2b5d566245f63cb9b507",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -5695,20 +5695,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/service_policy_rule/properties/path/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "A path matcher specifies multiple criteria for matching an HTTP path string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of path prefixes, a list of exact path values and a list of regular expressions.",
       "tasks": ["configuration"],
       "title": "path",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["service_policy_ruleCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["port matcher", "succeeded", "success", "successful"],
       "body_bytes": 3183,
-      "body_sha256": "sha256:ab6b9d47f09e0d3341abd4f0d8fd76aff974ff0040f81e6614797114c9bcfad6",
+      "body_sha256": "sha256:6fa45a215b2364551b6be4e3b671291bdf519997430b60017d89d813a7152c99",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -5777,20 +5777,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/service_policy_rule/properties/port_matcher/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "A port matcher specifies a list of port ranges as match criteria. The match is considered successful if the input port falls within any of the port ranges. The result of the match is inverted if invert_matcher is true.",
       "tasks": ["configuration"],
       "title": "port_matcher",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["service_policy_ruleCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["query params"],
       "body_bytes": 3934,
-      "body_sha256": "sha256:5caad31e780236a79aa22eb88978d332841b0e558ebb589b2f2122d1860cf749",
+      "body_sha256": "sha256:82f33163a4e4d8240f8c5196dc579680559946a1eb4b30dd061cb874aeeadaa0",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -5959,14 +5959,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/service_policy_rule/properties/query_params/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "A list of predicates for all query parameters that need to be matched. The criteria for matching each query parameter are described in individual instances of QueryParameterMatcherType. The actual query parameter values are extracted from the request API as a list of strings for each query parameter name. Note that",
       "tasks": ["configuration"],
       "title": "query_params",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["service_policy_ruleCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -5999,14 +5999,14 @@
       "schema_path": ["query_params", "check_not_present"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/service_policy_rule/properties/query_params/check_not_present/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "query_params.check_not_present",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["service_policy_ruleCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -6039,20 +6039,20 @@
       "schema_path": ["query_params", "check_present"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/service_policy_rule/properties/query_params/check_present/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "query_params.check_present",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["service_policy_ruleCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["query params item", "succeeded", "success", "successful"],
       "body_bytes": 5527,
-      "body_sha256": "sha256:a5b52f19be5ad8d866c9a2a24fadcdc086e711b3b52571c678f24ab0cc2ad4ba",
+      "body_sha256": "sha256:3020d123688f29fc09acd02186205dd7c99507c2e1c25be73ae13cf4a8e007d4",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -6128,20 +6128,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/service_policy_rule/properties/query_params/item/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "A matcher specifies multiple criteria for matching an input string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of exact values and a list of regular expressions.",
       "tasks": ["configuration"],
       "title": "query_params.item",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["service_policy_ruleCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["request constraints"],
       "body_bytes": 20519,
-      "body_sha256": "sha256:a60c278c2a6852511d486814c131861735a3373398dc6b47e1609d443ff5535d",
+      "body_sha256": "sha256:bf0f80c48c66501854a6d06274b59a6519ae07701590a7647a80169941d39466",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -6808,14 +6808,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/service_policy_rule/properties/request_constraints/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "Configuration parameter for request constraints.",
       "tasks": ["configuration"],
       "title": "request_constraints",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["service_policy_ruleCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -6848,14 +6848,14 @@
       "schema_path": ["request_constraints", "max_cookie_count_none"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/service_policy_rule/properties/request_constraints/max_cookie_count_none/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "request_constraints.max_cookie_count_none",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["service_policy_ruleCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -6888,14 +6888,14 @@
       "schema_path": ["request_constraints", "max_cookie_key_size_none"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/service_policy_rule/properties/request_constraints/max_cookie_key_size_none/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "request_constraints.max_cookie_key_size_none",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["service_policy_ruleCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -6928,14 +6928,14 @@
       "schema_path": ["request_constraints", "max_cookie_value_size_none"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/service_policy_rule/properties/request_constraints/max_cookie_value_size_none/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "request_constraints.max_cookie_value_size_none",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["service_policy_ruleCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -6968,14 +6968,14 @@
       "schema_path": ["request_constraints", "max_header_count_none"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/service_policy_rule/properties/request_constraints/max_header_count_none/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "request_constraints.max_header_count_none",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["service_policy_ruleCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -7008,14 +7008,14 @@
       "schema_path": ["request_constraints", "max_header_key_size_none"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/service_policy_rule/properties/request_constraints/max_header_key_size_none/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "request_constraints.max_header_key_size_none",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["service_policy_ruleCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -7048,14 +7048,14 @@
       "schema_path": ["request_constraints", "max_header_value_size_none"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/service_policy_rule/properties/request_constraints/max_header_value_size_none/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "request_constraints.max_header_value_size_none",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["service_policy_ruleCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -7088,14 +7088,14 @@
       "schema_path": ["request_constraints", "max_parameter_count_none"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/service_policy_rule/properties/request_constraints/max_parameter_count_none/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "request_constraints.max_parameter_count_none",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["service_policy_ruleCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -7128,14 +7128,14 @@
       "schema_path": ["request_constraints", "max_parameter_name_size_none"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/service_policy_rule/properties/request_constraints/max_parameter_name_size_none/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "request_constraints.max_parameter_name_size_none",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["service_policy_ruleCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -7168,14 +7168,14 @@
       "schema_path": ["request_constraints", "max_parameter_value_size_none"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/service_policy_rule/properties/request_constraints/max_parameter_value_size_none/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "request_constraints.max_parameter_value_size_none",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["service_policy_ruleCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -7208,14 +7208,14 @@
       "schema_path": ["request_constraints", "max_query_size_none"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/service_policy_rule/properties/request_constraints/max_query_size_none/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "request_constraints.max_query_size_none",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["service_policy_ruleCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -7248,14 +7248,14 @@
       "schema_path": ["request_constraints", "max_request_line_size_none"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/service_policy_rule/properties/request_constraints/max_request_line_size_none/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "request_constraints.max_request_line_size_none",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["service_policy_ruleCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -7288,14 +7288,14 @@
       "schema_path": ["request_constraints", "max_request_size_none"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/service_policy_rule/properties/request_constraints/max_request_size_none/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "request_constraints.max_request_size_none",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["service_policy_ruleCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -7328,14 +7328,14 @@
       "schema_path": ["request_constraints", "max_url_size_none"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/service_policy_rule/properties/request_constraints/max_url_size_none/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "request_constraints.max_url_size_none",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["service_policy_ruleCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -7538,14 +7538,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/service_policy_rule/properties/segment_policy/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "Configure source and destination segment for policy.",
       "tasks": ["configuration"],
       "title": "segment_policy",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["service_policy_ruleCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -7578,14 +7578,14 @@
       "schema_path": ["segment_policy", "dst_any"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/service_policy_rule/properties/segment_policy/dst_any/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "segment_policy.dst_any",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["service_policy_ruleCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -7653,20 +7653,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/service_policy_rule/properties/segment_policy/dst_segments/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "List of references to Segments.",
       "tasks": ["configuration"],
       "title": "segment_policy.dst_segments",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["service_policy_ruleCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["segment policy dst segments segments"],
       "body_bytes": 5524,
-      "body_sha256": "sha256:2bcf9e0eae865632a7c45baafa13408e3880afbcc847f0b0493bb5c516281495",
+      "body_sha256": "sha256:090f78ecc17c56287b7aeab354316acd7e669f4085b9b9e7c039cf098f923956",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -7772,14 +7772,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/service_policy_rule/properties/segment_policy/dst_segments/segments/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "Select list of segments.",
       "tasks": ["configuration"],
       "title": "segment_policy.dst_segments.segments",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["service_policy_ruleCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -7812,14 +7812,14 @@
       "schema_path": ["segment_policy", "intra_segment"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/service_policy_rule/properties/segment_policy/intra_segment/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "segment_policy.intra_segment",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["service_policy_ruleCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -7852,14 +7852,14 @@
       "schema_path": ["segment_policy", "src_any"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/service_policy_rule/properties/segment_policy/src_any/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "segment_policy.src_any",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["service_policy_ruleCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -7927,20 +7927,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/service_policy_rule/properties/segment_policy/src_segments/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "List of references to Segments.",
       "tasks": ["configuration"],
       "title": "segment_policy.src_segments",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["service_policy_ruleCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["segment policy src segments segments"],
       "body_bytes": 5524,
-      "body_sha256": "sha256:4b11b882e278bab7b51175bace3a1eca01d78fc06e50c628aa1214bd8eaed570",
+      "body_sha256": "sha256:f18cac9554ef3e8a688873fe18a9011ea02e80fb6409c25e185e1abad6fbf445",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -8046,14 +8046,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/service_policy_rule/properties/segment_policy/src_segments/segments/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "Select list of segments.",
       "tasks": ["configuration"],
       "title": "segment_policy.src_segments.segments",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["service_policy_ruleCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -8186,20 +8186,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/service_policy_rule/properties/timeouts/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "timeouts for xcsh_service_policy_rule.",
       "tasks": ["configuration"],
       "title": "timeouts",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["service_policy_ruleCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["succeeded", "success", "successful", "tls fingerprint matcher"],
       "body_bytes": 5459,
-      "body_sha256": "sha256:e85d2b10249434331b6469bf606b69676419468cd08e97f75cf23cd2a935d7ea",
+      "body_sha256": "sha256:b9eee91d729e22773ddddac9b002b040f11092061dc37f69c18c08e4f3736f5b",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -8275,14 +8275,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/service_policy_rule/properties/tls_fingerprint_matcher/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "A TLS fingerprint matcher specifies multiple criteria for matching a TLS fingerprint. The set of supported positive match criteria includes a list of known classes of TLS fingerprints and a list of exact values. The match is considered successful if either of these positive criteria are satisfied and the input",
       "tasks": ["configuration"],
       "title": "tls_fingerprint_matcher",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["service_policy_ruleCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -8417,14 +8417,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/service_policy_rule/properties/waf_action/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "Modify App Firewall behavior for a matching request. The modification could either be to entirely skip firewall processing or to customize the firewall rules to be applied as defined by App Firewall Rule Control settings.",
       "tasks": ["configuration"],
       "title": "waf_action",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["service_policy_ruleCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -8545,20 +8545,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/service_policy_rule/properties/waf_action/app_firewall_detection_control/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "Define the list of Signature IDs, Violations, Attack Types and Bot Names that should be excluded from triggering on the defined match criteria.",
       "tasks": ["configuration"],
       "title": "waf_action.app_firewall_detection_control",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["service_policy_ruleCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["waf action app firewall detection control exclude attack type contexts"],
       "body_bytes": 11478,
-      "body_sha256": "sha256:d79ea8c480cb261749f9857f4845da72cce705eddb2245a5ab335ddc57940b1e",
+      "body_sha256": "sha256:e38e270c0155890775667712189c6fb6f1dfd815d4d74e55b5898607c97a125b",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -8700,20 +8700,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/service_policy_rule/properties/waf_action/app_firewall_detection_control/exclude_attack_type_contexts/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "Exclude an entire attack type only in the named context. For migrated per-parameter exceptions, prefer this over signature-ID exclusions because one payload can trigger several signatures; unrelated parameters and attack types remain protected.",
       "tasks": ["configuration"],
       "title": "waf_action.app_firewall_detection_control.exclude_attack_type_contexts",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["service_policy_ruleCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["waf action app firewall detection control exclude bot name contexts"],
       "body_bytes": 2783,
-      "body_sha256": "sha256:de1a937daca0ee7e06e7abb93e4ff7d46d8e65bad9e70f485bb40600bdc7cf55",
+      "body_sha256": "sha256:82694e0d9aaa30d49aaee0d82e8aefd40906f78316503cb2a45ec7f666ed2421",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -8766,20 +8766,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/service_policy_rule/properties/waf_action/app_firewall_detection_control/exclude_bot_name_contexts/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "Bot Names to be excluded for the defined match criteria.",
       "tasks": ["configuration"],
       "title": "waf_action.app_firewall_detection_control.exclude_bot_name_contexts",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["service_policy_ruleCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["waf action app firewall detection control exclude signature contexts"],
       "body_bytes": 7632,
-      "body_sha256": "sha256:59ba7e534fc0963d7097f91df5d43b100490985aeeabb62b67be34d8ed4fec01",
+      "body_sha256": "sha256:422cb120c4338daf4e878ca54fa6d6d6bae115a7c5486198b466da979b511f44",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -8883,20 +8883,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/service_policy_rule/properties/waf_action/app_firewall_detection_control/exclude_signature_contexts/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "Signature IDs to be excluded for the defined match criteria.",
       "tasks": ["configuration"],
       "title": "waf_action.app_firewall_detection_control.exclude_signature_contexts",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["service_policy_ruleCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["waf action app firewall detection control exclude violation contexts"],
       "body_bytes": 14717,
-      "body_sha256": "sha256:8f5e1f140ebd6d72e220679851e0f16c1363736b0d068e86584ea1a681f5116f",
+      "body_sha256": "sha256:8b871349a7af8f66cbb48ad42ec0162beeeb6e3a7996f98e6b0273fb91ee0955",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -9040,14 +9040,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/service_policy_rule/properties/waf_action/app_firewall_detection_control/exclude_violation_contexts/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "Violations to be excluded for the defined match criteria.",
       "tasks": ["configuration"],
       "title": "waf_action.app_firewall_detection_control.exclude_violation_contexts",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["service_policy_ruleCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -9080,14 +9080,14 @@
       "schema_path": ["waf_action", "none"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/service_policy_rule/properties/waf_action/none/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "waf_action.none",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["service_policy_ruleCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -9120,14 +9120,14 @@
       "schema_path": ["waf_action", "waf_skip_processing"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/service_policy_rule/properties/waf_action/waf_skip_processing/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "waf_action.waf_skip_processing",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["service_policy_ruleCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -9160,14 +9160,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/service_policy_rule/examples/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "Examples for xcsh_service_policy_rule.",
       "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["service_policy_ruleCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -9207,14 +9207,14 @@
       "schema_path": ["resource"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/service_policy_rule/examples/resource/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "Resource for xcsh_service_policy_rule.",
       "tasks": ["configuration"],
       "title": "Resource",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["service_policy_ruleCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -9248,14 +9248,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/service_policy_rule/lifecycle/import/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "Import for xcsh_service_policy_rule.",
       "tasks": ["import"],
       "title": "Import",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["service_policy_ruleCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -9288,14 +9288,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/service_policy_rule/lifecycle/timeouts/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "Timeouts for xcsh_service_policy_rule.",
       "tasks": ["lifecycle"],
       "title": "Timeouts",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["service_policy_ruleCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     }
   ],

@@ -122,21 +122,21 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/k8s_cluster_role_binding/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "Reads Kubernetes cluster role binding information from F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_k8s_cluster_role_binding",
       "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["k8s_cluster_role_bindingCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["k8s cluster role binding"],
       "body_bytes": 9832,
-      "body_sha256": "sha256:cc73db324e428bc842bf95ed4c7e771c3dadebdb9a0306ac17c238f5c511362e",
+      "body_sha256": "sha256:2ea459bb9f87ca6e6677095fa187b7d55a7df1db68a75dfb42776e61aa6155f1",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [
@@ -295,20 +295,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/k8s_cluster_role_binding/properties/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "Property reference for xcsh_k8s_cluster_role_binding.",
       "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["k8s_cluster_role_bindingCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["k8s cluster role"],
       "body_bytes": 4290,
-      "body_sha256": "sha256:7007b4354c6df3b7bf685fe3587aa95ec1b63a5fa30f5c47c72451aa5b90757d",
+      "body_sha256": "sha256:0b4462661043012fc24757d386b8801b1cb03434474a462ef4fbe77c34a5eb4c",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],
@@ -405,20 +405,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/k8s_cluster_role_binding/properties/k8s_cluster_role/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "k8s_cluster_role",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["k8s_cluster_role_bindingCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["subjects"],
       "body_bytes": 3710,
-      "body_sha256": "sha256:6c2ca0d856611b07a7659b4ed3780e70e3a31e0078b6b638c460cd4aec634d84",
+      "body_sha256": "sha256:10e394b090261d049ffc686aa4ed6695f79d38b5b3073e3c5caff246ff1068db",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": ["xcsh-docs:data-sources:k8s_cluster_role_binding:properties:subjects:service_account"],
@@ -494,20 +494,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/k8s_cluster_role_binding/properties/subjects/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "List of subjects (user, group or service account) to which this role is bound.",
       "tasks": ["configuration"],
       "title": "subjects",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["k8s_cluster_role_bindingCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["subjects service account"],
       "body_bytes": 3844,
-      "body_sha256": "sha256:a965d5caf1dcba0c2efd65da7f7308452c442c4b36e0436f4542e0acfd212fda",
+      "body_sha256": "sha256:5afb80caba786a15895ddab27cfdd8b076007634a124d2c23a58d346ec8386e9",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],
@@ -567,14 +567,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/k8s_cluster_role_binding/properties/subjects/service_account/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "ServiceAccountType.",
       "tasks": ["configuration"],
       "title": "subjects.service_account",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["k8s_cluster_role_bindingCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -607,14 +607,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/k8s_cluster_role_binding/examples/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "Examples for xcsh_k8s_cluster_role_binding.",
       "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["k8s_cluster_role_bindingCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -654,14 +654,14 @@
       "schema_path": ["data-source"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/k8s_cluster_role_binding/examples/data-source/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "Data source for xcsh_k8s_cluster_role_binding.",
       "tasks": ["configuration"],
       "title": "Data source",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["k8s_cluster_role_bindingCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     }
   ],

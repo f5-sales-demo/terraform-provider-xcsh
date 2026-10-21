@@ -444,21 +444,21 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/enhanced_firewall_policy/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "Manages an Enhanced Firewall Policy resource in F5 Distributed Cloud for enhanced firewall policy specification. configuration.",
       "tasks": ["configuration"],
       "title": "xcsh_enhanced_firewall_policy",
       "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["enhanced_firewall_policyCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["enhanced firewall policy"],
       "body_bytes": 27278,
-      "body_sha256": "sha256:e961275ece543d688e3049bb97697db951b68847db7e8c47160bb82030dc3d8d",
+      "body_sha256": "sha256:443d489947f89b4f067a82b3de06e2bc645df802d52f7f6d02b8579dd589ab8a",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -744,14 +744,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/enhanced_firewall_policy/properties/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "Property reference for xcsh_enhanced_firewall_policy.",
       "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["enhanced_firewall_policyCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -784,20 +784,20 @@
       "schema_path": ["allow_all"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/enhanced_firewall_policy/properties/allow_all/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "allow_all",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["enhanced_firewall_policyCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["allowed destinations"],
       "body_bytes": 2057,
-      "body_sha256": "sha256:095a634d446cfa3d8e7cada70120afad42b931a16383d7cd654b2bd2a32c8e6c",
+      "body_sha256": "sha256:8db166ccc344a17479ed140580ab4a2d56581edfd2772efeab3c45e240dc4904",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -841,20 +841,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/enhanced_firewall_policy/properties/allowed_destinations/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "List of IP Address prefixes. Prefix must contain both prefix and prefix-length The list can contain mix of both IPv4 and IPv6 prefixes.",
       "tasks": ["configuration"],
       "title": "allowed_destinations",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["enhanced_firewall_policyCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["allowed sources"],
       "body_bytes": 2037,
-      "body_sha256": "sha256:78e984d9151fb567e433fa05c2811fc4b2350b3992d03e9ca433e9ed6c845acf",
+      "body_sha256": "sha256:aa5af2402dc30e318eeef017cb1af4bf0956ea6dda143ab90754023d0b730c40",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -898,20 +898,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/enhanced_firewall_policy/properties/allowed_sources/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "List of IP Address prefixes. Prefix must contain both prefix and prefix-length The list can contain mix of both IPv4 and IPv6 prefixes.",
       "tasks": ["configuration"],
       "title": "allowed_sources",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["enhanced_firewall_policyCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["denied destinations"],
       "body_bytes": 2053,
-      "body_sha256": "sha256:a80eb06095c153e082292d68e386b7edc81b468a44270f43f171ef45f50d9499",
+      "body_sha256": "sha256:6f32f71deaa489cbe0350e6f4b3a9dcb8c50921c1cfa0dd8edc448543645336b",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -955,20 +955,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/enhanced_firewall_policy/properties/denied_destinations/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "List of IP Address prefixes. Prefix must contain both prefix and prefix-length The list can contain mix of both IPv4 and IPv6 prefixes.",
       "tasks": ["configuration"],
       "title": "denied_destinations",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["enhanced_firewall_policyCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["denied sources"],
       "body_bytes": 2033,
-      "body_sha256": "sha256:743cb13016bb23a101dbf1816e146c1470169ca56d3723ff516adb29a373f392",
+      "body_sha256": "sha256:7a552187d2d1031667db94bc0be8a8f543cf0e8d979a37edd757f9ab074df65c",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -1012,14 +1012,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/enhanced_firewall_policy/properties/denied_sources/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "List of IP Address prefixes. Prefix must contain both prefix and prefix-length The list can contain mix of both IPv4 and IPv6 prefixes.",
       "tasks": ["configuration"],
       "title": "denied_sources",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["enhanced_firewall_policyCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -1052,14 +1052,14 @@
       "schema_path": ["deny_all"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/enhanced_firewall_policy/properties/deny_all/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "deny_all",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["enhanced_firewall_policyCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -2239,20 +2239,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/enhanced_firewall_policy/properties/rule_list/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "Custom Enhanced Firewall Policy Rules.",
       "tasks": ["configuration"],
       "title": "rule_list",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["enhanced_firewall_policyCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["rule list rules"],
       "body_bytes": 13443,
-      "body_sha256": "sha256:b5a1c034907a5b693de2d0625bb345f8009bb4e745f1d459042fe5f9a3ac7a38",
+      "body_sha256": "sha256:3d10f8070637fbd2f81e93aa401d676ddfa302df9837c731bb8586222cf5e733",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -3906,14 +3906,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/enhanced_firewall_policy/properties/rule_list/rules/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "Ordered List of Enhanced Firewall Policy Rules.",
       "tasks": ["configuration"],
       "title": "rule_list.rules",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["enhanced_firewall_policyCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -3972,14 +3972,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/enhanced_firewall_policy/properties/rule_list/rules/advanced_action/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "Network Policy Rule Advanced Action provides additional OPTIONS along with RuleAction and PBRRuleAction.",
       "tasks": ["configuration"],
       "title": "rule_list.rules.advanced_action",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["enhanced_firewall_policyCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -4012,14 +4012,14 @@
       "schema_path": ["rule_list", "rules", "all_destinations"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/enhanced_firewall_policy/properties/rule_list/rules/all_destinations/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "rule_list.rules.all_destinations",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["enhanced_firewall_policyCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -4052,14 +4052,14 @@
       "schema_path": ["rule_list", "rules", "all_sli_vips"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/enhanced_firewall_policy/properties/rule_list/rules/all_sli_vips/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "rule_list.rules.all_sli_vips",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["enhanced_firewall_policyCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -4092,14 +4092,14 @@
       "schema_path": ["rule_list", "rules", "all_slo_vips"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/enhanced_firewall_policy/properties/rule_list/rules/all_slo_vips/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "rule_list.rules.all_slo_vips",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["enhanced_firewall_policyCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -4132,14 +4132,14 @@
       "schema_path": ["rule_list", "rules", "all_sources"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/enhanced_firewall_policy/properties/rule_list/rules/all_sources/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "rule_list.rules.all_sources",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["enhanced_firewall_policyCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -4172,14 +4172,14 @@
       "schema_path": ["rule_list", "rules", "all_tcp_traffic"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/enhanced_firewall_policy/properties/rule_list/rules/all_tcp_traffic/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "rule_list.rules.all_tcp_traffic",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["enhanced_firewall_policyCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -4212,14 +4212,14 @@
       "schema_path": ["rule_list", "rules", "all_traffic"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/enhanced_firewall_policy/properties/rule_list/rules/all_traffic/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "rule_list.rules.all_traffic",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["enhanced_firewall_policyCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -4252,14 +4252,14 @@
       "schema_path": ["rule_list", "rules", "all_udp_traffic"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/enhanced_firewall_policy/properties/rule_list/rules/all_udp_traffic/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "rule_list.rules.all_udp_traffic",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["enhanced_firewall_policyCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -4292,14 +4292,14 @@
       "schema_path": ["rule_list", "rules", "allow"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/enhanced_firewall_policy/properties/rule_list/rules/allow/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "rule_list.rules.allow",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["enhanced_firewall_policyCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -4349,14 +4349,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/enhanced_firewall_policy/properties/rule_list/rules/applications/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "Application protocols like HTTP, SNMP.",
       "tasks": ["configuration"],
       "title": "rule_list.rules.applications",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["enhanced_firewall_policyCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -4389,20 +4389,20 @@
       "schema_path": ["rule_list", "rules", "deny"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/enhanced_firewall_policy/properties/rule_list/rules/deny/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "rule_list.rules.deny",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["enhanced_firewall_policyCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["rule list rules destination aws vpc ids"],
       "body_bytes": 2908,
-      "body_sha256": "sha256:21b8b79db0349438ccdeebdfc7709146717404dee7950772d9dd01b576f71fc2",
+      "body_sha256": "sha256:eff22b73427c3aa3e3a088679f3f7d245bb04e589e4f309c1d6a3c418d7d0939",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -4455,14 +4455,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/enhanced_firewall_policy/properties/rule_list/rules/destination_aws_vpc_ids/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "List of VPC Identifiers in AWS.",
       "tasks": ["configuration"],
       "title": "rule_list.rules.destination_aws_vpc_ids",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["enhanced_firewall_policyCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -4514,20 +4514,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/enhanced_firewall_policy/properties/rule_list/rules/destination_ip_prefix_set/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "A list of references to ip_prefix_set objects.",
       "tasks": ["configuration"],
       "title": "rule_list.rules.destination_ip_prefix_set",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["enhanced_firewall_policyCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["rule list rules destination ip prefix set ref"],
       "body_bytes": 6122,
-      "body_sha256": "sha256:008277642acf0681a9df63d6d9e27890e6cf6484c1c8d7bbd1148643a5817dc5",
+      "body_sha256": "sha256:87bdef7790d9a360eef62f8043aaac0f1112ee25a3d929bb9918322b02c5aa24",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -4670,20 +4670,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/enhanced_firewall_policy/properties/rule_list/rules/destination_ip_prefix_set/ref/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "A list of references to ip_prefix_set objects.",
       "tasks": ["configuration"],
       "title": "rule_list.rules.destination_ip_prefix_set.ref",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["enhanced_firewall_policyCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["rule list rules destination label selector"],
       "body_bytes": 3902,
-      "body_sha256": "sha256:6ecf4364b16ef994a7eca76772d174799fb408de50b630d533d33cd88e9d5b64",
+      "body_sha256": "sha256:7619a51a65d8afceb3d1f4d31639b0df21f0d5ac68f394d5b70f9257cd69f03a",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -4736,20 +4736,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/enhanced_firewall_policy/properties/rule_list/rules/destination_label_selector/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "This type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects. A null label selector matches no objects.",
       "tasks": ["configuration"],
       "title": "rule_list.rules.destination_label_selector",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["enhanced_firewall_policyCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["rule list rules destination prefix list"],
       "body_bytes": 2395,
-      "body_sha256": "sha256:1f9db0065adbd283a4aae6c3029b094896256eedbf8a33ccce64d8c15c715c35",
+      "body_sha256": "sha256:ba281ec78e32bdb17b912f09635993160b3aaa248aad16b01c01e2c6d638d1a2",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -4793,14 +4793,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/enhanced_firewall_policy/properties/rule_list/rules/destination_prefix_list/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "List of IPv4 prefixes that represent an endpoint.",
       "tasks": ["configuration"],
       "title": "rule_list.rules.destination_prefix_list",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["enhanced_firewall_policyCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -4861,20 +4861,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/enhanced_firewall_policy/properties/rule_list/rules/insert_service/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "Action to forward traffic to external service.",
       "tasks": ["configuration"],
       "title": "rule_list.rules.insert_service",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["enhanced_firewall_policyCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["rule list rules insert service nfv service"],
       "body_bytes": 5671,
-      "body_sha256": "sha256:283980d3addcad2a82dbae14c22c1a1eeaa02698a4bf4add1b86f00404fd8709",
+      "body_sha256": "sha256:7143e3b4c2717b43cac75565942340f37c99c36d2dc146252f290ee310c3c64d",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -4980,14 +4980,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/enhanced_firewall_policy/properties/rule_list/rules/insert_service/nfv_service/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "rule_list.rules.insert_service.nfv_service",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["enhanced_firewall_policyCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -5020,14 +5020,14 @@
       "schema_path": ["rule_list", "rules", "inside_destinations"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/enhanced_firewall_policy/properties/rule_list/rules/inside_destinations/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "rule_list.rules.inside_destinations",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["enhanced_firewall_policyCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -5060,20 +5060,20 @@
       "schema_path": ["rule_list", "rules", "inside_sources"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/enhanced_firewall_policy/properties/rule_list/rules/inside_sources/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "rule_list.rules.inside_sources",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["enhanced_firewall_policyCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["rule list rules label matcher"],
       "body_bytes": 2653,
-      "body_sha256": "sha256:d61b10602408021d6af60127009edbb23bbe2b180311e67f74727afdd8d1e35f",
+      "body_sha256": "sha256:28c06306f27a7ea1a4e43b5eba6e608cb7c5ce128cfa6936d977226300e8f728",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -5117,20 +5117,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/enhanced_firewall_policy/properties/rule_list/rules/label_matcher/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "A label matcher specifies a list of label keys whose values need to match for source/client and destination/server. Note that the actual label values are not specified and do not matter. This allows an ability to scope grouping by the label key name.",
       "tasks": ["configuration"],
       "title": "rule_list.rules.label_matcher",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["enhanced_firewall_policyCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["rule list rules metadata"],
       "body_bytes": 3635,
-      "body_sha256": "sha256:5e142714f270db5db51805209dc21433ea878329b5064ce0c9c39c1c027b7c0b",
+      "body_sha256": "sha256:ba4b2fbdfb72a56a4fb61fa2d6222fbdfd4be5a33b7b2a12efe2928da1b882f1",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -5199,14 +5199,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/enhanced_firewall_policy/properties/rule_list/rules/metadata/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create and replace APIs.",
       "tasks": ["configuration"],
       "title": "rule_list.rules.metadata",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["enhanced_firewall_policyCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -5239,14 +5239,14 @@
       "schema_path": ["rule_list", "rules", "outside_destinations"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/enhanced_firewall_policy/properties/rule_list/rules/outside_destinations/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "rule_list.rules.outside_destinations",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["enhanced_firewall_policyCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -5279,20 +5279,20 @@
       "schema_path": ["rule_list", "rules", "outside_sources"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/enhanced_firewall_policy/properties/rule_list/rules/outside_sources/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "rule_list.rules.outside_sources",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["enhanced_firewall_policyCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["rule list rules protocol port range"],
       "body_bytes": 3737,
-      "body_sha256": "sha256:8bfffd72a7b8bd076270df99f7165058c31cae32d85362180e4540870379aff1",
+      "body_sha256": "sha256:0af79edccf0d311b25fe49b7134bb9b57636493eb980046691a4ac4531ecd7be",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -5361,20 +5361,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/enhanced_firewall_policy/properties/rule_list/rules/protocol_port_range/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "Protocol and Port ranges.",
       "tasks": ["configuration"],
       "title": "rule_list.rules.protocol_port_range",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["enhanced_firewall_policyCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["rule list rules source aws vpc ids"],
       "body_bytes": 2883,
-      "body_sha256": "sha256:880a0a6d94138fb460bb64895cce7975b10429b9710dc05dde10039776ffe4a6",
+      "body_sha256": "sha256:df05cf73906cc411cb58587ac08354a718a90f07bb14770f8f2cc20e2bf74b5f",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -5427,14 +5427,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/enhanced_firewall_policy/properties/rule_list/rules/source_aws_vpc_ids/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "List of VPC Identifiers in AWS.",
       "tasks": ["configuration"],
       "title": "rule_list.rules.source_aws_vpc_ids",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["enhanced_firewall_policyCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -5484,20 +5484,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/enhanced_firewall_policy/properties/rule_list/rules/source_ip_prefix_set/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "A list of references to ip_prefix_set objects.",
       "tasks": ["configuration"],
       "title": "rule_list.rules.source_ip_prefix_set",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["enhanced_firewall_policyCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["rule list rules source ip prefix set ref"],
       "body_bytes": 6077,
-      "body_sha256": "sha256:3363c8688f959a424da6fc8afe6d15b2ed32e94f8dbb0c06cc99c9ac0544fd00",
+      "body_sha256": "sha256:561da9d6affefae013b8907b278e2c709e7315d9f076566cb5970af3b8e22273",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -5640,20 +5640,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/enhanced_firewall_policy/properties/rule_list/rules/source_ip_prefix_set/ref/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "A list of references to ip_prefix_set objects.",
       "tasks": ["configuration"],
       "title": "rule_list.rules.source_ip_prefix_set.ref",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["enhanced_firewall_policyCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["rule list rules source label selector"],
       "body_bytes": 3882,
-      "body_sha256": "sha256:99e621fcecc80240cc24657de14c15994d2c3c7773e97f517963329f0623a686",
+      "body_sha256": "sha256:8a3c80fed982763f0e7f7623ab642e785345b0ed6e7f94f66808144603fcfd98",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -5706,20 +5706,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/enhanced_firewall_policy/properties/rule_list/rules/source_label_selector/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "This type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects. A null label selector matches no objects.",
       "tasks": ["configuration"],
       "title": "rule_list.rules.source_label_selector",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["enhanced_firewall_policyCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
       "aliases": ["rule list rules source prefix list"],
       "body_bytes": 2375,
-      "body_sha256": "sha256:7a7db936e9b30a110be529951f6b94dc1d438bf83e6aa8ff9eb0dd3db7466e85",
+      "body_sha256": "sha256:cc99e93bbd429d07b93c1d27f189a7cd28f6c74f33cc449139f7d02381c7e457",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -5763,14 +5763,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/enhanced_firewall_policy/properties/rule_list/rules/source_prefix_list/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "List of IPv4 prefixes that represent an endpoint.",
       "tasks": ["configuration"],
       "title": "rule_list.rules.source_prefix_list",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["enhanced_firewall_policyCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -5903,14 +5903,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/enhanced_firewall_policy/properties/timeouts/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "timeouts for xcsh_enhanced_firewall_policy.",
       "tasks": ["configuration"],
       "title": "timeouts",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["enhanced_firewall_policyCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -5943,14 +5943,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/enhanced_firewall_policy/examples/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "Examples for xcsh_enhanced_firewall_policy.",
       "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["enhanced_firewall_policyCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -5990,14 +5990,14 @@
       "schema_path": ["resource"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/enhanced_firewall_policy/examples/resource/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "Resource for xcsh_enhanced_firewall_policy.",
       "tasks": ["configuration"],
       "title": "Resource",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["enhanced_firewall_policyCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -6031,14 +6031,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/enhanced_firewall_policy/lifecycle/import/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "Import for xcsh_enhanced_firewall_policy.",
       "tasks": ["import"],
       "title": "Import",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["enhanced_firewall_policyCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     },
     {
@@ -6071,14 +6071,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/enhanced_firewall_policy/lifecycle/timeouts/index.txt",
-      "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492",
+      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
       "summary": "Timeouts for xcsh_enhanced_firewall_policy.",
       "tasks": ["lifecycle"],
       "title": "Timeouts",
       "upstream_identity": {
-        "release_tag": "v12.1.4",
+        "release_tag": "v12.1.5",
         "schema_components": ["enhanced_firewall_policyCreateRequest"],
-        "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"
+        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
       }
     }
   ],

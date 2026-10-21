@@ -2,7 +2,7 @@
 page_title: "allowed_devices"
 subcategory: ""
 description: "List of allowed USB devices."
-xcsh_docs: {"aliases": ["allowed devices"], "body_bytes": 5064, "body_sha256": "sha256:15f755e384848df28f3f1e517b5675ee6b3de4c3aa275ee7702c4f8fc390cc2f", "capabilities": [], "category": null, "child_ids": [], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": [], "status": "unresolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:resources:usb_policy:collection", "completeness": "complete", "id": "xcsh-docs:resources:usb_policy:properties:allowed_devices", "parent_id": "xcsh-docs:resources:usb_policy:reference", "path": "documentation/resources/usb_policy/properties/allowed_devices/index.md", "product": "distributed-cloud", "provider_name": "usb_policy", "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015", "provider_type": "resources", "registry_anchor": "canonical-3320231330031332-2111103103322211-1212323033212013-0110213130300113-0021012312002300-1222212221322113-0023133330222231-2322130331230220", "registry_path": "docs/guides/resources--usb_policy--reference--group-001.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["allowed_devices"], "schema_version": 1, "sections": [{"aliases": ["allowed devices b device class"], "anchor": "schema-allowed_devices--b_device_class", "description": "The class of this device.", "document_id": "xcsh-docs:resources:usb_policy:properties:allowed_devices", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["allowed_devices", "b_device_class"], "syntax": "attribute", "type": "string"}, {"aliases": ["allowed devices b device protocol"], "anchor": "schema-allowed_devices--b_device_protocol", "description": "The protocol (within the sub-class) of this device.", "document_id": "xcsh-docs:resources:usb_policy:properties:allowed_devices", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["allowed_devices", "b_device_protocol"], "syntax": "attribute", "type": "string"}, {"aliases": ["allowed devices b device sub class"], "anchor": "schema-allowed_devices--b_device_sub_class", "description": "The sub-class (within the class) of this device.", "document_id": "xcsh-docs:resources:usb_policy:properties:allowed_devices", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["allowed_devices", "b_device_sub_class"], "syntax": "attribute", "type": "string"}, {"aliases": ["allowed devices i serial"], "anchor": "schema-allowed_devices--i_serial", "description": "Index of Serial Number String Descriptor.", "document_id": "xcsh-docs:resources:usb_policy:properties:allowed_devices", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["allowed_devices", "i_serial"], "syntax": "attribute", "type": "string"}, {"aliases": ["allowed devices id product"], "anchor": "schema-allowed_devices--id_product", "description": "Product ID (Assigned by Manufacturer) in hex.", "document_id": "xcsh-docs:resources:usb_policy:properties:allowed_devices", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["allowed_devices", "id_product"], "syntax": "attribute", "type": "string"}, {"aliases": ["allowed devices id vendor"], "anchor": "schema-allowed_devices--id_vendor", "description": "Vendor ID (Assigned by USB Org) in hex.", "document_id": "xcsh-docs:resources:usb_policy:properties:allowed_devices", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["allowed_devices", "id_vendor"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/usb_policy/properties/allowed_devices/index.txt", "spec_pin_digest": "sha256:2a27992e2c450f8ea5ba537ebc7f5c26b0dfbc946db7ef0e7e86625dba9fb492", "summary": "List of allowed USB devices.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.1.4", "schema_components": ["usb_policyCreateRequest"], "target_commit": "a9149265e7737f6841c289490cb1a3ca946de83e"}}
+xcsh_docs: {"aliases": ["allowed devices"], "body_bytes": 5064, "body_sha256": "sha256:29d39cf35e30d93d54862455620612f9ae0ac73c25aa4926c45f40ab6dac5b17", "capabilities": [], "category": null, "child_ids": [], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": [], "status": "unresolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:resources:usb_policy:collection", "completeness": "complete", "id": "xcsh-docs:resources:usb_policy:properties:allowed_devices", "parent_id": "xcsh-docs:resources:usb_policy:reference", "path": "documentation/resources/usb_policy/properties/allowed_devices/index.md", "product": "distributed-cloud", "provider_name": "usb_policy", "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015", "provider_type": "resources", "registry_anchor": "canonical-3320231330031332-2111103103322211-1212323033212013-0110213130300113-0021012312002300-1222212221322113-0023133330222231-2322130331230220", "registry_path": "docs/guides/resources--usb_policy--reference--group-001.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["allowed_devices"], "schema_version": 1, "sections": [{"aliases": ["allowed devices b device class"], "anchor": "schema-allowed_devices--b_device_class", "description": "The class of this device.", "document_id": "xcsh-docs:resources:usb_policy:properties:allowed_devices", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["allowed_devices", "b_device_class"], "syntax": "attribute", "type": "string"}, {"aliases": ["allowed devices b device protocol"], "anchor": "schema-allowed_devices--b_device_protocol", "description": "The protocol (within the sub-class) of this device.", "document_id": "xcsh-docs:resources:usb_policy:properties:allowed_devices", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["allowed_devices", "b_device_protocol"], "syntax": "attribute", "type": "string"}, {"aliases": ["allowed devices b device sub class"], "anchor": "schema-allowed_devices--b_device_sub_class", "description": "The sub-class (within the class) of this device.", "document_id": "xcsh-docs:resources:usb_policy:properties:allowed_devices", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["allowed_devices", "b_device_sub_class"], "syntax": "attribute", "type": "string"}, {"aliases": ["allowed devices i serial"], "anchor": "schema-allowed_devices--i_serial", "description": "Index of Serial Number String Descriptor.", "document_id": "xcsh-docs:resources:usb_policy:properties:allowed_devices", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["allowed_devices", "i_serial"], "syntax": "attribute", "type": "string"}, {"aliases": ["allowed devices id product"], "anchor": "schema-allowed_devices--id_product", "description": "Product ID (Assigned by Manufacturer) in hex.", "document_id": "xcsh-docs:resources:usb_policy:properties:allowed_devices", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["allowed_devices", "id_product"], "syntax": "attribute", "type": "string"}, {"aliases": ["allowed devices id vendor"], "anchor": "schema-allowed_devices--id_vendor", "description": "Vendor ID (Assigned by USB Org) in hex.", "document_id": "xcsh-docs:resources:usb_policy:properties:allowed_devices", "enum_extraction_complete": false, "enum_validators": [], "flags": ["optional"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["allowed_devices", "id_vendor"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/usb_policy/properties/allowed_devices/index.txt", "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1", "summary": "List of allowed USB devices.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.1.5", "schema_components": ["usb_policyCreateRequest"], "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -37,7 +37,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-20T00:10:01+00:00"
+      "validatedAt": "2026-10-21T11:00:09+00:00"
     },
     "minItems": 1
   },
@@ -91,7 +91,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-10-20T00:10:01+00:00"
+      "validatedAt": "2026-10-21T11:00:09+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -122,7 +122,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-10-20T00:10:01+00:00"
+      "validatedAt": "2026-10-21T11:00:09+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -153,7 +153,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-10-20T00:10:01+00:00"
+      "validatedAt": "2026-10-21T11:00:09+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -184,7 +184,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-10-20T00:10:01+00:00"
+      "validatedAt": "2026-10-21T11:00:09+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -215,7 +215,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-10-20T00:10:01+00:00"
+      "validatedAt": "2026-10-21T11:00:09+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -246,7 +246,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-10-20T00:10:01+00:00"
+      "validatedAt": "2026-10-21T11:00:09+00:00"
     }
   },
   "x-f5xc-required-for": {
