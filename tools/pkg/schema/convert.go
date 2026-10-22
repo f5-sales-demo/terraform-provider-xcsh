@@ -417,6 +417,16 @@ func ConvertToTerraformAttributeWithDepth(name string, schema openapi.Schema, re
 		attr.Optional = true
 		attr.CreateRequired = true
 	}
+	// A simple route may inherit the HTTP load balancer's default_pool. The
+	// enriched field-level create-required annotation cannot express that
+	// parent-dependent alternative. Keep explicit pools optional at this path;
+	// configured pool entries retain their own validation and the API validates
+	// whether a usable default pool exists.
+	if fieldPath == "routes.simple_route.origin_pools" {
+		attr.CreateRequired = false
+		attr.Required = false
+		attr.Optional = true
+	}
 	// OpenAPI readOnly fields are returned by the server but are never accepted as
 	// practitioner configuration. Keep them in state as Computed-only attributes.
 	if schema.ReadOnly {
