@@ -2,7 +2,7 @@
 page_title: "infra.hw_info.board"
 subcategory: ""
 description: "Board information."
-xcsh_docs: {"aliases": ["infra hw info board"], "body_bytes": 4333, "body_sha256": "sha256:12b1b865f2b3ed09d23c28e9ade47e75efd03fb78faf23dd839f8c30fddd3d06", "capabilities": ["infrastructure"], "category": "infrastructure", "child_ids": [], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:data-sources:registration:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:board", "parent_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info", "path": "documentation/data-sources/registration/properties/infra/hw_info/board/index.md", "product": "distributed-cloud", "provider_name": "registration", "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015", "provider_type": "data-sources", "registry_anchor": "canonical-0300033332101323-2231303002032101-2312221131233033-2200021113223020-2310013023012212-3020301112132030-3130303021312113-2013200313132132", "registry_path": "docs/guides/data-sources--registration--reference--group-001.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["infra", "hw_info", "board"], "schema_version": 1, "sections": [{"aliases": ["infra hw info board asset tag"], "anchor": "schema-infra--hw_info--board--asset_tag", "description": "Information from /sys/class/dmi/ID/board_asset_tag.", "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:board", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["infra", "hw_info", "board", "asset_tag"], "syntax": "attribute", "type": "string"}, {"aliases": ["infra hw info board name"], "anchor": "schema-infra--hw_info--board--name", "description": "Information from /sys/class/dmi/ID/board_name.", "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:board", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["infra", "hw_info", "board", "name"], "syntax": "attribute", "type": "string"}, {"aliases": ["infra hw info board serial"], "anchor": "schema-infra--hw_info--board--serial", "description": "Information from /sys/class/dmi/ID/board_serial.", "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:board", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["infra", "hw_info", "board", "serial"], "syntax": "attribute", "type": "string"}, {"aliases": ["infra hw info board vendor"], "anchor": "schema-infra--hw_info--board--vendor", "description": "Information from /sys/class/dmi/ID/board_vendor.", "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:board", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["infra", "hw_info", "board", "vendor"], "syntax": "attribute", "type": "string"}, {"aliases": ["infra hw info board version"], "anchor": "schema-infra--hw_info--board--version", "description": "Information from /sys/class/dmi/ID/board_version.", "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:board", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["infra", "hw_info", "board", "version"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/registration/properties/infra/hw_info/board/index.txt", "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1", "summary": "Board information.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.1.5", "schema_components": ["registrationCreateRequest"], "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"}}
+xcsh_docs: {"aliases": ["infra hw info board"], "body_bytes": 4333, "body_sha256": "sha256:00c2d2e88934885bdeb0a079e338d0afb7fd0b97a90504faf7cbe61af3b7236c", "capabilities": ["infrastructure"], "category": "infrastructure", "child_ids": [], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": ["reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-domain"}, "collection_id": "xcsh-docs:data-sources:registration:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:board", "parent_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info", "path": "documentation/data-sources/registration/properties/infra/hw_info/board/index.md", "product": "distributed-cloud", "provider_name": "registration", "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43", "provider_type": "data-sources", "registry_anchor": "canonical-0300033332101323-2231303002032101-2312221131233033-2200021113223020-2310013023012212-3020301112132030-3130303021312113-2013200313132132", "registry_path": "docs/guides/data-sources--registration--reference--group-001.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["infra", "hw_info", "board"], "schema_version": 1, "sections": [{"aliases": ["infra hw info board asset tag"], "anchor": "schema-infra--hw_info--board--asset_tag", "description": "Information from /sys/class/dmi/ID/board_asset_tag.", "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:board", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["infra", "hw_info", "board", "asset_tag"], "syntax": "attribute", "type": "string"}, {"aliases": ["infra hw info board name"], "anchor": "schema-infra--hw_info--board--name", "description": "Information from /sys/class/dmi/ID/board_name.", "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:board", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["infra", "hw_info", "board", "name"], "syntax": "attribute", "type": "string"}, {"aliases": ["infra hw info board serial"], "anchor": "schema-infra--hw_info--board--serial", "description": "Information from /sys/class/dmi/ID/board_serial.", "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:board", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["infra", "hw_info", "board", "serial"], "syntax": "attribute", "type": "string"}, {"aliases": ["infra hw info board vendor"], "anchor": "schema-infra--hw_info--board--vendor", "description": "Information from /sys/class/dmi/ID/board_vendor.", "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:board", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["infra", "hw_info", "board", "vendor"], "syntax": "attribute", "type": "string"}, {"aliases": ["infra hw info board version"], "anchor": "schema-infra--hw_info--board--version", "description": "Information from /sys/class/dmi/ID/board_version.", "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:board", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["infra", "hw_info", "board", "version"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/registration/properties/infra/hw_info/board/index.txt", "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949", "summary": "Board information.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.5.2", "schema_components": ["registrationCreateRequest"], "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -59,7 +59,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-10-21T11:00:09+00:00"
+      "validatedAt": "2026-10-29T12:14:42+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -99,7 +99,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "inferred",
-      "validatedAt": "2026-10-21T11:00:09+00:00"
+      "validatedAt": "2026-10-29T12:14:42+00:00"
     },
     "minLength": 1,
     "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
@@ -136,7 +136,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-10-21T11:00:09+00:00"
+      "validatedAt": "2026-10-29T12:14:42+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -167,7 +167,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-10-21T11:00:09+00:00"
+      "validatedAt": "2026-10-29T12:14:42+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -198,7 +198,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-10-21T11:00:09+00:00"
+      "validatedAt": "2026-10-29T12:14:42+00:00"
     }
   },
   "x-f5xc-required-for": {

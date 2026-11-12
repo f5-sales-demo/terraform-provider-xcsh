@@ -2,7 +2,7 @@
 page_title: "allow_list.dest_list"
 subcategory: "Security"
 description: "L4 destinations for non-HTTP and non-TLS connections and TLS connections without SNI."
-xcsh_docs: {"aliases": ["allow list dest list"], "body_bytes": 4940, "body_sha256": "sha256:7e99b1ab6835c0c1fe845e51c83c274cc92288095b9ee071a934722f81280512", "capabilities": ["networking"], "category": "networking", "child_ids": [], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:data-sources:forward_proxy_policy:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:forward_proxy_policy:properties:allow_list:dest_list", "parent_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:allow_list", "path": "documentation/data-sources/forward_proxy_policy/properties/allow_list/dest_list/index.md", "product": "distributed-cloud", "provider_name": "forward_proxy_policy", "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015", "provider_type": "data-sources", "registry_anchor": "canonical-1312200232331133-0311010303232332-0221203000300221-3030003302210100-0321011202310111-3201210103311212-3203032110002002-0031020320121203", "registry_path": "docs/guides/data-sources--forward_proxy_policy--reference--group-001.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["allow_list", "dest_list"], "schema_version": 1, "sections": [{"aliases": ["allow list dest list ipv6 prefixes"], "anchor": "schema-allow_list--dest_list--ipv6_prefixes", "description": "Destination IPv6 prefixes.", "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:allow_list:dest_list", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["allow_list", "dest_list", "ipv6_prefixes"], "syntax": "attribute", "type": "list"}, {"aliases": ["allow list dest list port ranges"], "anchor": "schema-allow_list--dest_list--port_ranges", "description": "A string containing a comma separated list of port ranges. Each port range consists of a single port or two ports separated by \"-\".", "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:allow_list:dest_list", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["allow_list", "dest_list", "port_ranges"], "syntax": "attribute", "type": "string"}, {"aliases": ["allow list dest list prefixes"], "anchor": "schema-allow_list--dest_list--prefixes", "description": "Destination IPv4 prefixes.", "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:allow_list:dest_list", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["allow_list", "dest_list", "prefixes"], "syntax": "attribute", "type": "list"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/forward_proxy_policy/properties/allow_list/dest_list/index.txt", "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1", "summary": "L4 destinations for non-HTTP and non-TLS connections and TLS connections without SNI.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.1.5", "schema_components": ["forward_proxy_policyCreateRequest"], "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"}}
+xcsh_docs: {"aliases": ["allow list dest list"], "body_bytes": 4940, "body_sha256": "sha256:24ef80ac7dcea1a1b9c2792e0ed105716a85445c50afd75de70677f0c4842751", "capabilities": ["networking"], "category": "networking", "child_ids": [], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:data-sources:forward_proxy_policy:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:forward_proxy_policy:properties:allow_list:dest_list", "parent_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:allow_list", "path": "documentation/data-sources/forward_proxy_policy/properties/allow_list/dest_list/index.md", "product": "distributed-cloud", "provider_name": "forward_proxy_policy", "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43", "provider_type": "data-sources", "registry_anchor": "canonical-1312200232331133-0311010303232332-0221203000300221-3030003302210100-0321011202310111-3201210103311212-3203032110002002-0031020320121203", "registry_path": "docs/guides/data-sources--forward_proxy_policy--reference--group-001.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["allow_list", "dest_list"], "schema_version": 1, "sections": [{"aliases": ["allow list dest list ipv6 prefixes"], "anchor": "schema-allow_list--dest_list--ipv6_prefixes", "description": "Destination IPv6 prefixes.", "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:allow_list:dest_list", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["allow_list", "dest_list", "ipv6_prefixes"], "syntax": "attribute", "type": "list"}, {"aliases": ["allow list dest list port ranges"], "anchor": "schema-allow_list--dest_list--port_ranges", "description": "A string containing a comma separated list of port ranges. Each port range consists of a single port or two ports separated by \"-\".", "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:allow_list:dest_list", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["allow_list", "dest_list", "port_ranges"], "syntax": "attribute", "type": "string"}, {"aliases": ["allow list dest list prefixes"], "anchor": "schema-allow_list--dest_list--prefixes", "description": "Destination IPv4 prefixes.", "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:allow_list:dest_list", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["allow_list", "dest_list", "prefixes"], "syntax": "attribute", "type": "list"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/forward_proxy_policy/properties/allow_list/dest_list/index.txt", "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949", "summary": "L4 destinations for non-HTTP and non-TLS connections and TLS connections without SNI.", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.5.2", "schema_components": ["forward_proxy_policyCreateRequest"], "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -37,7 +37,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-21T11:00:09+00:00"
+      "validatedAt": "2026-10-29T12:14:42+00:00"
     },
     "uniqueItems": true
   },
@@ -81,7 +81,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-21T11:00:09+00:00"
+      "validatedAt": "2026-10-29T12:14:42+00:00"
     },
     "uniqueItems": true
   },
@@ -132,7 +132,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-21T11:00:09+00:00"
+      "validatedAt": "2026-10-29T12:14:42+00:00"
     },
     "minLength": 1
   },
@@ -178,7 +178,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-21T11:00:09+00:00"
+      "validatedAt": "2026-10-29T12:14:42+00:00"
     },
     "uniqueItems": true
   },

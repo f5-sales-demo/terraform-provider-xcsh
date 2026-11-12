@@ -2,7 +2,7 @@
 page_title: "primary.rr_set_group.rr_set.naptr_record.values"
 subcategory: "DNS"
 description: "Configuration parameter for values"
-xcsh_docs: {"aliases": ["primary rr set group rr set naptr record values"], "body_bytes": 7842, "body_sha256": "sha256:261a4ed4eb25149186ceca095a43d9705d38f3dc39c6bca0a08c5a234d9e9f9d", "capabilities": ["dns"], "category": "dns", "child_ids": [], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:data-sources:dns_zone:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:dns_zone:properties:primary:rr_set_group:rr_set:naptr_record:values", "parent_id": "xcsh-docs:data-sources:dns_zone:properties:primary:rr_set_group:rr_set:naptr_record", "path": "documentation/data-sources/dns_zone/properties/primary/rr_set_group/rr_set/naptr_record/values/index.md", "product": "distributed-cloud", "provider_name": "dns_zone", "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015", "provider_type": "data-sources", "registry_anchor": "canonical-1023231202220220-2030321031113022-3303221030012233-3132133203303320-1021013000001222-3211013210110322-2121322002201003-3010321130013113", "registry_path": "docs/guides/data-sources--dns_zone--reference--group-002.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["primary", "rr_set_group", "rr_set", "naptr_record", "values"], "schema_version": 1, "sections": [{"aliases": ["primary rr set group rr set naptr record values flags"], "anchor": "schema-primary--rr_set_group--rr_set--naptr_record--values--flags", "description": "Flag to control aspects of the rewriting and interpretation of the fields in the record. At this time only four flags, S/A/U/P, are defined.", "document_id": "xcsh-docs:data-sources:dns_zone:properties:primary:rr_set_group:rr_set:naptr_record:values", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["primary", "rr_set_group", "rr_set", "naptr_record", "values", "flags"], "syntax": "attribute", "type": "string"}, {"aliases": ["primary rr set group rr set naptr record values order"], "anchor": "schema-primary--rr_set_group--rr_set--naptr_record--values--order", "description": "Order in which the NAPTR records must be processed. A lower number indicates a higher preference.", "document_id": "xcsh-docs:data-sources:dns_zone:properties:primary:rr_set_group:rr_set:naptr_record:values", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["primary", "rr_set_group", "rr_set", "naptr_record", "values", "order"], "syntax": "attribute", "type": "number"}, {"aliases": ["primary rr set group rr set naptr record values preference"], "anchor": "schema-primary--rr_set_group--rr_set--naptr_record--values--preference", "description": "Preference when records have the same order. A lower number indicates a higher preference.", "document_id": "xcsh-docs:data-sources:dns_zone:properties:primary:rr_set_group:rr_set:naptr_record:values", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["primary", "rr_set_group", "rr_set", "naptr_record", "values", "preference"], "syntax": "attribute", "type": "number"}, {"aliases": ["primary rr set group rr set naptr record values regexp"], "anchor": "schema-primary--rr_set_group--rr_set--naptr_record--values--regexp", "description": "Regular expression to construct the next domain name to lookup.", "document_id": "xcsh-docs:data-sources:dns_zone:properties:primary:rr_set_group:rr_set:naptr_record:values", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["primary", "rr_set_group", "rr_set", "naptr_record", "values", "regexp"], "syntax": "attribute", "type": "string"}, {"aliases": ["primary rr set group rr set naptr record values replacement"], "anchor": "schema-primary--rr_set_group--rr_set--naptr_record--values--replacement", "description": "The next NAME to query for NAPTR, SRV, or address records depending on the value of the flags field.", "document_id": "xcsh-docs:data-sources:dns_zone:properties:primary:rr_set_group:rr_set:naptr_record:values", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["primary", "rr_set_group", "rr_set", "naptr_record", "values", "replacement"], "syntax": "attribute", "type": "string"}, {"aliases": ["primary rr set group rr set naptr record values service"], "anchor": "schema-primary--rr_set_group--rr_set--naptr_record--values--service", "description": "Specifies the service(s) available down this rewrite path.", "document_id": "xcsh-docs:data-sources:dns_zone:properties:primary:rr_set_group:rr_set:naptr_record:values", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["primary", "rr_set_group", "rr_set", "naptr_record", "values", "service"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/properties/primary/rr_set_group/rr_set/naptr_record/values/index.txt", "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1", "summary": "Configuration parameter for values", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.1.5", "schema_components": ["dns_zoneCreateRequest"], "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"}}
+xcsh_docs: {"aliases": ["primary rr set group rr set naptr record values"], "body_bytes": 7842, "body_sha256": "sha256:b93c3aa3dc5c8d87775488213e6a6a7fbd96111f27558f819fb277b5c6126394", "capabilities": ["dns"], "category": "dns", "child_ids": [], "classification": {"rules_sha256": "sha256:e07d3e14cffec3e6fb45302e5bd7308760c60c7baecaa18c6d687c95d51ece70", "sources": ["receipt-pinned-upstream", "reviewed-rule"], "status": "resolved", "upstream_category_source": "receipt-pinned-resource"}, "collection_id": "xcsh-docs:data-sources:dns_zone:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:dns_zone:properties:primary:rr_set_group:rr_set:naptr_record:values", "parent_id": "xcsh-docs:data-sources:dns_zone:properties:primary:rr_set_group:rr_set:naptr_record", "path": "documentation/data-sources/dns_zone/properties/primary/rr_set_group/rr_set/naptr_record/values/index.md", "product": "distributed-cloud", "provider_name": "dns_zone", "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43", "provider_type": "data-sources", "registry_anchor": "canonical-1023231202220220-2030321031113022-3303221030012233-3132133203303320-1021013000001222-3211013210110322-2121322002201003-3010321130013113", "registry_path": "docs/guides/data-sources--dns_zone--reference--group-002.md", "relationships": [], "retrieval_version": 1, "role": "properties", "schema_path": ["primary", "rr_set_group", "rr_set", "naptr_record", "values"], "schema_version": 1, "sections": [{"aliases": ["primary rr set group rr set naptr record values flags"], "anchor": "schema-primary--rr_set_group--rr_set--naptr_record--values--flags", "description": "Flag to control aspects of the rewriting and interpretation of the fields in the record. At this time only four flags, S/A/U/P, are defined.", "document_id": "xcsh-docs:data-sources:dns_zone:properties:primary:rr_set_group:rr_set:naptr_record:values", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["primary", "rr_set_group", "rr_set", "naptr_record", "values", "flags"], "syntax": "attribute", "type": "string"}, {"aliases": ["primary rr set group rr set naptr record values order"], "anchor": "schema-primary--rr_set_group--rr_set--naptr_record--values--order", "description": "Order in which the NAPTR records must be processed. A lower number indicates a higher preference.", "document_id": "xcsh-docs:data-sources:dns_zone:properties:primary:rr_set_group:rr_set:naptr_record:values", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["primary", "rr_set_group", "rr_set", "naptr_record", "values", "order"], "syntax": "attribute", "type": "number"}, {"aliases": ["primary rr set group rr set naptr record values preference"], "anchor": "schema-primary--rr_set_group--rr_set--naptr_record--values--preference", "description": "Preference when records have the same order. A lower number indicates a higher preference.", "document_id": "xcsh-docs:data-sources:dns_zone:properties:primary:rr_set_group:rr_set:naptr_record:values", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["primary", "rr_set_group", "rr_set", "naptr_record", "values", "preference"], "syntax": "attribute", "type": "number"}, {"aliases": ["primary rr set group rr set naptr record values regexp"], "anchor": "schema-primary--rr_set_group--rr_set--naptr_record--values--regexp", "description": "Regular expression to construct the next domain name to lookup.", "document_id": "xcsh-docs:data-sources:dns_zone:properties:primary:rr_set_group:rr_set:naptr_record:values", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["primary", "rr_set_group", "rr_set", "naptr_record", "values", "regexp"], "syntax": "attribute", "type": "string"}, {"aliases": ["primary rr set group rr set naptr record values replacement"], "anchor": "schema-primary--rr_set_group--rr_set--naptr_record--values--replacement", "description": "The next NAME to query for NAPTR, SRV, or address records depending on the value of the flags field.", "document_id": "xcsh-docs:data-sources:dns_zone:properties:primary:rr_set_group:rr_set:naptr_record:values", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["primary", "rr_set_group", "rr_set", "naptr_record", "values", "replacement"], "syntax": "attribute", "type": "string"}, {"aliases": ["primary rr set group rr set naptr record values service"], "anchor": "schema-primary--rr_set_group--rr_set--naptr_record--values--service", "description": "Specifies the service(s) available down this rewrite path.", "document_id": "xcsh-docs:data-sources:dns_zone:properties:primary:rr_set_group:rr_set:naptr_record:values", "enum_extraction_complete": false, "enum_validators": [], "flags": ["computed"], "max_items": null, "min_items": null, "nesting": null, "relationships": [], "schema_path": ["primary", "rr_set_group", "rr_set", "naptr_record", "values", "service"], "syntax": "attribute", "type": "string"}], "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/properties/primary/rr_set_group/rr_set/naptr_record/values/index.txt", "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949", "summary": "Configuration parameter for values", "tasks": ["configuration"], "upstream_identity": {"release_tag": "v12.5.2", "schema_components": ["dns_zoneCreateRequest"], "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -41,7 +41,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-21T11:00:09+00:00"
+      "validatedAt": "2026-10-29T12:14:42+00:00"
     },
     "minItems": 1
   },
@@ -88,7 +88,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-21T11:00:09+00:00"
+      "validatedAt": "2026-10-29T12:14:42+00:00"
     },
     "pattern": "^(S|s|A|a|U|u|P|p)$"
   },
@@ -131,7 +131,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "api-probed",
-      "validatedAt": "2026-10-21T11:00:09+00:00"
+      "validatedAt": "2026-10-29T12:14:42+00:00"
     },
     "minimum": 0
   },
@@ -174,7 +174,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "api-probed",
-      "validatedAt": "2026-10-21T11:00:09+00:00"
+      "validatedAt": "2026-10-29T12:14:42+00:00"
     },
     "minimum": 0
   },
@@ -218,7 +218,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-21T11:00:09+00:00"
+      "validatedAt": "2026-10-29T12:14:42+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -255,7 +255,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.85,
       "source": "inferred",
-      "validatedAt": "2026-10-21T11:00:09+00:00"
+      "validatedAt": "2026-10-29T12:14:42+00:00"
     }
   },
   "x-f5xc-required-for": {
@@ -288,7 +288,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-21T11:00:09+00:00"
+      "validatedAt": "2026-10-29T12:14:42+00:00"
     },
     "pattern": "^([A-Za-z][A-Za-z0-9]{0,31}(\\\\+[A-Za-z][A-Za-z0-9]{0,31})*$|^$)"
   },

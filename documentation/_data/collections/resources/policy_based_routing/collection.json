@@ -444,7 +444,7 @@
       "path": "documentation/resources/policy_based_routing/index.md",
       "product": "distributed-cloud",
       "provider_name": "policy_based_routing",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "resources",
       "registry_anchor": "canonical-1233013013303222-0100132003201320-0122321122231030-3111323001332220-3310313213102020-3302101031100230-3012131203102032-1111300301011102",
       "registry_path": "docs/resources/policy_based_routing.md",
@@ -454,21 +454,21 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "Manages a Policy Based Routing resource in F5 Distributed Cloud for network policy based routing create specification. configuration.",
       "tasks": ["configuration"],
       "title": "xcsh_policy_based_routing",
       "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["policy_based_routingCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["policy based routing"],
       "body_bytes": 31077,
-      "body_sha256": "sha256:02a603b2f5ee11779ef7ccae51a596ef27d1226996cf7525e9cc21bf91c62b14",
+      "body_sha256": "sha256:98a9ae9eace955ef284af34e8a244344bd0bfd1158875b238512d7c34637e51a",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -490,7 +490,7 @@
       "path": "documentation/resources/policy_based_routing/properties/index.md",
       "product": "distributed-cloud",
       "provider_name": "policy_based_routing",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "resources",
       "registry_anchor": "canonical-1322200022123301-3232123312022112-3332200201312123-0021222100000331-1223330323113011-3131111022003132-1223003323103130-3221120203311032",
       "registry_path": "docs/guides/resources--policy_based_routing--reference--group-001.md",
@@ -735,14 +735,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/properties/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "Property reference for xcsh_policy_based_routing.",
       "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["policy_based_routingCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
@@ -765,7 +765,7 @@
       "path": "documentation/resources/policy_based_routing/properties/forward_proxy_pbr/index.md",
       "product": "distributed-cloud",
       "provider_name": "policy_based_routing",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "resources",
       "registry_anchor": "canonical-2220332212101100-0001123331002020-3213301113012312-0301203031100010-1323210312231213-2222133130213322-1323010233200233-2200000202030220",
       "registry_path": "docs/guides/resources--policy_based_routing--reference--group-001.md",
@@ -945,20 +945,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/properties/forward_proxy_pbr/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "Network(L3/L4) routing policy rule.",
       "tasks": ["configuration"],
       "title": "forward_proxy_pbr",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["policy_based_routingCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["forward proxy pbr forward proxy pbr rules"],
       "body_bytes": 4385,
-      "body_sha256": "sha256:9ab25f26c7ed148dff8d0c7a9addf5f4e6001ff6e7ea0af9239d92f80b2e8937",
+      "body_sha256": "sha256:2626a0b85f8282336468b2866df20648eb98649f2b408ae87542af69f7858e74",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -985,7 +985,7 @@
       "path": "documentation/resources/policy_based_routing/properties/forward_proxy_pbr/forward_proxy_pbr_rules/index.md",
       "product": "distributed-cloud",
       "provider_name": "policy_based_routing",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "resources",
       "registry_anchor": "canonical-1023022331001313-2101300112322121-1321113113010332-1211211323300300-1300220233000200-1322111330001221-2023000212123212-1222001323211312",
       "registry_path": "docs/guides/resources--policy_based_routing--reference--group-001.md",
@@ -1329,14 +1329,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/properties/forward_proxy_pbr/forward_proxy_pbr_rules/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "Network(L3/L4) routing policy rules.",
       "tasks": ["configuration"],
       "title": "forward_proxy_pbr.forward_proxy_pbr_rules",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["policy_based_routingCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
@@ -1359,7 +1359,7 @@
       "path": "documentation/resources/policy_based_routing/properties/forward_proxy_pbr/forward_proxy_pbr_rules/all_destinations/index.md",
       "product": "distributed-cloud",
       "provider_name": "policy_based_routing",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "resources",
       "registry_anchor": "canonical-2003230233203132-0311032232211232-3030021301211033-1002333012032333-0012220020202310-0310320331113312-2330330311023031-0203232311300220",
       "registry_path": "docs/guides/resources--policy_based_routing--reference--group-001.md",
@@ -1369,14 +1369,14 @@
       "schema_path": ["forward_proxy_pbr", "forward_proxy_pbr_rules", "all_destinations"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/properties/forward_proxy_pbr/forward_proxy_pbr_rules/all_destinations/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "forward_proxy_pbr.forward_proxy_pbr_rules.all_destinations",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["policy_based_routingCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
@@ -1399,7 +1399,7 @@
       "path": "documentation/resources/policy_based_routing/properties/forward_proxy_pbr/forward_proxy_pbr_rules/all_sources/index.md",
       "product": "distributed-cloud",
       "provider_name": "policy_based_routing",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "resources",
       "registry_anchor": "canonical-3020001330322011-0202021133322322-2032332001010210-2203130333333320-2032311102321230-0200201102031300-0010330323200001-2211330312301110",
       "registry_path": "docs/guides/resources--policy_based_routing--reference--group-001.md",
@@ -1409,20 +1409,20 @@
       "schema_path": ["forward_proxy_pbr", "forward_proxy_pbr_rules", "all_sources"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/properties/forward_proxy_pbr/forward_proxy_pbr_rules/all_sources/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "forward_proxy_pbr.forward_proxy_pbr_rules.all_sources",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["policy_based_routingCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["forward proxy pbr forward proxy pbr rules forwarding class list"],
       "body_bytes": 6260,
-      "body_sha256": "sha256:1df275c7326407803a65955953ff879d3dde0ccb82dd0395783d951ac5d8434c",
+      "body_sha256": "sha256:93b19c60ad876bc9756af5e57266939460f713db73227335e942db743fb00693",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -1439,7 +1439,7 @@
       "path": "documentation/resources/policy_based_routing/properties/forward_proxy_pbr/forward_proxy_pbr_rules/forwarding_class_list/index.md",
       "product": "distributed-cloud",
       "provider_name": "policy_based_routing",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "resources",
       "registry_anchor": "canonical-3202003211132023-2320222111022101-0022010202011201-0201113120211303-3013230122122020-3011223313322322-1203130113102210-3212131012330210",
       "registry_path": "docs/guides/resources--policy_based_routing--reference--group-001.md",
@@ -1528,14 +1528,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/properties/forward_proxy_pbr/forward_proxy_pbr_rules/forwarding_class_list/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "Ordered list of forwarding Class to be used if no rule match.",
       "tasks": ["configuration"],
       "title": "forward_proxy_pbr.forward_proxy_pbr_rules.forwarding_class_list",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["policy_based_routingCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
@@ -1560,7 +1560,7 @@
       "path": "documentation/resources/policy_based_routing/properties/forward_proxy_pbr/forward_proxy_pbr_rules/http_list/index.md",
       "product": "distributed-cloud",
       "provider_name": "policy_based_routing",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "resources",
       "registry_anchor": "canonical-3210232000021131-3021110123332103-3230030102101223-0110213323123223-1303021013203230-1000303200111200-2313133032212200-1321001213133221",
       "registry_path": "docs/guides/resources--policy_based_routing--reference--group-001.md",
@@ -1732,20 +1732,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/properties/forward_proxy_pbr/forward_proxy_pbr_rules/http_list/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "URLListType.",
       "tasks": ["configuration"],
       "title": "forward_proxy_pbr.forward_proxy_pbr_rules.http_list",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["policy_based_routingCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["forward proxy pbr forward proxy pbr rules http list http list"],
       "body_bytes": 11182,
-      "body_sha256": "sha256:1c15012fc8e180f773ad39915921e220112b04a716d2a1095de9c0fcb9d8ff7b",
+      "body_sha256": "sha256:c57dfc0cae81269e38dd1f411f7c3d17cf03f12f4b41f36d40482794beed472c",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -1764,7 +1764,7 @@
       "path": "documentation/resources/policy_based_routing/properties/forward_proxy_pbr/forward_proxy_pbr_rules/http_list/http_list/index.md",
       "product": "distributed-cloud",
       "provider_name": "policy_based_routing",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "resources",
       "registry_anchor": "canonical-1123213010023000-3323013000302211-1120100201010301-1301023110313303-1033031110300213-0200101203113303-0002303010330231-2333100020231111",
       "registry_path": "docs/guides/resources--policy_based_routing--reference--group-001.md",
@@ -2038,14 +2038,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/properties/forward_proxy_pbr/forward_proxy_pbr_rules/http_list/http_list/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "URLs for HTTP connections.",
       "tasks": ["configuration"],
       "title": "forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["policy_based_routingCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
@@ -2068,7 +2068,7 @@
       "path": "documentation/resources/policy_based_routing/properties/forward_proxy_pbr/forward_proxy_pbr_rules/http_list/http_list/any_path/index.md",
       "product": "distributed-cloud",
       "provider_name": "policy_based_routing",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "resources",
       "registry_anchor": "canonical-2003113320031101-3310231322011303-0100312023231010-2331301323112112-1002302302101201-3310233101212020-0333311331332233-3233101101331020",
       "registry_path": "docs/guides/resources--policy_based_routing--reference--group-001.md",
@@ -2078,20 +2078,20 @@
       "schema_path": ["forward_proxy_pbr", "forward_proxy_pbr_rules", "http_list", "http_list", "any_path"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/properties/forward_proxy_pbr/forward_proxy_pbr_rules/http_list/http_list/any_path/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list.any_path",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["policy_based_routingCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["forward proxy pbr forward proxy pbr rules ip prefix set"],
       "body_bytes": 5613,
-      "body_sha256": "sha256:49d5c9848d4a724eec1f394ed575000359e7af388364d44bb3533b1a5d041dd1",
+      "body_sha256": "sha256:d4c6ff942ae6b02f702086d1d0d3c08f17736b6595896e641b1620f207fac24a",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -2108,7 +2108,7 @@
       "path": "documentation/resources/policy_based_routing/properties/forward_proxy_pbr/forward_proxy_pbr_rules/ip_prefix_set/index.md",
       "product": "distributed-cloud",
       "provider_name": "policy_based_routing",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "resources",
       "registry_anchor": "canonical-1122010131130233-0000032311210122-3032303222332223-2112213110300212-3300102312121220-0003012331311000-2133001020111032-3221222002023020",
       "registry_path": "docs/guides/resources--policy_based_routing--reference--group-001.md",
@@ -2197,20 +2197,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/properties/forward_proxy_pbr/forward_proxy_pbr_rules/ip_prefix_set/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "forward_proxy_pbr.forward_proxy_pbr_rules.ip_prefix_set",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["policy_based_routingCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["forward proxy pbr forward proxy pbr rules label selector"],
       "body_bytes": 3980,
-      "body_sha256": "sha256:8301b3ad904744829dafe7be7c614e4be2c3fa9b0521ca258801caa71a93a9aa",
+      "body_sha256": "sha256:69707b482db05418dbaa703756ad1097998dc18f97400231f2c25fd35bfe215f",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -2227,7 +2227,7 @@
       "path": "documentation/resources/policy_based_routing/properties/forward_proxy_pbr/forward_proxy_pbr_rules/label_selector/index.md",
       "product": "distributed-cloud",
       "provider_name": "policy_based_routing",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "resources",
       "registry_anchor": "canonical-2331210003112101-2221132102203031-0012233033331012-2130122201230011-3112200201231302-1322331210200101-3110003210000012-0000112012210100",
       "registry_path": "docs/guides/resources--policy_based_routing--reference--group-001.md",
@@ -2263,20 +2263,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/properties/forward_proxy_pbr/forward_proxy_pbr_rules/label_selector/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "This type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects. A null label selector matches no objects.",
       "tasks": ["configuration"],
       "title": "forward_proxy_pbr.forward_proxy_pbr_rules.label_selector",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["policy_based_routingCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["forward proxy pbr forward proxy pbr rules metadata"],
       "body_bytes": 3787,
-      "body_sha256": "sha256:5870fa50b61ca1c2e74e6dda6a2f9cb4874c3a6c6725c61860c2c9df3dae997b",
+      "body_sha256": "sha256:bf1e8e589c4284dd34420e003868ecdc856741f13c31f84f1d8e9c98f068a128",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -2293,7 +2293,7 @@
       "path": "documentation/resources/policy_based_routing/properties/forward_proxy_pbr/forward_proxy_pbr_rules/metadata/index.md",
       "product": "distributed-cloud",
       "provider_name": "policy_based_routing",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "resources",
       "registry_anchor": "canonical-1233323021302120-0000310013012200-0220111002112111-1002030100021322-1023330003210310-2221123233202032-2322113212000003-3103332011113330",
       "registry_path": "docs/guides/resources--policy_based_routing--reference--group-001.md",
@@ -2345,20 +2345,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/properties/forward_proxy_pbr/forward_proxy_pbr_rules/metadata/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create and replace APIs.",
       "tasks": ["configuration"],
       "title": "forward_proxy_pbr.forward_proxy_pbr_rules.metadata",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["policy_based_routingCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["forward proxy pbr forward proxy pbr rules prefix list"],
       "body_bytes": 2473,
-      "body_sha256": "sha256:fd1ecbd2199ec879d609b020c91f234a70f3dcac4c2258d54b0e0c87bf1ae515",
+      "body_sha256": "sha256:357f832c2b68b97c32858be3dcdfc20075c6333ec3c0f14e7f560b599fefe3fb",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -2375,7 +2375,7 @@
       "path": "documentation/resources/policy_based_routing/properties/forward_proxy_pbr/forward_proxy_pbr_rules/prefix_list/index.md",
       "product": "distributed-cloud",
       "provider_name": "policy_based_routing",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "resources",
       "registry_anchor": "canonical-2312210302013123-3211333123302303-0312222032021131-0221230031203013-1000222002101201-0330023121210122-2330220020030201-3203121022202021",
       "registry_path": "docs/guides/resources--policy_based_routing--reference--group-001.md",
@@ -2402,14 +2402,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/properties/forward_proxy_pbr/forward_proxy_pbr_rules/prefix_list/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "List of IPv4 prefixes that represent an endpoint.",
       "tasks": ["configuration"],
       "title": "forward_proxy_pbr.forward_proxy_pbr_rules.prefix_list",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["policy_based_routingCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
@@ -2434,7 +2434,7 @@
       "path": "documentation/resources/policy_based_routing/properties/forward_proxy_pbr/forward_proxy_pbr_rules/tls_list/index.md",
       "product": "distributed-cloud",
       "provider_name": "policy_based_routing",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "resources",
       "registry_anchor": "canonical-2302000223132332-0120121212222231-3102303013320021-1233103202231113-2200123132102030-2110101311030132-0331111101023210-1311133032213030",
       "registry_path": "docs/guides/resources--policy_based_routing--reference--group-001.md",
@@ -2510,20 +2510,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/properties/forward_proxy_pbr/forward_proxy_pbr_rules/tls_list/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "DomainListType.",
       "tasks": ["configuration"],
       "title": "forward_proxy_pbr.forward_proxy_pbr_rules.tls_list",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["policy_based_routingCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["forward proxy pbr forward proxy pbr rules tls list tls list"],
       "body_bytes": 6399,
-      "body_sha256": "sha256:4568258e52090e3032191450c97de3e681a543f5de8367f6410d6ce98131cc6d",
+      "body_sha256": "sha256:535d27728080ded40cac58f67c26a172a17a8a1cfc6f428ffe513d1fa9b212c6",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -2540,7 +2540,7 @@
       "path": "documentation/resources/policy_based_routing/properties/forward_proxy_pbr/forward_proxy_pbr_rules/tls_list/tls_list/index.md",
       "product": "distributed-cloud",
       "provider_name": "policy_based_routing",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "resources",
       "registry_anchor": "canonical-3130302031320302-0222233202203000-3121302130000102-3320220210200113-3230000031210231-2223003213101331-0330103233123320-0030213233331322",
       "registry_path": "docs/guides/resources--policy_based_routing--reference--group-001.md",
@@ -2648,20 +2648,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/properties/forward_proxy_pbr/forward_proxy_pbr_rules/tls_list/tls_list/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "Domains in SNI for TLS connections.",
       "tasks": ["configuration"],
       "title": "forward_proxy_pbr.forward_proxy_pbr_rules.tls_list.tls_list",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["policy_based_routingCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["forwarding class list"],
       "body_bytes": 5745,
-      "body_sha256": "sha256:2f89a24df4441c99a50f9f51f0f2d604e735ed301cb09568200e8e928533cf1f",
+      "body_sha256": "sha256:877ecf9251b8d984092be3b99a87b674d4660a9785f41d93f2d282f112dfeed5",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -2678,7 +2678,7 @@
       "path": "documentation/resources/policy_based_routing/properties/forwarding_class_list/index.md",
       "product": "distributed-cloud",
       "provider_name": "policy_based_routing",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "resources",
       "registry_anchor": "canonical-0121322222312032-0032020022000211-3121023130103220-3220223120230220-0100013220100200-1102310203201121-2102103313201303-2121203111213300",
       "registry_path": "docs/guides/resources--policy_based_routing--reference--group-001.md",
@@ -2767,14 +2767,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/properties/forwarding_class_list/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "Ordered list of forwarding Class to be used if source application match and no rule match.",
       "tasks": ["configuration"],
       "title": "forwarding_class_list",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["policy_based_routingCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
@@ -2802,7 +2802,7 @@
       "path": "documentation/resources/policy_based_routing/properties/network_pbr/index.md",
       "product": "distributed-cloud",
       "provider_name": "policy_based_routing",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "resources",
       "registry_anchor": "canonical-3301100031233122-1021230020121022-1211012201030321-3102231313022032-1011023232310033-0113000312313103-0102312232213111-0000213333033111",
       "registry_path": "docs/guides/resources--policy_based_routing--reference--group-001.md",
@@ -3200,14 +3200,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/properties/network_pbr/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "Network(L3/L4) routing policy rule.",
       "tasks": ["configuration"],
       "title": "network_pbr",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["policy_based_routingCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
@@ -3230,7 +3230,7 @@
       "path": "documentation/resources/policy_based_routing/properties/network_pbr/any/index.md",
       "product": "distributed-cloud",
       "provider_name": "policy_based_routing",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "resources",
       "registry_anchor": "canonical-0110132210212022-0323320110302011-2130302030011302-3320110101133022-2323101112302122-3013121323013113-1223331032231330-1022011321212320",
       "registry_path": "docs/guides/resources--policy_based_routing--reference--group-001.md",
@@ -3240,20 +3240,20 @@
       "schema_path": ["network_pbr", "any"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/properties/network_pbr/any/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "network_pbr.any",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["policy_based_routingCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["network pbr label selector"],
       "body_bytes": 3689,
-      "body_sha256": "sha256:7b7437bd1b5f20cf127171f9987127106c79ecddeaf05344481bef8f862bdbdf",
+      "body_sha256": "sha256:450ecdc0da2754c052b7229887aaf7f64227927151d1b9f98702052cc469bdc3",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -3270,7 +3270,7 @@
       "path": "documentation/resources/policy_based_routing/properties/network_pbr/label_selector/index.md",
       "product": "distributed-cloud",
       "provider_name": "policy_based_routing",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "resources",
       "registry_anchor": "canonical-3203123000230311-1231313332103132-0222100333303120-1202121000321303-0320322321203012-2330330023202021-3213122101010221-0120201002310313",
       "registry_path": "docs/guides/resources--policy_based_routing--reference--group-001.md",
@@ -3306,20 +3306,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/properties/network_pbr/label_selector/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "This type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects. A null label selector matches no objects.",
       "tasks": ["configuration"],
       "title": "network_pbr.label_selector",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["policy_based_routingCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["network pbr network pbr rules"],
       "body_bytes": 6413,
-      "body_sha256": "sha256:e363a37a1e778b41ed10a2e627f2fbf2e75790530007d107bdc3cab7cbed61da",
+      "body_sha256": "sha256:c3dd8a120017ffc6674ceb2c98fdf574c9e0e14474ba14e407bd2612fcc340ec",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -3347,7 +3347,7 @@
       "path": "documentation/resources/policy_based_routing/properties/network_pbr/network_pbr_rules/index.md",
       "product": "distributed-cloud",
       "provider_name": "policy_based_routing",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "resources",
       "registry_anchor": "canonical-1333313200330032-3321032201303330-1002002123303122-3101012200333212-1032101131030110-1112013101010232-0110222033230303-1212302032133000",
       "registry_path": "docs/guides/resources--policy_based_routing--reference--group-001.md",
@@ -3817,14 +3817,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/properties/network_pbr/network_pbr_rules/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "Network(L3/L4) routing policy rule.",
       "tasks": ["configuration"],
       "title": "network_pbr.network_pbr_rules",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["policy_based_routingCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
@@ -3847,7 +3847,7 @@
       "path": "documentation/resources/policy_based_routing/properties/network_pbr/network_pbr_rules/all_tcp_traffic/index.md",
       "product": "distributed-cloud",
       "provider_name": "policy_based_routing",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "resources",
       "registry_anchor": "canonical-1121223032020001-2302301003103121-1220032100221132-0021211113110122-0020020121030330-0132100212321122-1130031010230300-3233123332003331",
       "registry_path": "docs/guides/resources--policy_based_routing--reference--group-001.md",
@@ -3857,14 +3857,14 @@
       "schema_path": ["network_pbr", "network_pbr_rules", "all_tcp_traffic"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/properties/network_pbr/network_pbr_rules/all_tcp_traffic/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "network_pbr.network_pbr_rules.all_tcp_traffic",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["policy_based_routingCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
@@ -3887,7 +3887,7 @@
       "path": "documentation/resources/policy_based_routing/properties/network_pbr/network_pbr_rules/all_traffic/index.md",
       "product": "distributed-cloud",
       "provider_name": "policy_based_routing",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "resources",
       "registry_anchor": "canonical-3120011102123323-0223113231122221-3131333102122223-3203101123020210-1001112232031130-0303231312002011-3012321311210300-3131320030332232",
       "registry_path": "docs/guides/resources--policy_based_routing--reference--group-001.md",
@@ -3897,14 +3897,14 @@
       "schema_path": ["network_pbr", "network_pbr_rules", "all_traffic"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/properties/network_pbr/network_pbr_rules/all_traffic/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "network_pbr.network_pbr_rules.all_traffic",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["policy_based_routingCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
@@ -3927,7 +3927,7 @@
       "path": "documentation/resources/policy_based_routing/properties/network_pbr/network_pbr_rules/all_udp_traffic/index.md",
       "product": "distributed-cloud",
       "provider_name": "policy_based_routing",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "resources",
       "registry_anchor": "canonical-0302133032233321-0303030020102010-2202013030113130-0021003013011130-0111331022113303-1131120100111322-1030222202123113-1011311022021331",
       "registry_path": "docs/guides/resources--policy_based_routing--reference--group-001.md",
@@ -3937,14 +3937,14 @@
       "schema_path": ["network_pbr", "network_pbr_rules", "all_udp_traffic"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/properties/network_pbr/network_pbr_rules/all_udp_traffic/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "network_pbr.network_pbr_rules.all_udp_traffic",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["policy_based_routingCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
@@ -3967,7 +3967,7 @@
       "path": "documentation/resources/policy_based_routing/properties/network_pbr/network_pbr_rules/any/index.md",
       "product": "distributed-cloud",
       "provider_name": "policy_based_routing",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "resources",
       "registry_anchor": "canonical-0013202122230100-3113012323102133-3203233323330032-0033210202012300-0100032301331122-1300112013232330-1123113333121132-3010310120303101",
       "registry_path": "docs/guides/resources--policy_based_routing--reference--group-001.md",
@@ -3977,14 +3977,14 @@
       "schema_path": ["network_pbr", "network_pbr_rules", "any"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/properties/network_pbr/network_pbr_rules/any/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "network_pbr.network_pbr_rules.any",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["policy_based_routingCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
@@ -4007,7 +4007,7 @@
       "path": "documentation/resources/policy_based_routing/properties/network_pbr/network_pbr_rules/applications/index.md",
       "product": "distributed-cloud",
       "provider_name": "policy_based_routing",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "resources",
       "registry_anchor": "canonical-0032303031332332-1013122323122030-1030322033202310-1221123210103022-0021100013323122-3233123102222330-0220321113111211-0113232201210330",
       "registry_path": "docs/guides/resources--policy_based_routing--reference--group-001.md",
@@ -4034,20 +4034,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/properties/network_pbr/network_pbr_rules/applications/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "Application protocols like HTTP, SNMP.",
       "tasks": ["configuration"],
       "title": "network_pbr.network_pbr_rules.applications",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["policy_based_routingCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["network pbr network pbr rules forwarding class list"],
       "body_bytes": 6161,
-      "body_sha256": "sha256:b88663bff497926adb958f2e376483cdea7cc0c2083e348029264a1aaacb04e4",
+      "body_sha256": "sha256:68ec5bd021751c653aafbd4c9d825c21606cf308f8b27af412638e9c3198b42e",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -4064,7 +4064,7 @@
       "path": "documentation/resources/policy_based_routing/properties/network_pbr/network_pbr_rules/forwarding_class_list/index.md",
       "product": "distributed-cloud",
       "provider_name": "policy_based_routing",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "resources",
       "registry_anchor": "canonical-0002033331210132-3311210233002012-0123313002133202-1112203310233222-0101133301103221-2232210122333100-3030230033303012-2310312132330320",
       "registry_path": "docs/guides/resources--policy_based_routing--reference--group-001.md",
@@ -4153,14 +4153,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/properties/network_pbr/network_pbr_rules/forwarding_class_list/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "Ordered list of forwarding Class to be used if rule match.",
       "tasks": ["configuration"],
       "title": "network_pbr.network_pbr_rules.forwarding_class_list",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["policy_based_routingCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
@@ -4185,7 +4185,7 @@
       "path": "documentation/resources/policy_based_routing/properties/network_pbr/network_pbr_rules/ip_prefix_set/index.md",
       "product": "distributed-cloud",
       "provider_name": "policy_based_routing",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "resources",
       "registry_anchor": "canonical-0220301111020322-0213132333011101-3030220100103223-3333332013320203-0210321310010013-2021213310222113-2311132013120122-0323322231211312",
       "registry_path": "docs/guides/resources--policy_based_routing--reference--group-001.md",
@@ -4212,20 +4212,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/properties/network_pbr/network_pbr_rules/ip_prefix_set/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "A list of references to ip_prefix_set objects.",
       "tasks": ["configuration"],
       "title": "network_pbr.network_pbr_rules.ip_prefix_set",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["policy_based_routingCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["network pbr network pbr rules ip prefix set ref"],
       "body_bytes": 6148,
-      "body_sha256": "sha256:d022ab8007aca0fc325e1907cad4e14d359204d8270a674d28dbd4d6a6f96941",
+      "body_sha256": "sha256:22d971a2133b6155f40f53c4dbdf8c16870d27f10bba9fa8acf5b00d3293ed90",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -4242,7 +4242,7 @@
       "path": "documentation/resources/policy_based_routing/properties/network_pbr/network_pbr_rules/ip_prefix_set/ref/index.md",
       "product": "distributed-cloud",
       "provider_name": "policy_based_routing",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "resources",
       "registry_anchor": "canonical-2330213331133302-3320201021230013-1003001322110200-1323131110030130-1311201103120112-0322100201223123-1202130010001100-1302122333120122",
       "registry_path": "docs/guides/resources--policy_based_routing--reference--group-001.md",
@@ -4368,20 +4368,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/properties/network_pbr/network_pbr_rules/ip_prefix_set/ref/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "A list of references to ip_prefix_set objects.",
       "tasks": ["configuration"],
       "title": "network_pbr.network_pbr_rules.ip_prefix_set.ref",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["policy_based_routingCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["network pbr network pbr rules metadata"],
       "body_bytes": 3703,
-      "body_sha256": "sha256:84a1e732878dc5f071af8ec94e13f34ff8993d5779303976896de10bc6a4bc43",
+      "body_sha256": "sha256:34582a74ad1687a7971cde092292e56eba7a563f6059ef6b0dd6b66713549f9f",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -4398,7 +4398,7 @@
       "path": "documentation/resources/policy_based_routing/properties/network_pbr/network_pbr_rules/metadata/index.md",
       "product": "distributed-cloud",
       "provider_name": "policy_based_routing",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "resources",
       "registry_anchor": "canonical-0030210322012101-2001200331003010-3212012102213003-1311313130021123-1330110000311303-0023202003323311-1130003231302311-3030301303002031",
       "registry_path": "docs/guides/resources--policy_based_routing--reference--group-001.md",
@@ -4450,20 +4450,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/properties/network_pbr/network_pbr_rules/metadata/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create and replace APIs.",
       "tasks": ["configuration"],
       "title": "network_pbr.network_pbr_rules.metadata",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["policy_based_routingCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["network pbr network pbr rules prefix list"],
       "body_bytes": 2401,
-      "body_sha256": "sha256:7d5cf04707612847b208030415104f0053fb1cdeda5e51b006b7d7a6b0281f3d",
+      "body_sha256": "sha256:b036e0fb2b446bb1d8fe85a323991920dd078fc0e60e7718b9d68d2b44194758",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -4480,7 +4480,7 @@
       "path": "documentation/resources/policy_based_routing/properties/network_pbr/network_pbr_rules/prefix_list/index.md",
       "product": "distributed-cloud",
       "provider_name": "policy_based_routing",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "resources",
       "registry_anchor": "canonical-2132132200110012-3022010332130221-1121221021313022-1102123031130313-2333131330021103-2302120021100123-0303000101203121-1130200322311332",
       "registry_path": "docs/guides/resources--policy_based_routing--reference--group-001.md",
@@ -4507,20 +4507,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/properties/network_pbr/network_pbr_rules/prefix_list/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "List of IPv4 prefixes that represent an endpoint.",
       "tasks": ["configuration"],
       "title": "network_pbr.network_pbr_rules.prefix_list",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["policy_based_routingCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["network pbr network pbr rules protocol port range"],
       "body_bytes": 3805,
-      "body_sha256": "sha256:ae162a5589796c8870dc023553e995989ccff75466dfe444468bef956016c13e",
+      "body_sha256": "sha256:e938361d59fecf86af3b39db744128372594b6eab5cc3b28a52c2a8d98c42532",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -4537,7 +4537,7 @@
       "path": "documentation/resources/policy_based_routing/properties/network_pbr/network_pbr_rules/protocol_port_range/index.md",
       "product": "distributed-cloud",
       "provider_name": "policy_based_routing",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "resources",
       "registry_anchor": "canonical-1120221331011201-0231320011213102-2103130230212201-0013232313233121-0300320213302033-2111221111300312-3312232303133101-2110332002232102",
       "registry_path": "docs/guides/resources--policy_based_routing--reference--group-001.md",
@@ -4589,20 +4589,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/properties/network_pbr/network_pbr_rules/protocol_port_range/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "Protocol and Port ranges.",
       "tasks": ["configuration"],
       "title": "network_pbr.network_pbr_rules.protocol_port_range",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["policy_based_routingCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["network pbr prefix list"],
       "body_bytes": 2182,
-      "body_sha256": "sha256:0c59cc32bd0997102907904b1d6235ec09ac9f35d361d7d8905d3daa5dacbb34",
+      "body_sha256": "sha256:6346afcab58cb055a1b99291af3237d4ba6c05bcd9e74727a53117444f3216ee",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
@@ -4619,7 +4619,7 @@
       "path": "documentation/resources/policy_based_routing/properties/network_pbr/prefix_list/index.md",
       "product": "distributed-cloud",
       "provider_name": "policy_based_routing",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "resources",
       "registry_anchor": "canonical-3101212232003021-2323211123110001-0012110333222331-1201011231230231-2102031123132001-1332130233302300-2230211020313030-0332232031120201",
       "registry_path": "docs/guides/resources--policy_based_routing--reference--group-001.md",
@@ -4646,14 +4646,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/properties/network_pbr/prefix_list/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "List of IPv4 prefixes that represent an endpoint.",
       "tasks": ["configuration"],
       "title": "network_pbr.prefix_list",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["policy_based_routingCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
@@ -4676,7 +4676,7 @@
       "path": "documentation/resources/policy_based_routing/properties/timeouts/index.md",
       "product": "distributed-cloud",
       "provider_name": "policy_based_routing",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "resources",
       "registry_anchor": "canonical-3212230023133031-3011210133323333-0032031130022121-1032331122221030-2200112213330131-2233103032101030-2303030130313323-2233130002020233",
       "registry_path": "docs/guides/resources--policy_based_routing--reference--group-001.md",
@@ -4786,14 +4786,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/properties/timeouts/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "timeouts for xcsh_policy_based_routing.",
       "tasks": ["configuration"],
       "title": "timeouts",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["policy_based_routingCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
@@ -4816,7 +4816,7 @@
       "path": "documentation/resources/policy_based_routing/examples/index.md",
       "product": "distributed-cloud",
       "provider_name": "policy_based_routing",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "resources",
       "registry_anchor": "canonical-0223031333233231-2123100020320123-0312223203333222-3222320213031322-2300012222033000-0200110010212323-3110032213333201-3113233101001131",
       "registry_path": "docs/guides/resources--policy_based_routing--examples--group-001.md",
@@ -4826,14 +4826,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/examples/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "Examples for xcsh_policy_based_routing.",
       "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["policy_based_routingCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
@@ -4863,7 +4863,7 @@
       "path": "documentation/resources/policy_based_routing/examples/resource/index.md",
       "product": "distributed-cloud",
       "provider_name": "policy_based_routing",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "resources",
       "registry_anchor": "canonical-3310100020110201-2313301030311313-2123101220300301-3311301012232032-0302121032101013-3003300102331202-1220111310000022-2200130313332003",
       "registry_path": "docs/guides/resources--policy_based_routing--examples--group-001.md",
@@ -4873,14 +4873,14 @@
       "schema_path": ["resource"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/examples/resource/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "Resource for xcsh_policy_based_routing.",
       "tasks": ["configuration"],
       "title": "Resource",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["policy_based_routingCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
@@ -4904,7 +4904,7 @@
       "path": "documentation/resources/policy_based_routing/lifecycle/import/index.md",
       "product": "distributed-cloud",
       "provider_name": "policy_based_routing",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "resources",
       "registry_anchor": "canonical-1112213111010101-1222223121310031-3300022232322021-0201310110301032-2313331020112132-0132022230312022-2310213321030221-3232001300230132",
       "registry_path": "docs/guides/resources--policy_based_routing--lifecycle--group-001.md",
@@ -4914,14 +4914,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/lifecycle/import/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "Import for xcsh_policy_based_routing.",
       "tasks": ["import"],
       "title": "Import",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["policy_based_routingCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
@@ -4944,7 +4944,7 @@
       "path": "documentation/resources/policy_based_routing/lifecycle/timeouts/index.md",
       "product": "distributed-cloud",
       "provider_name": "policy_based_routing",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "resources",
       "registry_anchor": "canonical-1012132132330133-3220103012020021-0230113311303010-2313330311311002-1133022022132020-3023303210233231-2313133123133222-2000111001202030",
       "registry_path": "docs/guides/resources--policy_based_routing--lifecycle--group-001.md",
@@ -4954,14 +4954,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/lifecycle/timeouts/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "Timeouts for xcsh_policy_based_routing.",
       "tasks": ["lifecycle"],
       "title": "Timeouts",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["policy_based_routingCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     }
   ],

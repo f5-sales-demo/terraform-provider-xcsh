@@ -209,7 +209,7 @@
       "path": "documentation/resources/network_firewall/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_firewall",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "resources",
       "registry_anchor": "canonical-0002103131303200-3202220110210100-2001233131212311-3322200221303002-0011132331222322-2101102312302011-0113033313013211-2001132200001333",
       "registry_path": "docs/resources/network_firewall.md",
@@ -219,21 +219,21 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_firewall/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "Manages a Network Firewall resource in F5 Distributed Cloud for network firewall is created by users in system namespace. configuration.",
       "tasks": ["configuration"],
       "title": "xcsh_network_firewall",
       "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["network_firewallCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["network firewall"],
       "body_bytes": 17006,
-      "body_sha256": "sha256:4bdabaf0df7ccc295a73e630689f22a9edf7bbef73b8399965f558c795f6f0b3",
+      "body_sha256": "sha256:26c0510e791f17ec29d4a888b24a89bdb55ab2daa020f64283ed66692e9c6b3e",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -259,7 +259,7 @@
       "path": "documentation/resources/network_firewall/properties/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_firewall",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "resources",
       "registry_anchor": "canonical-1131321320323100-0133323001330022-1211003101102003-2000211000122312-2031221212010020-2323201312033210-3331113002030021-0010133133330010",
       "registry_path": "docs/guides/resources--network_firewall--reference--group-001.md",
@@ -555,14 +555,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_firewall/properties/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "Property reference for xcsh_network_firewall.",
       "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["network_firewallCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
@@ -587,7 +587,7 @@
       "path": "documentation/resources/network_firewall/properties/active_enhanced_firewall_policies/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_firewall",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "resources",
       "registry_anchor": "canonical-2313013321102121-1013201323302331-2222111323201110-2011320113312130-1311100031233101-2112200023113230-2233122231303002-3003213211332212",
       "registry_path": "docs/guides/resources--network_firewall--reference--group-001.md",
@@ -632,20 +632,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_firewall/properties/active_enhanced_firewall_policies/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "List of Enhanced Firewall Policies These policies use session-based rules and provide all OPTIONS available under firewall policies with an additional option for service insertion.",
       "tasks": ["configuration"],
       "title": "active_enhanced_firewall_policies",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["network_firewallCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["active enhanced firewall policies enhanced firewall policies"],
       "body_bytes": 6072,
-      "body_sha256": "sha256:8a3017c7d62fe080eb65d48e5d7075ab372d0be86beb145daa23cd9404661995",
+      "body_sha256": "sha256:da1bd336667e2191c6da1f2ad1a2568b7e7f7fb565ac8930fbdcc7030fdfca59",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -662,7 +662,7 @@
       "path": "documentation/resources/network_firewall/properties/active_enhanced_firewall_policies/enhanced_firewall_policies/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_firewall",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "resources",
       "registry_anchor": "canonical-1033101302130033-1322031110323001-2010003000003002-3331030321111101-0102211013322011-3112301203222313-1010332030132333-1331300322012021",
       "registry_path": "docs/guides/resources--network_firewall--reference--group-001.md",
@@ -751,14 +751,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_firewall/properties/active_enhanced_firewall_policies/enhanced_firewall_policies/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "Ordered List of Enhanced Firewall Policies active.",
       "tasks": ["configuration"],
       "title": "active_enhanced_firewall_policies.enhanced_firewall_policies",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["network_firewallCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
@@ -781,7 +781,7 @@
       "path": "documentation/resources/network_firewall/properties/active_fast_acls/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_firewall",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "resources",
       "registry_anchor": "canonical-3112210130022303-2030213233130033-2121231033222300-2033311300122320-0021030220003103-2012033313212000-3303200320201022-1230312021203230",
       "registry_path": "docs/guides/resources--network_firewall--reference--group-001.md",
@@ -826,20 +826,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_firewall/properties/active_fast_acls/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "List of Fast ACL(s).",
       "tasks": ["configuration"],
       "title": "active_fast_acls",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["network_firewallCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["active fast acls fast acls"],
       "body_bytes": 5862,
-      "body_sha256": "sha256:9c884a77b2eafbbfc16622a1e89fcdba56f314907832fed04bd66acf86c42282",
+      "body_sha256": "sha256:bc99990914b5e09c071edd832b861debb65184c07384e547912d2157329ce5b7",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -856,7 +856,7 @@
       "path": "documentation/resources/network_firewall/properties/active_fast_acls/fast_acls/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_firewall",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "resources",
       "registry_anchor": "canonical-2213130101201213-3221033011233030-3323131313202030-3110101232132100-3010210012203302-1120232110212020-1031330130000212-1320213201331300",
       "registry_path": "docs/guides/resources--network_firewall--reference--group-001.md",
@@ -945,14 +945,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_firewall/properties/active_fast_acls/fast_acls/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "Ordered List of Fast ACL(s) active for this network firewall.",
       "tasks": ["configuration"],
       "title": "active_fast_acls.fast_acls",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["network_firewallCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
@@ -977,7 +977,7 @@
       "path": "documentation/resources/network_firewall/properties/active_forward_proxy_policies/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_firewall",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "resources",
       "registry_anchor": "canonical-0102101002112321-0202233211212032-1112101221133102-3312333102301221-0010220230112111-0223201103230311-0103311201122130-3010200022203100",
       "registry_path": "docs/guides/resources--network_firewall--reference--group-001.md",
@@ -1022,20 +1022,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_firewall/properties/active_forward_proxy_policies/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "Ordered List of Forward Proxy Policies active.",
       "tasks": ["configuration"],
       "title": "active_forward_proxy_policies",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["network_firewallCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["active forward proxy policies forward proxy policies"],
       "body_bytes": 6016,
-      "body_sha256": "sha256:49716e2b2919d3b5005bbf4c7205c9a8c20451e11ba50547ffa463bc527dc977",
+      "body_sha256": "sha256:793f7d72c88e0a426abcf8d31a24106e82612d6581e5b597c04d29ead414a132",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -1052,7 +1052,7 @@
       "path": "documentation/resources/network_firewall/properties/active_forward_proxy_policies/forward_proxy_policies/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_firewall",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "resources",
       "registry_anchor": "canonical-2032201211002330-0313030231032323-1023010320212131-3100203120200022-0231103010232103-1320121100100220-2321200111232312-1212121232102233",
       "registry_path": "docs/guides/resources--network_firewall--reference--group-001.md",
@@ -1141,14 +1141,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_firewall/properties/active_forward_proxy_policies/forward_proxy_policies/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "Ordered List of Forward Proxy Policies active.",
       "tasks": ["configuration"],
       "title": "active_forward_proxy_policies.forward_proxy_policies",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["network_firewallCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
@@ -1171,7 +1171,7 @@
       "path": "documentation/resources/network_firewall/properties/active_network_policies/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_firewall",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "resources",
       "registry_anchor": "canonical-2113302023113302-3020022101313123-0003310010231013-1230332313211203-3122211313002211-2212312210212203-2312100331130132-3113020002020033",
       "registry_path": "docs/guides/resources--network_firewall--reference--group-001.md",
@@ -1216,20 +1216,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_firewall/properties/active_network_policies/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "List of firewall policy views.",
       "tasks": ["configuration"],
       "title": "active_network_policies",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["network_firewallCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["active network policies network policies"],
       "body_bytes": 5959,
-      "body_sha256": "sha256:1e7a7d205032261fc0e5835f4d9cecc4cdd250cf52ad0b5f62138072878eb596",
+      "body_sha256": "sha256:d8fa8e74fbc44b1c067dc7714f4ca47e9e31a583ddb69af6bd045ff5c672a0b3",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -1246,7 +1246,7 @@
       "path": "documentation/resources/network_firewall/properties/active_network_policies/network_policies/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_firewall",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "resources",
       "registry_anchor": "canonical-1303133033202032-1000123223302030-2102310103323000-3102201220323311-0211123222032322-1230111233333012-2021230232010133-1031313033200211",
       "registry_path": "docs/guides/resources--network_firewall--reference--group-001.md",
@@ -1335,14 +1335,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_firewall/properties/active_network_policies/network_policies/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "Ordered List of Firewall Policies active for this network firewall.",
       "tasks": ["configuration"],
       "title": "active_network_policies.network_policies",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["network_firewallCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
@@ -1365,7 +1365,7 @@
       "path": "documentation/resources/network_firewall/properties/disable_fast_acl/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_firewall",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "resources",
       "registry_anchor": "canonical-1030000322023102-2003301200002102-0123111133031210-3301113222100120-1330210120023320-2333233223032033-0232123000221113-0213001130313013",
       "registry_path": "docs/guides/resources--network_firewall--reference--group-001.md",
@@ -1375,14 +1375,14 @@
       "schema_path": ["disable_fast_acl"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_firewall/properties/disable_fast_acl/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "disable_fast_acl",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["network_firewallCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
@@ -1405,7 +1405,7 @@
       "path": "documentation/resources/network_firewall/properties/disable_forward_proxy_policy/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_firewall",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "resources",
       "registry_anchor": "canonical-0103132011303301-0020002110202103-2131012331110100-3000212003030130-0102313021312333-1022012021122221-3100310310331201-1331222212320112",
       "registry_path": "docs/guides/resources--network_firewall--reference--group-001.md",
@@ -1415,14 +1415,14 @@
       "schema_path": ["disable_forward_proxy_policy"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_firewall/properties/disable_forward_proxy_policy/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "disable_forward_proxy_policy",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["network_firewallCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
@@ -1445,7 +1445,7 @@
       "path": "documentation/resources/network_firewall/properties/disable_network_policy/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_firewall",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "resources",
       "registry_anchor": "canonical-1333010313123013-1233301021033300-2301032023021121-3312311230002220-0031232132010223-3220203322122032-0020300220312301-3100211112201021",
       "registry_path": "docs/guides/resources--network_firewall--reference--group-001.md",
@@ -1455,14 +1455,14 @@
       "schema_path": ["disable_network_policy"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_firewall/properties/disable_network_policy/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "disable_network_policy",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["network_firewallCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
@@ -1485,7 +1485,7 @@
       "path": "documentation/resources/network_firewall/properties/timeouts/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_firewall",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "resources",
       "registry_anchor": "canonical-0103233233330031-1302333012031133-2220013312030030-2230210022321230-1211331311321201-0321110000133010-0101323112031033-2212201030332022",
       "registry_path": "docs/guides/resources--network_firewall--reference--group-001.md",
@@ -1595,14 +1595,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_firewall/properties/timeouts/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "timeouts for xcsh_network_firewall.",
       "tasks": ["configuration"],
       "title": "timeouts",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["network_firewallCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
@@ -1625,7 +1625,7 @@
       "path": "documentation/resources/network_firewall/examples/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_firewall",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "resources",
       "registry_anchor": "canonical-1031032103323200-0122100200112332-1320330020112301-3331011310010120-3320010130103103-2232331310312302-0023100313031112-2201332200222201",
       "registry_path": "docs/guides/resources--network_firewall--examples--group-001.md",
@@ -1635,14 +1635,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_firewall/examples/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "Examples for xcsh_network_firewall.",
       "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["network_firewallCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
@@ -1672,7 +1672,7 @@
       "path": "documentation/resources/network_firewall/examples/resource/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_firewall",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "resources",
       "registry_anchor": "canonical-3131002303311013-0301222221021220-1112323130123222-3021021322310303-3202210313132233-3033332133000102-2203100030222302-0100331332220220",
       "registry_path": "docs/guides/resources--network_firewall--examples--group-001.md",
@@ -1682,14 +1682,14 @@
       "schema_path": ["resource"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_firewall/examples/resource/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "Resource for xcsh_network_firewall.",
       "tasks": ["configuration"],
       "title": "Resource",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["network_firewallCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
@@ -1713,7 +1713,7 @@
       "path": "documentation/resources/network_firewall/lifecycle/import/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_firewall",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "resources",
       "registry_anchor": "canonical-0332032223301202-2101103111010232-0221122011112100-2222113100031120-3212302122222311-2300100022022233-0032223123323302-3012203132031203",
       "registry_path": "docs/guides/resources--network_firewall--lifecycle--group-001.md",
@@ -1723,14 +1723,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_firewall/lifecycle/import/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "Import for xcsh_network_firewall.",
       "tasks": ["import"],
       "title": "Import",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["network_firewallCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
@@ -1753,7 +1753,7 @@
       "path": "documentation/resources/network_firewall/lifecycle/timeouts/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_firewall",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "resources",
       "registry_anchor": "canonical-1213033313223021-2211131133110302-3320210111131202-0101220223232111-2130122331002203-1030202230301312-2300222223333031-3211011232232230",
       "registry_path": "docs/guides/resources--network_firewall--lifecycle--group-001.md",
@@ -1763,14 +1763,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_firewall/lifecycle/timeouts/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "Timeouts for xcsh_network_firewall.",
       "tasks": ["lifecycle"],
       "title": "Timeouts",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["network_firewallCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     }
   ],

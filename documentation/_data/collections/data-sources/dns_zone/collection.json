@@ -1482,7 +1482,7 @@
       "path": "documentation/data-sources/dns_zone/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_zone",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0002233020101332-0312300000031301-3011102330031321-2230013123231120-3001300022000230-1330132013110022-2030110121003300-0222000222331131",
       "registry_path": "docs/data-sources/dns_zone.md",
@@ -1500,21 +1500,21 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "Reads an existing DNS zone in its namespace.",
       "tasks": ["configuration"],
       "title": "xcsh_dns_zone",
       "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["dns_zoneCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["dns zone"],
       "body_bytes": 88692,
-      "body_sha256": "sha256:820d781c754c4ff4e0dddbbd056dc75dd748e8312fed7250a89d9d8e3f36dde2",
+      "body_sha256": "sha256:4d3a84cdd19b79530b010f82ff6c513f784843ec37fd34e0f9f2873354999c96",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [
@@ -1534,7 +1534,7 @@
       "path": "documentation/data-sources/dns_zone/properties/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_zone",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1320000120201111-2203011021030331-2320302132022301-3231311102321211-2320003331323333-0100003331333313-2321331201112230-0113213102020011",
       "registry_path": "docs/guides/data-sources--dns_zone--reference--group-001.md",
@@ -1673,14 +1673,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/properties/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "Property reference for xcsh_dns_zone.",
       "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["dns_zoneCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
@@ -1709,7 +1709,7 @@
       "path": "documentation/data-sources/dns_zone/properties/primary/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_zone",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3202300020132202-1031131002222003-2332211013000101-2012120102112221-3101102031020211-2011220131110101-1030320013331200-1333313321323331",
       "registry_path": "docs/guides/data-sources--dns_zone--reference--group-001.md",
@@ -1816,20 +1816,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/properties/primary/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "PrimaryDNSCreateSpecType.",
       "tasks": ["configuration"],
       "title": "primary",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["dns_zoneCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["primary default rr set group"],
       "body_bytes": 6103,
-      "body_sha256": "sha256:aadcfe9e7a324b271633f154cd0cba5a6807d5079bd3b2a2054c0a9729a2edbe",
+      "body_sha256": "sha256:b5828dffadca02c335f44bfa7b261549509e4d2d1c77ad41d6b58be86641e784",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [
@@ -1868,7 +1868,7 @@
       "path": "documentation/data-sources/dns_zone/properties/primary/default_rr_set_group/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_zone",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2333233213103330-0302202110210122-3330012220203203-2012221330313213-3020122001023320-2112110122003110-2303022223102003-1030220023110111",
       "registry_path": "docs/guides/data-sources--dns_zone--reference--group-001.md",
@@ -2247,20 +2247,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/properties/primary/default_rr_set_group/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "Add and manage DNS resource record sets part of Default set group.",
       "tasks": ["configuration"],
       "title": "primary.default_rr_set_group",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["dns_zoneCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["primary default rr set group a record"],
       "body_bytes": 3785,
-      "body_sha256": "sha256:bfc24e43b93373872ab80196bb81117865fd95ee44cf6f9ff0833cfae15dcebb",
+      "body_sha256": "sha256:06f09b5db372a3231f0ce6e32119927effb367ada3fe55c701b2e026309f5999",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -2277,7 +2277,7 @@
       "path": "documentation/data-sources/dns_zone/properties/primary/default_rr_set_group/a_record/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_zone",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2312200030111200-1212321102221122-1303233301122023-2113100103230120-3230111301023210-1321113113303300-0311102130231112-3322113202113010",
       "registry_path": "docs/guides/data-sources--dns_zone--reference--group-001.md",
@@ -2320,20 +2320,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/properties/primary/default_rr_set_group/a_record/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "A Records",
       "tasks": ["configuration"],
       "title": "primary.default_rr_set_group.a_record",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["dns_zoneCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["primary default rr set group aaaa record"],
       "body_bytes": 3898,
-      "body_sha256": "sha256:021f94db854bd27f457cbf0e9845650199831c8f2e25e014fa0f4cab77e914fd",
+      "body_sha256": "sha256:15cf2baf6762bf568ca3f0df3da00c77d0628363427911b366c43b6459348990",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -2350,7 +2350,7 @@
       "path": "documentation/data-sources/dns_zone/properties/primary/default_rr_set_group/aaaa_record/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_zone",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2122110231021031-2311002310121211-0030101131322312-2002213023010323-1003310222101102-3121232322232230-0032201201331221-2022310230031212",
       "registry_path": "docs/guides/data-sources--dns_zone--reference--group-001.md",
@@ -2393,20 +2393,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/properties/primary/default_rr_set_group/aaaa_record/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "RecordSet for AAAA Records.",
       "tasks": ["configuration"],
       "title": "primary.default_rr_set_group.aaaa_record",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["dns_zoneCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["primary default rr set group afsdb record"],
       "body_bytes": 2724,
-      "body_sha256": "sha256:59d371e6dd8985be77beaac86b5dba9257084785e12a1a3a085b4e6aae6f7058",
+      "body_sha256": "sha256:d40c8a69a441c544631291c07d4f44e9007025b82fa09550075aabb04a216b59",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": ["xcsh-docs:data-sources:dns_zone:properties:primary:default_rr_set_group:afsdb_record:values"],
@@ -2423,7 +2423,7 @@
       "path": "documentation/data-sources/dns_zone/properties/primary/default_rr_set_group/afsdb_record/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_zone",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2212321030130323-0331003210301222-1002023233203223-3001001333203330-2310200301223030-2230033302212033-1133303131313312-0102220132310223",
       "registry_path": "docs/guides/data-sources--dns_zone--reference--group-001.md",
@@ -2466,20 +2466,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/properties/primary/default_rr_set_group/afsdb_record/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "DNS AFSDB Record.",
       "tasks": ["configuration"],
       "title": "primary.default_rr_set_group.afsdb_record",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["dns_zoneCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["primary default rr set group afsdb record values"],
       "body_bytes": 3720,
-      "body_sha256": "sha256:b5fc5e46093587b3e0679689f5ada091ee5e5316bf99f8119b4a2a70de9f455a",
+      "body_sha256": "sha256:b9ffa2afda64a9062b14070040b14cbe3d33f78f5d9048b992e7fa832c858faa",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -2496,7 +2496,7 @@
       "path": "documentation/data-sources/dns_zone/properties/primary/default_rr_set_group/afsdb_record/values/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_zone",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3323233331320022-1000000300301231-2103221320301002-1003123123131031-3002312031121300-0122330002032202-1000311132321011-2013131113033310",
       "registry_path": "docs/guides/data-sources--dns_zone--reference--group-001.md",
@@ -2539,20 +2539,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/properties/primary/default_rr_set_group/afsdb_record/values/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "Configuration parameter for values",
       "tasks": ["configuration"],
       "title": "primary.default_rr_set_group.afsdb_record.values",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["dns_zoneCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["primary default rr set group alias record"],
       "body_bytes": 1900,
-      "body_sha256": "sha256:28988f63b3c46db7b9154b1d58cb2cf938611fdbff4d64ce30060634fce00a9d",
+      "body_sha256": "sha256:8a8a16e7cafff27eb94ac4cb9a58294522ef76b51fd9e02c72bb058b6a52b491",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -2569,7 +2569,7 @@
       "path": "documentation/data-sources/dns_zone/properties/primary/default_rr_set_group/alias_record/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_zone",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2201132013312310-0031120122103231-3200313312112001-2022323120201202-3021322302213003-2300121002001030-2300132201121310-0303202132032030",
       "registry_path": "docs/guides/data-sources--dns_zone--reference--group-001.md",
@@ -2596,20 +2596,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/properties/primary/default_rr_set_group/alias_record/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "Configuration parameter for alias record.",
       "tasks": ["configuration"],
       "title": "primary.default_rr_set_group.alias_record",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["dns_zoneCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["primary default rr set group caa record"],
       "body_bytes": 2651,
-      "body_sha256": "sha256:ce60915d1718f3dc14b443030e7f40e2c9cf66f0ee169843665aebc51705800b",
+      "body_sha256": "sha256:4c9cabfffb32c594608a5961c0455c2ca2df6086dc6332f797afacfc47c47250",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": ["xcsh-docs:data-sources:dns_zone:properties:primary:default_rr_set_group:caa_record:values"],
@@ -2626,7 +2626,7 @@
       "path": "documentation/data-sources/dns_zone/properties/primary/default_rr_set_group/caa_record/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_zone",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2231130311212021-2231121000310210-0333021133202030-2212032233303300-2233330122101130-3300333102031111-0312302332003200-2201113110032012",
       "registry_path": "docs/guides/data-sources--dns_zone--reference--group-001.md",
@@ -2669,20 +2669,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/properties/primary/default_rr_set_group/caa_record/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "DNSCAAResourceRecord.",
       "tasks": ["configuration"],
       "title": "primary.default_rr_set_group.caa_record",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["dns_zoneCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["primary default rr set group caa record values"],
       "body_bytes": 4403,
-      "body_sha256": "sha256:b005b37a01661a3416e92a3c5dc65160c51317286e017636d9f86e696d0ee959",
+      "body_sha256": "sha256:68bbe83e5153c4a1fc1c32e5f8d1896d54bf4c27f70847e4e4d7163cf1bd417b",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -2699,7 +2699,7 @@
       "path": "documentation/data-sources/dns_zone/properties/primary/default_rr_set_group/caa_record/values/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_zone",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1003010210202332-3333202023033313-3202310332302023-0113323111021000-0323333203102112-2302123311023320-0110332132200102-3322102013001203",
       "registry_path": "docs/guides/data-sources--dns_zone--reference--group-001.md",
@@ -2758,20 +2758,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/properties/primary/default_rr_set_group/caa_record/values/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "Configuration parameter for values",
       "tasks": ["configuration"],
       "title": "primary.default_rr_set_group.caa_record.values",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["dns_zoneCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["primary default rr set group cds record"],
       "body_bytes": 2655,
-      "body_sha256": "sha256:829964fe4f411e3dad777b9e2384fb0a28258ec769fab322811017659ed76abc",
+      "body_sha256": "sha256:91f71591e34f5c15260c64a06e7b9f479260142197823751cbc0bfabf8d13aa9",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": ["xcsh-docs:data-sources:dns_zone:properties:primary:default_rr_set_group:cds_record:values"],
@@ -2788,7 +2788,7 @@
       "path": "documentation/data-sources/dns_zone/properties/primary/default_rr_set_group/cds_record/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_zone",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0110033330222032-0123033013030301-1302023330330311-1330232122221312-3133301300302331-0131033023022301-0230230201212031-1221311203320220",
       "registry_path": "docs/guides/data-sources--dns_zone--reference--group-001.md",
@@ -2831,20 +2831,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/properties/primary/default_rr_set_group/cds_record/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "DNS CDS Record.",
       "tasks": ["configuration"],
       "title": "primary.default_rr_set_group.cds_record",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["dns_zoneCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["primary default rr set group cds record values"],
       "body_bytes": 4595,
-      "body_sha256": "sha256:9e03ec83fed9168808a1f7b8db8b36ed293c77b4965a1b2f2cb6ed1aa29151af",
+      "body_sha256": "sha256:d6b4b62ff7d6160565fe2647099d46764eef30bc8bd5caae196eec614d1b53f2",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [
@@ -2865,7 +2865,7 @@
       "path": "documentation/data-sources/dns_zone/properties/primary/default_rr_set_group/cds_record/values/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_zone",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1320030231302213-2013220000302201-2213201212323011-1001112012013200-2201010011202112-3030303221322101-2001002102213022-0231200030313213",
       "registry_path": "docs/guides/data-sources--dns_zone--reference--group-001.md",
@@ -2956,20 +2956,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/properties/primary/default_rr_set_group/cds_record/values/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "Configuration parameter for values",
       "tasks": ["configuration"],
       "title": "primary.default_rr_set_group.cds_record.values",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["dns_zoneCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["primary default rr set group cds record values sha1 digest"],
       "body_bytes": 2438,
-      "body_sha256": "sha256:129b417e8e9a79050f3a13a8f734c2a50adf0c68500a35849cce42c7df3ff15c",
+      "body_sha256": "sha256:09177b09c96db7f90f63a08dce028d6df0ec2cec1aa4ba48524f7bd6c5c4ac1a",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -2986,7 +2986,7 @@
       "path": "documentation/data-sources/dns_zone/properties/primary/default_rr_set_group/cds_record/values/sha1_digest/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_zone",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2133022302012123-0220323023301322-3323231013023302-3212011312223012-1102220100330322-3330030001112321-2113203332012033-3023101320100111",
       "registry_path": "docs/guides/data-sources--dns_zone--reference--group-001.md",
@@ -3013,20 +3013,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/properties/primary/default_rr_set_group/cds_record/values/sha1_digest/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "Configuration parameter for sha1 digest.",
       "tasks": ["configuration"],
       "title": "primary.default_rr_set_group.cds_record.values.sha1_digest",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["dns_zoneCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["primary default rr set group cds record values sha256 digest"],
       "body_bytes": 2446,
-      "body_sha256": "sha256:3120c9a3c30d6a7d8e08a24b10d5f4b40c9d5077b04337f592ebf63e43918169",
+      "body_sha256": "sha256:30947b7c4cf718847bb166418fb10b7afa0cd5a32a425303c0f850cefe63c1aa",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -3043,7 +3043,7 @@
       "path": "documentation/data-sources/dns_zone/properties/primary/default_rr_set_group/cds_record/values/sha256_digest/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_zone",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2231130131103101-0130122012121130-3211003230012003-0130223100003331-3223211002130320-1332012313033213-0203122220232300-3301303321003311",
       "registry_path": "docs/guides/data-sources--dns_zone--reference--group-001.md",
@@ -3070,20 +3070,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/properties/primary/default_rr_set_group/cds_record/values/sha256_digest/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "Configuration parameter for sha256 digest.",
       "tasks": ["configuration"],
       "title": "primary.default_rr_set_group.cds_record.values.sha256_digest",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["dns_zoneCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["primary default rr set group cds record values sha384 digest"],
       "body_bytes": 2446,
-      "body_sha256": "sha256:c5ad0f50db134315a4c21575cb27a6c8a724680b1c29a8643e9327677d32dd5e",
+      "body_sha256": "sha256:b153e0e2d71209e752594019dee4da5fd266feeee2999ab8f8e537f2f2c2da2d",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -3100,7 +3100,7 @@
       "path": "documentation/data-sources/dns_zone/properties/primary/default_rr_set_group/cds_record/values/sha384_digest/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_zone",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2101320332232333-1300033130101121-1223311220002300-1021130021021331-3013020122210230-1000211022231110-2001013303211320-3121322232302331",
       "registry_path": "docs/guides/data-sources--dns_zone--reference--group-001.md",
@@ -3127,20 +3127,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/properties/primary/default_rr_set_group/cds_record/values/sha384_digest/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "Configuration parameter for sha384 digest.",
       "tasks": ["configuration"],
       "title": "primary.default_rr_set_group.cds_record.values.sha384_digest",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["dns_zoneCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["primary default rr set group cert record"],
       "body_bytes": 2717,
-      "body_sha256": "sha256:c69f9cb7945ff9c41029017f38e5dcb06e8105a1496ed2a4e3a05925d5a05099",
+      "body_sha256": "sha256:77c92ac80de50bae1e9ee0fd7460e60999756b16c4e4b766a83f97659b0fc2f8",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": ["xcsh-docs:data-sources:dns_zone:properties:primary:default_rr_set_group:cert_record:values"],
@@ -3157,7 +3157,7 @@
       "path": "documentation/data-sources/dns_zone/properties/primary/default_rr_set_group/cert_record/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_zone",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2103113313321033-0201132202120131-1011321103103120-0212131230022211-1011221201210111-1203211223103012-3213112020013312-0122002221223221",
       "registry_path": "docs/guides/data-sources--dns_zone--reference--group-001.md",
@@ -3200,20 +3200,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/properties/primary/default_rr_set_group/cert_record/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "DNS CERT Record.",
       "tasks": ["configuration"],
       "title": "primary.default_rr_set_group.cert_record",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["dns_zoneCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["primary default rr set group cert record values"],
       "body_bytes": 6262,
-      "body_sha256": "sha256:e6a01f6ae9a88855b92cd02ac25c04226d776040d2fabd4e0895e7cbb8112326",
+      "body_sha256": "sha256:8f2d1dc4b2f4a7f564acf1338c033b7cd697ad1ae7539416cbc2f9a3df99b6b8",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -3230,7 +3230,7 @@
       "path": "documentation/data-sources/dns_zone/properties/primary/default_rr_set_group/cert_record/values/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_zone",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1120031120230330-2222022101310233-1110032021010231-3321311203222233-1320112010302133-3232100311322323-1103102112030310-2120132302312320",
       "registry_path": "docs/guides/data-sources--dns_zone--reference--group-001.md",
@@ -3305,20 +3305,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/properties/primary/default_rr_set_group/cert_record/values/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "Configuration parameter for values",
       "tasks": ["configuration"],
       "title": "primary.default_rr_set_group.cert_record.values",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["dns_zoneCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["primary default rr set group cname record"],
       "body_bytes": 3490,
-      "body_sha256": "sha256:f13b41c25fcfc21d7e61c83a7febe396890cc7970dd6c025ffca3a14b3899f1e",
+      "body_sha256": "sha256:b2bba07fe5a657258be6694cac573341cc11bafc08bb87e6c1c80dddcd832300",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -3335,7 +3335,7 @@
       "path": "documentation/data-sources/dns_zone/properties/primary/default_rr_set_group/cname_record/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_zone",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1210222313232023-3302132113200010-1102000331232222-1301112000130123-0332301130133312-0112100212202202-3031221112323220-3020332031122200",
       "registry_path": "docs/guides/data-sources--dns_zone--reference--group-001.md",
@@ -3378,20 +3378,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/properties/primary/default_rr_set_group/cname_record/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "DNSCNAMEResourceRecord.",
       "tasks": ["configuration"],
       "title": "primary.default_rr_set_group.cname_record",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["dns_zoneCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["primary default rr set group ds record"],
       "body_bytes": 2648,
-      "body_sha256": "sha256:020b51f84ce815fa61b5b9c5727fd27ea8d9b2d4e720f0d78601e6ceddd03ad1",
+      "body_sha256": "sha256:eea619eba88b2ca866728676e207d9a785dbf2756588e083907299ca9928e8f1",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": ["xcsh-docs:data-sources:dns_zone:properties:primary:default_rr_set_group:ds_record:values"],
@@ -3408,7 +3408,7 @@
       "path": "documentation/data-sources/dns_zone/properties/primary/default_rr_set_group/ds_record/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_zone",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0332332020330012-1003302232123021-0022232311333132-0113122113322112-2123033321110312-3133333133301221-0121330302222103-3212000033322100",
       "registry_path": "docs/guides/data-sources--dns_zone--reference--group-001.md",
@@ -3451,20 +3451,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/properties/primary/default_rr_set_group/ds_record/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "DNS DS Record.",
       "tasks": ["configuration"],
       "title": "primary.default_rr_set_group.ds_record",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["dns_zoneCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["primary default rr set group ds record values"],
       "body_bytes": 4586,
-      "body_sha256": "sha256:1de68c714a2a44f1fe3bac3afefcca2fe7fc6bf6efa8427d0d43ffcce027a022",
+      "body_sha256": "sha256:7971a8ab37c044c6e9bf541922670b0704a0cbbde96503d3b7ef38bac4cfa4a1",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [
@@ -3485,7 +3485,7 @@
       "path": "documentation/data-sources/dns_zone/properties/primary/default_rr_set_group/ds_record/values/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_zone",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1133333130110222-2223102021122311-2113332033031230-1100201102003302-3122213102212223-1032103101022120-2000002000223200-2023321023200100",
       "registry_path": "docs/guides/data-sources--dns_zone--reference--group-001.md",
@@ -3576,20 +3576,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/properties/primary/default_rr_set_group/ds_record/values/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "Configuration parameter for values",
       "tasks": ["configuration"],
       "title": "primary.default_rr_set_group.ds_record.values",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["dns_zoneCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["primary default rr set group ds record values sha1 digest"],
       "body_bytes": 2431,
-      "body_sha256": "sha256:7371ef2bf3ad8355f0f9f2472cf6b335f4c4a9db013a9f9a71229f22df7845ff",
+      "body_sha256": "sha256:6267604569d230716445eb042122977c804e18e6e675d9d70e5db48e70011aab",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -3606,7 +3606,7 @@
       "path": "documentation/data-sources/dns_zone/properties/primary/default_rr_set_group/ds_record/values/sha1_digest/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_zone",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2330211211113323-0133320000331330-3212111101203123-1220330011232233-1300320223102222-3211311200130210-1032213010030230-1222030202212313",
       "registry_path": "docs/guides/data-sources--dns_zone--reference--group-001.md",
@@ -3633,20 +3633,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/properties/primary/default_rr_set_group/ds_record/values/sha1_digest/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "Configuration parameter for sha1 digest.",
       "tasks": ["configuration"],
       "title": "primary.default_rr_set_group.ds_record.values.sha1_digest",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["dns_zoneCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["primary default rr set group ds record values sha256 digest"],
       "body_bytes": 2439,
-      "body_sha256": "sha256:2d3431e8afbecfe8ef3e8c7ab03287920d16a03fefda7c81b32ddf7d8aa3d993",
+      "body_sha256": "sha256:a93e9b8ef9329b672c22d651bec3877d2295b3c855f480edffeb8b0fc4172818",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -3663,7 +3663,7 @@
       "path": "documentation/data-sources/dns_zone/properties/primary/default_rr_set_group/ds_record/values/sha256_digest/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_zone",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1020002003030032-1130201032112031-3010331300321220-3320103121300300-0331321313303330-1310231231013013-1320221110333110-2202021210002033",
       "registry_path": "docs/guides/data-sources--dns_zone--reference--group-001.md",
@@ -3690,20 +3690,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/properties/primary/default_rr_set_group/ds_record/values/sha256_digest/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "Configuration parameter for sha256 digest.",
       "tasks": ["configuration"],
       "title": "primary.default_rr_set_group.ds_record.values.sha256_digest",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["dns_zoneCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["primary default rr set group ds record values sha384 digest"],
       "body_bytes": 2439,
-      "body_sha256": "sha256:53c48cbf6652ad4f94476e8ac56b961498cfb1ed872d66cca87cd4ad4270414c",
+      "body_sha256": "sha256:11cc087fc554edae96a552c9f7cc9eb782bac225b20ded82dd95ea1610a2a3b4",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -3720,7 +3720,7 @@
       "path": "documentation/data-sources/dns_zone/properties/primary/default_rr_set_group/ds_record/values/sha384_digest/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_zone",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2022232333211100-0121202021103121-2302000333012022-1232200321013202-0201321121130123-3310311330202123-2022000220113232-0111002333132313",
       "registry_path": "docs/guides/data-sources--dns_zone--reference--group-001.md",
@@ -3747,20 +3747,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/properties/primary/default_rr_set_group/ds_record/values/sha384_digest/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "Configuration parameter for sha384 digest.",
       "tasks": ["configuration"],
       "title": "primary.default_rr_set_group.ds_record.values.sha384_digest",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["dns_zoneCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["primary default rr set group eui48 record"],
       "body_bytes": 3823,
-      "body_sha256": "sha256:8ca85667099095ef52127e0d701cb79a5b36ce72dcdefd0d7ca34130ab4abf25",
+      "body_sha256": "sha256:72029ae79c7a98dbb587cc2bdb4beda342e5539cbf42893ce21f8dc87ae42b39",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -3777,7 +3777,7 @@
       "path": "documentation/data-sources/dns_zone/properties/primary/default_rr_set_group/eui48_record/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_zone",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3131300332020230-3331033131000131-1121003101002330-1233102210013032-0213323303121120-0011202223031101-3113322221020122-1031012321320303",
       "registry_path": "docs/guides/data-sources--dns_zone--reference--group-001.md",
@@ -3820,20 +3820,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/properties/primary/default_rr_set_group/eui48_record/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "DNS EUI48 Record.",
       "tasks": ["configuration"],
       "title": "primary.default_rr_set_group.eui48_record",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["dns_zoneCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["primary default rr set group eui64 record"],
       "body_bytes": 3829,
-      "body_sha256": "sha256:af4629888cc302765267a4fa533aec80f83f36a596265ef179b802a1a0f513aa",
+      "body_sha256": "sha256:06b08554466e7c37e153018a51a6628059a8343ea09094208001aad910dcdaa7",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -3850,7 +3850,7 @@
       "path": "documentation/data-sources/dns_zone/properties/primary/default_rr_set_group/eui64_record/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_zone",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1001031330110020-1133122011223212-1221020310212103-2121030102103310-1031332030211201-3010332112131120-0002121331230022-3122212233332113",
       "registry_path": "docs/guides/data-sources--dns_zone--reference--group-001.md",
@@ -3893,20 +3893,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/properties/primary/default_rr_set_group/eui64_record/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "DNS EUI64 Record.",
       "tasks": ["configuration"],
       "title": "primary.default_rr_set_group.eui64_record",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["dns_zoneCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["primary default rr set group lb record"],
       "body_bytes": 2594,
-      "body_sha256": "sha256:6b0113cd39b47810b602ae0e415d02b73e510f8fa3565e50b0af0c42eee3fa68",
+      "body_sha256": "sha256:c8422aee7d8e7a20f2c11347f242afa4f1830f385390defe3934b78fad795de1",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": ["xcsh-docs:data-sources:dns_zone:properties:primary:default_rr_set_group:lb_record:value"],
@@ -3923,7 +3923,7 @@
       "path": "documentation/data-sources/dns_zone/properties/primary/default_rr_set_group/lb_record/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_zone",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1321110233323023-3033012222210110-1100112210100301-1331110010313330-0202131111030201-0031121030023110-3303012321221102-1202212120312023",
       "registry_path": "docs/guides/data-sources--dns_zone--reference--group-001.md",
@@ -3966,20 +3966,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/properties/primary/default_rr_set_group/lb_record/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "DNS Load Balancer Record.",
       "tasks": ["configuration"],
       "title": "primary.default_rr_set_group.lb_record",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["dns_zoneCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["primary default rr set group lb record value"],
       "body_bytes": 4828,
-      "body_sha256": "sha256:f119d62fbfc12af7c7385ce237c31a223e5646d7c221ddea98af4ff1fe8fe07f",
+      "body_sha256": "sha256:303e134f92090f031d1dade7f7a595f6b78aefa42a34e654d6ee139cb0b73db1",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -3996,7 +3996,7 @@
       "path": "documentation/data-sources/dns_zone/properties/primary/default_rr_set_group/lb_record/value/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_zone",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2311130033030021-2003222210122210-2020122132030012-2213211110331023-0222122311203110-2022333003013121-0100233211220113-2210120022302133",
       "registry_path": "docs/guides/data-sources--dns_zone--reference--group-001.md",
@@ -4076,20 +4076,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/properties/primary/default_rr_set_group/lb_record/value/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "primary.default_rr_set_group.lb_record.value",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["dns_zoneCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["primary default rr set group loc record"],
       "body_bytes": 2655,
-      "body_sha256": "sha256:e76107366869f2dedf4a644093cf7dc1a847bc93f596f1cc9dde22b5115a9ba4",
+      "body_sha256": "sha256:d0131cd08bd016d4713841b38bb05803b4713b346d4d39eac9d11fbb9f1eb5c9",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": ["xcsh-docs:data-sources:dns_zone:properties:primary:default_rr_set_group:loc_record:values"],
@@ -4106,7 +4106,7 @@
       "path": "documentation/data-sources/dns_zone/properties/primary/default_rr_set_group/loc_record/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_zone",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3310122013002202-2201310111100013-3320132322330303-3003311222123331-1221002132100302-2122021012023311-0330301233113311-0002130121010103",
       "registry_path": "docs/guides/data-sources--dns_zone--reference--group-001.md",
@@ -4149,20 +4149,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/properties/primary/default_rr_set_group/loc_record/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "DNS LOC Record.",
       "tasks": ["configuration"],
       "title": "primary.default_rr_set_group.loc_record",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["dns_zoneCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["primary default rr set group loc record values"],
       "body_bytes": 10689,
-      "body_sha256": "sha256:79fca7acd0b26cad08746ff6f977e9e7a0184a9f299c76e438762e687e16efc4",
+      "body_sha256": "sha256:40c403ad7ea2c236c918cc09a3241b3281c2ee30c471a3ea285baf5eca0bbddf",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -4179,7 +4179,7 @@
       "path": "documentation/data-sources/dns_zone/properties/primary/default_rr_set_group/loc_record/values/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_zone",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0332210330031101-0030003323333000-0122030130330130-0013312101002233-1233230131230102-0300231310030003-0331020120103023-0133320311021203",
       "registry_path": "docs/guides/data-sources--dns_zone--reference--group-001.md",
@@ -4382,20 +4382,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/properties/primary/default_rr_set_group/loc_record/values/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "Configuration parameter for values",
       "tasks": ["configuration"],
       "title": "primary.default_rr_set_group.loc_record.values",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["dns_zoneCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["primary default rr set group mx record"],
       "body_bytes": 2645,
-      "body_sha256": "sha256:9edff32681cc0335a6fad228eea27c60cb54d73c50f3bc78683f73d33fcd6f79",
+      "body_sha256": "sha256:dc9e9038a6a5b579439c42f8310579205d61d24110952143bad9862e77995731",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": ["xcsh-docs:data-sources:dns_zone:properties:primary:default_rr_set_group:mx_record:values"],
@@ -4412,7 +4412,7 @@
       "path": "documentation/data-sources/dns_zone/properties/primary/default_rr_set_group/mx_record/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_zone",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1210121201311120-2131010222033122-0330222031322111-3200022000122302-0333021032123112-2220203201001212-2120030320310132-2322032202111212",
       "registry_path": "docs/guides/data-sources--dns_zone--reference--group-002.md",
@@ -4455,20 +4455,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/properties/primary/default_rr_set_group/mx_record/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "DNSMXResourceRecord.",
       "tasks": ["configuration"],
       "title": "primary.default_rr_set_group.mx_record",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["dns_zoneCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["primary default rr set group mx record values"],
       "body_bytes": 3476,
-      "body_sha256": "sha256:dca23be688c3a826c983b49a37c39febca2b3d171a5f4af76cecfc3805d240e3",
+      "body_sha256": "sha256:50b1c0e0af439f982a5fd02b619af14dc3a0cc2573edb44405280fda905a665b",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -4485,7 +4485,7 @@
       "path": "documentation/data-sources/dns_zone/properties/primary/default_rr_set_group/mx_record/values/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_zone",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1011130322331212-0301101323322001-0320200330211331-2122132002032322-1003202023031203-2021031220230300-1212030120033231-0033332212110320",
       "registry_path": "docs/guides/data-sources--dns_zone--reference--group-002.md",
@@ -4528,20 +4528,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/properties/primary/default_rr_set_group/mx_record/values/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "Configuration parameter for values",
       "tasks": ["configuration"],
       "title": "primary.default_rr_set_group.mx_record.values",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["dns_zoneCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["primary default rr set group naptr record"],
       "body_bytes": 2724,
-      "body_sha256": "sha256:8c8b68f74c53af4d6c8e8726f601d036f4fdd7b8e8663ebfd7724b4c75d314ac",
+      "body_sha256": "sha256:1851e56e7f6a2472477d58f72104ae10d2ffff12f3666e21fcc400c9894a0472",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": ["xcsh-docs:data-sources:dns_zone:properties:primary:default_rr_set_group:naptr_record:values"],
@@ -4558,7 +4558,7 @@
       "path": "documentation/data-sources/dns_zone/properties/primary/default_rr_set_group/naptr_record/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_zone",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2000221213012233-1222212300001003-2201121122210020-3133301203202102-1332032202320301-1003102301122213-2203320000301213-0012113303201103",
       "registry_path": "docs/guides/data-sources--dns_zone--reference--group-002.md",
@@ -4601,20 +4601,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/properties/primary/default_rr_set_group/naptr_record/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "DNS NAPTR Record.",
       "tasks": ["configuration"],
       "title": "primary.default_rr_set_group.naptr_record",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["dns_zoneCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["primary default rr set group naptr record values"],
       "body_bytes": 7711,
-      "body_sha256": "sha256:92734a75f50fc9694d249235fc52c4594571385a3d325988f6ce16cb214bc95b",
+      "body_sha256": "sha256:32e8780006c33fbddb9a816e467a1b8196b9f1dc8f2dec806ee123f2487ad0a9",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -4631,7 +4631,7 @@
       "path": "documentation/data-sources/dns_zone/properties/primary/default_rr_set_group/naptr_record/values/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_zone",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0100201121020123-1031113322131133-1011321031132003-3321103133212313-3031002121201312-0312231201330322-1033220103223301-1023211031120113",
       "registry_path": "docs/guides/data-sources--dns_zone--reference--group-002.md",
@@ -4738,20 +4738,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/properties/primary/default_rr_set_group/naptr_record/values/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "Configuration parameter for values",
       "tasks": ["configuration"],
       "title": "primary.default_rr_set_group.naptr_record.values",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["dns_zoneCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["primary default rr set group ns record"],
       "body_bytes": 3774,
-      "body_sha256": "sha256:83e229fdc8c4539f596302d92d6fcff3b22f727bfccd92a34a2c3e1c3501d9e9",
+      "body_sha256": "sha256:9fa6a76f6d1d5613dcc83db5389da4947092b938043312de3c65f67da371965d",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -4768,7 +4768,7 @@
       "path": "documentation/data-sources/dns_zone/properties/primary/default_rr_set_group/ns_record/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_zone",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2313231112212011-0201330312333230-1201033232031120-1123102230132211-2311130313033231-0220202113331330-3030032011212201-2022201023220103",
       "registry_path": "docs/guides/data-sources--dns_zone--reference--group-002.md",
@@ -4811,20 +4811,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/properties/primary/default_rr_set_group/ns_record/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "DNSNSResourceRecord.",
       "tasks": ["configuration"],
       "title": "primary.default_rr_set_group.ns_record",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["dns_zoneCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["primary default rr set group ptr record"],
       "body_bytes": 3779,
-      "body_sha256": "sha256:4f65afff3380824e83b9f085edd0f8b57570d589b62089779dde322910e5c500",
+      "body_sha256": "sha256:bf84a422fa98c4a4742bc18f7aabc4056ad6675dbc7a441ae87c3cb2eeba093e",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -4841,7 +4841,7 @@
       "path": "documentation/data-sources/dns_zone/properties/primary/default_rr_set_group/ptr_record/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_zone",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0032230300312201-2330203102230021-2122122330231113-1232330231302310-3001020022321003-0100000031302303-0320002132012223-3332123310323113",
       "registry_path": "docs/guides/data-sources--dns_zone--reference--group-002.md",
@@ -4884,20 +4884,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/properties/primary/default_rr_set_group/ptr_record/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "DNSPTRResourceRecord.",
       "tasks": ["configuration"],
       "title": "primary.default_rr_set_group.ptr_record",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["dns_zoneCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["primary default rr set group srv record"],
       "body_bytes": 2738,
-      "body_sha256": "sha256:13c0a524e3d64331ae3b68fb2c719cf5610aa761a54e0aa31b9995be6a556c39",
+      "body_sha256": "sha256:1caeabef6266a21755c03cba3b927afd41602b442fcb3300c27b61bd190c298a",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": ["xcsh-docs:data-sources:dns_zone:properties:primary:default_rr_set_group:srv_record:values"],
@@ -4914,7 +4914,7 @@
       "path": "documentation/data-sources/dns_zone/properties/primary/default_rr_set_group/srv_record/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_zone",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3022002303322101-2133310220222102-1221303323002002-2021320313022100-3022301033201311-3100301120122232-0121032103302112-2011211020313032",
       "registry_path": "docs/guides/data-sources--dns_zone--reference--group-002.md",
@@ -4957,20 +4957,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/properties/primary/default_rr_set_group/srv_record/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "DNSSRVResourceRecord.",
       "tasks": ["configuration"],
       "title": "primary.default_rr_set_group.srv_record",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["dns_zoneCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["primary default rr set group srv record values"],
       "body_bytes": 5789,
-      "body_sha256": "sha256:eecbb4b8f508632cd99d64f1ab37eac9c74926aa92096307ef8492a809da08e2",
+      "body_sha256": "sha256:801ce1c57f3995220a7e921ec7e9892669ca0a19cd71010be98b4c50b1edd705",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -4987,7 +4987,7 @@
       "path": "documentation/data-sources/dns_zone/properties/primary/default_rr_set_group/srv_record/values/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_zone",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1320223020133013-1023223333033030-3122310013013203-0033013220230323-1203220300022200-0213310103002010-0022011222300321-0201010301013210",
       "registry_path": "docs/guides/data-sources--dns_zone--reference--group-002.md",
@@ -5062,20 +5062,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/properties/primary/default_rr_set_group/srv_record/values/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "Configuration parameter for values",
       "tasks": ["configuration"],
       "title": "primary.default_rr_set_group.srv_record.values",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["dns_zoneCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["primary default rr set group sshfp record"],
       "body_bytes": 2724,
-      "body_sha256": "sha256:879885083a56c9561235ee3a31323cab968a1f0c9bbb26203de2f560c5b8a184",
+      "body_sha256": "sha256:857cd8c9f87039b320591500d48faeb1414fac24f47f00104e26c7330f447a42",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": ["xcsh-docs:data-sources:dns_zone:properties:primary:default_rr_set_group:sshfp_record:values"],
@@ -5092,7 +5092,7 @@
       "path": "documentation/data-sources/dns_zone/properties/primary/default_rr_set_group/sshfp_record/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_zone",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2131213003100201-0112010012001002-0013220210323230-0322333202002311-1323221222033032-0212121113221221-0222110233100122-1122121333301021",
       "registry_path": "docs/guides/data-sources--dns_zone--reference--group-002.md",
@@ -5135,20 +5135,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/properties/primary/default_rr_set_group/sshfp_record/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "DNS SSHFP Record.",
       "tasks": ["configuration"],
       "title": "primary.default_rr_set_group.sshfp_record",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["dns_zoneCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["primary default rr set group sshfp record values"],
       "body_bytes": 3129,
-      "body_sha256": "sha256:b07822741f82087caf20cfa3f519d4c56ca018bb08f502ed0b5504952324a30f",
+      "body_sha256": "sha256:dd26b1cd113bc03b63eeb445436311c1e38d2bdebb9a7a72e912052153c76d6c",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [
@@ -5168,7 +5168,7 @@
       "path": "documentation/data-sources/dns_zone/properties/primary/default_rr_set_group/sshfp_record/values/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_zone",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3202003222120313-3231001131322220-1302303203232200-0333301211221330-1312101031123012-0333320322003303-3011001223203333-1003121222013103",
       "registry_path": "docs/guides/data-sources--dns_zone--reference--group-002.md",
@@ -5227,20 +5227,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/properties/primary/default_rr_set_group/sshfp_record/values/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "Configuration parameter for values",
       "tasks": ["configuration"],
       "title": "primary.default_rr_set_group.sshfp_record.values",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["dns_zoneCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["primary default rr set group sshfp record values sha1 fingerprint"],
       "body_bytes": 2653,
-      "body_sha256": "sha256:c25b59689f130ad0c298a8764f69f926ee4360375d3ecd2be8b27d393761495f",
+      "body_sha256": "sha256:79d63c437484d64c6b6902cc7d90aba7ee3c419c7c35275d34f1620695899448",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -5257,7 +5257,7 @@
       "path": "documentation/data-sources/dns_zone/properties/primary/default_rr_set_group/sshfp_record/values/sha1_fingerprint/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_zone",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3212233132102313-3020030030330330-1300213312321310-0320003102123111-2030132233231132-3223023333221311-2312331123120223-2012333000021131",
       "registry_path": "docs/guides/data-sources--dns_zone--reference--group-002.md",
@@ -5291,20 +5291,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/properties/primary/default_rr_set_group/sshfp_record/values/sha1_fingerprint/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "Configuration parameter for sha1 fingerprint.",
       "tasks": ["configuration"],
       "title": "primary.default_rr_set_group.sshfp_record.values.sha1_fingerprint",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["dns_zoneCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["primary default rr set group sshfp record values sha256 fingerprint"],
       "body_bytes": 2661,
-      "body_sha256": "sha256:b3a988c6a5bc28de8464743dd94a87342ea8cd2649b18c70e48ba3102a0ee8ce",
+      "body_sha256": "sha256:9e08945f8430a38c7b04d2fe56021b465b9c2a374f934db3b862b16f957d3e50",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -5321,7 +5321,7 @@
       "path": "documentation/data-sources/dns_zone/properties/primary/default_rr_set_group/sshfp_record/values/sha256_fingerprint/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_zone",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1033003133000023-0122010033130000-1001333131130010-2300232320011323-1020123031313230-0023020332032322-0022313002020000-2021012001232012",
       "registry_path": "docs/guides/data-sources--dns_zone--reference--group-002.md",
@@ -5355,20 +5355,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/properties/primary/default_rr_set_group/sshfp_record/values/sha256_fingerprint/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "Configuration parameter for sha256 fingerprint.",
       "tasks": ["configuration"],
       "title": "primary.default_rr_set_group.sshfp_record.values.sha256_fingerprint",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["dns_zoneCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["primary default rr set group tlsa record"],
       "body_bytes": 2717,
-      "body_sha256": "sha256:de240b03e54a4b8b1be814302d5831c327ed44c973128a6f4e3bf3727ee86a12",
+      "body_sha256": "sha256:2261235a96faf0673006e190c26d0c660831e8d07191edb5084d1c14ce2e513f",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": ["xcsh-docs:data-sources:dns_zone:properties:primary:default_rr_set_group:tlsa_record:values"],
@@ -5385,7 +5385,7 @@
       "path": "documentation/data-sources/dns_zone/properties/primary/default_rr_set_group/tlsa_record/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_zone",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2101121000001100-2301010023202222-0201001332133023-3100101303202310-3001221233210201-2132313122010110-3100111130011132-3022131111200230",
       "registry_path": "docs/guides/data-sources--dns_zone--reference--group-002.md",
@@ -5428,20 +5428,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/properties/primary/default_rr_set_group/tlsa_record/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "DNS TLSA Record.",
       "tasks": ["configuration"],
       "title": "primary.default_rr_set_group.tlsa_record",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["dns_zoneCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["primary default rr set group tlsa record values"],
       "body_bytes": 5352,
-      "body_sha256": "sha256:8a89320450eb5fb338e30ec38c14925a29a380f17527f20fa2e2a65014dfbfa0",
+      "body_sha256": "sha256:cd29ab6ff8621bb23b3b9c15e0947707981f4adb45efcf6aff0e5194b177484a",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -5458,7 +5458,7 @@
       "path": "documentation/data-sources/dns_zone/properties/primary/default_rr_set_group/tlsa_record/values/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_zone",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0120011031211132-3230333303020232-1031031230021310-0113032230023310-3311022011210212-1033010011101331-3112200132321022-2112113100132111",
       "registry_path": "docs/guides/data-sources--dns_zone--reference--group-002.md",
@@ -5533,20 +5533,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/properties/primary/default_rr_set_group/tlsa_record/values/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "Configuration parameter for values",
       "tasks": ["configuration"],
       "title": "primary.default_rr_set_group.tlsa_record.values",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["dns_zoneCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["primary default rr set group txt record"],
       "body_bytes": 3770,
-      "body_sha256": "sha256:c7df96087eb4892bbb20bfaccc23eefcef6e7b78bd7c63a8f1d6ae48c556a6c2",
+      "body_sha256": "sha256:2d40a66a47e23a506f1b3dd7e160e0b609d566a1c26508e9b59b0855c54f474e",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -5563,7 +5563,7 @@
       "path": "documentation/data-sources/dns_zone/properties/primary/default_rr_set_group/txt_record/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_zone",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2023003321332312-0023132123210230-1102330021223031-3112003211020100-3031102022010133-0321133333232212-0313320223232033-0232003031030313",
       "registry_path": "docs/guides/data-sources--dns_zone--reference--group-002.md",
@@ -5606,14 +5606,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/properties/primary/default_rr_set_group/txt_record/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "DNSTXTResourceRecord.",
       "tasks": ["configuration"],
       "title": "primary.default_rr_set_group.txt_record",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["dns_zoneCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
@@ -5636,7 +5636,7 @@
       "path": "documentation/data-sources/dns_zone/properties/primary/default_soa_parameters/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_zone",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1013032121121211-0200310230111302-2302123231122131-1132011211233131-3233303200303110-1001330123313000-0122110323001111-2131223301100220",
       "registry_path": "docs/guides/data-sources--dns_zone--reference--group-002.md",
@@ -5646,14 +5646,14 @@
       "schema_path": ["primary", "default_soa_parameters"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/properties/primary/default_soa_parameters/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "primary.default_soa_parameters",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["dns_zoneCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
@@ -5679,7 +5679,7 @@
       "path": "documentation/data-sources/dns_zone/properties/primary/dnssec_mode/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_zone",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0301132310232123-0100020002231220-0220210220113100-2233333133311311-2013203003202010-1111221031021320-3202202231022031-3321200322011102",
       "registry_path": "docs/guides/data-sources--dns_zone--reference--group-002.md",
@@ -5722,14 +5722,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/properties/primary/dnssec_mode/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "DNSSEC Mode.",
       "tasks": ["configuration"],
       "title": "primary.dnssec_mode",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["dns_zoneCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
@@ -5752,7 +5752,7 @@
       "path": "documentation/data-sources/dns_zone/properties/primary/dnssec_mode/disable_spec/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_zone",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0203303200332322-0121103330333203-3311110011232221-2101231000322133-2102222111020223-3132302232302210-1213103200010130-0300321120212112",
       "registry_path": "docs/guides/data-sources--dns_zone--reference--group-002.md",
@@ -5762,14 +5762,14 @@
       "schema_path": ["primary", "dnssec_mode", "disable_spec"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/properties/primary/dnssec_mode/disable_spec/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "Enable this option",
       "tasks": ["configuration"],
       "title": "primary.dnssec_mode.disable_spec",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["dns_zoneCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
@@ -5792,7 +5792,7 @@
       "path": "documentation/data-sources/dns_zone/properties/primary/dnssec_mode/enable/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_zone",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1221121130033221-2123222101202023-0201332012131001-0303022301203123-0122210132133332-2203321123031100-2100301320102120-1203023103200100",
       "registry_path": "docs/guides/data-sources--dns_zone--reference--group-002.md",
@@ -5802,20 +5802,20 @@
       "schema_path": ["primary", "dnssec_mode", "enable"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/properties/primary/dnssec_mode/enable/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "DNSSEC enable.",
       "tasks": ["configuration"],
       "title": "primary.dnssec_mode.enable",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["dns_zoneCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["primary rr set group"],
       "body_bytes": 1750,
-      "body_sha256": "sha256:cc8ed81064835718bd51d44ecfb276cb60083b330cda14c8c0d7bcdddffa612d",
+      "body_sha256": "sha256:aa5bd11fbd01cfb86dbd4764f792c97cbc0013d8c88ed3a23905cf712b9f79de",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [
@@ -5835,7 +5835,7 @@
       "path": "documentation/data-sources/dns_zone/properties/primary/rr_set_group/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_zone",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1123222033113212-3322310132230022-0003203213303322-3032311213113203-3003230323212030-2021000103002312-2303100332113121-0122303013013202",
       "registry_path": "docs/guides/data-sources--dns_zone--reference--group-002.md",
@@ -5878,20 +5878,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/properties/primary/rr_set_group/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "Create and manage set groups, and resource record sets within them, x-VES-I/O-managed set is managed by F5.",
       "tasks": ["configuration"],
       "title": "primary.rr_set_group",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["dns_zoneCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["primary rr set group metadata"],
       "body_bytes": 2966,
-      "body_sha256": "sha256:f160fd196993531abd5b4467e360659527cc173f2fbed00266faae87354f9bc3",
+      "body_sha256": "sha256:02770ffa773b98000359778da29c6f30ddf80fe23d30d48664fdcc6315843fc8",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -5908,7 +5908,7 @@
       "path": "documentation/data-sources/dns_zone/properties/primary/rr_set_group/metadata/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_zone",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2300002332200332-3300012320121033-1323312230331320-0222210111132311-1030011331333111-1212002231231222-1321113113133330-0222303310223013",
       "registry_path": "docs/guides/data-sources--dns_zone--reference--group-002.md",
@@ -5951,20 +5951,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/properties/primary/rr_set_group/metadata/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create and replace APIs.",
       "tasks": ["configuration"],
       "title": "primary.rr_set_group.metadata",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["dns_zoneCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["primary rr set group rr set"],
       "body_bytes": 6212,
-      "body_sha256": "sha256:109a6513da07cb6039bee223cf0d7cea698dd50b3a8972f4e361ca8a1e4e4913",
+      "body_sha256": "sha256:179f58493b35d34074b8b3909864c8e5f174be594c6541980258b06b336677af",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [
@@ -6003,7 +6003,7 @@
       "path": "documentation/data-sources/dns_zone/properties/primary/rr_set_group/rr_set/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_zone",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0321130120130123-0321021202222021-1111221100311313-3310203033333202-2100230030032013-2312210231011130-2202301302333100-1330111100320302",
       "registry_path": "docs/guides/data-sources--dns_zone--reference--group-002.md",
@@ -6382,20 +6382,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/properties/primary/rr_set_group/rr_set/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "Collection of DNS resource record sets.",
       "tasks": ["configuration"],
       "title": "primary.rr_set_group.rr_set",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["dns_zoneCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["primary rr set group rr set a record"],
       "body_bytes": 3918,
-      "body_sha256": "sha256:1e863a3a741dd6ccc5ce6b2debaefd382c624bb491940ee649e5978305d67f83",
+      "body_sha256": "sha256:8583bc07f63c2ab50c7e24385b1295fe5e597b5558871fe8736e08b0bd00ac37",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -6412,7 +6412,7 @@
       "path": "documentation/data-sources/dns_zone/properties/primary/rr_set_group/rr_set/a_record/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_zone",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2133222331203223-0313012330312212-3123323310001222-2102203030233020-3301203301220002-1031033311120221-0000331011100133-0320223033201232",
       "registry_path": "docs/guides/data-sources--dns_zone--reference--group-002.md",
@@ -6455,20 +6455,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/properties/primary/rr_set_group/rr_set/a_record/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "A Records",
       "tasks": ["configuration"],
       "title": "primary.rr_set_group.rr_set.a_record",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["dns_zoneCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["primary rr set group rr set aaaa record"],
       "body_bytes": 4031,
-      "body_sha256": "sha256:b7fc1273039152f5f716e46040ec0beeb6d1de7c5ac534b0e089ccc190e8cff0",
+      "body_sha256": "sha256:dfc75343fd900755f43ec3cc0a2879364ee7c533ea2ad0f4f45ed17079924cda",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -6485,7 +6485,7 @@
       "path": "documentation/data-sources/dns_zone/properties/primary/rr_set_group/rr_set/aaaa_record/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_zone",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0300332203033212-2102110000033322-3321232013303310-3001001213000213-0230010313131203-0232112013213231-3212033301122213-3233101333323002",
       "registry_path": "docs/guides/data-sources--dns_zone--reference--group-002.md",
@@ -6528,20 +6528,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/properties/primary/rr_set_group/rr_set/aaaa_record/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "RecordSet for AAAA Records.",
       "tasks": ["configuration"],
       "title": "primary.rr_set_group.rr_set.aaaa_record",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["dns_zoneCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["primary rr set group rr set afsdb record"],
       "body_bytes": 2856,
-      "body_sha256": "sha256:00ef8e8f51a4dea82c88064a0f3b2eda4c3c3af6f9cc05c27d866afa1c9eb501",
+      "body_sha256": "sha256:d706dcf0f401c4ca59fa04cc904e7dd828f166645817746b03669a97b8f560a9",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": ["xcsh-docs:data-sources:dns_zone:properties:primary:rr_set_group:rr_set:afsdb_record:values"],
@@ -6558,7 +6558,7 @@
       "path": "documentation/data-sources/dns_zone/properties/primary/rr_set_group/rr_set/afsdb_record/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_zone",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1300113000100303-0103301013032300-2333102222023331-1311010301000230-1312131033332333-3001303320321310-2023130101302221-1203303330012333",
       "registry_path": "docs/guides/data-sources--dns_zone--reference--group-002.md",
@@ -6601,20 +6601,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/properties/primary/rr_set_group/rr_set/afsdb_record/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "DNS AFSDB Record.",
       "tasks": ["configuration"],
       "title": "primary.rr_set_group.rr_set.afsdb_record",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["dns_zoneCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["primary rr set group rr set afsdb record values"],
       "body_bytes": 3851,
-      "body_sha256": "sha256:ec8abfab42cbf682a0768138858969d0915c58a5bc78419c6956e9ba9e755baa",
+      "body_sha256": "sha256:a6f2ad074f3280d844e715efc540f49826719f7507062f4290a702cb2ab28f1d",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -6631,7 +6631,7 @@
       "path": "documentation/data-sources/dns_zone/properties/primary/rr_set_group/rr_set/afsdb_record/values/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_zone",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2301311330323221-2332100303230210-0101102100201033-1203233130220313-2030201110213221-0131201211201033-1101120020202233-3111323103331201",
       "registry_path": "docs/guides/data-sources--dns_zone--reference--group-002.md",
@@ -6674,20 +6674,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/properties/primary/rr_set_group/rr_set/afsdb_record/values/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "Configuration parameter for values",
       "tasks": ["configuration"],
       "title": "primary.rr_set_group.rr_set.afsdb_record.values",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["dns_zoneCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["primary rr set group rr set alias record"],
       "body_bytes": 2033,
-      "body_sha256": "sha256:a2435c2821247da03d74290b10363121ad6f3b4e722796c8d31b0de217cb5c71",
+      "body_sha256": "sha256:5bca3ce06ca5c0fa0478aec8183d92d0aae14d9050041216d416aa0bc083e026",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -6704,7 +6704,7 @@
       "path": "documentation/data-sources/dns_zone/properties/primary/rr_set_group/rr_set/alias_record/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_zone",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2232212032121023-3022121321313313-0013031312032122-3303023321031011-2033003002102300-0222023203002011-3310121213120113-3120313012020110",
       "registry_path": "docs/guides/data-sources--dns_zone--reference--group-002.md",
@@ -6731,20 +6731,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/properties/primary/rr_set_group/rr_set/alias_record/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "Configuration parameter for alias record.",
       "tasks": ["configuration"],
       "title": "primary.rr_set_group.rr_set.alias_record",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["dns_zoneCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["primary rr set group rr set caa record"],
       "body_bytes": 2783,
-      "body_sha256": "sha256:097fa24ffce1f4deae0d4ac6fbda1b396055ea33755b94e726dbc5c7b98f5013",
+      "body_sha256": "sha256:78b36d99498e000bb42b299c6814a0698c1e1a180b19730dcb21d9057bef14bf",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": ["xcsh-docs:data-sources:dns_zone:properties:primary:rr_set_group:rr_set:caa_record:values"],
@@ -6761,7 +6761,7 @@
       "path": "documentation/data-sources/dns_zone/properties/primary/rr_set_group/rr_set/caa_record/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_zone",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3021102303223021-0311330012113303-1211113233122120-0203302301302020-2223212013012002-2100133123121201-2130010021021103-0021000303323011",
       "registry_path": "docs/guides/data-sources--dns_zone--reference--group-002.md",
@@ -6804,20 +6804,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/properties/primary/rr_set_group/rr_set/caa_record/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "DNSCAAResourceRecord.",
       "tasks": ["configuration"],
       "title": "primary.rr_set_group.rr_set.caa_record",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["dns_zoneCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["primary rr set group rr set caa record values"],
       "body_bytes": 4534,
-      "body_sha256": "sha256:7845c275fc389d51a0294d8284be8280437975f1bcece8e3bac8c10fea50843a",
+      "body_sha256": "sha256:3bc3a01078e752e21201172e79de18c1410cc4ab221ff5f5ee235e104554b829",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -6834,7 +6834,7 @@
       "path": "documentation/data-sources/dns_zone/properties/primary/rr_set_group/rr_set/caa_record/values/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_zone",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2033002231100233-2130313021213102-0030032333030102-3301130122220233-0010121203021300-3101133012113020-1332312222131312-2301010021131131",
       "registry_path": "docs/guides/data-sources--dns_zone--reference--group-002.md",
@@ -6893,20 +6893,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/properties/primary/rr_set_group/rr_set/caa_record/values/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "Configuration parameter for values",
       "tasks": ["configuration"],
       "title": "primary.rr_set_group.rr_set.caa_record.values",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["dns_zoneCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["primary rr set group rr set cds record"],
       "body_bytes": 2787,
-      "body_sha256": "sha256:10a3ed71f37ac6346b8e2e82acc2cee30bb41a24772387ad2d61ec077a95c140",
+      "body_sha256": "sha256:d658963a71a9b70befb3f1c332bde7c387dd3b406add927aa63598574482c44d",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": ["xcsh-docs:data-sources:dns_zone:properties:primary:rr_set_group:rr_set:cds_record:values"],
@@ -6923,7 +6923,7 @@
       "path": "documentation/data-sources/dns_zone/properties/primary/rr_set_group/rr_set/cds_record/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_zone",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3323310232223321-3112000010212222-2211023330131221-2112123001002122-3232100332311223-1120221212020121-3101311000103133-3320301013333121",
       "registry_path": "docs/guides/data-sources--dns_zone--reference--group-002.md",
@@ -6966,20 +6966,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/properties/primary/rr_set_group/rr_set/cds_record/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "DNS CDS Record.",
       "tasks": ["configuration"],
       "title": "primary.rr_set_group.rr_set.cds_record",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["dns_zoneCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["primary rr set group rr set cds record values"],
       "body_bytes": 4723,
-      "body_sha256": "sha256:b2be0f4a6afcc0c06a1468de30d47d8ad3497d97f43bb259238db1ed7467106b",
+      "body_sha256": "sha256:68003b2c0d8c856382c62d767cb082134dfd72ddf36fb564f1054c5aacb1e4ab",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [
@@ -7000,7 +7000,7 @@
       "path": "documentation/data-sources/dns_zone/properties/primary/rr_set_group/rr_set/cds_record/values/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_zone",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2031103001322003-3132033100210321-3313002001022032-3112233112331222-0131013112021202-3032021211200112-1201220102032001-0121023223333123",
       "registry_path": "docs/guides/data-sources--dns_zone--reference--group-002.md",
@@ -7091,20 +7091,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/properties/primary/rr_set_group/rr_set/cds_record/values/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "Configuration parameter for values",
       "tasks": ["configuration"],
       "title": "primary.rr_set_group.rr_set.cds_record.values",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["dns_zoneCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["primary rr set group rr set cds record values sha1 digest"],
       "body_bytes": 2567,
-      "body_sha256": "sha256:6a614c1a4ddf6aec18f6d7dd1d6badbd3ad37fec603bfba037763eb27e00e075",
+      "body_sha256": "sha256:8999bae528e90ad6edc0bd5b2e853987f9322d4bc475e76ed69fdc3c6edc9b58",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -7121,7 +7121,7 @@
       "path": "documentation/data-sources/dns_zone/properties/primary/rr_set_group/rr_set/cds_record/values/sha1_digest/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_zone",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1221310323233000-2020211221120032-2020200012022302-0213201022002321-3022012323310230-3023132002312331-0222220232101030-0133303001130101",
       "registry_path": "docs/guides/data-sources--dns_zone--reference--group-002.md",
@@ -7148,20 +7148,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/properties/primary/rr_set_group/rr_set/cds_record/values/sha1_digest/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "Configuration parameter for sha1 digest.",
       "tasks": ["configuration"],
       "title": "primary.rr_set_group.rr_set.cds_record.values.sha1_digest",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["dns_zoneCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["primary rr set group rr set cds record values sha256 digest"],
       "body_bytes": 2575,
-      "body_sha256": "sha256:67d405a47a64a034747f5b1a11ea882e926c31032f3078c3871ba9e4346df3d9",
+      "body_sha256": "sha256:4eeca3d907e7fb9906742faf42bb0cc63f100cb70ed77bf452d9c018bb992845",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -7178,7 +7178,7 @@
       "path": "documentation/data-sources/dns_zone/properties/primary/rr_set_group/rr_set/cds_record/values/sha256_digest/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_zone",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0300231111232000-3003303231213201-3231031133010120-2113321011000103-1113022200201300-2032213301321031-3203302330300313-3230131031133200",
       "registry_path": "docs/guides/data-sources--dns_zone--reference--group-002.md",
@@ -7205,20 +7205,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/properties/primary/rr_set_group/rr_set/cds_record/values/sha256_digest/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "Configuration parameter for sha256 digest.",
       "tasks": ["configuration"],
       "title": "primary.rr_set_group.rr_set.cds_record.values.sha256_digest",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["dns_zoneCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["primary rr set group rr set cds record values sha384 digest"],
       "body_bytes": 2575,
-      "body_sha256": "sha256:cf55432008e1aed21d5146d89e17915bd5d2ae4297941bb429caa56834a7cfdc",
+      "body_sha256": "sha256:a0a6145460386de746064ef8a5cdbd414d476d1a5862ac6276369ca31335b976",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -7235,7 +7235,7 @@
       "path": "documentation/data-sources/dns_zone/properties/primary/rr_set_group/rr_set/cds_record/values/sha384_digest/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_zone",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2303011021010130-3223320101310233-2332323322220231-1000113113222221-3321223221113223-3301003120213030-2303202202020301-3111211300210013",
       "registry_path": "docs/guides/data-sources--dns_zone--reference--group-002.md",
@@ -7262,20 +7262,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/properties/primary/rr_set_group/rr_set/cds_record/values/sha384_digest/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "Configuration parameter for sha384 digest.",
       "tasks": ["configuration"],
       "title": "primary.rr_set_group.rr_set.cds_record.values.sha384_digest",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["dns_zoneCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["primary rr set group rr set cert record"],
       "body_bytes": 2849,
-      "body_sha256": "sha256:a5a2edc4a838b436db8ba6c03834ecb5aaa18e7a620ef4a6d5e94e367d2d007a",
+      "body_sha256": "sha256:604e1aa3d9aa815c4e119fabde59f56674b1999ac71dfb98b0674bed6fb79ea1",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": ["xcsh-docs:data-sources:dns_zone:properties:primary:rr_set_group:rr_set:cert_record:values"],
@@ -7292,7 +7292,7 @@
       "path": "documentation/data-sources/dns_zone/properties/primary/rr_set_group/rr_set/cert_record/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_zone",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2033130131100231-1310103201133222-0010203201322133-0113003033112230-3113331000213213-0323122330220111-1301022323030020-3123313211203310",
       "registry_path": "docs/guides/data-sources--dns_zone--reference--group-002.md",
@@ -7335,20 +7335,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/properties/primary/rr_set_group/rr_set/cert_record/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "DNS CERT Record.",
       "tasks": ["configuration"],
       "title": "primary.rr_set_group.rr_set.cert_record",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["dns_zoneCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["primary rr set group rr set cert record values"],
       "body_bytes": 6393,
-      "body_sha256": "sha256:2c7e7e1f2989026e881736c9b83c3044a53d581a9756a568fcd374a511f723e3",
+      "body_sha256": "sha256:3a4943664692d3498ac4a2ea236e0857ea5d5db59214731635c4f02890035f6e",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -7365,7 +7365,7 @@
       "path": "documentation/data-sources/dns_zone/properties/primary/rr_set_group/rr_set/cert_record/values/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_zone",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2032020132122123-2222213020312321-1332130201131112-3213000100131220-3033100331103133-3230013001320320-1302033020131202-2022220120133330",
       "registry_path": "docs/guides/data-sources--dns_zone--reference--group-002.md",
@@ -7440,20 +7440,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/properties/primary/rr_set_group/rr_set/cert_record/values/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "Configuration parameter for values",
       "tasks": ["configuration"],
       "title": "primary.rr_set_group.rr_set.cert_record.values",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["dns_zoneCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["primary rr set group rr set cname record"],
       "body_bytes": 3623,
-      "body_sha256": "sha256:9647ca69610995cd42ef17bd85803471b330c7619f26dd86bee3dcaed442d2a0",
+      "body_sha256": "sha256:cee673a773dcce79d820832aaa4cc7a80d2e967ff5ddd369c97e20ac2a098d07",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -7470,7 +7470,7 @@
       "path": "documentation/data-sources/dns_zone/properties/primary/rr_set_group/rr_set/cname_record/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_zone",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3000110033203111-2312032311212322-2103322303022131-1123102210000211-0312322123020323-2222132212012111-1000102011220113-3123113121110030",
       "registry_path": "docs/guides/data-sources--dns_zone--reference--group-002.md",
@@ -7513,20 +7513,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/properties/primary/rr_set_group/rr_set/cname_record/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "DNSCNAMEResourceRecord.",
       "tasks": ["configuration"],
       "title": "primary.rr_set_group.rr_set.cname_record",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["dns_zoneCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["primary rr set group rr set ds record"],
       "body_bytes": 2780,
-      "body_sha256": "sha256:42d325c27fdcc8fe7eca9963de8c9c5c659423d22f3075959c8587ab8c889646",
+      "body_sha256": "sha256:9b51e161ec58bad396a9fcad788d16ce306c141acefd8c0f9536780815ccedd8",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": ["xcsh-docs:data-sources:dns_zone:properties:primary:rr_set_group:rr_set:ds_record:values"],
@@ -7543,7 +7543,7 @@
       "path": "documentation/data-sources/dns_zone/properties/primary/rr_set_group/rr_set/ds_record/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_zone",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0003002010030223-3031302330310202-3322320001011330-0003010123133202-3023120301200122-3120120121330033-2203311132332022-2031233200112331",
       "registry_path": "docs/guides/data-sources--dns_zone--reference--group-002.md",
@@ -7586,20 +7586,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/properties/primary/rr_set_group/rr_set/ds_record/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "DNS DS Record.",
       "tasks": ["configuration"],
       "title": "primary.rr_set_group.rr_set.ds_record",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["dns_zoneCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["primary rr set group rr set ds record values"],
       "body_bytes": 4714,
-      "body_sha256": "sha256:9bd557b2342faa600deef517a9462db9eff4079ffbc6ed348da441cb157a42d7",
+      "body_sha256": "sha256:25d8b9457c356d82170dca0423f0917c972d32cda3bc77658f61b7218d82d550",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [
@@ -7620,7 +7620,7 @@
       "path": "documentation/data-sources/dns_zone/properties/primary/rr_set_group/rr_set/ds_record/values/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_zone",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0321330012321211-3123322210321000-1031221223211332-3030233112100300-0330320222303223-1200332131011201-3211322103013330-3032103002302130",
       "registry_path": "docs/guides/data-sources--dns_zone--reference--group-002.md",
@@ -7711,20 +7711,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/properties/primary/rr_set_group/rr_set/ds_record/values/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "Configuration parameter for values",
       "tasks": ["configuration"],
       "title": "primary.rr_set_group.rr_set.ds_record.values",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["dns_zoneCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["primary rr set group rr set ds record values sha1 digest"],
       "body_bytes": 2560,
-      "body_sha256": "sha256:1f942cdd623fd038918bf61f75b944a531e08f40d96739ce478372fdae572cda",
+      "body_sha256": "sha256:7eb0dcf96ae22745c05819d9e4a891ec37b84c3c14e056bbd56ac2baf54a231e",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -7741,7 +7741,7 @@
       "path": "documentation/data-sources/dns_zone/properties/primary/rr_set_group/rr_set/ds_record/values/sha1_digest/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_zone",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3203221312201213-2031031221030023-3333333202131301-1331021012331001-2011030223330302-0223330221021222-1331321201021333-0102222111201331",
       "registry_path": "docs/guides/data-sources--dns_zone--reference--group-002.md",
@@ -7768,20 +7768,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/properties/primary/rr_set_group/rr_set/ds_record/values/sha1_digest/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "Configuration parameter for sha1 digest.",
       "tasks": ["configuration"],
       "title": "primary.rr_set_group.rr_set.ds_record.values.sha1_digest",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["dns_zoneCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["primary rr set group rr set ds record values sha256 digest"],
       "body_bytes": 2568,
-      "body_sha256": "sha256:aa300f782ff1d33c1bc8f36897b50115d8961c1c76cfe1b8eb36043fa22e4d33",
+      "body_sha256": "sha256:9b0b8d8e0a284badb51e011c196e2e29ec22aa2f9e6059cdb7e3524ff4754afb",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -7798,7 +7798,7 @@
       "path": "documentation/data-sources/dns_zone/properties/primary/rr_set_group/rr_set/ds_record/values/sha256_digest/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_zone",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2311203331210120-3312112321300113-1022020101003301-2131013301131322-0221033031112002-1122131211322321-0110130013320321-2121331211133023",
       "registry_path": "docs/guides/data-sources--dns_zone--reference--group-002.md",
@@ -7825,20 +7825,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/properties/primary/rr_set_group/rr_set/ds_record/values/sha256_digest/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "Configuration parameter for sha256 digest.",
       "tasks": ["configuration"],
       "title": "primary.rr_set_group.rr_set.ds_record.values.sha256_digest",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["dns_zoneCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["primary rr set group rr set ds record values sha384 digest"],
       "body_bytes": 2568,
-      "body_sha256": "sha256:7977f1e1679decf8082d54086ec9061639564942ca2d57c8035934516ad19580",
+      "body_sha256": "sha256:1b78eb2811060dc6afa0a1cff3843be024e7b75326ec87718a3952a737d199f1",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -7855,7 +7855,7 @@
       "path": "documentation/data-sources/dns_zone/properties/primary/rr_set_group/rr_set/ds_record/values/sha384_digest/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_zone",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3010013011001122-2212200033031212-2021022133102303-0230220332102103-1202131231131311-1000102210210112-2302010302202021-3000222221223232",
       "registry_path": "docs/guides/data-sources--dns_zone--reference--group-002.md",
@@ -7882,20 +7882,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/properties/primary/rr_set_group/rr_set/ds_record/values/sha384_digest/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "Configuration parameter for sha384 digest.",
       "tasks": ["configuration"],
       "title": "primary.rr_set_group.rr_set.ds_record.values.sha384_digest",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["dns_zoneCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["primary rr set group rr set eui48 record"],
       "body_bytes": 3956,
-      "body_sha256": "sha256:924e612ba80cc13e2123f34c67c59bc8ebbf6d94e96ff7af4a7b6a358b1e436c",
+      "body_sha256": "sha256:314c7b8b51d1312d982ece1f6ce6f572733cd20923fdfc299d5af9a2c534de4c",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -7912,7 +7912,7 @@
       "path": "documentation/data-sources/dns_zone/properties/primary/rr_set_group/rr_set/eui48_record/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_zone",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1300212020003230-1113311332101220-1132330003331301-3333111020100102-3003313132131220-0122230031303231-2203031223032120-2332332003333102",
       "registry_path": "docs/guides/data-sources--dns_zone--reference--group-002.md",
@@ -7955,20 +7955,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/properties/primary/rr_set_group/rr_set/eui48_record/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "DNS EUI48 Record.",
       "tasks": ["configuration"],
       "title": "primary.rr_set_group.rr_set.eui48_record",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["dns_zoneCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["primary rr set group rr set eui64 record"],
       "body_bytes": 3962,
-      "body_sha256": "sha256:8e56d0de2c2ccd6f188c83ba8e13d35ed7cd17b61a650038dfd31b00220c9d35",
+      "body_sha256": "sha256:f7ce289f4860647daa473d75fdf00f2e7b11645112116ac79d3c963c9648d83c",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -7985,7 +7985,7 @@
       "path": "documentation/data-sources/dns_zone/properties/primary/rr_set_group/rr_set/eui64_record/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_zone",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0003303213311201-3003200303313223-1121023300112121-2002211020100233-1112212221032122-1331101211011320-2003332313321333-2110200232323101",
       "registry_path": "docs/guides/data-sources--dns_zone--reference--group-002.md",
@@ -8028,20 +8028,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/properties/primary/rr_set_group/rr_set/eui64_record/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "DNS EUI64 Record.",
       "tasks": ["configuration"],
       "title": "primary.rr_set_group.rr_set.eui64_record",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["dns_zoneCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["primary rr set group rr set lb record"],
       "body_bytes": 2726,
-      "body_sha256": "sha256:47c59fb9c9021667c2eca6aca606c59d8c9cdcc26e541f3ce3bc614fff89fc31",
+      "body_sha256": "sha256:6d7edf1242890e80348c029996d0c315086463a88a9a5e514c000d26961f99a9",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": ["xcsh-docs:data-sources:dns_zone:properties:primary:rr_set_group:rr_set:lb_record:value"],
@@ -8058,7 +8058,7 @@
       "path": "documentation/data-sources/dns_zone/properties/primary/rr_set_group/rr_set/lb_record/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_zone",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1230020033200103-1330330300123130-3220203300231002-1211332020202310-3103022120112000-2013013012212211-2200123220201232-2330030320121121",
       "registry_path": "docs/guides/data-sources--dns_zone--reference--group-002.md",
@@ -8101,20 +8101,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/properties/primary/rr_set_group/rr_set/lb_record/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "DNS Load Balancer Record.",
       "tasks": ["configuration"],
       "title": "primary.rr_set_group.rr_set.lb_record",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["dns_zoneCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["primary rr set group rr set lb record value"],
       "body_bytes": 4959,
-      "body_sha256": "sha256:bff41dead337e6cad241d44e3f4c7de9f44d30a75e50bee16eac13e6e1cc801b",
+      "body_sha256": "sha256:cd2d66f54d8b45d42faa41abc24ec0cdcee82edd0e048a4d19d7d9ec3b1b0c00",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -8131,7 +8131,7 @@
       "path": "documentation/data-sources/dns_zone/properties/primary/rr_set_group/rr_set/lb_record/value/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_zone",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0121010122012212-1330211002022212-1012203201000101-3332330100222032-3201223332222113-0021233010201332-1112313320320122-2313332311002133",
       "registry_path": "docs/guides/data-sources--dns_zone--reference--group-002.md",
@@ -8211,20 +8211,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/properties/primary/rr_set_group/rr_set/lb_record/value/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "primary.rr_set_group.rr_set.lb_record.value",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["dns_zoneCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["primary rr set group rr set loc record"],
       "body_bytes": 2787,
-      "body_sha256": "sha256:205263dcf9d70e8c2b3c46310b9c29be1e332692b4a99a4aa25d44e5b0fce486",
+      "body_sha256": "sha256:312b36589a150636171fa4a6065a0afefc588d55f8e429f717f29a132afba7c2",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": ["xcsh-docs:data-sources:dns_zone:properties:primary:rr_set_group:rr_set:loc_record:values"],
@@ -8241,7 +8241,7 @@
       "path": "documentation/data-sources/dns_zone/properties/primary/rr_set_group/rr_set/loc_record/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_zone",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3103002133110011-3300030122231322-1033330212002032-1120030230101113-1221213310123022-1300023322200233-0112012020111212-1320210023313010",
       "registry_path": "docs/guides/data-sources--dns_zone--reference--group-002.md",
@@ -8284,20 +8284,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/properties/primary/rr_set_group/rr_set/loc_record/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "DNS LOC Record.",
       "tasks": ["configuration"],
       "title": "primary.rr_set_group.rr_set.loc_record",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["dns_zoneCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["primary rr set group rr set loc record values"],
       "body_bytes": 10820,
-      "body_sha256": "sha256:e972b57f422ee7b2ec9bc7ba8ced44e6ac2434624d0cfda73ca43e7b53389e4b",
+      "body_sha256": "sha256:759930bf55f5f27183deae8a8a8fcf6237db54cece62049c98d1a3be7ea98450",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -8314,7 +8314,7 @@
       "path": "documentation/data-sources/dns_zone/properties/primary/rr_set_group/rr_set/loc_record/values/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_zone",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2330323032333122-2133122122112213-0010023311010233-1013321030002213-1010011203220211-1333111330011310-0110333330333322-2302320200003101",
       "registry_path": "docs/guides/data-sources--dns_zone--reference--group-002.md",
@@ -8517,20 +8517,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/properties/primary/rr_set_group/rr_set/loc_record/values/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "Configuration parameter for values",
       "tasks": ["configuration"],
       "title": "primary.rr_set_group.rr_set.loc_record.values",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["dns_zoneCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["primary rr set group rr set mx record"],
       "body_bytes": 2777,
-      "body_sha256": "sha256:62645c556b4c10967e6ed142d4f41ee955253d253a362521960bd0b035460ebd",
+      "body_sha256": "sha256:ec45878852b119878e57d31aadc6fcf81055446a5e0dd9e3f75047dffb45d36c",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": ["xcsh-docs:data-sources:dns_zone:properties:primary:rr_set_group:rr_set:mx_record:values"],
@@ -8547,7 +8547,7 @@
       "path": "documentation/data-sources/dns_zone/properties/primary/rr_set_group/rr_set/mx_record/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_zone",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2232020013010222-3011001301213203-0001030100231211-0233002301012011-0102021001102022-2003330212132112-3220310312321133-1330303033320022",
       "registry_path": "docs/guides/data-sources--dns_zone--reference--group-002.md",
@@ -8590,20 +8590,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/properties/primary/rr_set_group/rr_set/mx_record/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "DNSMXResourceRecord.",
       "tasks": ["configuration"],
       "title": "primary.rr_set_group.rr_set.mx_record",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["dns_zoneCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["primary rr set group rr set mx record values"],
       "body_bytes": 3607,
-      "body_sha256": "sha256:844366c7718824456ec5d59127298a6812f5ca7b5c94f8fa80d364ff0a5356ba",
+      "body_sha256": "sha256:116bf3c0c875704cfd6984915b71b8998c6b8ad576bc61d7b59392f8cf0399fd",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -8620,7 +8620,7 @@
       "path": "documentation/data-sources/dns_zone/properties/primary/rr_set_group/rr_set/mx_record/values/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_zone",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3312021201221301-3030330303323212-1020333131110122-1133200100220220-3301010123311000-1023002001023200-3221330220300001-3323322023301322",
       "registry_path": "docs/guides/data-sources--dns_zone--reference--group-002.md",
@@ -8663,20 +8663,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/properties/primary/rr_set_group/rr_set/mx_record/values/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "Configuration parameter for values",
       "tasks": ["configuration"],
       "title": "primary.rr_set_group.rr_set.mx_record.values",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["dns_zoneCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["primary rr set group rr set naptr record"],
       "body_bytes": 2856,
-      "body_sha256": "sha256:b7a717ea2e65b932239bdedbda532328f93ab5599657832834f310536c9cd1cb",
+      "body_sha256": "sha256:d4285f2c73ec0807c7502cc1f4efbedbf75a306bfe18871958f6213737fd5714",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": ["xcsh-docs:data-sources:dns_zone:properties:primary:rr_set_group:rr_set:naptr_record:values"],
@@ -8693,7 +8693,7 @@
       "path": "documentation/data-sources/dns_zone/properties/primary/rr_set_group/rr_set/naptr_record/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_zone",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2130200302222231-0201323023000030-2231013210302021-3320130221100012-2012002232303013-1033323023120320-3201231132301223-2120220121110010",
       "registry_path": "docs/guides/data-sources--dns_zone--reference--group-002.md",
@@ -8736,20 +8736,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/properties/primary/rr_set_group/rr_set/naptr_record/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "DNS NAPTR Record.",
       "tasks": ["configuration"],
       "title": "primary.rr_set_group.rr_set.naptr_record",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["dns_zoneCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["primary rr set group rr set naptr record values"],
       "body_bytes": 7842,
-      "body_sha256": "sha256:261a4ed4eb25149186ceca095a43d9705d38f3dc39c6bca0a08c5a234d9e9f9d",
+      "body_sha256": "sha256:b93c3aa3dc5c8d87775488213e6a6a7fbd96111f27558f819fb277b5c6126394",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -8766,7 +8766,7 @@
       "path": "documentation/data-sources/dns_zone/properties/primary/rr_set_group/rr_set/naptr_record/values/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_zone",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1023231202220220-2030321031113022-3303221030012233-3132133203303320-1021013000001222-3211013210110322-2121322002201003-3010321130013113",
       "registry_path": "docs/guides/data-sources--dns_zone--reference--group-002.md",
@@ -8873,20 +8873,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/properties/primary/rr_set_group/rr_set/naptr_record/values/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "Configuration parameter for values",
       "tasks": ["configuration"],
       "title": "primary.rr_set_group.rr_set.naptr_record.values",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["dns_zoneCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["primary rr set group rr set ns record"],
       "body_bytes": 3907,
-      "body_sha256": "sha256:910d78d4c2fae59b58b74cde52f584e841e2894244a1a516b049553abad7350f",
+      "body_sha256": "sha256:c93d33700851a631e2857308b7987b0423ffcaa36bd10d0f28607fedee9a023d",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -8903,7 +8903,7 @@
       "path": "documentation/data-sources/dns_zone/properties/primary/rr_set_group/rr_set/ns_record/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_zone",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1301020100313003-2113130112303333-0222200332023331-1011211333020200-3333320312030230-2202333330201232-2032210300303202-3111001112202203",
       "registry_path": "docs/guides/data-sources--dns_zone--reference--group-002.md",
@@ -8946,20 +8946,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/properties/primary/rr_set_group/rr_set/ns_record/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "DNSNSResourceRecord.",
       "tasks": ["configuration"],
       "title": "primary.rr_set_group.rr_set.ns_record",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["dns_zoneCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["primary rr set group rr set ptr record"],
       "body_bytes": 3912,
-      "body_sha256": "sha256:21b2f3a30723fec693941b409fb5a8d73bb59eef259f3c6ed444dd2f8eb98523",
+      "body_sha256": "sha256:c8efce84662d841c028910df92e1f9062bd9a82659fcaabcaca0da63e299efa9",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -8976,7 +8976,7 @@
       "path": "documentation/data-sources/dns_zone/properties/primary/rr_set_group/rr_set/ptr_record/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_zone",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2211303020222311-3310323332010203-0232301233301110-3121123122223302-3103033101210322-2020123011002111-3032313210101120-2001120323033330",
       "registry_path": "docs/guides/data-sources--dns_zone--reference--group-002.md",
@@ -9019,20 +9019,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/properties/primary/rr_set_group/rr_set/ptr_record/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "DNSPTRResourceRecord.",
       "tasks": ["configuration"],
       "title": "primary.rr_set_group.rr_set.ptr_record",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["dns_zoneCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["primary rr set group rr set srv record"],
       "body_bytes": 2870,
-      "body_sha256": "sha256:0f4bde3863a3caff1b51b568ebe2128e3a139b2eb967aa7185696c6f0b0c8e3a",
+      "body_sha256": "sha256:194cd8d716a9f6a6c826a774acb008b2daf1c3ba2f41803a6d62bf7df45e3768",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": ["xcsh-docs:data-sources:dns_zone:properties:primary:rr_set_group:rr_set:srv_record:values"],
@@ -9049,7 +9049,7 @@
       "path": "documentation/data-sources/dns_zone/properties/primary/rr_set_group/rr_set/srv_record/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_zone",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0223103023112010-0122311332230213-0020010203033121-2323203031213310-1321013110303211-1310102220022031-3130133320120313-1333011010122312",
       "registry_path": "docs/guides/data-sources--dns_zone--reference--group-002.md",
@@ -9092,20 +9092,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/properties/primary/rr_set_group/rr_set/srv_record/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "DNSSRVResourceRecord.",
       "tasks": ["configuration"],
       "title": "primary.rr_set_group.rr_set.srv_record",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["dns_zoneCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["primary rr set group rr set srv record values"],
       "body_bytes": 5920,
-      "body_sha256": "sha256:bfa3cf6c77162095877e903ce39ed19f2f47d308314bb9d809413e891f89e23b",
+      "body_sha256": "sha256:801d337320041beb85150a5dd2a39f0b811a884df39ee5c16b25138ccb13f4ad",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -9122,7 +9122,7 @@
       "path": "documentation/data-sources/dns_zone/properties/primary/rr_set_group/rr_set/srv_record/values/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_zone",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0211103321112302-0300323031310021-2302311310202221-3120013221210130-1001211300111011-2322132002232311-3113032000333100-1312130101032030",
       "registry_path": "docs/guides/data-sources--dns_zone--reference--group-002.md",
@@ -9197,20 +9197,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/properties/primary/rr_set_group/rr_set/srv_record/values/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "Configuration parameter for values",
       "tasks": ["configuration"],
       "title": "primary.rr_set_group.rr_set.srv_record.values",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["dns_zoneCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["primary rr set group rr set sshfp record"],
       "body_bytes": 2856,
-      "body_sha256": "sha256:8a378c70d0dd6a587368f11e049ef4bc74f7a82e8cca45d6e75672d16baad845",
+      "body_sha256": "sha256:1cd4ceae45f6bb511b3983c96d156a547b734325c6b27847c0f410f3f8b2329d",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": ["xcsh-docs:data-sources:dns_zone:properties:primary:rr_set_group:rr_set:sshfp_record:values"],
@@ -9227,7 +9227,7 @@
       "path": "documentation/data-sources/dns_zone/properties/primary/rr_set_group/rr_set/sshfp_record/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_zone",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1320201233022013-2010302020223210-3223212010011202-0302303001331232-1022311200333221-3030011233031331-2201220131002312-2233122232100332",
       "registry_path": "docs/guides/data-sources--dns_zone--reference--group-002.md",
@@ -9270,20 +9270,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/properties/primary/rr_set_group/rr_set/sshfp_record/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "DNS SSHFP Record.",
       "tasks": ["configuration"],
       "title": "primary.rr_set_group.rr_set.sshfp_record",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["dns_zoneCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["primary rr set group rr set sshfp record values"],
       "body_bytes": 3258,
-      "body_sha256": "sha256:77dea9ed9e3c7e49aa32422405d0376f502e85115de7ccaa0069f2ea0e3c6186",
+      "body_sha256": "sha256:8d963bf0696a6bf83e904aeca9245cd906fec2b9c7c4dcdae2c8cc9c2b1a28ac",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [
@@ -9303,7 +9303,7 @@
       "path": "documentation/data-sources/dns_zone/properties/primary/rr_set_group/rr_set/sshfp_record/values/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_zone",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3201121033301222-3001030332303100-3001330110033123-2300301233132233-2230221111201220-3211111320003312-0210112201112113-1100200100032110",
       "registry_path": "docs/guides/data-sources--dns_zone--reference--group-002.md",
@@ -9362,20 +9362,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/properties/primary/rr_set_group/rr_set/sshfp_record/values/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "Configuration parameter for values",
       "tasks": ["configuration"],
       "title": "primary.rr_set_group.rr_set.sshfp_record.values",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["dns_zoneCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["primary rr set group rr set sshfp record values sha1 fingerprint"],
       "body_bytes": 2782,
-      "body_sha256": "sha256:0feb99981027b6194563c01d78ea5bf1e0e73585866a8c10d56f28ccf75b039a",
+      "body_sha256": "sha256:f2ec47f7baef11f3cbd7e196391b88c33a61bf2f20875050f47076136feaac4a",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -9392,7 +9392,7 @@
       "path": "documentation/data-sources/dns_zone/properties/primary/rr_set_group/rr_set/sshfp_record/values/sha1_fingerprint/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_zone",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1212033231013101-1211210110120033-2201033211111131-0322310331021203-2200012100333231-0333231210321010-3113021122010322-1233011230030312",
       "registry_path": "docs/guides/data-sources--dns_zone--reference--group-003.md",
@@ -9427,20 +9427,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/properties/primary/rr_set_group/rr_set/sshfp_record/values/sha1_fingerprint/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "Configuration parameter for sha1 fingerprint.",
       "tasks": ["configuration"],
       "title": "primary.rr_set_group.rr_set.sshfp_record.values.sha1_fingerprint",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["dns_zoneCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["primary rr set group rr set sshfp record values sha256 fingerprint"],
       "body_bytes": 2790,
-      "body_sha256": "sha256:f554d1727459bd9c0fc089776f534ccc76bb61cfe450ad024344d527d04f9be7",
+      "body_sha256": "sha256:569f7ab4c0affd5f321b8bbf7c1271b31c5deaaa9ed3c86423a345878ea6380e",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -9457,7 +9457,7 @@
       "path": "documentation/data-sources/dns_zone/properties/primary/rr_set_group/rr_set/sshfp_record/values/sha256_fingerprint/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_zone",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0321003213330333-0032202123013222-1320212310111100-0222320102323300-1220220323000302-1020321111210022-3020001101001020-3133201013032301",
       "registry_path": "docs/guides/data-sources--dns_zone--reference--group-003.md",
@@ -9492,20 +9492,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/properties/primary/rr_set_group/rr_set/sshfp_record/values/sha256_fingerprint/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "Configuration parameter for sha256 fingerprint.",
       "tasks": ["configuration"],
       "title": "primary.rr_set_group.rr_set.sshfp_record.values.sha256_fingerprint",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["dns_zoneCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["primary rr set group rr set tlsa record"],
       "body_bytes": 2849,
-      "body_sha256": "sha256:7b59f651a0426895792878ef669480bfdee4fcbf395e18ced49694edf41e26a5",
+      "body_sha256": "sha256:ce03a62a8439473b4680bb235a95687642ab70818d3d00287de154595ac05642",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": ["xcsh-docs:data-sources:dns_zone:properties:primary:rr_set_group:rr_set:tlsa_record:values"],
@@ -9522,7 +9522,7 @@
       "path": "documentation/data-sources/dns_zone/properties/primary/rr_set_group/rr_set/tlsa_record/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_zone",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1120111220133012-1033321320120331-3101013303033222-2303001213103323-1230312203202132-1302200000132221-0213201322100310-2310212123010121",
       "registry_path": "docs/guides/data-sources--dns_zone--reference--group-003.md",
@@ -9565,20 +9565,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/properties/primary/rr_set_group/rr_set/tlsa_record/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "DNS TLSA Record.",
       "tasks": ["configuration"],
       "title": "primary.rr_set_group.rr_set.tlsa_record",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["dns_zoneCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["primary rr set group rr set tlsa record values"],
       "body_bytes": 5483,
-      "body_sha256": "sha256:665368a2dda2106c29187fb85f3e4a06d924a5d9da8f547a09201ce42aaa1d09",
+      "body_sha256": "sha256:a10fa1a2d604ccba29a6d7c8e4737927a3bc988455d84c6d8fa129a1a81ded84",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -9595,7 +9595,7 @@
       "path": "documentation/data-sources/dns_zone/properties/primary/rr_set_group/rr_set/tlsa_record/values/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_zone",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2300322000010100-3330131011030130-0002231310231000-0231233002101022-1131210322121011-2330020130222313-3123203000313102-2213110333130232",
       "registry_path": "docs/guides/data-sources--dns_zone--reference--group-003.md",
@@ -9670,20 +9670,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/properties/primary/rr_set_group/rr_set/tlsa_record/values/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "Configuration parameter for values",
       "tasks": ["configuration"],
       "title": "primary.rr_set_group.rr_set.tlsa_record.values",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["dns_zoneCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["primary rr set group rr set txt record"],
       "body_bytes": 3903,
-      "body_sha256": "sha256:7390fc44714e4ff275789f477ec27c8d1a02dba160ef4ed4039e4aa1b2420029",
+      "body_sha256": "sha256:0a75d98feecc66f8be3e4ba3f2629e324e18d4bb1a9d8c2a965bf6524eb90d1a",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -9700,7 +9700,7 @@
       "path": "documentation/data-sources/dns_zone/properties/primary/rr_set_group/rr_set/txt_record/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_zone",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2112000100003211-0010122023020330-2302300331333210-3123120333012012-1313313003312213-2120120330311231-1033321003121122-0030131112120013",
       "registry_path": "docs/guides/data-sources--dns_zone--reference--group-003.md",
@@ -9743,20 +9743,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/properties/primary/rr_set_group/rr_set/txt_record/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "DNSTXTResourceRecord.",
       "tasks": ["configuration"],
       "title": "primary.rr_set_group.rr_set.txt_record",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["dns_zoneCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["primary soa parameters"],
       "body_bytes": 5407,
-      "body_sha256": "sha256:bd4ab2df1f4dad54c1b8c77d4615905991f93f71c5cab3c0a9cae18cd0edfa47",
+      "body_sha256": "sha256:f8254c5c2c9f5ec3bd01af0baa4929ccfebdb83672e8cd7d32f95d9fef1f57b8",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -9773,7 +9773,7 @@
       "path": "documentation/data-sources/dns_zone/properties/primary/soa_parameters/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_zone",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3111301200310120-2012211111103233-2001110322021102-1132112033133212-1100110333112313-0210200023120120-3233033130322010-1032311322222221",
       "registry_path": "docs/guides/data-sources--dns_zone--reference--group-003.md",
@@ -9864,20 +9864,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/properties/primary/soa_parameters/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "Configuration parameter for soa parameters.",
       "tasks": ["configuration"],
       "title": "primary.soa_parameters",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["dns_zoneCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["secondary"],
       "body_bytes": 3833,
-      "body_sha256": "sha256:2dbc2131ec0ea4938d3d1fdc3436831ecb0e46f33f7b4ed14ebf888638b3242d",
+      "body_sha256": "sha256:118510075582961f973d79cae9c9085fc0e49fb80f881079cd6a0bfb0a2484b9",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": ["xcsh-docs:data-sources:dns_zone:properties:secondary:tsig_key_value"],
@@ -9894,7 +9894,7 @@
       "path": "documentation/data-sources/dns_zone/properties/secondary/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_zone",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0110011233113032-0002112311333113-1210112333111230-3033232211331300-2300022322300333-2131100301000032-2320031122203212-3103312010003023",
       "registry_path": "docs/guides/data-sources--dns_zone--reference--group-003.md",
@@ -9969,14 +9969,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/properties/secondary/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "SecondaryDNSCreateSpecType.",
       "tasks": ["configuration"],
       "title": "secondary",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["dns_zoneCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
@@ -10002,7 +10002,7 @@
       "path": "documentation/data-sources/dns_zone/properties/secondary/tsig_key_value/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_zone",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0200300300112212-2013221101122013-0311222300002000-3123120223132313-1103101120032321-1012100100013213-3111132232013321-0100110220213331",
       "registry_path": "docs/guides/data-sources--dns_zone--reference--group-003.md",
@@ -10045,20 +10045,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/properties/secondary/tsig_key_value/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "SecretType is used in an object to indicate a sensitive/confidential field.",
       "tasks": ["configuration"],
       "title": "secondary.tsig_key_value",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["dns_zoneCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["secondary tsig key value blindfold secret info"],
       "body_bytes": 3777,
-      "body_sha256": "sha256:1c89d637bcde4b8e794118c7719cb9e6cc0c99d61ca71d1f945b44e3356f88a8",
+      "body_sha256": "sha256:61819ead0d43746aa64bf07709f6933b2194f7a63b34ad3c38cd18c568af9903",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -10075,7 +10075,7 @@
       "path": "documentation/data-sources/dns_zone/properties/secondary/tsig_key_value/blindfold_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_zone",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1132333021301033-3331233222032213-2213011102012210-1120300021003122-3020030301333202-2313113001320103-1101220211020023-0103200133333003",
       "registry_path": "docs/guides/data-sources--dns_zone--reference--group-003.md",
@@ -10134,20 +10134,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/properties/secondary/tsig_key_value/blindfold_secret_info/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
       "tasks": ["configuration"],
       "title": "secondary.tsig_key_value.blindfold_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["dns_zoneCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["secondary tsig key value clear secret info"],
       "body_bytes": 2806,
-      "body_sha256": "sha256:a50791468a8be27fd36eaaa47ef528b936f79856b6daa59270440339200012c3",
+      "body_sha256": "sha256:8adc162faa32743f92ae9bd7d69c19c73e132567041f427f94491b22abcad154",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
@@ -10164,7 +10164,7 @@
       "path": "documentation/data-sources/dns_zone/properties/secondary/tsig_key_value/clear_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_zone",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0323113331312310-3323000001233012-3330320133313030-1133231201132300-2233133131302311-2333301023012213-1023201101130113-2221321221301002",
       "registry_path": "docs/guides/data-sources--dns_zone--reference--group-003.md",
@@ -10207,14 +10207,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/properties/secondary/tsig_key_value/clear_secret_info/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
       "tasks": ["configuration"],
       "title": "secondary.tsig_key_value.clear_secret_info",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["dns_zoneCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
@@ -10237,7 +10237,7 @@
       "path": "documentation/data-sources/dns_zone/examples/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_zone",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0113332031001202-0203203323031122-1110313201121223-0211122311121012-1002330222223130-0033020333320010-2320222023212020-2311211332221300",
       "registry_path": "docs/guides/data-sources--dns_zone--examples--group-001.md",
@@ -10247,14 +10247,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/examples/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "Examples for xcsh_dns_zone.",
       "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["dns_zoneCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
@@ -10284,7 +10284,7 @@
       "path": "documentation/data-sources/dns_zone/examples/data-source/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_zone",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1022231110303301-2111303011121232-1120312000231330-3303002003013002-2303310130300221-1313130113032001-2020202123303123-0122221332001130",
       "registry_path": "docs/guides/data-sources--dns_zone--examples--group-001.md",
@@ -10294,14 +10294,14 @@
       "schema_path": ["data-source"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/dns_zone/examples/data-source/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "Data source for xcsh_dns_zone.",
       "tasks": ["configuration"],
       "title": "Data source",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["dns_zoneCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     }
   ],

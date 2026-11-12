@@ -310,6 +310,12 @@ func (r *TokenResource) Create(ctx context.Context, req resource.CreateRequest, 
 		createReq.Spec["type"] = data.Type.ValueInt64()
 	}
 
+	originalCapture, captureErr := OpenOriginalCreationCapture("xcsh_token", data.Namespace.ValueString(), data.Name.ValueString())
+	if captureErr != nil {
+		resp.Diagnostics.AddError("Original Creation Capture Unavailable", captureErr.Error())
+		return
+	}
+	defer originalCapture.Close()
 	created, err := r.client.CreateToken(ctx, createReq)
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to create Token: %s", err))
@@ -322,6 +328,12 @@ func (r *TokenResource) Create(ctx context.Context, req resource.CreateRequest, 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
 	if resp.Diagnostics.HasError() {
 		return
+	}
+	if originalCapture != nil {
+		if _, captureErr := originalCapture.RecordCreation(data.CreationIdentitySHA256.ValueString()); captureErr != nil {
+			resp.Diagnostics.AddError("Original Creation Capture Failed", captureErr.Error())
+			return
+		}
 	}
 
 	// The concurrency token is declared only on GET responses. Read back the object

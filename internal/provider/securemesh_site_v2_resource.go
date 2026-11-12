@@ -21037,6 +21037,12 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 		createReq.Spec["tunnel_type"] = data.TunnelType.ValueString()
 	}
 
+	originalCapture, captureErr := OpenOriginalCreationCapture("xcsh_securemesh_site_v2", data.Namespace.ValueString(), data.Name.ValueString())
+	if captureErr != nil {
+		resp.Diagnostics.AddError("Original Creation Capture Unavailable", captureErr.Error())
+		return
+	}
+	defer originalCapture.Close()
 	created, err := r.client.CreateSecuremeshSiteV2(ctx, createReq)
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to create SecuremeshSiteV2: %s", err))
@@ -21049,6 +21055,12 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
 	if resp.Diagnostics.HasError() {
 		return
+	}
+	if originalCapture != nil {
+		if _, captureErr := originalCapture.RecordCreation(data.CreationIdentitySHA256.ValueString()); captureErr != nil {
+			resp.Diagnostics.AddError("Original Creation Capture Failed", captureErr.Error())
+			return
+		}
 	}
 
 	// The concurrency token is declared only on GET responses. Read back the object

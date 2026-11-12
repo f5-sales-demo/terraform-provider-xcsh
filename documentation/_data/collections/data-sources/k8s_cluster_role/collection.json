@@ -127,7 +127,7 @@
       "path": "documentation/data-sources/k8s_cluster_role/index.md",
       "product": "distributed-cloud",
       "provider_name": "k8s_cluster_role",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2232121312000210-3132130123201003-2131123201312211-2021232000312101-1032012313201322-3103300020131231-0202213330300122-0302302323323122",
       "registry_path": "docs/data-sources/k8s_cluster_role.md",
@@ -137,21 +137,21 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/k8s_cluster_role/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "Reads Kubernetes cluster role information from F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_k8s_cluster_role",
       "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["k8s_cluster_roleCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["k8s cluster role"],
       "body_bytes": 12273,
-      "body_sha256": "sha256:f84b67767c69aa723c8cf389b5b04a553e201b6ef85adece2ebc251451759546",
+      "body_sha256": "sha256:5b97ecc877c0dec0623a2491af4381de923d2de6b78594d35fc707b530d4c290",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [
@@ -171,7 +171,7 @@
       "path": "documentation/data-sources/k8s_cluster_role/properties/index.md",
       "product": "distributed-cloud",
       "provider_name": "k8s_cluster_role",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2001310313031232-3003303113031320-0000111202132223-2030000001211031-3123033320222313-3312102121311301-3321002322000112-3233122202001100",
       "registry_path": "docs/guides/data-sources--k8s_cluster_role--reference--group-001.md",
@@ -326,20 +326,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/k8s_cluster_role/properties/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "Property reference for xcsh_k8s_cluster_role.",
       "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["k8s_cluster_roleCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["k8s cluster role selector"],
       "body_bytes": 3884,
-      "body_sha256": "sha256:a12a685c2cea7140edb2de6c2879aa88c1ab3cc50297576b63be1b3b3c31873c",
+      "body_sha256": "sha256:61c0f346e7b3e1c386ba7b0e59158856d6fd5d5d4caa92d0bd4996f6aa7156d7",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],
@@ -356,7 +356,7 @@
       "path": "documentation/data-sources/k8s_cluster_role/properties/k8s_cluster_role_selector/index.md",
       "product": "distributed-cloud",
       "provider_name": "k8s_cluster_role",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3111022121111201-1311321010121323-3321320021332110-2022010311320012-2310031101112310-1220223003001022-3103221303120022-2223202312021310",
       "registry_path": "docs/guides/data-sources--k8s_cluster_role--reference--group-001.md",
@@ -383,14 +383,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/k8s_cluster_role/properties/k8s_cluster_role_selector/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "This type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects. A null label selector matches no objects.",
       "tasks": ["configuration"],
       "title": "k8s_cluster_role_selector",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["k8s_cluster_roleCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
@@ -413,7 +413,7 @@
       "path": "documentation/data-sources/k8s_cluster_role/properties/policy_rule_list/index.md",
       "product": "distributed-cloud",
       "provider_name": "k8s_cluster_role",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1221133310032133-1000323320102332-1303231100200023-3322123110022320-3120213002030302-0233133133300231-2300021312001011-3030331123221023",
       "registry_path": "docs/guides/data-sources--k8s_cluster_role--reference--group-001.md",
@@ -440,20 +440,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/k8s_cluster_role/properties/policy_rule_list/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "List of rules for role permissions.",
       "tasks": ["configuration"],
       "title": "policy_rule_list",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["k8s_cluster_roleCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["policy rule list policy rule"],
       "body_bytes": 2067,
-      "body_sha256": "sha256:1405c25adabd93566723d54fe531dfc779ccb16b2ec9b9c4c02bc626caf33c15",
+      "body_sha256": "sha256:cb1deab5d5636d40fbaf370dcd8a2918a6f35c4c7bb64741840c79ebf6d4a90d",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [
@@ -473,7 +473,7 @@
       "path": "documentation/data-sources/k8s_cluster_role/properties/policy_rule_list/policy_rule/index.md",
       "product": "distributed-cloud",
       "provider_name": "k8s_cluster_role",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1231123021022003-1023022010131212-1013311331321110-0120011230122130-2100122120100221-3200002302323131-0202203323303002-2102030123102011",
       "registry_path": "docs/guides/data-sources--k8s_cluster_role--reference--group-001.md",
@@ -516,20 +516,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/k8s_cluster_role/properties/policy_rule_list/policy_rule/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "List of rules for role permissions.",
       "tasks": ["configuration"],
       "title": "policy_rule_list.policy_rule",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["k8s_cluster_roleCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["policy rule list policy rule non resource url list"],
       "body_bytes": 3757,
-      "body_sha256": "sha256:95b057ca51556df869093f7cbf664118ca238f94eeda80d85b3c821fb5399be9",
+      "body_sha256": "sha256:01435a5baabaa08b8ca1c181aed20c3eb9d0da3da13aeb5d1fbc568a9690cb1e",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],
@@ -546,7 +546,7 @@
       "path": "documentation/data-sources/k8s_cluster_role/properties/policy_rule_list/policy_rule/non_resource_url_list/index.md",
       "product": "distributed-cloud",
       "provider_name": "k8s_cluster_role",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2112331321312302-3211323002123211-1321233110310211-2022320001313322-2332232211301120-3033230113210203-3011311100302002-3002113230203210",
       "registry_path": "docs/guides/data-sources--k8s_cluster_role--reference--group-001.md",
@@ -589,20 +589,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/k8s_cluster_role/properties/policy_rule_list/policy_rule/non_resource_url_list/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "Permissions for URL(s) that do not represent K8s resource.",
       "tasks": ["configuration"],
       "title": "policy_rule_list.policy_rule.non_resource_url_list",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["k8s_cluster_roleCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["policy rule list policy rule resource list"],
       "body_bytes": 6209,
-      "body_sha256": "sha256:894422f5e898dc3e9270e5228d62a6c600ec7525a3e37e6dc7ae6c156e8d15ef",
+      "body_sha256": "sha256:8996e522670cd0f498a047decba945f412e61a2334895e76336b0f34a3395d4c",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],
@@ -619,7 +619,7 @@
       "path": "documentation/data-sources/k8s_cluster_role/properties/policy_rule_list/policy_rule/resource_list/index.md",
       "product": "distributed-cloud",
       "provider_name": "k8s_cluster_role",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3312111220300133-2211133102232101-0011222300333020-2211023000112002-2230223223320322-2233123201230121-3310312202322121-1231113002303221",
       "registry_path": "docs/guides/data-sources--k8s_cluster_role--reference--group-001.md",
@@ -694,14 +694,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/k8s_cluster_role/properties/policy_rule_list/policy_rule/resource_list/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "List of resources in terms of API groups/resource types/resource instances and verbs allowed.",
       "tasks": ["configuration"],
       "title": "policy_rule_list.policy_rule.resource_list",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["k8s_cluster_roleCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
@@ -724,7 +724,7 @@
       "path": "documentation/data-sources/k8s_cluster_role/examples/index.md",
       "product": "distributed-cloud",
       "provider_name": "k8s_cluster_role",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2020200223133133-1213011132112100-3201302032210003-2331332220121210-0033322213031201-3101003002030200-1103001321300103-2312010013201210",
       "registry_path": "docs/guides/data-sources--k8s_cluster_role--examples--group-001.md",
@@ -734,14 +734,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/k8s_cluster_role/examples/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "Examples for xcsh_k8s_cluster_role.",
       "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["k8s_cluster_roleCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
@@ -771,7 +771,7 @@
       "path": "documentation/data-sources/k8s_cluster_role/examples/data-source/index.md",
       "product": "distributed-cloud",
       "provider_name": "k8s_cluster_role",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1212100012103223-0023010010321332-0031131100331110-2013103323033232-3211320211320212-1220111002313301-0232010321000002-0001231221323331",
       "registry_path": "docs/guides/data-sources--k8s_cluster_role--examples--group-001.md",
@@ -781,14 +781,14 @@
       "schema_path": ["data-source"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/k8s_cluster_role/examples/data-source/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "Data source for xcsh_k8s_cluster_role.",
       "tasks": ["configuration"],
       "title": "Data source",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["k8s_cluster_roleCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     }
   ],
