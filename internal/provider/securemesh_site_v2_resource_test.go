@@ -68,8 +68,9 @@ func TestAccSecuremeshSiteV2Resource_basic(t *testing.T) {
 				ResourceName:            resourceName,
 				ImportState:             true,
 				ImportStateVerify:       true,
-				ImportStateVerifyIgnore: []string{"timeouts", "software_settings"},
+				ImportStateVerifyIgnore: []string{"timeouts", "software_settings", "creation_identity_sha256"},
 				ImportStateIdFunc:       testAccSecuremeshSiteV2ImportStateIdFunc(resourceName),
+				ImportStateCheck:        checkImportedWithoutCreationReceipt,
 			},
 		},
 	}

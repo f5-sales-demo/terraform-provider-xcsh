@@ -461,8 +461,23 @@ func (s *Server) handlePut(w http.ResponseWriter, r *http.Request, path string) 
 		}
 	}
 
-	// Update resource with resource-specific defaults
+	// Replace changes configuration, not the server-owned creation identity.
 	response := s.buildResponse(requestBody, namespace, resourceType, isConfigObjectPath(path))
+	if original, ok := existing.(map[string]interface{}); ok {
+		if metadata, ok := original["metadata"].(map[string]interface{}); ok {
+			if updated, ok := response["metadata"].(map[string]interface{}); ok {
+				updated["uid"] = metadata["uid"]
+			}
+		}
+		if system, ok := original["system_metadata"].(map[string]interface{}); ok {
+			updated := response["system_metadata"].(map[string]interface{})
+			for key, value := range system {
+				if key != "modification_timestamp" {
+					updated[key] = value
+				}
+			}
+		}
+	}
 	s.resources[path] = response
 	s.mu.Unlock()
 
