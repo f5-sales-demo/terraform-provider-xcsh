@@ -105,6 +105,67 @@ func TestPrepareSpecDeliveryReceiptPersistsCommonAndDetailedEvidence(t *testing.
 	assertJSONPathExists(t, filepath.Join(fixture.repo, "tools/provider-publication-receipts.json"), ".receipts[\""+fixture.deliveryID+"\"].publication.assets")
 }
 
+func TestPrepareSpecDeliveryReceiptGCPAssetPair(t *testing.T) {
+	for _, tc := range []struct {
+		name, version string
+		assets        map[string]string
+		wantError     bool
+	}{
+		{name: "legacy", version: "2.1.208"},
+		{name: "current complete pair", version: "12.5.2", assets: map[string]string{
+			"gcp-operational-health-v2.json":        "sha256:" + strings.Repeat("d", 64),
+			"gcp-operational-qualification-v2.json": "sha256:" + strings.Repeat("e", 64),
+		}},
+		{name: "missing health", version: "12.5.2", assets: map[string]string{
+			"gcp-operational-qualification-v2.json": "sha256:" + strings.Repeat("e", 64),
+		}, wantError: true},
+		{name: "missing qualification", version: "12.5.2", assets: map[string]string{
+			"gcp-operational-health-v2.json": "sha256:" + strings.Repeat("d", 64),
+		}, wantError: true},
+		{name: "malformed health", version: "12.5.2", assets: map[string]string{
+			"gcp-operational-health-v2.json":        "invalid",
+			"gcp-operational-qualification-v2.json": "sha256:" + strings.Repeat("e", 64),
+		}, wantError: true},
+		{name: "malformed qualification", version: "12.5.2", assets: map[string]string{
+			"gcp-operational-health-v2.json":        "sha256:" + strings.Repeat("d", 64),
+			"gcp-operational-qualification-v2.json": "invalid",
+		}, wantError: true},
+		{name: "unrelated asset", version: "12.5.2", assets: map[string]string{
+			"gcp-operational-health-v2.json":        "sha256:" + strings.Repeat("d", 64),
+			"gcp-operational-qualification-v2.json": "sha256:" + strings.Repeat("e", 64),
+			"unreviewed.json":                       "sha256:" + strings.Repeat("f", 64),
+		}, wantError: true},
+	} {
+		t.Run(tc.name, func(t *testing.T) {
+			fixture := newReceiptFixture(t, false, false, receiptPinFixture{version: tc.version, assets: tc.assets})
+			before := map[string]string{}
+			for _, name := range []string{"tools/spec-deliveries.json", "tools/provider-publication-receipts.json", "tools/spec-pending-delivery.json", "tools/spec-regeneration-receipt.json"} {
+				before[name] = releaseTestSHA(t, filepath.Join(fixture.repo, name))
+			}
+			pinSHA := releaseTestSHA(t, filepath.Join(fixture.repo, "tools/spec-release.json"))
+			cmd := exec.Command(fixture.script)
+			cmd.Dir = fixture.repo
+			cmd.Env = append(os.Environ(), fixture.env...)
+			output, err := cmd.CombinedOutput()
+			if (err != nil) != tc.wantError {
+				t.Fatalf("receipt pair result: %v\n%s", err, output)
+			}
+			if tc.wantError {
+				if !strings.Contains(string(output), "Published release pin does not match pending delivery") {
+					t.Fatalf("unexpected refusal: %s", output)
+				}
+				for name, expected := range before {
+					if releaseTestSHA(t, filepath.Join(fixture.repo, name)) != expected {
+						t.Fatalf("refused pair changed %s", name)
+					}
+				}
+				return
+			}
+			assertJSONPathExists(t, filepath.Join(fixture.repo, "tools/provider-publication-receipts.json"), ".receipts[\""+fixture.deliveryID+"\"].publication.spec_release_sha256 == \""+pinSHA+"\"")
+		})
+	}
+}
+
 func TestPrepareSpecDeliveryReceiptRejectsForgedStateAndDigest(t *testing.T) {
 	for name, fixture := range map[string]*receiptFixture{
 		"noncanonical ledger": newReceiptFixture(t, true, false),
@@ -2635,7 +2696,12 @@ func envValue(t *testing.T, env []string, name string) string {
 	return ""
 }
 
-func newReceiptFixture(t *testing.T, forgedLedger, falseDigest bool) *receiptFixture {
+type receiptPinFixture struct {
+	version string
+	assets  map[string]string
+}
+
+func newReceiptFixture(t *testing.T, forgedLedger, falseDigest bool, options ...receiptPinFixture) *receiptFixture {
 	t.Helper()
 	root := testRepositoryRoot(t)
 	repo := t.TempDir()
@@ -2643,6 +2709,8 @@ func newReceiptFixture(t *testing.T, forgedLedger, falseDigest bool) *receiptFix
 	runReleaseTestCommand(t, repo, nil, "git", "init", "-q")
 	runReleaseTestCommand(t, repo, nil, "git", "config", "user.name", "Receipt Test")
 	runReleaseTestCommand(t, repo, nil, "git", "config", "user.email", "receipt@example.com")
+	runReleaseTestCommand(t, repo, nil, "git", "config", "commit.gpgsign", "false")
+	runReleaseTestCommand(t, repo, nil, "git", "config", "tag.gpgsign", "false")
 	validatorBytes, err := os.ReadFile(filepath.Join(root, "scripts", "validate-provider-delivery-state.sh")) //nolint:gosec // fixed repository script
 	if err != nil {
 		t.Fatal(err)
@@ -2657,16 +2725,52 @@ func newReceiptFixture(t *testing.T, forgedLedger, falseDigest bool) *receiptFix
 	writeReleaseTestFile(t, repo, "scripts/validate-provider-delivery-state.sh", string(validator), 0o700)
 	pending := fmt.Sprintf(`{"delivery_id":%q,"release_tag":"v2.1.208","target_commit":%q,"version":"2.1.208"}`+"\n", deliveryID, commit)
 	pin := fmt.Sprintf(`{"assets":{"api-catalog.json":%q,"concurrency_contracts.json":%q,"f5xc-api-specs-v2.1.208.zip":%q,"index.json":%q,"minimal-export-defaults.json":%q,"openapi.json":%q,"smsv2-contract-manifest.json":%q,"smsv2-contract.json":%q,"smsv2-evidence-receipt.json":%q,"smsv2_parity_manifest.json":%q,"upstream-contract-changes.json":%q,"upstream-contract-removals.json":%q},"release_tag":"v2.1.208","target_commit":%q,"version":"2.1.208"}`+"\n", "sha256:"+strings.Repeat("1", 64), "sha256:"+strings.Repeat("2", 64), "sha256:"+strings.Repeat("3", 64), "sha256:"+strings.Repeat("4", 64), "sha256:"+strings.Repeat("5", 64), "sha256:"+strings.Repeat("6", 64), "sha256:"+strings.Repeat("7", 64), "sha256:"+strings.Repeat("8", 64), "sha256:"+strings.Repeat("9", 64), "sha256:"+strings.Repeat("a", 64), "sha256:"+strings.Repeat("b", 64), "sha256:"+strings.Repeat("c", 64), commit)
+	specVersion := "2.1.208"
+	if len(options) > 1 {
+		t.Fatal("one receipt pin fixture required")
+	}
+	if len(options) == 1 {
+		option := options[0]
+		specVersion = option.version
+		deliveryID = providerDeliveryID(t, specVersion, "v"+specVersion, commit)
+		pending = fmt.Sprintf(`{"delivery_id":%q,"release_tag":%q,"target_commit":%q,"version":%q}`+"\n", deliveryID, "v"+specVersion, commit, specVersion)
+		var modified map[string]any
+		if err := json.Unmarshal([]byte(pin), &modified); err != nil {
+			t.Fatal(err)
+		}
+		assets := modified["assets"].(map[string]any)
+		assets["f5xc-api-specs-v"+specVersion+".zip"] = assets["f5xc-api-specs-v2.1.208.zip"]
+		if specVersion != "2.1.208" {
+			delete(assets, "f5xc-api-specs-v2.1.208.zip")
+		}
+		major, err := strconv.Atoi(strings.Split(specVersion, ".")[0])
+		if err != nil {
+			t.Fatal(err)
+		}
+		if major >= 10 {
+			assets["enrichment-coverage.json"] = "sha256:" + strings.Repeat("f", 64)
+		}
+		for name, value := range option.assets {
+			assets[name] = value
+		}
+		modified["release_tag"] = "v" + specVersion
+		modified["version"] = specVersion
+		raw, err := json.Marshal(modified)
+		if err != nil {
+			t.Fatal(err)
+		}
+		pin = string(raw) + "\n"
+	}
 	writeReleaseTestFile(t, repo, "tools/spec-pending-delivery.json", pending, 0o600)
 	writeReleaseTestFile(t, repo, "tools/spec-release.json", pin, 0o600)
-	writeReleaseTestFile(t, repo, "tools/spec-version.txt", "v2.1.208\n", 0o600)
+	writeReleaseTestFile(t, repo, "tools/spec-version.txt", "v"+specVersion+"\n", 0o600)
 	writeReleaseTestFile(t, repo, "tools/spec-deliveries.json", "{\"deliveries\":{},\"version\":1}\n", 0o600)
 	writeReleaseTestFile(t, repo, "tools/provider-publication-receipts.json", "{\"receipts\":{},\"version\":1}\n", 0o600)
 	runReleaseTestCommand(t, repo, nil, "git", "add", ".")
 	runReleaseTestCommand(t, repo, nil, "git", "commit", "-qm", "source")
 	sourceCommit := strings.TrimSpace(runReleaseTestCommand(t, repo, nil, "git", "rev-parse", "HEAD"))
 	pinSHA := releaseTestSHA(t, filepath.Join(repo, "tools/spec-release.json"))
-	regeneration := fmt.Sprintf(`{"delivery_id":%q,"release_tag":"v2.1.208","source_commit":%q,"spec_release_sha256":%q,"target_commit":%q,"version":"2.1.208"}`+"\n", deliveryID, sourceCommit, pinSHA, commit)
+	regeneration := fmt.Sprintf(`{"delivery_id":%q,"release_tag":%q,"source_commit":%q,"spec_release_sha256":%q,"target_commit":%q,"version":%q}`+"\n", deliveryID, "v"+specVersion, sourceCommit, pinSHA, commit, specVersion)
 	writeReleaseTestFile(t, repo, "tools/spec-regeneration-receipt.json", regeneration, 0o600)
 	runReleaseTestCommand(t, repo, nil, "git", "add", ".")
 	runReleaseTestCommand(t, repo, nil, "git", "commit", "-qm", "chore: auto-regenerate provider and documentation")
