@@ -558,6 +558,15 @@ func (r *{{.TitleCase}}Resource) Create(ctx context.Context, req resource.Create
 	// Marshal spec fields from Terraform state to API struct
 {{renderSpecMarshalCodeForCreate .Attributes "\t" .TitleCase}}
 
+{{- if or (eq .Name "token") (eq .Name "securemesh_site_v2")}}
+ originalCapture, captureErr := OpenOriginalCreationCapture("xcsh_{{.Name}}", data.Namespace.ValueString(), data.Name.ValueString())
+ if captureErr != nil {
+  resp.Diagnostics.AddError("Original Creation Capture Unavailable", captureErr.Error())
+  return
+ }
+ defer originalCapture.Close()
+{{- end}}
+
 	{{- if .HasConcurrencyToken}}
 	{{if or (eq .Name "token") (eq .Name "securemesh_site_v2")}}created, err{{else}}_, err{{end}} := r.client.Create{{.TitleCase}}(ctx, createReq)
 	{{- else}}
@@ -579,6 +588,12 @@ func (r *{{.TitleCase}}Resource) Create(ctx context.Context, req resource.Create
  data.ID = data.Name
  resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
  if resp.Diagnostics.HasError() { return }
+ if originalCapture != nil {
+  if _, captureErr := originalCapture.RecordCreation(data.CreationIdentitySHA256.ValueString()); captureErr != nil {
+   resp.Diagnostics.AddError("Original Creation Capture Failed", captureErr.Error())
+   return
+  }
+ }
 {{- end}}
 {{- if .HasConcurrencyToken}}
 

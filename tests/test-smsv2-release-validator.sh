@@ -339,6 +339,46 @@ reject_upgrade_mutation mutable-force '.providers.aws.site_upgrade.software_upgr
 reject_upgrade_mutation terminal-failure '.providers.aws.site_upgrade.polling.failure_semantics = "terminal"'
 reject_upgrade_mutation raw-export '.providers.aws.site_upgrade.redaction.exported = "raw_response"'
 
+# The reviewed 7.3 additions remain observation-only or runtime-unqualified.
+extended="$work/contract-7.3"
+mkdir "$extended"
+cp "$work"/*.json "$extended/"
+jq --slurpfile additions "$root/tests/fixtures/smsv2-contract-7.3-extensions.json" '
+ .version = "7.3.0"
+ | .providers.aws.runtime.physical_interfaces = $additions[0].aws_physical_interfaces
+ | .providers.azure.runtime.health = $additions[0].azure_health
+ | .providers.azure.slo_bgp_relay = $additions[0].azure_slo_bgp_relay
+' "$extended/smsv2-contract.json" >"$extended/updated.json"
+mv "$extended/updated.json" "$extended/smsv2-contract.json"
+refresh_manifest "$extended"
+python3 "$validator" "$extended" "$tag" "$commit"
+
+reject_extension_mutation() {
+  local name=$1 filter=$2 directory="$work/extension-$1"
+  mkdir "$directory"
+  cp "$extended"/*.json "$directory/"
+  jq "$filter" "$directory/smsv2-contract.json" >"$directory/updated.json"
+  mv "$directory/updated.json" "$directory/smsv2-contract.json"
+  refresh_manifest "$directory"
+  if python3 "$validator" "$directory" "$tag" "$commit" >/dev/null 2>&1; then
+    printf 'unreviewed contract extension was accepted: %s\n' "$name" >&2
+    exit 1
+  fi
+}
+
+reject_extension_mutation unknown-version '.version = "7.4.0"'
+reject_extension_mutation missing-physical 'del(.providers.aws.runtime.physical_interfaces)'
+reject_extension_mutation changed-endpoint '.providers.azure.runtime.health.path = "/unreviewed"'
+reject_extension_mutation physical-mutation '.providers.aws.runtime.physical_interfaces.mutation_admission = true'
+reject_extension_mutation physical-freshness '.providers.aws.runtime.physical_interfaces.qualification.freshness = true'
+reject_extension_mutation physical-ce-acceptance '.providers.aws.runtime.physical_interfaces.qualification.full_ce_acceptance = true'
+reject_extension_mutation health-mutation '.providers.azure.runtime.health.mutation_admission = true'
+reject_extension_mutation health-ha '.providers.azure.runtime.health.qualification.ha_health_acceptance = true'
+reject_extension_mutation relay-live '.providers.azure.slo_bgp_relay.qualification.live_acceptance = true'
+reject_extension_mutation relay-vendor '.providers.azure.slo_bgp_relay.qualification.vendor_support = "qualified"'
+reject_extension_mutation relay-topology '.providers.azure.slo_bgp_relay.qualification.topology_acceptance.three_node_ha = true'
+reject_extension_mutation downgraded-version '.version = "7.0.0"'
+
 printf x >>"$work/smsv2-contract.json"
 if python3 "$validator" "$work" "$tag" "$commit" >/dev/null 2>&1; then
   echo "tampered contract was accepted" >&2

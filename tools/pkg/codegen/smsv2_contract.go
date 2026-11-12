@@ -71,8 +71,11 @@ func SMSv2DataSourceTemplates(contractJSON []byte) ([]SMSv2DataSourceTemplate, e
 	if err := json.Unmarshal(contractJSON, &contract); err != nil {
 		return nil, fmt.Errorf("decode SMSv2 contract: %w", err)
 	}
-	if contract.Version != "7.0.0" || contract.ContractID != "f5xc-smsv2-api/v1" {
-		return nil, fmt.Errorf("SMSv2 data sources require the v7.0 clean-break API v1 contract")
+	if (contract.Version != "7.0.0" && contract.Version != "7.3.0") || contract.ContractID != "f5xc-smsv2-api/v1" {
+		return nil, fmt.Errorf("SMSv2 data sources require a reviewed v7 clean-break API v1 contract")
+	}
+	if err := validateSMSv2ReviewedExtensions(contractJSON, contract.Version); err != nil {
+		return nil, err
 	}
 	if err := validateAzureRouteServerContract(contract.Providers.Azure); err != nil {
 		return nil, err
@@ -93,7 +96,11 @@ func SMSv2DataSourceTemplates(contractJSON []byte) ([]SMSv2DataSourceTemplate, e
 		"bgp_routes":        {"GET", "/api/operate/namespaces/{namespace}/sites/{site}/ver/bgp_routes"},
 		"simplified_routes": {"POST", "/api/operate/namespaces/{namespace}/sites/{site}/ver/simplified_routes"},
 	}
-	if len(contract.Providers.AWS.Runtime) != len(wantRuntime) {
+	expectedRuntime := len(wantRuntime)
+	if contract.Version == "7.3.0" {
+		expectedRuntime++
+	}
+	if len(contract.Providers.AWS.Runtime) != expectedRuntime {
 		return nil, fmt.Errorf("SMSv2 API v1 runtime endpoint set is incomplete")
 	}
 	for name, want := range wantRuntime {

@@ -59,7 +59,7 @@ func TestSMSv2ContractDataSourceRead(t *testing.T) {
 	siteUpgrade, hasSiteUpgrade := state.Capabilities.Elements()["site_upgrade"].(types.String)
 	azure := state.AzureRouteServerEBGPMultihop.Attributes()
 	if response.Diagnostics.HasError() || state.ContractID.ValueString() != "f5xc-smsv2-api/v1" ||
-		state.ContractVersion.ValueString() != "7.0.0" || state.TelemetrySchema.ValueString() != "f5xc-smsv2-aws-tgw-telemetry/v2" ||
+		state.ContractVersion.ValueString() != smsv2ContractVersion || state.TelemetrySchema.ValueString() != "f5xc-smsv2-aws-tgw-telemetry/v2" ||
 		!hasSiteUpgrade || siteUpgrade.ValueString() != "available" {
 		t.Fatalf("unexpected contract state: %#v diagnostics=%v", state, response.Diagnostics)
 	}

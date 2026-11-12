@@ -1,0 +1,272 @@
+{
+  "aws_physical_interfaces": {
+    "authority": "f5xc",
+    "availability": "observed_up_freshness_unqualified",
+    "configuration_dependency": "runtime.configuration",
+    "freshness": {
+      "collector_timestamp": "request_receipt_not_ce_heartbeat",
+      "creation_timestamp": "object_creation_not_ce_heartbeat",
+      "original_ce_sample_timestamp": "unqualified",
+      "publication_loss_staleness_deletion_recovery": "unqualified",
+      "vtrp_stale": "true_rejected_false_does_not_prove_sample_age"
+    },
+    "generated_objects": {
+      "exact_item": {
+        "method": "GET",
+        "operation_id": "ves.io.schema.network_interface.API.Get",
+        "path": "/api/config/namespaces/{namespace}/network_interfaces/{name}",
+        "response_schema": "network_interfaceGetResponse"
+      },
+      "method": "GET",
+      "operation_id": "ves.io.schema.network_interface.API.List",
+      "path": "/api/config/namespaces/{namespace}/network_interfaces",
+      "report_fields": ["get_spec", "system_metadata"],
+      "response_schema": "network_interfaceListResponse"
+    },
+    "identity": {
+      "configuration": [
+        "site_name",
+        "namespace",
+        "site_uid",
+        "node",
+        "normalized_mac",
+        "observed_device",
+        "role",
+        "mtu"
+      ],
+      "coverage": "exactly_one_join_per_trusted_expected_interface",
+      "generated_interface": [
+        "name",
+        "get_spec.ethernet_interface.node",
+        "get_spec.ethernet_interface.device",
+        "get_spec.ethernet_interface.mtu",
+        "get_spec.ethernet_interface.site_local_network",
+        "get_spec.ethernet_interface.site_local_inside_network"
+      ],
+      "generated_owner": ["owner_view.kind", "owner_view.name", "owner_view.namespace", "owner_view.uid"],
+      "names": "observed_only_never_construct_generated_object_names",
+      "physical_interface": ["node", "name", "normalized_mac", "network_type", "LINK_TYPE_ETHERNET"],
+      "publisher": {
+        "creator_class": "ver",
+        "creator_id": "configured_node_or_site_with_exact_node_status_instance_and_physical_reference",
+        "physical_reference_kind": "ves.io.vega.cfg.site.Object",
+        "physical_reference_uid": "physical_site.system_metadata.uid",
+        "publish": "STATUS_PUBLISH",
+        "site_creator_instance": "{node}-{site}",
+        "site_creator_status_id": "{node}_SiteStatusMgr",
+        "uniqueness": "exactly_one_matching_publisher",
+        "vtrp_stale": false
+      }
+    },
+    "interface_schema": "siteInterfaceStatus__ves_io_schema_site",
+    "method": "GET",
+    "mutation_admission": false,
+    "operation_id": "ves.io.schema.site.API.Get",
+    "path": "/api/config/namespaces/{namespace}/sites/{name}",
+    "permissions": {
+      "least_privilege": "unqualified",
+      "operations_required": [
+        "ves.io.schema.views.securemesh_site_v2.API.Get",
+        "ves.io.schema.network_interface.API.List",
+        "ves.io.schema.network_interface.API.Get",
+        "ves.io.schema.site.API.Get"
+      ],
+      "role_mapping": "unqualified",
+      "tested_context": "existing_owned_api_context"
+    },
+    "qualification": {
+      "fresh_published_asset_qualification_required": true,
+      "freshness": false,
+      "full_ce_acceptance": false,
+      "installed_two_interface_up_observation": true,
+      "least_privilege": false,
+      "receipt_path": "config/evidence/aws-physical-interface-observation-20261023.json",
+      "receipt_sha256": "sha256:afb57f5110fcfc96ed8b39ff51e0c1bc5f5d1e7c9c8a5c8946867462480d1ba1",
+      "six_interface_transition": false,
+      "supported_sli_control": false
+    },
+    "response_mappings": {
+      "active_backup_role": "active_state",
+      "device": "name",
+      "instance": "status[].ver_status.ver_instance_name",
+      "interfaces": "status[].ver_status.intf_status[]",
+      "mac": "mac",
+      "operational_link": "link_state",
+      "physical_references": "status[].object_refs[]",
+      "physical_site_uid": "system_metadata.uid",
+      "publications": "status[]",
+      "publisher": "status[].metadata",
+      "role": "network_type"
+    },
+    "response_schema": "siteGetResponse",
+    "semantics": "observational_read_only",
+    "state_handling": {
+      "active_state_semantics": "active_backup_role_not_link_or_administrative_state",
+      "active_state_values": ["STATE_UNKNOWN", "STATE_ACTIVE", "STATE_BACKUP"],
+      "administrative_state": "not_exposed_by_this_observation",
+      "configuration_installation": "not_operational_link_evidence",
+      "down_acceptance": "complete_current_identity_verified_explicit_false_only",
+      "link_false": "down",
+      "link_state_type": "explicit_boolean",
+      "link_true": "up",
+      "missing_link_state": "unknown",
+      "observed_up": "complete_identity_verified_all_links_explicit_true",
+      "physical_roles": {
+        "VIRTUAL_NETWORK_SITE_LOCAL": "slo",
+        "VIRTUAL_NETWORK_SITE_LOCAL_INSIDE": "sli"
+      },
+      "tunnels": "excluded_from_physical_interface_coverage",
+      "unqualified_freshness_down_acceptance": "unknown"
+    },
+    "unknown_conditions": [
+      "missing",
+      "missing_boolean",
+      "foreign_owner",
+      "foreign_publisher",
+      "duplicate",
+      "partial",
+      "malformed",
+      "stale",
+      "unauthorized",
+      "unavailable",
+      "unresolved_binding",
+      "ambiguous_binding",
+      "identity_change_during_read"
+    ]
+  },
+  "azure_health": {
+    "authority": "f5xc",
+    "correlation": ["canonical_node"],
+    "exact_node_join_required": true,
+    "freshness": {
+      "collector_timestamp": "request_receipt_only_not_ce_heartbeat",
+      "original_ce_sample_time": "unqualified",
+      "publication_staleness": "unqualified"
+    },
+    "healthy_state": "PROVISIONED",
+    "interface_state_authority": false,
+    "method": "GET",
+    "mutation_admission": false,
+    "normalization": {
+      "node": "configured_hostname_or_fqdn"
+    },
+    "operation_id": "ves.io.schema.operate.debug.CustomPublicAPI.HealthPublic",
+    "path": "/api/operate/namespaces/system/sites/{site}/vpm/debug/global/health",
+    "per_node_health": "unknown",
+    "permissions": {
+      "least_privilege": "unqualified",
+      "role_mapping": "not_independently_verified",
+      "tested_context": "existing_authorized_api_context"
+    },
+    "qualification": {
+      "fresh_published_asset_qualification_required": true,
+      "full_ce_acceptance": false,
+      "ha_health_acceptance": false,
+      "installed_public_health_path": false,
+      "receipt_path": "config/evidence/azure-global-health-20261022.json",
+      "receipt_sha256": "sha256:2a0f55281f5664cfc0ac7666f3e00fd8a2e922da6f9a49e97209eb527630c645"
+    },
+    "response_mappings": {
+      "health": "state",
+      "node": "hostname"
+    },
+    "response_schema": "debugHealthResponse",
+    "scope": "site_global_representative_node",
+    "semantics": "observational_read_only",
+    "state_schema": "debugVpmState",
+    "state_values": [
+      "WAITING_FOR_CONFIG",
+      "WAITING_FOR_APPROVAL",
+      "PROVISIONING",
+      "PROVISIONED",
+      "FAILED",
+      "RESETTING"
+    ],
+    "unknown_conditions": [
+      "missing",
+      "malformed",
+      "foreign_node",
+      "unavailable",
+      "unauthorized",
+      "incomplete_node_coverage"
+    ]
+  },
+  "azure_slo_bgp_relay": {
+    "availability": "schema_validated_runtime_unqualified",
+    "ce_mappings": {
+      "ce_multihop_request_control": "absent",
+      "local_address": "derive_from_observed_slo_interface",
+      "local_asn": "owning_site_binding.asn",
+      "network_type": "VIRTUAL_NETWORK_SITE_LOCAL",
+      "peer_address": "relay_cloud_binding.observed_ipv4",
+      "peer_asn": "relay_cloud_binding.asn",
+      "peer_interface": "authoritative_slo_interface_reference",
+      "peer_port": 179,
+      "peers": "ce_nodes_cross_two_owned_relays",
+      "site_reference": "owned_site_name_and_namespace"
+    },
+    "ce_operation": {
+      "method": "POST",
+      "operation_id": "ves.io.schema.bgp.API.Create",
+      "path": "/api/config/namespaces/{metadata.namespace}/bgps",
+      "request_schema": "bgpCreateRequest"
+    },
+    "execution_requirements": {
+      "ce_configuration": "ordinary_external_peers_on_authoritative_slo_only",
+      "ce_topologies": ["single_site", "independent_sites", "three_node_ha"],
+      "cleanup": "exact_ids_tags_sites_interfaces_tokens_empty_state_final_no_change_and_sensitive_retirement",
+      "engines": ["native", "terraform"],
+      "frr_configuration": "route_server_peer_group_multihop_with_explicit_vip_prefix_policy",
+      "image_and_software": "resolve_exact_versions_and_digests_before_execution",
+      "lifecycle": [
+        "create",
+        "replace",
+        "interrupt_resume",
+        "wrong_engine_rejection",
+        "failover",
+        "restore",
+        "coordinated_teardown"
+      ],
+      "ownership": "all_cloud_platform_and_relay_resources_bound_to_saved_plan",
+      "relay_count": 2,
+      "traffic": "qualify_forwarding_and_vip_translation_with_return_path"
+    },
+    "identity": {
+      "ce_join": ["site_uid", "node", "normalized_mac", "device", "role", "physical_site_reference", "publisher"],
+      "ce_role": "slo",
+      "relay_address": "owned_cloud_nic_observed_ipv4",
+      "relay_join": [
+        "vm_resource_id",
+        "nic_resource_id",
+        "ip_configuration",
+        "subnet_resource_id",
+        "ownership_tags",
+        "engine",
+        "plan_sha256"
+      ],
+      "route_server_join": [
+        "virtual_hub_resource_id",
+        "bgp_connection_resource_ids",
+        "observed_service_addresses",
+        "ownership_tags"
+      ],
+      "unknown_policy": "reject_missing_stale_ambiguous_partial_foreign_or_unresolved_bindings"
+    },
+    "multihop_owner": "frr_route_server_peer_group",
+    "qualification": {
+      "fresh_published_asset_qualification_required": true,
+      "live_acceptance": false,
+      "native_request_schema_validated": true,
+      "receipt_path": "config/evidence/azure-slo-bgp-relay-wire-20261023.json",
+      "receipt_sha256": "sha256:1376c39fcbe83d15acf2e22bcf6b0eceb76680c2f4688232b3b11b4d8c847b23",
+      "terraform_provider_validated": true,
+      "topology_acceptance": {
+        "independent_sites": false,
+        "single_site": false,
+        "three_node_ha": false
+      },
+      "vendor_support": "not_independently_qualified"
+    },
+    "topology": "ce_slo_to_frr_to_azure_route_server"
+  }
+}
