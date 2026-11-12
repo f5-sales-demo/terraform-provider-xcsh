@@ -160,7 +160,10 @@ jq -e --slurpfile pending "$pending" '
     "smsv2_parity_manifest.json",
     "upstream-contract-changes.json",
     "upstream-contract-removals.json"
-  ] + (if ($pending[0].version | split(".")[0] | tonumber) >= 10 then ["enrichment-coverage.json"] else [] end) | sort) and
+  ] + (if ($pending[0].version | split(".")[0] | tonumber) >= 10 then ["enrichment-coverage.json"] else [] end)
+    + (if (.assets | has("gcp-operational-health-v2.json") or has("gcp-operational-qualification-v2.json"))
+       then ["gcp-operational-health-v2.json", "gcp-operational-qualification-v2.json"]
+       else [] end) | sort) and
   ([.assets[] | test("^sha256:[0-9a-f]{64}$")] | all)
 ' "$pin" >/dev/null || fail "Published release pin does not match pending delivery"
 pin_sha=$(shasum -a 256 "$pin" | awk '{print $1}')
