@@ -73,7 +73,7 @@ func (d *MaliciousUserMitigationDataSource) Schema(ctx context.Context, req data
 				ElementType:         types.StringType,
 			},
 			"mitigation_type": schema.SingleNestedAttribute{
-				MarkdownDescription: "Settings that specify the actions to be taken when malicious users are determined to be at different threat levels. User's activity is monitored and continuously analyzed for malicious behavior. From this analysis, a threat-level is assigned to each user. Server applies default when omitted.",
+				MarkdownDescription: "Settings that specify the actions to be taken when malicious users are determined to be at different threat levels. User's activity is monitored and continuously analyzed for malicious behavior. From this analysis, a threat-level is assigned to each user.",
 				Attributes: map[string]schema.Attribute{
 					"rules": schema.ListNestedAttribute{
 						MarkdownDescription: "Define the threat levels and the corresponding mitigation actions to be taken.",

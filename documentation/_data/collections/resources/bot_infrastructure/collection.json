@@ -134,7 +134,7 @@
       "path": "documentation/resources/bot_infrastructure/index.md",
       "product": "distributed-cloud",
       "provider_name": "bot_infrastructure",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "resources",
       "registry_anchor": "canonical-2222321211302222-3000301022222311-2112020111020303-0211321333200200-0330000200113123-1222031102030300-3031133300033023-1330233231022033",
       "registry_path": "docs/resources/bot_infrastructure.md",
@@ -144,21 +144,21 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bot_infrastructure/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "Manages Bot Infrastructure in F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_bot_infrastructure",
       "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["bot_infrastructureCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["bot infrastructure"],
       "body_bytes": 12507,
-      "body_sha256": "sha256:86f4f4cc5a660a08330b734e37cdfbceb2e9b332f22745523ff4cdf06bbbaef8",
+      "body_sha256": "sha256:ae88478ada689f9caad5267263d73807a33babaed92e9ffd54aa09404feda719",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [
@@ -178,7 +178,7 @@
       "path": "documentation/resources/bot_infrastructure/properties/index.md",
       "product": "distributed-cloud",
       "provider_name": "bot_infrastructure",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "resources",
       "registry_anchor": "canonical-3211120122133210-0122110022200232-1211012113212211-2130003230230030-1201022221000022-0012221313230312-0000102002302203-0201002321021101",
       "registry_path": "docs/guides/resources--bot_infrastructure--reference--group-001.md",
@@ -375,14 +375,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bot_infrastructure/properties/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "Property reference for xcsh_bot_infrastructure.",
       "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["bot_infrastructureCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
@@ -408,7 +408,7 @@
       "path": "documentation/resources/bot_infrastructure/properties/create_cloud_hosted/index.md",
       "product": "distributed-cloud",
       "provider_name": "bot_infrastructure",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "resources",
       "registry_anchor": "canonical-2330310010102100-2003222100001321-3123220220113030-3220331102211303-0232000201002002-2321233202221132-3101030133100233-1003211122120022",
       "registry_path": "docs/guides/resources--bot_infrastructure--reference--group-001.md",
@@ -510,20 +510,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bot_infrastructure/properties/create_cloud_hosted/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "F5 Cloud Hosted.",
       "tasks": ["configuration"],
       "title": "create_cloud_hosted",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["bot_infrastructureCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["create cloud hosted production"],
       "body_bytes": 2747,
-      "body_sha256": "sha256:d53f3b72c9320533eca3f5359bc2dc3dfe6c30b3b98c3cb3f34dea9a28ff065a",
+      "body_sha256": "sha256:c4ff9fc4eb2ca37fb38a7e1923e25bea84a9189fbb06aeb91517784373e71384",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -540,7 +540,7 @@
       "path": "documentation/resources/bot_infrastructure/properties/create_cloud_hosted/production/index.md",
       "product": "distributed-cloud",
       "provider_name": "bot_infrastructure",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "resources",
       "registry_anchor": "canonical-1331230011332113-1210000300323221-1201310220310031-0223300213320130-3133003023121202-1223223010120302-2302001333030011-1023203021313003",
       "registry_path": "docs/guides/resources--bot_infrastructure--reference--group-001.md",
@@ -600,20 +600,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bot_infrastructure/properties/create_cloud_hosted/production/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "Production.",
       "tasks": ["configuration"],
       "title": "create_cloud_hosted.production",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["bot_infrastructureCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["create cloud hosted testing"],
       "body_bytes": 1895,
-      "body_sha256": "sha256:3ae089dff7bc7b7b74c4e2a2b0bf0e4ff0e81fa0974f02611cb001ebf7871350",
+      "body_sha256": "sha256:2b4503c708d902b02a9683f7eef8265b2049e99508e8a6807acd1dbe9a968aba",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
@@ -630,7 +630,7 @@
       "path": "documentation/resources/bot_infrastructure/properties/create_cloud_hosted/testing/index.md",
       "product": "distributed-cloud",
       "provider_name": "bot_infrastructure",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "resources",
       "registry_anchor": "canonical-3033321133303122-0331120203303201-2002100100022211-3211122031301311-3321333331333303-0210211002333012-3221003021312121-1220022220231213",
       "registry_path": "docs/guides/resources--bot_infrastructure--reference--group-001.md",
@@ -666,14 +666,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bot_infrastructure/properties/create_cloud_hosted/testing/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "Testing",
       "tasks": ["configuration"],
       "title": "create_cloud_hosted.testing",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["bot_infrastructureCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
@@ -696,7 +696,7 @@
       "path": "documentation/resources/bot_infrastructure/properties/timeouts/index.md",
       "product": "distributed-cloud",
       "provider_name": "bot_infrastructure",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "resources",
       "registry_anchor": "canonical-0222221022023101-0123223130031121-1111133013131322-3202210001321011-1321112231120010-3202002333113122-1300203222130212-1203232030232212",
       "registry_path": "docs/guides/resources--bot_infrastructure--reference--group-001.md",
@@ -806,14 +806,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bot_infrastructure/properties/timeouts/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "timeouts for xcsh_bot_infrastructure.",
       "tasks": ["configuration"],
       "title": "timeouts",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["bot_infrastructureCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
@@ -836,7 +836,7 @@
       "path": "documentation/resources/bot_infrastructure/examples/index.md",
       "product": "distributed-cloud",
       "provider_name": "bot_infrastructure",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "resources",
       "registry_anchor": "canonical-0312311210210122-3303012200112332-3333133000021021-0301113321021223-3322130112200312-3222123113000213-3101322023012213-3012120222310020",
       "registry_path": "docs/guides/resources--bot_infrastructure--examples--group-001.md",
@@ -846,14 +846,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bot_infrastructure/examples/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "Examples for xcsh_bot_infrastructure.",
       "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["bot_infrastructureCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
@@ -883,7 +883,7 @@
       "path": "documentation/resources/bot_infrastructure/examples/resource/index.md",
       "product": "distributed-cloud",
       "provider_name": "bot_infrastructure",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "resources",
       "registry_anchor": "canonical-2222320201313333-3321231120231130-1320121030130311-1021311232121221-2131002020323331-3203232230001003-1023233102213300-0323233122330130",
       "registry_path": "docs/guides/resources--bot_infrastructure--examples--group-001.md",
@@ -893,14 +893,14 @@
       "schema_path": ["resource"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bot_infrastructure/examples/resource/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "Resource for xcsh_bot_infrastructure.",
       "tasks": ["configuration"],
       "title": "Resource",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["bot_infrastructureCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
@@ -924,7 +924,7 @@
       "path": "documentation/resources/bot_infrastructure/lifecycle/import/index.md",
       "product": "distributed-cloud",
       "provider_name": "bot_infrastructure",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "resources",
       "registry_anchor": "canonical-0302021010123112-0231123212233312-2101121221122221-2031200220212303-1010313133303101-1123222202230212-1111332032201122-3202323100213112",
       "registry_path": "docs/guides/resources--bot_infrastructure--lifecycle--group-001.md",
@@ -934,14 +934,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bot_infrastructure/lifecycle/import/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "Import for xcsh_bot_infrastructure.",
       "tasks": ["import"],
       "title": "Import",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["bot_infrastructureCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
@@ -964,7 +964,7 @@
       "path": "documentation/resources/bot_infrastructure/lifecycle/timeouts/index.md",
       "product": "distributed-cloud",
       "provider_name": "bot_infrastructure",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "resources",
       "registry_anchor": "canonical-3103223333120321-3132023210300330-0321023230231322-1121122010023310-1230211112310312-3002133211302010-0221202203130132-3210311113201003",
       "registry_path": "docs/guides/resources--bot_infrastructure--lifecycle--group-001.md",
@@ -974,14 +974,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/bot_infrastructure/lifecycle/timeouts/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "Timeouts for xcsh_bot_infrastructure.",
       "tasks": ["lifecycle"],
       "title": "Timeouts",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["bot_infrastructureCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     }
   ],

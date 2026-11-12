@@ -116,7 +116,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-21T11:00:09+00:00"
+      "validatedAt": "2026-10-29T12:14:42+00:00"
     },
     "minLength": 0
   },
@@ -211,7 +211,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "inferred",
-      "validatedAt": "2026-10-21T11:00:09+00:00"
+      "validatedAt": "2026-10-29T12:14:42+00:00"
     },
     "minLength": 1,
     "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
@@ -270,7 +270,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "inferred",
-      "validatedAt": "2026-10-21T11:00:09+00:00"
+      "validatedAt": "2026-10-29T12:14:42+00:00"
     },
     "minLength": 1,
     "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
@@ -333,12 +333,9 @@ Type: `"single"`. Computed.
 
 Settings that specify the actions to be taken when malicious users are determined to be at different
 threat levels. User's activity is monitored and continuously analyzed for malicious behavior. From
-this analysis, a threat-level is assigned to each user. Server applies default when omitted.
-
-Additional upstream details:
-
-The settings defined in malicious user mitigation specify what mitigation actions to take for user
-determined to be at different threat levels.
+this analysis, a threat-level is assigned to each user. The settings defined in malicious user
+mitigation specify what mitigation actions to take for user determined to be at different threat
+levels.
 
 Receipt-pinned upstream constraints:
 
@@ -393,7 +390,7 @@ Receipt-pinned upstream constraints:
     "metadata": {
       "confidence": 0.99,
       "source": "discovery",
-      "validatedAt": "2026-10-21T11:00:09+00:00"
+      "validatedAt": "2026-10-29T12:14:42+00:00"
     },
     "minItems": 0,
     "uniqueItems": true

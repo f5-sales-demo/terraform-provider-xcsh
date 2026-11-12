@@ -491,6 +491,18 @@ var ServicePolicyRulePathModelAttrTypes = map[string]attr.Type{
 	"transformers":         types.ListType{ElemType: types.StringType},
 }
 
+// ServicePolicyRulePortMatcherModel represents port_matcher block
+type ServicePolicyRulePortMatcherModel struct {
+	InvertMatcher types.Bool `tfsdk:"invert_matcher"`
+	Ports         types.List `tfsdk:"ports"`
+}
+
+// ServicePolicyRulePortMatcherModelAttrTypes defines the attribute types for ServicePolicyRulePortMatcherModel
+var ServicePolicyRulePortMatcherModelAttrTypes = map[string]attr.Type{
+	"invert_matcher": types.BoolType,
+	"ports":          types.ListType{ElemType: types.StringType},
+}
+
 // ServicePolicyRuleQueryParamsModel represents query_params block
 type ServicePolicyRuleQueryParamsModel struct {
 	CheckNotPresent types.Object                           `tfsdk:"check_not_present"`
@@ -663,18 +675,6 @@ var ServicePolicyRuleTLSFingerprintMatcherModelAttrTypes = map[string]attr.Type{
 	"excluded_values": types.ListType{ElemType: types.StringType},
 }
 
-// ServicePolicyRulePortMatcherModel represents port_matcher block
-type ServicePolicyRulePortMatcherModel struct {
-	InvertMatcher types.Bool `tfsdk:"invert_matcher"`
-	Ports         types.List `tfsdk:"ports"`
-}
-
-// ServicePolicyRulePortMatcherModelAttrTypes defines the attribute types for ServicePolicyRulePortMatcherModel
-var ServicePolicyRulePortMatcherModelAttrTypes = map[string]attr.Type{
-	"invert_matcher": types.BoolType,
-	"ports":          types.ListType{ElemType: types.StringType},
-}
-
 type ServicePolicyRuleResourceModel struct {
 	Name                  types.String                                 `tfsdk:"name"`
 	Namespace             types.String                                 `tfsdk:"namespace"`
@@ -712,11 +712,11 @@ type ServicePolicyRuleResourceModel struct {
 	LabelMatcher          *ServicePolicyRuleLabelMatcherModel          `tfsdk:"label_matcher"`
 	MumAction             *ServicePolicyRuleMumActionModel             `tfsdk:"mum_action"`
 	Path                  *ServicePolicyRulePathModel                  `tfsdk:"path"`
+	PortMatcher           *ServicePolicyRulePortMatcherModel           `tfsdk:"port_matcher"`
 	QueryParams           types.List                                   `tfsdk:"query_params"`
 	RequestConstraints    *ServicePolicyRuleRequestConstraintsModel    `tfsdk:"request_constraints"`
 	SegmentPolicy         *ServicePolicyRuleSegmentPolicyModel         `tfsdk:"segment_policy"`
 	TLSFingerprintMatcher *ServicePolicyRuleTLSFingerprintMatcherModel `tfsdk:"tls_fingerprint_matcher"`
-	PortMatcher           *ServicePolicyRulePortMatcherModel           `tfsdk:"port_matcher"`
 }
 
 func (r *ServicePolicyRuleResource) Metadata(ctx context.Context, req resource.MetadataRequest, resp *resource.MetadataResponse) {
@@ -1576,6 +1576,25 @@ func (r *ServicePolicyRuleResource) Schema(ctx context.Context, req resource.Sch
 					},
 				},
 			},
+			"port_matcher": schema.SingleNestedBlock{
+				MarkdownDescription: "Port matcher specifies a list of port ranges as match criteria. The match is considered successful if the input port falls within any of the port ranges. The result of the match is inverted if invert_matcher is true.",
+				Validators:          []validator.Object{validators.RequiredObjectAttributes("ports")},
+
+				Attributes: map[string]schema.Attribute{
+					"invert_matcher": schema.BoolAttribute{
+						MarkdownDescription: "Invert Port Matcher. Invert the match result.",
+						Optional:            true,
+					},
+					"ports": schema.ListAttribute{
+						MarkdownDescription: "List of strings, each of which is a single port value or a tuple of start and end port values separated by '-'. The start and end values are considered to be part of the range.",
+						Optional:            true,
+						ElementType:         types.StringType,
+						Validators: []validator.List{
+							listvalidator.SizeAtMost(16),
+						},
+					},
+				},
+			},
 			"query_params": schema.ListNestedBlock{
 				MarkdownDescription: "List of predicates for all query parameters that need to be matched. The criteria for matching each query parameter are described in individual instances of QueryParameterMatcherType. The actual query parameter values are extracted from the request API as a list of strings for each query..",
 				Validators:          []validator.List{validators.RequiredListObjectAttributes("key"), validators.ConflictingListObjectAttributes("check_not_present", "check_present"), validators.ConflictingListObjectAttributes("check_not_present", "item"), validators.ConflictingListObjectAttributes("check_present", "item")},
@@ -1930,25 +1949,6 @@ func (r *ServicePolicyRuleResource) Schema(ctx context.Context, req resource.Sch
 						ElementType:         types.StringType,
 						Validators: []validator.List{
 							listvalidator.SizeAtMost(32),
-						},
-					},
-				},
-			},
-			"port_matcher": schema.SingleNestedBlock{
-				MarkdownDescription: "Port matcher specifies a list of port ranges as match criteria. The match is considered successful if the input port falls within any of the port ranges. The result of the match is inverted if invert_matcher is true. Server applies default when omitted.",
-				Validators:          []validator.Object{validators.RequiredObjectAttributes("ports")},
-
-				Attributes: map[string]schema.Attribute{
-					"invert_matcher": schema.BoolAttribute{
-						MarkdownDescription: "Invert Port Matcher. Invert the match result.",
-						Optional:            true,
-					},
-					"ports": schema.ListAttribute{
-						MarkdownDescription: "List of strings, each of which is a single port value or a tuple of start and end port values separated by '-'. The start and end values are considered to be part of the range.",
-						Optional:            true,
-						ElementType:         types.StringType,
-						Validators: []validator.List{
-							listvalidator.SizeAtMost(16),
 						},
 					},
 				},
@@ -2814,6 +2814,21 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 		}
 		createReq.Spec["path"] = PathMap
 	}
+	if data.PortMatcher != nil {
+		PortMatcherMap := make(map[string]interface{})
+		if !data.PortMatcher.InvertMatcher.IsNull() && !data.PortMatcher.InvertMatcher.IsUnknown() {
+			PortMatcherMap["invert_matcher"] = data.PortMatcher.InvertMatcher.ValueBool()
+		}
+		if !data.PortMatcher.Ports.IsNull() && !data.PortMatcher.Ports.IsUnknown() {
+			var PortsItems []string
+			diags := data.PortMatcher.Ports.ElementsAs(ctx, &PortsItems, false)
+			resp.Diagnostics.Append(diags...)
+			if !diags.HasError() {
+				PortMatcherMap["ports"] = PortsItems
+			}
+		}
+		createReq.Spec["port_matcher"] = PortMatcherMap
+	}
 	if !data.QueryParams.IsNull() && !data.QueryParams.IsUnknown() {
 		var QueryParamsElems []ServicePolicyRuleQueryParamsModel
 		diags := data.QueryParams.ElementsAs(ctx, &QueryParamsElems, false)
@@ -3044,21 +3059,6 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 	}
 	if !data.LogRuleEvaluation.IsNull() && !data.LogRuleEvaluation.IsUnknown() {
 		createReq.Spec["log_rule_evaluation"] = data.LogRuleEvaluation.ValueBool()
-	}
-	if data.PortMatcher != nil {
-		PortMatcherMap := make(map[string]interface{})
-		if !data.PortMatcher.InvertMatcher.IsNull() && !data.PortMatcher.InvertMatcher.IsUnknown() {
-			PortMatcherMap["invert_matcher"] = data.PortMatcher.InvertMatcher.ValueBool()
-		}
-		if !data.PortMatcher.Ports.IsNull() && !data.PortMatcher.Ports.IsUnknown() {
-			var PortsItems []string
-			diags := data.PortMatcher.Ports.ElementsAs(ctx, &PortsItems, false)
-			resp.Diagnostics.Append(diags...)
-			if !diags.HasError() {
-				PortMatcherMap["ports"] = PortsItems
-			}
-		}
-		createReq.Spec["port_matcher"] = PortMatcherMap
 	}
 
 	_, err := r.client.CreateServicePolicyRule(ctx, createReq)
@@ -4250,6 +4250,33 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 			}(),
 		}
 	}
+	if blockData, ok := apiResource.Spec["port_matcher"].(map[string]interface{}); ok && (isImport || data.PortMatcher != nil) {
+		data.PortMatcher = &ServicePolicyRulePortMatcherModel{
+			InvertMatcher: func() types.Bool {
+				if !isImport && data.PortMatcher != nil && !data.PortMatcher.InvertMatcher.IsUnknown() {
+					return data.PortMatcher.InvertMatcher
+				}
+				if v, ok := blockData["invert_matcher"].(bool); ok {
+					return types.BoolValue(v)
+				}
+				return types.BoolNull()
+			}(),
+			Ports: func() types.List {
+				if v, ok := blockData["ports"].([]interface{}); ok && len(v) > 0 {
+					var items []string
+					for _, item := range v {
+						if s, ok := item.(string); ok {
+							items = append(items, s)
+						}
+					}
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
+					return listVal
+				}
+				return types.ListNull(types.StringType)
+			}(),
+		}
+	}
 	if !isImport && (data.QueryParams.IsNull() || len(data.QueryParams.Elements()) == 0) {
 		data.QueryParams = types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleQueryParamsModelAttrTypes})
 	} else if listData, ok := apiResource.Spec["query_params"].([]interface{}); ok && len(listData) > 0 {
@@ -4779,33 +4806,6 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 			data.LogRuleEvaluation = types.BoolValue(v)
 		} else {
 			data.LogRuleEvaluation = types.BoolNull()
-		}
-	}
-	if blockData, ok := apiResource.Spec["port_matcher"].(map[string]interface{}); ok && (isImport || data.PortMatcher != nil) {
-		data.PortMatcher = &ServicePolicyRulePortMatcherModel{
-			InvertMatcher: func() types.Bool {
-				if !isImport && data.PortMatcher != nil && !data.PortMatcher.InvertMatcher.IsUnknown() {
-					return data.PortMatcher.InvertMatcher
-				}
-				if v, ok := blockData["invert_matcher"].(bool); ok {
-					return types.BoolValue(v)
-				}
-				return types.BoolNull()
-			}(),
-			Ports: func() types.List {
-				if v, ok := blockData["ports"].([]interface{}); ok && len(v) > 0 {
-					var items []string
-					for _, item := range v {
-						if s, ok := item.(string); ok {
-							items = append(items, s)
-						}
-					}
-					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
-					resp.Diagnostics.Append(diags...)
-					return listVal
-				}
-				return types.ListNull(types.StringType)
-			}(),
 		}
 	}
 
@@ -6079,6 +6079,33 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 			}(),
 		}
 	}
+	if blockData, ok := apiResource.Spec["port_matcher"].(map[string]interface{}); ok && (isImport || data.PortMatcher != nil) {
+		data.PortMatcher = &ServicePolicyRulePortMatcherModel{
+			InvertMatcher: func() types.Bool {
+				if !isImport && data.PortMatcher != nil && !data.PortMatcher.InvertMatcher.IsUnknown() {
+					return data.PortMatcher.InvertMatcher
+				}
+				if v, ok := blockData["invert_matcher"].(bool); ok {
+					return types.BoolValue(v)
+				}
+				return types.BoolNull()
+			}(),
+			Ports: func() types.List {
+				if v, ok := blockData["ports"].([]interface{}); ok && len(v) > 0 {
+					var items []string
+					for _, item := range v {
+						if s, ok := item.(string); ok {
+							items = append(items, s)
+						}
+					}
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
+					return listVal
+				}
+				return types.ListNull(types.StringType)
+			}(),
+		}
+	}
 	if !isImport && (data.QueryParams.IsNull() || len(data.QueryParams.Elements()) == 0) {
 		data.QueryParams = types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleQueryParamsModelAttrTypes})
 	} else if listData, ok := apiResource.Spec["query_params"].([]interface{}); ok && len(listData) > 0 {
@@ -6608,33 +6635,6 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 			data.LogRuleEvaluation = types.BoolValue(v)
 		} else {
 			data.LogRuleEvaluation = types.BoolNull()
-		}
-	}
-	if blockData, ok := apiResource.Spec["port_matcher"].(map[string]interface{}); ok && (isImport || data.PortMatcher != nil) {
-		data.PortMatcher = &ServicePolicyRulePortMatcherModel{
-			InvertMatcher: func() types.Bool {
-				if !isImport && data.PortMatcher != nil && !data.PortMatcher.InvertMatcher.IsUnknown() {
-					return data.PortMatcher.InvertMatcher
-				}
-				if v, ok := blockData["invert_matcher"].(bool); ok {
-					return types.BoolValue(v)
-				}
-				return types.BoolNull()
-			}(),
-			Ports: func() types.List {
-				if v, ok := blockData["ports"].([]interface{}); ok && len(v) > 0 {
-					var items []string
-					for _, item := range v {
-						if s, ok := item.(string); ok {
-							items = append(items, s)
-						}
-					}
-					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
-					resp.Diagnostics.Append(diags...)
-					return listVal
-				}
-				return types.ListNull(types.StringType)
-			}(),
 		}
 	}
 
@@ -7342,6 +7342,21 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 		}
 		apiResource.Spec["path"] = PathMap
 	}
+	if data.PortMatcher != nil {
+		PortMatcherMap := make(map[string]interface{})
+		if !data.PortMatcher.InvertMatcher.IsNull() && !data.PortMatcher.InvertMatcher.IsUnknown() {
+			PortMatcherMap["invert_matcher"] = data.PortMatcher.InvertMatcher.ValueBool()
+		}
+		if !data.PortMatcher.Ports.IsNull() && !data.PortMatcher.Ports.IsUnknown() {
+			var PortsItems []string
+			diags := data.PortMatcher.Ports.ElementsAs(ctx, &PortsItems, false)
+			resp.Diagnostics.Append(diags...)
+			if !diags.HasError() {
+				PortMatcherMap["ports"] = PortsItems
+			}
+		}
+		apiResource.Spec["port_matcher"] = PortMatcherMap
+	}
 	if !data.QueryParams.IsNull() && !data.QueryParams.IsUnknown() {
 		var QueryParamsElems []ServicePolicyRuleQueryParamsModel
 		diags := data.QueryParams.ElementsAs(ctx, &QueryParamsElems, false)
@@ -7572,21 +7587,6 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 	}
 	if !data.LogRuleEvaluation.IsNull() && !data.LogRuleEvaluation.IsUnknown() {
 		apiResource.Spec["log_rule_evaluation"] = data.LogRuleEvaluation.ValueBool()
-	}
-	if data.PortMatcher != nil {
-		PortMatcherMap := make(map[string]interface{})
-		if !data.PortMatcher.InvertMatcher.IsNull() && !data.PortMatcher.InvertMatcher.IsUnknown() {
-			PortMatcherMap["invert_matcher"] = data.PortMatcher.InvertMatcher.ValueBool()
-		}
-		if !data.PortMatcher.Ports.IsNull() && !data.PortMatcher.Ports.IsUnknown() {
-			var PortsItems []string
-			diags := data.PortMatcher.Ports.ElementsAs(ctx, &PortsItems, false)
-			resp.Diagnostics.Append(diags...)
-			if !diags.HasError() {
-				PortMatcherMap["ports"] = PortsItems
-			}
-		}
-		apiResource.Spec["port_matcher"] = PortMatcherMap
 	}
 
 	_, err := r.client.UpdateServicePolicyRule(ctx, apiResource)
@@ -8820,6 +8820,33 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 			}(),
 		}
 	}
+	if blockData, ok := apiResource.Spec["port_matcher"].(map[string]interface{}); ok && (isImport || data.PortMatcher != nil) {
+		data.PortMatcher = &ServicePolicyRulePortMatcherModel{
+			InvertMatcher: func() types.Bool {
+				if !isImport && data.PortMatcher != nil && !data.PortMatcher.InvertMatcher.IsUnknown() {
+					return data.PortMatcher.InvertMatcher
+				}
+				if v, ok := blockData["invert_matcher"].(bool); ok {
+					return types.BoolValue(v)
+				}
+				return types.BoolNull()
+			}(),
+			Ports: func() types.List {
+				if v, ok := blockData["ports"].([]interface{}); ok && len(v) > 0 {
+					var items []string
+					for _, item := range v {
+						if s, ok := item.(string); ok {
+							items = append(items, s)
+						}
+					}
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
+					return listVal
+				}
+				return types.ListNull(types.StringType)
+			}(),
+		}
+	}
 	if !isImport && (data.QueryParams.IsNull() || len(data.QueryParams.Elements()) == 0) {
 		data.QueryParams = types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleQueryParamsModelAttrTypes})
 	} else if listData, ok := apiResource.Spec["query_params"].([]interface{}); ok && len(listData) > 0 {
@@ -9349,33 +9376,6 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 			data.LogRuleEvaluation = types.BoolValue(v)
 		} else {
 			data.LogRuleEvaluation = types.BoolNull()
-		}
-	}
-	if blockData, ok := apiResource.Spec["port_matcher"].(map[string]interface{}); ok && (isImport || data.PortMatcher != nil) {
-		data.PortMatcher = &ServicePolicyRulePortMatcherModel{
-			InvertMatcher: func() types.Bool {
-				if !isImport && data.PortMatcher != nil && !data.PortMatcher.InvertMatcher.IsUnknown() {
-					return data.PortMatcher.InvertMatcher
-				}
-				if v, ok := blockData["invert_matcher"].(bool); ok {
-					return types.BoolValue(v)
-				}
-				return types.BoolNull()
-			}(),
-			Ports: func() types.List {
-				if v, ok := blockData["ports"].([]interface{}); ok && len(v) > 0 {
-					var items []string
-					for _, item := range v {
-						if s, ok := item.(string); ok {
-							items = append(items, s)
-						}
-					}
-					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
-					resp.Diagnostics.Append(diags...)
-					return listVal
-				}
-				return types.ListNull(types.StringType)
-			}(),
 		}
 	}
 

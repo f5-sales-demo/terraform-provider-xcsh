@@ -332,7 +332,7 @@
       "path": "documentation/data-sources/k8s_pod_security_policy/index.md",
       "product": "distributed-cloud",
       "provider_name": "k8s_pod_security_policy",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0312330221313303-3021300020322001-1013331231110100-0232023322032212-1231200233233323-2321213231200101-3231112101331221-3232122223123230",
       "registry_path": "docs/data-sources/k8s_pod_security_policy.md",
@@ -342,21 +342,21 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/k8s_pod_security_policy/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "Reads Kubernetes pod security policy information from F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_k8s_pod_security_policy",
       "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["k8s_pod_security_policyCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["k8s pod security policy"],
       "body_bytes": 21136,
-      "body_sha256": "sha256:2dc9f1a680a07be3237d732e1567a11bc53bb8f3d09e9bd72cd8317811e5557e",
+      "body_sha256": "sha256:7e3b5a4baec3e26a92dce2d44877fc4dfa65b751682d685033a158edbf5ed963",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": ["xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec"],
@@ -373,7 +373,7 @@
       "path": "documentation/data-sources/k8s_pod_security_policy/properties/index.md",
       "product": "distributed-cloud",
       "provider_name": "k8s_pod_security_policy",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0120103030312320-2003223011001113-0111202210322101-2003220111322120-0000021103320302-3003201121110332-0200231110300213-1010033310223013",
       "registry_path": "docs/guides/data-sources--k8s_pod_security_policy--reference--group-001.md",
@@ -512,20 +512,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/k8s_pod_security_policy/properties/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "Property reference for xcsh_k8s_pod_security_policy.",
       "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["k8s_pod_security_policyCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["psp spec"],
       "body_bytes": 14823,
-      "body_sha256": "sha256:1849c11195b7ffcf1fb8f76b81d613e75cacea276fe860f745805d15b2ecfcc8",
+      "body_sha256": "sha256:28a7bcdb71a99b83a8928ec89b41b9c990a3a982b7ddde850f0a97dfc971910f",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [
@@ -560,7 +560,7 @@
       "path": "documentation/data-sources/k8s_pod_security_policy/properties/psp_spec/index.md",
       "product": "distributed-cloud",
       "provider_name": "k8s_pod_security_policy",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2332030332013022-0112203031313231-0233321210232300-0213323020102212-2031122211212030-1231323030201220-2101210231031020-2020223333122033",
       "registry_path": "docs/guides/data-sources--k8s_pod_security_policy--reference--group-001.md",
@@ -1067,20 +1067,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/k8s_pod_security_policy/properties/psp_spec/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "Form based pod security specification.",
       "tasks": ["configuration"],
       "title": "psp_spec",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["k8s_pod_security_policyCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["psp spec allowed capabilities"],
       "body_bytes": 2035,
-      "body_sha256": "sha256:93ef2da4533667c60e125b0a3dabb43b5932e60e622a8b8876228e2f9fa75252",
+      "body_sha256": "sha256:e9409a7f4b3d76c9b78292e52740e8dcdb36533f6856fab334152a825f46da15",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],
@@ -1097,7 +1097,7 @@
       "path": "documentation/data-sources/k8s_pod_security_policy/properties/psp_spec/allowed_capabilities/index.md",
       "product": "distributed-cloud",
       "provider_name": "k8s_pod_security_policy",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2120301132322033-3220133213213031-3022230331303232-2030022211010133-1223013202210223-1322012213102021-1123121021010100-2200231031320302",
       "registry_path": "docs/guides/data-sources--k8s_pod_security_policy--reference--group-001.md",
@@ -1124,20 +1124,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/k8s_pod_security_policy/properties/psp_spec/allowed_capabilities/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "List of capabilities that docker container has.",
       "tasks": ["configuration"],
       "title": "psp_spec.allowed_capabilities",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["k8s_pod_security_policyCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["psp spec allowed host paths"],
       "body_bytes": 2854,
-      "body_sha256": "sha256:bad8deebb21dc2aaaac4da714089062abd0296fa09553c6f00ef6bd326a60cbe",
+      "body_sha256": "sha256:32fe5a35e68255e66ce6266142f3b96b8b8818bc7df7dfe97ff4b8d8c9949f16",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],
@@ -1154,7 +1154,7 @@
       "path": "documentation/data-sources/k8s_pod_security_policy/properties/psp_spec/allowed_host_paths/index.md",
       "product": "distributed-cloud",
       "provider_name": "k8s_pod_security_policy",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0101033331100131-2202222132303330-1000030301221232-1201012100231322-2330013133031322-3011110101120113-2320013210130323-3210210103131231",
       "registry_path": "docs/guides/data-sources--k8s_pod_security_policy--reference--group-001.md",
@@ -1197,20 +1197,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/k8s_pod_security_policy/properties/psp_spec/allowed_host_paths/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "Restrict list of host paths, default all host paths are allowed.",
       "tasks": ["configuration"],
       "title": "psp_spec.allowed_host_paths",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["k8s_pod_security_policyCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["psp spec default capabilities"],
       "body_bytes": 2035,
-      "body_sha256": "sha256:49f603d84e3bd3560892154aadd918b46ff8c4349b4a7864792b25b76bdc4016",
+      "body_sha256": "sha256:26929bd3383ffbbe246ac3bdb239aff0405dea3e1cc4dcbfb2044781312be7ae",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],
@@ -1227,7 +1227,7 @@
       "path": "documentation/data-sources/k8s_pod_security_policy/properties/psp_spec/default_capabilities/index.md",
       "product": "distributed-cloud",
       "provider_name": "k8s_pod_security_policy",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3102110120302123-3302032323132310-1230323222210021-2100012211120023-2123030331002122-3023133330000222-2233110332303122-0201112332313302",
       "registry_path": "docs/guides/data-sources--k8s_pod_security_policy--reference--group-001.md",
@@ -1254,20 +1254,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/k8s_pod_security_policy/properties/psp_spec/default_capabilities/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "List of capabilities that docker container has.",
       "tasks": ["configuration"],
       "title": "psp_spec.default_capabilities",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["k8s_pod_security_policyCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["psp spec drop capabilities"],
       "body_bytes": 2026,
-      "body_sha256": "sha256:4941d73d80589cd41d112dcc079642c08bc112d069b08da06762e8cfb0600b42",
+      "body_sha256": "sha256:6b361bab8b4d8114b18b8ca18fc7740665799914318e547e3c8487072310446f",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],
@@ -1284,7 +1284,7 @@
       "path": "documentation/data-sources/k8s_pod_security_policy/properties/psp_spec/drop_capabilities/index.md",
       "product": "distributed-cloud",
       "provider_name": "k8s_pod_security_policy",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0300011102223101-3030213220010330-3220230101032201-0032331022322000-3020201202311233-1121013210030111-2303020101303201-0301120300011230",
       "registry_path": "docs/guides/data-sources--k8s_pod_security_policy--reference--group-001.md",
@@ -1311,20 +1311,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/k8s_pod_security_policy/properties/psp_spec/drop_capabilities/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "List of capabilities that docker container has.",
       "tasks": ["configuration"],
       "title": "psp_spec.drop_capabilities",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["k8s_pod_security_policyCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["psp spec fs group strategy options"],
       "body_bytes": 2113,
-      "body_sha256": "sha256:d52b28c044402baf07464754f54300b58cb44ce2867acee68c369545eba271ab",
+      "body_sha256": "sha256:3f6cb531e91fc9b811e7ab5b81c49ffe6fe92288d09f34b463b947278f88aeae",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [
@@ -1343,7 +1343,7 @@
       "path": "documentation/data-sources/k8s_pod_security_policy/properties/psp_spec/fs_group_strategy_options/index.md",
       "product": "distributed-cloud",
       "provider_name": "k8s_pod_security_policy",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1101333110023110-2311233020333110-0032311033310122-3103011323131313-1022123333302101-0200100132232213-1033101102031102-0022303221320231",
       "registry_path": "docs/guides/data-sources--k8s_pod_security_policy--reference--group-001.md",
@@ -1386,20 +1386,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/k8s_pod_security_policy/properties/psp_spec/fs_group_strategy_options/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "ID ranges and rules.",
       "tasks": ["configuration"],
       "title": "psp_spec.fs_group_strategy_options",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["k8s_pod_security_policyCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["psp spec fs group strategy options id ranges"],
       "body_bytes": 3478,
-      "body_sha256": "sha256:0a10d1ac81a6f3e92505b26795a0713081ac4f35ff04e18d53fc0d4d1af70ada",
+      "body_sha256": "sha256:1ba360c5909b9067666f8bcd6415e8b67011d86e0060ab45732908dbf3cf89e9",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],
@@ -1416,7 +1416,7 @@
       "path": "documentation/data-sources/k8s_pod_security_policy/properties/psp_spec/fs_group_strategy_options/id_ranges/index.md",
       "product": "distributed-cloud",
       "provider_name": "k8s_pod_security_policy",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0021220102113331-0103212121213202-3123302032011133-2321210301121321-1303222122330023-2311023002110012-0102100320211033-0303113232200302",
       "registry_path": "docs/guides/data-sources--k8s_pod_security_policy--reference--group-001.md",
@@ -1459,14 +1459,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/k8s_pod_security_policy/properties/psp_spec/fs_group_strategy_options/id_ranges/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "List of range of ID(s)",
       "tasks": ["configuration"],
       "title": "psp_spec.fs_group_strategy_options.id_ranges",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["k8s_pod_security_policyCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
@@ -1489,7 +1489,7 @@
       "path": "documentation/data-sources/k8s_pod_security_policy/properties/psp_spec/no_allowed_capabilities/index.md",
       "product": "distributed-cloud",
       "provider_name": "k8s_pod_security_policy",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2010013123031310-3211213220010312-0310000023233332-3100323323010221-0332101332122222-3220102332203132-1223121003033110-3311320222302103",
       "registry_path": "docs/guides/data-sources--k8s_pod_security_policy--reference--group-001.md",
@@ -1499,14 +1499,14 @@
       "schema_path": ["psp_spec", "no_allowed_capabilities"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/k8s_pod_security_policy/properties/psp_spec/no_allowed_capabilities/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "psp_spec.no_allowed_capabilities",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["k8s_pod_security_policyCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
@@ -1529,7 +1529,7 @@
       "path": "documentation/data-sources/k8s_pod_security_policy/properties/psp_spec/no_default_capabilities/index.md",
       "product": "distributed-cloud",
       "provider_name": "k8s_pod_security_policy",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3013311031321132-3311012331112203-2121021111012313-0321121303333132-2323103313331233-1221132113121010-3001122111233000-2323310220100200",
       "registry_path": "docs/guides/data-sources--k8s_pod_security_policy--reference--group-001.md",
@@ -1539,14 +1539,14 @@
       "schema_path": ["psp_spec", "no_default_capabilities"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/k8s_pod_security_policy/properties/psp_spec/no_default_capabilities/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "psp_spec.no_default_capabilities",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["k8s_pod_security_policyCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
@@ -1569,7 +1569,7 @@
       "path": "documentation/data-sources/k8s_pod_security_policy/properties/psp_spec/no_drop_capabilities/index.md",
       "product": "distributed-cloud",
       "provider_name": "k8s_pod_security_policy",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0022102100203333-0233121320103112-3223201023013302-2123102300020312-2323102030020203-1100200333332203-1121003121233010-0220120101203303",
       "registry_path": "docs/guides/data-sources--k8s_pod_security_policy--reference--group-001.md",
@@ -1579,14 +1579,14 @@
       "schema_path": ["psp_spec", "no_drop_capabilities"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/k8s_pod_security_policy/properties/psp_spec/no_drop_capabilities/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "psp_spec.no_drop_capabilities",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["k8s_pod_security_policyCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
@@ -1609,7 +1609,7 @@
       "path": "documentation/data-sources/k8s_pod_security_policy/properties/psp_spec/no_fs_groups/index.md",
       "product": "distributed-cloud",
       "provider_name": "k8s_pod_security_policy",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2120121233213121-2213211103022200-2021230003320022-0330301021323223-2103031103113323-2030300030033120-2112210212121112-2022212130123323",
       "registry_path": "docs/guides/data-sources--k8s_pod_security_policy--reference--group-001.md",
@@ -1619,14 +1619,14 @@
       "schema_path": ["psp_spec", "no_fs_groups"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/k8s_pod_security_policy/properties/psp_spec/no_fs_groups/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "psp_spec.no_fs_groups",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["k8s_pod_security_policyCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
@@ -1649,7 +1649,7 @@
       "path": "documentation/data-sources/k8s_pod_security_policy/properties/psp_spec/no_run_as_group/index.md",
       "product": "distributed-cloud",
       "provider_name": "k8s_pod_security_policy",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1001302122030322-1233303133231222-2311133230020122-1213211121231122-2321302013031030-0022310003231232-1313223232003111-2220103033103123",
       "registry_path": "docs/guides/data-sources--k8s_pod_security_policy--reference--group-001.md",
@@ -1659,14 +1659,14 @@
       "schema_path": ["psp_spec", "no_run_as_group"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/k8s_pod_security_policy/properties/psp_spec/no_run_as_group/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "psp_spec.no_run_as_group",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["k8s_pod_security_policyCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
@@ -1689,7 +1689,7 @@
       "path": "documentation/data-sources/k8s_pod_security_policy/properties/psp_spec/no_run_as_user/index.md",
       "product": "distributed-cloud",
       "provider_name": "k8s_pod_security_policy",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0231310033201230-0230120223002112-0321312331201101-2313111012202332-0113313123013320-2233011213310021-0020203330133032-3100210130120311",
       "registry_path": "docs/guides/data-sources--k8s_pod_security_policy--reference--group-001.md",
@@ -1699,14 +1699,14 @@
       "schema_path": ["psp_spec", "no_run_as_user"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/k8s_pod_security_policy/properties/psp_spec/no_run_as_user/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "psp_spec.no_run_as_user",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["k8s_pod_security_policyCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
@@ -1729,7 +1729,7 @@
       "path": "documentation/data-sources/k8s_pod_security_policy/properties/psp_spec/no_runtime_class/index.md",
       "product": "distributed-cloud",
       "provider_name": "k8s_pod_security_policy",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2320003122022032-1200110113102333-2030212232102323-0103303130233201-1302320313211031-0221323112321330-0330303133130102-1102022012300101",
       "registry_path": "docs/guides/data-sources--k8s_pod_security_policy--reference--group-001.md",
@@ -1739,14 +1739,14 @@
       "schema_path": ["psp_spec", "no_runtime_class"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/k8s_pod_security_policy/properties/psp_spec/no_runtime_class/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "psp_spec.no_runtime_class",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["k8s_pod_security_policyCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
@@ -1769,7 +1769,7 @@
       "path": "documentation/data-sources/k8s_pod_security_policy/properties/psp_spec/no_se_linux_options/index.md",
       "product": "distributed-cloud",
       "provider_name": "k8s_pod_security_policy",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3033121311022123-1233232113312211-1000103330023133-3200031030302220-1121111322213232-0303122111223313-2110122133332120-0100001023031123",
       "registry_path": "docs/guides/data-sources--k8s_pod_security_policy--reference--group-001.md",
@@ -1779,14 +1779,14 @@
       "schema_path": ["psp_spec", "no_se_linux_options"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/k8s_pod_security_policy/properties/psp_spec/no_se_linux_options/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "psp_spec.no_se_linux_options",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["k8s_pod_security_policyCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
@@ -1809,7 +1809,7 @@
       "path": "documentation/data-sources/k8s_pod_security_policy/properties/psp_spec/no_supplemental_groups/index.md",
       "product": "distributed-cloud",
       "provider_name": "k8s_pod_security_policy",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1000112100012022-3030310223032102-2331000103320032-0031112102321123-2100210202111230-0313033312101103-2003313131212103-2321220133001330",
       "registry_path": "docs/guides/data-sources--k8s_pod_security_policy--reference--group-001.md",
@@ -1819,20 +1819,20 @@
       "schema_path": ["psp_spec", "no_supplemental_groups"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/k8s_pod_security_policy/properties/psp_spec/no_supplemental_groups/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "psp_spec.no_supplemental_groups",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["k8s_pod_security_policyCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["psp spec run as group"],
       "body_bytes": 2048,
-      "body_sha256": "sha256:f3d1ac8a4095c97bada3a4cb765c52017c6d4bcede0b0b8431569abf966f9e15",
+      "body_sha256": "sha256:08fe2902119fb15ec3c37e9785a72f1c32ca99f734cd1e41995e058fe9524889",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": ["xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec:run_as_group:id_ranges"],
@@ -1849,7 +1849,7 @@
       "path": "documentation/data-sources/k8s_pod_security_policy/properties/psp_spec/run_as_group/index.md",
       "product": "distributed-cloud",
       "provider_name": "k8s_pod_security_policy",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1000330010132213-0013201221322322-3310132230301122-0231103202203321-3203000002330032-0023030100013121-3203212122101103-2331010222302333",
       "registry_path": "docs/guides/data-sources--k8s_pod_security_policy--reference--group-001.md",
@@ -1892,20 +1892,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/k8s_pod_security_policy/properties/psp_spec/run_as_group/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "ID ranges and rules.",
       "tasks": ["configuration"],
       "title": "psp_spec.run_as_group",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["k8s_pod_security_policyCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["psp spec run as group id ranges"],
       "body_bytes": 3400,
-      "body_sha256": "sha256:57c0633a04e0a6ee8c2eafa3259067d408a2591afc48400e8397b5b4b1f6e7c0",
+      "body_sha256": "sha256:a2d549489bfefa6f0e82626ec20782a1cb55eeac9ebfef845c1aca1793ea3190",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],
@@ -1922,7 +1922,7 @@
       "path": "documentation/data-sources/k8s_pod_security_policy/properties/psp_spec/run_as_group/id_ranges/index.md",
       "product": "distributed-cloud",
       "provider_name": "k8s_pod_security_policy",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1202031332233301-0013323213221003-2020011001203300-3012112132323222-3032300132310001-3313123303312322-2211331131120231-3323032001132211",
       "registry_path": "docs/guides/data-sources--k8s_pod_security_policy--reference--group-001.md",
@@ -1965,20 +1965,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/k8s_pod_security_policy/properties/psp_spec/run_as_group/id_ranges/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "List of range of ID(s)",
       "tasks": ["configuration"],
       "title": "psp_spec.run_as_group.id_ranges",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["k8s_pod_security_policyCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["psp spec run as user"],
       "body_bytes": 2043,
-      "body_sha256": "sha256:62edf01b778725d26aa2ec7b384e1d88e2e4e8bacf91ac5a020aab70993f2914",
+      "body_sha256": "sha256:eeb309e45cfa397e5d435ee0b6b731f966b253d8303799a5aa356283465a6095",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": ["xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec:run_as_user:id_ranges"],
@@ -1995,7 +1995,7 @@
       "path": "documentation/data-sources/k8s_pod_security_policy/properties/psp_spec/run_as_user/index.md",
       "product": "distributed-cloud",
       "provider_name": "k8s_pod_security_policy",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2211301322001300-1211102230212212-3222112002333031-0321030003031212-2312222233032220-2020331210031013-2231123302321131-2103033201020311",
       "registry_path": "docs/guides/data-sources--k8s_pod_security_policy--reference--group-001.md",
@@ -2038,20 +2038,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/k8s_pod_security_policy/properties/psp_spec/run_as_user/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "ID ranges and rules.",
       "tasks": ["configuration"],
       "title": "psp_spec.run_as_user",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["k8s_pod_security_policyCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["psp spec run as user id ranges"],
       "body_bytes": 3394,
-      "body_sha256": "sha256:69cc9541104ad531d5e1cf89e9fdfb3a7c929df31508dc5e1384a8a5f3d0856e",
+      "body_sha256": "sha256:b956fffb4aa648f4c07b4bcfc73a8ba4f7332eca004184167f12439b3c8f240d",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],
@@ -2068,7 +2068,7 @@
       "path": "documentation/data-sources/k8s_pod_security_policy/properties/psp_spec/run_as_user/id_ranges/index.md",
       "product": "distributed-cloud",
       "provider_name": "k8s_pod_security_policy",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3202000213223201-2101132131203101-0011330011003113-0001121103011211-0021022132131100-1203300131121230-1233013322010010-1012030021102103",
       "registry_path": "docs/guides/data-sources--k8s_pod_security_policy--reference--group-001.md",
@@ -2111,20 +2111,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/k8s_pod_security_policy/properties/psp_spec/run_as_user/id_ranges/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "List of range of ID(s)",
       "tasks": ["configuration"],
       "title": "psp_spec.run_as_user.id_ranges",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["k8s_pod_security_policyCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["psp spec supplemental groups"],
       "body_bytes": 2036,
-      "body_sha256": "sha256:808ed1213fe088bd3ccca1d15576238edf331b1120413f731608ddeb81a07ea0",
+      "body_sha256": "sha256:444aca912bacdbc55979cceb78ad6470366dee77d6d8c04b68aef59eeb7eaf07",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": ["xcsh-docs:data-sources:k8s_pod_security_policy:properties:psp_spec:supplemental_groups:id_ranges"],
@@ -2141,7 +2141,7 @@
       "path": "documentation/data-sources/k8s_pod_security_policy/properties/psp_spec/supplemental_groups/index.md",
       "product": "distributed-cloud",
       "provider_name": "k8s_pod_security_policy",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0312231101331321-2213322320201323-3232313110332322-1030122210300331-0322302003312220-2311303203230011-1023102100212132-1232002030111120",
       "registry_path": "docs/guides/data-sources--k8s_pod_security_policy--reference--group-001.md",
@@ -2184,20 +2184,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/k8s_pod_security_policy/properties/psp_spec/supplemental_groups/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "ID ranges and rules.",
       "tasks": ["configuration"],
       "title": "psp_spec.supplemental_groups",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["k8s_pod_security_policyCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["psp spec supplemental groups id ranges"],
       "body_bytes": 3442,
-      "body_sha256": "sha256:76d17bbc381cbfbf2cebe5009d774d91ff7fbb59c9d5b8fd1438136d6867f37a",
+      "body_sha256": "sha256:1fa026478d5984978c7708ba39b5fb7e257f4a82ac175be5a87325cc0d90fb6b",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],
@@ -2214,7 +2214,7 @@
       "path": "documentation/data-sources/k8s_pod_security_policy/properties/psp_spec/supplemental_groups/id_ranges/index.md",
       "product": "distributed-cloud",
       "provider_name": "k8s_pod_security_policy",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3022130322331311-0030123221213010-3003100132303010-2321033012030202-0122222323213221-1300130300013033-2212220331301110-2330112301333321",
       "registry_path": "docs/guides/data-sources--k8s_pod_security_policy--reference--group-001.md",
@@ -2257,14 +2257,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/k8s_pod_security_policy/properties/psp_spec/supplemental_groups/id_ranges/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "List of range of ID(s)",
       "tasks": ["configuration"],
       "title": "psp_spec.supplemental_groups.id_ranges",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["k8s_pod_security_policyCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
@@ -2287,7 +2287,7 @@
       "path": "documentation/data-sources/k8s_pod_security_policy/examples/index.md",
       "product": "distributed-cloud",
       "provider_name": "k8s_pod_security_policy",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2110202001110120-2323300313313223-2232030000312021-3323313000121302-0222300200131213-3010002102113022-3121001230220320-3113231121222201",
       "registry_path": "docs/guides/data-sources--k8s_pod_security_policy--examples--group-001.md",
@@ -2297,14 +2297,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/k8s_pod_security_policy/examples/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "Examples for xcsh_k8s_pod_security_policy.",
       "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["k8s_pod_security_policyCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
@@ -2334,7 +2334,7 @@
       "path": "documentation/data-sources/k8s_pod_security_policy/examples/data-source/index.md",
       "product": "distributed-cloud",
       "provider_name": "k8s_pod_security_policy",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3232233311113333-1301121233203113-1311330100220222-3321230200332022-2330232213110220-0231030131021333-3300301112003201-0113032212200122",
       "registry_path": "docs/guides/data-sources--k8s_pod_security_policy--examples--group-001.md",
@@ -2344,14 +2344,14 @@
       "schema_path": ["data-source"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/k8s_pod_security_policy/examples/data-source/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "Data source for xcsh_k8s_pod_security_policy.",
       "tasks": ["configuration"],
       "title": "Data source",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["k8s_pod_security_policyCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     }
   ],

@@ -2065,7 +2065,7 @@ func (r *ServicePolicyResource) Schema(ctx context.Context, req resource.SchemaR
 											},
 										},
 										"port_matcher": schema.SingleNestedBlock{
-											MarkdownDescription: "Port matcher specifies a list of port ranges as match criteria. The match is considered successful if the input port falls within any of the port ranges. The result of the match is inverted if invert_matcher is true. Server applies default when omitted.",
+											MarkdownDescription: "Port matcher specifies a list of port ranges as match criteria. The match is considered successful if the input port falls within any of the port ranges. The result of the match is inverted if invert_matcher is true.",
 											Validators:          []validator.Object{validators.RequiredObjectAttributes("ports")},
 											Attributes: map[string]schema.Attribute{
 												"invert_matcher": schema.BoolAttribute{

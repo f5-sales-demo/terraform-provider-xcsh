@@ -184,7 +184,7 @@
       "path": "documentation/data-sources/data_type/index.md",
       "product": "distributed-cloud",
       "provider_name": "data_type",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2002131311032121-2101212221230130-1301301323201121-2222100003011122-3120101301100102-0212113321001310-3010331111332022-0002332000000133",
       "registry_path": "docs/data-sources/data_type.md",
@@ -194,21 +194,21 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/data_type/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "Reads Data Type information from F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_data_type",
       "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["data_typeCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["data type"],
       "body_bytes": 15765,
-      "body_sha256": "sha256:efd7bcd585584e0bb2194a3e56b5007b360468684ff71393b9e098a24e0b4e25",
+      "body_sha256": "sha256:3a127dd6c1ee8381291cd4c570c5f66c7c7e0aa05f76fe3b2bc25f347eb1b738",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:data_type:properties:rules"],
@@ -225,7 +225,7 @@
       "path": "documentation/data-sources/data_type/properties/index.md",
       "product": "distributed-cloud",
       "provider_name": "data_type",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0101121221321220-0300032012130112-3013110233001110-1201101201213122-1232011210133132-2033200300332030-1002231313212311-0232103231121012",
       "registry_path": "docs/guides/data-sources--data_type--reference--group-001.md",
@@ -396,20 +396,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/data_type/properties/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "Property reference for xcsh_data_type.",
       "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["data_typeCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["rules"],
       "body_bytes": 2036,
-      "body_sha256": "sha256:d89c0bbf8ee2e5d3dbf71c5c9dd189f96fea0b18eb634af2411f50b2584fc6be",
+      "body_sha256": "sha256:0476ba1b1258b36e82bbef1fcaea27d7935f11dd66f966b969c324e769b9f3f7",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -430,7 +430,7 @@
       "path": "documentation/data-sources/data_type/properties/rules/index.md",
       "product": "distributed-cloud",
       "provider_name": "data_type",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0333333102113332-1130203111213230-0322211311000122-3122201320013033-1032002310111120-3213132130302321-1303212303202121-1000201022213311",
       "registry_path": "docs/guides/data-sources--data_type--reference--group-001.md",
@@ -489,20 +489,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/data_type/properties/rules/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "Configure key/value or regex match rules to enable the platform to detect this custom data type in the API request or response.",
       "tasks": ["configuration"],
       "title": "rules",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["data_typeCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["rules key pattern"],
       "body_bytes": 2944,
-      "body_sha256": "sha256:ab50fe411431ac5a9f92e36a045bf70a277f47074d6a1ec9440102d4fbbc54c3",
+      "body_sha256": "sha256:7345197a86d7ae82e3858a0c442e0600a5569de2759bc49b5097e9d5d8bf2eae",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:data_type:properties:rules:key_pattern:exact_values"],
@@ -519,7 +519,7 @@
       "path": "documentation/data-sources/data_type/properties/rules/key_pattern/index.md",
       "product": "distributed-cloud",
       "provider_name": "data_type",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0121320013020002-2121012313103223-3122202112022112-1131200013020113-3120022101203010-1120211322330200-2230300213212102-1301120233130213",
       "registry_path": "docs/guides/data-sources--data_type--reference--group-001.md",
@@ -578,20 +578,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/data_type/properties/rules/key_pattern/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "Test",
       "tasks": ["configuration"],
       "title": "rules.key_pattern",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["data_typeCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["rules key pattern exact values"],
       "body_bytes": 2016,
-      "body_sha256": "sha256:86a8e14eaa218d44bed9f6ba1e253718916a06a561892973ff15e9816a0229eb",
+      "body_sha256": "sha256:23c957a218a53f376676a97a0b22ea538fd9ae26d1aba4120de1455c11d49d54",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -608,7 +608,7 @@
       "path": "documentation/data-sources/data_type/properties/rules/key_pattern/exact_values/index.md",
       "product": "distributed-cloud",
       "provider_name": "data_type",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1133021210322100-0122031232222220-1100020121100033-0023123200122333-2013102012100333-1200131103322133-1030303233231221-2103023002301132",
       "registry_path": "docs/guides/data-sources--data_type--reference--group-001.md",
@@ -635,14 +635,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/data_type/properties/rules/key_pattern/exact_values/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "List of exact values to match.",
       "tasks": ["configuration"],
       "title": "rules.key_pattern.exact_values",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["data_typeCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
@@ -668,7 +668,7 @@
       "path": "documentation/data-sources/data_type/properties/rules/key_value_pattern/index.md",
       "product": "distributed-cloud",
       "provider_name": "data_type",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0102131130013322-1332131032332000-2113231210301231-3023100201331020-2311113103333121-2100310221333033-1332032333211112-1222223132121312",
       "registry_path": "docs/guides/data-sources--data_type--reference--group-001.md",
@@ -711,20 +711,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/data_type/properties/rules/key_value_pattern/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "Search for specific key & value patterns in the specified sections.",
       "tasks": ["configuration"],
       "title": "rules.key_value_pattern",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["data_typeCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["rules key value pattern key pattern"],
       "body_bytes": 3180,
-      "body_sha256": "sha256:eba5efb7cb3ba728be154e0584eb2b53b396f60c8e047b5418f400c98cc41f14",
+      "body_sha256": "sha256:09c9555f6ba3167532257e1cd4560c8c070d978ee61a304684cf777965064b4e",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:data_type:properties:rules:key_value_pattern:key_pattern:exact_values"],
@@ -741,7 +741,7 @@
       "path": "documentation/data-sources/data_type/properties/rules/key_value_pattern/key_pattern/index.md",
       "product": "distributed-cloud",
       "provider_name": "data_type",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1111131211022103-1022013203103023-3022022323101233-3112002102001101-3001202222010203-3132000221200102-3013013011200230-1000211123332000",
       "registry_path": "docs/guides/data-sources--data_type--reference--group-001.md",
@@ -800,20 +800,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/data_type/properties/rules/key_value_pattern/key_pattern/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "Test",
       "tasks": ["configuration"],
       "title": "rules.key_value_pattern.key_pattern",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["data_typeCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["rules key value pattern key pattern exact values"],
       "body_bytes": 2251,
-      "body_sha256": "sha256:b05be63c93fe39c729334bf5c625e0bd62a1bd1e702ef0aba278e1aec0b63112",
+      "body_sha256": "sha256:8fa7f353f2859e3099f48ba714742e67e799d997d5161635ee1168a234724219",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -830,7 +830,7 @@
       "path": "documentation/data-sources/data_type/properties/rules/key_value_pattern/key_pattern/exact_values/index.md",
       "product": "distributed-cloud",
       "provider_name": "data_type",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1010323223303123-0112133331023033-3210322221311312-3121011310222322-0332233111312320-1033032002001200-3113002003322213-0130333222110011",
       "registry_path": "docs/guides/data-sources--data_type--reference--group-001.md",
@@ -857,20 +857,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/data_type/properties/rules/key_value_pattern/key_pattern/exact_values/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "List of exact values to match.",
       "tasks": ["configuration"],
       "title": "rules.key_value_pattern.key_pattern.exact_values",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["data_typeCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["rules key value pattern value pattern"],
       "body_bytes": 3192,
-      "body_sha256": "sha256:0cdb80fd295df7630f43c6af2b1d41a72870e2dcce1351952589a80a77c6ead9",
+      "body_sha256": "sha256:e7d3e0349fa0d1de94b08861cf045712d4a16a7bbf4921e2f3fbb4010f08b730",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:data_type:properties:rules:key_value_pattern:value_pattern:exact_values"],
@@ -887,7 +887,7 @@
       "path": "documentation/data-sources/data_type/properties/rules/key_value_pattern/value_pattern/index.md",
       "product": "distributed-cloud",
       "provider_name": "data_type",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2232113200010323-2211310113320110-3031230312333122-3222010310313310-3300302310312023-0322330201223302-2213310010223032-1221210100122211",
       "registry_path": "docs/guides/data-sources--data_type--reference--group-001.md",
@@ -946,20 +946,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/data_type/properties/rules/key_value_pattern/value_pattern/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "Test",
       "tasks": ["configuration"],
       "title": "rules.key_value_pattern.value_pattern",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["data_typeCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["rules key value pattern value pattern exact values"],
       "body_bytes": 2261,
-      "body_sha256": "sha256:cf18b7a4eb6d4eff7e52a0c920d0a6e24cc31820e3e2b8469c6c10f08c60c3f0",
+      "body_sha256": "sha256:db1a15587798a1bb2a9cad507351daec2dc3d0e0ab9c7086ed7f3176923b46c3",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -976,7 +976,7 @@
       "path": "documentation/data-sources/data_type/properties/rules/key_value_pattern/value_pattern/exact_values/index.md",
       "product": "distributed-cloud",
       "provider_name": "data_type",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1303221331013302-1230301312031222-3003223303000031-2110222020203030-3332201130232200-2203133213011302-2301332203232200-0333230231221012",
       "registry_path": "docs/guides/data-sources--data_type--reference--group-001.md",
@@ -1003,20 +1003,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/data_type/properties/rules/key_value_pattern/value_pattern/exact_values/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "List of exact values to match.",
       "tasks": ["configuration"],
       "title": "rules.key_value_pattern.value_pattern.exact_values",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["data_typeCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["rules value pattern"],
       "body_bytes": 2956,
-      "body_sha256": "sha256:8461bd56f14c8ef8a8d2f54bd02465f0ca89ea503b5c8c74def4b75b5953be90",
+      "body_sha256": "sha256:e5c5840e5348ffd1fd628951b0b9ec976644ac1ac16d7a6501699152b4cebcee",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:data_type:properties:rules:value_pattern:exact_values"],
@@ -1033,7 +1033,7 @@
       "path": "documentation/data-sources/data_type/properties/rules/value_pattern/index.md",
       "product": "distributed-cloud",
       "provider_name": "data_type",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2311201012331032-3110222023000021-1022013100310301-2103103233333220-3003111113333102-2222233001122101-2321203300011132-2301112113332222",
       "registry_path": "docs/guides/data-sources--data_type--reference--group-001.md",
@@ -1092,20 +1092,20 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/data_type/properties/rules/value_pattern/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "Test",
       "tasks": ["configuration"],
       "title": "rules.value_pattern",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["data_typeCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
       "aliases": ["rules value pattern exact values"],
       "body_bytes": 2026,
-      "body_sha256": "sha256:f173a75a8e2318009a8c307a28e79f36b6ae95ee2d5482296bf8692af462c81e",
+      "body_sha256": "sha256:9de86aec362ca4d2e8da0728f1fe648301c39e3edb4ea5f4e393a13c3c3cbf3a",
       "capabilities": [],
       "category": null,
       "child_ids": [],
@@ -1122,7 +1122,7 @@
       "path": "documentation/data-sources/data_type/properties/rules/value_pattern/exact_values/index.md",
       "product": "distributed-cloud",
       "provider_name": "data_type",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0222222011132111-0330311021301101-0203311003212001-3001023201000103-1122133311320200-1130112111122130-0303100011202321-3332221311100330",
       "registry_path": "docs/guides/data-sources--data_type--reference--group-001.md",
@@ -1149,14 +1149,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/data_type/properties/rules/value_pattern/exact_values/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "List of exact values to match.",
       "tasks": ["configuration"],
       "title": "rules.value_pattern.exact_values",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["data_typeCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
@@ -1179,7 +1179,7 @@
       "path": "documentation/data-sources/data_type/examples/index.md",
       "product": "distributed-cloud",
       "provider_name": "data_type",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0112113123333023-1303013303310031-2312012033233221-3103003032013203-3101002222312000-3233133102021111-3112213300131103-2110000000130202",
       "registry_path": "docs/guides/data-sources--data_type--examples--group-001.md",
@@ -1189,14 +1189,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/data_type/examples/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "Examples for xcsh_data_type.",
       "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["data_typeCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     },
     {
@@ -1226,7 +1226,7 @@
       "path": "documentation/data-sources/data_type/examples/data-source/index.md",
       "product": "distributed-cloud",
       "provider_name": "data_type",
-      "provider_schema_digest": "sha256:5da5abed63484d73ce77467c8c65a96ecdf7e04c3db5d5bd821e0fa97991e015",
+      "provider_schema_digest": "sha256:e62318985676da5dc8f5d2d35ccc26c58c5f11f463e5627995ce95f8658f6b43",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3300131002013102-3330112100203301-0303203323233031-3300233202232332-0300221123322012-1000131010203103-2323123300111103-0211020233123100",
       "registry_path": "docs/guides/data-sources--data_type--examples--group-001.md",
@@ -1236,14 +1236,14 @@
       "schema_path": ["data-source"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/data_type/examples/data-source/index.txt",
-      "spec_pin_digest": "sha256:d30f9f9a1cd22b9ba948a7409b4aa6907eda743fb73415c72474bd2784e91af1",
+      "spec_pin_digest": "sha256:b750ce4b9c0ad9c90dad992a893773bacfb3aeff7598bc37194f3037f353c949",
       "summary": "Data source for xcsh_data_type.",
       "tasks": ["configuration"],
       "title": "Data source",
       "upstream_identity": {
-        "release_tag": "v12.1.5",
+        "release_tag": "v12.5.2",
         "schema_components": ["data_typeCreateRequest"],
-        "target_commit": "85874b2a5cfba24c95e5f7d52218df326d4a0582"
+        "target_commit": "18cc909b5ddc97ef9abd48764589d753290a31a4"
       }
     }
   ],

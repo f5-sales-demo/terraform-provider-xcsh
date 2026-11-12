@@ -63,11 +63,11 @@ type ServicePolicyRuleDataSourceModel struct {
 	LabelMatcher          *ServicePolicyRuleLabelMatcherModel          `tfsdk:"label_matcher"`
 	MumAction             *ServicePolicyRuleMumActionModel             `tfsdk:"mum_action"`
 	Path                  *ServicePolicyRulePathModel                  `tfsdk:"path"`
+	PortMatcher           *ServicePolicyRulePortMatcherModel           `tfsdk:"port_matcher"`
 	QueryParams           types.List                                   `tfsdk:"query_params"`
 	RequestConstraints    *ServicePolicyRuleRequestConstraintsModel    `tfsdk:"request_constraints"`
 	SegmentPolicy         *ServicePolicyRuleSegmentPolicyModel         `tfsdk:"segment_policy"`
 	TLSFingerprintMatcher *ServicePolicyRuleTLSFingerprintMatcherModel `tfsdk:"tls_fingerprint_matcher"`
-	PortMatcher           *ServicePolicyRulePortMatcherModel           `tfsdk:"port_matcher"`
 }
 
 func (d *ServicePolicyRuleDataSource) Metadata(ctx context.Context, req datasource.MetadataRequest, resp *datasource.MetadataResponse) {
@@ -701,6 +701,21 @@ func (d *ServicePolicyRuleDataSource) Schema(ctx context.Context, req datasource
 				},
 				Computed: true,
 			},
+			"port_matcher": schema.SingleNestedAttribute{
+				MarkdownDescription: "Port matcher specifies a list of port ranges as match criteria. The match is considered successful if the input port falls within any of the port ranges. The result of the match is inverted if invert_matcher is true.",
+				Attributes: map[string]schema.Attribute{
+					"invert_matcher": schema.BoolAttribute{
+						MarkdownDescription: "Invert Port Matcher. Invert the match result.",
+						Computed:            true,
+					},
+					"ports": schema.ListAttribute{
+						MarkdownDescription: "List of strings, each of which is a single port value or a tuple of start and end port values separated by '-'. The start and end values are considered to be part of the range.",
+						Computed:            true,
+						ElementType:         types.StringType,
+					},
+				},
+				Computed: true,
+			},
 			"query_params": schema.ListNestedAttribute{
 				MarkdownDescription: "List of predicates for all query parameters that need to be matched. The criteria for matching each query parameter are described in individual instances of QueryParameterMatcherType. The actual query parameter values are extracted from the request API as a list of strings for each query..",
 				NestedObject: schema.NestedAttributeObject{
@@ -976,21 +991,6 @@ func (d *ServicePolicyRuleDataSource) Schema(ctx context.Context, req datasource
 			"log_rule_evaluation": schema.BoolAttribute{
 				MarkdownDescription: "Log the rule match details along with the request and continue to evaluate rules in the sequence.",
 				Computed:            true,
-			},
-			"port_matcher": schema.SingleNestedAttribute{
-				MarkdownDescription: "Port matcher specifies a list of port ranges as match criteria. The match is considered successful if the input port falls within any of the port ranges. The result of the match is inverted if invert_matcher is true. Server applies default when omitted.",
-				Attributes: map[string]schema.Attribute{
-					"invert_matcher": schema.BoolAttribute{
-						MarkdownDescription: "Invert Port Matcher. Invert the match result.",
-						Computed:            true,
-					},
-					"ports": schema.ListAttribute{
-						MarkdownDescription: "List of strings, each of which is a single port value or a tuple of start and end port values separated by '-'. The start and end values are considered to be part of the range.",
-						Computed:            true,
-						ElementType:         types.StringType,
-					},
-				},
-				Computed: true,
 			},
 		},
 	}
@@ -2195,6 +2195,30 @@ func (d *ServicePolicyRuleDataSource) Read(ctx context.Context, req datasource.R
 			}(),
 		}
 	}
+	if blockData, ok := apiResource.Spec["port_matcher"].(map[string]interface{}); ok && (isImport || data.PortMatcher != nil) {
+		data.PortMatcher = &ServicePolicyRulePortMatcherModel{
+			InvertMatcher: func() types.Bool {
+				if v, ok := blockData["invert_matcher"].(bool); ok {
+					return types.BoolValue(v)
+				}
+				return types.BoolNull()
+			}(),
+			Ports: func() types.List {
+				if v, ok := blockData["ports"].([]interface{}); ok && len(v) > 0 {
+					var items []string
+					for _, item := range v {
+						if s, ok := item.(string); ok {
+							items = append(items, s)
+						}
+					}
+					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
+					resp.Diagnostics.Append(diags...)
+					return listVal
+				}
+				return types.ListNull(types.StringType)
+			}(),
+		}
+	}
 	if !isImport && (data.QueryParams.IsNull() || len(data.QueryParams.Elements()) == 0) {
 		data.QueryParams = types.ListNull(types.ObjectType{AttrTypes: ServicePolicyRuleQueryParamsModelAttrTypes})
 	} else if listData, ok := apiResource.Spec["query_params"].([]interface{}); ok && len(listData) > 0 {
@@ -2681,30 +2705,6 @@ func (d *ServicePolicyRuleDataSource) Read(ctx context.Context, req datasource.R
 		data.LogRuleEvaluation = types.BoolValue(v)
 	} else {
 		data.LogRuleEvaluation = types.BoolNull()
-	}
-	if blockData, ok := apiResource.Spec["port_matcher"].(map[string]interface{}); ok && (isImport || data.PortMatcher != nil) {
-		data.PortMatcher = &ServicePolicyRulePortMatcherModel{
-			InvertMatcher: func() types.Bool {
-				if v, ok := blockData["invert_matcher"].(bool); ok {
-					return types.BoolValue(v)
-				}
-				return types.BoolNull()
-			}(),
-			Ports: func() types.List {
-				if v, ok := blockData["ports"].([]interface{}); ok && len(v) > 0 {
-					var items []string
-					for _, item := range v {
-						if s, ok := item.(string); ok {
-							items = append(items, s)
-						}
-					}
-					listVal, diags := types.ListValueFrom(ctx, types.StringType, items)
-					resp.Diagnostics.Append(diags...)
-					return listVal
-				}
-				return types.ListNull(types.StringType)
-			}(),
-		}
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
