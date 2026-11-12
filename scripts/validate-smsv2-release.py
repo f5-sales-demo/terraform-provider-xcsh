@@ -12,7 +12,14 @@ import sys
 from typing import NoReturn
 
 CONTRACT_ID = "f5xc-smsv2-api/v1"
-CONTRACT_VERSION = "7.0.0"
+SUPPORTED_CONTRACT_VERSIONS = {"7.0.0", "7.3.0"}
+# Reviewed additions from immutable API-spec release v12.5.2. This canonical
+# projection binds endpoint mappings, identity joins, evidence references, and
+# every explicit qualification hold independently of the release label.
+# Reviewable input: tests/fixtures/smsv2-contract-7.3-extensions.json.
+CONTRACT_73_EXTENSION_SHA256 = (
+    "3f28bebbc52ae40b1ab5b1e6b44f6473883f10fa8a73c5d14b2ae154c0782d1a"
+)
 TELEMETRY_SCHEMA_ID = "f5xc-smsv2-aws-tgw-telemetry/v2"
 REQUIRED_FACTS = {
     "runtime",
@@ -309,7 +316,7 @@ def validate_manifest(directory: pathlib.Path, tag: str, commit: str) -> dict:
     if (
         manifest["schema_version"] != 1
         or manifest["contract_id"] != CONTRACT_ID
-        or manifest["contract_version"] != CONTRACT_VERSION
+        or manifest["contract_version"] not in SUPPORTED_CONTRACT_VERSIONS
     ):
         fail("manifest contract identity is unsupported")
     if manifest["release"] != {"tag": tag, "commit": commit}:
@@ -435,16 +442,38 @@ def validate_azure_contract(azure: object) -> None:
         fail("Azure BGP response-only evidence is incomplete")
 
 
+def validate_reviewed_extensions(contract: dict, contract_version: str) -> None:
+    """Bind additive observations to reviewed content without promoting holds."""
+    providers = contract.get("providers", {})
+    aws = providers.get("aws", {})
+    azure = providers.get("azure", {})
+    projection = {
+        "aws_physical_interfaces": aws.get("runtime", {}).get("physical_interfaces"),
+        "azure_health": azure.get("runtime", {}).get("health"),
+        "azure_slo_bgp_relay": azure.get("slo_bgp_relay"),
+    }
+    if contract_version == "7.0.0":
+        if any(value is not None for value in projection.values()):
+            fail("contract additions require their reviewed version")
+        return
+    canonical = json.dumps(
+        projection, sort_keys=True, separators=(",", ":"), ensure_ascii=True
+    ).encode()
+    if hashlib.sha256(canonical).hexdigest() != CONTRACT_73_EXTENSION_SHA256:
+        fail("contract additions differ from reviewed mappings and qualification holds")
+
+
 def validate_contract(contract: dict, contract_id: str, contract_version: str) -> None:
     """Validate the exact SMSv2 runtime, authority, and fail-closed capability contract."""
     aws = contract.get("providers", {}).get("aws", {})
     if (
         contract.get("contract_id") != contract_id
         or contract.get("version") != contract_version
-        or contract_version != CONTRACT_VERSION
+        or contract_version not in SUPPORTED_CONTRACT_VERSIONS
         or contract.get("resource") != "securemesh_site_v2"
     ):
         fail("SMSv2 contract identity is invalid")
+    validate_reviewed_extensions(contract, contract_version)
     api = contract.get("api", {})
     if api.get("namespace") != "system" or set(api.get("operations", [])) != {
         "create",
@@ -493,7 +522,10 @@ def validate_contract(contract: dict, contract_id: str, contract_version: str) -
     ):
         fail("AWS telemetry declaration is incomplete")
     runtime = aws.get("runtime", {})
-    if set(runtime) != set(RUNTIME_ENDPOINTS):
+    expected_runtime = set(RUNTIME_ENDPOINTS)
+    if contract_version == "7.3.0":
+        expected_runtime.add("physical_interfaces")
+    if set(runtime) != expected_runtime:
         fail("F5 runtime endpoint inventory is incomplete")
     for name, expected in RUNTIME_ENDPOINTS.items():
         actual = runtime.get(name, {})

@@ -110,12 +110,19 @@ runs:
               (["api-catalog.json", "concurrency_contracts.json", $bundle, "index.json", "minimal-export-defaults.json", "openapi.json",
                "smsv2-contract-manifest.json", "smsv2-contract.json", "smsv2-evidence-receipt.json", "smsv2_parity_manifest.json",
                "upstream-contract-changes.json",
-               "upstream-contract-removals.json"] + (if ($version | split(".")[0] | tonumber) >= 10 then ["enrichment-coverage.json"] else [] end) | sort) and
+               "upstream-contract-removals.json"] + (if ($version | split(".")[0] | tonumber) >= 10 then ["enrichment-coverage.json"] else [] end)
+                + (if (.assets | has("gcp-operational-health-v2.json") or has("gcp-operational-qualification-v2.json"))
+                   then ["gcp-operational-health-v2.json", "gcp-operational-qualification-v2.json"]
+                   else [] end) | sort) and
             ([.assets[] | test("^sha256:[0-9a-f]{64}$")] | all)
           ' "$PIN_FILE" >/dev/null || {
           echo "::error::Tracked spec release pin is malformed or names another release"
           exit 1
         }
+        GCP_OPERATIONAL_ASSETS=()
+        if jq -e '.assets | has("gcp-operational-health-v2.json")' "$PIN_FILE" >/dev/null; then
+          GCP_OPERATIONAL_ASSETS=(gcp-operational-health-v2.json gcp-operational-qualification-v2.json)
+        fi
         PINNED_COMMIT=$(jq -r '.target_commit' "$PIN_FILE")
         if [ -n "$EXPECTED_TARGET_COMMIT" ] && [ "$EXPECTED_TARGET_COMMIT" != "$PINNED_COMMIT" ]; then
           echo "::error::Requested upstream commit differs from the tracked release pin"
@@ -168,6 +175,7 @@ runs:
           smsv2_parity_manifest.json \
           upstream-contract-changes.json \
           ${COVERAGE_ASSET:-} \
+          "${GCP_OPERATIONAL_ASSETS[@]}" \
           upstream-contract-removals.json | sort)
         ACTUAL_ASSETS=$(jq -r '.assets[].name' "$RELEASE_METADATA" | sort)
         [ "$ACTUAL_ASSETS" = "$EXPECTED_ASSETS" ] || {
@@ -196,7 +204,10 @@ runs:
               (["api-catalog.json", "concurrency_contracts.json", $bundle, "index.json", "minimal-export-defaults.json", "openapi.json",
                "smsv2-contract-manifest.json", "smsv2-contract.json", "smsv2-evidence-receipt.json", "smsv2_parity_manifest.json",
                "upstream-contract-changes.json",
-               "upstream-contract-removals.json"] + (if ($version | split(".")[0] | tonumber) >= 10 then ["enrichment-coverage.json"] else [] end) | sort) and
+               "upstream-contract-removals.json"] + (if ($version | split(".")[0] | tonumber) >= 10 then ["enrichment-coverage.json"] else [] end)
+                + (if (.assets | has("gcp-operational-health-v2.json") or has("gcp-operational-qualification-v2.json"))
+                   then ["gcp-operational-health-v2.json", "gcp-operational-qualification-v2.json"]
+                   else [] end) | sort) and
             ([.assets[] | test("^sha256:[0-9a-f]{64}$")] | all)
           ' >/dev/null || {
           echo "::error::Publication receipt does not exactly match the tracked release pin"
@@ -260,6 +271,7 @@ runs:
           smsv2-contract-manifest.json smsv2-contract.json smsv2-evidence-receipt.json smsv2_parity_manifest.json \
           upstream-contract-changes.json \
           ${COVERAGE_ASSET:-} \
+          "${GCP_OPERATIONAL_ASSETS[@]}" \
           upstream-contract-removals.json; do
           AID=$(jq -r --arg name "$asset" \
             '[.assets[] | select(.name == $name)] | if length == 1 then .[0].id else empty end' \
