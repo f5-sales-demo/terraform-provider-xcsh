@@ -313,7 +313,7 @@ func main() {
 	}
 
 	// Exit with non-zero status if there are failures
-	if report.TotalFailed > 0 || !report.Stream.Complete {
+	if report.TotalFailed > 0 || report.Stream.PackageFailures > 0 || !report.Stream.Complete {
 		os.Exit(1)
 	}
 }
@@ -339,6 +339,8 @@ func parseTestOutputReader(reader io.Reader, slowestCount int, tenantSafe bool) 
 	testResults := make(map[string]*TestResult)
 	testOutputs := make(map[string][]string)
 	packages := make(map[string]bool)
+	failedPackages := make(map[string]bool)
+	failedTestPackages := make(map[string]bool)
 
 	scanner := bufio.NewScanner(reader)
 	// Increase buffer size for large output lines
@@ -380,6 +382,7 @@ func parseTestOutputReader(reader io.Reader, slowestCount int, tenantSafe bool) 
 				packages[event.Package] = true
 				if event.Action == "fail" {
 					report.Stream.PackageFailures++
+					failedPackages[event.Package] = true
 				}
 			}
 			continue
@@ -420,6 +423,7 @@ func parseTestOutputReader(reader io.Reader, slowestCount int, tenantSafe bool) 
 			}
 
 		case "fail":
+			failedTestPackages[event.Package] = true
 			if result, ok := testResults[key]; ok {
 				result.Status = "fail"
 				result.Duration = event.Elapsed
@@ -540,10 +544,19 @@ func parseTestOutputReader(reader io.Reader, slowestCount int, tenantSafe bool) 
 
 	// Aggregate skip reasons
 	report.SkipReasons = aggregateSkipReasons(report.Tests)
+	// A terminal package failure caused by retained test failures is complete
+	// evidence. Build failures and other package failures without a failing
+	// test remain unaccounted; a failure in another package cannot cover them.
+	unaccountedPackageFailure := false
+	for pkg := range failedPackages {
+		if !failedTestPackages[pkg] {
+			unaccountedPackageFailure = true
+		}
+	}
 	report.Stream.Complete = report.Stream.Events > 0 &&
 		report.Stream.MalformedLines == 0 && report.Stream.InvalidEvents == 0 &&
 		!report.Stream.ScannerError && report.Stream.IncompleteTests == 0 &&
-		report.Stream.IncompletePackages == 0 && report.Stream.PackageFailures == 0
+		report.Stream.IncompletePackages == 0 && !unaccountedPackageFailure
 
 	return report
 }
@@ -1196,7 +1209,7 @@ func outputMarkdown(out *os.File, report *Report, showAll bool) {
 
 	// Overall summary
 	overallStatus := "✅ PASS"
-	if report.TotalFailed > 0 || !report.Stream.Complete {
+	if report.TotalFailed > 0 || report.Stream.PackageFailures > 0 || !report.Stream.Complete {
 		overallStatus = "❌ FAIL"
 	}
 	fmt.Fprintf(out, "## Overall: %s\n\n", overallStatus)

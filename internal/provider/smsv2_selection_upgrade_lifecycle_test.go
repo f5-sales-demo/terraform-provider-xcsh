@@ -119,7 +119,7 @@ resource "xcsh_securemesh_site_v2" "test" {
 				PlanOnly:    true,
 				ExpectError: regexp.MustCompile("Conflicting Configuration"),
 			},
-			{ResourceName: address, ImportState: true, ImportStateId: "system/" + name, ImportStateVerify: true, ImportStateVerifyIgnore: []string{"timeouts"}},
+			{ResourceName: address, ImportState: true, ImportStateId: "system/" + name, ImportStateVerify: true, ImportStateVerifyIgnore: []string{"timeouts", "creation_identity_sha256"}, ImportStateCheck: checkImportedWithoutCreationReceipt},
 			{Config: config("EU", 25), PlanOnly: true},
 		},
 	})

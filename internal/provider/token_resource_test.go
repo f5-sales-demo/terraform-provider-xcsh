@@ -128,7 +128,8 @@ func TestMockTokenResource_siteBoundJWT(t *testing.T) {
 				ImportState:             true,
 				ImportStateId:           "system/test-token-jwt",
 				ImportStateVerify:       true,
-				ImportStateVerifyIgnore: []string{"timeouts"},
+				ImportStateVerifyIgnore: []string{"timeouts", "creation_identity_sha256"},
+				ImportStateCheck:        checkImportedWithoutCreationReceipt,
 			},
 			{
 				Config: `
