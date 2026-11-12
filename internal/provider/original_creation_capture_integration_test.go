@@ -153,6 +153,8 @@ func verifyOriginalCreationGeneratedLifecycle(t *testing.T) {
 	specDir := os.Getenv("XCSH_SPEC_DIR")
 	if specDir == "" {
 		specDir = filepath.Join(repository, "docs", "specifications", "api")
+	} else if !filepath.IsAbs(specDir) {
+		specDir = filepath.Join(repository, specDir)
 	}
 	catalog, err := openapi.ParseOperationCatalogFromDir(specDir)
 	if err != nil {
