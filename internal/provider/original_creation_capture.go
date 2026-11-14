@@ -10,6 +10,7 @@ import (
 	"io"
 	"os"
 	"path/filepath"
+	"reflect"
 	"strings"
 	"sync"
 )
@@ -18,11 +19,12 @@ import (
 // executor. ScopeSHA256 binds its reviewed operation; ScopeFileSHA256 in the
 // receipt independently binds the exact serialized configuration.
 type OriginalCreationScope struct {
-	SchemaVersion            int                      `json:"schema_version"`
-	ScopeSHA256              string                   `json:"scope_sha256"`
-	Directory                string                   `json:"directory"`
-	ProviderExecutableSHA256 string                   `json:"provider_executable_sha256"`
-	Resources                []OriginalCreationTarget `json:"resources"`
+	SchemaVersion            int                                  `json:"schema_version"`
+	ScopeSHA256              string                               `json:"scope_sha256"`
+	Directory                string                               `json:"directory"`
+	ProviderExecutableSHA256 string                               `json:"provider_executable_sha256"`
+	Resources                []OriginalCreationTarget             `json:"resources"`
+	BootstrapAuthorization   *OriginalBootstrapAuthorizationScope `json:"bootstrap_authorization,omitempty"`
 }
 
 type OriginalCreationTarget struct {
@@ -55,18 +57,22 @@ type OriginalCreationReceipt struct {
 }
 
 type OriginalCreationCapture struct {
-	mu            sync.Mutex
-	root          *os.Root
-	scopeFile     string
-	scopeInfo     os.FileInfo
-	scopeBytes    []byte
-	directory     string
-	directoryInfo os.FileInfo
-	receipt       OriginalCreationReceipt
-	attempted     bool
-	claimName     string
-	claimInfo     os.FileInfo
-	claimBytes    []byte
+	mu                 sync.Mutex
+	root               *os.Root
+	scopeFile          string
+	scopeInfo          os.FileInfo
+	scopeBytes         []byte
+	directory          string
+	directoryInfo      os.FileInfo
+	receipt            OriginalCreationReceipt
+	attempted          bool
+	claimName          string
+	claimInfo          os.FileInfo
+	claimBytes         []byte
+	bootstrap          *originalBootstrapLease
+	creationReceipt    *OriginalCreationReceipt
+	bootstrapAttempted bool
+	bootstrapReleased  bool
 }
 
 func captureError() error {
@@ -176,8 +182,20 @@ func OpenOriginalCreationCapture(typeName, namespace, name string) (*OriginalCre
 		return nil, captureError()
 	}
 	var extra any
-	if decoder.Decode(&extra) != io.EOF || scope.SchemaVersion != 1 || !captureHash(scope.ScopeSHA256) || !captureHash(scope.ProviderExecutableSHA256) || len(scope.Resources) == 0 || len(scope.Resources) > 128 {
+	if decoder.Decode(&extra) != io.EOF || (scope.SchemaVersion != 1 && scope.SchemaVersion != 2) || !captureHash(scope.ScopeSHA256) || !captureHash(scope.ProviderExecutableSHA256) || len(scope.Resources) == 0 || len(scope.Resources) > 128 {
 		return nil, captureError()
+	}
+	var scopeFields map[string]json.RawMessage
+	if err := json.Unmarshal(raw, &scopeFields); err != nil {
+		return nil, captureError()
+	}
+	if _, declared := scopeFields["bootstrap_authorization"]; scope.SchemaVersion == 1 && declared {
+		return nil, captureError()
+	}
+	if scope.SchemaVersion == 2 {
+		if err := bootstrapExactKeys(raw, reflect.TypeOf(OriginalCreationScope{})); err != nil {
+			return nil, err
+		}
 	}
 	target := OriginalCreationTarget{TypeName: typeName, Namespace: namespace, Name: name}
 	seen := map[OriginalCreationTarget]bool{}
@@ -216,8 +234,17 @@ func OpenOriginalCreationCapture(typeName, namespace, name string) (*OriginalCre
 	if _, err = rand.Read(nonce[:]); err != nil {
 		return nil, captureError()
 	}
+	bootstrap, err := openOriginalBootstrapScope(scope)
+	if err != nil {
+		return nil, err
+	}
+	defer func() {
+		if !keep {
+			bootstrap.close()
+		}
+	}()
 	rawHash := sha256.Sum256(raw)
-	capture := &OriginalCreationCapture{root: root, scopeFile: file, scopeInfo: info, scopeBytes: raw, directory: scope.Directory, directoryInfo: dirInfo, receipt: OriginalCreationReceipt{SchemaVersion: 1, ScopeSHA256: scope.ScopeSHA256, ScopeFileSHA256: hex.EncodeToString(rawHash[:]), Target: target, Process: process, Nonce: hex.EncodeToString(nonce[:])}}
+	capture := &OriginalCreationCapture{root: root, scopeFile: file, scopeInfo: info, scopeBytes: raw, directory: scope.Directory, directoryInfo: dirInfo, bootstrap: bootstrap, receipt: OriginalCreationReceipt{SchemaVersion: 1, ScopeSHA256: scope.ScopeSHA256, ScopeFileSHA256: hex.EncodeToString(rawHash[:]), Target: target, Process: process, Nonce: hex.EncodeToString(nonce[:])}}
 	targetBytes, _ := json.Marshal(target)
 	targetHash := sha256.Sum256(targetBytes)
 	claim := "claim-" + hex.EncodeToString(targetHash[:]) + ".json"
@@ -339,6 +366,7 @@ func (c *OriginalCreationCapture) RecordCreation(hash string) (*OriginalCreation
 	if err := c.persist("receipt-"+receipt.Nonce+".json", receipt); err != nil {
 		return nil, err
 	}
+	c.creationReceipt = &receipt
 	return &receipt, nil
 }
 
@@ -348,6 +376,7 @@ func (c *OriginalCreationCapture) Close() {
 	}
 	c.mu.Lock()
 	defer c.mu.Unlock()
+	c.bootstrap.close()
 	if c.root != nil {
 		_ = c.root.Close()
 		c.root = nil

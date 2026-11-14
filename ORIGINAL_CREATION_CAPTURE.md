@@ -62,3 +62,51 @@ read-back grants a renewed observation budget or authorizes another mutation.
 The marketplace consumer remains held until this producer completes normal reviewed
 source delivery, generated publication and downloaded artifact verification, followed
 by independent installed and live acceptance.
+
+## Version 2 bootstrap release
+
+Version 1 continues to record creation only. Version 2 adds a
+`bootstrap_authorization` object with integer `schema_version: 1`, an absolute
+private `directory`, a canonical unpadded base64 Ed25519 `public_key`, and
+`original_start_ms`/`original_deadline_ms` from the owning Linux monotonic clock.
+The original operation is exactly two hours. The authorization directory must be
+separate from the receipt directory, with no nesting between them.
+
+After successful Token creation and its immutable receipt, the provider retains
+created identity and a private held marker. It withholds computed token credentials
+until the owning consumer finishes its original Platform inspection and durable
+single-use checkout. The consumer writes `grant-<nonce>.json` with mode `0400`
+and one hard link in the authorization directory.
+
+The grant envelope has exactly `payload` and `signature` fields. The signature
+is canonical unpadded base64 Ed25519 over the exact UTF-8 payload bytes prefixed
+with `XCSH_BOOTSTRAP_RELEASE_V1\n`. The payload contains:
+
+| Field | Required binding |
+| --- | --- |
+| `schema_version`, `kind` | Integer `1`, `original-bootstrap-release` |
+| `scope_sha256`, `scope_file_sha256` | Exact original receipt values |
+| `target`, `process`, `nonce` | Exact original receipt objects and nonce |
+| `creation_identity_sha256` | Exact original created UID digest |
+| `content_sha256` | SHA-256 of the original token content, without exporting it |
+| `issued_monotonic_ms` | Original operation time; no more than five minutes old |
+| `expires_at_epoch_ms` | Future token expiry independently verified by the issuer |
+
+Unknown, duplicate, missing, malformed or differently cased fields refuse.
+The provider checks the original scope, process, file and directory bindings,
+grant signature, content digest and both clocks before release. It exclusively
+creates `used-<nonce>.json`, flushes that file and directory, and rechecks the
+original bindings before returning credentials. Cancellation, expiry, failed
+persistence or an ambiguous marker never permits another release.
+
+The private held marker keeps credentials unavailable during a later refresh
+after failed authorization. Created resource identity remains available for
+owned cleanup without registration or health. Legacy resources without this
+private marker retain their prior read behavior. A released token can reconcile
+the original unchanged configuration; a new VM bootstrap still needs the owning
+consumer's reviewed plan and fresh, node-bound single-use material.
+
+Neither a grant nor a receipt alone proves guest, routing, traffic, failover or
+installation acceptance. Marketplace consumer enablement remains held until the
+new producer's generated publication, downloaded artifact, installed runtime and
+live gates are independently qualified.
