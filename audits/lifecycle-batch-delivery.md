@@ -34,7 +34,7 @@ CSD acceptance uses its existing encrypted S3 backend and lockfile. WAF uses the
 remediation-553 workspace and existing private application state. Historical
 plans are evidence only. Generate, review and hash each plan before applying.
 Preserve unrelated cloud objects, namespace, alert settings and traffic workers.
-Keep csd#1296 open until independent console/API parity passes.
+Keep client-side-defense#1296 open until independent console/API parity passes.
 
 Fresh CSD baseline: zero changes and zero drift. SHA-256
 6835bb2c6e75fcbef52ef5f9cb5a1c44290ecf6adf51f4ba7a85cd261b393479.
@@ -59,7 +59,7 @@ Full Go race and lint passed before the final domain-key deletion adjustment.
 Final deletion regressions/client tests and staged PII pass; full final gates run.
 All 330 release-surface and 76 maintained examples plus schema compatibility pass.
 Biome 2.5.6 is task-private; host 2.5.8 mismatch required a docs rerun.
-Console browser inventory is empty; csd#1296 remains open.
+Console browser inventory is empty; client-side-defense#1296 remains open.
 
 Final verification update: full Go race suite with the domain-key delete contract
 passed. Documentation pipeline passed with exact Biome 2.5.6: 330 collections,
