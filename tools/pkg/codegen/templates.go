@@ -76,6 +76,10 @@ import (
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/validators"
 )
 
+{{- if eq .Name "token"}}
+const tokenBootstrapPrivateKey = "xcsh_original_bootstrap_token"
+{{- end}}
+
 // Ensure provider defined types fully satisfy framework interfaces.
 var (
 	_ resource.Resource                   = &{{.TitleCase}}Resource{}
@@ -589,6 +593,17 @@ func (r *{{.TitleCase}}Resource) Create(ctx context.Context, req resource.Create
  resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
  if resp.Diagnostics.HasError() { return }
  if originalCapture != nil {
+{{- if eq .Name "token"}}
+  bootstrapPrivate, bootstrapErr := originalCapture.OriginalBootstrapTokenState(data.CreationIdentitySHA256.ValueString())
+  if bootstrapErr != nil {
+   resp.Diagnostics.AddError("Original Bootstrap State Failed", bootstrapErr.Error())
+   return
+  }
+  if bootstrapPrivate != nil {
+   resp.Diagnostics.Append(resp.Private.SetKey(ctx, tokenBootstrapPrivateKey, bootstrapPrivate)...)
+   if resp.Diagnostics.HasError() { return }
+  }
+{{- end}}
   if _, captureErr := originalCapture.RecordCreation(data.CreationIdentitySHA256.ValueString()); captureErr != nil {
    resp.Diagnostics.AddError("Original Creation Capture Failed", captureErr.Error())
    return
@@ -676,10 +691,29 @@ func (r *{{.TitleCase}}Resource) Create(ctx context.Context, req resource.Create
 		resp.Diagnostics.AddError("Unable to Read Token Credential", err.Error())
 		return
 	}
+ // Initial ID and creation identity state remain available for owned cleanup.
+ // The version 2 owning scope authorizes and durably consumes bootstrap before
+ // this Create returns sensitive content to a dependent resource.
+ if err := originalCapture.AwaitBootstrapAuthorization(ctx, data.Content.ValueString()); err != nil {
+  resp.Diagnostics.AddError("Original Bootstrap Authorization Failed", err.Error())
+  return
+ }
 {{- end}}
 
 	tflog.Trace(ctx, "created {{.TitleCase}} resource")
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
+{{- if eq .Name "token"}}
+ if resp.Diagnostics.HasError() { return }
+ bootstrapPrivate, bootstrapErr := originalCapture.OriginalBootstrapTokenState(data.CreationIdentitySHA256.ValueString())
+ if bootstrapErr != nil {
+  resp.Diagnostics.AddError("Original Bootstrap State Failed", bootstrapErr.Error())
+  return
+ }
+ if bootstrapPrivate != nil {
+  resp.Diagnostics.Append(resp.Private.SetKey(ctx, tokenBootstrapPrivateKey, bootstrapPrivate)...)
+  if resp.Diagnostics.HasError() { return }
+ }
+{{- end}}
 }
 
 func (r *{{.TitleCase}}Resource) Read(ctx context.Context, req resource.ReadRequest, resp *resource.ReadResponse) {
@@ -831,6 +865,15 @@ func (r *{{.TitleCase}}Resource) Read(ctx context.Context, req resource.ReadRequ
 		resp.Diagnostics.AddError("Unable to Read Token Credential", err.Error())
 		return
 	}
+ if req.Private != nil {
+  bootstrapPrivate, bootstrapDiags := req.Private.GetKey(ctx, tokenBootstrapPrivateKey)
+  resp.Diagnostics.Append(bootstrapDiags...)
+  if resp.Diagnostics.HasError() { return }
+  if err := suppressHeldTokenBootstrap(&data, bootstrapPrivate, data.CreationIdentitySHA256.ValueString()); err != nil {
+   resp.Diagnostics.AddError("Original Bootstrap State Failed", err.Error())
+   return
+  }
+ }
 {{- end}}
 
 	// The import marker is a one-shot signal for the import Read only. Clear it so every

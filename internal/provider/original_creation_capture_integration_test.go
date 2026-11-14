@@ -5,9 +5,6 @@ package provider
 import (
 	"context"
 	"encoding/json"
-	"go/ast"
-	"go/parser"
-	"go/token"
 	"net/http"
 	"net/http/httptest"
 	"os"
@@ -141,9 +138,10 @@ func TestTokenCreateOriginalCaptureLifecycle(t *testing.T) {
 }
 
 // verifyOriginalCreationGeneratedLifecycle compiles the authored generator's
-// Create method against the real provider and HTTP client. Source PRs do not
+// complete Token resource against the real provider and HTTP client. Source PRs do not
 // commit generated resources; the isolated Go overlay keeps this regression
-// effective before On Merge produces the generated delivery.
+// effective before On Merge produces the generated delivery. Declarations such as
+// private-state keys must accompany the methods that use them.
 func verifyOriginalCreationGeneratedLifecycle(t *testing.T) {
 	t.Helper()
 	repository, err := filepath.Abs(filepath.Join("..", ".."))
@@ -188,30 +186,8 @@ func verifyOriginalCreationGeneratedLifecycle(t *testing.T) {
 		t.Fatal(err)
 	}
 	originalPath := filepath.Join(repository, "internal", "provider", "token_resource.go")
-	original, err := os.ReadFile(originalPath)
-	if err != nil {
-		t.Fatal(err)
-	}
-	methodRange := func(raw []byte) (int, int) {
-		fset := token.NewFileSet()
-		tree, err := parser.ParseFile(fset, "token_resource.go", raw, 0)
-		if err != nil {
-			t.Fatal(err)
-		}
-		for _, decl := range tree.Decls {
-			method, ok := decl.(*ast.FuncDecl)
-			if ok && method.Recv != nil && method.Name.Name == "Create" {
-				return fset.Position(method.Pos()).Offset, fset.Position(method.End()).Offset
-			}
-		}
-		t.Fatal("generated original Create method missing")
-		return 0, 0
-	}
-	generatedStart, generatedEnd := methodRange(generated)
-	originalStart, originalEnd := methodRange(original)
-	replacement := append(append(append([]byte{}, original[:originalStart]...), generated[generatedStart:generatedEnd]...), original[originalEnd:]...)
 	overlaid := filepath.Join(directory, "token-original-create.go")
-	if err = os.WriteFile(overlaid, replacement, 0600); err != nil {
+	if err = os.WriteFile(overlaid, generated, 0600); err != nil {
 		t.Fatal(err)
 	}
 	raw, err := json.Marshal(map[string]any{"Replace": map[string]string{originalPath: overlaid}})
