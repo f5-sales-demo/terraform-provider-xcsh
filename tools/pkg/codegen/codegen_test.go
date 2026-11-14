@@ -1138,7 +1138,7 @@ func TestRenderNestedAttributes_FormatValidators(t *testing.T) {
 func TestResourceTemplate_DeleteRetriesTransient400(t *testing.T) {
 	for _, want := range []string{
 		"for attempt := 0; ; attempt++ {",
-		`strings.Contains(msg, "400") || strings.Contains(msg, "BAD_REQUEST")`,
+		`client.HasHTTPStatus(err, 400)`,
 		"attempt >= 5",
 		"time.After(5 * time.Second)",
 		"case <-ctx.Done():",
@@ -1147,9 +1147,9 @@ func TestResourceTemplate_DeleteRetriesTransient400(t *testing.T) {
 			t.Errorf("Delete template missing retry construct %q", want)
 		}
 	}
-	// The transient guard must exclude the terminal conditions so they aren't retried.
-	if !strings.Contains(ResourceTemplate, `!strings.Contains(msg, "NOT_FOUND") && !strings.Contains(msg, "404") && !strings.Contains(msg, "501")`) {
-		t.Error("transient guard must exclude NOT_FOUND/404/501")
+	// Error text cannot turn unavailable deletion into a retry or absence.
+	if strings.Contains(ResourceTemplate, `strings.Contains(msg, "400")`) {
+		t.Error("transient deletion must use typed HTTP status")
 	}
 }
 
@@ -1175,7 +1175,7 @@ func TestResourceTemplate_AlertPolicyDeleteConfirmsAbsenceAfterError(t *testing.
 	for _, want := range []string{
 		`{{- if eq .TitleCase "AlertPolicy"}}`,
 		`_, verifyErr := r.client.GetAlertPolicy(ctx, data.Namespace.ValueString(), data.Name.ValueString())`,
-		`verifyErr != nil && (strings.Contains(verifyErr.Error(), "NOT_FOUND") || strings.Contains(verifyErr.Error(), "404"))`,
+		`client.HasHTTPStatus(verifyErr, 404)`,
 		`AlertPolicy delete returned an error after the object disappeared`,
 	} {
 		if !strings.Contains(ResourceTemplate, want) {
